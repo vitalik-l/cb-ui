@@ -2,6 +2,7 @@ import { configure } from '@kadira/storybook';
 import { setOptions } from '@kadira/storybook-addon-options';
 
 setOptions({
+  url: 'https://github.com/romanCB/cb-general',
   name: 'CB GENERAL',
   downPanelInRight: true
 });
