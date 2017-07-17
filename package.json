@@ -17,8 +17,7 @@
     "build-storybook": "build-storybook",
     "deploy-storybook": "storybook-to-ghpages",
     "publish": "npm test && node ./scripts/release.js",
-    "test": "cross-env BABEL_ENV=test jest",
-    "postinstall": "cd lib && npm install"
+    "test": "cross-env BABEL_ENV=test jest"
   },
   "author": "",
   "license": "ISC",
