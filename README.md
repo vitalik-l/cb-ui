@@ -1,6 +1,8 @@
 # cb-general
 General React components for CandleBets projects
 
+Preview: https://romancb.github.io/cb-general
+
 <h2>The concept of creating components</h2>
 
 * must have visual tests (storybook)
