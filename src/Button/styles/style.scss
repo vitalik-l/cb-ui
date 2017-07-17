@@ -1,0 +1,28 @@
+button {
+  height: 33px;
+  padding: 0 15px;
+  font-size: 1.0rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  line-height: 0.5rem;
+  color: #b3b3b3;
+  background: linear-gradient(#323137, #121113);
+  border: 2px solid black;
+  border-radius: 16px;
+  user-select: none;
+  cursor: pointer;
+
+  &:hover, &:active {
+    color: #7AAF34;
+  }
+
+  &:active {
+    background: #131217;
+  }
+
+  &.smallbtn {
+    border-radius: 4px;
+    height: 30px;
+  }
+}

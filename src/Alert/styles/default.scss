@@ -1,0 +1,41 @@
+.alert {
+  position: fixed;
+  opacity: 0;
+  top: 145px;
+  padding: 6px;
+  font-weight: 700;
+  font-size: 1.6rem;
+  transition: opacity 400ms;
+  z-index: 9999;
+  text-align: center;
+  left: 0;
+  right: 0;
+  margin:0 auto;
+  cursor: default;
+  max-width: 25%;
+  white-space: pre-wrap;
+  visibility: hidden;
+  color: white;
+  background: #1b2024;
+  background-image: linear-gradient(0deg, transparent 0%, transparent 31%, rgba(255, 255, 255, 0.05) 100%);
+  box-shadow: inset 0 1px 5px 0 rgba(255, 255, 255, 0.19), inset 0px -2px 5px 0px rgba(6, 6, 6, 0.31), 0 1px 3.4px 0.6px rgba(0, 0, 0, 0.46);
+
+  &.warning {
+    color: #ff8600;
+  }
+
+  &.notification {
+    top: -75px;
+    height: 75px;
+    text-shadow: initial;
+
+    .disableTradeNotification {
+      margin-top: 10px;
+    }
+  }
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}

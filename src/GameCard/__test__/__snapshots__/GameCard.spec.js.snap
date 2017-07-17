@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GameCard custom className. Should set custom className prop to root element 1`] = `
+<div
+  className="test"
+>
+  <span
+    className="back"
+  />
+  <span
+    className="face undefined"
+  >
+    <dt />
+    <b />
+    <dt />
+  </span>
+</div>
+`;

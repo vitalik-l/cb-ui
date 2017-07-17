@@ -1,0 +1,94 @@
+.cb-GameCard {
+  display: inline-block;
+  position: absolute;
+  width: 47px;
+  height: 65px;
+  flex: 0 0 48px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 0 3px 1px #666;
+  transform: rotateY(179.9deg);
+  visibility: visible;
+  transform-style: preserve-3d;
+  margin: 0;
+  font-size: 8px;
+
+  span {
+    margin: 0;
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border: 3px solid white !important;
+    border-radius: 3px !important;
+    box-sizing: border-box;
+  }
+
+  .back {
+    background: red url("../img/back.png");
+    border: 3px solid white !important;
+    border-radius: 3px !important;
+  }
+
+  .open {
+    transform: rotateY(179.9deg);
+  }
+
+  .face {
+    background-color: #fff;
+    transform: rotateY(179.9deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Rockwell-Bold';
+    font-size: 1.3em;
+
+    b {
+      flex: 1;
+      text-align: center;
+
+      &:after {
+        display: block;
+        font-size: 2.2em;
+      }
+    }
+
+    dt {
+      display: block;
+      line-height: 1;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      font-size: 1.2em;
+
+      &:last-of-type {
+        transform: rotate(179.9deg);
+      }
+
+      &:after {
+        display: block;
+        text-align: center;
+        font-size: 1em;
+        margin-top: 2px;
+      }
+    }
+
+    &.spades dt:after, &.spades b:after {
+      content: '♠';  }
+    &.clubs dt:after, &.clubs b:after {
+      content: '♣';  }
+    &.hearts dt:after, &.hearts b:after {
+      content: '♥';  }
+    &.diamonds dt:after, &.diamonds b:after {
+      content: '♦';  }
+  }
+}
+
+.spades, .clubs {
+  color: #000;
+}
+
+.hearts, .diamonds {
+  color: #f00;
+}

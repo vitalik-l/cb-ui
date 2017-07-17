@@ -1,0 +1,93 @@
+.tabs-section {
+  min-height: 223px;
+  height: 223px;
+  position: relative;
+}
+
+.cb-Tabs {
+  min-height: 250px;
+  height: 223px;
+  position: relative;
+  //height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #17161A url(../img/default/lthr_bg.png) repeat-x;
+  border-top: 1px solid #444;
+
+  .tab-hidden {
+    display: none !important;
+  }
+
+  .tab-content {
+    flex: 1;
+    min-height: 1px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    > div {
+      flex: 1;
+      overflow: auto;
+      min-height: 1px;
+      display: flex;
+    }
+  }
+
+  .tab-content-footer {
+    height: 30px;
+    padding: 8px;
+    background-color: #151b1d;
+    overflow: hidden;
+    display: flex;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+
+    > div {
+      margin-left: 10px;
+    }
+
+    span:last-child {
+      font-size: 1.5rem;
+      line-height: 0;
+      color: #5ECD24;
+    }
+  }
+}
+
+ul.tab-bar {
+  position: relative;
+  margin: 5px auto 0;
+  padding: 0 20px;
+  z-index: 1;
+  white-space: nowrap;
+  border-bottom: 3px solid #e1cd45;
+  box-shadow: 0 3px 3px 0px #111;
+  user-select: none;
+  width: 100%;
+  cursor: row-resize;
+
+  li, a {
+    position: relative;
+    display: inline-block;
+    height: 39px;
+    width: 140px;
+    margin: 0 -3px -3px;
+    font-family: HelveticaNeue-CondensedBold, Impact;
+    color: inherit;
+    line-height: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: url(../img/default/tab.png) no-repeat;
+    background-size: 140px 38px;
+    cursor: pointer;
+  }
+
+  li.active {
+    color: #faf135;
+    cursor: default;
+    z-index: 10;
+    background: url(../img/default/tab_active.png) no-repeat 0 0 / 140px 40px;
+  }
+}

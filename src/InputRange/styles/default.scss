@@ -1,0 +1,166 @@
+$inputRangeTrackBgColor: #111;
+$inputRangeTrackHeight: 9px;
+$inputRangeThumbDiameter: inputRangeThumbDiameter;
+
+.input-range {
+  position: relative;
+
+  input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background:  linear-gradient(to right, transparent 0%, transparent 50%, #111 50%, #111 100%);
+    border: 2px solid #5e5e62;
+    border-radius: 8px;
+    height: 9px;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    &:not([disabled]) {
+      cursor: pointer;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &::-webkit-slider-thumb {
+      border: 1px solid transparent;
+      box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.6);
+      border-radius: 50%;
+      height: 22px;
+      width: 22px;
+      background: url(../img/inputrangethumb.png) no-repeat center center;
+      -webkit-appearance: none;
+    }
+
+    &::-moz-range-track {
+      width: 100%;
+      height: $inputRangeTrackHeight;
+      border: 2px solid #5e5e62;
+      border-radius: $inputRangeTrackHeight;
+      background: #111 url(../img/inputrangetrackbg.png) repeat-x;
+    }
+
+    &::-moz-range-thumb {
+      height: $inputRangeThumbDiameter;
+      width: $inputRangeThumbDiameter;
+      margin-top: calc(-1*22px/2.5);
+      border: 1px solid transparent;
+      box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.6);
+      border-radius: 50%;
+      background: url(../img/inputrangethumb.png) no-repeat center center;
+    }
+
+    &::-ms-track {
+      width: 100%;
+      height: $inputRangeTrackHeight;
+      cursor: pointer;
+      background: transparent;
+      color: transparent;
+      border-color: transparent;
+      border-width: 10px 0;
+    }
+
+    &::-ms-fill-lower {
+      background: $inputRangeTrackBgColor;
+      border-radius: 50px;
+    }
+
+    &:focus::-ms-fill-lower {
+      background: $inputRangeTrackBgColor;
+    }
+
+    &::-ms-fill-upper {
+      background: $inputRangeTrackBgColor;
+      border-radius: 50px;
+    }
+
+    &:focus::-ms-fill-upper {
+      background: $inputRangeTrackBgColor;
+    }
+
+    &::-ms-thumb {
+      height: $inputRangeThumbDiameter;
+      width: $inputRangeThumbDiameter;
+      border: 1px solid #005395;
+      box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.35);
+      border-radius: 50%;
+      background: url(../img/inputrangethumb.png) no-repeat center center;
+      cursor: pointer;
+    }
+  }
+
+  .input-range-group {
+    position: relative;
+    text-align: center;
+    margin-bottom: 6px;
+    max-height: 30px;
+  }
+
+  .input-range-content {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 100%;
+
+    .input-range-output {
+      position: absolute;
+      bottom: 13px;
+      left: 0;
+      padding: 2px 6px;
+      border-radius: 2px;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.8em;
+      background-image: linear-gradient(#7e797f, #535156);
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 4px solid #535156;
+      }
+    }
+
+    .trading-panel.active .input-range-output {
+      display: block;
+    }
+
+    .input-range-track-active {
+      position: absolute;
+      height: $inputRangeTrackHeight;
+      width: calc(100% - 2px);
+      top: 1px;
+      left: 1px;
+      z-index: -1;
+      background: url(../img/inputrangeprogress.png) repeat-x;
+      pointer-events: none;
+    }
+  }
+
+  .input-range-label {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+/*hide inputRangeOutput in MSIE*/
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .input-range {
+    input[type="range"] {
+      margin-top: -17px;
+    }
+  }
+}

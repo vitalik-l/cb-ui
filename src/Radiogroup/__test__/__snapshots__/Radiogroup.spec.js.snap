@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Radiogroup change value to 2. Should set the "active" class to the RadiogroupButton with the value prop equal to 2 1`] = `
+<ul
+  className="cb-radiogroup"
+>
+  <RadiogroupButton
+    active={false}
+    value={1}
+  >
+    1
+  </RadiogroupButton>
+  <RadiogroupButton
+    active={true}
+    value={2}
+  >
+    2
+  </RadiogroupButton>
+  <RadiogroupButton
+    active={false}
+    value={3}
+  >
+    3
+  </RadiogroupButton>
+</ul>
+`;
+
+exports[`Radiogroup default value is 1. Should set the "active" class to the RadiogroupButton with the value prop equal to 1 1`] = `
+<ul
+  className="cb-radiogroup"
+>
+  <RadiogroupButton
+    active={true}
+    value={1}
+  >
+    1
+  </RadiogroupButton>
+  <RadiogroupButton
+    active={false}
+    value={2}
+  >
+    2
+  </RadiogroupButton>
+  <RadiogroupButton
+    active={false}
+    value={3}
+  >
+    3
+  </RadiogroupButton>
+</ul>
+`;
