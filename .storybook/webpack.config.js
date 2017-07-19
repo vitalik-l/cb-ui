@@ -1,12 +1,11 @@
 const path = require('path');
 
-const imgPath = path.resolve(__dirname, '../dist/img');
 module.exports = {
   module: {
-    loaders: [
+    rules: [
       {
         test: /.scss$/,
-        loaders: ["style", "css", "sass"],
+        loaders: ["style-loader", "css-loader", "sass-loader"],
         include: path.resolve(__dirname, '../')
       },
       {
