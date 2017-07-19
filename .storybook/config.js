@@ -1,5 +1,8 @@
-import { configure } from '@storybook/react';
+import { configure, setAddon } from '@storybook/react';
 import { setOptions } from '@storybook/addon-options';
+import infoAddon, { setDefaults } from '@storybook/addon-info';
+
+setAddon(infoAddon);
 
 setOptions({
   url: 'https://github.com/romanCB/cb-general',

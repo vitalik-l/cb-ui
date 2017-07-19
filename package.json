@@ -30,6 +30,7 @@
     "why-did-you-update": "^0.0.8"
   },
   "devDependencies": {
+    "@storybook/addon-info": "^3.1.9",
     "@storybook/addon-knobs": "3.1.9",
     "@storybook/addon-options": "3.1.6",
     "@storybook/react": "3.1.9",
