@@ -7,7 +7,6 @@ const stories = storiesOf('Modal', module);
 stories.addDecorator(withKnobs);
 
 // styles
-import './style.scss';
 import '../styles/default.scss';
 
 import Modal from '../';

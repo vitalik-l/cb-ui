@@ -7,7 +7,6 @@ const stories = storiesOf('Button', module);
 stories.addDecorator(withKnobs);
 
 // styles
-import './style.scss';
 import '../styles/style.scss';
 
 import Button from '../';
