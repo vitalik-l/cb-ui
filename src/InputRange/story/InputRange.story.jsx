@@ -11,10 +11,11 @@ import '../styles/default.scss';
 
 import InputRange from '../';
 
-stories.add('default', () => (
-    <div style={{marginTop: 30}}>
-        <InputRange value="50"/>
-    </div>
-));
-
-
+stories.add('Slider', () => {
+    return (
+        <InputRange
+            value={number('value', 40)}
+            onChange={action('onChange')}
+        />
+    )
+});

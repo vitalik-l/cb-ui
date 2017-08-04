@@ -27,6 +27,7 @@
     "rc-animate": "^2.4.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-rangeslider": "^2.1.0",
     "why-did-you-update": "^0.0.8"
   },
   "devDependencies": {

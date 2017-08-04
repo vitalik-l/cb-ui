@@ -3,11 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, text, boolean, number, select } from '@storybook/addon-knobs';
 
-// if (process.env.NODE_ENV !== 'production') {
-//     const {whyDidYouUpdate} = require('why-did-you-update');
-//     whyDidYouUpdate(React, {exclude: /children/});
-// }
-
 const stories = storiesOf('Tabs', module);
 stories.addDecorator(withKnobs);
 
@@ -19,5 +14,5 @@ import Tabs, {Tab} from '../';
 import Test from './Test';
 
 stories.add('default', () => (
-    <Test/>
+    <Test />
 ));
