@@ -238,7 +238,8 @@ class Slider extends Component {
         const position = this.getPositionFromValue(value);
         const coords = this.coordinates(position);
         const fillStyle = { [dimension]: `${coords.fill}px` };
-        const handleStyle = { [direction]: `${coords.handle}px` };
+        // const handleStyle = { [direction]: `${coords.handle}px` };
+        const handleStyle = { transform: `translateX(${coords.handle}px)` };
         let labels = null;
         let labelKeys = Object.keys(this.props.labels);
 
