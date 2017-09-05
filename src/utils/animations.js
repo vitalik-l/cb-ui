@@ -12,7 +12,7 @@ if('ontransitionend' in window) {
 	transitionEndEvent = 'oTransitionEnd';
 } else {
 	// IE - not implemented (even in IE9) :(
-	transitionEndEvent = false;
+	transitionEndEvent = 'transitionend';
 }
 
 export {transitionEndEvent};
@@ -32,7 +32,7 @@ if('onanimationend' in window) {
 	animationEndEvent = 'oAnimationEnd';
 } else {
 	// IE - not implemented (even in IE9) :(
-	animationEndEvent = false;
+	animationEndEvent = 'animationend';
 }
 
 export {animationEndEvent};
