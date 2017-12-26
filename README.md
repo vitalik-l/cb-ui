@@ -8,7 +8,7 @@ Preview: https://romancb.github.io/cb-general
 * must have visual tests (storybook)
 * must be self-contained (have logic + default style)
 * default styles must be redefined
-* should have unit tests if need
+* should have unit tests
 
 <h2>Using</h2>
 
