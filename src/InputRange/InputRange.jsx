@@ -112,6 +112,8 @@ class Slider extends Component {
         const { onChangeStart } = this.props;
         document.addEventListener('mousemove', this.handleDrag);
         document.addEventListener('mouseup', this.handleEnd);
+        document.addEventListener('touchmove', this.handleDrag);
+        document.addEventListener('touchend', this.handleEnd);
         onChangeStart && onChangeStart(e);
     };
 
@@ -145,6 +147,8 @@ class Slider extends Component {
         onChangeComplete && onChangeComplete(e);
         document.removeEventListener('mousemove', this.handleDrag);
         document.removeEventListener('mouseup', this.handleEnd);
+        document.removeEventListener('touchmove', this.handleDrag);
+        document.removeEventListener('touchend', this.handleEnd);
     };
 
     /**
@@ -290,6 +294,8 @@ class Slider extends Component {
                 )}
                 onMouseDown={this.handleDrag}
                 onMouseUp={this.handleEnd}
+                onTouchStart={this.handleDrag}
+                onTouchEnd={this.handleEnd}
             >
                 <div className='rangeslider__fill' style={fillStyle} />
                 <div
@@ -298,6 +304,7 @@ class Slider extends Component {
                     }}
                     className='rangeslider__handle'
                     onMouseDown={this.handleStart}
+                    onTouchStart={this.handleDrag}
                     style={handleStyle}
                 >
                     {tooltip &&
