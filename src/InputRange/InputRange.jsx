@@ -304,7 +304,7 @@ class Slider extends Component {
                     }}
                     className='rangeslider__handle'
                     onMouseDown={this.handleStart}
-                    onTouchStart={this.handleDrag}
+                    onTouchStart={this.handleStart}
                     style={handleStyle}
                 >
                     {tooltip &&
