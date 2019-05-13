@@ -14,7 +14,7 @@ module.exports = {
         loader: 'url-loader?limit=15000&mimetype=image/png'
       },
       {
-        test: /\.(otf|eot|svg|ttf|woff|woff2)$/,
+        test: /\.(otf|eot|svg|ttf|woff|webp|woff2)$/,
         include: path.resolve(__dirname, '../'),
         loader: 'url-loader?limit=10000&name=../fonts/[name].[ext]'
       }

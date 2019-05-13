@@ -53,13 +53,15 @@ class Chip extends PureComponent {
     render() {
         return (
             <div
-                className={classNames('chip', 'v'+this.props.value, {selected: this.props.selected}, this.props.className)}
+                className={classNames('chip', 'v'+this.props.value, {selected: this.props.selected, ['chip--large-font']: this.props.value < 100, large: this.props.large}, this.props.className)}
                 style={this.props.pos ? {left:this.props.pos.left, top:this.props.pos.top}:null}
                 onClick={this.onClick}
                 onMouseEnter={this.props.onMouseEnter}
                 onMouseLeave={this.props.onMouseLeave}
                 ref={node => this.chip = node}
-            />
+            >
+                <span>{this.props.value >= 1000 ? Math.round(this.props.value/1000) + 'K' : this.props.value}</span>
+            </div>
         );
     }
 }
