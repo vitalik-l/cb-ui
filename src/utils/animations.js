@@ -1,11 +1,13 @@
-let transitionEndEvent;
+let transitionEndEvent,
+	animationEndEvent;
+
 if('ontransitionend' in window) {
 	// Firefox
 	transitionEndEvent = 'transitionend';
 } else if('onwebkittransitionend' in window) {
 	// Chrome/Saf (+ Mobile Saf)/Android
 	transitionEndEvent = 'webkitTransitionEnd';
-} else if('onotransitionend' in window || navigator.appName == 'Opera') {
+} else if('onotransitionend' in window || navigator.appName === 'Opera') {
 	// Opera
 	// As of Opera 10.61, there is no "onotransitionend" property added to DOM elements,
 	// so it will always use the navigator.appName fallback
@@ -15,17 +17,13 @@ if('ontransitionend' in window) {
 	transitionEndEvent = 'transitionend';
 }
 
-export {transitionEndEvent};
-var a;
-
-let animationEndEvent;
 if('onanimationend' in window) {
 	// Firefox
 	animationEndEvent = 'animationend';
 } else if('onwebkitanimationend' in window) {
 	// Chrome/Saf (+ Mobile Saf)/Android
 	animationEndEvent = 'webkitAnimationEnd';
-} else if('onoanimationend' in window || navigator.appName == 'Opera') {
+} else if('onoanimationend' in window || navigator.appName === 'Opera') {
 	// Opera
 	// As of Opera 10.61, there is no "onotransitionend" property added to DOM elements,
 	// so it will always use the navigator.appName fallback
@@ -35,4 +33,7 @@ if('onanimationend' in window) {
 	animationEndEvent = 'animationend';
 }
 
-export {animationEndEvent};
+export {
+	transitionEndEvent,
+    animationEndEvent
+};

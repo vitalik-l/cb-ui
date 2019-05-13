@@ -1,4 +1,5 @@
 $img: "../img/allchips.png";
+
 .chip {
   outline: 0!important;
   display: inline-block;
@@ -8,47 +9,56 @@ $img: "../img/allchips.png";
   position: absolute;
   border-radius: 50%;
   box-shadow: 0 1px 3px 1px #222;
-  background: transparent url($img) no-repeat;
+  background-color: transparent;
+  background-repeat: no-repeat;
   backface-visibility: hidden;
   transform: translateZ(0);
 
+  &.v1 {
+    background-image: url(../img/chip_1.png);
+  }
+
   &.v5 {
-    background-position: -70px 0;
+    background-image: url(../img/chip_5.png);
   }
 
   &.v10 {
-    background-position: -140px 0;
+    background-image: url(../img/chip_10.png);
   }
 
   &.v25 {
-    background-position: -210px 0;
+    background-image: url(../img/chip_25.png);
   }
 
   &.v100 {
-    background-position: -280px 0;
+    background-image: url(../img/chip_100.png);
   }
 
   &.v500 {
-    background-position: -349px 0;
+    background-image: url(../img/chip_500.png);
   }
 
   &.v1000 {
-    background-position: 0 -70px;
+    background-image: url(../img/chip_1000.png);
   }
 
   &.v5000 {
-    background-position: -70px -70px;
+    background-image: url(../img/chip_5000.png);
   }
 
   &.v10000 {
-    background-position: -140px -70px;
+    background-image: url(../img/chip_10000.png);
   }
 
   &.v25000 {
-    background-position: -210px -70px;
+    background-image: url(../img/chip_25000.png);
   }
 
   &.v100000 {
-    background-position: -280px -70px;
+    background-image: url(../img/chip_100000.png);
+  }
+
+  &.v500000 {
+    background-image: url(../img/chip_500000.png);
   }
 }

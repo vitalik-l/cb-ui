@@ -5,7 +5,7 @@ import {transitionEvent} from '../utils/animations';
 
 class Chip extends PureComponent {
     static propTypes = {
-        value: PropTypes.number,
+        value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
         selected: PropTypes.bool,
         className: PropTypes.string,
         pos: PropTypes.object,
@@ -52,12 +52,14 @@ class Chip extends PureComponent {
 
     render() {
         return (
-            <div className={classNames('chip', 'v'+this.props.value, {selected: this.props.selected}, this.props.className)}
-                 style={this.props.pos ? {left:this.props.pos.left, top:this.props.pos.top}:null}
-                 onClick={this.onClick}
-                 onMouseEnter={this.props.onMouseEnter}
-                 onMouseLeave={this.props.onMouseLeave}
-                 ref={node => this.chip = node}/>
+            <div
+                className={classNames('chip', 'v'+this.props.value, {selected: this.props.selected}, this.props.className)}
+                style={this.props.pos ? {left:this.props.pos.left, top:this.props.pos.top}:null}
+                onClick={this.onClick}
+                onMouseEnter={this.props.onMouseEnter}
+                onMouseLeave={this.props.onMouseLeave}
+                ref={node => this.chip = node}
+            />
         );
     }
 }
