@@ -80,8 +80,6 @@ class Dropdown extends Component {
             transform: display === 'top' ?  'translate(-100%, -100%)' : 'translateX(-100%)'
         };
 
-        console.log('render dropdown');
-
         return createPortal(
             <div
                 className={classNames('cb-dropdown', className)}
