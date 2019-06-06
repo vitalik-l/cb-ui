@@ -1,0 +1,20 @@
+.cb-dropdown {
+  z-index: 999;
+  position: absolute;
+  background: #1e222d;
+  border: 1px solid #363c4e;
+  box-shadow: 0 2px 4px 0 #000;
+
+  .cb-dropdown__item {
+    padding: 5px 10px;
+    cursor: pointer;
+
+    &:hover {
+      background: #2f3241;
+    }
+
+    &.active {
+      background: #2f3241;
+    }
+  }
+}

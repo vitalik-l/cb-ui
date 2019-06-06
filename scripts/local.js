@@ -1,8 +1,6 @@
 const shell = require('shelljs');
 const publishUtils = require('./utils');
 const path = require('path');
-const lnk = require('lnk');
-const globby = require('globby');
 const packageJson = require(path.resolve('./package.json'));
 
 const projectPath = process.env.PROJECT_PATH;
@@ -18,10 +16,5 @@ try {
 } catch (err) {
     console.error(err);
 }
-
-// console.log('create node_modules symlink');
-// lnk(path.resolve(projectPath, 'node_modules'), path.resolve(__dirname, '..', 'lib'), {force: true})
-//     .then(() => console.log('done'))
-//     .catch(err => console.log(err));
 
 
