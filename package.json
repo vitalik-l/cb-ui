@@ -1,6 +1,6 @@
 {
   "name": "cb-general",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "",
   "files": [
     "lib"
@@ -15,7 +15,7 @@
     "prebuild": "npm run clean:build",
     "storybook": "start-storybook -p 6006",
     "publish": "npm test && node ./scripts/release.js",
-    "local": "npm run build && cross-env PROJECT_PATH=C:\\Users\\user\\WebstormProjects\\WeekendBinary2 node ./scripts/local.js",
+    "local": "npm run build && cross-env PROJECT_PATH=C:\\Users\\user\\WebstormProjects\\WallStBaccarat node ./scripts/local.js",
     "test": "cross-env BABEL_ENV=test jest",
     "deploy-storybook": "storybook-to-ghpages",
     "build-storybook": "build-storybook"
@@ -40,8 +40,9 @@
     "babel-cli": "^6.24.1",
     "babel-jest": "^20.0.3",
     "cross-env": "^5.0.0",
-    "enzyme": "^2.9.1",
-    "enzyme-to-json": "^1.5.1",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.3.5",
     "faucet": "^0.0.1",
     "file-loader": "^0.11.2",
     "findit": "^2.0.0",
@@ -58,6 +59,7 @@
     "url-loader": "^0.5.9"
   },
   "jest": {
+    "setupTestFrameworkScriptFile": "./setupTests.js",
     "verbose": true,
     "testPathIgnorePatterns": [
       "__snapshots__"
