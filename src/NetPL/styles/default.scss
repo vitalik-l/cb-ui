@@ -1,0 +1,43 @@
+.cb-net-pl {
+  display: flex;
+  align-items: center;
+  text-align: right;
+
+  b {
+    span {
+      font-weight: bold;
+    }
+  }
+
+  button {
+    display: inline-block;
+    max-height: 25px;
+    min-width: 40px;
+    margin: auto 2px;
+    margin-left: 9px;
+  }
+
+  .cb-net-pl__link {
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .cb-net-pl__progress-value {
+    color: $upColor;
+    padding: 0 2px;
+    font-size: 0.9em;
+    width: 50px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+
+    .loss {
+      & {
+        color: $downColor;
+      }
+    }
+  }
+}

@@ -6,6 +6,7 @@
   font-weight: 400;
   height: auto;
   padding: 5px;
+  border-radius: initial;
 
   &:hover, &:active {
     background: linear-gradient(90deg, rgb(31, 154, 93) 0%, rgb(208, 176, 25) 62%, rgb(185, 113, 4) 100%);

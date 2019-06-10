@@ -19,9 +19,5 @@ To release new version:
 1. npm run publish
 
 Use locally:
-1. npm build
-2. cd lib
-4. npm link
-5. create symlink to node_modules
-6. in project folder run: npm link cb-general
-7. if errors when build, install the dependencies into the cb-general lib folder
+1. set PROJECT_PATH in the package.json, local command
+2. npm run local
