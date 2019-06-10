@@ -1,0 +1,114 @@
+.cb-ee-button {
+  position: relative;
+  width: 223px;
+  height: 220px;
+  border-radius: 50%;
+  margin: auto auto;
+  text-align: center;
+  background: transparent url(../img/ee_button_bg.png) no-repeat center center;
+  user-select: none;
+  font-family: $fontFamily;
+
+  svg {
+    width: 190px;
+    height: 190px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg);
+  }
+
+  svg circle:first-of-type {
+    fill: transparent;
+    stroke-width: 50px;
+    stroke-dasharray: 439;
+    transition: stroke-dashoffset 500ms;
+  }
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    width: 135px;
+    height: 135px;
+    border-radius: 50%;
+    background: transparent url(../img/green_button.png) no-repeat center center;
+    cursor: default;
+    user-select: none;
+
+    &.loss {
+      background: transparent url(../img/red_button.png) no-repeat center center;
+
+      &.active:hover {
+        box-shadow: 0 0 12px 2px orange;
+      }
+
+      &.active:active {
+        background: #690000;
+      }
+    }
+
+    &.tie {
+      background: transparent url(../img/orange_button.png) no-repeat center center;
+    }
+
+    &.active {
+      cursor: pointer;
+
+      &:hover {
+        box-shadow: 0 0 12px 2px lime;
+      }
+
+      &:active {
+        background: #50830E;
+      }
+    }
+  }
+
+  h6 {
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 1;
+    margin: auto 0;
+    font-size: 1em;
+    font-weight: 800;
+
+    > div:last-child {
+      margin-bottom: 10px;
+    }
+
+    .ee-value {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-content: space-between;
+      align-items: flex-start;
+      margin-top: 5px;
+      white-space: nowrap;
+      text-transform: none;
+
+      span:nth-child(2) {
+        font-size: 2.5rem;
+        line-height: 0.8;
+        letter-spacing: -0.1rem;
+      }
+
+      span:nth-child(3) {
+        font-size: 1.5rem;
+      }
+    }
+
+    .ee-ratio-value {
+      font-size: 0.9em;
+    }
+
+    .ee-label-value {
+      text-transform: uppercase;
+      word-spacing: 1000px;
+    }
+  }
+}

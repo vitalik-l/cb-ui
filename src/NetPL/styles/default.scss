@@ -26,7 +26,7 @@
   }
 
   .cb-net-pl__progress-value {
-    color: $upColor;
+    color: $colorUp;
     padding: 0 2px;
     font-size: 0.9em;
     width: 50px;
@@ -36,7 +36,7 @@
 
     .loss {
       & {
-        color: $downColor;
+        color: $colorDown;
       }
     }
   }
