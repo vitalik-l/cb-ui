@@ -33,11 +33,11 @@
     font-weight: bold;
     display: block;
     text-align: center;
+  }
 
-    .loss {
-      & {
-        color: $colorDown;
-      }
+  &.loss {
+    .cb-net-pl__progress-value {
+      color: $colorDown;
     }
   }
 }

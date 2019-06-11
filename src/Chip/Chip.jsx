@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import {transitionEvent} from '../utils/animations';
+import {transitionEndEvent, animationEndEvent} from '../utils/animations';
 
 class Chip extends PureComponent {
     static propTypes = {
@@ -32,12 +32,16 @@ class Chip extends PureComponent {
     };
 
     componentDidMount() {
-        this.chip.addEventListener(transitionEvent, this.handleAnimationEnd);
+        [transitionEndEvent, animationEndEvent].forEach(event => {
+            this.chip.addEventListener(event, this.handleAnimationEnd);
+        });
         this.props.animate && this.props.animate(this);
     }
 
     componentWillUnmount() {
-        this.chip.removeEventListener(transitionEvent, this.handleAnimationEnd);
+        [transitionEndEvent, animationEndEvent].forEach(event => {
+            this.chip.removeEventListener(event, this.handleAnimationEnd);
+        });
     }
 
     componentDidUpdate(prevProps) {

@@ -18,7 +18,7 @@ stories.add('NetPL', () => {
                 currency={{code: 'USD'}}
                 value={[
                     {profit: 10, currency: 'USD', profitToPayoutRatio: 50},
-                    {profit: 20, currency: 'BTC', profitToPayoutRatio: -40}
+                    {profit: -20, currency: 'BTC', profitToPayoutRatio: -40}
                 ]}
             />
         </div>
