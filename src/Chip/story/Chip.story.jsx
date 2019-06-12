@@ -11,9 +11,11 @@ import '../styles/default.scss';
 
 import Chip from '../';
 
-const VALUES = [1, 5, 10, 25, 100, 500, 1000, 5000, 10000, 25000, 100000, 500000];
-
 stories.add('default', () => (
-    <Chip value={select('value', VALUES, 1)} onAnimationEnd={action('onAnimationEnd')} />
+    <Chip
+        value={number('value', 1)}
+        onAnimationEnd={action('onAnimationEnd')}
+        color={text('color')}
+    />
 ));
 

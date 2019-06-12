@@ -6,30 +6,39 @@
 }
 
 @mixin chips($imgPath: '../img', $extension: 'png') {
+  & {
+    background-image: url('#{$imgPath}/green.#{$extension}');
+  }
+
   &.v1,
-  &.v1000 {
+  &.v1000,
+  &.chip--white {
     background-image: url('#{$imgPath}/white.#{$extension}');
   }
 
   &.v5,
   &.v500,
-  &.v5000 {
+  &.v5000,
+  &.chip--green {
     background-image: url('#{$imgPath}/green.#{$extension}');
   }
 
   &.v10,
-  &.v10000 {
+  &.v10000,
+  &.chip--red {
     background-image: url('#{$imgPath}/red.#{$extension}');
   }
 
   &.v25,
-  &.v25000 {
+  &.v25000,
+  &.chip--blue {
     background-image: url('#{$imgPath}/blue.#{$extension}');
   }
 
   &.v100,
   &.v100000,
-  &.v500000 {
+  &.v500000,
+  &.chip--black {
     background-image: url('#{$imgPath}/black.#{$extension}');
   }
 }

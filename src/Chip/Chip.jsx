@@ -13,7 +13,8 @@ class Chip extends PureComponent {
         onAnimationEnd: PropTypes.func,
         onClick: PropTypes.func,
         onMouseEnter: PropTypes.func,
-        onMouseLeave: PropTypes.func
+        onMouseLeave: PropTypes.func,
+        color: PropTypes.string
     };
 
     static defaultProps = {
@@ -55,9 +56,26 @@ class Chip extends PureComponent {
     };
 
     render() {
+        if (!this.props.value) return <div />;
+        let colorClass = this.props.color ? `chip--${this.props.color}` : null;
+
+        if (this.props.color === 'random') {
+            let colors = ['blue', 'red', 'white', 'black', 'green'];
+            colorClass = `chip--${colors[Math.floor(Math.random()*colors.length) + 1]}`;
+        }
+
         return (
             <div
-                className={classNames('chip', 'v'+this.props.value, {selected: this.props.selected, ['chip--large-font']: this.props.value < 100, large: this.props.large}, this.props.className)}
+                className={classNames(
+                    'chip',
+                    'v'+this.props.value,
+                    {
+                        selected: this.props.selected,
+                        ['chip--large-font']: (this.props.value).toString().length < 4,
+                        large: this.props.large
+                    },
+                    colorClass,
+                    this.props.className)}
                 style={this.props.pos ? {left:this.props.pos.left, top:this.props.pos.top}:null}
                 onClick={this.onClick}
                 onMouseEnter={this.props.onMouseEnter}
