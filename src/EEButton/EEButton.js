@@ -11,12 +11,15 @@ export default class EEButton extends PureComponent {
         hoverText: PropTypes.bool,
         disabled: PropTypes.bool,
         blink: PropTypes.bool,
+        animate: PropTypes.bool,
         valueRenderer: PropTypes.any,
         withTie: PropTypes.bool,
-        labelTie: PropTypes.any
+        labelTie: PropTypes.any,
+        animationClassName: PropTypes.string
     };
 
     static defaultProps = {
+        animationClassName: 'blink',
         withTie: true,
         hoverText: false,
         labelTie: (
@@ -72,9 +75,12 @@ export default class EEButton extends PureComponent {
             blink,
             valueRenderer,
             withTie,
-            labelTie
+            labelTie,
+            animationClassName,
+            animate
         } = this.props;
-        let label;
+        let label,
+            shouldAnimate = orderIsClosed || key || blink || animate;
 
         if (withTie && value === 0) {
             return (
@@ -91,7 +97,7 @@ export default class EEButton extends PureComponent {
         }
 
         return (
-            <h6 className={classNames('ee-value', {blink: blink || orderIsClosed, tradeEnded: orderIsClosed})}>
+            <h6 className={classNames('ee-value', {[animationClassName]: shouldAnimate, tradeEnded: orderIsClosed})} key={key}>
                 <div className="ee-label-value">{label}</div>
                 <div className="ee-value">
                     {valueRenderer ? React.createElement(valueRenderer, {value}) : value}
@@ -105,12 +111,13 @@ export default class EEButton extends PureComponent {
         )
     }
 
-    render() {
-        let {value, animationKey, progress, labelDefault, imageGreenGradient, imageRedGradient, disabled, className, withTie} = this.props;
-        let	circleSegmentOn = !value && value !== 0 ? CIRCLE_DASH : Math.round(CIRCLE_DASH * (100 - progress)/100),
-            circleColor = value < 0 ? 'url(#redGrad)' : 'url(#greenGrad)',
-            bigBtnClass = classNames({loss: value < 0, tie: withTie && value === 0, active: !disabled && value && progress > 0}),
-            label = <h6>{labelDefault}</h6>;
+    renderLabel() {
+        const {labelDefault, children, value, animationKey, labelRenderer} = this.props;
+
+        if (children) return children;
+        if (labelRenderer) return React.createElement(labelRenderer, this.props);
+
+        let label = <h6>{labelDefault}</h6>;
 
         if (value || value === 0) {
             label = (
@@ -118,6 +125,15 @@ export default class EEButton extends PureComponent {
                     : this.getInnerContent()
             );
         }
+
+        return label;
+    }
+
+    render() {
+        let {value, progress, imageGreenGradient, imageRedGradient, disabled, className, withTie} = this.props;
+        let	circleSegmentOn = !value && value !== 0 ? CIRCLE_DASH : Math.round(CIRCLE_DASH * (100 - progress)/100),
+            circleColor = value < 0 ? 'url(#redGrad)' : 'url(#greenGrad)',
+            bigBtnClass = classNames({loss: value < 0, tie: withTie && value === 0, active: !disabled && value && progress > 0});
 
         return (
             <div className={classNames('cb-ee-button', className)}>
@@ -133,7 +149,7 @@ export default class EEButton extends PureComponent {
                     <circle cx="95" cy="95" r="70" stroke={circleColor} style={{strokeDashoffset: circleSegmentOn}}/>
                 </svg>
                 <div className={bigBtnClass} onMouseUp={this.onMouseUp} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
-                    {label}
+                    {this.renderLabel()}
                 </div>
             </div>
         )
