@@ -1,0 +1,141 @@
+.cb-UserPanel {
+  color: #fff;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .selected-color {
+    color: #ffa200;
+  }
+
+  .up {
+    color: #07e275;
+  }
+
+  .down {
+    color: #cf0c66;
+  }
+
+  &.user-panel--loggedin {
+    > div:first-child {
+      justify-content: flex-end;
+      margin-right: 0;
+      margin-bottom: 5px;
+    }
+  }
+
+  .icon {
+    &:after {
+      content: '';
+      display: inline-block;
+    }
+
+    &.icon--sign-in {
+      &:after {
+        width: 15px;
+        height: 15px;
+        background: url('../img/icon_sign-in.png') no-repeat;
+      }
+    }
+  }
+
+  .link {
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  > div {
+    display: flex;
+    align-items: center;
+    word-spacing: 1px;
+    position: relative;
+
+    &.cb-UserPanel__links {
+      justify-content: flex-end;
+      margin-right: 0;
+      margin-bottom: 5px;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .settings-icon {
+    color: #758696;
+
+    &:hover + .user-menu {
+      display: block;
+    }
+  }
+
+  .cb-UserPanel__balance {
+    margin-left: 10px;
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+
+      tr:last-of-type {
+        color: #758696;
+        font-size: 0.9em;
+      }
+
+      td:first-child {
+        text-align: right;
+        padding-right: 5px;
+      }
+
+      tbody > tr > td {
+        padding: 0;
+      }
+    }
+  }
+
+  .user-balance.user-balance--active {
+    &:hover + * {
+      display: block;
+    }
+  }
+}
+
+.cb-CurrenciesPanel {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  color: #666;
+  background-color: #ccc;
+  display: none;
+  min-width: 100%;
+
+  &:hover {
+    display: block;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  tr {
+    td {
+      padding: 5px;
+      text-transform: none;
+      text-align: right;
+    }
+
+    &.selected {
+      font-weight: bold;
+    }
+
+    &:not(.selected) {
+      &:hover {
+        background-color: white;
+        cursor: pointer;
+      }
+    }
+  }
+}
