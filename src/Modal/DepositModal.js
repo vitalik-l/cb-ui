@@ -70,15 +70,17 @@ class DepositModal extends Component {
 				</ModalHeader>
 				<ModalContent>
 					<table className="property-inputs">
+                        <tbody>
 						<tr>
 							<td>Currency:</td>
 							<td>
                                 <select name="currency" onChange={this.onCurrencyChange} value={currency}>
-                                    <option value="" disabled selected>Select currency</option>
+                                    <option value="" disabled>Select currency</option>
                                     {currencies.map(cur => <option value={cur.code} key={cur.code}>{cur.title}</option>)}
                                 </select>
                             </td>
 						</tr>
+                        </tbody>
 					</table>
 					<fieldset>
 						<label className="fieldset__label">This code contains your personal payment address.</label>

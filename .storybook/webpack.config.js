@@ -4,6 +4,12 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.css$/,
+        // exclude: /node_modules(?!\/@storybook\/addon-info)/,
+        include: path.resolve(__dirname, '../'),
+        loaders: ['style-loader', 'css-loader']
+      },
+      {
         test: /.scss$/,
         loaders: ["style-loader", "css-loader", "sass-loader"],
         include: path.resolve(__dirname, '../')
