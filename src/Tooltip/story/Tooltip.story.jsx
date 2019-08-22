@@ -7,7 +7,7 @@ const stories = storiesOf('Tooltip', module);
 stories.addDecorator(withKnobs);
 
 // styles
-// import '../styles/default.scss';
+import './style.scss';
 
 import TestTooltip from './TestTooltip';
 

@@ -18,6 +18,8 @@ import ModalActions from '../ModalActions';
 import TestModal from './TestModal';
 import RegisterAccountModal from '../RegisterAccountModal';
 import AccountModal from '../AccountModal';
+import DepositModal from '../DepositModal';
+import Tooltip from '../../Tooltip';
 
 stories.add('default', () => (
     <div className={classNames('modal-story', themeSelect())}>
@@ -56,5 +58,16 @@ stories.add('AccountModal', () => (
             open={boolean('open', false)}
             displayCloseButton
         />
+    </div>
+));
+
+stories.add('DepositModal', () => (
+    <div className={classNames('modal-story', 'galileo')}>
+        <DepositModal
+            open={boolean('open', false)}
+            displayCloseButton
+            depositAddress={text('Deposit address', '')}
+        />
+        <Tooltip />
     </div>
 ));

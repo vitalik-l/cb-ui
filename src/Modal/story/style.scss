@@ -1,9 +1,10 @@
-@import "../styles/AccountModal";
-
 .default {
   @import "../styles/default";
 }
 
 .galileo {
   @import "../styles/galileo";
+  @import "../styles/AccountModal";
+  @import "../styles/DepositModal";
+  @import "../../Tooltip/styles/galileo";
 }

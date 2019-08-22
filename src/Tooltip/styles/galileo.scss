@@ -1,0 +1,87 @@
+$tooltipBgColor: #363c4e;
+
+@keyframes appear {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.cb-Tooltip {
+  z-index: 9999;
+  position: absolute;
+  display: none;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+
+  &.cb-Tooltip--init {
+    display: block;
+    visibility: hidden;
+  }
+
+  &.cb-Tooltip--visible {
+    display: block;
+    animation: appear 0.3s 1;
+    visibility: visible;
+  }
+
+  .cb-Tooltip__content {
+    background: $tooltipBgColor;
+    border: 1px solid $tooltipBgColor;
+    color: white;
+    padding: 5px 10px;
+    white-space: pre;
+
+    &:before,
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 0;
+      height: 0;
+    }
+  }
+
+  &.cb-Tooltip--top {
+    .cb-Tooltip__content {
+      &:before {
+        bottom: -7px;
+        left: 50%;
+        margin-left: -8px;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-top: 8px solid $tooltipBgColor;
+      }
+
+      &:after {
+        bottom: -5px;
+        left: 50%;
+        margin-left: -6px;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-top: 6px solid $tooltipBgColor;
+      }
+    }
+  }
+
+  &.cb-Tooltip--left {
+    .tooltip__content {
+      &:before {
+        right: -7px;
+        top: 50%;
+        margin-top: -8px;
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-left: 8px solid $tooltipBgColor;
+      }
+
+      &:after {
+        right: -5px;
+        top: 50%;
+        margin-top: -6px;
+        border-top: 6px solid transparent;
+        border-bottom: 6px solid transparent;
+        border-left: 6px solid $tooltipBgColor;
+      }
+    }
+  }
+}

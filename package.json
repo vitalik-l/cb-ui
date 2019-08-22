@@ -25,6 +25,7 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "prop-types": "^15.7.2",
+    "qr-encode": "^0.3.0",
     "rc-animate": "^2.8.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
