@@ -16,6 +16,8 @@ import ModalHeader from '../ModalHeader';
 import ModalContent from '../ModalContent';
 import ModalActions from '../ModalActions';
 import TestModal from './TestModal';
+import RegisterAccountModal from '../RegisterAccountModal';
+import AccountModal from '../AccountModal';
 
 stories.add('default', () => (
     <div className={classNames('modal-story', themeSelect())}>
@@ -39,3 +41,20 @@ stories.add('galileo', () => (
     </div>
 ));
 
+stories.add('RegisterAccountModal', () => (
+    <div className={classNames('modal-story', 'galileo')}>
+        <RegisterAccountModal
+            open={boolean('open', false)}
+            displayCloseButton
+        />
+    </div>
+));
+
+stories.add('AccountModal', () => (
+    <div className={classNames('modal-story', 'galileo')}>
+        <AccountModal
+            open={boolean('open', false)}
+            displayCloseButton
+        />
+    </div>
+));

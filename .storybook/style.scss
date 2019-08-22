@@ -1,4 +1,4 @@
-@import "../src/styles/themes/default";
+@import "../src/styles/index";
 
 html {
   background: #1f2123;
@@ -11,8 +11,4 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-body {
-  font-family: $fontFamily;
 }

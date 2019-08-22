@@ -1,0 +1,31 @@
+button {
+  height: 33px;
+  padding: 0 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  line-height: 0.5rem;
+  color: #b3b3b3;
+  background: #131722;
+  border: 1px solid #363c4e;
+  user-select: none;
+  cursor: pointer;
+  border-radius: 0;
+
+  &:hover, &:active {
+    background: #1e2331;
+  }
+
+  &:active {
+    background: #131217;
+  }
+
+  &.primary {
+    background: #1592e6;
+    color: white;
+
+    &[disabled] {
+      background: $disabledPrimaryColor;
+    }
+  }
+}

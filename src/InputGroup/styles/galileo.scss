@@ -1,0 +1,49 @@
+@import "../../styles/themes/galileo";
+
+.cb-InputGroup {
+  &:nth-child(n+2) {
+    margin-top: 20px;
+  }
+
+  .cb-InputGroup__label, .cb-InputGroup__value {
+    width: auto;
+    float: none;
+    display: block;
+  }
+
+  .cb-InputGroup__label {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+
+  .cb-InputGroup__value {
+    width: 100%;
+  }
+
+  table.cb-InputGroup__value {
+    tr {
+      height: 27px;
+    }
+
+    td {
+      padding: 3px 4px;
+
+      &:first-child {
+        padding-left: 0;
+      }
+    }
+
+    label {
+      color: inherit;
+    }
+  }
+
+  label {
+    color: $labelColor;
+    user-select: none;
+  }
+
+  .cb-InputGroup-error {
+    color: $selectedColor;
+  }
+}
