@@ -36,7 +36,7 @@ class Tabs extends PureComponent {
         }
     };
 
-    changeTabHeight = (e:Event) => {
+    changeTabHeight = (e) => {
         let	posY = e.touches && e.touches.length ? e.touches[0].clientY : e.clientY,
             deltaPos = this.currentPos - posY,
             newHeight = this.tabsNode.offsetHeight + deltaPos;
@@ -45,7 +45,7 @@ class Tabs extends PureComponent {
         this.props.onResize && this.props.onResize();
     };
 
-    stopDrag = (e:Event) => {
+    stopDrag = (e) => {
         document.removeEventListener('mousemove', this.changeTabHeight);
         document.removeEventListener('mouseup', this.stopDrag);
         document.removeEventListener('touchmove', this.changeTabHeight);

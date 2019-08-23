@@ -6,6 +6,7 @@
 
 
 .galileo {
+  @import "../../styles/themes/galileo";
   @import "../styles/galileo";
   @import "../styles/AccountModal";
   @import "../styles/DepositModal";

@@ -5,6 +5,7 @@ import CurrenciesPanel from './CurrenciesPanel';
 
 export default class UserPanel extends Component {
     static propTypes = {
+        className: PropTypes.string,
         userName: PropTypes.string,
         onDepositClick: PropTypes.func,
         onWithdrawClick: PropTypes.func,
@@ -24,6 +25,7 @@ export default class UserPanel extends Component {
 
     render() {
         const {
+            className,
             userName,
             onDepositClick,
             onWithdrawClick,
@@ -42,7 +44,7 @@ export default class UserPanel extends Component {
         } = this.props;
 
         return (
-            <div className="cb-UserPanel">
+            <div className={classNames('cb-UserPanel', className)}>
                 {!userName ?
                     <div>
                         <i className="icon icon--sign-in"/>&nbsp;
