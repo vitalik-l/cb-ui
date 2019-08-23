@@ -19,6 +19,9 @@ import TestModal from './TestModal';
 import RegisterAccountModal from '../RegisterAccountModal';
 import AccountModal from '../AccountModal';
 import DepositModal from '../DepositModal';
+import WithdrawalModal from '../WithdrawalModal';
+import CBCExchangeModal from '../CBCExchangeModal';
+import AfterRegisterModal from '../AfterRegisterModal';
 import Tooltip from '../../Tooltip';
 
 stories.add('default', () => (
@@ -69,5 +72,41 @@ stories.add('DepositModal', () => (
             depositAddress={text('Deposit address', '')}
         />
         <Tooltip />
+    </div>
+));
+
+stories.add('WithdrawalModal', () => (
+    <div className={classNames('modal-story', 'galileo')}>
+        <WithdrawalModal
+            open={boolean('open', false)}
+            displayCloseButton
+            currency={{code: 'BTC', title: 'Bitcoin', baseTitle: 'BTC'}}
+            currencies={{
+                BTC: {code: 'BTC', title: 'Bitcoin', baseTitle: 'BTC'}
+            }}
+            fmtMoney={(balance) => balance}
+            withdrawFee={number('Withdraw fee', 0)}
+        />
+    </div>
+));
+
+stories.add('CBCExchangeModal', () => (
+    <div className={classNames('modal-story', 'galileo')}>
+        <CBCExchangeModal
+            open={boolean('open', false)}
+            displayCloseButton
+            currencies={{
+                CBC: {code: 'CBC', title: 'Bitcoin', baseTitle: 'CBC'}
+            }}
+        />
+    </div>
+));
+
+stories.add('AfterRegisterModal', () => (
+    <div className={classNames('modal-story', 'galileo')}>
+        <AfterRegisterModal
+            open={boolean('open', false)}
+            displayCloseButton
+        />
     </div>
 ));

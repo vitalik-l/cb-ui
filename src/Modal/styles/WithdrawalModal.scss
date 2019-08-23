@@ -1,6 +1,4 @@
-@import "../../styles/themes/galileo";
-
-.cb-DepositModal {
+.cb-WithdrawalModal {
   fieldset {
     border: none;
     margin: 0;
@@ -26,25 +24,8 @@
     }
   }
 
-  .payment-address-field {
-    display: flex;
-    height: 30px;
-    position: relative;
-
-    > input {
-      width: 100%;
-    }
-
-    > * {
-      height: 100%;
-    }
-  }
-
-  .qr-code {
-    text-align: center;
-  }
-
-  .note {
-    color: $labelColor;
+  .current-balance {
+    text-decoration: underline;
+    cursor: pointer;
   }
 }

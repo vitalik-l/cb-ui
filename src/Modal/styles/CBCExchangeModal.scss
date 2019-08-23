@@ -1,0 +1,40 @@
+.cb-CBCExchangeModal {
+  .exchange-buttons {
+    text-align: center;
+    margin-top: 20px;
+
+    button {
+      line-height: 1.5;
+      padding: 10px 15px;
+      height: auto;
+      font-size: 0.9em;
+      color: white;
+      width: 180px;
+
+      &[disabled] {
+        opacity: 0.5;
+      }
+
+      > div:first-child {
+        font-size: 1.5em;
+      }
+
+      &.exchange-button--buy {
+        background: #23925b;
+
+        &:hover {
+          background: #2cbb65;
+        }
+      }
+
+      &.exchange-button--sell {
+        background: $downColor;
+        margin-left: 15px;
+
+        &:hover {
+          background: #f3308a;
+        }
+      }
+    }
+  }
+}

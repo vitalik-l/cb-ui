@@ -2,9 +2,13 @@
   @import "../styles/default";
 }
 
+@import "../../Tooltip/styles/galileo";
+
+
 .galileo {
   @import "../styles/galileo";
   @import "../styles/AccountModal";
   @import "../styles/DepositModal";
-  @import "../../Tooltip/styles/galileo";
+  @import "../styles/WithdrawalModal";
+  @import "../styles/CBCExchangeModal";
 }
