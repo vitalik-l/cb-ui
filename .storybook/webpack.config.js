@@ -4,6 +4,11 @@ module.exports = {
   module: {
     rules: [
       {
+          test: /.+\.story\.js?x/,
+          loaders: [require.resolve('@storybook/addon-storysource/loader')],
+          enforce: 'pre',
+      },
+      {
         test: /\.css$/,
         // exclude: /node_modules(?!\/@storybook\/addon-info)/,
         include: path.resolve(__dirname, '../'),
