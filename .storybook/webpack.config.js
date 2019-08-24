@@ -10,7 +10,6 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        // exclude: /node_modules(?!\/@storybook\/addon-info)/,
         include: path.resolve(__dirname, '../'),
         loaders: ['style-loader', 'css-loader']
       },
