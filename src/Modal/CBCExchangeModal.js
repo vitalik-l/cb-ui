@@ -24,7 +24,8 @@ class CBCExchangeModal extends Component {
 		super(props);
 		this.state = {
 			errors: {},
-			btcValue: 0
+			btcValue: 0,
+			cbcValue: 0
 		};
 		this.submitBuy = this.submitForm.bind(this, true);
 		this.submitSell = this.submitForm.bind(this, false);
@@ -54,13 +55,16 @@ class CBCExchangeModal extends Component {
 	}
 
 	onAmountChange = e => {
+		this.setState({
+            cbcValue: e.target.value
+		});
 		if (!this.validate()) return;
 		this.convertCurrency(e.target.value);
 	};
 
 	render() {
 		const {currencies, balances, ...props} = this.props;
-		const {errors, btcValue} = this.state;
+		const {errors, btcValue, cbcValue} = this.state;
 		let submitDisabled = !!Object.keys(errors).length || btcValue === 0,
 			disableSell = !balances.get(currencies.CBC.code);
 
@@ -84,7 +88,7 @@ class CBCExchangeModal extends Component {
 								max={3000000}
 								step="any"
 								required
-								defaultValue={0}
+								value={cbcValue}
 								onInput={this.onAmountChange}
 								error={errors.amount}
 							/>

@@ -1,13 +1,13 @@
 const path = require('path');
 
 module.exports = {
-  // resolve: {
-  //     extensions: ['.js', '.jsx'],
-  //     alias: {
-  //         'react': path.resolve(__dirname, './inferno-compat'),
-  //         'react-dom': 'inferno-compat'
-  //     }
-  // },
+  resolve: {
+      extensions: ['.js', '.jsx'],
+      alias: {
+          'react': path.resolve(__dirname, './inferno-compat'),
+          'react-dom': 'inferno-compat'
+      }
+  },
   module: {
     rules: [
       {
