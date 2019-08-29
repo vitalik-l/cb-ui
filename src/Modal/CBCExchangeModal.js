@@ -82,6 +82,7 @@ class CBCExchangeModal extends Component {
 								name="amount"
 								min={1}
 								max={3000000}
+								step="any"
 								required
 								defaultValue={0}
 								onInput={this.onAmountChange}
@@ -92,12 +93,14 @@ class CBCExchangeModal extends Component {
 							<button className="exchange-button--buy" onClick={this.submitBuy} disabled={submitDisabled}>
 								<div>BUY</div>
 								<div>1 CBC = 0.0005 BTC</div>
-								<div>Will take: {btcValue} BTC</div>
+								<div>Will take:</div>
+								<div>{btcValue} BTC</div>
 							</button>
 							<button className="exchange-button--sell" onClick={this.submitSell} disabled={submitDisabled || disableSell}>
 								<div>SELL</div>
 								<div>1 CBC = 0.0005 BTC</div>
-								<div>You get: {btcValue} BTC</div>
+								<div>You get:</div>
+								<div>{btcValue} BTC</div>
 							</button>
 						</div>
 					</form>
