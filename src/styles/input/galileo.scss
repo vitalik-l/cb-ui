@@ -4,54 +4,68 @@ input[type=number],
 input[type=url],
 input[type=email],
 select {
-  color: white;
-  height: 30px;
-  border: 1px solid;
-  border-color: #363c4e;
-  background: #131722;
-  padding: 5px 9px 2px;
-  outline: none;
-  box-sizing: border-box;
+  &.cb-Input {
+    color: white;
+    height: 30px;
+    border: 1px solid;
+    border-color: #363c4e;
+    background: #131722;
+    padding: 5px 9px 2px;
+    outline: none;
+    box-sizing: border-box;
+  }
 }
 
 input:focus, select:focus {
-  outline: none;
-}
-
-input[type=number]::-webkit-outer-spin-button,
-input[type=number]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+  &.cb-Input {
+    outline: none;
+  }
 }
 
 input[type=number] {
-  -moz-appearance:textfield;
+  &.cb-Input {
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    -moz-appearance: textfield;
+  }
 }
 
 input[type="radio"] {
-  vertical-align: middle;
+  &.cb-Input {
+    vertical-align: middle;
 
-  + label {
-    margin-left: 10px;
+    + label {
+      margin-left: 10px;
+    }
   }
 }
 
 input[type="checkbox"] {
-  width: 13px;
-  height: 13px;
-  padding: 0;
-  margin: 0 5px 0 0;
-  vertical-align: middle;
-  position: relative;
-  top: -1px;
+  &.cb-Input {
+    width: 13px;
+    height: 13px;
+    padding: 0;
+    margin: 0 5px 0 0;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+  }
 }
 
 .input-error {
-  color: $selectedColor;
+  &.cb-Input {
+    color: $selectedColor;
+  }
 }
 
 textarea {
-  resize: none;
-  background-color: #1e222d;
-  border: 1px solid $labelColor;
+  &.cb-Input {
+    resize: none;
+    background-color: #1e222d;
+    border: 1px solid $labelColor;
+  }
 }

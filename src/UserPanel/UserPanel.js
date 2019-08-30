@@ -44,7 +44,7 @@ export default class UserPanel extends Component {
         } = this.props;
 
         return (
-            <div className={classNames('cb-UserPanel', className)}>
+            <div className={classNames('cb-UserPanel', className, {'cb-UserPanel--logged-in': userName})}>
                 {!userName ?
                     <div>
                         <i className="icon icon--sign-in"/>&nbsp;

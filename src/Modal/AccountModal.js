@@ -73,6 +73,7 @@ class AccountModal extends Component {
 						<form name="changePassword" ref={el => this.changePasswordForm = el} onSubmit={e => e.preventDefault()}>
                             <InputGroup label="Change Password">
                                 <input
+                                    className="cb-Input"
                                     type="password"
                                     name="currentPassword"
                                     required
@@ -81,6 +82,7 @@ class AccountModal extends Component {
                                     label="Current Password:"
                                 />
                                 <input
+                                    className="cb-Input"
                                     type="password"
                                     maxLength="16"
                                     name="newPassword"
@@ -92,12 +94,13 @@ class AccountModal extends Component {
                                 />
                             </InputGroup>
                             <div className="cb-InputGroup">
-                                <button className="primary" onClick={this.changePassword}>Save</button>
+                                <button className="cb-Button primary" onClick={this.changePassword}>Save</button>
                             </div>
 						</form>
 						<form name="changeEmail" ref={el => this.changeEmailForm = el} onSubmit={e => e.preventDefault()}>
                             <InputGroup label="Set Recovery Email">
                                 <input
+                                    className="cb-Input"
                                     type="password"
                                     name="password"
                                     maxLength="16"
@@ -106,6 +109,7 @@ class AccountModal extends Component {
                                     label="Password:"
                                 />
                                 <input
+                                    className="cb-Input"
                                     type="email"
                                     maxLength="256"
                                     autoComplete="on"
@@ -116,14 +120,14 @@ class AccountModal extends Component {
                                 />
                             </InputGroup>
                             <div className="cb-InputGroup">
-								<button className="primary" onClick={this.changeEmail}>Save</button>
+								<button className="cb-Button primary" onClick={this.changeEmail}>Save</button>
 							</div>
 						</form>
 					</div>
 				</ModalContent>
 				<ModalActions>
-					<button onClick={this.logoutUser} className="primary">Logout</button>
-					<button onClick={this.props.onClose}>Cancel</button>
+					<button onClick={this.logoutUser} className="cb-Button primary">Logout</button>
+					<button className="cb-Button" onClick={this.props.onClose}>Cancel</button>
 				</ModalActions>
 			</Modal>
         );

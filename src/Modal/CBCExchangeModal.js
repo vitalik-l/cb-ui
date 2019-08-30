@@ -81,6 +81,7 @@ class CBCExchangeModal extends Component {
 					>
 						<InputGroup label="Amount, CBC*">
 							<input
+								className="cb-Input"
 								placeholder="Amount, CBC"
 								type="number"
 								name="amount"
@@ -110,7 +111,7 @@ class CBCExchangeModal extends Component {
 					</form>
 				</ModalContent>
 				<ModalActions>
-					<button onClick={props.onClose}>Cancel</button>
+					<button className="cb-Button" onClick={props.onClose}>Cancel</button>
 				</ModalActions>
 			</Modal>
 		);

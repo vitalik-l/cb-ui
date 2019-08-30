@@ -15,8 +15,8 @@ class AfterRegisterModal extends Component {
 					Your account has been created. Login, please.
 				</ModalContent>
 				<ModalActions>
-					<button onClick={this.props.onClose}>Cancel</button>
-					<button className="primary" onClick={this.props.onLogin}>Login</button>
+					<button className="cb-Button" onClick={this.props.onClose}>Cancel</button>
+					<button className="cb-Button primary" onClick={this.props.onLogin}>Login</button>
 				</ModalActions>
 			</Modal>
 		);

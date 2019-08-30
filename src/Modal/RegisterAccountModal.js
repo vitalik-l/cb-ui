@@ -64,6 +64,7 @@ class RegisterAccountModal extends Component {
                     >
                         <InputGroup label="Choose Username*">
                             <input
+                                className="cb-Input"
                                 placeholder="Choose Username"
                                 type="text"
                                 name="username"
@@ -77,6 +78,7 @@ class RegisterAccountModal extends Component {
                         </InputGroup>
                         <InputGroup label="Choose Password*">
                             <input
+                                className="cb-Input"
                                 placeholder="Choose Password"
                                 type={hidePwd ? 'password' : 'text'}
                                 name="password"
@@ -90,6 +92,7 @@ class RegisterAccountModal extends Component {
                         </InputGroup>
                         <InputGroup label="Repeat Password*">
                             <input
+                                className="cb-Input"
                                 placeholder="Repeat Password"
                                 type="password"
                                 name="confirmPassword"
@@ -102,6 +105,7 @@ class RegisterAccountModal extends Component {
                         </InputGroup>
                         <InputGroup label="Email (optional)">
                             <input
+                                className="cb-Input"
                                 placeholder="Email (optional)"
                                 type="email"
                                 name="email"
@@ -111,8 +115,8 @@ class RegisterAccountModal extends Component {
                     </form>
                 </ModalContent>
                 <ModalActions>
-                    <button onClick={this.props.onClose}>Cancel</button>
-                    <button disabled={submitDisabled} onClick={this.submitForm} className="primary">Register</button>
+                    <button className="cb-Button" onClick={this.props.onClose}>Cancel</button>
+                    <button disabled={submitDisabled} onClick={this.submitForm} className="cb-Button primary">Register</button>
                 </ModalActions>
             </Modal>
         );

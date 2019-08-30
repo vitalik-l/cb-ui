@@ -98,7 +98,7 @@ class WithdrawalModal extends Component {
 								<tr>
 									<td><label>Currency:</label></td>
 									<td>
-										<select name="currency" onChange={this.onCurrencyChange} value={currency.code}>
+										<select className="cb-Input" name="currency" onChange={this.onCurrencyChange} value={currency.code}>
 											<option value="" disabled>Select currency</option>
                                             {Object.keys(currencies).map(cur => <option value={currencies[cur].code} key={currencies[cur].code}>{currencies[cur].title}</option>)}
 										</select>
@@ -114,7 +114,7 @@ class WithdrawalModal extends Component {
 							{errors.amount ? <span className="input-error">{errors.amount}</span> : null}
 							<input
 								type="number"
-								className="fieldset__value"
+								className="cb-Input fieldset__value"
 								required
 								min="0"
 								step="any"
@@ -130,7 +130,7 @@ class WithdrawalModal extends Component {
 							<label className="fieldset__label">Address</label>
 							<input
 								type="text"
-								className="fieldset__value"
+								className="cb-Input fieldset__value"
 								required
 								placeholder={`your ${currency.title.toLowerCase()} address`}
 								name="address"
@@ -174,8 +174,8 @@ class WithdrawalModal extends Component {
 					</form>
 				</ModalContent>
 				<ModalActions>
-					<button onClick={this.props.onClose}>Cancel</button>
-					<button className="primary" onClick={this.submitForm} disabled={!withdrawFee}>Withdraw</button>
+					<button className="cb-Button" onClick={this.props.onClose}>Cancel</button>
+					<button className="cb-Button primary" onClick={this.submitForm} disabled={!withdrawFee}>Withdraw</button>
 				</ModalActions>
 			</Modal>
 		)

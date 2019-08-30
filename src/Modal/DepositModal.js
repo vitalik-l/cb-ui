@@ -74,7 +74,7 @@ class DepositModal extends Component {
 						<tr>
 							<td>Currency:</td>
 							<td>
-                                <select name="currency" onChange={this.onCurrencyChange} value={currency}>
+                                <select className="cb-Input" name="currency" onChange={this.onCurrencyChange} value={currency}>
                                     <option value="" disabled>Select currency</option>
                                     {currencies.map(cur => <option value={cur.code} key={cur.code}>{cur.title}</option>)}
                                 </select>
@@ -85,8 +85,8 @@ class DepositModal extends Component {
 					<fieldset>
 						<label className="fieldset__label">This code contains your personal payment address.</label>
 						<div className="payment-address-field">
-							<input type="text" required name="paymentAddress" value={depositAddress} readOnly ref={el => this.paymentAddress = el}/>
-							<button onClick={this.copyTarget} data-tooltip="Copied" data-tooltip-timeout="0" ref={el => this.copyButton = el}>Copy</button>
+							<input type="text" required name="paymentAddress" value={depositAddress} readOnly ref={el => this.paymentAddress = el} className="cb-Input"/>
+							<button className="cb-Button" onClick={this.copyTarget} data-tooltip="Copied" data-tooltip-timeout="0" ref={el => this.copyButton = el}>Copy</button>
 						</div>
 					</fieldset>
 					<fieldset>
