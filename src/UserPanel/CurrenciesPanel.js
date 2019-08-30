@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 function CurrenciesPanel(props) {
-    const {currencies, selectedCurrency, onSelectCurrency, currencyRenderer} = props;
+    const {currencies, selectedCurrency, onSelectCurrency, currencyRenderer, visible} = props;
 
     return (
-        <div className="cb-CurrenciesPanel">
+        <div className={classNames('cb-CurrenciesPanel', {'cb-CurrenciesPanel--visible': visible})}>
             <table>
                 {currencies.map(currency => {
                     const selected = currency === selectedCurrency;

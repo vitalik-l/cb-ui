@@ -95,12 +95,6 @@
       }
     }
   }
-
-  .user-balance.user-balance--active {
-    &:hover + * {
-      display: block;
-    }
-  }
 }
 
 .cb-CurrenciesPanel {
@@ -112,7 +106,8 @@
   display: none;
   min-width: 100%;
 
-  &:hover {
+  &:hover,
+  &.cb-CurrenciesPanel--visible {
     display: block;
   }
 

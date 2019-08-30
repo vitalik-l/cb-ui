@@ -23,6 +23,22 @@ export default class UserPanel extends Component {
         onSelectCurrency: PropTypes.func
     };
 
+    state = {
+      displayCurrencyMenu: false
+    };
+
+    onCurrencyEnter = e => {
+        this.setState({
+            displayCurrencyMenu: true
+        });
+    };
+
+    onCurrencyLeave = e => {
+        this.setState({
+            displayCurrencyMenu: false
+        });
+    };
+
     render() {
         const {
             className,
@@ -42,9 +58,10 @@ export default class UserPanel extends Component {
             onSelectCurrency,
             selectedCurrency
         } = this.props;
+        const {displayCurrencyMenu} = this.state;
 
         return (
-            <div className={classNames('cb-UserPanel', className, {'cb-UserPanel--logged-in': userName})}>
+            <div className={classNames('cb-UserPanel', className, {'cb-UserPanel--logged-in': userName, 'cb-UserPanel--currency-visible': displayCurrencyMenu})}>
                 {!userName ?
                     <div>
                         <i className="icon icon--sign-in"/>&nbsp;
@@ -66,7 +83,11 @@ export default class UserPanel extends Component {
                             <div className="link selected-color" onClick={onMyAccountClick}>
                                 {userName}
                             </div>
-                            <div className="cb-UserPanel__balance">
+                            <div
+                                className="cb-UserPanel__balance"
+                                onMouseEnter={this.onCurrencyEnter}
+                                onMouseLeave={this.onCurrencyLeave}
+                            >
                                 <table>
                                     <tbody>
                                     <tr>
@@ -83,6 +104,7 @@ export default class UserPanel extends Component {
                                                 {balanceRenderer ? balanceRenderer(balance) : balance}
                                             </span>
                                             {<CurrenciesPanel
+                                                visible={displayCurrencyMenu}
                                                 currencies={currencies}
                                                 onSelectCurrency={onSelectCurrency}
                                                 currencyRenderer={currencyRenderer}
