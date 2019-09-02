@@ -92,6 +92,17 @@ class AccountModal extends Component {
                                     label="New Password:"
                                     error={errors.newPassword}
                                 />
+                                <input
+                                    className="cb-Input"
+                                    type="password"
+                                    name="confirmPassword"
+                                    error={errors.confirmPassword}
+                                    maxLength="16"
+                                    pattern={REGEXP.password}
+                                    required
+                                    label="Confirm New Password:"
+                                    onInput={this.validateChangePasswordForm}
+                                />
                             </InputGroup>
                             <div className="cb-InputGroup">
                                 <button className="cb-Button primary" onClick={this.changePassword}>Save</button>

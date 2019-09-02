@@ -20,6 +20,7 @@ export default function InputGroup({children, ...props}) {
                     <td>{label}</td>
                     <td>
                         <input
+                            className={className}
                             {...inputProps}
                         />
                     </td>
