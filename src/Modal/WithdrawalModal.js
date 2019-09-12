@@ -176,8 +176,8 @@ class WithdrawalModal extends Component {
 					</form>
 				</ModalContent>
 				<ModalActions>
-					<button className="cb-Button" onClick={this.props.onClose}>Cancel</button>
-					<button className="cb-Button primary" onClick={this.submitForm} disabled={!withdrawFee}>Withdraw</button>
+					<button className="cb-Button" onClick={this.props.onClose}>{requestStatus ? 'Close' : 'Cancel'}</button>
+					{!requestStatus ? <button className="cb-Button primary" onClick={this.submitForm} disabled={!withdrawFee}>Withdraw</button> : null}
 				</ModalActions>
 			</Modal>
 		)
