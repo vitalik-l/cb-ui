@@ -80,9 +80,9 @@ stories.add('WithdrawalModal', () => (
         <WithdrawalModal
             open={boolean('open', false)}
             displayCloseButton
-            currency={{code: 'BTC', title: 'Bitcoin', baseTitle: 'BTC'}}
+            currency={{code: 'BTC', title: 'Bitcoin', baseTitle: 'BTC', minWithdrawalAmount: 0.001000}}
             currencies={{
-                BTC: {code: 'BTC', title: 'Bitcoin', baseTitle: 'BTC'}
+                BTC: {code: 'BTC', title: 'Bitcoin', baseTitle: 'BTC', minWithdrawalAmount: 0.001000}
             }}
             fmtMoney={(balance) => balance}
             withdrawFee={number('Withdraw fee', 0)}

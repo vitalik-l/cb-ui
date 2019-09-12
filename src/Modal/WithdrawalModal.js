@@ -123,7 +123,7 @@ class WithdrawalModal extends Component {
 								min="0"
 								step="any"
 								pattern="[0-9]+([,\.][0-9]+)?"
-								placeholder={`min 1000 ${currency.baseTitle}`}
+								placeholder={`min ${currency.minWithdrawalAmount} ${currency.baseTitle}`}
 								value={amount}
 								name="amount"
 								onInput={this.onInputChange}
@@ -145,37 +145,34 @@ class WithdrawalModal extends Component {
 							/>
 						</fieldset>
 						<fieldset><label>Requires Fee selection</label></fieldset>
-						{withdrawFee ?
-							[
-								<fieldset><label>Transaction fee of <b>{`${withdrawFee}  ${currency.baseTitle}`}</b> will be applied.</label></fieldset>,
-								<fieldset>
-									<label className="fieldset__label">
-										Priority<br/>
-										*Higher priority means faster confirmation during high network load
-									</label>
-									<div className="fieldset__value fieldset__value--group" onChange={this.onPriorityChange}>
-										<div>
-											<input type="radio" id="low" name="priority" value="low" checked={priority === 'low'}/>
-											<label For="low">Low Priority</label>
-										</div>
+						<fieldset>
+							<label className="fieldset__label">
+								<b>Priority</b><br/>
+								<small>*Higher priority means faster confirmation during high network load</small>
+							</label>
+							<div className="fieldset__value fieldset__value--group" onChange={this.onInputChange}>
+								<div>
+									<input type="radio" id="low" name="priority" value="low" checked={priority === 'low'}/>
+									<label For="low">Low Priority</label>
+								</div>
 
-										<div>
-											<input type="radio" id="medium" name="priority" value="medium" checked={priority === 'medium'}/>
-											<label For="medium">Medium Priority</label>
-										</div>
+								<div>
+									<input type="radio" id="medium" name="priority" value="medium" checked={priority === 'medium'}/>
+									<label For="medium">Medium Priority</label>
+								</div>
 
-										<div>
-											<input type="radio" id="high" name="priority" value="high" checked={priority === 'high'}/>
-											<label For="high">High Priority</label>
-										</div>
-									</div>
-								</fieldset>
-							] : null}
+								<div>
+									<input type="radio" id="high" name="priority" value="high" checked={priority === 'high'}/>
+									<label For="high">High Priority</label>
+								</div>
+							</div>
+						</fieldset>
+						{withdrawFee ? <fieldset><label>Transaction fee of <b>{`${withdrawFee}  ${currency.baseTitle}`}</b> will be applied.</label></fieldset> : null}
 						{requestStatus ?
 							<fieldset>
 								<label>Status: {requestStatus}</label>
 							</fieldset>
-							: null}
+						: null}
 					</form>
 				</ModalContent>
 				<ModalActions>
