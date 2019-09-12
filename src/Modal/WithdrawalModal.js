@@ -28,7 +28,7 @@ class WithdrawalModal extends Component {
 		this.state = {
 			currency: props.currency,
 			amount: null,
-			address: null,
+			address: '',
 			priority: 'medium',
 			errors: {}
 		};
@@ -43,7 +43,7 @@ class WithdrawalModal extends Component {
 		if (this.state.amount > this.balance) {
 			errors.amount = 'Invalid value';
 		}
-		if (this.state.address && (this.state.address.length < ADDRESS_LENGTH_MIN || this.state.address.length > ADDRESS_LENGTH_MAX)) {
+		if (!this.state.address || (this.state.address && (this.state.address.length < ADDRESS_LENGTH_MIN || this.state.address.length > ADDRESS_LENGTH_MAX))) {
 			errors.address = `The address must be from ${ADDRESS_LENGTH_MIN} to ${ADDRESS_LENGTH_MAX} characters`;
 		}
 		this.setState({errors});
@@ -52,6 +52,10 @@ class WithdrawalModal extends Component {
 
 	onCurrencyChange = ({target}) => {
 		this.setState({currency: this.props.currencies[target.value]});
+	};
+
+	onPriorityChange = e => {
+		this.setState({priority: e.target.value});
 	};
 
 	submitForm = () => {
@@ -82,7 +86,7 @@ class WithdrawalModal extends Component {
 	};
 
 	render() {
-		const {currency, amount, errors} = this.state;
+		const {currency, amount, errors, priority} = this.state;
 		const {withdrawFee, requestStatus, currencies, fmtMoney, ...props} = this.props;
 		let balance = this.balance || 0;
 
@@ -111,7 +115,7 @@ class WithdrawalModal extends Component {
 						</fieldset>
 						<fieldset>
 							<label className="fieldset__label">Amount</label>
-							{errors.amount ? <span className="input-error">{errors.amount}</span> : null}
+							{errors.amount ? <span className="cb-Input-error">{errors.amount}</span> : null}
 							<input
 								type="number"
 								className="cb-Input fieldset__value"
@@ -128,6 +132,7 @@ class WithdrawalModal extends Component {
 						</fieldset>
 						<fieldset>
 							<label className="fieldset__label">Address</label>
+                            {errors.address ? <span className="cb-Input-error">{errors.address}</span> : null}
 							<input
 								type="text"
 								className="cb-Input fieldset__value"
@@ -148,19 +153,19 @@ class WithdrawalModal extends Component {
 										Priority<br/>
 										*Higher priority means faster confirmation during high network load
 									</label>
-									<div className="fieldset__value fieldset__value--group">
+									<div className="fieldset__value fieldset__value--group" onChange={this.onPriorityChange}>
 										<div>
-											<input type="radio" id="low" name="priority"/>
+											<input type="radio" id="low" name="priority" value="low" checked={priority === 'low'}/>
 											<label For="low">Low Priority</label>
 										</div>
 
 										<div>
-											<input type="radio" id="medium" name="priority"/>
+											<input type="radio" id="medium" name="priority" value="medium" checked={priority === 'medium'}/>
 											<label For="medium">Medium Priority</label>
 										</div>
 
 										<div>
-											<input type="radio" id="high" name="priority"/>
+											<input type="radio" id="high" name="priority" value="high" checked={priority === 'high'}/>
 											<label For="high">High Priority</label>
 										</div>
 									</div>

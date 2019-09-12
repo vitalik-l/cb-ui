@@ -86,6 +86,7 @@ stories.add('WithdrawalModal', () => (
             }}
             fmtMoney={(balance) => balance}
             withdrawFee={number('Withdraw fee', 0)}
+            onWithdraw={action('onWithdraw')}
         />
     </div>
 ));
