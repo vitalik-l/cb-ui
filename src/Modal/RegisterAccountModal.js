@@ -11,7 +11,8 @@ class RegisterAccountModal extends Component {
         super(props);
         this.state = {
             errors: {},
-            hidePwd: false
+            hidePwd: false,
+            email: ''
         };
     }
 
@@ -33,11 +34,12 @@ class RegisterAccountModal extends Component {
 
     submitForm = () => {
         if (!this.form.checkValidity() && !this.form.reportValidity() || !this.validate()) return;
-        const {username, password, email} = this.form;
+        const {username, password, email, subscribe} = this.form;
         this.props.onSubmit && this.props.onSubmit({
             username: username.value,
             password: password.value,
-            email: email.value
+            email: email.value,
+            subscribe: subscribe.checked
         });
     };
 
@@ -46,9 +48,15 @@ class RegisterAccountModal extends Component {
         this.validate();
     };
 
+    onInputEmail = e => {
+        this.setState({
+            email: e.target.value
+        })
+    };
+
     render() {
         const {randomUsername, randomPassword} = this.props;
-        const {errors, hidePwd} = this.state;
+        const {errors, hidePwd, email} = this.state;
         let submitDisabled = !!Object.keys(errors).length;
 
         return (
@@ -107,11 +115,23 @@ class RegisterAccountModal extends Component {
                             <input
                                 className="cb-Input"
                                 placeholder="Email (optional)"
+                                onInput={this.onInputEmail}
+                                value={email}
                                 type="email"
                                 name="email"
                                 error={errors.email}
                             />
                         </InputGroup>
+                        <div className="cb-InputGroup">
+                            <input
+                                className="cb-Input"
+                                id="subscribe"
+                                type="checkbox"
+                                name="subscribe"
+                                disabled={!email}
+                            />
+                            <label For="subscribe">Subscribe to newsletter</label>
+                        </div>
                     </form>
                 </ModalContent>
                 <ModalActions>

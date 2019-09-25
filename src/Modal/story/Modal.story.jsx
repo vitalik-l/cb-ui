@@ -51,6 +51,7 @@ stories.add('RegisterAccountModal', () => (
         <RegisterAccountModal
             open={boolean('open', false)}
             displayCloseButton
+            onSubmit={action('onSubmit')}
         />
     </div>
 ));
