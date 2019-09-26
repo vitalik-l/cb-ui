@@ -5,6 +5,7 @@ import ModalContent from './ModalContent';
 import ModalHeader from './ModalHeader';
 import {REGEXP} from './constants';
 import InputGroup from '../InputGroup';
+import classNames from 'classnames';
 
 class RegisterAccountModal extends Component {
     constructor(props) {
@@ -122,7 +123,7 @@ class RegisterAccountModal extends Component {
                                 error={errors.email}
                             />
                         </InputGroup>
-                        <div className="cb-InputGroup">
+                        <div className={classNames('cb-InputGroup', {'cb-InputGroup--disabled': !email})}>
                             <input
                                 className="cb-Input"
                                 id="subscribe"

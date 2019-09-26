@@ -46,4 +46,8 @@
   .cb-InputGroup-error {
     color: $selectedColor;
   }
+
+  &.cb-InputGroup--disabled {
+    opacity: 0.6;
+  }
 }
