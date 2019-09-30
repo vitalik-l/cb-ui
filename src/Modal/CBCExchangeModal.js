@@ -5,6 +5,7 @@ import ModalActions from './ModalActions';
 import ModalContent from './ModalContent';
 import ModalHeader from './ModalHeader';
 import InputGroup from '../InputGroup';
+import classNames from 'classnames';
 
 const RATE = 0.0005;
 
@@ -26,7 +27,8 @@ class CBCExchangeModal extends Component {
 			errors: {},
 			btcValue: 0,
 			cbcValue: 0,
-            pauseClick: false
+            pauseClick: false,
+			sellHovered: false
 		};
 		this.submitBuy = this.submitForm.bind(this, true);
 		this.submitSell = this.submitForm.bind(this, false);
@@ -68,9 +70,17 @@ class CBCExchangeModal extends Component {
 		this.convertCurrency(e.target.value);
 	};
 
+	sellMouseEnter = e => {
+		this.setState({sellHovered: true});
+	};
+
+	sellMouseLeave = e => {
+        this.setState({sellHovered: false});
+    };
+
 	render() {
 		const {currencies, balances, ...props} = this.props;
-		const {errors, btcValue, cbcValue, pauseClick} = this.state;
+		const {errors, btcValue, cbcValue, pauseClick, sellHovered} = this.state;
 		let submitDisabled = !!Object.keys(errors).length || btcValue === 0 || pauseClick,
 			disableSell = !balances.get(currencies.CBC.code);
 
@@ -101,18 +111,28 @@ class CBCExchangeModal extends Component {
 							/>
 						</InputGroup>
 						<div className="exchange-buttons">
-							<button className="exchange-button--buy" onClick={this.submitBuy} disabled={submitDisabled}>
-								<div>BUY</div>
-								<div>1 CBC = 0.0005 BTC</div>
-								<div>Will take:</div>
-								<div>{btcValue} BTC</div>
-							</button>
-							<button className="exchange-button--sell" onClick={this.submitSell} disabled={submitDisabled || disableSell}>
-								<div>SELL</div>
-								<div>1 CBC = 0.0005 BTC</div>
-								<div>You get:</div>
-								<div>{btcValue} BTC</div>
-							</button>
+							<div className={classNames('exchange-button', 'exchange-button--buy', {'exchange-button--disabled': submitDisabled})} onClick={this.submitBuy}>
+								<div>
+									<div>BUY</div>
+									<div>1 CBC = 0.0005 BTC</div>
+									<div>Will take:</div>
+									<div>{btcValue} BTC</div>
+								</div>
+							</div>
+							<div className={classNames('exchange-button', 'exchange-button--sell', {'exchange-button--disabled': submitDisabled || disableSell})} onClick={this.submitSell} onMouseEnter={this.sellMouseEnter} onMouseLeave={this.sellMouseLeave}>
+                                {!sellHovered ?
+									<div>
+										<div>SELL</div>
+										<div>1 CBC = 0.0005 BTC</div>
+										<div>You get:</div>
+										<div>{btcValue} BTC</div>
+									</div> :
+									<span>
+										Sell at the following exchanges<br />
+										after the ICO
+									</span>
+                                }
+							</div>
 						</div>
 					</form>
 				</ModalContent>
