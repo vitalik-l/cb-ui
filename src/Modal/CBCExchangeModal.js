@@ -123,9 +123,6 @@ class CBCExchangeModal extends Component {
                                 {!sellHovered ?
 									<div>
 										<div>SELL</div>
-										<div>1 CBC = 0.0005 BTC</div>
-										<div>You get:</div>
-										<div>{btcValue} BTC</div>
 									</div> :
 									<span>
 										Sell at the following exchanges<br />
