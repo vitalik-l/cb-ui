@@ -111,7 +111,7 @@ class CBCExchangeModal extends Component {
 							/>
 						</InputGroup>
 						<div className="exchange-buttons">
-							<div className={classNames('exchange-button', 'exchange-button--buy', {'exchange-button--disabled': submitDisabled})} onClick={this.submitBuy}>
+							<div className={classNames('exchange-button', 'exchange-button--buy', {'exchange-button--disabled': submitDisabled})} onClick={!submitDisabled ? this.submitBuy : null}>
 								<div>
 									<div>BUY</div>
 									<div>1 CBC = 0.0005 BTC</div>
@@ -119,7 +119,7 @@ class CBCExchangeModal extends Component {
 									<div>{btcValue} BTC</div>
 								</div>
 							</div>
-							<div className={classNames('exchange-button', 'exchange-button--sell', {'exchange-button--disabled': submitDisabled || disableSell})} onClick={this.submitSell} onMouseEnter={this.sellMouseEnter} onMouseLeave={this.sellMouseLeave}>
+							<div className={classNames('exchange-button', 'exchange-button--sell', {'exchange-button--disabled': submitDisabled || disableSell})} onClick={submitDisabled || disableSell ? null : this.submitSell} onMouseEnter={this.sellMouseEnter} onMouseLeave={this.sellMouseLeave}>
                                 {!sellHovered ?
 									<div>
 										<div>SELL</div>
