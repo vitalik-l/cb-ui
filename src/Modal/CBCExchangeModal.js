@@ -79,10 +79,10 @@ class CBCExchangeModal extends Component {
     };
 
 	render() {
-		const {currencies, balances, ...props} = this.props;
+		let {currencies, balances, disableSell, ...props} = this.props;
 		const {errors, btcValue, cbcValue, pauseClick, sellHovered} = this.state;
-		let submitDisabled = !!Object.keys(errors).length || btcValue === 0 || pauseClick,
-			disableSell = !balances.get(currencies.CBC.code);
+		let submitDisabled = !!Object.keys(errors).length || btcValue === 0 || pauseClick;
+			disableSell = disableSell || !balances.get(currencies.CBC.code);
 
 		return (
 			<Modal className="cb-CBCExchangeModal" {...props}>
