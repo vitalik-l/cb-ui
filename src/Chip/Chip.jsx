@@ -68,11 +68,11 @@ class Chip extends PureComponent {
             <div
                 className={classNames(
                     'chip',
-                    'v'+this.props.value,
                     {
                         selected: this.props.selected,
                         ['chip--large-font']: (this.props.value).toString().length < 4,
-                        large: this.props.large
+                        large: this.props.large,
+                        ['v'+this.props.value]: !colorClass
                     },
                     colorClass,
                     this.props.className)}
