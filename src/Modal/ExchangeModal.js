@@ -31,8 +31,6 @@ class CBCExchangeModal extends Component {
             convertingCurrency: currenciesKeys[0],
             receiveCurrency: currenciesKeys[1],
         };
-        this.submitBuy = this.submitForm.bind(this, true);
-        this.submitSell = this.submitForm.bind(this, false);
     }
 
     validate = (shouldReturnErrors = false) => {
@@ -46,7 +44,7 @@ class CBCExchangeModal extends Component {
         return !Object.keys(errors).length;
     };
 
-    submitForm(buy) {
+    submitForm = () => {
         if (!this.form.checkValidity() && !this.form.reportValidity() || !this.validate()) return;
         this.props.onExchange && this.props.onExchange({
             convertingCurrency: this.state.convertingCurrency,
@@ -61,25 +59,17 @@ class CBCExchangeModal extends Component {
         });
     };
 
-    calculateReceiveValue = convertingValue => {
+    convertValue = (value, currencyOut) => {
         let result;
-        if (this.state.receiveCurrency === this.props.rate.currencyOut) {
-            result = +((+convertingValue * this.props.rate.value));
+        if (currencyOut === this.props.rate.currencyOut) {
+            result = +value * this.props.rate.value;
         } else {
-            result = +((+convertingValue / this.props.rate.value));
+            result = +value / this.props.rate.value;
         }
-        if (this.props.currencies[this.state.receiveCurrency].minimumFractionDigits) return parseFloat(result.toFixed(this.props.currencies[this.state.receiveCurrency].minimumFractionDigits));
-        return result;
-    };
-
-    calculateConvertingValue = receiveValue => {
-        let result;
-        if (this.state.convertingCurrency === this.props.rate.currencyIn) {
-            result = +((+receiveValue / this.props.rate.value));
-        } else {
-            result = +((+receiveValue * this.props.rate.value));
+        if (this.props.currencies[this.state.receiveCurrency].minimumFractionDigits) {
+            result = result.toFixed(this.props.currencies[this.state.receiveCurrency].minimumFractionDigits);
+            if (result[result.length - 1] === '0') result = parseFloat(result);
         }
-        if (this.props.currencies[this.state.convertingCurrency].minimumFractionDigits) return parseFloat(result.toFixed(this.props.currencies[this.state.convertingCurrency].minimumFractionDigits));
         return result;
     };
 
@@ -87,7 +77,7 @@ class CBCExchangeModal extends Component {
         const errors = this.validate(true);
         this.setState({
             convertingValue: e.target.value,
-            receiveValue: this.calculateReceiveValue(e.target.value),
+            receiveValue: this.convertValue(e.target.value, this.state.receiveCurrency),
             errors
         });
     };
@@ -96,7 +86,7 @@ class CBCExchangeModal extends Component {
         const errors = this.validate(true);
         this.setState({
             receiveValue: e.target.value,
-            convertingValue: this.calculateConvertingValue(e.target.value),
+            convertingValue: this.convertValue(e.target.value, this.state.convertingCurrency),
             errors
         });
     };

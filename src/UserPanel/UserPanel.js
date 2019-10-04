@@ -7,10 +7,11 @@ export default class UserPanel extends Component {
     static propTypes = {
         className: PropTypes.string,
         userName: PropTypes.string,
+        tokensLabel: PropTypes.string,
         onDepositClick: PropTypes.func,
         onWithdrawClick: PropTypes.func,
         onMyAccountClick: PropTypes.func,
-        onCBCtokensClick: PropTypes.func,
+        onTokensClick: PropTypes.func,
         onRegister: PropTypes.func,
         onLogin: PropTypes.func,
         balance: PropTypes.number,
@@ -21,6 +22,10 @@ export default class UserPanel extends Component {
         currencyRenderer: PropTypes.func,
         selectedCurrency: PropTypes.string,
         onSelectCurrency: PropTypes.func
+    };
+
+    static defaultProps = {
+        tokensLabel: 'GLT Tokens'
     };
 
     state = {
@@ -46,7 +51,8 @@ export default class UserPanel extends Component {
             onDepositClick,
             onWithdrawClick,
             onMyAccountClick,
-            onCBCtokensClick,
+            tokensLabel,
+            onTokensClick,
             balance,
             balanceRenderer,
             convertedBalance,
@@ -73,7 +79,7 @@ export default class UserPanel extends Component {
                     [
                         <div key={1} className="cb-UserPanel__links">
                             <i className="icon icon--sign-in"/>&nbsp;
-                            <span className="link" onClick={onCBCtokensClick}>CBC Tokens</span>
+                            <span className="link" onClick={onTokensClick}>{tokensLabel}</span>
                             &nbsp;|&nbsp;
                             <span className="link" onClick={onDepositClick}>Deposit</span>
                             &nbsp;|&nbsp;
