@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
+import {createPortal} from 'react-dom';
 import PropTypes from 'prop-types';
-import RenderInBody from '../RenderInBody';
 import classNames from 'classnames';
 import getPosition from '../utils/getposition';
 
@@ -84,10 +84,11 @@ class Tooltip extends Component {
             </div>
         );
 
-        return renderInBody ? (
-            <RenderInBody>
+        return renderInBody ? createPortal(
+            <span>
                 {tooltip}
-            </RenderInBody>
+            </span>,
+            document.body
         ) : tooltip;
     }
 }

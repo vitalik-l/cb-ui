@@ -1,0 +1,47 @@
+.cb-ExchangeModal {
+  .cb-ExchangeForm {
+    hr {
+      border-width: 0.5px;
+      border-color: #516069;
+
+      + div {
+        margin-top: 20px;
+      }
+    }
+
+    input, select {
+      font-size: 1em;
+    }
+
+    .cb-ExchangeForm-input {
+      width: 100%;
+      text-align: right;
+    }
+
+    .cb-ExchangeForm-balance {
+      display: flex;
+      font-size: 0.8em;
+      margin-top: 10px;
+      justify-content: space-between;
+    }
+
+    .cb-ExchangeForm__inputs {
+      display: flex;
+      margin-top: 10px;
+
+      > div:last-child {
+        flex: 1;
+        text-align: right;
+      }
+    }
+
+    .cb-ExchangeForm__action {
+      text-align: center;
+      margin-top: 20px;
+
+      button {
+        margin-top: 15px;
+      }
+    }
+  }
+}

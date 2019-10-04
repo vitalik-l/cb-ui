@@ -23,6 +23,7 @@ import WithdrawalModal from '../WithdrawalModal';
 import CBCExchangeModal from '../CBCExchangeModal';
 import AfterRegisterModal from '../AfterRegisterModal';
 import Tooltip from '../../Tooltip';
+import ExchangeModal from '../ExchangeModal';
 
 stories.add('default', () => (
     <div className={classNames('modal-story', themeSelect())}>
@@ -99,7 +100,21 @@ stories.add('CBCExchangeModal', () => (
             open={boolean('open', false)}
             displayCloseButton
             currencies={{
-                CBC: {code: 'CBC', title: 'Bitcoin', baseTitle: 'CBC'}
+                CBC: {code: 'CBC', title: 'CBC', baseTitle: 'CBC'},
+                BTC: {code: 'BTC'}
+            }}
+        />
+    </div>
+));
+
+stories.add('ExchangeModal', () => (
+    <div className={classNames('modal-story', 'galileo')}>
+        <ExchangeModal
+            open={boolean('open', false)}
+            displayCloseButton
+            currencies={{
+                BTC: {code: 'BTC', minimumFractionDigits: 8},
+                GLT: {code: 'GLT', title: 'GLT', baseTitle: 'GLT', minimumFractionDigits: 4},
             }}
         />
     </div>
