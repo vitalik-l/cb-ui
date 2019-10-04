@@ -116,6 +116,7 @@ stories.add('ExchangeModal', () => (
                 BTC: {code: 'BTC', minimumFractionDigits: 8},
                 GLT: {code: 'GLT', title: 'GLT', baseTitle: 'GLT', minimumFractionDigits: 4},
             }}
+            exchangeSuccess={boolean('exchangeSuccess', false)}
         />
     </div>
 ));

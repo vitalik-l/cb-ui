@@ -10,7 +10,9 @@ class CBCExchangeModal extends Component {
         balances: PropTypes.any,
         onExchange: PropTypes.func,
         rate: PropTypes.object,
-        modalTitle: PropTypes.string
+        modalTitle: PropTypes.string,
+        exchangeSuccess: PropTypes.bool,
+        onAnotherExchange: PropTypes.func
     };
 
     static defaultProps = {
@@ -97,15 +99,130 @@ class CBCExchangeModal extends Component {
             receiveCurrency: Object.keys(this.props.currencies).filter(i => i !== e.target.value)[0],
         }, () => {
            this.setState({
-               receiveValue: this.calculateReceiveValue(this.state.convertingValue)
+               receiveValue: this.convertValue(this.state.convertingValue, this.state.receiveCurrency)
            })
         });
     };
 
     render() {
-        let {currencies, balances, modalTitle, rate, fmtMoney, ...props} = this.props;
+        let {currencies, balances, modalTitle, rate, fmtMoney, exchangeSuccess, onAnotherExchange, ...props} = this.props;
         const {errors, pauseClick, convertingCurrency, convertingValue, receiveCurrency, receiveValue} = this.state;
-        let submitDisabled = !!Object.keys(errors).length || !receiveValue || pauseClick;
+        let submitDisabled = !!Object.keys(errors).length || !receiveValue || pauseClick,
+            modalContent;
+
+        if (exchangeSuccess) {
+            modalContent = (
+                <div className="cb-ExchangeSuccess">
+                    <h3>Success!</h3>
+                    <p>
+                        You converted {fmtMoney(convertingValue, convertingCurrency)} to {fmtMoney(receiveValue, receiveCurrency)}
+                    </p>
+                    <p>
+                        RATE FOR THIS EXCHANGE<br />
+                        <div>
+                            1 {rate.currencyIn} ~ {rate.value} {rate.currencyOut}
+                        </div>
+                    </p>
+                    <p className="cb-ExchangeSuccess__actions">
+                        <div>
+                            <button className="cb-Button primary" onClick={onAnotherExchange}>MAKE ANOTHER CONVERSION</button>
+                        </div>
+                        <div>
+                            <button className="cb-Button" onClick={props.onClose}>CLOSE</button>
+                        </div>
+                    </p>
+                </div>
+            )
+        } else {
+            modalContent = (
+                <form
+                    className="cb-ExchangeForm"
+                    autoComplete="off"
+                    ref={el => this.form = el}
+                    onSubmit={e => e.preventDefault()}
+                >
+                    <div>
+                        You are converting from:
+                    </div>
+                    <div className="cb-ExchangeForm__inputs">
+                        <div>
+                            <select className="cb-Input" onChange={this.onConvertCurrencyChange} value={convertingCurrency}>
+                                {Object.keys(currencies).map(currency => <option value={currency}>{currency}</option>)}
+                            </select>
+
+                        </div>
+                        <div>
+                            <input
+                                type="number"
+                                className="cb-Input cb-ExchangeForm-input"
+                                name="convertingValue"
+                                min={0}
+                                step="any"
+                                required
+                                value={convertingValue}
+                                onInput={this.onConvertingValueChange}
+                            />
+                        </div>
+                    </div>
+                    <div className="cb-ExchangeForm-balance">
+                        <div>
+                            {errors.convertingValue ?
+                                <div className="cb-Input-error">
+                                    {errors.convertingValue}
+                                </div>
+                                : null}
+                        </div>
+                        <div>
+                            Wallet balance: {fmtMoney(balances.get(convertingCurrency), convertingCurrency)}
+                        </div>
+                    </div>
+                    <hr />
+                    <div>
+                        You will receive:
+                    </div>
+                    <div className="cb-ExchangeForm__inputs">
+                        <div>
+                            <select className="cb-Input" value={receiveCurrency}>
+                                {Object.keys(currencies).filter(i => i !== convertingCurrency).map(currency => <option value={currency}>{currency}</option>)}
+                            </select>
+                        </div>
+                        <div>
+                            <input
+                                type="number"
+                                className="cb-Input cb-ExchangeForm-input"
+                                min={0}
+                                name="receiveValue"
+                                step="any"
+                                required
+                                value={receiveValue}
+                                onInput={this.onReceiveValueChange}
+                            />
+                        </div>
+                    </div>
+                    <div className="cb-ExchangeForm-balance">
+                        <div>
+                            {errors.receiveValue ?
+                                <div className="cb-Input-error">
+                                    {errors.receiveValue}
+                                </div>
+                                : null}
+                        </div>
+                        <div>
+                            Wallet balance: {fmtMoney(balances.get(receiveCurrency), receiveCurrency)}
+                        </div>
+                    </div>
+                    <div className="cb-ExchangeForm__action">
+                        <div>
+                            CURRENT RATE
+                        </div>
+                        <div>
+                            1 {rate.currencyIn} ~ {rate.value} {rate.currencyOut}
+                        </div>
+                        <button className="cb-Button primary" disabled={submitDisabled} onClick={submitDisabled ? null : this.submitForm}>CONVERT</button>
+                    </div>
+                </form>
+            )
+        }
 
         return (
             <Modal className="cb-ExchangeModal" {...props}>
@@ -113,92 +230,7 @@ class CBCExchangeModal extends Component {
                     {modalTitle}
                 </ModalHeader>
                 <ModalContent>
-                    <form
-                        className="cb-ExchangeForm"
-                        autoComplete="off"
-                        ref={el => this.form = el}
-                        onSubmit={e => e.preventDefault()}
-                    >
-                        <div>
-                            You are converting from:
-                        </div>
-                        <div className="cb-ExchangeForm__inputs">
-                            <div>
-                                <select className="cb-Input" onChange={this.onConvertCurrencyChange} value={convertingCurrency}>
-                                    {Object.keys(currencies).map(currency => <option value={currency}>{currency}</option>)}
-                                </select>
-
-                            </div>
-                            <div>
-                                <input
-                                    type="number"
-                                    className="cb-Input cb-ExchangeForm-input"
-                                    name="convertingValue"
-                                    min={0}
-                                    step="any"
-                                    required
-                                    value={convertingValue}
-                                    onInput={this.onConvertingValueChange}
-                                />
-                            </div>
-                        </div>
-                        <div className="cb-ExchangeForm-balance">
-                            <div>
-                                {errors.convertingValue ?
-                                    <div className="cb-Input-error">
-                                        {errors.convertingValue}
-                                    </div>
-                                : null}
-                            </div>
-                            <div>
-                                Wallet balance: {fmtMoney(balances.get(convertingCurrency), convertingCurrency)}
-                            </div>
-                        </div>
-                        <hr />
-                        <div>
-                            You will receive:
-                        </div>
-                        <div className="cb-ExchangeForm__inputs">
-                            <div>
-                                <select className="cb-Input" value={receiveCurrency}>
-                                    {Object.keys(currencies).filter(i => i !== convertingCurrency).map(currency => <option value={currency}>{currency}</option>)}
-                                </select>
-                            </div>
-                            <div>
-                                <input
-                                    type="number"
-                                    className="cb-Input cb-ExchangeForm-input"
-                                    min={0}
-                                    name="receiveValue"
-                                    step="any"
-                                    required
-                                    value={receiveValue}
-                                    onInput={this.onReceiveValueChange}
-                                />
-                            </div>
-                        </div>
-                        <div className="cb-ExchangeForm-balance">
-                            <div>
-                                {errors.receiveValue ?
-                                    <div className="cb-Input-error">
-                                        {errors.receiveValue}
-                                    </div>
-                                    : null}
-                            </div>
-                            <div>
-                                Wallet balance: {fmtMoney(balances.get(receiveCurrency), receiveCurrency)}
-                            </div>
-                        </div>
-                        <div className="cb-ExchangeForm__action">
-                            <div>
-                                CURRENT RATE
-                            </div>
-                            <div>
-                                1 {rate.currencyIn} ~ {rate.value} {rate.currencyOut}
-                            </div>
-                            <button className="cb-Button primary" disabled={submitDisabled} onClick={this.submitForm}>CONVERT</button>
-                        </div>
-                    </form>
+                    {modalContent}
                 </ModalContent>
             </Modal>
         );

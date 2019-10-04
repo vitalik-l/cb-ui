@@ -45,3 +45,13 @@
     }
   }
 }
+
+.cb-ExchangeSuccess {
+  text-align: center;
+
+  .cb-ExchangeSuccess__actions {
+    div:nth-child(n + 2) {
+      margin-top: 15px;
+    }
+  }
+}
