@@ -9,20 +9,20 @@ function CurrenciesPanel(props) {
         <div className={classNames('cb-CurrenciesPanel', {'cb-CurrenciesPanel--visible': visible})}>
             <table>
                 {currencies.map(currency => {
-                    const selected = currency === selectedCurrency;
+                    const selected = currency.code === selectedCurrency;
                     return (
                         <tr
                             className={classNames({selected})}
-                            onClick={!selected && onSelectCurrency ? () => onSelectCurrency(currency) : null}
+                            onClick={!selected && onSelectCurrency ? () => onSelectCurrency(currency.code) : null}
                         >
                             <td>
                                 {selected ? <span>&#10003;</span> : null}
                             </td>
                             <td>
-                                {currency}
+                                {currency.title}
                             </td>
                             <td>
-                                {currencyRenderer(currency)}
+                                {currencyRenderer(currency.code)}
                             </td>
                         </tr>
                     );

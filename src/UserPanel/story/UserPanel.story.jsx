@@ -19,7 +19,7 @@ stories.add('UserPanel', () => {
             <UserPanel
                 userName={text('User name', '')}
                 balance={number('Balance', 0)}
-                currencies={['BTC', 'CBC']}
+                currencies={[{code: 'BTC', title: 'Bitcoin'}, {code: 'GLT', title: 'Gelt'}]}
                 currencyRenderer={() => 1}
             />
         </div>

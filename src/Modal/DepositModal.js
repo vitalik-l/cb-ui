@@ -11,20 +11,19 @@ function generateQRCode(address) {
     return qr(address, {type: 6, size: 4, level: 'Q'});
 }
 
-class DepositModal extends Component {
+class DepositModalContent extends Component {
     static propTypes = {
         getDepositAddress: PropTypes.func,
-        currencies: PropTypes.array
+        currencies: PropTypes.array,
+        funCurrencyCode: PropTypes.string
     };
 
     static defaultProps = {
         currencies: [{
             code: 'BTC',
             title: 'Bitcoin'
-        }, {
-            code: 'ETH',
-            title: 'Ethereum'
-        }]
+        }],
+        funCurrencyCode: 'FGLT'
     };
 
     constructor(props) {
@@ -40,7 +39,9 @@ class DepositModal extends Component {
     }
 
     onCurrencyChange = ({target}) => {
-        this.setState({currency: target.value}, () => this.props.getDepositAddress && this.props.getDepositAddress(target.value));
+        this.setState({currency: target.value}, () => {
+            if (target.value !== this.props.funCurrencyCode) this.props.getDepositAddress && this.props.getDepositAddress(target.value);
+        });
     };
 
     copyTarget = ({target}) => {
@@ -60,11 +61,44 @@ class DepositModal extends Component {
 
     render() {
         const {currency} = this.state;
-        const {depositAddress, currencies, ...props} = this.props;
+        const {depositAddress, currencies, funCurrencyCode, onFunTopUp, disableFunTopUp} = this.props;
         const QRCode = generateQRCode(depositAddress);
+        let content;
+
+        if (currency === funCurrencyCode) {
+            content = (
+                <p>
+                    <div>
+                        {currencies.find(i => i.code === funCurrencyCode).title} balance should reach 50 before you can top up your account
+                    </div>
+                    <p>
+                        <button className="cb-Button primary" onClick={!disableFunTopUp ? onFunTopUp : null} disabled={disableFunTopUp}>TOP UP</button>
+                    </p>
+                </p>
+            )
+        } else {
+            content = (
+                <>
+                    <fieldset>
+                        <label className="fieldset__label">This code contains your personal payment address.</label>
+                        <div className="payment-address-field">
+                            <input type="text" required name="paymentAddress" value={depositAddress} readOnly ref={el => this.paymentAddress = el} className="cb-Input"/>
+                            <button className="cb-Button" onClick={this.copyTarget} data-tooltip="Copied" data-tooltip-timeout="0" ref={el => this.copyButton = el}>Copy</button>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div className="qr-code"><img className={classNames({invisible: !depositAddress})} src={QRCode}/></div>
+                        <p className="note">
+                            Please note: You may receive your funds in parts over 3 confirmations.<br />
+                            Recommendation: when selecting a transfer fee, a higher fee guarantees confirmation within 10 minutes. A lower fee may take an hour or more to confirm.
+                        </p>
+                    </fieldset>
+                </>
+            )
+        }
 
         return (
-            <Modal className="cb-DepositModal" {...props}>
+            <>
 				<ModalHeader>
 					Deposit
 				</ModalHeader>
@@ -82,24 +116,20 @@ class DepositModal extends Component {
 						</tr>
                         </tbody>
 					</table>
-					<fieldset>
-						<label className="fieldset__label">This code contains your personal payment address.</label>
-						<div className="payment-address-field">
-							<input type="text" required name="paymentAddress" value={depositAddress} readOnly ref={el => this.paymentAddress = el} className="cb-Input"/>
-							<button className="cb-Button" onClick={this.copyTarget} data-tooltip="Copied" data-tooltip-timeout="0" ref={el => this.copyButton = el}>Copy</button>
-						</div>
-					</fieldset>
-					<fieldset>
-						<div className="qr-code"><img className={classNames({invisible: !depositAddress})} src={QRCode}/></div>
-						<p className="note">
-							Please note: You may receive your funds in parts over 3 confirmations.<br />
-							Recommendation: when selecting a transfer fee, a higher fee guarantees confirmation within 10 minutes. A lower fee may take an hour or more to confirm.
-						</p>
-					</fieldset>
+                    {content}
 				</ModalContent>
-			</Modal>
+			</>
         );
     }
 }
 
-export default DepositModal;
+export default function DepositModal(props) {
+    return (
+        <Modal
+            className="cb-DepositModal"
+            {...props}
+        >
+            <DepositModalContent {...props} />
+        </Modal>
+    )
+};

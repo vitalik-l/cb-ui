@@ -72,6 +72,26 @@ stories.add('DepositModal', () => (
             open={boolean('open', false)}
             displayCloseButton
             depositAddress={text('Deposit address', '')}
+            currencies={[
+                {
+                    code: 'BTC',
+                    //sign: 'b',
+                    sign: 'BTC',
+                    //base: 100,
+                    base: 100000000,
+                    title: 'Bitcoin',
+                    minWithdrawalAmount: 0.00010000,
+                    minimumFractionDigits: 8
+                },
+                {
+                    code: 'FGLT',
+                    sign: 'FGLT',
+                    base: 10000,
+                    title: 'FunGelt',
+                    minimumFractionDigits: 4
+                }
+            ]}
+            funCurrencyCode='FGLT'
         />
         <Tooltip />
     </div>
