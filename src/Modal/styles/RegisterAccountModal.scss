@@ -1,12 +1,6 @@
 @import "../../styles/themes/galileo";
 
-.cb-AccountModal {
-  .forms {
-    > form:nth-child(n+2) {
-      margin-top: 40px;
-    }
-  }
-
+.cb-RegisterAccountModal {
   .contact-support-link {
     margin-top: 30px;
     text-align: center;

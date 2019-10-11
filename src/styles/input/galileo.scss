@@ -71,5 +71,38 @@ textarea {
     resize: none;
     background-color: #1e222d;
     border: 1px solid $labelColor;
+    color: white;
+  }
+}
+
+form.cb-Form {
+  label {
+    color: $labelColor;
+    user-select: none;
+  }
+
+  fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+
+    &:nth-child(n+2) {
+      margin-top: 20px;
+    }
+
+    .fieldset__label, .fieldset__value {
+      width: auto;
+      float: none;
+      display: block;
+    }
+
+    .fieldset__label {
+      margin-left: 0;
+      margin-bottom: 10px;
+    }
+
+    .fieldset__value {
+      width: 100%;
+    }
   }
 }

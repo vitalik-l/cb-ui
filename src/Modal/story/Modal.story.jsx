@@ -24,6 +24,7 @@ import CBCExchangeModal from '../CBCExchangeModal';
 import AfterRegisterModal from '../AfterRegisterModal';
 import Tooltip from '../../Tooltip';
 import ExchangeModal from '../ExchangeModal';
+import ContactSupportModal from '../ContactSupportModal';
 
 stories.add('default', () => (
     <div className={classNames('modal-story', themeSelect())}>
@@ -144,6 +145,15 @@ stories.add('ExchangeModal', () => (
 stories.add('AfterRegisterModal', () => (
     <div className={classNames('modal-story', 'galileo')}>
         <AfterRegisterModal
+            open={boolean('open', false)}
+            displayCloseButton
+        />
+    </div>
+));
+
+stories.add('ContactSupportModal', () => (
+    <div className={classNames('modal-story', 'galileo')}>
+        <ContactSupportModal
             open={boolean('open', false)}
             displayCloseButton
         />

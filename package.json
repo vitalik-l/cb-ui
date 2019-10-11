@@ -34,8 +34,7 @@
     "rc-animate": "^2.9.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-memo-polyfill": "0.0.2",
-    "why-did-you-update": "^0.0.8"
+    "react-memo-polyfill": "0.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",

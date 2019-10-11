@@ -60,7 +60,7 @@ class AccountModal extends Component {
     };
 
     render() {
-        const {email} = this.props;
+        const {email, onContactSupport} = this.props;
         const {errors} = this.state;
 
         return (
@@ -134,6 +134,9 @@ class AccountModal extends Component {
 								<button className="cb-Button primary" onClick={this.changeEmail}>Save</button>
 							</div>
 						</form>
+                        <div className="contact-support-link">
+                            <span onClick={onContactSupport}>Contact Support</span>
+                        </div>
 					</div>
 				</ModalContent>
 				<ModalActions>

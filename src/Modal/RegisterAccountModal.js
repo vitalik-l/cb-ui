@@ -56,12 +56,12 @@ class RegisterAccountModal extends Component {
     };
 
     render() {
-        const {randomUsername, randomPassword} = this.props;
+        const {randomUsername, randomPassword, onContactSupport} = this.props;
         const {errors, hidePwd, email} = this.state;
         let submitDisabled = !!Object.keys(errors).length;
 
         return (
-            <Modal {...this.props}>
+            <Modal {...this.props} className="cb-RegisterAccountModal">
                 <ModalHeader>
                     Create Account
                 </ModalHeader>
@@ -134,6 +134,9 @@ class RegisterAccountModal extends Component {
                             <label For="subscribe">Subscribe to newsletter</label>
                         </div>
                     </form>
+                    <div className="contact-support-link">
+                        <span onClick={onContactSupport}>Contact Support</span>
+                    </div>
                 </ModalContent>
                 <ModalActions>
                     <button className="cb-Button" onClick={this.props.onClose}>Cancel</button>

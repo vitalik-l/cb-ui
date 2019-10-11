@@ -4,7 +4,7 @@ import Modal from './Modal';
 import ModalContent from './ModalContent';
 import ModalHeader from './ModalHeader';
 
-class CBCExchangeModal extends Component {
+class ExchangeModal extends Component {
     static propTypes = {
         currencies: PropTypes.object,
         balances: PropTypes.any,
@@ -237,4 +237,4 @@ class CBCExchangeModal extends Component {
     }
 }
 
-export default CBCExchangeModal;
+export default ExchangeModal;
