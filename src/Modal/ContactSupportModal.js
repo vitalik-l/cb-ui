@@ -65,7 +65,7 @@ class ContactSupportModal extends Component {
 				</ModalContent>
 				<ModalActions>
 					<button className="cb-Button" onClick={this.props.onClose}>Cancel</button>
-					<button className="cb-Button primary" onClick={this.submitForm}>Send</button>
+					{displayForm ? <button className="cb-Button primary" onClick={this.submitForm}>Send</button> : null}
 				</ModalActions>
 			</Modal>
         );
