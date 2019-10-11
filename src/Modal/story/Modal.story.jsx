@@ -156,6 +156,7 @@ stories.add('ContactSupportModal', () => (
         <ContactSupportModal
             open={boolean('open', false)}
             displayCloseButton
+            displayForm={boolean('displayForm', true)}
         />
     </div>
 ));

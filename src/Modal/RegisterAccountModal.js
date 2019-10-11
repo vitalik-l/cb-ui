@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import Modal from './Modal';
 import ModalActions from './ModalActions';
 import ModalContent from './ModalContent';
@@ -8,6 +9,10 @@ import InputGroup from '../InputGroup';
 import classNames from 'classnames';
 
 class RegisterAccountModal extends Component {
+    static propTypes = {
+        onContactSupport: PropTypes.func
+    };
+
     constructor(props) {
         super(props);
         this.state = {

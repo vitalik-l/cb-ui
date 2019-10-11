@@ -12,7 +12,8 @@ class AccountModal extends Component {
         onChangePassword: PropTypes.func,
         onChangeEmail: PropTypes.func,
         onLogout: PropTypes.func,
-        email: PropTypes.string
+        email: PropTypes.string,
+        onContactSupport: PropTypes.func
     };
 
     constructor(props) {
