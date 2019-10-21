@@ -123,7 +123,7 @@ class WithdrawalModal extends Component {
 								min="0"
 								step="any"
 								pattern="[0-9]+([,\.][0-9]+)?"
-								placeholder={`min ${currency.minWithdrawalAmount} ${currency.baseTitle}`}
+								placeholder={`min ${currency.minWithdrawalAmount} ${currency.sign}`}
 								value={amount}
 								name="amount"
 								onInput={this.onInputChange}
@@ -167,7 +167,7 @@ class WithdrawalModal extends Component {
 								</div>
 							</div>
 						</fieldset>
-						{withdrawFee ? <fieldset><label>Transaction fee of <b>{`${withdrawFee}  ${currency.baseTitle}`}</b> will be applied.</label></fieldset> : null}
+						{withdrawFee ? <fieldset><label>Transaction fee of <b>{`${withdrawFee}  ${currency.sign}`}</b> will be applied.</label></fieldset> : null}
 						{requestStatus ?
 							<fieldset>
 								<label>Status: {requestStatus}</label>

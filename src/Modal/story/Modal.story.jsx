@@ -103,9 +103,9 @@ stories.add('WithdrawalModal', () => (
         <WithdrawalModal
             open={boolean('open', false)}
             displayCloseButton
-            currency={{code: 'BTC', title: 'Bitcoin', baseTitle: 'BTC', minWithdrawalAmount: 0.001000}}
+            currency={{code: 'BTC', title: 'Bitcoin', minWithdrawalAmount: 0.001000}}
             currencies={{
-                BTC: {code: 'BTC', title: 'Bitcoin', baseTitle: 'BTC', minWithdrawalAmount: 0.001000}
+                BTC: {code: 'BTC', title: 'Bitcoin', minWithdrawalAmount: 0.001000}
             }}
             fmtMoney={(balance) => balance}
             withdrawFee={number('Withdraw fee', 0)}
@@ -121,7 +121,7 @@ stories.add('CBCExchangeModal', () => (
             open={boolean('open', false)}
             displayCloseButton
             currencies={{
-                CBC: {code: 'CBC', title: 'CBC', baseTitle: 'CBC'},
+                CBC: {code: 'CBC', title: 'CBC', sign: 'CBC'},
                 BTC: {code: 'BTC'}
             }}
         />
@@ -135,7 +135,7 @@ stories.add('ExchangeModal', () => (
             displayCloseButton
             currencies={{
                 BTC: {code: 'BTC', minimumFractionDigits: 8},
-                GLT: {code: 'GLT', title: 'GLT', baseTitle: 'GLT', minimumFractionDigits: 4},
+                GLT: {code: 'GLT', title: 'GLT', sign: 'GLT', minimumFractionDigits: 4},
             }}
             exchangeSuccess={boolean('exchangeSuccess', false)}
         />
