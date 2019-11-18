@@ -140,10 +140,10 @@ export default class EEButton extends PureComponent {
                 <svg height="100%" width="100%">
                     <defs>
                         <pattern id="greenGrad" patternUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%">
-                            <image x="0" y="0" width="100%" height="100%" xlinkHref={imageGreenGradient} />
+                            <image x="0" y="0" width="100%" height="100%" href={imageGreenGradient} />
                         </pattern>
                         <pattern id="redGrad" patternUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%">
-                            <image x="0" y="0" width="100%" height="100%" xlinkHref={imageRedGradient} />
+                            <image x="0" y="0" width="100%" height="100%" href={imageRedGradient} />
                         </pattern>
                     </defs>
                     <circle cx="95" cy="95" r="70" stroke={circleColor} style={{strokeDashoffset: circleSegmentOn}}/>
