@@ -7,6 +7,7 @@ const CIRCLE_DASH = 439;
 export default class EEButton extends PureComponent {
     static propTypes = {
         value: PropTypes.any,
+        progress: PropTypes.any,
         percentValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
         hoverText: PropTypes.bool,
         disabled: PropTypes.bool,
@@ -15,7 +16,7 @@ export default class EEButton extends PureComponent {
         valueRenderer: PropTypes.any,
         withTie: PropTypes.bool,
         labelTie: PropTypes.any,
-        animationClassName: PropTypes.string
+        animationClassName: PropTypes.string,
     };
 
     static defaultProps = {
