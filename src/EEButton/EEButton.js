@@ -83,15 +83,15 @@ export default class EEButton extends PureComponent {
         let label,
             shouldAnimate = orderIsClosed || key || blink || animate;
 
-        if (withTie && value === 0) {
+        if (orderIsClosed && withTie && value === 0 && labelTie) {
             return (
-                <h6 className="blink">
+                <h6 className={classNames('ee-value', {[animationClassName]: shouldAnimate, tradeEnded: orderIsClosed})} key={key}>
                     {labelTie}
                 </h6>
             )
         }
 
-        if (value > 0) {
+        if (value >= 0) {
             label = !orderIsClosed ? (hoverText && this.state.hovered ? labelTakeProfitHovered : labelTakeProfit) : labelProfitResult;
         } else {
             label = !orderIsClosed ? (hoverText && this.state.hovered ? labelStopLossHovered : labelStopLoss) : labelLossResult
