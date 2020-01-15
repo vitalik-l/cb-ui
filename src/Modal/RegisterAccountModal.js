@@ -114,14 +114,15 @@ class RegisterAccountModal extends Component {
                                 error={errors.confirmPassword}
                             />
                         </InputGroup>
-                        <InputGroup label="Email (optional)">
+                        <InputGroup label="Email*">
                             <input
                                 className="cb-Input"
-                                placeholder="Email (optional)"
+                                placeholder="Email"
                                 onInput={this.onInputEmail}
                                 value={email}
                                 type="email"
                                 name="email"
+                                required
                                 error={errors.email}
                             />
                         </InputGroup>
