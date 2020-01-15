@@ -28,7 +28,7 @@ class RegisterAccountModal extends Component {
             passwordRegexp = new RegExp(REGEXP.password),
             usernameRegexp = new RegExp(REGEXP.username);
 
-        if (!passwordRegexp.test(password.value)) errors.password = 'The password must be at least 8 characters long and contain at least one upper case letter, lower case letter and one digit';
+        if (!passwordRegexp.test(password.value)) errors.password = 'The password must be from 8 to 32 characters long and contain at least one upper case letter, lower case letter and one digit';
         if (!usernameRegexp.test(username.value)) errors.username = 'The username may be up to 20 characters long and may contain latin letters, numbers, underscores, dots and dashes';
         if (confirmPassword.value !== password.value) {
             errors.confirmPassword = 'Password doesn\'t match';
@@ -82,7 +82,6 @@ class RegisterAccountModal extends Component {
                                 placeholder="Choose Username"
                                 type="text"
                                 name="username"
-                                maxLength="16"
                                 pattern={REGEXP.username}
                                 required
                                 defaultValue={randomUsername}
@@ -96,7 +95,6 @@ class RegisterAccountModal extends Component {
                                 placeholder="Choose Password"
                                 type={hidePwd ? 'password' : 'text'}
                                 name="password"
-                                maxLength="16"
                                 pattern={REGEXP.password}
                                 required
                                 defaultValue={randomPassword}
@@ -110,7 +108,6 @@ class RegisterAccountModal extends Component {
                                 placeholder="Repeat Password"
                                 type="password"
                                 name="confirmPassword"
-                                maxLength="16"
                                 pattern={REGEXP.password}
                                 onInput={this.validate}
                                 required
