@@ -55,6 +55,17 @@ function createPackageFile() {
                 peerDependencies,
                 dependencies,
             } = packageData;
+            const {
+                'create-react-context': a,
+                'inferno-clone-vnode': b,
+                'inferno-compat': c,
+                'inferno-create-class': d,
+                'inferno-create-element': e,
+                'qr-encode': q,
+                react,
+                'react-dom': reactDom,
+                'react-memo-polyfill': reactMemoPolyfill,
+            ...installDependencies} = dependencies;
 
             const minimalPackage = {
                 name: 'cb-general',
@@ -67,7 +78,8 @@ function createPackageFile() {
                 license,
                 bugs,
                 homepage,
-                peerDependencies
+                peerDependencies,
+                dependencies: installDependencies
             };
 
             return new Promise((resolve) => {
