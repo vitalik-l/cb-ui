@@ -24,7 +24,8 @@ stories.add('DemoMenu', () => {
                     {game: 'roulettefx', url: 'http://${LOCAL_HOST}:8086'},
                     {game: 'wallstbaccarat', url: 'http://${LOCAL_HOST}:8084'},
                     {game: 'wallstroulette', url: 'http://${LOCAL_HOST}:8083'},
-                    {game: 'weekendforex', url: 'http://${LOCAL_HOST}:8082'}
+                    {game: 'weekendforex', url: 'http://${LOCAL_HOST}:8082'},
+                    {game: 'wallstblackjack', url: 'http://${LOCAL_HOST}:8082'}
                 ]}
             />
         </div>
