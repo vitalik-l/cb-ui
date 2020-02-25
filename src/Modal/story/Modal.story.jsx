@@ -25,6 +25,7 @@ import AfterRegisterModal from '../AfterRegisterModal';
 import Tooltip from '../../Tooltip';
 import ExchangeModal from '../ExchangeModal';
 import ContactSupportModal from '../ContactSupportModal';
+import FGLTModal from '../FGLTModal';
 
 stories.add('default', () => (
     <div className={classNames('modal-story', themeSelect())}>
@@ -83,16 +84,21 @@ stories.add('DepositModal', () => (
                     title: 'Bitcoin',
                     minWithdrawalAmount: 0.00010000,
                     minimumFractionDigits: 8
-                },
-                {
-                    code: 'FGLT',
-                    sign: 'FGLT',
-                    base: 10000,
-                    title: 'FunGelt',
-                    minimumFractionDigits: 4
                 }
             ]}
-            funCurrencyCode='FGLT'
+        />
+        <Tooltip />
+    </div>
+));
+
+stories.add('FGLTModal', () => (
+    <div className={classNames('modal-story', 'galileo')}>
+        <FGLTModal
+            open={boolean('open', false)}
+            displayCloseButton
+            currencyConfig={{
+                title: 'FunGelt'
+            }}
         />
         <Tooltip />
     </div>
