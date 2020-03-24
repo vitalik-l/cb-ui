@@ -94,7 +94,6 @@ class WithdrawalModal extends Component {
 		const {withdrawFee, requestStatus, currencies, fmtMoney, ...props} = this.props;
 		const disableWithdraw = Boolean(!withdrawFee || !!Object.keys(errors).length);
 		let balance = this.balance || 0;
-		console.log(disableWithdraw)
 
 		return (
 			<Modal className="cb-WithdrawalModal" {...props}>
