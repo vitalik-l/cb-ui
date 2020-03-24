@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import validate from 'bitcoin-address-validation';
 import PropTypes from 'prop-types';
 import Modal from './Modal';
 import ModalHeader from './ModalHeader';
@@ -27,7 +28,7 @@ class WithdrawalModal extends Component {
 		super(props);
 		this.state = {
 			currency: props.currency,
-			amount: null,
+			amount: '',
 			address: '',
 			priority: 'medium',
 			errors: {}
@@ -39,12 +40,15 @@ class WithdrawalModal extends Component {
 	}
 
 	validate = () => {
+		const {amount, address} = this.state;
 		let errors = {};
-		if (this.state.amount > this.balance) {
+		if (amount && (amount > this.balance || isNaN(amount) || amount <= 0)) {
 			errors.amount = 'Invalid value';
 		}
-		if (!this.state.address || (this.state.address && (this.state.address.length < ADDRESS_LENGTH_MIN || this.state.address.length > ADDRESS_LENGTH_MAX))) {
+		if (!address || (address && (address.length < ADDRESS_LENGTH_MIN || address.length > ADDRESS_LENGTH_MAX))) {
 			errors.address = `The address must be from ${ADDRESS_LENGTH_MIN} to ${ADDRESS_LENGTH_MAX} characters`;
+		} else if (!validate(address)) {
+			errors.address = 'Address seems incorrect';
 		}
 		this.setState({errors});
 		return !Object.keys(errors).length;
@@ -59,7 +63,7 @@ class WithdrawalModal extends Component {
 	};
 
 	submitForm = () => {
-		if (!this.form.checkValidity() && !this.form.reportValidity() && !this.validate()) return;
+		if (!this.form.checkValidity() && !this.form.reportValidity() || !this.validate()) return;
 		// do submit
 		this.props.onWithdraw && this.props.onWithdraw({
 			amount: this.state.amount,
@@ -88,7 +92,9 @@ class WithdrawalModal extends Component {
 	render() {
 		const {currency, amount, errors, priority} = this.state;
 		const {withdrawFee, requestStatus, currencies, fmtMoney, ...props} = this.props;
+		const disableWithdraw = Boolean(!withdrawFee || !!Object.keys(errors).length);
 		let balance = this.balance || 0;
+		console.log(disableWithdraw)
 
 		return (
 			<Modal className="cb-WithdrawalModal" {...props}>
@@ -128,7 +134,6 @@ class WithdrawalModal extends Component {
 								name="amount"
 								onInput={this.onInputChange}
 							/>
-
 						</fieldset>
 						<fieldset>
 							<label className="fieldset__label">Address</label>
@@ -152,18 +157,18 @@ class WithdrawalModal extends Component {
 							</label>
 							<div className="fieldset__value fieldset__value--group" onChange={this.onInputChange}>
 								<div>
-									<input type="radio" id="low" name="priority" value="low" checked={priority === 'low'}/>
-									<label For="low">Low Priority</label>
+									<input type="radio" id="low" name="priority" value="low" defaultChecked={priority === 'low'}/>
+									<label htmlFor="low">Low Priority</label>
 								</div>
 
 								<div>
-									<input type="radio" id="medium" name="priority" value="medium" checked={priority === 'medium'}/>
-									<label For="medium">Medium Priority</label>
+									<input type="radio" id="medium" name="priority" value="medium" defaultChecked={priority === 'medium'}/>
+									<label htmlFor="medium">Medium Priority</label>
 								</div>
 
 								<div>
-									<input type="radio" id="high" name="priority" value="high" checked={priority === 'high'}/>
-									<label For="high">High Priority</label>
+									<input type="radio" id="high" name="priority" value="high" defaultChecked={priority === 'high'}/>
+									<label htmlFor="high">High Priority</label>
 								</div>
 							</div>
 						</fieldset>
@@ -177,7 +182,7 @@ class WithdrawalModal extends Component {
 				</ModalContent>
 				<ModalActions>
 					<button className="cb-Button" onClick={this.props.onClose}>{requestStatus ? 'Close' : 'Cancel'}</button>
-					{!requestStatus ? <button className="cb-Button primary" onClick={this.submitForm} disabled={!withdrawFee}>Withdraw</button> : null}
+					{!requestStatus ? <button className="cb-Button primary" onClick={this.submitForm} disabled={disableWithdraw}>Withdraw</button> : null}
 				</ModalActions>
 			</Modal>
 		)
