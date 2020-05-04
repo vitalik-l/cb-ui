@@ -61,7 +61,6 @@ function createPackageFile() {
                 'inferno-compat': c,
                 'inferno-create-class': d,
                 'inferno-create-element': e,
-                'qr-encode': q,
                 react,
                 'react-dom': reactDom,
                 'react-memo-polyfill': reactMemoPolyfill,
