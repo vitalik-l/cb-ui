@@ -39,9 +39,9 @@ class Tabs extends PureComponent {
     changeTabHeight = (e) => {
         let	posY = e.touches && e.touches.length ? e.touches[0].clientY : e.clientY,
             deltaPos = this.currentPos - posY,
-            newHeight = this.tabsNode.offsetHeight + deltaPos;
+            newHeight = this.tabsContentNode.offsetHeight + deltaPos;
         this.currentPos = posY;
-        this.tabsNode.style.height = newHeight + 'px';
+        this.tabsContentNode.style.height = newHeight + 'px';
         this.props.onResize && this.props.onResize();
     };
 
@@ -63,7 +63,7 @@ class Tabs extends PureComponent {
         const {children} = this.props;
         let activeView = this.props.value;
         return (
-            <div className="cb-Tabs" ref={node => this.tabsNode = node}>
+            <div className="cb-Tabs">
                 <ul className="tab-bar" onClick={this.changeView} onMouseDown={this.startDrag} onDragStart={() => false}>
                     {React.Children.map(children, tab => {
                         if (tab.type.displayName === 'Tab') {
@@ -73,7 +73,7 @@ class Tabs extends PureComponent {
                         }
                     })}
                 </ul>
-                <div className="tab-content">
+                <div className="tab-content" ref={node => this.tabsContentNode = node}>
                     {children}
                 </div>
             </div>
