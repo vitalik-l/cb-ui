@@ -19,13 +19,13 @@ class Tooltip extends Component {
         position: PropTypes.object,
         className: PropTypes.string,
         children: PropTypes.any,
-        renderInBody: PropTypes.bool,
-        timeout: PropTypes.number
+        timeout: PropTypes.number,
+        renderTo: PropTypes.any
     };
 
     static defaultProps = {
         show: false,
-        renderInBody: true
+        renderTo: document.body
     };
 
     static 	calculatePosition = (element) => {
@@ -69,7 +69,7 @@ class Tooltip extends Component {
     }
 
     render() {
-        const {renderInBody} = this.props;
+        const {renderTo} = this.props;
         const show = this.state.show;
         const style = {
             ...styles,
@@ -84,11 +84,11 @@ class Tooltip extends Component {
             </div>
         );
 
-        return renderInBody ? createPortal(
+        return renderTo ? createPortal(
             <span>
                 {tooltip}
             </span>,
-            document.body
+            renderTo
         ) : tooltip;
     }
 }
