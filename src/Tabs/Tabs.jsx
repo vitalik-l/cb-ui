@@ -42,7 +42,10 @@ class Tabs extends PureComponent {
         let	posY = e.touches && e.touches.length ? e.touches[0].clientY : e.clientY,
             deltaPos = this.currentPos - posY,
             transformNode = this.props.transformNode === 'content' ? this.tabsContentNode : this.tabsNode;
-        if (this.props.onChangeTabHeight && this.props.onChangeTabHeight(deltaPos));
+        if (this.props.onChangeTabHeight) {
+            this.props.onChangeTabHeight(deltaPos, transformNode);
+            return;
+        }
         this.currentPos = posY;
         transformNode.style.height = transformNode.offsetHeight + deltaPos + 'px';
         this.props.onResize && this.props.onResize();
