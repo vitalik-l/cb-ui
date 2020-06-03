@@ -72,8 +72,8 @@ export default class UserPanel extends Component {
                     <div>
                         <i className="icon icon--sign-in"/>&nbsp;
                         <span className="link" onClick={onLogin}>Login</span>
-                        &nbsp;|&nbsp;
-                        <span className="link" onClick={onRegister}>Register</span>
+                        {onRegister ? <span>&nbsp;|&nbsp;</span> : null}
+                        {onRegister ? <span className="link" onClick={onRegister}>Register</span> : null}
                     </div>
                     :
                     [
