@@ -21,16 +21,11 @@
     fill: transparent;
     stroke-width: 50px;
     stroke-dasharray: 439;
-    transition: stroke-dashoffset 500ms;
   }
 
-  &.reverse {
-    svg {
-      circle {
-        transform-origin: center;
-        transform: rotateX(180deg);
-      }
-    }
+  .reverse {
+      transform-origin: center;
+      transform: rotateX(180deg);
   }
 
   > div {

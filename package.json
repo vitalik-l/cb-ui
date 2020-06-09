@@ -23,6 +23,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bezier-easing": "^2.1.0",
     "bitcoin-address-validation": "^1.0.1",
     "classnames": "^2.2.5",
     "create-react-context": "^0.3.0",
