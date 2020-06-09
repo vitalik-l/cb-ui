@@ -17,6 +17,7 @@ export default class EEButton extends PureComponent {
         withTie: PropTypes.bool,
         labelTie: PropTypes.any,
         animationClassName: PropTypes.string,
+        reverseLoss: PropTypes.bool
     };
 
     static defaultProps = {
@@ -78,7 +79,8 @@ export default class EEButton extends PureComponent {
             withTie,
             labelTie,
             animationClassName,
-            animate
+            animate,
+            reverseLoss
         } = this.props;
         let label,
             shouldAnimate = orderIsClosed || key || blink || animate;
@@ -131,13 +133,19 @@ export default class EEButton extends PureComponent {
     }
 
     render() {
-        let {value, progress, imageGreenGradient, imageRedGradient, disabled, className, withTie} = this.props;
+        let {value, progress, imageGreenGradient, imageRedGradient, disabled, className, withTie, reverseLoss} = this.props;
+        progress = Math.min(100, progress);
         let	circleSegmentOn = !value && value !== 0 ? CIRCLE_DASH : Math.round(CIRCLE_DASH * (100 - progress)/100),
-            circleColor = value < 0 ? 'url(#redGrad)' : 'url(#greenGrad)',
-            bigBtnClass = classNames({loss: value < 0, tie: withTie && value === 0, active: !disabled && value && progress > 0});
+            isLoss = value < 0,
+            circleColor = isLoss ? 'url(#redGrad)' : 'url(#greenGrad)',
+            bigBtnClass = classNames({
+                loss: isLoss,
+                tie: withTie && value === 0,
+                active: !disabled && value && progress > 0
+            });
 
         return (
-            <div className={classNames('cb-ee-button', className)}>
+            <div className={classNames('cb-ee-button', className, {reverse: isLoss && reverseLoss})}>
                 <svg height="100%" width="100%">
                     <defs>
                         <pattern id="greenGrad" patternUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%">

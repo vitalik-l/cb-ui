@@ -22,7 +22,7 @@ stories.add('EEButton', () => {
                 progress={number('progress')}
                 orderIsClosed={boolean('is order closed')}
                 percentValue={number('percent value')}
-                version={2}
+                reverseLoss={boolean('reverse loss')}
             />
         </div>
     )

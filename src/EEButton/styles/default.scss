@@ -24,6 +24,15 @@
     transition: stroke-dashoffset 500ms;
   }
 
+  &.reverse {
+    svg {
+      circle {
+        transform-origin: center;
+        transform: rotateX(180deg);
+      }
+    }
+  }
+
   > div {
     display: flex;
     flex-direction: column;
