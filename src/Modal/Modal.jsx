@@ -15,7 +15,7 @@ export default function Modal(props) {
             {open ?
                 <div className={classNames('cb-Modal-overlay', overlayClassName)} onClick={onOverlayClick}>
                     <div className="cb-Modal-wrapper">
-                        <div className={classNames('cb-Modal', className)} onclick={onModalClick}>
+                        <div className={classNames('cb-Modal', className)} onClick={onOverlayClick ? onModalClick : null}>
                             {children}
                             {displayCloseButton ?
                                 <div className="cb-Modal__close" onClick={onClose}>

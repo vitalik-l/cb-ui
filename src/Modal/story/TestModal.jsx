@@ -14,8 +14,11 @@ class TestModal extends Component {
         return (
             <span>
                 <button onClick={this.onClick} style={{zIndex: 9999, position: 'absolute'}}>Toggle modal</button>
-                <Modal open={this.state.openModal}>
-                    Test Modal
+                <Modal open={this.state.openModal} onOverlayClick={this.onClick}>
+                    <div>
+                        Test Modal
+                        <button onClick={e => {console.log('button click'); this.onClick()}}>Close</button>
+                    </div>
                 </Modal>
             </span>
         )
