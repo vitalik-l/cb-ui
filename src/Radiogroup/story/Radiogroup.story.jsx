@@ -23,7 +23,7 @@ stories.add('default', () => (
 stories.add('active value', () => (
     <span className={theme()}>
         <Radiogroup value={select('value',[1,2,3], 1)}>
-            <RadiogroupButton value={1} onClick={action('onClick')}>1</RadiogroupButton>
+            <RadiogroupButton value={1} onClick={action('onClick')} className={text('class')}>1</RadiogroupButton>
             <RadiogroupButton value={2}>2</RadiogroupButton>
             <RadiogroupButton value={3}>3</RadiogroupButton>
         </Radiogroup>

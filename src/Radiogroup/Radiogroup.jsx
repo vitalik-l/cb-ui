@@ -1,21 +1,14 @@
-import React, {PureComponent} from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import omit from '../utils/omit';
 
-class Radiogroup extends PureComponent {
+class Radiogroup extends Component {
     static propTypes = {
         value: PropTypes.any,
         children: PropTypes.any,
         className: PropTypes.string,
         onChange: PropTypes.func
     };
-
-    shouldComponentUpdate(nextProps) {
-        return this.props.value !== nextProps.value ||
-            this.props.onChange !== nextProps.onChange ||
-                this.props.className !== nextProps.className
-
-    }
 
     onClick = e => {
         const clickedValue = e.currentTarget.getAttribute('data-value');
