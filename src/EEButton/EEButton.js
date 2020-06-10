@@ -56,8 +56,11 @@ export default class EEButton extends PureComponent {
     }
 
     componentDidMount() {
-        // this.indicatorEl.style.strokeDashoffset = CIRCLE_DASH;
         this.animateProgress();
+    }
+
+    componentWillUnmount() {
+        window.cancelAnimationFrame(this.progressAnimId);
     }
 
     componentDidUpdate(prevProps) {
