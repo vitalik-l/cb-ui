@@ -50,12 +50,13 @@ export default class EEButton extends PureComponent {
         super(props);
         this.progressAnimId = null;
         this.state = {
-            hovered: false
+            hovered: false,
+            strokeDashoffset: CIRCLE_DASH
         }
     }
 
     componentDidMount() {
-        this.indicatorEl.style.strokeDashoffset = CIRCLE_DASH;
+        // this.indicatorEl.style.strokeDashoffset = CIRCLE_DASH;
         this.animateProgress();
     }
 
@@ -88,21 +89,19 @@ export default class EEButton extends PureComponent {
 
     animateProgress = () => {
         let {value, progress, reverseLoss, animation} = this.props;
-        if (progress) progress = Math.min(100, progress);
+        if (progress) progress = progress < 0 ? Math.max(-100, progress) :  Math.min(100, progress);
         let targetSegment = !value && value !== 0 ? CIRCLE_DASH : Math.round(CIRCLE_DASH * (100 - progress)/100),
             isLoss = value < 0,
-            currentSegment = +this.indicatorEl.style.strokeDashoffset,
-            deltaSegment = Math.abs(Math.abs(targetSegment) - Math.abs(currentSegment)),
-            delta = targetSegment < currentSegment ? -1 : 1;
+            currentSegment = this.state.strokeDashoffset,
+            deltaSegment = targetSegment - currentSegment;
 
-        if (!currentSegment) this.indicatorEl.style.strokeDashoffset = CIRCLE_DASH;
         this.indicatorEl.setAttribute('stroke', isLoss ? 'url(#redGrad)' : 'url(#greenGrad)');
 
         this.animate({
             timing: BezierEasing(0.25, 0.1, 0.25, 1.0),
             duration: animation.duration,
             draw: progress => {
-                const newSegment = currentSegment + deltaSegment*progress*delta;
+                const newSegment = currentSegment + deltaSegment*progress;
                 if (reverseLoss) {
                     if (newSegment > CIRCLE_DASH) {
                         this.indicatorEl.setAttribute('stroke', 'url(#redGrad)');
@@ -110,7 +109,7 @@ export default class EEButton extends PureComponent {
                         this.indicatorEl.setAttribute('stroke', 'url(#greenGrad)');
                     }
                 }
-                this.indicatorEl.style.strokeDashoffset = newSegment;
+                this.setState({strokeDashoffset: newSegment});
             }
         });
     };
@@ -199,6 +198,7 @@ export default class EEButton extends PureComponent {
 
     render() {
         let {value, progress, imageGreenGradient, imageRedGradient, disabled, className, withTie, reverseLoss} = this.props;
+        const {strokeDashoffset} = this.state;
         let isLoss = value < 0,
             bigBtnClass = classNames({
                 loss: isLoss,
@@ -222,7 +222,7 @@ export default class EEButton extends PureComponent {
                             <image x="0" y="0" width="100%" height="100%" href={imageRedGradient} className={classNames({reverse: reverseLoss})} />
                         </pattern>
                     </defs>
-                    <circle cx="95" cy="95" r="70" stroke={stroke} ref={el => this.indicatorEl = el}/>
+                    <circle cx="95" cy="95" r="70" stroke={stroke} style={{strokeDashoffset}} ref={el => this.indicatorEl = el}/>
                 </svg>
                 <div className={bigBtnClass} onMouseUp={this.onMouseUp} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
                     {this.renderLabel()}
