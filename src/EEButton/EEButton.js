@@ -203,7 +203,7 @@ export default class EEButton extends PureComponent {
             bigBtnClass = classNames({
                 loss: isLoss,
                 tie: withTie && value === 0,
-                active: !disabled && value && progress > 0
+                active: !disabled && value && progress
             }),
             stroke = null;
 
