@@ -12,7 +12,7 @@ class Radiogroup extends Component {
 
     onClick = e => {
         const clickedValue = e.currentTarget.getAttribute('data-value');
-        if (clickedValue == null && clickedValue === this.props.value) return;
+        if (clickedValue == null || clickedValue === this.props.value) return;
         this.props.onChange && this.props.onChange(clickedValue, e);
     };
 

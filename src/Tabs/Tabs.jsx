@@ -61,7 +61,7 @@ class Tabs extends PureComponent {
     changeView = (e) => {
         let target = e.target,
             newView = target.dataset.value;
-        if (!newView && newView === this.props.value) return;
+        if (!newView || newView === this.props.value) return;
         this.props.onChange && this.props.onChange(newView);
     };
 
