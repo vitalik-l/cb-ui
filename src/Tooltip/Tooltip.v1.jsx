@@ -48,10 +48,6 @@ class Tooltip extends Component {
         };
     }
 
-    // shouldComponentUpdate(nextProps, nextState) {
-    //     return this.props.show !== nextProps.show;
-    // }
-
     componentWillReceiveProps(nextProps) {
         this.setState({show: nextProps.show});
         if (nextProps.timeout) {
