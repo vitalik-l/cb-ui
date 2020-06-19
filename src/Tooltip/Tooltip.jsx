@@ -20,7 +20,8 @@ class Tooltip extends Component {
         className: PropTypes.string,
         children: PropTypes.any,
         timeout: PropTypes.number,
-        renderTo: PropTypes.any
+        renderTo: PropTypes.any,
+        style: PropTypes.object
     };
 
     static defaultProps = {
@@ -65,17 +66,18 @@ class Tooltip extends Component {
     }
 
     render() {
-        const {renderTo} = this.props;
+        const {renderTo, style} = this.props;
         const show = this.state.show;
-        const style = {
+        const newStyle = {
             ...styles,
             left: this.position.left || 0,
-            top: this.position.top || 0
+            top: this.position.top || 0,
+            ...style
         };
         if (show === false) return null;
 
         const tooltip = (
-            <div className={classNames('tooltip', this.props.className)} style={style}>
+            <div className={classNames('tooltip', this.props.className)} style={newStyle}>
                 {this.props.children}
             </div>
         );
