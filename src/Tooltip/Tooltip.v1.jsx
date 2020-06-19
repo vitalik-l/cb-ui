@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {createPortal} from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import getPosition from '../utils/getposition';
+import getPosition from '../utils/getPosition';
 
 const styles = {
     zIndex: 999,
@@ -28,7 +28,7 @@ class Tooltip extends Component {
         renderTo: document.body
     };
 
-    static 	calculatePosition = (element) => {
+    static calculatePosition = (element) => {
         if (typeof element === 'string') element = document.getElementById(element);
         if (!element) return {};
         let elementPosition = getPosition(element);

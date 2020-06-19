@@ -3,7 +3,7 @@ import {createPortal} from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import DropdownItem from './DropdownItem';
-import getPosition from '../utils/getposition';
+import getPosition from '../utils/getPosition';
 
 function calculatePosition(element, display) {
     if (!element) return {};

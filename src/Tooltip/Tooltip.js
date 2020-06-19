@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {createPortal} from 'react-dom';
-import getPosition from '../utils/getposition';
+import getPosition from '../utils/getPosition';
 import classNames from 'classnames';
 
 document.addEventListener('mousemove', (e) => {
