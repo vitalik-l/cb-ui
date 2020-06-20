@@ -1,0 +1,57 @@
+@function sqrt($r) {
+  $x0: 1;
+  $x1: $x0;
+
+  @for $i from 1 through 10 {
+    $x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
+    $x0: $x1;
+  }
+
+  @return $x1;
+}
+
+@function hexToRGBString($hexColor) {
+  @return "#{red($hexColor)},#{green($hexColor)},#{blue($hexColor)}";
+}
+
+.hint {
+  $arrowSize: 8px;
+  $arrowColor: #161313;
+  $borderWidth: 2px;
+  $borderColor: #8b8989;
+  $calcBorderWidth: $arrowSize + round($borderWidth *  sqrt(2));
+
+  border: $borderWidth solid $borderColor;
+  border-radius: 10.0px;
+  background: $arrowColor;
+  background-image: linear-gradient(0.0deg, #161313 0%, #161313 31%, #383536 100%);
+  box-shadow: 0 4px 4px 0 #060505;
+  padding: 10px;
+
+  &:after,
+  &:before {
+    left: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: "";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  &:after {
+    border-color: rgba(red($arrowColor), green($arrowColor), blue($arrowColor), 0);
+    border-left-color: $arrowColor;
+    border-width: $arrowSize;
+    margin-top: -1*$arrowSize;
+    left: 99.8%;
+  }
+
+  &:before {
+    border-color: rgba(red($borderColor), green($borderColor), blue($borderColor), 0);
+    border-left-color: $borderColor;
+    border-width: $calcBorderWidth;
+    margin-top: -1*$calcBorderWidth;
+  }
+}
