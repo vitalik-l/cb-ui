@@ -3,7 +3,7 @@ export default function getPosition(e, parent){
 	let left = 0,
 		top = 0;
 
-	const checkParent = el => typeof parent === 'string' ? el.classList && !el.classList.contains(parent) : el === parent;
+	const checkParent = el => typeof parent === 'string' ? el.classList && !el.classList.contains(parent) : el !== parent;
 
 	while ((e.offsetParent && !parent) || (e.offsetParent && parent && checkParent(e.offsetParent))){
 		left += e.offsetLeft;
