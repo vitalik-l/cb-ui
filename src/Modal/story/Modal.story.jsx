@@ -35,7 +35,12 @@ stories.add('default', () => (
 
 stories.add('galileo', () => (
     <div className={classNames('modal-story', 'galileo')}>
-        <Modal open={boolean('open', false)} displayCloseButton>
+        <Modal
+			open={boolean('open', false)}
+			displayCloseButton
+			transitionEnter={boolean('animate on open', true)}
+			transitionLeave={boolean('animate on close', true)}
+		>
             <ModalHeader>
                 Header
             </ModalHeader>

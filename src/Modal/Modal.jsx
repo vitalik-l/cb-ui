@@ -9,9 +9,24 @@ function onModalClick(e) {
 }
 
 export default function Modal(props) {
-    const {children, open, overlayClassName, className, displayCloseButton, onClose, onOverlayClick} = props;
+    const {
+    	children,
+		open,
+		overlayClassName,
+		className,
+		displayCloseButton,
+		onClose,
+		onOverlayClick,
+		transitionEnter,
+		transitionLeave
+    } = props;
     return (
-        <Animate transitionName="modal" transitionAppear>
+        <Animate
+			transitionName="modal"
+			transitionAppear
+			transitionEnter={typeof transitionEnter === 'boolean' ? transitionEnter : true}
+			transitionLeave={typeof transitionLeave === 'boolean' ? transitionLeave : true}
+		>
             {open ?
                 <div className={classNames('cb-Modal-overlay', overlayClassName)} onClick={onOverlayClick}>
                     <div className="cb-Modal-wrapper">
