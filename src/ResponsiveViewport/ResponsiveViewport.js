@@ -1,43 +1,52 @@
 import React, {useState, useEffect} from 'react';
 import ViewportContext from './ViewportContext';
 
-let isTicking;
-function ResponsiveViewport({minRatio, maxRatio, children}) {
+function ResponsiveViewport({minRatio, maxRatio, timeout, children}) {
 	const [viewport, setViewport] = useState({});
 
 	useEffect(() => {
+		const resizeFn = timeout ? resizeWithTimeout : resizeWithAnimationFrame;
 		let preWindowSize = {};
+		let isTicking;
+
 		function resize(e) {
+			const currentWindow = e ? e.target : window;
+			const innerHeight = currentWindow.innerHeight;
+			const innerWidth = currentWindow.innerWidth;
+			if (preWindowSize.height !== innerHeight || preWindowSize.width !== innerWidth) {
+				const curRatio = innerWidth/innerHeight;
+				const viewportWidth = curRatio > maxRatio ? maxRatio * innerHeight : innerWidth;
+				const viewportHeight = curRatio < minRatio ? innerWidth / minRatio : innerHeight;
+
+				preWindowSize = {
+					width: innerWidth,
+					height: innerHeight
+				};
+				setViewport({viewportWidth, viewportHeight});
+			}
+		}
+
+		function resizeWithTimeout(e) {
+			clearTimeout(isTicking);
+			isTicking = setTimeout(() => resize(e), timeout);
+		}
+
+		function resizeWithAnimationFrame(e) {
 			if (isTicking) return;
 			requestAnimationFrame(() => {
-				const currentWindow = e ? e.target : window;
-				const innerHeight = currentWindow.innerHeight;
-				const innerWidth = currentWindow.innerWidth;
-				if (preWindowSize.height !== innerHeight || preWindowSize.width !== innerWidth) {
-					const curRatio = innerWidth/innerHeight;
-					const viewportWidth = curRatio > maxRatio ? maxRatio * innerHeight : innerWidth;
-					const viewportHeight = curRatio < minRatio ? innerWidth / minRatio : innerHeight;
-
-					preWindowSize = {
-						width: innerWidth,
-						height: innerHeight
-					};
-					setViewport({viewportWidth, viewportHeight});
-				}
-
-				// set isTicking
+				resize(e);
 				isTicking = false;
 			});
 			isTicking = true;
 		}
 
-		window.addEventListener('resize', resize, false);
-		window.addEventListener('orientationchange', resize, false);
+		window.addEventListener('resize', resizeFn, false);
+		window.addEventListener('orientationchange', resizeFn, false);
 		setTimeout(resize());
 
 		return () => {
-			window.removeEventListener('resize', resize, false);
-			window.removeEventListener('orientationchange', resize, false);
+			window.removeEventListener('resize', resizeFn, false);
+			window.removeEventListener('orientationchange', resizeFn, false);
 		}
 	}, []);
 
@@ -47,5 +56,9 @@ function ResponsiveViewport({minRatio, maxRatio, children}) {
 		</ViewportContext.Provider>
 	);
 }
+
+ResponsiveViewport.defaultProps = {
+	timeout: 0
+};
 
 export default ResponsiveViewport;

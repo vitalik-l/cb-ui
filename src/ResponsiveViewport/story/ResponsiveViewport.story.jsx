@@ -16,7 +16,11 @@ function App() {
 
 stories.add('ResponsiveViewport', () => {
 	return (
-		<ResponsiveViewport minRatio={4/3} maxRatio={21/9}>
+		<ResponsiveViewport
+			minRatio={4/3}
+			maxRatio={21/9}
+			timeout={0}
+		>
 			<App />
 		</ResponsiveViewport>
 	)
