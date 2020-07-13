@@ -32,6 +32,9 @@ export default class EEButton extends PureComponent {
                 WIN
             </span>
         ),
+		cx: 95,
+		cy: 95,
+		r: 70,
         labelDefault: 'CASH-OUT METER',
         labelStopLoss: 'stop loss',
         labelTakeProfit: 'take profit',
@@ -200,7 +203,7 @@ export default class EEButton extends PureComponent {
     }
 
     render() {
-        let {value, progress, imageGreenGradient, imageRedGradient, disabled, className, withTie, reverseLoss} = this.props;
+        let {value, progress, imageGreenGradient, imageRedGradient, disabled, className, withTie, reverseLoss, cx, cy, r} = this.props;
         const {strokeDashoffset} = this.state;
         let isLoss = value < 0,
             bigBtnClass = classNames({
@@ -225,7 +228,7 @@ export default class EEButton extends PureComponent {
                             <image x="0" y="0" width="100%" height="100%" href={imageRedGradient} className={classNames({reverse: reverseLoss})} />
                         </pattern>
                     </defs>
-                    <circle cx="95" cy="95" r="70" stroke={stroke} style={{strokeDashoffset}} ref={el => this.indicatorEl = el}/>
+                    <circle cx={cx} cy={cy} r={r} stroke={stroke} style={{strokeDashoffset}} ref={el => this.indicatorEl = el}/>
                 </svg>
                 <div className={bigBtnClass} onMouseUp={this.onMouseUp} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
                     {this.renderLabel()}

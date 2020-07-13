@@ -11,7 +11,10 @@ import useViewport from '../useViewport';
 
 function App() {
 	const {viewportWidth, viewportHeight} = useViewport();
-	return <div style={{background: 'white', width: viewportWidth, height: viewportHeight}} />
+
+	return (
+		<div style={{background: 'white', width: viewportWidth, height: viewportHeight}} />
+	)
 }
 
 stories.add('ResponsiveViewport', () => {
