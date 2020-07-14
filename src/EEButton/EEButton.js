@@ -32,8 +32,8 @@ export default class EEButton extends PureComponent {
                 WIN
             </span>
         ),
-		cx: 95,
-		cy: 95,
+		cx: '50%',
+		cy: '50%',
 		r: 70,
         labelDefault: 'CASH-OUT METER',
         labelStopLoss: 'stop loss',
@@ -219,7 +219,7 @@ export default class EEButton extends PureComponent {
 
         return (
             <div className={classNames('cb-ee-button', className)}>
-                <svg height="100%" width="100%">
+                <svg height="100%" width="100%" viewBox="0 0 190 190">
                     <defs>
                         <pattern id="greenGrad" patternUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%">
                             <image x="0" y="0" width="100%" height="100%" href={imageGreenGradient} />
