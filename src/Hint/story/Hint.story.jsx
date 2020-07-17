@@ -14,16 +14,15 @@ import Hint from '../';
 
 stories.add('default', () => {
 	return (
-		<div className="story-container">
+		<div className="story-Hint--default">
 			<div>
 				<Hint
 					show={true}
 					arrowSide={select('side of arrow', ['left', 'top', 'right', 'bottom'], 'right')}
 					renderTo={false}
-				>
-					<h3>Select Risk</h3>
-					<p>Amount Here!</p>
-				</Hint>
+					title="Select Risk"
+					text="Amount Here!"
+				/>
 			</div>
 		</div>
 	)

@@ -1,5 +1,9 @@
-.story-container {
+.story-Hint--default {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  > div {
+    position: relative;
+  }
 }
