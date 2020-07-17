@@ -141,7 +141,7 @@
       transform: translateX(40%);
     }
 
-    .cb-Hint--arrow-align-center {
+    &.cb-Hint--arrow-align-center {
       .cb-Hint-container {
         transform: translateY(-50%);
       }
@@ -153,7 +153,7 @@
       transform: translateY(-100%) translateX(calc(-100% + 2.3em));
     }
 
-    .cb-Hint--arrow-align-end {
+    &.cb-Hint--arrow-align-end {
       .cb-Hint-arrow {
         right: 0;
         bottom: 0;

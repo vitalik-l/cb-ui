@@ -19,6 +19,7 @@ stories.add('default', () => {
 				<Hint
 					show={true}
 					arrowSide={select('side of arrow', ['left', 'top', 'right', 'bottom'], 'right')}
+					arrowAlign={select('align arrow', ['start', 'center', 'end'], 'center')}
 					renderTo={false}
 					title="Select Risk"
 					text="Amount Here!"
