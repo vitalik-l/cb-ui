@@ -1,19 +1,25 @@
-import {Component} from 'react';
+import React from 'react';
+import Tooltip from '../Tooltip';
+import InfoIcon from '../Icons/InfoIcon';
+import classNames from 'classnames';
 
-class Hint extends Component {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <div className="cb-Hint">
-                <div className="cb-Hint__content">
-                    Content
-                </div>
-            </div>
-        )
-    }
+function Hint({show, children, className, arrowSide, arrowAlign, ...props}) {
+	return (
+		<Tooltip
+			className={classNames('cb-Hint', className, {[`arrow-side-${arrowSide}`]: arrowSide, [`arrow-align-${arrowAlign}`]: arrowAlign})}
+			show={show}
+			{...props}
+		>
+			<div className="cb-Hint-container">
+				<div className="arrow" />
+				<div className="arrow-border" />
+				<InfoIcon />
+				<div className="cb-Hint-content">
+					{children}
+				</div>
+			</div>
+		</Tooltip>
+	)
 }
 
 export default Hint;

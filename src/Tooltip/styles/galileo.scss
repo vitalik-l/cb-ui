@@ -5,7 +5,7 @@ $tooltipBgColor: #363c4e;
   100% {opacity: 1;}
 }
 
-.cb-Tooltip {
+.cb-MouseTooltip {
   z-index: 9999;
   position: absolute;
   display: none;
@@ -13,18 +13,18 @@ $tooltipBgColor: #363c4e;
   top: 0;
   pointer-events: none;
 
-  &.cb-Tooltip--init {
+  &.cb-MouseTooltip--init {
     display: block;
     visibility: hidden;
   }
 
-  &.cb-Tooltip--visible {
+  &.cb-MouseTooltip--visible {
     display: block;
     animation: appear 0.3s 1;
     visibility: visible;
   }
 
-  .cb-Tooltip__content {
+  .cb-MouseTooltip__content {
     background: $tooltipBgColor;
     border: 1px solid $tooltipBgColor;
     color: white;
@@ -41,8 +41,8 @@ $tooltipBgColor: #363c4e;
     }
   }
 
-  &.cb-Tooltip--top {
-    .cb-Tooltip__content {
+  &.cb-MouseTooltip--top {
+    .cb-MouseTooltip__content {
       &:before {
         bottom: -7px;
         left: 50%;
@@ -63,8 +63,8 @@ $tooltipBgColor: #363c4e;
     }
   }
 
-  &.cb-Tooltip--left {
-    .tooltip__content {
+  &.cb-MouseTooltip--left {
+    .cb-MouseTooltip__content {
       &:before {
         right: -7px;
         top: 50%;

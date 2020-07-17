@@ -77,7 +77,7 @@ class Tooltip extends Component {
         if (show === false) return null;
 
         const tooltip = (
-            <div className={classNames('tooltip', this.props.className)} style={newStyle}>
+            <div className={classNames('cb-Tooltip', this.props.className)} style={newStyle}>
                 {this.props.children}
             </div>
         );

@@ -121,12 +121,12 @@ class Tooltip extends Component {
 
         return createPortal(
             <div
-                className={classNames('cb-Tooltip', {'cb-Tooltip--init': init, 'cb-Tooltip--visible': visible, [`cb-Tooltip--${position}`]: position}, className)}
+                className={classNames('cb-MouseTooltip', {'cb-MouseTooltip--init': init, 'cb-MouseTooltip--visible': visible, [`cb-MouseTooltip--${position}`]: position}, className)}
                 onClick={this.onClick}
                 style={coordinates}
                 ref={el => this.tooltipNode = el}
             >
-                <div className="cb-Tooltip__content">
+                <div className="cb-MouseTooltip__content">
                     {content}
                 </div>
             </div>,

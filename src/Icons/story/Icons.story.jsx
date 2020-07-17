@@ -9,7 +9,7 @@ stories.addDecorator(withKnobs);
 // styles
 import '../styles/default.scss';
 
-import {TrendDownIcon, TrendUpIcon} from '../';
+import {TrendDownIcon, TrendUpIcon, InfoIcon} from '../';
 
 stories.add('Icons', () => {
     return (
@@ -31,6 +31,14 @@ stories.add('Icons', () => {
                         <TrendUpIcon />
                     </td>
                 </tr>
+				<tr>
+					<td>
+						InfoIcon
+					</td>
+					<td>
+						<InfoIcon />
+					</td>
+				</tr>
             </table>
         </div>
     )

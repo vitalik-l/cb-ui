@@ -1,0 +1,29 @@
+@font-face {
+  font-family: Info;
+  src: url(../fonts/InfoIcon/info.woff2) format('woff2'),
+  url(../fonts/InfoIcon/info.woff) format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: fallback;
+}
+
+.cb-InfoIcon {
+  background-color: #07E275;
+  border: 2.0px solid #ffffff;
+  border-radius: 50%;
+  color: black;
+  width: 1em;
+  height: 1em;
+  position: relative;
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Info;
+
+  &:before {
+    content: 'i';
+    display: inline;
+  }
+}
+
