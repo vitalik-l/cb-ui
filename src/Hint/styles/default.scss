@@ -4,12 +4,6 @@
   $borderSize: calc(1em + 2px);
   $borderColor: #8b8989;
 
-  &.no-transform {
-    .cb-Hint-container {
-      transform: none !important;
-    }
-  }
-
   .cb-Hint-container {
     font-size: 1em;
     position: relative;
