@@ -28,4 +28,57 @@
     transform-origin: center;
     transform: rotateX(180deg);
   }
+
+  > div {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    width: 60%;
+    height: 60%;
+    border-radius: 50%;
+  }
+}
+
+.cb-RoundButton {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-image: url(../img/green_button.png);
+  background-color: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: default;
+  user-select: none;
+
+  &.active {
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0 0 12px 2px lime;
+    }
+
+    &:active {
+      background: #50830E;
+    }
+  }
+
+  &.cb-RoundButton--red {
+    background-image: url(../img/red_button.png);
+
+    &.active:hover {
+      box-shadow: 0 0 12px 2px orange;
+    }
+
+    &.active:active {
+      background: #690000;
+    }
+  }
+
+  &.cb-RoundButton--orange {
+    background: transparent url(../img/orange_button.png) no-repeat center center;
+  }
 }

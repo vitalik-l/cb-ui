@@ -11,7 +11,7 @@ stories.addDecorator(withKnobs);
 // styles
 import './style.scss';
 
-import CircularIndicator from '../CircularIndicator';
+import {CircularIndicator, RoundButton} from '../index';
 
 stories.add('default', () => {
 	return (
@@ -19,7 +19,11 @@ stories.add('default', () => {
 			<CircularIndicator
 				progress={number('progress')}
 				reverse={boolean('reverse', false)}
-			/>
+			>
+				<RoundButton
+					type={select('type', ['green', 'red', 'orange'], 'green')}
+				/>
+			</CircularIndicator>
 		</div>
 	)
 });

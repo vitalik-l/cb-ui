@@ -5,7 +5,7 @@ import BezierEasing from 'bezier-easing';
 import imageDownGradient from './imageDownGradient';
 import imageUpGradient from './imageUpGradient';
 
-const CIRCLE_DASH = 439;
+const SEGMENTS = 439;
 
 function animate({ref, timing, draw, duration}) {
 	let start = performance.now(),
@@ -27,8 +27,8 @@ function animate({ref, timing, draw, duration}) {
 	});
 }
 
-function CircularIndicator({className, reverse, progress, animation}) {
-	const [strokeDashoffset, setStrokeDashoffset] = useState(CIRCLE_DASH);
+function CircularIndicator({className, reverse, progress, animation, children}) {
+	const [currentSegment, setCurrentSegment] = useState(SEGMENTS);
 	const isLoss = progress < 0;
 	const indicatorRef = useRef();
 	const animateRef = useRef();
@@ -44,11 +44,8 @@ function CircularIndicator({className, reverse, progress, animation}) {
 					progress = Math.min(100, Math.abs(progress));
 				}
 			}
-			let targetSegment = !progress ? CIRCLE_DASH : Math.round(CIRCLE_DASH * (100 - progress)/100),
-				currentSegment = strokeDashoffset,
-				deltaSegment = targetSegment - currentSegment;
-
-			console.log(progress);
+			const targetSegment = !progress ? SEGMENTS : Math.round(SEGMENTS * (100 - progress)/100);
+			const deltaSegment = targetSegment - currentSegment;
 
 			indicatorRef.current.setAttribute('stroke', isLoss ? 'url(#redGrad)' : 'url(#greenGrad)');
 
@@ -59,13 +56,13 @@ function CircularIndicator({className, reverse, progress, animation}) {
 				draw: progress => {
 					const newSegment = currentSegment + deltaSegment*progress;
 					if (reverse) {
-						if (newSegment > CIRCLE_DASH) {
+						if (newSegment > SEGMENTS) {
 							indicatorRef.current.setAttribute('stroke', 'url(#redGrad)');
 						} else {
 							indicatorRef.current.setAttribute('stroke', 'url(#greenGrad)');
 						}
 					}
-					setStrokeDashoffset(newSegment);
+					setCurrentSegment(newSegment);
 				}
 			});
 		}
@@ -74,7 +71,7 @@ function CircularIndicator({className, reverse, progress, animation}) {
 		animateProgress();
 
 		return () => window.cancelAnimationFrame(animateRef.current);
-	}, [progress]);
+	}, [progress, reverse]);
 
 	if (!reverse) {
 		stroke = isLoss ? 'url(#redGrad)' : 'url(#greenGrad)';
@@ -91,10 +88,10 @@ function CircularIndicator({className, reverse, progress, animation}) {
 						<image x="0" y="0" width="100%" height="100%" href={imageDownGradient} className={classNames({reverse})} />
 					</pattern>
 				</defs>
-				<circle cx="50%" cy="50%" r="70" stroke={stroke} style={{strokeDashoffset}} ref={indicatorRef} />
+				<circle cx="50%" cy="50%" r="70" stroke={stroke} style={{strokeDashoffset: currentSegment}} ref={indicatorRef} />
 			</svg>
 			<div>
-
+				{children}
 			</div>
 		</div>
 	)
