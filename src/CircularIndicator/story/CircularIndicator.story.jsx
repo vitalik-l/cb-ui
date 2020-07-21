@@ -30,10 +30,4 @@ function defaultView() {
 	)
 }
 
-defaultView.story = {
-	parameters: {
-		info: { inline: false },
-	}
-};
-
 stories.add('default', defaultView);
