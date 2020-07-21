@@ -2,11 +2,13 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, text, boolean, number, select } from '@storybook/addon-knobs';
+import { withInfo } from '@storybook/addon-info';
 import themeSelect from '../../utils/themeSelect.js';
 import classNames from 'classnames';
 
 const stories = storiesOf('Modal', module);
 stories.addDecorator(withKnobs);
+stories.addDecorator(withInfo);
 
 // styles
 import './style.scss';
@@ -15,7 +17,6 @@ import Modal from '../';
 import ModalHeader from '../ModalHeader';
 import ModalContent from '../ModalContent';
 import ModalActions from '../ModalActions';
-import TestModal from './TestModal';
 import RegisterAccountModal from '../RegisterAccountModal';
 import AccountModal from '../AccountModal';
 import DepositModal from '../DepositModal';
@@ -27,11 +28,28 @@ import ExchangeModal from '../ExchangeModal';
 import ContactSupportModal from '../ContactSupportModal';
 import FGLTModal from '../FGLTModal';
 
-stories.add('default', () => (
-    <div className={classNames('modal-story', themeSelect())}>
-        <TestModal/>
-    </div>
-));
+stories.add('default', () => {
+	return (
+		<div className={classNames('modal-story', themeSelect())}>
+			<Modal
+				open={boolean('open')}
+				displayCloseButton={boolean('close button')}
+				transitionEnter={boolean('animate on enter', true)}
+				transitionLeave={boolean('animate on leave', true)}
+			>
+				<ModalHeader>
+					Header
+				</ModalHeader>
+				<ModalContent>
+					Content
+				</ModalContent>
+				<ModalActions>
+					<button>OK</button>
+				</ModalActions>
+			</Modal>
+		</div>
+	);
+});
 
 stories.add('galileo', () => (
     <div className={classNames('modal-story', 'galileo')}>

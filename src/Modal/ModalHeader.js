@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function ModalHeader({children}) {
 	return (
@@ -7,5 +8,9 @@ function ModalHeader({children}) {
 		</div>
 	)
 }
+
+ModalHeader.propTypes = {
+	children: PropTypes.any
+};
 
 export default ModalHeader;

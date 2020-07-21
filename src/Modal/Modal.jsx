@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Animate from 'rc-animate';
 import CloseIcon from '../Icons/CloseIcon';
 import classNames from 'classnames';
@@ -8,7 +9,7 @@ function onModalClick(e) {
     e.stopPropagation();
 }
 
-export default function Modal(props) {
+function Modal(props) {
     const {
     	children,
 		open,
@@ -24,8 +25,8 @@ export default function Modal(props) {
         <Animate
 			transitionName="modal"
 			transitionAppear
-			transitionEnter={typeof transitionEnter === 'boolean' ? transitionEnter : true}
-			transitionLeave={typeof transitionLeave === 'boolean' ? transitionLeave : true}
+			transitionEnter={transitionEnter}
+			transitionLeave={transitionLeave}
 		>
             {open ?
                 <div className={classNames('cb-Modal-overlay', overlayClassName)} onClick={onOverlayClick}>
@@ -44,3 +45,22 @@ export default function Modal(props) {
         </Animate>
     );
 }
+
+Modal.propTypes = {
+	open: PropTypes.bool,
+	overlayClassName: PropTypes.string,
+	displayCloseButton: PropTypes.bool,
+	className: PropTypes.string,
+	children: PropTypes.any,
+	onClose: PropTypes.func,
+	onOverlayClick: PropTypes.func,
+	transitionEnter: PropTypes.bool,
+	transitionLeave: PropTypes.bool
+};
+
+Modal.defaultProps = {
+	transitionEnter: true,
+	transitionLeave: true
+};
+
+export default Modal;

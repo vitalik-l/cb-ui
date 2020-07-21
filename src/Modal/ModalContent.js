@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function ModalContent({children}) {
 	return (
@@ -7,5 +8,9 @@ function ModalContent({children}) {
 		</div>
 	)
 }
+
+ModalContent.propTypes = {
+	children: PropTypes.any
+};
 
 export default ModalContent;
