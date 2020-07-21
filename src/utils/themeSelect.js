@@ -1,11 +1,11 @@
 import {select} from '@storybook/addon-knobs';
 
-export default function() {
+export default function(themes = []) {
     return select('Theme', [
         'default',
         'wf',
         'galileo',
         'wb-mobile',
-        'wb-mobile-tabs'
+		...themes
     ], 'default');
 }
