@@ -1,11 +1,22 @@
-import { configure, setAddon } from '@storybook/react';
+import React from 'react';
+import { configure, setAddon , addDecorator} from '@storybook/react';
 import { setOptions } from '@storybook/addon-options';
-import infoAddon, { setDefaults } from '@storybook/addon-info';
+import { withInfo } from '@storybook/addon-info';
 import packageJson from '../package.json';
+import Container from './Container';
 
-import './style.scss';
+addDecorator(
+	withInfo({
+		styles: {
+			children: {
+				width: '100%',
+			},
+		},
+		maxPropStringLength: 200, // Displays the first 200 characters in the default prop string
+	})
+);
 
-setAddon(infoAddon);
+addDecorator(story => <Container story={story} />);
 
 setOptions({
   url: 'https://github.com/romanCB/cb-general',

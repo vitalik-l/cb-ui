@@ -1,0 +1,88 @@
+@import "fonts";
+.cb-Ticker {
+  $tickerUpColor: #8BD300;
+  $tickerDownColor: #C60100;
+
+  padding: 0 0.6em;
+  color: #fdab01;
+  font-family: LedBoard, sans serif;
+  background-color: #0E1112;
+  user-select: none;
+  cursor: default;
+  overflow: hidden;
+  border-left: 1px solid #27292A;
+  border-right: 1px solid #27292A;
+  -webkit-font-smoothing: antialiased;
+
+  .cb-TickerValue {
+    &__up {
+      color: $tickerUpColor;
+    }
+
+    &__down {
+      color: $tickerDownColor;
+    }
+  }
+
+  &__scroller:not(&__horizontal) {
+    padding: 0.2em 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: #000;
+    border-left: 1px solid #181B1C;
+    border-right: 1px solid #181B1C;
+    min-width: 6em;
+    margin: 0 auto;
+
+    .cb-TickerValue {
+      padding: 0 0.6em;
+      text-align: center;
+      font-weight: normal;
+      line-height: 1.2;
+      text-transform: uppercase;
+      width: 100%;
+      box-sizing: border-box;
+
+      &__up {
+        text-align: right;
+      }
+
+      &__down {
+        text-align: left;
+      }
+    }
+  }
+
+  &__horizontal {
+    display: flex;
+    justify-content: flex-end;
+    height: 4rem;
+    min-height: 4rem;
+    width: 100%;
+    max-width: unset;
+    word-spacing: -3px;
+    padding-left: 1rem;
+    box-sizing: border-box;
+    overflow: hidden;
+    user-select: none;
+    cursor: default;
+
+    .cb-TickerValue {
+      display: inline-block;
+      font-size: 1.5rem;
+      margin-right: 0.7rem;
+      height: 100%;
+      color: #fdab01;
+      position: relative;
+
+      &__up {
+        transform: translateY(0);
+      }
+      &__down {
+        transform: translateY(2rem);
+      }
+    }
+  }
+}

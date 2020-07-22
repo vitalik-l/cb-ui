@@ -2,11 +2,9 @@ import React, {useState} from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, text, boolean, number, select } from '@storybook/addon-knobs';
-import { withInfo } from '@storybook/addon-info';
 
 const stories = storiesOf('ButtonGroup', module);
 stories.addDecorator(withKnobs);
-stories.addDecorator(withInfo);
 
 // styles
 import './style.scss';
