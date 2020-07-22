@@ -7,7 +7,8 @@ const stories = storiesOf('Ticker', module);
 stories.addDecorator(withKnobs);
 
 // styles
-import '../styles/default.scss';
+import '../styles/fonts.scss';
+import './style.scss';
 
 import {Ticker, TickerValue} from '../index';
 
