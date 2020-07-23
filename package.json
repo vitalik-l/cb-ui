@@ -15,7 +15,7 @@
     "prebuild": "npm run clean:build",
     "storybook": "start-storybook -p 6006",
     "publish": "node ./scripts/release.js",
-    "local": "npm run build && cross-env PROJECT_PATH=C:\\Users\\user\\WebstormProjects\\WallSTBaccarat node ./scripts/local.js",
+    "local": "npm run build && cross-env PROJECT_PATH=C:\\Users\\user\\WebstormProjects\\RFX node ./scripts/local.js",
     "test": "cross-env BABEL_ENV=test jest",
     "deploy-storybook": "storybook-to-ghpages",
     "build-storybook": "build-storybook"

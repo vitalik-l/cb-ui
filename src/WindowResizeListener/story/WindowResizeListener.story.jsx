@@ -3,20 +3,20 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, text, boolean, number, select } from '@storybook/addon-knobs';
 
-const stories = storiesOf('ResponsiveViewport', module);
+const stories = storiesOf('WindowResizeListener', module);
 stories.addDecorator(withKnobs);
 
-import ResponsiveViewport from '../';
-import useViewport from '../useViewport';
+import WindowResizeListener from '../index';
+import useWindowSize from '../useWindowSize';
 
 function App() {
-	const {viewportWidth, viewportHeight} = useViewport();
+	const [windowWidth, windowHeight] = useWindowSize();
 
 	return (
 		<div style={{
 			background: 'yellow',
-			width: viewportWidth,
-			height: viewportHeight,
+			width: windowWidth,
+			height: windowHeight,
 			margin: '0 auto',
 			transition: 'all 0.5s'
 		}} />
@@ -25,12 +25,10 @@ function App() {
 
 stories.add('default', () => {
 	return (
-		<ResponsiveViewport
-			minRatio={4/3}
-			maxRatio={21/9}
+		<WindowResizeListener
 			timeout={0}
 		>
 			<App />
-		</ResponsiveViewport>
+		</WindowResizeListener>
 	)
 });
