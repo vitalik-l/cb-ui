@@ -13,7 +13,13 @@ function App() {
 	const {viewportWidth, viewportHeight} = useViewport();
 
 	return (
-		<div style={{background: 'white', width: viewportWidth, height: viewportHeight}} />
+		<div style={{
+			background: 'yellow',
+			width: viewportWidth,
+			height: viewportHeight,
+			margin: '0 auto',
+			transition: 'all 0.5s'
+		}} />
 	)
 }
 
