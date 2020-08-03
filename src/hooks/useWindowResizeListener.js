@@ -9,6 +9,14 @@ function useWindowResizeListener({ timeout }) {
 
     function resize(e) {
       const currentWindow = e ? e.target : window;
+
+      // don't resize when keyboard opens on android device
+      // https://stackoverflow.com/questions/33673376/prevent-document-reflow-browser-resize-when-android-keyboard-opens
+      const { activeElement } = currentWindow.document;
+      if (activeElement
+        && (activeElement.getAttribute('type') === 'text' || activeElement.tagName.toLowerCase() === 'textarea')
+      ) return;
+
       const { innerHeight } = currentWindow;
       const { innerWidth } = currentWindow;
       if (preWindowSize.height !== innerHeight || preWindowSize.width !== innerWidth) {
