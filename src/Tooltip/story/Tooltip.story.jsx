@@ -1,16 +1,17 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { withKnobs, text, boolean, number, select } from '@storybook/addon-knobs';
-
-const stories = storiesOf('Tooltip', module);
-stories.addDecorator(withKnobs);
+import {
+  withKnobs,
+} from '@storybook/addon-knobs';
 
 // styles
 import './style.scss';
 
 import TestTooltip from './TestTooltip';
 
+const stories = storiesOf('Tooltip', module);
+stories.addDecorator(withKnobs);
+
 stories.add('default', () => (
-    <TestTooltip />
+  <TestTooltip />
 ));

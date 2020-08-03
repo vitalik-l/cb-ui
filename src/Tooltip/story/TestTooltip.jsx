@@ -1,28 +1,33 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Tooltip from '../Tooltip';
 
 class TestTooltip extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            showTooltip: false
-        };
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      showTooltip: false,
+    };
+  }
+
     mouseEnter = () => {
-        this.setState({showTooltip: true});
+      this.setState({ showTooltip: true });
     };
+
     mouseLeave = () => {
-        this.setState({showTooltip: false});
+      this.setState({ showTooltip: false });
     };
+
     render() {
-        return (
-            <div>
-                <button id="button1" onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave}>Display tooltip</button>
-                <Tooltip show={this.state.showTooltip} element="button1" timeout={2000}>
-                    123
-                </Tooltip>
-            </div>
-        )
+      const { showTooltip } = this.state;
+
+      return (
+        <div>
+          <button type="button" id="button1" onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave}>Display tooltip</button>
+          <Tooltip show={showTooltip} element="button1" timeout={2000}>
+            123
+          </Tooltip>
+        </div>
+      );
     }
 }
 

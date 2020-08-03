@@ -1,2 +1,2 @@
-export {default as Ticker} from './Ticker';
-export {default as TickerValue} from './TickerValue';
+export { default as Ticker } from './Ticker';
+export { default as TickerValue } from './TickerValue';

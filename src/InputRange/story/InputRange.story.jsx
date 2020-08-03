@@ -1,21 +1,21 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { withKnobs, text, boolean, number, select } from '@storybook/addon-knobs';
-
-const stories = storiesOf('InputRange', module);
-stories.addDecorator(withKnobs);
+import {
+  withKnobs, text, boolean, number, select,
+} from '@storybook/addon-knobs';
 
 // styles
 import '../styles/default.scss';
 
-import InputRange from '../';
+import InputRange from '..';
 
-stories.add('Slider', () => {
-    return (
-        <InputRange
-            value={number('value', 40)}
-            onChange={action('onChange')}
-        />
-    )
-});
+const stories = storiesOf('InputRange', module);
+stories.addDecorator(withKnobs);
+
+stories.add('Slider', () => (
+  <InputRange
+    value={number('value', 40)}
+    onChange={action('onChange')}
+  />
+));

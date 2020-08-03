@@ -1,143 +1,155 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import Modal from './Modal';
 import ModalActions from './ModalActions';
 import ModalContent from './ModalContent';
 import ModalHeader from './ModalHeader';
 import InputGroup from '../InputGroup';
-import classNames from 'classnames';
 
 const RATE = 0.0005;
 
 class CBCExchangeModal extends Component {
 	static propTypes = {
-		currencies: PropTypes.object,
-        balances: PropTypes.any,
-        onExchange: PropTypes.func
+	  currencies: PropTypes.object,
+	  balances: PropTypes.any,
+	  onExchange: PropTypes.func,
 	};
 
 	static defaultProps = {
-        currencies: {},
-        balances: new Map()
+	  currencies: {},
+	  balances: new Map(),
 	};
 
 	constructor(props) {
-		super(props);
-		this.state = {
-			errors: {},
-			btcValue: 0,
-			cbcValue: 0,
-            pauseClick: false,
-			sellHovered: false
-		};
-		this.submitBuy = this.submitForm.bind(this, true);
-		this.submitSell = this.submitForm.bind(this, false);
+	  super(props);
+	  this.state = {
+	    errors: {},
+	    btcValue: 0,
+	    cbcValue: 0,
+	    pauseClick: false,
+	    sellHovered: false,
+	  };
+	  this.submitBuy = this.submitForm.bind(this, true);
+	  this.submitSell = this.submitForm.bind(this, false);
 	}
 
 	validate = () => {
-		const {amount} = this.form;
-		let errors = {};
+	  const { amount } = this.form;
+	  const errors = {};
 
-		if (+amount.value > 3000000) errors.amount = 'Max amount is 3 000 000';
+	  if (+amount.value > 3000000) errors.amount = 'Max amount is 3 000 000';
 
-		this.setState({errors});
-		return !Object.keys(errors).length;
+	  this.setState({ errors });
+	  return !Object.keys(errors).length;
 	};
 
 	submitForm(buy) {
-		if (!this.form.checkValidity() && !this.form.reportValidity() || !this.validate()) return;
-		const {amount} = this.form;
+	  if (!this.form.checkValidity() && !this.form.reportValidity() || !this.validate()) return;
+	  const { amount } = this.form;
 
-		this.props.onExchange && this.props.onExchange(buy, +amount.value);
-		this.setState({pauseClick: true}, () => {
-			setTimeout(() => {
-                this.setState({pauseClick: false});
-			}, 1000);
-		});
-	};
-
-	convertCurrency(value) {
-		this.setState({
-			btcValue: +((+value*RATE).toFixed(4))
-		});
+	  this.props.onExchange && this.props.onExchange(buy, +amount.value);
+	  this.setState({ pauseClick: true }, () => {
+	    setTimeout(() => {
+	      this.setState({ pauseClick: false });
+	    }, 1000);
+	  });
 	}
 
-	onAmountChange = e => {
-		this.setState({
-            cbcValue: e.target.value
-		});
-		if (!this.validate()) return;
-		this.convertCurrency(e.target.value);
+	convertCurrency(value) {
+	  this.setState({
+	    btcValue: +((+value * RATE).toFixed(4)),
+	  });
+	}
+
+	onAmountChange = (e) => {
+	  this.setState({
+	    cbcValue: e.target.value,
+	  });
+	  if (!this.validate()) return;
+	  this.convertCurrency(e.target.value);
 	};
 
-	sellMouseEnter = e => {
-		this.setState({sellHovered: true});
+	sellMouseEnter = (e) => {
+	  this.setState({ sellHovered: true });
 	};
 
-	sellMouseLeave = e => {
-        this.setState({sellHovered: false});
-    };
+	sellMouseLeave = (e) => {
+	  this.setState({ sellHovered: false });
+	};
 
 	render() {
-		let {currencies, balances, disableSell, ...props} = this.props;
-		const {errors, btcValue, cbcValue, pauseClick, sellHovered} = this.state;
-		let submitDisabled = !!Object.keys(errors).length || btcValue === 0 || pauseClick;
-			disableSell = disableSell || !balances.get(currencies.CBC.code);
+	  let {
+	    currencies, balances, disableSell, ...props
+	  } = this.props;
+	  const {
+	    errors, btcValue, cbcValue, pauseClick, sellHovered,
+	  } = this.state;
+	  const submitDisabled = !!Object.keys(errors).length || btcValue === 0 || pauseClick;
+	  disableSell = disableSell || !balances.get(currencies.CBC.code);
 
-		return (
-			<Modal className="cb-CBCExchangeModal" {...props}>
-				<ModalHeader>
-					CBC Tokens
-				</ModalHeader>
-				<ModalContent>
-					<form
-						autoComplete="off"
-						ref={el => this.form = el}
-						onSubmit={e => e.preventDefault()}
-					>
-						<InputGroup label="Amount, CBC*">
-							<input
-								className="cb-Input"
-								placeholder="Amount, CBC"
-								type="number"
-								name="amount"
-								min={1}
-								max={3000000}
-								step="any"
-								required
-								value={cbcValue}
-								onInput={this.onAmountChange}
-								error={errors.amount}
-							/>
-						</InputGroup>
-						<div className="exchange-buttons">
-							<div className={classNames('exchange-button', 'exchange-button--buy', {'exchange-button--disabled': submitDisabled})} onClick={!submitDisabled ? this.submitBuy : null}>
-								<div>
-									<div>BUY</div>
-									<div>1 CBC = 0.0005 BTC</div>
-									<div>Will take:</div>
-									<div>{btcValue} BTC</div>
-								</div>
-							</div>
-							<div className={classNames('exchange-button', 'exchange-button--sell', {'exchange-button--disabled': submitDisabled || disableSell})} onClick={submitDisabled || disableSell ? null : this.submitSell} onMouseEnter={this.sellMouseEnter} onMouseLeave={this.sellMouseLeave}>
-                                {!sellHovered ?
-									<div>
-										<div>SELL</div>
-									</div> :
-									<span>
-										Sell at the following exchanges<br />
-										after the ICO
-									</span>
-                                }
-							</div>
-						</div>
-					</form>
-				</ModalContent>
-				<ModalActions>
-					<button className="cb-Button" onClick={props.onClose}>Cancel</button>
-				</ModalActions>
-			</Modal>
-		);
+	  return (
+  <Modal className="cb-CBCExchangeModal" {...props}>
+    <ModalHeader>
+      CBC Tokens
+    </ModalHeader>
+    <ModalContent>
+      <form
+        autoComplete="off"
+        ref={(el) => this.form = el}
+        onSubmit={(e) => e.preventDefault()}
+      >
+        <InputGroup label="Amount, CBC*">
+          <input
+            className="cb-Input"
+            placeholder="Amount, CBC"
+            type="number"
+            name="amount"
+            min={1}
+            max={3000000}
+            step="any"
+            required
+            value={cbcValue}
+            onInput={this.onAmountChange}
+            error={errors.amount}
+          />
+        </InputGroup>
+        <div className="exchange-buttons">
+          <div className={classNames('exchange-button', 'exchange-button--buy', { 'exchange-button--disabled': submitDisabled })} onClick={!submitDisabled ? this.submitBuy : null}>
+            <div>
+              <div>BUY</div>
+              <div>1 CBC = 0.0005 BTC</div>
+              <div>Will take:</div>
+              <div>
+                {btcValue}
+                {' '}
+                BTC
+              </div>
+            </div>
+          </div>
+          <div className={classNames('exchange-button', 'exchange-button--sell', { 'exchange-button--disabled': submitDisabled || disableSell })} onClick={submitDisabled || disableSell ? null : this.submitSell} onMouseEnter={this.sellMouseEnter} onMouseLeave={this.sellMouseLeave}>
+            {!sellHovered
+              ? (
+                <div>
+                  <div>SELL</div>
+                </div>
+              )
+              : (
+                <span>
+                  Sell at the following exchanges
+                  <br />
+                  after the ICO
+                </span>
+              )}
+          </div>
+        </div>
+      </form>
+    </ModalContent>
+    <ModalActions>
+      <button className="cb-Button" onClick={props.onClose}>Cancel</button>
+    </ModalActions>
+  </Modal>
+	  );
 	}
 }
 

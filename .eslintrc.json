@@ -1,19 +1,30 @@
 {
+    "parser": "babel-eslint",
     "env": {
         "browser": true,
         "es2020": true
     },
-    "extends": "plugin:react/recommended",
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 11,
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react"
+    "extends": [
+        "airbnb",
+        "airbnb/hooks"
     ],
     "rules": {
+        "import/no-named-as-default": 0,
+        "import/no-named-as-default-member": 0,
+        "linebreak-style": 0,
+        "react/jsx-filename-extension": 0,
+        "react/jsx-props-no-spreading": 0,
+        "no-param-reassign": ["error", { "props": false }],
+        "react/require-default-props": 0,
+        "import/no-extraneous-dependencies": [
+            "error", {
+                "devDependencies": [
+                    "**/*.story.jsx",
+                    "src/utils/**",
+                    "**/*.spec.js",
+                    "src/setupTests.js"
+                ]
+            }
+        ]
     }
 }

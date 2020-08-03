@@ -1,18 +1,22 @@
-export default function getPosition(e, parent){
-	if(!e) return;
-	let left = 0,
-		top = 0;
+export default function getPosition(e, parent) {
+  if (!e) return {};
+  let element = e;
+  let left = 0;
+  let top = 0;
 
-	const checkParent = el => typeof parent === 'string' ? el.classList && !el.classList.contains(parent) : el !== parent;
+  const checkParent = (el) => (typeof parent === 'string' ? el.classList && !el.classList.contains(parent) : el !== parent);
 
-	while ((e.offsetParent && !parent) || (e.offsetParent && parent && checkParent(e.offsetParent))){
-		left += e.offsetLeft;
-		top  += e.offsetTop;
-		e	 = e.offsetParent;
-	}
+  while ((element.offsetParent && !parent)
+  || (element.offsetParent && parent && checkParent(element.offsetParent))) {
+    left += element.offsetLeft;
+    top += element.offsetTop;
+    element = element.offsetParent;
+  }
 
-	left += e.offsetLeft;
-	top  += e.offsetTop;
+  left += element.offsetLeft;
+  top += element.offsetTop;
 
-	return {x:left, y:top, left, top};
+  return {
+    x: left, y: top, left, top,
+  };
 }
