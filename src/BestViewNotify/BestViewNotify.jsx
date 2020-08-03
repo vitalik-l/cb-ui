@@ -16,24 +16,20 @@ const launchFullScreen = () => {
 };
 
 class BestViewNotify extends PureComponent {
-    static propTypes = {
-      className: PropTypes.string,
+  constructor(props) {
+    super(props);
+    this.state = {
+      bestView: isFullScreen(),
     };
+  }
 
-    constructor(props) {
-      super(props);
-      this.state = {
-        bestView: isFullScreen(),
-      };
-    }
+  componentDidMount() {
+    window.addEventListener('resize', this.checkFullScreen);
+  }
 
-    componentDidMount() {
-      window.addEventListener('resize', this.checkFullScreen);
-    }
-
-    componentWillUmnount() {
-      window.removeEventListener('resize', this.checkFullScreen);
-    }
+  componentWillUmnount() {
+    window.removeEventListener('resize', this.checkFullScreen);
+  }
 
     checkFullScreen = () => {
       this.setState({ bestView: isFullScreen() });
@@ -63,5 +59,9 @@ class BestViewNotify extends PureComponent {
       );
     }
 }
+
+BestViewNotify.propTypes = {
+  className: PropTypes.string,
+};
 
 export default BestViewNotify;

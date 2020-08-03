@@ -9,18 +9,14 @@ import { REGEXP } from './constants';
 import InputGroup from '../InputGroup';
 
 class RegisterAccountModal extends Component {
-    static propTypes = {
-      onContactSupport: PropTypes.func,
+  constructor(props) {
+    super(props);
+    this.state = {
+      errors: {},
+      hidePwd: false,
+      email: '',
     };
-
-    constructor(props) {
-      super(props);
-      this.state = {
-        errors: {},
-        hidePwd: false,
-        email: '',
-      };
-    }
+  }
 
     validate = () => {
       const { password, confirmPassword, username } = this.form;
@@ -151,5 +147,9 @@ class RegisterAccountModal extends Component {
       );
     }
 }
+
+RegisterAccountModal.propTypes = {
+  onContactSupport: PropTypes.func,
+};
 
 export default RegisterAccountModal;

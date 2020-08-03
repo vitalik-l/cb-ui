@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import omit from '../utils/omit';
 
-export default class RadiogroupButton extends React.PureComponent {
+export default class RadiogroupButton extends PureComponent {
   render() {
     const {
       children, active, value, className,
@@ -17,7 +17,8 @@ export default class RadiogroupButton extends React.PureComponent {
 }
 
 RadiogroupButton.propTypes = {
-  children: PropTypes.any,
+  children: PropTypes.node,
   active: PropTypes.bool,
-  value: PropTypes.any,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  className: PropTypes.string,
 };

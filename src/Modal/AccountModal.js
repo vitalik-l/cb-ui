@@ -8,20 +8,12 @@ import ModalActions from './ModalActions';
 import InputGroup from '../InputGroup';
 
 class AccountModal extends Component {
-    static propTypes = {
-      onChangePassword: PropTypes.func,
-      onChangeEmail: PropTypes.func,
-      onLogout: PropTypes.func,
-      email: PropTypes.string,
-      onContactSupport: PropTypes.func,
+  constructor(props) {
+    super(props);
+    this.state = {
+      errors: {},
     };
-
-    constructor(props) {
-      super(props);
-      this.state = {
-        errors: {},
-      };
-    }
+  }
 
     validateChangePasswordForm = () => {
       const { newPassword, confirmPassword } = this.changePasswordForm;
@@ -148,5 +140,13 @@ class AccountModal extends Component {
       );
     }
 }
+
+AccountModal.propTypes = {
+  onChangePassword: PropTypes.func,
+  onChangeEmail: PropTypes.func,
+  onLogout: PropTypes.func,
+  email: PropTypes.string,
+  onContactSupport: PropTypes.func,
+};
 
 export default AccountModal;

@@ -4,30 +4,6 @@ import classNames from 'classnames';
 import { transitionEndEvent, animationEndEvent } from '../utils/animations';
 
 class Chip extends PureComponent {
-    static propTypes = {
-      value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-      selected: PropTypes.bool,
-      className: PropTypes.string,
-      pos: PropTypes.object,
-      animate: PropTypes.func,
-      onAnimationEnd: PropTypes.func,
-      onClick: PropTypes.func,
-      onMouseEnter: PropTypes.func,
-      onMouseLeave: PropTypes.func,
-      color: PropTypes.string,
-    };
-
-    static defaultProps = {
-      value: 1,
-      selected: false,
-      className: '',
-      pos: {},
-    };
-
-    constructor(props) {
-      super(props);
-    }
-
     handleAnimationEnd = (e) => {
       this.props.onAnimationEnd && this.props.onAnimationEnd(e, this);
     };
@@ -88,5 +64,25 @@ class Chip extends PureComponent {
       );
     }
 }
+
+Chip.propTypes = {
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  selected: PropTypes.bool,
+  className: PropTypes.string,
+  pos: PropTypes.object,
+  animate: PropTypes.func,
+  onAnimationEnd: PropTypes.func,
+  onClick: PropTypes.func,
+  onMouseEnter: PropTypes.func,
+  onMouseLeave: PropTypes.func,
+  color: PropTypes.string,
+};
+
+Chip.defaultProps = {
+  value: 1,
+  selected: false,
+  className: '',
+  pos: {},
+};
 
 export default Chip;

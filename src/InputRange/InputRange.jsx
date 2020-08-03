@@ -25,44 +25,18 @@ const constants = {
 };
 
 class Slider extends Component {
-    static propTypes = {
-      min: PropTypes.number,
-      max: PropTypes.number,
-      step: PropTypes.number,
-      value: PropTypes.number,
-      orientation: PropTypes.string,
-      tooltip: PropTypes.bool,
-      reverse: PropTypes.bool,
-      labels: PropTypes.object,
-      format: PropTypes.func,
-      onChangeStart: PropTypes.func,
-      onChange: PropTypes.func,
-      onChangeComplete: PropTypes.func,
+  constructor(props, context) {
+    super(props, context);
+
+    this.state = {
+      limit: 0,
+      grab: 0,
     };
+  }
 
-    static defaultProps = {
-      min: 0,
-      max: 100,
-      step: 1,
-      value: 0,
-      orientation: 'horizontal',
-      tooltip: true,
-      reverse: false,
-      labels: {},
-    };
-
-    constructor(props, context) {
-      super(props, context);
-
-      this.state = {
-        limit: 0,
-        grab: 0,
-      };
-    }
-
-    componentDidMount() {
-      this.handleUpdate();
-    }
+  componentDidMount() {
+    this.handleUpdate();
+  }
 
     /**
      * Prevent default event and bubbling
@@ -328,5 +302,31 @@ class Slider extends Component {
       );
     }
 }
+
+Slider.propTypes = {
+  min: PropTypes.number,
+  max: PropTypes.number,
+  step: PropTypes.number,
+  value: PropTypes.number,
+  orientation: PropTypes.string,
+  tooltip: PropTypes.bool,
+  reverse: PropTypes.bool,
+  labels: PropTypes.object,
+  format: PropTypes.func,
+  onChangeStart: PropTypes.func,
+  onChange: PropTypes.func,
+  onChangeComplete: PropTypes.func,
+};
+
+Slider.defaultProps = {
+  min: 0,
+  max: 100,
+  step: 1,
+  value: 0,
+  orientation: 'horizontal',
+  tooltip: true,
+  reverse: false,
+  labels: {},
+};
 
 export default Slider;

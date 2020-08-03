@@ -10,18 +10,7 @@ import InputGroup from '../InputGroup';
 const RATE = 0.0005;
 
 class CBCExchangeModal extends Component {
-	static propTypes = {
-	  currencies: PropTypes.object,
-	  balances: PropTypes.any,
-	  onExchange: PropTypes.func,
-	};
-
-	static defaultProps = {
-	  currencies: {},
-	  balances: new Map(),
-	};
-
-	constructor(props) {
+  constructor(props) {
 	  super(props);
 	  this.state = {
 	    errors: {},
@@ -32,7 +21,7 @@ class CBCExchangeModal extends Component {
 	  };
 	  this.submitBuy = this.submitForm.bind(this, true);
 	  this.submitSell = this.submitForm.bind(this, false);
-	}
+  }
 
 	validate = () => {
 	  const { amount } = this.form;
@@ -152,5 +141,16 @@ class CBCExchangeModal extends Component {
 	  );
 	}
 }
+
+CBCExchangeModal.propTypes = {
+  currencies: PropTypes.object,
+  balances: PropTypes.any,
+  onExchange: PropTypes.func,
+};
+
+CBCExchangeModal.defaultProps = {
+  currencies: {},
+  balances: new Map(),
+};
 
 export default CBCExchangeModal;

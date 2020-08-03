@@ -3,18 +3,6 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 class Drawer extends Component {
-    static propTypes = {
-      open: PropTypes.boolean,
-      onRequestHide: PropTypes.func,
-      position: PropTypes.oneOf(['left', 'right']),
-      children: PropTypes.any,
-    };
-
-    static defaultProps = {
-      position: 'left',
-      open: false,
-    };
-
     onOverlayClick = () => {
       this.props.onRequestHide && this.props.onRequestHide();
     };
@@ -39,5 +27,17 @@ class Drawer extends Component {
       );
     }
 }
+
+Drawer.propTypes = {
+  open: PropTypes.boolean,
+  onRequestHide: PropTypes.func,
+  position: PropTypes.oneOf(['left', 'right']),
+  children: PropTypes.any,
+};
+
+Drawer.defaultProps = {
+  position: 'left',
+  open: false,
+};
 
 export default Drawer;

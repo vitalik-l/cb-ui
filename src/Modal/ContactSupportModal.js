@@ -6,18 +6,9 @@ import ModalContent from './ModalContent';
 import ModalActions from './ModalActions';
 
 class ContactSupportModal extends Component {
-	static propTypes = {
-	  displayForm: PropTypes.bool,
-	  onSubmit: PropTypes.func,
-	};
-
-	static defaultProps = {
-	  displayForm: true,
-	};
-
-	componentDidMount() {
+  componentDidMount() {
 	  if (this.form) this.form.description.focus();
-	}
+  }
 
     submitForm = () => {
       if (!this.form.checkValidity() && !this.form.reportValidity()) return;
@@ -73,5 +64,14 @@ class ContactSupportModal extends Component {
       );
     }
 }
+
+ContactSupportModal.propTypes = {
+  displayForm: PropTypes.bool,
+  onSubmit: PropTypes.func,
+};
+
+ContactSupportModal.defaultProps = {
+  displayForm: true,
+};
 
 export default ContactSupportModal;

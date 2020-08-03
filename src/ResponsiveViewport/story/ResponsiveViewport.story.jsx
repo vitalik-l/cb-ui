@@ -15,11 +15,11 @@ function App() {
 
   return (
     <div style={{
-		  background: 'yellow',
-		  width: viewportWidth,
-		  height: viewportHeight,
-		  margin: '0 auto',
-		  transition: 'all 0.5s',
+      background: 'yellow',
+      width: viewportWidth,
+      height: viewportHeight,
+      margin: '0 auto',
+      transition: 'all 0.5s',
     }}
     />
   );
@@ -30,7 +30,7 @@ stories.add('default', () => (
     minRatio={4 / 3}
     maxRatio={21 / 9}
     timeout={0}
-		>
+  >
     <App />
   </ResponsiveViewport>
 ));

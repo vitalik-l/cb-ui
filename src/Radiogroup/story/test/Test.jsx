@@ -15,8 +15,10 @@ export default class Test extends Component {
     };
 
     render() {
+      const { value } = this.state;
+
       return (
-        <Radiogroup value={this.state.value} onChange={this.onChange}>
+        <Radiogroup value={value} onChange={this.onChange}>
           <RadiogroupButton value={1}>1</RadiogroupButton>
           <RadiogroupButton value={2}>2</RadiogroupButton>
           <RadiogroupButton value={3} onClick={this.testClick}>3</RadiogroupButton>

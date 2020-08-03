@@ -5,35 +5,17 @@ import ModalContent from './ModalContent';
 import ModalHeader from './ModalHeader';
 
 class ExchangeModal extends Component {
-    static propTypes = {
-      currencies: PropTypes.object,
-      balances: PropTypes.any,
-      onExchange: PropTypes.func,
-      rate: PropTypes.object,
-      modalTitle: PropTypes.string,
-      exchangeSuccess: PropTypes.bool,
-      onAnotherExchange: PropTypes.func,
+  constructor(props) {
+    super(props);
+    const currenciesKeys = Object.keys(props.currencies);
+    this.state = {
+      errors: {},
+      convertingValue: 0,
+      receiveValue: 0,
+      convertingCurrency: currenciesKeys[0],
+      receiveCurrency: currenciesKeys[1],
     };
-
-    static defaultProps = {
-      currencies: {},
-      balances: new Map(),
-      modalTitle: 'GLT Tokens',
-      rate: { currencyIn: 'GLT', currencyOut: 'BTC', value: 0.0005 },
-      fmtMoney: (v, currency) => `${v || 0}${currency}`,
-    };
-
-    constructor(props) {
-      super(props);
-      const currenciesKeys = Object.keys(props.currencies);
-      this.state = {
-        errors: {},
-        convertingValue: 0,
-        receiveValue: 0,
-        convertingCurrency: currenciesKeys[0],
-        receiveCurrency: currenciesKeys[1],
-      };
-    }
+  }
 
     validate = (shouldReturnErrors = false) => {
       const { convertingValue } = this.form;
@@ -268,5 +250,23 @@ class ExchangeModal extends Component {
       );
     }
 }
+
+ExchangeModal.propTypes = {
+  currencies: PropTypes.object,
+  balances: PropTypes.any,
+  onExchange: PropTypes.func,
+  rate: PropTypes.object,
+  modalTitle: PropTypes.string,
+  exchangeSuccess: PropTypes.bool,
+  onAnotherExchange: PropTypes.func,
+};
+
+ExchangeModal.defaultProps = {
+  currencies: {},
+  balances: new Map(),
+  modalTitle: 'GLT Tokens',
+  rate: { currencyIn: 'GLT', currencyOut: 'BTC', value: 0.0005 },
+  fmtMoney: (v, currency) => `${v || 0}${currency}`,
+};
 
 export default ExchangeModal;

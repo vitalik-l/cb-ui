@@ -12,31 +12,17 @@ function generateQRCode(address) {
 }
 
 class DepositModalContent extends Component {
-    static propTypes = {
-      getDepositAddress: PropTypes.func,
-      currencies: PropTypes.array,
-      funCurrencyCode: PropTypes.string,
+  constructor(props) {
+    super(props);
+    this.state = {
+      currency: 'BTC',
+      copied: false,
     };
+  }
 
-    static defaultProps = {
-      currencies: [{
-        code: 'BTC',
-        title: 'Bitcoin',
-      }],
-      funCurrencyCode: 'FGLT',
-    };
-
-    constructor(props) {
-      super(props);
-      this.state = {
-        currency: 'BTC',
-        copied: false,
-      };
-    }
-
-    componentDidMount() {
-      if (this.state.currency) this.props.getDepositAddress && this.props.getDepositAddress(this.state.currency);
-    }
+  componentDidMount() {
+    if (this.state.currency) this.props.getDepositAddress && this.props.getDepositAddress(this.state.currency);
+  }
 
     onCurrencyChange = ({ target }) => {
       this.setState({ currency: target.value }, () => {
@@ -127,6 +113,20 @@ class DepositModalContent extends Component {
       );
     }
 }
+
+DepositModalContent.propTypes = {
+  getDepositAddress: PropTypes.func,
+  currencies: PropTypes.array,
+  funCurrencyCode: PropTypes.string,
+};
+
+DepositModalContent.defaultProps = {
+  currencies: [{
+    code: 'BTC',
+    title: 'Bitcoin',
+  }],
+  funCurrencyCode: 'FGLT',
+};
 
 export default function DepositModal(props) {
   return (

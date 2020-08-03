@@ -4,42 +4,24 @@ import classNames from 'classnames';
 import ProgressButton from '../ProgressButton';
 import Dropdown from '../Dropdown';
 
-export default class extends Component {
-    static propTypes = {
-      currency: PropTypes.object,
-      onDisplayCurrencyMenu: PropTypes.func,
-      onCloseCurrencyMenu: PropTypes.func,
-      value: PropTypes.array,
-      profitField: PropTypes.string,
-      progressField: PropTypes.string,
-      currencyField: PropTypes.string,
-      requestEarlyExitAll: PropTypes.func,
+export default class NetPL extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedCurrency: props.currency.code,
+      targetElement: null,
     };
+  }
 
-    static defaultProps = {
-      profitField: 'profit',
-      progressField: 'profitToPayoutRatio',
-      currencyField: 'currency',
-      currency: {},
-    };
-
-    constructor(props) {
-      super(props);
-      this.state = {
-        selectedCurrency: props.currency.code,
-        targetElement: null,
-      };
-    }
-
-    componentWillReceiveProps(nextProps) {
-      if (nextProps.currency.code !== this.props.currency.code) {
-        if (nextProps.value.some((item) => item[this.props.currencyField] === nextProps.currency.code)) {
-          this.setState({
-            selectedCurrency: nextProps.currency.code,
-          });
-        }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.currency.code !== this.props.currency.code) {
+      if (nextProps.value.some((item) => item[this.props.currencyField] === nextProps.currency.code)) {
+        this.setState({
+          selectedCurrency: nextProps.currency.code,
+        });
       }
     }
+  }
 
     displayCurrencyMenu = (e) => {
       this.setState({ targetElement: e.target }, () => {
@@ -114,3 +96,21 @@ export default class extends Component {
       );
     }
 }
+
+NetPL.propTypes = {
+  currency: PropTypes.object,
+  onDisplayCurrencyMenu: PropTypes.func,
+  onCloseCurrencyMenu: PropTypes.func,
+  value: PropTypes.array,
+  profitField: PropTypes.string,
+  progressField: PropTypes.string,
+  currencyField: PropTypes.string,
+  requestEarlyExitAll: PropTypes.func,
+};
+
+NetPL.defaultProps = {
+  profitField: 'profit',
+  progressField: 'profitToPayoutRatio',
+  currencyField: 'currency',
+  currency: {},
+};

@@ -10,21 +10,7 @@ const ADDRESS_LENGTH_MIN = 34;
 const ADDRESS_LENGTH_MAX = 44;
 
 class WithdrawalModal extends Component {
-	static propTypes = {
-	  balances: PropTypes.any,
-	  onWithdraw: PropTypes.func,
-	  currencies: PropTypes.object,
-	  getWithdrawalFee: PropTypes.func,
-	  onClose: PropTypes.func,
-	  fmtMoney: PropTypes.func,
-	};
-
-	static defaultProps = {
-	  balances: new Map(),
-	  currencies: {},
-	};
-
-	constructor(props) {
+  constructor(props) {
 	  super(props);
 	  this.state = {
 	    currency: props.currency,
@@ -33,11 +19,11 @@ class WithdrawalModal extends Component {
 	    priority: 'medium',
 	    errors: {},
 	  };
-	}
+  }
 
-	get balance() {
+  get balance() {
 	  return this.props.balances.get(this.state.currency.code);
-	}
+  }
 
 	validate = () => {
 	  const { amount, address } = this.state;
@@ -209,5 +195,19 @@ class WithdrawalModal extends Component {
 	  );
 	}
 }
+
+WithdrawalModal.propTypes = {
+  balances: PropTypes.any,
+  onWithdraw: PropTypes.func,
+  currencies: PropTypes.object,
+  getWithdrawalFee: PropTypes.func,
+  onClose: PropTypes.func,
+  fmtMoney: PropTypes.func,
+};
+
+WithdrawalModal.defaultProps = {
+  balances: new Map(),
+  currencies: {},
+};
 
 export default WithdrawalModal;

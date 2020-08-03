@@ -3,12 +3,6 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 class MenuPanel extends Component {
-    static propTypes = {
-      links: PropTypes.array,
-      open: PropTypes.bool,
-      onRequestHide: PropTypes.bool,
-    };
-
     onOverlayClick = () => {
       this.props.onRequestHide && this.props.onRequestHide();
     };
@@ -26,5 +20,11 @@ class MenuPanel extends Component {
       );
     }
 }
+
+MenuPanel.propTypes = {
+  links: PropTypes.array,
+  open: PropTypes.bool,
+  onRequestHide: PropTypes.bool,
+};
 
 export default MenuPanel;

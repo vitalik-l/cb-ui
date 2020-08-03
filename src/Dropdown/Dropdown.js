@@ -22,37 +22,24 @@ function calculatePosition(element, display) {
 }
 
 class Dropdown extends Component {
-    static propTypes = {
-      element: PropTypes.any,
-      show: PropTypes.bool,
-      onClose: PropTypes.func,
-      value: PropTypes.any,
-      options: PropTypes.array,
-      className: PropTypes.string,
+  constructor(props) {
+    super(props);
+    this.position = calculatePosition(props.element, props.display);
+    this.state = {
+      show: props.show,
     };
+  }
 
-    static defaultProps = {
-      display: 'bottom',
-    };
-
-    constructor(props) {
-      super(props);
-      this.position = calculatePosition(props.element, props.display);
-      this.state = {
-        show: props.show,
-      };
-    }
-
-    componentWillReceiveProps(nextProps) {
-      if (this.props.show !== nextProps.show) {
-        if (nextProps.show) {
-          this.position = calculatePosition(nextProps.element, nextProps.display);
-        }
-        this.setState({ show: nextProps.show }, () => {
-          document[nextProps.show ? 'addEventListener' : 'removeEventListener']('click', this.clickEventListener);
-        });
+  componentWillReceiveProps(nextProps) {
+    if (this.props.show !== nextProps.show) {
+      if (nextProps.show) {
+        this.position = calculatePosition(nextProps.element, nextProps.display);
       }
+      this.setState({ show: nextProps.show }, () => {
+        document[nextProps.show ? 'addEventListener' : 'removeEventListener']('click', this.clickEventListener);
+      });
     }
+  }
 
     clickEventListener = (e) => {
       this.props.onClose && this.props.onClose();
@@ -97,5 +84,18 @@ class Dropdown extends Component {
       );
     }
 }
+
+Dropdown.propTypes = {
+  element: PropTypes.any,
+  show: PropTypes.bool,
+  onClose: PropTypes.func,
+  value: PropTypes.any,
+  options: PropTypes.array,
+  className: PropTypes.string,
+};
+
+Dropdown.defaultProps = {
+  display: 'bottom',
+};
 
 export default Dropdown;

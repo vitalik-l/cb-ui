@@ -3,13 +3,6 @@ import PropTypes from 'prop-types';
 import omit from '../utils/omit';
 
 class Radiogroup extends Component {
-    static propTypes = {
-      value: PropTypes.any,
-      children: PropTypes.any,
-      className: PropTypes.string,
-      onChange: PropTypes.func,
-    };
-
     onClick = (e) => {
       const clickedValue = e.currentTarget.getAttribute('data-value');
       if (clickedValue == null || clickedValue === this.props.value) return;
@@ -31,5 +24,12 @@ class Radiogroup extends Component {
       );
     }
 }
+
+Radiogroup.propTypes = {
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  children: PropTypes.node,
+  className: PropTypes.string,
+  onChange: PropTypes.func,
+};
 
 export default Radiogroup;
