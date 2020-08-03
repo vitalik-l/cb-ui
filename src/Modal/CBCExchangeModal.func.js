@@ -137,8 +137,8 @@ function CBCExchangeModal(props) {
 }
 
 CBCExchangeModal.propTypes = {
-  currencies: PropTypes.object,
-  balances: PropTypes.any,
+  currencies: PropTypes.shape({}),
+  balances: PropTypes.instanceOf(Map),
   onExchange: PropTypes.func,
 };
 

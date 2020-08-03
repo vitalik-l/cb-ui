@@ -32,7 +32,7 @@ Drawer.propTypes = {
   open: PropTypes.boolean,
   onRequestHide: PropTypes.func,
   position: PropTypes.oneOf(['left', 'right']),
-  children: PropTypes.any,
+  children: PropTypes.node,
 };
 
 Drawer.defaultProps = {

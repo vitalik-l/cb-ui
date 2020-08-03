@@ -55,7 +55,7 @@ Modal.propTypes = {
   overlayClassName: PropTypes.string,
   displayCloseButton: PropTypes.bool,
   className: PropTypes.string,
-  children: PropTypes.any,
+  children: PropTypes.node,
   onClose: PropTypes.func,
   onOverlayClick: PropTypes.func,
   transitionEnter: PropTypes.bool,

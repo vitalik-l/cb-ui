@@ -197,9 +197,9 @@ class WithdrawalModal extends Component {
 }
 
 WithdrawalModal.propTypes = {
-  balances: PropTypes.any,
+  balances: PropTypes.instanceOf(Map),
   onWithdraw: PropTypes.func,
-  currencies: PropTypes.object,
+  currencies: PropTypes.shape({}),
   getWithdrawalFee: PropTypes.func,
   onClose: PropTypes.func,
   fmtMoney: PropTypes.func,

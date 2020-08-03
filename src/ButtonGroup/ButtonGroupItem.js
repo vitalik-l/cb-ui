@@ -16,9 +16,9 @@ const ButtonGroupItem = memo((props) => {
 });
 
 ButtonGroupItem.propTypes = {
-  children: PropTypes.any,
+  children: PropTypes.node,
   active: PropTypes.bool,
-  value: PropTypes.any,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 ButtonGroupItem.displayName = 'ButtonGroupItem';

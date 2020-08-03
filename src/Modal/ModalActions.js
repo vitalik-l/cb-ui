@@ -10,7 +10,7 @@ function ModalActions({ children }) {
 }
 
 ModalActions.propTypes = {
-  children: PropTypes.any,
+  children: PropTypes.node,
 };
 
 export default ModalActions;

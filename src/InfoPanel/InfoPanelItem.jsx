@@ -14,8 +14,8 @@ class InfoPanelItem extends PureComponent {
 }
 
 InfoPanelItem.propTypes = {
-  title: PropTypes.any,
-  value: PropTypes.any,
+  title: PropTypes.node,
+  value: PropTypes.node,
 };
 
 export default InfoPanelItem;

@@ -10,7 +10,7 @@ function ModalHeader({ children }) {
 }
 
 ModalHeader.propTypes = {
-  children: PropTypes.any,
+  children: PropTypes.node,
 };
 
 export default ModalHeader;

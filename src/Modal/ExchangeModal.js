@@ -252,10 +252,10 @@ class ExchangeModal extends Component {
 }
 
 ExchangeModal.propTypes = {
-  currencies: PropTypes.object,
-  balances: PropTypes.any,
+  currencies: PropTypes.shape({}),
+  balances: PropTypes.instanceOf(Map),
   onExchange: PropTypes.func,
-  rate: PropTypes.object,
+  rate: PropTypes.shape({}),
   modalTitle: PropTypes.string,
   exchangeSuccess: PropTypes.bool,
   onAnotherExchange: PropTypes.func,

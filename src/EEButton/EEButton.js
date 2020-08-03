@@ -207,16 +207,16 @@ export default class EEButton extends PureComponent {
 }
 
 EEButton.propTypes = {
-  value: PropTypes.any,
-  progress: PropTypes.any,
+  value: PropTypes.number,
+  progress: PropTypes.number,
   percentValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   hoverText: PropTypes.bool,
   disabled: PropTypes.bool,
   blink: PropTypes.bool,
   animate: PropTypes.bool,
-  valueRenderer: PropTypes.any,
+  valueRenderer: PropTypes.element,
   withTie: PropTypes.bool,
-  labelTie: PropTypes.any,
+  labelTie: PropTypes.node,
   animationClassName: PropTypes.string,
   reverseLoss: PropTypes.bool,
   animation: PropTypes.bool,

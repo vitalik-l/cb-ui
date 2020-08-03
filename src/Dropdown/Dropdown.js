@@ -86,10 +86,10 @@ class Dropdown extends Component {
 }
 
 Dropdown.propTypes = {
-  element: PropTypes.any,
+  element: PropTypes.node,
   show: PropTypes.bool,
   onClose: PropTypes.func,
-  value: PropTypes.any,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   options: PropTypes.array,
   className: PropTypes.string,
 };

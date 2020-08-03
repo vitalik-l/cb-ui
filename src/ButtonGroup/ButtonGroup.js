@@ -26,8 +26,8 @@ const ButtonGroup = memo((props) => {
 });
 
 ButtonGroup.propTypes = {
-  value: PropTypes.any,
-  children: PropTypes.any,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  children: PropTypes.node,
   className: PropTypes.string,
   onChange: PropTypes.func,
 };

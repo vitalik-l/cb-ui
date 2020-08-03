@@ -109,7 +109,7 @@ CircularIndicator.defaultProps = {
 
 CircularIndicator.propTypes = {
   /** animation */
-  animation: PropTypes.object.isRequired,
+  animation: PropTypes.shape({}).isRequired,
 
   /** value of progress in percent between 0 to 100 */
   progress: PropTypes.number,

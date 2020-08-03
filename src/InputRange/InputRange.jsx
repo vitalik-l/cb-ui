@@ -311,7 +311,7 @@ Slider.propTypes = {
   orientation: PropTypes.string,
   tooltip: PropTypes.bool,
   reverse: PropTypes.bool,
-  labels: PropTypes.object,
+  labels: PropTypes.shape({}),
   format: PropTypes.func,
   onChangeStart: PropTypes.func,
   onChange: PropTypes.func,

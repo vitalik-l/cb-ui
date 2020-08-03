@@ -69,7 +69,7 @@ Chip.propTypes = {
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   selected: PropTypes.bool,
   className: PropTypes.string,
-  pos: PropTypes.object,
+  pos: PropTypes.shape({}),
   animate: PropTypes.func,
   onAnimationEnd: PropTypes.func,
   onClick: PropTypes.func,
