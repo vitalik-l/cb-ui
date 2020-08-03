@@ -98,7 +98,7 @@ export default class NetPL extends Component {
 }
 
 NetPL.propTypes = {
-  currency: PropTypes.objectOf(PropTypes.object),
+  currency: PropTypes.shape({code: PropTypes.string}),
   onDisplayCurrencyMenu: PropTypes.func,
   onCloseCurrencyMenu: PropTypes.func,
   value: PropTypes.array,
