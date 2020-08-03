@@ -19,8 +19,9 @@
     "test": "cross-env BABEL_ENV=test jest",
     "deploy-storybook": "storybook-to-ghpages",
     "build-storybook": "build-storybook",
-    "lint": "eslint src/**",
-    "lint:fix": "npm run lint -- --fix"
+    "lint": "eslint",
+    "lint:all": "npm run lint src/**",
+    "lint:fix": "npm run lint:all -- --fix"
   },
   "author": "",
   "license": "ISC",

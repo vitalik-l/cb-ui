@@ -4,7 +4,7 @@ import {
   withKnobs,
 } from '@storybook/addon-knobs';
 import classNames from 'classnames';
-import themeSelect from '../../utils/themeSelect.js';
+import themeSelect from '../../utils/themeSelect';
 
 import Button from '../index';
 
