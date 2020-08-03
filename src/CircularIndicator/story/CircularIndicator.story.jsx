@@ -1,11 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import {
-  withKnobs, text, boolean, number, select,
+  withKnobs, boolean, number, select,
 } from '@storybook/addon-knobs';
-import classNames from 'classnames';
-import themeSelect from '../../utils/themeSelect.js';
 
 // styles
 import './style.scss';

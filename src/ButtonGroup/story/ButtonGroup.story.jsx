@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import {
-  withKnobs, text, boolean, number, select,
+  withKnobs, select,
 } from '@storybook/addon-knobs';
 
 // styles
