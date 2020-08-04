@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import {
-  withKnobs,
+  withKnobs, object
 } from '@storybook/addon-knobs';
 
 import ResponsiveViewport from '..';
@@ -25,12 +25,16 @@ function App() {
   );
 }
 
-stories.add('default', () => (
-  <ResponsiveViewport
-    minRatio={4 / 3}
-    maxRatio={21 / 9}
-    timeout={0}
-  >
-    <App />
-  </ResponsiveViewport>
-));
+stories.add('default', () => {
+  return (
+    <ResponsiveViewport
+      minRatio={4 / 3}
+      maxRatio={21 / 9}
+      horizontal={object('horizontal')}
+      vertical={object('vertical')}
+      timeout={0}
+    >
+      <App/>
+    </ResponsiveViewport>
+  );
+});
