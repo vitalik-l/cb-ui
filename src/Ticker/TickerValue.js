@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const TickerValue = React.forwardRef(({ type, children, ...props }, ref) => (
   <div className="cb-TickerValue" ref={ref} {...props}>
-    <div className={type ? `'cb-TickerValue__${type}` : null}>
+    <div className={type ? `cb-TickerValue__${type}` : null}>
       {children}
     </div>
   </div>
