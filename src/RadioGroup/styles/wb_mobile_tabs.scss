@@ -1,4 +1,4 @@
-.cb-ButtonGroup {
+.cb-RadioGroup {
   display: flex;
   margin: 0;
   box-sizing: border-box;
@@ -17,7 +17,8 @@
     z-index: 12;
   }
 
-  li {
+  .cb-Radio {
+    outline: none;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,7 +37,7 @@
       background-image: url(../img/wb_mobile_tabs/inactive_left_tab.png);
       margin-left: 0;
 
-      &.active {
+      &.cb-Radio--active {
         background-image: url(../img/wb_mobile_tabs/active_left_tab.png);
       }
     }
@@ -44,12 +45,12 @@
     &:last-child {
       background-image: url(../img/wb_mobile_tabs/inactive_right_tab.png);
 
-      &.active {
+      &.cb-Radioactive {
         background-image: url(../img/wb_mobile_tabs/active_right_tab.png);
       }
     }
 
-    &.active {
+    &.cb-Radio--active {
       z-index: 15 !important;
       background-image: url(../img/wb_mobile_tabs/active_mid_tab.png);
 
