@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import omit from '../utils/omit';
 
 function RadioGroup(props) {
   const {
@@ -9,6 +8,7 @@ function RadioGroup(props) {
     value,
     className,
     onChange,
+    ...otherProps
   } = props;
 
   function onChildClick(v) {
@@ -29,7 +29,7 @@ function RadioGroup(props) {
     <div
       className={classNames('cb-RadioGroup', className)}
       role="radiogroup"
-      {...omit(props, ['children', 'value', 'onChange'])}
+      {...otherProps}
     >
       {childrenItems}
     </div>
