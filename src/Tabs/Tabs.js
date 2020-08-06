@@ -59,17 +59,13 @@ class Tabs extends PureComponent {
 
   render() {
     const { children, value } = this.props;
-    const activeView = value;
+
     return (
       <div className="cb-Tabs" ref={(node) => this.tabsNode = node}>
         <ul className="tab-bar" onClick={this.changeView} onMouseDown={this.startDrag} onDragStart={() => false}>
-          {React.Children.map(children, (tab) => {
-            if (tab.type.displayName === 'Tab') {
-              return (
-                <li className={classNames({ active: tab.props.value === activeView })} data-value={tab.props.value}>{tab.props.label}</li>
-              );
-            }
-          })}
+          {React.Children.map(children, (tab) => (
+              <li className={classNames({ active: tab.props.value === value })} data-value={tab.props.value}>{tab.props.label}</li>
+          ))}
         </ul>
         <div className="tab-content" ref={(node) => this.tabsContentNode = node}>
           {children}
