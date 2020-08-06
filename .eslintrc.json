@@ -31,6 +31,7 @@
             "error", {
                 "devDependencies": [
                     "**/*.story.jsx",
+                    "**/*.story.js",
                     "src/utils/**",
                     "**/*.spec.js",
                     "src/setupTests.js"

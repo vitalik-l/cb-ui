@@ -24,7 +24,7 @@ setOptions({
   downPanelInRight: true
 });
 
-const req = require.context('../src', true, /.+\.story\.js?x/);
+const req = require.context('../src', true, /.+\.story\.jsx?$/);
 
 function loadStories() {
   req.keys().forEach(req)
