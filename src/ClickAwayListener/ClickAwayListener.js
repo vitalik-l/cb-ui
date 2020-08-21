@@ -6,8 +6,8 @@ function ClickAwayListener({ onClickAway, mouseEvent, children }) {
   const eventName = React.useMemo(() => mouseEvent.substring(2).toLowerCase(), [mouseEvent]);
 
   const childrenPropsHandler = React.useCallback((e) => {
-    e.preventDefault();
     e.stopPropagation();
+    e.nativeEvent.stopImmediatePropagation();
     const handler = children.props[mouseEvent];
     if (handler) {
       handler(e);
@@ -20,7 +20,6 @@ function ClickAwayListener({ onClickAway, mouseEvent, children }) {
   };
 
   const clickAwayListener = React.useCallback((e) => {
-    if (e.defaultPrevented) return;
     onClickAway(e);
   }, [onClickAway]);
 
