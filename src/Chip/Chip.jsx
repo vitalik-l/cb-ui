@@ -4,78 +4,100 @@ import classNames from 'classnames';
 import { transitionEndEvent, animationEndEvent } from '../utils/animations';
 
 class Chip extends PureComponent {
-    handleAnimationEnd = (e) => {
-      this.props.onAnimationEnd && this.props.onAnimationEnd(e, this);
-    };
+  componentDidMount() {
+    const { animate } = this.props;
+    [transitionEndEvent, animationEndEvent].forEach((event) => {
+      this.chip.addEventListener(event, this.handleAnimationEnd);
+    });
+    if (animate) {
+      animate(this);
+    }
+  }
 
-    componentDidMount() {
-      [transitionEndEvent, animationEndEvent].forEach((event) => {
-        this.chip.addEventListener(event, this.handleAnimationEnd);
-      });
-      this.props.animate && this.props.animate(this);
+  componentDidUpdate(prevProps) {
+    const { animate } = this.props;
+    if (prevProps.animate !== animate && animate) {
+      animate(this);
+    }
+  }
+
+  componentWillUnmount() {
+    [transitionEndEvent, animationEndEvent].forEach((event) => {
+      this.chip.removeEventListener(event, this.handleAnimationEnd);
+    });
+  }
+
+  handleAnimationEnd = (e) => {
+    const { onAnimationEnd } = this.props;
+    if (onAnimationEnd) {
+      onAnimationEnd(e, this);
+    }
+  };
+
+  onClick = (e) => {
+    const { onClick, value } = this.props;
+    if (onClick) {
+      onClick(e, value);
+    }
+  };
+
+  render() {
+    const {
+      color, value, large,
+      selected, className,
+      onMouseEnter, onMouseLeave,
+      pos,
+    } = this.props;
+    if (!value) return <div />;
+    let colorClass = color ? `chip--${color}` : null;
+
+    if (color === 'random') {
+      const colors = ['blue', 'red', 'white', 'black', 'green'];
+      colorClass = `chip--${colors[Math.floor(Math.random() * colors.length) + 1]}`;
     }
 
-    componentWillUnmount() {
-      [transitionEndEvent, animationEndEvent].forEach((event) => {
-        this.chip.removeEventListener(event, this.handleAnimationEnd);
-      });
-    }
-
-    componentDidUpdate(prevProps) {
-      if (prevProps.animate !== this.props.animate) {
-        this.props.animate && this.props.animate(this);
-      }
-    }
-
-    onClick = (e) => {
-      this.props.onClick && this.props.onClick(e, this.props.value);
-    };
-
-    render() {
-      if (!this.props.value) return <div />;
-      let colorClass = this.props.color ? `chip--${this.props.color}` : null;
-
-      if (this.props.color === 'random') {
-        const colors = ['blue', 'red', 'white', 'black', 'green'];
-        colorClass = `chip--${colors[Math.floor(Math.random() * colors.length) + 1]}`;
-      }
-
-      return (
-        <div
-          className={classNames(
-            'chip',
-            {
-              selected: this.props.selected,
-              'chip--large-font': (this.props.value).toString().length < 4,
-              large: this.props.large,
-              [`v${this.props.value}`]: !colorClass,
-            },
-            colorClass,
-            this.props.className,
-          )}
-          style={this.props.pos ? { left: this.props.pos.left, top: this.props.pos.top } : null}
-          onClick={this.onClick}
-          onMouseEnter={this.props.onMouseEnter}
-          onMouseLeave={this.props.onMouseLeave}
-          ref={(node) => this.chip = node}
-        >
-          <span>{this.props.value >= 1000 ? `${Math.round(this.props.value / 1000)}K` : this.props.value}</span>
-        </div>
-      );
-    }
+    return (
+      <div
+        className={classNames(
+          'chip',
+          {
+            selected,
+            'chip--large-font': (value).toString().length < 4,
+            large,
+            [`v${value}`]: !colorClass,
+          },
+          colorClass,
+          className,
+        )}
+        style={pos ? { left: pos.left, top: pos.top } : null}
+        onClick={this.onClick}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+        ref={(node) => {
+          this.chip = node;
+        }}
+      >
+        <span>{value >= 1000 ? `${Math.round(value / 1000)}K` : value}</span>
+      </div>
+    );
+  }
 }
 
 Chip.propTypes = {
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   selected: PropTypes.bool,
   className: PropTypes.string,
-  pos: PropTypes.shape({}),
+  pos: PropTypes.shape({
+    left: PropTypes.number,
+    top: PropTypes.number,
+  }),
   animate: PropTypes.func,
   onAnimationEnd: PropTypes.func,
   onClick: PropTypes.func,
   onMouseEnter: PropTypes.func,
   onMouseLeave: PropTypes.func,
   color: PropTypes.string,
+  large: PropTypes.bool,
 };
 
 Chip.defaultProps = {

@@ -2,7 +2,8 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const isFullScreen = () => !((screen.width - window.innerWidth) > 5 || (screen.height - window.innerHeight) > 5);
+const isFullScreen = () => !((screen.width - window.innerWidth) > 5
+  || (screen.height - window.innerHeight) > 5);
 
 const launchFullScreen = () => {
   const doc = document.documentElement;
@@ -31,33 +32,35 @@ class BestViewNotify extends PureComponent {
     window.removeEventListener('resize', this.checkFullScreen);
   }
 
-    checkFullScreen = () => {
-      this.setState({ bestView: isFullScreen() });
-    };
+  checkFullScreen() {
+    this.setState({ bestView: isFullScreen() });
+  }
 
-    closeNote = () => {
-      this.setState({ bestView: true });
-    };
+  closeNote() {
+    this.setState({ bestView: true });
+  }
 
-    render() {
-      const classes = classNames(
-        this.props.className,
-        {
-          'cb-BestViewNotify': !this.props.className,
-          hide: this.state.bestView,
-        },
-      );
+  render() {
+    const { className } = this.props;
+    const { bestView } = this.state;
+    const classes = classNames(
+      className,
+      {
+        'cb-BestViewNotify': !className,
+        hide: bestView,
+      },
+    );
 
-      return (
-        <div className={classes}>
-          <div>
-            Best Viewed in&nbsp;
-            <span className="link" onClick={launchFullScreen}>Full Screen HD</span>
-          </div>
-          <span id="BestViewNotify-close" onClick={this.closeNote}>&#x274c;</span>
+    return (
+      <div className={classes}>
+        <div>
+          Best Viewed in&nbsp;
+          <span className="link" onClick={launchFullScreen}>Full Screen HD</span>
         </div>
-      );
-    }
+        <span id="BestViewNotify-close" onClick={this.closeNote}>&#x274c;</span>
+      </div>
+    );
+  }
 }
 
 BestViewNotify.propTypes = {

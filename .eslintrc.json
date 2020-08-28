@@ -26,8 +26,20 @@
         "react/jsx-filename-extension": 0,
         "react/jsx-props-no-spreading": 0,
         "react/jsx-fragments": 0,
+        "no-restricted-globals": 0,
+        "jsx-a11y/click-events-have-key-events": 0,
+        "jsx-a11y/no-static-element-interactions": 0,
+        "jsx-a11y/accessible-emoji": 0,
         "no-param-reassign": ["error", { "props": false }],
         "react/require-default-props": 0,
+        "react/sort-comp": [1, {
+          "order": [
+            "constructor",
+            "lifecycle",
+            "everything-else",
+            "render"
+          ]
+        }],
         "import/no-extraneous-dependencies": [
             "error", {
                 "devDependencies": [
