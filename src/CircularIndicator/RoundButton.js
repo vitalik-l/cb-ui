@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 function RoundButton({
@@ -10,5 +11,11 @@ function RoundButton({
     </div>
   );
 }
+
+RoundButton.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+  type: PropTypes.string,
+};
 
 export default RoundButton;
