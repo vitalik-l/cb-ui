@@ -1,35 +1,38 @@
-import React, { Component } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-class Drawer extends Component {
-    onOverlayClick = () => {
-      this.props.onRequestHide && this.props.onRequestHide();
-    };
+function Drawer(props) {
+  const {
+    open,
+    children,
+    position,
+    onRequestHide,
+  } = props;
+  const classes = open ? 'cb-Drawer cb-Drawer--open' : 'cb-Drawer';
 
-    render() {
-      const { open, children, position } = this.props;
-      const classes = open ? 'cb-Drawer cb-Drawer--open' : 'cb-Drawer';
+  function onOverlayClick() {
+    if (onRequestHide) onRequestHide();
+  }
 
-      return (
-        <div className={classes}>
-          <div className="cb-Drawer__overlay" onClick={this.onOverlayClick} />
-          <div
-            className={classNames(
-              'cb-Drawer__content',
-              { 'cb-Drawer__content--left': position === 'left' },
-              { 'cb-Drawer__content--right': position === 'right' },
-            )}
-          >
-            {children}
-          </div>
-        </div>
-      );
-    }
+  return (
+    <div className={classes}>
+      <div className="cb-Drawer__overlay" onClick={onOverlayClick} />
+      <div
+        className={classNames(
+          'cb-Drawer__content',
+          { 'cb-Drawer__content--left': position === 'left' },
+          { 'cb-Drawer__content--right': position === 'right' },
+        )}
+      >
+        {children}
+      </div>
+    </div>
+  );
 }
 
 Drawer.propTypes = {
-  open: PropTypes.boolean,
+  open: PropTypes.bool,
   onRequestHide: PropTypes.func,
   position: PropTypes.oneOf(['left', 'right']),
   children: PropTypes.node,
