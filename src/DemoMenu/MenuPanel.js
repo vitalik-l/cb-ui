@@ -1,30 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-class MenuPanel extends Component {
-    onOverlayClick = () => {
-      this.props.onRequestHide && this.props.onRequestHide();
-    };
+function MenuPanel(props) {
+  const { open, children, onRequestHide } = props;
 
-    render() {
-      const { open, children } = this.props;
+  function onOverlayClick() {
+    if (onRequestHide) onRequestHide();
+  }
 
-      return (
-        <div className={classNames('cb-demo-menu', { open })}>
-          <div className="cb-demo-menu__overlay" onClick={this.onOverlayClick} />
-          <div className="cb-demo-menu__content">
-            {children}
-          </div>
-        </div>
-      );
-    }
+  return (
+    <div className={classNames('cb-demo-menu', { open })}>
+      <div className="cb-demo-menu__overlay" onClick={onOverlayClick} />
+      <div className="cb-demo-menu__content">
+        {children}
+      </div>
+    </div>
+  );
 }
 
 MenuPanel.propTypes = {
-  links: PropTypes.array,
   open: PropTypes.bool,
-  onRequestHide: PropTypes.bool,
+  onRequestHide: PropTypes.func,
+  children: PropTypes.node,
 };
 
 export default MenuPanel;

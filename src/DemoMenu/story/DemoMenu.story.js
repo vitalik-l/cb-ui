@@ -5,7 +5,7 @@ import {
   withKnobs, boolean,
 } from '@storybook/addon-knobs';
 import classNames from 'classnames';
-import themeSelect from '../../utils/themeSelect.js';
+import themeSelect from '../../utils/themeSelect';
 
 // styles
 import './style.scss';
@@ -21,12 +21,12 @@ stories.add('DemoMenu', () => (
       open={boolean('open', false)}
       onRequestHide={action('onRequestHide')}
       games={[
-        { game: 'weekendbinary', url: 'http://${LOCAL_HOST}:8085' },
-        { game: 'roulettefx', url: 'http://${LOCAL_HOST}:8086' },
-        { game: 'wallstbaccarat', url: 'http://${LOCAL_HOST}:8084' },
-        { game: 'wallstroulette', url: 'http://${LOCAL_HOST}:8083' },
-        { game: 'weekendforex', url: 'http://${LOCAL_HOST}:8082' },
-        { game: 'wallstblackjack', url: 'http://${LOCAL_HOST}:8082' },
+        { game: 'weekendbinary', url: 'http://LOCAL_HOST:8085' },
+        { game: 'roulettefx', url: 'http://LOCAL_HOST:8086' },
+        { game: 'wallstbaccarat', url: 'http://LOCAL_HOST:8084' },
+        { game: 'wallstroulette', url: 'http://LOCAL_HOST:8083' },
+        { game: 'weekendforex', url: 'http://LOCAL_HOST:8082' },
+        { game: 'wallstblackjack', url: 'http://LOCAL_HOST:8082' },
       ]}
     />
   </div>
