@@ -2,8 +2,10 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const isFullScreen = () => !((screen.width - window.innerWidth) > 5
-  || (screen.height - window.innerHeight) > 5);
+const isFullScreen = () => !(
+  (window.screen.width - window.innerWidth) > 5
+  || (window.screen.height - window.innerHeight) > 5
+);
 
 const launchFullScreen = () => {
   const doc = document.documentElement;
