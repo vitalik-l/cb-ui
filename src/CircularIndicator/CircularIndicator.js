@@ -34,10 +34,11 @@ function CircularIndicator({
   const [currentSegment, setCurrentSegment] = useState(SEGMENTS);
   const isLoss = progress < 0;
   const indicatorRef = useRef();
-  const animateRef = useRef();
   let stroke;
 
   useEffect(() => {
+    const animateRef = { current: 0 };
+
     function animateProgress() {
       let currentProgress = progress;
       if (progress) {
@@ -55,7 +56,7 @@ function CircularIndicator({
 
       const deltaSegment = targetSegment - currentSegment;
 
-      indicatorRef.current.setAttribute('stroke', isLoss ? 'url(#redGrad)' : 'url(#greenGrad)');
+      indicatorRef.current.setAttribute('stroke', progress < 0 ? 'url(#redGrad)' : 'url(#greenGrad)');
 
       animate({
         ref: animateRef,
@@ -79,7 +80,7 @@ function CircularIndicator({
     animateProgress();
 
     return () => window.cancelAnimationFrame(animateRef.current);
-  }, [progress, reverse]);
+  }, [progress, reverse, animation.duration, currentSegment]);
 
   if (!reverse) {
     stroke = isLoss ? 'url(#redGrad)' : 'url(#greenGrad)';
