@@ -80,7 +80,7 @@ function CircularIndicator({
     animateProgress();
 
     return () => window.cancelAnimationFrame(animateRef.current);
-  }, [progress, reverse, animation.duration, currentSegment]);
+  }, [progress, reverse]); /* eslint-disable-line react-hooks/exhaustive-deps */
 
   if (!reverse) {
     stroke = isLoss ? 'url(#redGrad)' : 'url(#greenGrad)';
