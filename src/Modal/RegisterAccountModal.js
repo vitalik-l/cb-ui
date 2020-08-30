@@ -35,16 +35,19 @@ class RegisterAccountModal extends Component {
     };
 
     submitForm = () => {
-      if (!this.form.checkValidity() && !this.form.reportValidity() || !this.validate()) return;
+      if ((!this.form.checkValidity() && !this.form.reportValidity()) || !this.validate()) return;
       const {
         username, password, email, subscribe,
       } = this.form;
-      this.props.onSubmit && this.props.onSubmit({
-        username: username.value,
-        password: password.value,
-        email: email.value,
-        subscribe: subscribe.checked,
-      });
+      const { onSubmit } = this.props;
+      if (onSubmit) {
+        onSubmit({
+          username: username.value,
+          password: password.value,
+          email: email.value,
+          subscribe: subscribe.checked,
+        });
+      }
     };
 
     onPasswordInput = () => {
@@ -59,7 +62,12 @@ class RegisterAccountModal extends Component {
     };
 
     render() {
-      const { randomUsername, randomPassword, onContactSupport } = this.props;
+      const {
+        randomUsername,
+        randomPassword,
+        onContactSupport,
+        onClose,
+      } = this.props;
       const { errors, hidePwd, email } = this.state;
       const submitDisabled = !!Object.keys(errors).length;
 
@@ -71,7 +79,9 @@ class RegisterAccountModal extends Component {
           <ModalContent>
             <form
               autoComplete="off"
-              ref={(el) => this.form = el}
+              ref={(el) => {
+                this.form = el;
+              }}
               onSubmit={(e) => e.preventDefault()}
             >
               <InputGroup label="Choose Username*">
@@ -140,7 +150,7 @@ class RegisterAccountModal extends Component {
             </div>
           </ModalContent>
           <ModalActions>
-            <button className="cb-Button" onClick={this.props.onClose}>Cancel</button>
+            <button className="cb-Button" onClick={onClose}>Cancel</button>
             <button disabled={submitDisabled} onClick={this.submitForm} className="cb-Button primary">Register</button>
           </ModalActions>
         </Modal>
@@ -149,7 +159,11 @@ class RegisterAccountModal extends Component {
 }
 
 RegisterAccountModal.propTypes = {
+  randomUsername: PropTypes.string,
+  randomPassword: PropTypes.string,
   onContactSupport: PropTypes.func,
+  onSubmit: PropTypes.func,
+  onClose: PropTypes.func,
 };
 
 export default RegisterAccountModal;

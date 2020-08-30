@@ -1,9 +1,21 @@
 import React, { Component } from 'react';
 import { createPortal } from 'react-dom';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import getPosition from '../utils/getPosition';
 
 class MouseTooltip extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      visible: false,
+      content: 'Tooltip',
+      x: 0,
+      y: 0,
+    };
+    this.hideTimeoutId = null;
+  }
+
   static show(eventOrTarget) {
     if (!MouseTooltip.ref) return;
     const target = eventOrTarget.target || eventOrTarget;
@@ -28,28 +40,21 @@ class MouseTooltip extends Component {
     MouseTooltip.ref.hide();
   }
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      visible: false,
-      content: 'Tooltip',
-      x: 0,
-      y: 0,
-    };
-    this.hideTimeoutId = null;
-  }
-
+  // eslint-disable-next-line camelcase
   UNSAFE_componentDidMount() {
     MouseTooltip.ref = this;
     document.addEventListener('mousemove', this.onMouseMove);
   }
 
+  // eslint-disable-next-line camelcase
   UNSAFE_componentWillUnmount() {
     document.removeEventListener('mousemove', this.onMouseMove);
   }
 
+  // eslint-disable-next-line camelcase
   UNSAFE_componentDidUpdate(prevProps, prevState) {
-    if (this.state.init && !prevState.init || this.state.x !== prevState.x || this.state.y !== prevState.y) {
+    const { init, x, y } = this.state;
+    if ((init && !prevState.init) || x !== prevState.x || y !== prevState.y) {
       this.setState({
         visible: true,
       });
@@ -81,6 +86,7 @@ class MouseTooltip extends Component {
           ? targetPosition.y + target.offsetHeight / 2
           : MouseTooltip.mouseY;
         break;
+      default: break;
     }
 
     clearTimeout(this.hideTimeoutId);
@@ -91,6 +97,7 @@ class MouseTooltip extends Component {
       x: coordinates.x,
       y: coordinates.y,
       position,
+      // wtf?
       align,
     }, () => {
       this.hideTimeoutId = setTimeout(() => {
@@ -127,6 +134,7 @@ class MouseTooltip extends Component {
             top: `${y - this.tooltipNode.offsetHeight / 2}px`,
           };
           break;
+        default: break;
       }
     }
 
@@ -135,7 +143,9 @@ class MouseTooltip extends Component {
         className={classNames('cb-MouseTooltip', { 'cb-MouseTooltip--init': init, 'cb-MouseTooltip--visible': visible, [`cb-MouseTooltip--${position}`]: position }, className)}
         onClick={this.onClick}
         style={coordinates}
-        ref={(el) => this.tooltipNode = el}
+        ref={(el) => {
+          this.tooltipNode = el;
+        }}
       >
         <div className="cb-MouseTooltip__content">
           {content}
@@ -145,5 +155,9 @@ class MouseTooltip extends Component {
     );
   }
 }
+
+MouseTooltip.propTypes = {
+  className: PropTypes.string,
+};
 
 export default MouseTooltip;

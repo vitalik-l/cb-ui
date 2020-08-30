@@ -11,7 +11,7 @@ function onModalClick(e) {
 
 function Modal(props) {
   const {
-    	children,
+    children,
     open,
     overlayClassName,
     className,

@@ -4,7 +4,10 @@ import classNames from 'classnames';
 
 class MenuPanel extends Component {
     onOverlayClick = () => {
-      this.props.onRequestHide && this.props.onRequestHide();
+      const { onRequestHide } = this.props;
+      if (onRequestHide) {
+        onRequestHide();
+      }
     };
 
     render() {
@@ -22,9 +25,10 @@ class MenuPanel extends Component {
 }
 
 MenuPanel.propTypes = {
-  links: PropTypes.array,
+  children: PropTypes.element,
+  // links: PropTypes.array,
   open: PropTypes.bool,
-  onRequestHide: PropTypes.bool,
+  onRequestHide: PropTypes.func,
 };
 
 export default MenuPanel;

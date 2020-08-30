@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 function TrendDownIcon({ width = '40', height = '40', className }) {
   return (
@@ -25,5 +26,11 @@ function TrendDownIcon({ width = '40', height = '40', className }) {
     </svg>
   );
 }
+
+TrendDownIcon.propTypes = {
+  width: PropTypes.string,
+  height: PropTypes.string,
+  className: PropTypes.string,
+};
 
 export default TrendDownIcon;

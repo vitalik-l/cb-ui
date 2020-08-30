@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 function CloseIcon({
   width = '13', height = '13', className, ...props
@@ -18,5 +19,11 @@ function CloseIcon({
     </svg>
   );
 }
+
+CloseIcon.propTypes = {
+  width: PropTypes.string,
+  height: PropTypes.string,
+  className: PropTypes.string,
+};
 
 export default CloseIcon;

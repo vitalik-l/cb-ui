@@ -51,7 +51,7 @@ class Slider extends Component {
     /**
      * Format label/tooltip value
      * @param  {Number} value - value
-     * @return {Formatted Number}
+     * @return {Number} formatted
      */
     handleFormat = (value) => {
       const { format } = this.props;
@@ -88,7 +88,9 @@ class Slider extends Component {
       document.addEventListener('mouseup', this.handleEnd);
       document.addEventListener('touchmove', this.handleDrag);
       document.addEventListener('touchend', this.handleEnd);
-      onChangeStart && onChangeStart(e);
+      if (onChangeStart) {
+        onChangeStart(e);
+      }
     };
 
     /**
@@ -109,7 +111,9 @@ class Slider extends Component {
         value = parseFloat(target.dataset.value);
       }
 
-      onChange && onChange(value, e);
+      if (onChange) {
+        onChange(value, e);
+      }
     };
 
     /**
@@ -118,7 +122,9 @@ class Slider extends Component {
      */
     handleEnd = (e) => {
       const { onChangeComplete } = this.props;
-      onChangeComplete && onChangeComplete(e);
+      if (onChangeComplete) {
+        onChangeComplete(e);
+      }
       document.removeEventListener('mousemove', this.handleDrag);
       document.removeEventListener('mouseup', this.handleEnd);
       document.removeEventListener('touchmove', this.handleDrag);
@@ -152,7 +158,7 @@ class Slider extends Component {
         orientation, min, max, step,
       } = this.props;
       const percentage = clamp(pos, 0, limit) / (limit || 1);
-      const baseVal = step * Math.round(percentage * (max - min) / step);
+      const baseVal = step * Math.round((percentage * (max - min)) / step);
       const value = orientation === 'horizontal' ? baseVal + min : max - baseVal;
 
       return clamp(value, min, max);
@@ -180,9 +186,7 @@ class Slider extends Component {
       const pos = reverse
         ? direction - coordinate - grab
         : coordinate - direction - grab;
-      const value = this.getValueFromPosition(pos);
-
-      return value;
+      return this.getValueFromPosition(pos);
     };
 
     /**
@@ -211,7 +215,7 @@ class Slider extends Component {
 
     render() {
       const {
-        value, orientation, className, tooltip, reverse,
+        value, orientation, className, tooltip, reverse, labels,
       } = this.props;
       const { dimension } = constants.orientation[orientation];
       const direction = reverse
@@ -222,8 +226,8 @@ class Slider extends Component {
       const fillStyle = { [dimension]: `${coords.fill}px` };
       // const handleStyle = { [direction]: `${coords.handle}px` };
       const handleStyle = { transform: `translateX(${coords.handle}px)` };
-      let labels = null;
-      let labelKeys = Object.keys(this.props.labels);
+      let labelsComp = null;
+      let labelKeys = Object.keys(labels);
 
       if (labelKeys.length > 0) {
         const items = [];
@@ -242,12 +246,12 @@ class Slider extends Component {
               onMouseDown={this.handleDrag}
               style={labelStyle}
             >
-              {this.props.labels[key]}
+              {labels[key]}
             </li>,
           );
         }
 
-        labels = (
+        labelsComp = (
           <ul
             ref={(sl) => {
               this.labels = sl;
@@ -297,7 +301,7 @@ class Slider extends Component {
                     </div>
                     )}
           </div>
-          {labels}
+          {labelsComp}
         </div>
       );
     }
@@ -309,6 +313,7 @@ Slider.propTypes = {
   step: PropTypes.number,
   value: PropTypes.number,
   orientation: PropTypes.string,
+  className: PropTypes.string,
   tooltip: PropTypes.bool,
   reverse: PropTypes.bool,
   labels: PropTypes.shape({}),

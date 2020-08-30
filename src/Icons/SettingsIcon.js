@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 function SettingsIcon({ width = '20', height = '20', className }) {
   return (
@@ -20,5 +21,11 @@ function SettingsIcon({ width = '20', height = '20', className }) {
     </svg>
   );
 }
+
+SettingsIcon.propTypes = {
+  width: PropTypes.string,
+  height: PropTypes.string,
+  className: PropTypes.string,
+};
 
 export default SettingsIcon;

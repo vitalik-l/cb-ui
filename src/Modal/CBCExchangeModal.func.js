@@ -1,5 +1,5 @@
 import React, {
-  Component, useState, useRef, useEffect,
+  useState, useRef, useEffect,
 } from 'react';
 import PropTypes from 'prop-types';
 import Modal from './Modal';
@@ -12,7 +12,7 @@ const RATE = 0.0005;
 
 function CBCExchangeModal(props) {
   const {
-    currencies, balances, onExchange, ...restProps
+    currencies, balances, onExchange, onClose, ...restProps
   } = props;
   const form = useRef();
   const [errors, setErrors] = useState({});
@@ -22,6 +22,27 @@ function CBCExchangeModal(props) {
   const [sellHovered, setSellHovered] = useState(false);
   const submitDisabled = !!Object.keys(errors).length || btcValue === 0 || pauseClick;
   const disableSell = !balances.get(currencies.CBC.code);
+
+  function validate() {
+    const { amount } = form;
+    const errs = {};
+
+    if (+amount.value > 3000000) errs.amount = 'Max amount is 3 000 000';
+
+    setErrors({ errors: errs });
+    return !Object.keys(errs).length;
+  }
+
+  function submitForm(buy) {
+    if ((!form.checkValidity() && !form.reportValidity()) || !validate()) return;
+    const { amount } = form;
+
+    if (onExchange) {
+      onExchange(buy, +amount.value);
+    }
+    setPauseClick(true);
+  }
+
   const submitBuy = submitForm.bind(this, true);
   const submitSell = submitForm.bind(this, false);
 
@@ -30,24 +51,6 @@ function CBCExchangeModal(props) {
       setPauseClick(false);
     }, 1000);
   }, [pauseClick]);
-
-  function validate() {
-    const { amount } = form;
-    const errors = {};
-
-    if (+amount.value > 3000000) errors.amount = 'Max amount is 3 000 000';
-
-    setErrors({ errors });
-    return !Object.keys(errors).length;
-  }
-
-  function submitForm(buy) {
-    if (!form.checkValidity() && !form.reportValidity() || !validate()) return;
-    const { amount } = form;
-
-    onExchange && onExchange(buy, +amount.value);
-    setPauseClick(true);
-  }
 
   function convertCurrency(value) {
     setBTCValue(+((+value * RATE).toFixed(4)));
@@ -130,16 +133,20 @@ function CBCExchangeModal(props) {
         </form>
       </ModalContent>
       <ModalActions>
-        <button className="cb-Button" onClick={props.onClose}>Cancel</button>
+        <button className="cb-Button" onClick={onClose}>Cancel</button>
       </ModalActions>
     </Modal>
   );
 }
 
 CBCExchangeModal.propTypes = {
-  currencies: PropTypes.shape({}),
+  disableSell: PropTypes.bool,
+  currencies: PropTypes.shape({
+    CBC: PropTypes.shape({ code: PropTypes.string }),
+  }),
   balances: PropTypes.instanceOf(Map),
   onExchange: PropTypes.func,
+  onClose: PropTypes.func,
 };
 
 CBCExchangeModal.defaultProps = {

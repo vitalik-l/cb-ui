@@ -39,7 +39,9 @@ class Tabs extends PureComponent {
     }
     this.currentPos = posY;
     transformNode.style.height = `${transformNode.offsetHeight + deltaPos}px`;
-    onResize && onResize();
+    if (onResize) {
+      onResize();
+    }
   };
 
   stopDrag = () => {
@@ -54,20 +56,37 @@ class Tabs extends PureComponent {
     const { value, onChange } = this.props;
     const newView = target.dataset.value;
     if (!newView || newView === value) return;
-    onChange && onChange(newView);
+    if (onChange) {
+      onChange(newView);
+    }
   };
 
   render() {
     const { children, value } = this.props;
 
     return (
-      <div className="cb-Tabs" ref={(node) => this.tabsNode = node}>
+      <div
+        className="cb-Tabs"
+        ref={(node) => {
+          this.tabsNode = node;
+        }}
+      >
         <ul className="tab-bar" onClick={this.changeView} onMouseDown={this.startDrag} onDragStart={() => false}>
           {React.Children.map(children, (tab) => (
-              <li className={classNames({ active: tab.props.value === value })} data-value={tab.props.value}>{tab.props.label}</li>
+            <li
+              className={classNames({ active: tab.props.value === value })}
+              data-value={tab.props.value}
+            >
+              {tab.props.label}
+            </li>
           ))}
         </ul>
-        <div className="tab-content" ref={(node) => this.tabsContentNode = node}>
+        <div
+          className="tab-content"
+          ref={(node) => {
+            this.tabsContentNode = node;
+          }}
+        >
           {children}
         </div>
       </div>

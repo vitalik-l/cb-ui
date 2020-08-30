@@ -13,17 +13,6 @@ const styles = {
 };
 
 class Tooltip extends Component {
-  static calculatePosition = (element) => {
-    const targetElement = typeof element === 'string' ? document.getElementById(element) : element;
-    if (!targetElement) return {};
-    const elementPosition = getPosition(targetElement);
-    // centering
-    return {
-      left: elementPosition.x + targetElement.offsetWidth / 2,
-      top: elementPosition.y,
-    };
-  };
-
   constructor(props) {
     super(props);
     this.position = props.position || Tooltip.calculatePosition(props.element);
@@ -48,6 +37,17 @@ class Tooltip extends Component {
   UNSAFE_componentWillUpdate(nextProps) {
     this.position = nextProps.position || Tooltip.calculatePosition(nextProps.element);
   }
+
+  static calculatePosition = (element) => {
+    const targetElement = typeof element === 'string' ? document.getElementById(element) : element;
+    if (!targetElement) return {};
+    const elementPosition = getPosition(targetElement);
+    // centering
+    return {
+      left: elementPosition.x + targetElement.offsetWidth / 2,
+      top: elementPosition.y,
+    };
+  };
 
   render() {
     const {

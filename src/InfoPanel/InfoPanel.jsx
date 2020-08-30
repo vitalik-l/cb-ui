@@ -4,12 +4,12 @@ import classNames from 'classnames';
 
 class InfoPanel extends PureComponent {
   render() {
-    const { display, className } = this.props;
+    const { display, className, children } = this.props;
     return (
       <div className={classNames('info-panel-wrapper', { 'info-panel-wrapper--under': display === 'under' }, className)}>
         <div className="info-panel">
           <span>
-            {this.props.children}
+            {children}
           </span>
         </div>
       </div>
@@ -20,6 +20,7 @@ class InfoPanel extends PureComponent {
 InfoPanel.propTypes = {
   display: PropTypes.oneOf(['under', 'above']),
   className: PropTypes.string,
+  children: PropTypes.arrayOf(PropTypes.element),
 };
 
 InfoPanel.defaultProps = {

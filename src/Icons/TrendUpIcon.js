@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 function TrendUpIcon({
   width = '40', height = '40', className = '', ...props
@@ -28,5 +29,11 @@ function TrendUpIcon({
     </svg>
   );
 }
+
+TrendUpIcon.propTypes = {
+  width: PropTypes.string,
+  height: PropTypes.string,
+  className: PropTypes.string,
+};
 
 export default TrendUpIcon;

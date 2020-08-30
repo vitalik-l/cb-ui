@@ -4,3 +4,6 @@
 *.woff2
 *.snap
 *.webp
+*.svg
+*.story.js
+*.story.jsx

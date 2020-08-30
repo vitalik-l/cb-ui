@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import Tooltip from '../Tooltip';
 import InfoIcon from '../Icons/InfoIcon';
 
@@ -24,5 +25,14 @@ function Hint({
     </Tooltip>
   );
 }
+
+Hint.propTypes = {
+  show: PropTypes.bool,
+  text: PropTypes.string,
+  className: PropTypes.string,
+  arrowSide: PropTypes.bool,
+  arrowAlign: PropTypes.string,
+  title: PropTypes.string,
+};
 
 export default Hint;

@@ -19,9 +19,15 @@ class ExchangeModal extends Component {
 
     validate = (shouldReturnErrors = false) => {
       const { convertingValue } = this.form;
+      const { convertingCurrency } = this.state;
+      const { balances } = this.props;
       const errors = {};
 
-      if (!this.props.balances.get(this.state.convertingCurrency) || convertingValue.value > this.props.balances.get(this.state.convertingCurrency)) errors.convertingValue = 'Please enter an amount within your current wallet balance';
+      if (!balances.get(convertingCurrency)
+        || convertingValue.value > balances.get(convertingCurrency)
+      ) {
+        errors.convertingValue = 'Please enter an amount within your current wallet balance';
+      }
 
       if (shouldReturnErrors) return errors;
       this.setState({ errors });
@@ -29,13 +35,24 @@ class ExchangeModal extends Component {
     };
 
     submitForm = () => {
-      if (!this.form.checkValidity() && !this.form.reportValidity() || !this.validate()) return;
-      this.props.onExchange && this.props.onExchange({
-        convertingCurrency: this.state.convertingCurrency,
-        receiveCurrency: this.state.receiveCurrency,
-        convertingValue: this.state.convertingValue,
-        receiveValue: this.state.receiveValue,
-      });
+      if ((!this.form.checkValidity() && !this.form.reportValidity()) || !this.validate()) return;
+      const { onExchange } = this.props;
+      if (onExchange) {
+        const {
+          convertingCurrency,
+          receiveCurrency,
+          convertingValue,
+          receiveValue,
+        } = this.state;
+
+        onExchange({
+          convertingCurrency,
+          receiveCurrency,
+          convertingValue,
+          receiveValue,
+        });
+      }
+
       this.setState({ pauseClick: true }, () => {
         setTimeout(() => {
           this.setState({ pauseClick: false });
@@ -45,13 +62,15 @@ class ExchangeModal extends Component {
 
     convertValue = (value, currencyOut) => {
       let result;
-      if (currencyOut === this.props.rate.currencyOut) {
-        result = +value * this.props.rate.value;
+      const { rate, currencies } = this.props;
+      const { receiveCurrency } = this.state;
+      if (currencyOut === rate.currencyOut) {
+        result = +value * rate.value;
       } else {
-        result = +value / this.props.rate.value;
+        result = +value / rate.value;
       }
-      if (this.props.currencies[this.state.receiveCurrency].minimumFractionDigits) {
-        result = result.toFixed(this.props.currencies[this.state.receiveCurrency].minimumFractionDigits);
+      if (currencies[receiveCurrency].minimumFractionDigits) {
+        result = result.toFixed(currencies[receiveCurrency].minimumFractionDigits);
         if (result[result.length - 1] === '0') result = parseFloat(result);
       }
       return result;
@@ -59,36 +78,47 @@ class ExchangeModal extends Component {
 
     onConvertingValueChange = (e) => {
       const errors = this.validate(true);
+      const { receiveCurrency } = this.state;
       this.setState({
         convertingValue: e.target.value,
-        receiveValue: this.convertValue(e.target.value, this.state.receiveCurrency),
+        receiveValue: this.convertValue(e.target.value, receiveCurrency),
         errors,
       });
     };
 
     onReceiveValueChange = (e) => {
       const errors = this.validate(true);
+      const { convertingCurrency } = this.state;
       this.setState({
         receiveValue: e.target.value,
-        convertingValue: this.convertValue(e.target.value, this.state.convertingCurrency),
+        convertingValue: this.convertValue(e.target.value, convertingCurrency),
         errors,
       });
     };
 
     onConvertCurrencyChange = (e) => {
+      const { currencies } = this.props;
+      const { convertingValue, receiveCurrency } = this.state;
       this.setState({
         convertingCurrency: e.target.value,
-        receiveCurrency: Object.keys(this.props.currencies).filter((i) => i !== e.target.value)[0],
+        receiveCurrency: Object.keys(currencies).filter((i) => i !== e.target.value)[0],
       }, () => {
         this.setState({
-          receiveValue: this.convertValue(this.state.convertingValue, this.state.receiveCurrency),
+          receiveValue: this.convertValue(convertingValue, receiveCurrency),
         });
       });
     };
 
     render() {
       const {
-        currencies, balances, modalTitle, rate, fmtMoney, exchangeSuccess, onAnotherExchange, ...props
+        currencies,
+        balances,
+        modalTitle,
+        rate,
+        fmtMoney,
+        exchangeSuccess,
+        onAnotherExchange,
+        ...props
       } = this.props;
       const {
         errors, pauseClick, convertingCurrency, convertingValue, receiveCurrency, receiveValue,
@@ -137,7 +167,9 @@ class ExchangeModal extends Component {
           <form
             className="cb-ExchangeForm"
             autoComplete="off"
-            ref={(el) => this.form = el}
+            ref={(el) => {
+              this.form = el;
+            }}
             onSubmit={(e) => e.preventDefault()}
           >
             <div>
@@ -146,7 +178,10 @@ class ExchangeModal extends Component {
             <div className="cb-ExchangeForm__inputs">
               <div>
                 <select className="cb-Input" onChange={this.onConvertCurrencyChange} value={convertingCurrency}>
-                  {Object.keys(currencies).map((currency) => <option value={currency}>{currency}</option>)}
+                  {
+                    Object.keys(currencies)
+                      .map((currency) => <option value={currency}>{currency}</option>)
+                  }
                 </select>
 
               </div>
@@ -186,7 +221,11 @@ class ExchangeModal extends Component {
             <div className="cb-ExchangeForm__inputs">
               <div>
                 <select className="cb-Input" value={receiveCurrency}>
-                  {Object.keys(currencies).filter((i) => i !== convertingCurrency).map((currency) => <option value={currency}>{currency}</option>)}
+                  {
+                    Object.keys(currencies)
+                      .filter((i) => i !== convertingCurrency)
+                      .map((currency) => <option value={currency}>{currency}</option>)
+                  }
                 </select>
               </div>
               <div>
@@ -255,10 +294,15 @@ ExchangeModal.propTypes = {
   currencies: PropTypes.shape({}),
   balances: PropTypes.instanceOf(Map),
   onExchange: PropTypes.func,
-  rate: PropTypes.shape({}),
+  rate: PropTypes.shape({
+    currencyOut: PropTypes.number,
+    value: PropTypes.number,
+    currencyIn: PropTypes.string,
+  }),
   modalTitle: PropTypes.string,
   exchangeSuccess: PropTypes.bool,
   onAnotherExchange: PropTypes.func,
+  fmtMoney: PropTypes.func,
 };
 
 ExchangeModal.defaultProps = {

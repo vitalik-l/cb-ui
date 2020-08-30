@@ -30,8 +30,10 @@ class Dropdown extends Component {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props.show !== nextProps.show) {
+  // eslint-disable-next-line camelcase
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    const { show } = this.props;
+    if (show !== nextProps.show) {
       if (nextProps.show) {
         this.position = calculatePosition(nextProps.element, nextProps.display);
       }
@@ -41,57 +43,65 @@ class Dropdown extends Component {
     }
   }
 
-    clickEventListener = (e) => {
-      this.props.onClose && this.props.onClose();
-    };
-
-    onClick = (e) => {
-      e.stopPropagation();
-      e.preventDefault();
-    };
-
-    onChange = (id) => {
-      this.props.onChange && this.props.onChange(id);
-    };
-
-    render() {
-      const {
-        className, options, value, display,
-      } = this.props;
-      const { show } = this.state;
-
-      if (!show) return null;
-
-      const style = {
-        left: this.position.x,
-        top: this.position.y,
-        transform: display === 'top' ? 'translate(-100%, -100%)' : 'translateX(-100%)',
-      };
-
-      return createPortal(
-        <div
-          className={classNames('cb-dropdown', className)}
-          onClick={this.onClick}
-          style={style}
-        >
-          {options.map(({ id, label }) => (
-            <DropdownItem active={id === value} id={id} onClick={this.onChange} key={id}>
-              {label}
-            </DropdownItem>
-          ))}
-        </div>,
-        document.body,
-      );
+  clickEventListener = () => {
+    const { onClose } = this.props;
+    if (onClose) {
+      onClose();
     }
+  };
+
+  onClick = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+  };
+
+  onChange = (id) => {
+    const { onChange } = this.props;
+    if (onChange) {
+      onChange(id);
+    }
+  };
+
+  render() {
+    const {
+      className, options, value, display,
+    } = this.props;
+    const { show } = this.state;
+
+    if (!show) return null;
+
+    const style = {
+      left: this.position.x,
+      top: this.position.y,
+      transform: display === 'top' ? 'translate(-100%, -100%)' : 'translateX(-100%)',
+    };
+
+    return createPortal(
+      <div
+        className={classNames('cb-dropdown', className)}
+        onClick={this.onClick}
+        style={style}
+      >
+        {options.map(({ id, label }) => (
+          <DropdownItem active={id === value} id={id} onClick={this.onChange} key={id}>
+            {label}
+          </DropdownItem>
+        ))}
+      </div>,
+      document.body,
+    );
+  }
 }
 
 Dropdown.propTypes = {
   element: PropTypes.node,
   show: PropTypes.bool,
   onClose: PropTypes.func,
+  onChange: PropTypes.func,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  options: PropTypes.array,
+  options: PropTypes.arrayOf(PropTypes.shape({ id: PropTypes.string, label: PropTypes.string })),
   className: PropTypes.string,
+  display: PropTypes.string,
 };
 
 Dropdown.defaultProps = {

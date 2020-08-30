@@ -1,10 +1,11 @@
 import React from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
-export default function InputGroup({ children, ...props }) {
+function InputGroup({ children, label }) {
   function renderInput(child) {
     const {
-      label, error, className, ...inputProps
+      error, className, ...inputProps
     } = child.props;
     if (!label) {
       return (
@@ -19,7 +20,7 @@ export default function InputGroup({ children, ...props }) {
     }
     return (
       <tr>
-        <td>{label}</td>
+        <td>{inputProps.label}</td>
         <td>
           <input
             className={className}
@@ -39,7 +40,7 @@ export default function InputGroup({ children, ...props }) {
 
   return (
     <div className="cb-InputGroup">
-      <label className="cb-InputGroup__label">{props.label}</label>
+      <label className="cb-InputGroup__label">{label}</label>
       {React.Children.count(children) === 1
         ? renderChildren()
         : (
@@ -52,3 +53,13 @@ export default function InputGroup({ children, ...props }) {
     </div>
   );
 }
+
+InputGroup.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.shape({}),
+    PropTypes.arrayOf(PropTypes.element),
+  ]),
+  label: PropTypes.string,
+};
+
+export default InputGroup;

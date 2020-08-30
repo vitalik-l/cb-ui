@@ -15,9 +15,11 @@ function DemoMenu(props) {
 }
 
 DemoMenu.propTypes = {
-  games: PropTypes.array,
+  games: PropTypes.arrayOf(
+    PropTypes.shape({ game: PropTypes.string, url: PropTypes.string }),
+  ),
   open: PropTypes.bool,
-  onRequestHide: PropTypes.bool,
+  onRequestHide: PropTypes.func,
 };
 
 DemoMenu.defaultProps = {

@@ -4,7 +4,10 @@ import PropTypes from 'prop-types';
 
 class Drawer extends Component {
     onOverlayClick = () => {
-      this.props.onRequestHide && this.props.onRequestHide();
+      const { onRequestHide } = this.props;
+      if (onRequestHide) {
+        onRequestHide();
+      }
     };
 
     render() {
@@ -29,7 +32,7 @@ class Drawer extends Component {
 }
 
 Drawer.propTypes = {
-  open: PropTypes.boolean,
+  open: PropTypes.bool,
   onRequestHide: PropTypes.func,
   position: PropTypes.oneOf(['left', 'right']),
   children: PropTypes.node,

@@ -19,191 +19,222 @@ export default class EEButton extends PureComponent {
     this.animateProgress();
   }
 
-  componentWillUnmount() {
-    window.cancelAnimationFrame(this.progressAnimId);
-  }
-
   componentDidUpdate(prevProps) {
-    if (this.props.progress !== prevProps.progress) {
+    const { progress } = this.props;
+    if (progress !== prevProps.progress) {
       window.cancelAnimationFrame(this.progressAnimId);
       this.animateProgress();
     }
   }
 
-    animate = ({ timing, draw, duration }) => {
-      const start = performance.now();
-      const self = this;
+  componentWillUnmount() {
+    window.cancelAnimationFrame(this.progressAnimId);
+  }
 
-      this.progressAnimId = requestAnimationFrame(function animate(time) {
-        // timeFraction изменяется от 0 до 1
-        let timeFraction = (time - start) / duration;
-        if (timeFraction > 1) timeFraction = 1;
+  animate = ({ timing, draw, duration }) => {
+    const start = performance.now();
+    const self = this;
 
-        // вычисление текущего состояния анимации
-        const progress = timing(timeFraction);
+    this.progressAnimId = requestAnimationFrame(function animate(time) {
+      // timeFraction изменяется от 0 до 1
+      let timeFraction = (time - start) / duration;
+      if (timeFraction > 1) timeFraction = 1;
 
-        draw(progress); // отрисовать её
+      // вычисление текущего состояния анимации
+      const progress = timing(timeFraction);
 
-        if (timeFraction < 1) {
-          self.progressAnimId = requestAnimationFrame(animate);
-        }
-      });
-    };
+      draw(progress); // отрисовать её
 
-    animateProgress = () => {
-      let {
-        value, progress, reverseLoss, animation,
-      } = this.props;
-      if (progress) progress = progress < 0 ? Math.max(-100, progress) : Math.min(100, progress);
-      const targetSegment = !value && value !== 0 ? CIRCLE_DASH : Math.round(CIRCLE_DASH * (100 - progress) / 100);
-      const isLoss = value < 0;
-      const currentSegment = this.state.strokeDashoffset;
-      const deltaSegment = targetSegment - currentSegment;
+      if (timeFraction < 1) {
+        self.progressAnimId = requestAnimationFrame(animate);
+      }
+    });
+  };
 
-      this.indicatorEl.setAttribute('stroke', isLoss ? 'url(#redGrad)' : 'url(#greenGrad)');
+  animateProgress = () => {
+    const {
+      value, reverseLoss, animation,
+    } = this.props;
+    let { progress } = this.props;
+    const { strokeDashoffset } = this.state;
+    if (progress) progress = progress < 0 ? Math.max(-100, progress) : Math.min(100, progress);
+    const targetSegment = !value && value !== 0
+      ? CIRCLE_DASH : Math.round((CIRCLE_DASH * (100 - progress)) / 100);
+    const isLoss = value < 0;
+    const currentSegment = strokeDashoffset;
+    const deltaSegment = targetSegment - currentSegment;
 
-      this.animate({
-        timing: BezierEasing(0.25, 0.1, 0.25, 1.0),
-        duration: animation.duration,
-        draw: (progress) => {
-          const newSegment = currentSegment + deltaSegment * progress;
-          if (reverseLoss) {
-            if (newSegment > CIRCLE_DASH) {
-              this.indicatorEl.setAttribute('stroke', 'url(#redGrad)');
-            } else {
-              this.indicatorEl.setAttribute('stroke', 'url(#greenGrad)');
-            }
+    this.indicatorEl.setAttribute('stroke', isLoss ? 'url(#redGrad)' : 'url(#greenGrad)');
+
+    this.animate({
+      timing: BezierEasing(0.25, 0.1, 0.25, 1.0),
+      duration: animation.duration,
+      draw: (progressValue) => {
+        const newSegment = currentSegment + deltaSegment * progressValue;
+        if (reverseLoss) {
+          if (newSegment > CIRCLE_DASH) {
+            this.indicatorEl.setAttribute('stroke', 'url(#redGrad)');
+          } else {
+            this.indicatorEl.setAttribute('stroke', 'url(#greenGrad)');
           }
-          this.setState({ strokeDashoffset: newSegment });
-        },
-      });
-    };
+        }
+        this.setState({ strokeDashoffset: newSegment });
+      },
+    });
+  };
 
-    onMouseUp = (e) => {
-      if (this.props.progress === 0 || this.props.disabled) return;
-      this.props.onClick && this.props.onClick();
-    };
+  onMouseUp = () => {
+    const { progress, disabled, onClick } = this.props;
+    if (progress === 0 || disabled) return;
+    if (onClick) {
+      onClick();
+    }
+  };
 
-    onMouseEnter = (e) => {
-      this.setState({ hovered: true });
-    };
+  onMouseEnter = () => {
+    this.setState({ hovered: true });
+  };
 
-    onMouseLeave = (e) => {
-      this.setState({ hovered: false });
-    };
+  onMouseLeave = () => {
+    this.setState({ hovered: false });
+  };
 
-    getInnerContent(key) {
-      const {
-        value,
-        orderIsClosed,
-        labelStopLoss,
-        labelTakeProfit,
-        labelLossResult,
-        labelProfitResult,
-        percentValue,
-        hoverText,
-        labelTakeProfitHovered,
-        labelStopLossHovered,
-        blink,
-        valueRenderer,
-        withTie,
-        labelTie,
-        animationClassName,
-        animate,
-      } = this.props;
-      let label;
-      const shouldAnimate = orderIsClosed || key || blink || animate;
+  getInnerContent(key) {
+    const {
+      value,
+      orderIsClosed,
+      labelStopLoss,
+      labelTakeProfit,
+      labelLossResult,
+      labelProfitResult,
+      percentValue,
+      hoverText,
+      labelTakeProfitHovered,
+      labelStopLossHovered,
+      blink,
+      valueRenderer,
+      withTie,
+      labelTie,
+      animationClassName,
+      animate,
+    } = this.props;
+    let label;
+    const shouldAnimate = orderIsClosed || key || blink || animate;
+    const { hovered } = this.state;
 
-      if (orderIsClosed && withTie && value === 0 && labelTie) {
-        return (
-          <h6 className={classNames('ee-value', { [animationClassName]: shouldAnimate, tradeEnded: orderIsClosed })} key={key}>
-            {labelTie}
-          </h6>
-        );
-      }
-
-      if (value >= 0) {
-        label = !orderIsClosed ? (hoverText && this.state.hovered ? labelTakeProfitHovered : labelTakeProfit) : labelProfitResult;
-      } else {
-        label = !orderIsClosed ? (hoverText && this.state.hovered ? labelStopLossHovered : labelStopLoss) : labelLossResult;
-      }
-
+    if (orderIsClosed && withTie && value === 0 && labelTie) {
       return (
         <h6 className={classNames('ee-value', { [animationClassName]: shouldAnimate, tradeEnded: orderIsClosed })} key={key}>
-          <div className="ee-label-value">{label}</div>
-          <div className="ee-value">
-            {valueRenderer ? React.createElement(valueRenderer, { value }) : value}
-          </div>
-          {percentValue || percentValue === 0
-            ? (
-              <div className="ee-ratio-value">
-                <span>
-                  {percentValue}
-                  %
-                </span>
-              </div>
-            )
-            : null}
+          {labelTie}
         </h6>
       );
     }
 
-    renderLabel() {
-      const {
-        labelDefault, children, value, animationKey, labelRenderer,
-      } = this.props;
-
-      if (children) return children;
-      if (labelRenderer) return React.createElement(labelRenderer, this.props);
-
-      let label = <h6>{labelDefault}</h6>;
-
-      if (value || value === 0) {
-        label = (
-          animationKey ? [animationKey].map((key) => this.getInnerContent(key))
-            : this.getInnerContent()
-        );
-      }
-
-      return label;
+    if (value >= 0) {
+      const labelH = hoverText && hovered ? labelTakeProfitHovered : labelTakeProfit;
+      label = !orderIsClosed ? labelH : labelProfitResult;
+    } else {
+      const labelS = hoverText && hovered ? labelStopLossHovered : labelStopLoss;
+      label = !orderIsClosed ? labelS : labelLossResult;
     }
 
-    render() {
-      const {
-        value, progress, imageGreenGradient, imageRedGradient, disabled, className, withTie, reverseLoss, cx, cy, r,
-      } = this.props;
-      const { strokeDashoffset } = this.state;
-      const isLoss = value < 0;
-      const bigBtnClass = classNames({
-        loss: isLoss,
-        tie: withTie && value === 0,
-        active: !disabled && value && progress,
-      });
-      let stroke = null;
-
-      if (!reverseLoss) {
-        stroke = isLoss ? 'url(#redGrad)' : 'url(#greenGrad)';
-      }
-
-      return (
-        <div className={classNames('cb-ee-button', className)}>
-          <svg height="100%" width="100%" viewBox="0 0 190 190">
-            <defs>
-              <pattern id="greenGrad" patternUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%">
-                <image x="0" y="0" width="100%" height="100%" href={imageGreenGradient} />
-              </pattern>
-              <pattern id="redGrad" patternUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%">
-                <image x="0" y="0" width="100%" height="100%" href={imageRedGradient} className={classNames({ reverse: reverseLoss })} />
-              </pattern>
-            </defs>
-            <circle cx={cx} cy={cy} r={r} stroke={stroke} style={{ strokeDashoffset }} ref={(el) => this.indicatorEl = el} />
-          </svg>
-          <div className={bigBtnClass} onMouseUp={this.onMouseUp} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
-            {this.renderLabel()}
-          </div>
+    return (
+      <h6 className={classNames('ee-value', { [animationClassName]: shouldAnimate, tradeEnded: orderIsClosed })} key={key}>
+        <div className="ee-label-value">{label}</div>
+        <div className="ee-value">
+          {valueRenderer ? React.createElement(valueRenderer, { value }) : value}
         </div>
+        {percentValue || percentValue === 0
+          ? (
+            <div className="ee-ratio-value">
+              <span>
+                {percentValue}
+                %
+              </span>
+            </div>
+          )
+          : null}
+      </h6>
+    );
+  }
+
+  renderLabel() {
+    const {
+      labelDefault, children, value, animationKey, labelRenderer,
+    } = this.props;
+
+    if (children) return children;
+    if (labelRenderer) return React.createElement(labelRenderer, this.props);
+
+    let label = <h6>{labelDefault}</h6>;
+
+    if (value || value === 0) {
+      label = (
+        animationKey ? [animationKey].map((key) => this.getInnerContent(key))
+          : this.getInnerContent()
       );
     }
+
+    return label;
+  }
+
+  render() {
+    const {
+      value,
+      progress,
+      imageGreenGradient,
+      imageRedGradient,
+      disabled,
+      className,
+      withTie,
+      reverseLoss, cx, cy, r,
+    } = this.props;
+    const { strokeDashoffset } = this.state;
+    const isLoss = value < 0;
+    const bigBtnClass = classNames({
+      loss: isLoss,
+      tie: withTie && value === 0,
+      active: !disabled && value && progress,
+    });
+    let stroke = null;
+
+    if (!reverseLoss) {
+      stroke = isLoss ? 'url(#redGrad)' : 'url(#greenGrad)';
+    }
+
+    return (
+      <div className={classNames('cb-ee-button', className)}>
+        <svg height="100%" width="100%" viewBox="0 0 190 190">
+          <defs>
+            <pattern id="greenGrad" patternUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%">
+              <image x="0" y="0" width="100%" height="100%" href={imageGreenGradient} />
+            </pattern>
+            <pattern id="redGrad" patternUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%">
+              <image x="0" y="0" width="100%" height="100%" href={imageRedGradient} className={classNames({ reverse: reverseLoss })} />
+            </pattern>
+          </defs>
+          <circle
+            cx={cx}
+            cy={cy}
+            r={r}
+            stroke={stroke}
+            style={{ strokeDashoffset }}
+            ref={(el) => {
+              this.indicatorEl = el;
+            }}
+          />
+        </svg>
+        <div
+          className={bigBtnClass}
+          onMouseUp={this.onMouseUp}
+          onMouseEnter={this.onMouseEnter}
+          onMouseLeave={this.onMouseLeave}
+        >
+          {this.renderLabel()}
+        </div>
+      </div>
+    );
+  }
 }
 
 EEButton.propTypes = {
@@ -219,7 +250,25 @@ EEButton.propTypes = {
   labelTie: PropTypes.node,
   animationClassName: PropTypes.string,
   reverseLoss: PropTypes.bool,
-  animation: PropTypes.bool,
+  animation: PropTypes.shape({ duration: PropTypes.number }),
+  onClick: PropTypes.func,
+  orderIsClosed: PropTypes.bool,
+  labelStopLoss: PropTypes.string,
+  labelTakeProfit: PropTypes.string,
+  labelLossResult: PropTypes.string,
+  labelProfitResult: PropTypes.string,
+  labelTakeProfitHovered: PropTypes.string,
+  labelStopLossHovered: PropTypes.string,
+  labelDefault: PropTypes.string,
+  children: PropTypes.element,
+  animationKey: PropTypes.number,
+  labelRenderer: PropTypes.func,
+  imageGreenGradient: PropTypes.string,
+  imageRedGradient: PropTypes.string,
+  className: PropTypes.string,
+  cx: PropTypes.string,
+  cy: PropTypes.string,
+  r: PropTypes.number,
 };
 
 EEButton.defaultProps = {

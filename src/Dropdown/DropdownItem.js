@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 class DropdownItem extends Component {
     onClick = () => {
-      this.props.onClick && this.props.onClick(this.props.id);
+      const { onClick, id } = this.props;
+      if (onClick) {
+        onClick(id);
+      }
     };
 
     render() {
@@ -16,5 +20,12 @@ class DropdownItem extends Component {
       );
     }
 }
+
+DropdownItem.propTypes = {
+  onClick: PropTypes.func,
+  id: PropTypes.number,
+  active: PropTypes.bool,
+  children: PropTypes.element,
+};
 
 export default DropdownItem;
