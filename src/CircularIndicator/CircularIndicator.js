@@ -12,9 +12,7 @@ function animate({
 }) {
   const start = performance.now();
 
-  // иначе не работает Оо
-  // eslint-disable-next-line no-shadow
-  ref.current = requestAnimationFrame(function animate(time) {
+  ref.current = requestAnimationFrame(function animateCurrent(time) {
     // timeFraction изменяется от 0 до 1
     let timeFraction = (time - start) / duration;
     if (timeFraction > 1) timeFraction = 1;
@@ -25,7 +23,7 @@ function animate({
     draw(progress); // отрисовать её
 
     if (timeFraction < 1) {
-      ref.current = requestAnimationFrame(animate);
+      ref.current = requestAnimationFrame(animateCurrent);
     }
   });
 }
@@ -36,32 +34,36 @@ function CircularIndicator({
   const [currentSegment, setCurrentSegment] = useState(SEGMENTS);
   const isLoss = progress < 0;
   const indicatorRef = useRef();
-  const animateRef = useRef();
   let stroke;
 
   useEffect(() => {
+    const animateRef = { current: 0 };
+
     function animateProgress() {
-      const isNewLoss = progress < 0;
-      let newProgress;
+      let currentProgress = progress;
       if (progress) {
         if (reverse) {
-          newProgress = progress < 0 ? Math.max(-100, progress) : Math.min(100, progress);
+          currentProgress = progress < 0
+            ? Math.max(-100, progress)
+            : Math.min(100, progress);
         } else {
-          newProgress = Math.min(100, Math.abs(progress));
+          currentProgress = Math.min(100, Math.abs(progress));
         }
       }
-      const targetSegment = !newProgress
-        ? SEGMENTS : Math.round((SEGMENTS * (100 - progress)) / 100);
+      const targetSegment = !currentProgress
+        ? SEGMENTS
+        : Math.round((SEGMENTS * (100 - currentProgress)) / 100);
+
       const deltaSegment = targetSegment - currentSegment;
 
-      indicatorRef.current.setAttribute('stroke', isNewLoss ? 'url(#redGrad)' : 'url(#greenGrad)');
+      indicatorRef.current.setAttribute('stroke', progress < 0 ? 'url(#redGrad)' : 'url(#greenGrad)');
 
       animate({
         ref: animateRef,
         timing: BezierEasing(0.25, 0.1, 0.25, 1.0),
         duration: animation.duration,
-        draw: (progressValue) => {
-          const newSegment = currentSegment + deltaSegment * progressValue;
+        draw: (drawProgress) => {
+          const newSegment = currentSegment + deltaSegment * drawProgress;
           if (reverse) {
             if (newSegment > SEGMENTS) {
               indicatorRef.current.setAttribute('stroke', 'url(#redGrad)');
@@ -78,7 +80,7 @@ function CircularIndicator({
     animateProgress();
 
     return () => window.cancelAnimationFrame(animateRef.current);
-  }, [progress, reverse]);
+  }, [progress, reverse]); /* eslint-disable-line react-hooks/exhaustive-deps */
 
   if (!reverse) {
     stroke = isLoss ? 'url(#redGrad)' : 'url(#greenGrad)';
@@ -110,18 +112,14 @@ CircularIndicator.defaultProps = {
   },
 };
 
-export default CircularIndicator;
-
 CircularIndicator.propTypes = {
   /** animation */
-  animation: PropTypes.shape({
-    duration: PropTypes.number,
-  }),
-
+  animation: PropTypes.shape({ duration: PropTypes.number }),
   /** value of progress in percent between 0 to 100 */
   progress: PropTypes.number,
-
   className: PropTypes.string,
   reverse: PropTypes.bool,
-  children: PropTypes.element,
+  children: PropTypes.node,
 };
+
+export default CircularIndicator;
