@@ -11,8 +11,9 @@ function animate({
   ref, timing, draw, duration,
 }) {
   const start = performance.now();
-  const animateRef = { current: null };
 
+  // иначе не работает Оо
+  // eslint-disable-next-line no-shadow
   ref.current = requestAnimationFrame(function animate(time) {
     // timeFraction изменяется от 0 до 1
     let timeFraction = (time - start) / duration;
@@ -40,25 +41,27 @@ function CircularIndicator({
 
   useEffect(() => {
     function animateProgress() {
-      const isLoss = progress < 0;
+      const isNewLoss = progress < 0;
+      let newProgress;
       if (progress) {
         if (reverse) {
-          progress = progress < 0 ? Math.max(-100, progress) : Math.min(100, progress);
+          newProgress = progress < 0 ? Math.max(-100, progress) : Math.min(100, progress);
         } else {
-          progress = Math.min(100, Math.abs(progress));
+          newProgress = Math.min(100, Math.abs(progress));
         }
       }
-      const targetSegment = !progress ? SEGMENTS : Math.round(SEGMENTS * (100 - progress) / 100);
+      const targetSegment = !newProgress
+        ? SEGMENTS : Math.round((SEGMENTS * (100 - progress)) / 100);
       const deltaSegment = targetSegment - currentSegment;
 
-      indicatorRef.current.setAttribute('stroke', isLoss ? 'url(#redGrad)' : 'url(#greenGrad)');
+      indicatorRef.current.setAttribute('stroke', isNewLoss ? 'url(#redGrad)' : 'url(#greenGrad)');
 
       animate({
         ref: animateRef,
         timing: BezierEasing(0.25, 0.1, 0.25, 1.0),
         duration: animation.duration,
-        draw: (progress) => {
-          const newSegment = currentSegment + deltaSegment * progress;
+        draw: (progressValue) => {
+          const newSegment = currentSegment + deltaSegment * progressValue;
           if (reverse) {
             if (newSegment > SEGMENTS) {
               indicatorRef.current.setAttribute('stroke', 'url(#redGrad)');
@@ -107,12 +110,18 @@ CircularIndicator.defaultProps = {
   },
 };
 
+export default CircularIndicator;
+
 CircularIndicator.propTypes = {
   /** animation */
-  animation: PropTypes.shape({}).isRequired,
+  animation: PropTypes.shape({
+    duration: PropTypes.number,
+  }),
 
   /** value of progress in percent between 0 to 100 */
   progress: PropTypes.number,
-};
 
-export default CircularIndicator;
+  className: PropTypes.string,
+  reverse: PropTypes.bool,
+  children: PropTypes.element,
+};
