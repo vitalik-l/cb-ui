@@ -94,12 +94,17 @@ class Dropdown extends Component {
 }
 
 Dropdown.propTypes = {
-  element: PropTypes.node,
+  element: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.shape({}),
+  ]),
   show: PropTypes.bool,
   onClose: PropTypes.func,
   onChange: PropTypes.func,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  options: PropTypes.arrayOf(PropTypes.shape({ id: PropTypes.string, label: PropTypes.string })),
+  options: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]), label: PropTypes.string,
+  })),
   className: PropTypes.string,
   display: PropTypes.string,
 };

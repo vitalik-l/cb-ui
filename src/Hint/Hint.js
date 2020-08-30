@@ -30,7 +30,7 @@ Hint.propTypes = {
   show: PropTypes.bool,
   text: PropTypes.string,
   className: PropTypes.string,
-  arrowSide: PropTypes.bool,
+  arrowSide: PropTypes.string,
   arrowAlign: PropTypes.string,
   title: PropTypes.string,
 };

@@ -23,9 +23,12 @@ class DropdownItem extends Component {
 
 DropdownItem.propTypes = {
   onClick: PropTypes.func,
-  id: PropTypes.number,
+  id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   active: PropTypes.bool,
-  children: PropTypes.element,
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.string,
+  ]),
 };
 
 export default DropdownItem;
