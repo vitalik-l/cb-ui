@@ -30,7 +30,7 @@ class WithdrawalModal extends Component {
   validate = () => {
     const { amount, address } = this.state;
     const errors = {};
-    if (amount && (amount > this.balance || isNaN(amount) || amount <= 0)) {
+    if (amount && (amount > this.balance || Number.isNaN(amount) || amount <= 0)) {
       errors.amount = 'Invalid value';
     }
     if (
