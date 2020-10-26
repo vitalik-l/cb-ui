@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { ButtonBase } from '../ButtonBase';
 import { animate } from '../utils/animate';
+import ButtonBase  from "../ButtonBase";
+import './styles/v2.scss';
 
 const SEGMENTS = 461;
 
