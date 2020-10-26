@@ -45,7 +45,7 @@ const ButtonBase = React.forwardRef((props, ref) => {
     <ComponentProp
       type={ComponentProp === 'button' ? 'button' : null}
       tabIndex={disabled ? -1 : tabIndex}
-      className={classNames('cb-ButtonBase', className)}
+      className={classNames('cb-ButtonBase', className, {'cb-ButtonBase--disabled': disabled})}
       role={ComponentProp === 'button' ? undefined : 'button'}
       ref={ref}
       href={href}

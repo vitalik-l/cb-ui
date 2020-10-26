@@ -117,7 +117,7 @@ export function CircularIndicator2(props) {
           </pattern>
         </defs>
       </svg>
-      <ButtonBase className={classNames('cb-CircularIndicator2-button', { 'cb-CircularIndicator2-button--disabled': disabled }, buttonClassName)} component="div" {...buttonProps}>
+      <ButtonBase className={classNames('cb-CircularIndicator2-button', { 'cb-CircularIndicator2-button--disabled': disabled }, buttonClassName)} component="div" disabled={disabled} {...buttonProps}>
         <svg width="100%" height="100%" viewBox="0 0 107 107" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle opacity="0.8" cx="53.5" cy="53.5" r="53.5" fill={`url(#${color}_radial)`} className="cb-CircularIndicator2-button-circle" />
           <ellipse cx="53.5" cy="34.5" rx="41.5" ry="31.5" fill="url(#paint1_linear)" className="cb-CircularIndicator2-button-eclipse" />
