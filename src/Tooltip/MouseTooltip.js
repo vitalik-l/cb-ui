@@ -97,8 +97,6 @@ class MouseTooltip extends Component {
       x: coordinates.x,
       y: coordinates.y,
       position,
-      // wtf?
-      align,
     }, () => {
       this.hideTimeoutId = setTimeout(() => {
         this.hide();

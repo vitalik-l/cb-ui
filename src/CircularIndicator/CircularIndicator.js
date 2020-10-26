@@ -1,85 +1,54 @@
 import React, { useEffect, useState, useRef } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import BezierEasing from 'bezier-easing';
 import imageDownGradient from './imageDownGradient';
 import imageUpGradient from './imageUpGradient';
+import { animate } from '../utils/animate';
 
 const SEGMENTS = 439;
 
-function animate({
-  ref, timing, draw, duration,
-}) {
-  const start = performance.now();
-
-  ref.current = requestAnimationFrame(function animateCurrent(time) {
-    // timeFraction изменяется от 0 до 1
-    let timeFraction = (time - start) / duration;
-    if (timeFraction > 1) timeFraction = 1;
-
-    // вычисление текущего состояния анимации
-    const progress = timing(timeFraction);
-
-    draw(progress); // отрисовать её
-
-    if (timeFraction < 1) {
-      ref.current = requestAnimationFrame(animateCurrent);
-    }
-  });
-}
-
-function CircularIndicator({
-  className, reverse, progress, animation, children,
-}) {
+function CircularIndicator(props) {
+  const {
+    className, reverse, progress, animation, children,
+  } = props;
   const [currentSegment, setCurrentSegment] = useState(SEGMENTS);
   const isLoss = progress < 0;
   const indicatorRef = useRef();
   let stroke;
 
   useEffect(() => {
-    const animateRef = { current: 0 };
-
-    function animateProgress() {
-      let currentProgress = progress;
-      if (progress) {
-        if (reverse) {
-          currentProgress = progress < 0
-            ? Math.max(-100, progress)
-            : Math.min(100, progress);
-        } else {
-          currentProgress = Math.min(100, Math.abs(progress));
-        }
+    let currentProgress = progress;
+    if (progress) {
+      if (reverse) {
+        currentProgress = progress < 0
+          ? Math.max(-100, progress)
+          : Math.min(100, progress);
+      } else {
+        currentProgress = Math.min(100, Math.abs(progress));
       }
-      const targetSegment = !currentProgress
-        ? SEGMENTS
-        : Math.round((SEGMENTS * (100 - currentProgress)) / 100);
-
-      const deltaSegment = targetSegment - currentSegment;
-
-      indicatorRef.current.setAttribute('stroke', progress < 0 ? 'url(#redGrad)' : 'url(#greenGrad)');
-
-      animate({
-        ref: animateRef,
-        timing: BezierEasing(0.25, 0.1, 0.25, 1.0),
-        duration: animation.duration,
-        draw: (drawProgress) => {
-          const newSegment = currentSegment + deltaSegment * drawProgress;
-          if (reverse) {
-            if (newSegment > SEGMENTS) {
-              indicatorRef.current.setAttribute('stroke', 'url(#redGrad)');
-            } else {
-              indicatorRef.current.setAttribute('stroke', 'url(#greenGrad)');
-            }
-          }
-          setCurrentSegment(newSegment);
-        },
-      });
     }
+    const targetSegment = !currentProgress
+      ? SEGMENTS
+      : Math.round((SEGMENTS * (100 - currentProgress)) / 100);
 
-    window.cancelAnimationFrame(animateRef.current);
-    animateProgress();
+    const deltaSegment = targetSegment - currentSegment;
 
-    return () => window.cancelAnimationFrame(animateRef.current);
+    indicatorRef.current.setAttribute('stroke', progress < 0 ? 'url(#redGrad)' : 'url(#greenGrad)');
+
+    return animate({
+      duration: animation.duration,
+      draw: (drawProgress) => {
+        const newSegment = currentSegment + deltaSegment * drawProgress;
+        if (reverse) {
+          if (newSegment > SEGMENTS) {
+            indicatorRef.current.setAttribute('stroke', 'url(#redGrad)');
+          } else {
+            indicatorRef.current.setAttribute('stroke', 'url(#greenGrad)');
+          }
+        }
+        setCurrentSegment(newSegment);
+      },
+    });
   }, [progress, reverse]); /* eslint-disable-line react-hooks/exhaustive-deps */
 
   if (!reverse) {
