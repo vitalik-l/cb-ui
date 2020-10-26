@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function ClickAwayListener({ onClickAway, mouseEvent, children }) {
+function ClickAwayListener(props) {
+  const { onClickAway, mouseEvent, children } = props;
   const childrenRef = React.useRef();
   const eventName = React.useMemo(() => mouseEvent.substring(2).toLowerCase(), [mouseEvent]);
 
-  const childrenPropsHandler = React.useCallback((e) => {
-    e.stopPropagation();
-    e.nativeEvent.stopImmediatePropagation();
+  const childrenPropsHandler = React.useCallback((event) => {
+    event.stopPropagation();
+    event.nativeEvent.stopImmediatePropagation();
     const handler = children.props[mouseEvent];
     if (handler) {
-      handler(e);
+      handler(event);
     }
   }, [children.props, mouseEvent]);
 
@@ -19,8 +20,13 @@ function ClickAwayListener({ onClickAway, mouseEvent, children }) {
     [mouseEvent]: childrenPropsHandler,
   };
 
-  const clickAwayListener = React.useCallback((e) => {
-    onClickAway(e);
+  const clickAwayListener = React.useCallback((event) => {
+    if (onClickAway) {
+      const childrenNode = childrenRef.current;
+      if (childrenNode && !childrenNode.contains(event.target)) {
+        onClickAway(event);
+      }
+    }
   }, [onClickAway]);
 
   React.useEffect(() => {
@@ -31,7 +37,6 @@ function ClickAwayListener({ onClickAway, mouseEvent, children }) {
         document.removeEventListener(eventName, clickAwayListener);
       };
     }
-
     return undefined;
   }, [eventName, clickAwayListener]);
 
