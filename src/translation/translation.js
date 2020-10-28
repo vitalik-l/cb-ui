@@ -1,9 +1,3 @@
-export let state = {};
-
-const setState = (value) => {
-  state = value;
-};
-
 const get = (obj, path, defaultValue) => {
 	return String(path).split('.').reduce((acc, v) => {
 		try {
@@ -64,7 +58,7 @@ export const formatString = (str, obj) => {
 	return resStr;
 };
 
-export const translate = ({key, defaultValue}) => {
+export const translate = ({key, defaultValue}, state = {}) => {
 	return get(state, key, defaultValue || key);
 };
 
@@ -81,5 +75,3 @@ export const useStrings = (baseKey, strings) => {
 	});
 	return result;
 };
-
-export const initTranslation = (state) => setState(state);
