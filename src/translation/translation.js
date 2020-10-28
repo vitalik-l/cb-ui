@@ -1,4 +1,4 @@
-let state = {};
+export let state = {};
 
 const setState = (value) => {
   state = value;
