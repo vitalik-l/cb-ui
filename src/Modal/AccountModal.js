@@ -20,9 +20,11 @@ class AccountModal extends Component {
     const errors = {};
     const passwordRegexp = new RegExp(REGEXP.password);
 
-    if (!passwordRegexp.test(newPassword.value)) errors.newPassword = 'The password must be at least 8 characters long and contain at least one upper case letter, lower case letter and one digit';
+    if (!passwordRegexp.test(newPassword.value))
+      errors.newPassword =
+        'The password must be at least 8 characters long and contain at least one upper case letter, lower case letter and one digit';
     if (confirmPassword.value !== newPassword.value) {
-      errors.confirmPassword = 'Password doesn\'t match';
+      errors.confirmPassword = "Password doesn't match";
     }
 
     this.setState({ errors });
@@ -32,8 +34,8 @@ class AccountModal extends Component {
   changePassword = () => {
     const form = this.changePasswordForm;
     const { onChangePassword } = this.props;
-    if ((!form.checkValidity() && !form.reportValidity())
-      || !this.validateChangePasswordForm()) return;
+    if ((!form.checkValidity() && !form.reportValidity()) || !this.validateChangePasswordForm())
+      return;
     if (onChangePassword) {
       onChangePassword({
         password: form.currentPassword.value,
@@ -68,9 +70,7 @@ class AccountModal extends Component {
 
     return (
       <Modal {...this.props} className="cb-AccountModal">
-        <ModalHeader>
-          Account
-        </ModalHeader>
+        <ModalHeader>Account</ModalHeader>
         <ModalContent>
           <div className="forms">
             <form
@@ -114,7 +114,9 @@ class AccountModal extends Component {
                 />
               </InputGroup>
               <div className="cb-InputGroup">
-                <button className="cb-Button primary" onClick={this.changePassword}>Save</button>
+                <button className="cb-Button primary" onClick={this.changePassword}>
+                  Save
+                </button>
               </div>
             </form>
             <form
@@ -146,7 +148,9 @@ class AccountModal extends Component {
                 />
               </InputGroup>
               <div className="cb-InputGroup">
-                <button className="cb-Button primary" onClick={this.changeEmail}>Save</button>
+                <button className="cb-Button primary" onClick={this.changeEmail}>
+                  Save
+                </button>
               </div>
             </form>
             <div className="contact-support-link">
@@ -155,8 +159,12 @@ class AccountModal extends Component {
           </div>
         </ModalContent>
         <ModalActions>
-          <button onClick={this.logoutUser} className="cb-Button primary">Logout</button>
-          <button className="cb-Button" onClick={onClose}>Cancel</button>
+          <button onClick={this.logoutUser} className="cb-Button primary">
+            Logout
+          </button>
+          <button className="cb-Button" onClick={onClose}>
+            Cancel
+          </button>
         </ModalActions>
       </Modal>
     );

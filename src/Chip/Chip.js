@@ -43,9 +43,13 @@ class Chip extends PureComponent {
 
   render() {
     const {
-      color, value, large,
-      selected, className,
-      onMouseEnter, onMouseLeave,
+      color,
+      value,
+      large,
+      selected,
+      className,
+      onMouseEnter,
+      onMouseLeave,
       pos,
     } = this.props;
     if (!value) return <div />;
@@ -62,7 +66,7 @@ class Chip extends PureComponent {
           'chip',
           {
             selected,
-            'chip--large-font': (value).toString().length < 4,
+            'chip--large-font': value.toString().length < 4,
             large,
             [`v${value}`]: !colorClass,
           },

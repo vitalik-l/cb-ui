@@ -4,11 +4,12 @@
     margin: 0;
     padding: 0;
 
-    &:nth-child(n+2) {
+    &:nth-child(n + 2) {
       margin-top: 20px;
     }
 
-    .fieldset__label, .fieldset__value {
+    .fieldset__label,
+    .fieldset__value {
       width: auto;
       float: none;
       display: block;

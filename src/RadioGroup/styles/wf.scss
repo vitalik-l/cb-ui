@@ -37,7 +37,8 @@
       border-radius: 0 30px 30px 0;
     }
 
-    &.cb-Radio--active, &:active {
+    &.cb-Radio--active,
+    &:active {
       background-color: #323137 !important;
       color: #a7f541;
       cursor: default;

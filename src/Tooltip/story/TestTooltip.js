@@ -9,26 +9,33 @@ class TestTooltip extends Component {
     };
   }
 
-    mouseEnter = () => {
-      this.setState({ showTooltip: true });
-    };
+  mouseEnter = () => {
+    this.setState({ showTooltip: true });
+  };
 
-    mouseLeave = () => {
-      this.setState({ showTooltip: false });
-    };
+  mouseLeave = () => {
+    this.setState({ showTooltip: false });
+  };
 
-    render() {
-      const { showTooltip } = this.state;
+  render() {
+    const { showTooltip } = this.state;
 
-      return (
-        <div>
-          <button type="button" id="button1" onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave}>Display tooltip</button>
-          <Tooltip show={showTooltip} element="button1" timeout={2000}>
-            123
-          </Tooltip>
-        </div>
-      );
-    }
+    return (
+      <div>
+        <button
+          type="button"
+          id="button1"
+          onMouseEnter={this.mouseEnter}
+          onMouseLeave={this.mouseLeave}
+        >
+          Display tooltip
+        </button>
+        <Tooltip show={showTooltip} element="button1" timeout={2000}>
+          123
+        </Tooltip>
+      </div>
+    );
+  }
 }
 
 export default TestTooltip;

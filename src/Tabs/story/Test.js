@@ -10,22 +10,22 @@ export default class Test extends Component {
     this.testClick = this.onChange.bind(this, 2);
   }
 
-    onChange = (value) => {
-      this.setState({ value });
-    };
+  onChange = (value) => {
+    this.setState({ value });
+  };
 
-    render() {
-      const { value } = this.state;
+  render() {
+    const { value } = this.state;
 
-      return (
-        <Tabs value={value} onChange={this.onChange}>
-          <Tab label="first" value="first">
-            first
-          </Tab>
-          <Tab label="second" value="second">
-            Second
-          </Tab>
-        </Tabs>
-      );
-    }
+    return (
+      <Tabs value={value} onChange={this.onChange}>
+        <Tab label="first" value="first">
+          first
+        </Tab>
+        <Tab label="second" value="second">
+          Second
+        </Tab>
+      </Tabs>
+    );
+  }
 }

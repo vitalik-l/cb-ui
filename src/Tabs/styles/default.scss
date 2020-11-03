@@ -3,7 +3,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  background: #17161A url(../img/default/lthr_bg.png) repeat-x;
+  background: #17161a url(../img/default/lthr_bg.png) repeat-x;
   border-top: 1px solid #444;
 
   .tab-hidden {
@@ -42,7 +42,7 @@
     span:last-child {
       font-size: 1.5rem;
       line-height: 0;
-      color: #5ECD24;
+      color: #5ecd24;
     }
   }
 }
@@ -59,7 +59,8 @@ ul.tab-bar {
   width: 100%;
   cursor: row-resize;
 
-  li, a {
+  li,
+  a {
     position: relative;
     display: inline-block;
     height: 39px;

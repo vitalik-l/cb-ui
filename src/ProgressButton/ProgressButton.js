@@ -2,9 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-function ProgressButton({
-  className, label, progress, loss, ...otherProps
-}) {
+function ProgressButton({ className, label, progress, loss, ...otherProps }) {
   return (
     <button
       className={classNames('cb-progress-button', className, { 'cb-progress-button--loss': loss })}

@@ -17,9 +17,7 @@ export default class NetPL extends Component {
   UNSAFE_componentWillReceiveProps(nextProps) {
     const { currency, currencyField } = this.props;
     if (nextProps.currency.code !== currency.code) {
-      if (
-        nextProps.value.some((item) => item[currencyField] === nextProps.currency.code)
-      ) {
+      if (nextProps.value.some((item) => item[currencyField] === nextProps.currency.code)) {
         this.setState({
           selectedCurrency: nextProps.currency.code,
         });
@@ -52,7 +50,12 @@ export default class NetPL extends Component {
 
   render() {
     const {
-      value, requestEarlyExitAll, profitRenderer, profitField, progressField, currencyField,
+      value,
+      requestEarlyExitAll,
+      profitRenderer,
+      profitField,
+      progressField,
+      currencyField,
     } = this.props;
 
     if (!value || !value.length) return null;
@@ -65,45 +68,46 @@ export default class NetPL extends Component {
     return (
       <div className={classNames('cb-net-pl', { loss: profit < 0 })}>
         <div>
-          <span className={classNames({ 'cb-net-pl__link': value.length > 1 })} onClick={this.displayCurrencyMenu}>
+          <span
+            className={classNames({ 'cb-net-pl__link': value.length > 1 })}
+            onClick={this.displayCurrencyMenu}
+          >
             NET P/L
             {value.length > 1 ? `, ${selectedCurrency} ` : ' '}
           </span>
-          {value.length > 1
-            ? (
-              <Dropdown
-                value={selectedCurrency}
-                options={
-                  value.map((item) => ({ id: item[currencyField], label: item[currencyField] }))
-                }
-                onChange={this.onCurrencyChange}
-                element={targetElement}
-                show={!!targetElement}
-                onClose={this.closeCurrencyMenu}
-                display="top"
-              />
-            )
-            : null}
+          {value.length > 1 ? (
+            <Dropdown
+              value={selectedCurrency}
+              options={value.map((item) => ({
+                id: item[currencyField],
+                label: item[currencyField],
+              }))}
+              onChange={this.onCurrencyChange}
+              element={targetElement}
+              show={!!targetElement}
+              onClose={this.closeCurrencyMenu}
+              display="top"
+            />
+          ) : null}
           <b>
-            {
-              profitRenderer
-                ? React.createElement(
-                  profitRenderer,
-                  { profit: selectedValue[profitField], currency: selectedValue[currencyField] },
-                ) : selectedValue[profitField]
-            }
+            {profitRenderer
+              ? React.createElement(profitRenderer, {
+                  profit: selectedValue[profitField],
+                  currency: selectedValue[currencyField],
+                })
+              : selectedValue[profitField]}
           </b>
         </div>
-        {progress
-          ? (
-            <ProgressButton
-              loss={profit < 0}
-              label="early exit all"
-              progress={Math.abs(progress)}
-              onClick={requestEarlyExitAll}
-            />
-          )
-          : <button onClick={requestEarlyExitAll}>early exit all</button>}
+        {progress ? (
+          <ProgressButton
+            loss={profit < 0}
+            label="early exit all"
+            progress={Math.abs(progress)}
+            onClick={requestEarlyExitAll}
+          />
+        ) : (
+          <button onClick={requestEarlyExitAll}>early exit all</button>
+        )}
         {progress ? (
           <span className="cb-net-pl__progress-value">
             {progress > 0 ? `+${progress}` : progress}

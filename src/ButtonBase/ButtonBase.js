@@ -5,7 +5,15 @@ import './styles/default.scss';
 
 const ButtonBase = React.forwardRef((props, ref) => {
   const {
-    children, className, component, href, disabled, type, tabIndex, onClick, onKeyDown,
+    children,
+    className,
+    component,
+    href,
+    disabled,
+    type,
+    tabIndex,
+    onClick,
+    onKeyDown,
     ...buttonProps
   } = props;
 
@@ -21,31 +29,34 @@ const ButtonBase = React.forwardRef((props, ref) => {
     buttonProps['aria-disabled'] = disabled;
   }
 
-  const handleKeyDown = React.useCallback((event) => {
-    if (onKeyDown) {
-      onKeyDown(event);
-    }
-
-    // Keyboard accessibility for non interactive elements
-    if (
-      event.target === event.currentTarget
-      && ComponentProp !== 'button'
-      && ComponentProp !== 'a'
-      && (event.key === 'Enter' || event.key === ' ')
-      && !disabled
-    ) {
-      event.preventDefault();
-      if (onClick) {
-        onClick(event);
+  const handleKeyDown = React.useCallback(
+    (event) => {
+      if (onKeyDown) {
+        onKeyDown(event);
       }
-    }
-  }, [onClick, onKeyDown, ComponentProp, disabled]);
+
+      // Keyboard accessibility for non interactive elements
+      if (
+        event.target === event.currentTarget &&
+        ComponentProp !== 'button' &&
+        ComponentProp !== 'a' &&
+        (event.key === 'Enter' || event.key === ' ') &&
+        !disabled
+      ) {
+        event.preventDefault();
+        if (onClick) {
+          onClick(event);
+        }
+      }
+    },
+    [onClick, onKeyDown, ComponentProp, disabled],
+  );
 
   return (
     <ComponentProp
       type={ComponentProp === 'button' ? 'button' : null}
       tabIndex={disabled ? -1 : tabIndex}
-      className={classNames('cb-ButtonBase', className, {'cb-ButtonBase--disabled': disabled})}
+      className={classNames('cb-ButtonBase', className, { 'cb-ButtonBase--disabled': disabled })}
       role={ComponentProp === 'button' ? undefined : 'button'}
       ref={ref}
       href={href}

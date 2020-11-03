@@ -12,7 +12,8 @@ button.cb-Button {
   cursor: pointer;
   border-radius: 0;
 
-  &:hover, &:active {
+  &:hover,
+  &:active {
     background: #1e2331;
   }
 

@@ -1,8 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import {
-  withKnobs,
-} from '@storybook/addon-knobs';
+import { withKnobs } from '@storybook/addon-knobs';
 
 // styles
 import '../styles/default.scss';
@@ -16,25 +14,19 @@ stories.add('Icons', () => (
   <div>
     <table>
       <tr>
-        <td>
-          TrendDownIcon
-        </td>
+        <td>TrendDownIcon</td>
         <td>
           <TrendDownIcon />
         </td>
       </tr>
       <tr>
-        <td>
-          TrendUpIcon
-        </td>
+        <td>TrendUpIcon</td>
         <td>
           <TrendUpIcon />
         </td>
       </tr>
       <tr>
-        <td>
-          InfoIcon
-        </td>
+        <td>InfoIcon</td>
         <td>
           <InfoIcon />
         </td>

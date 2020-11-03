@@ -25,8 +25,8 @@
   }
 
   .reverse {
-      transform-origin: center;
-      transform: rotateX(180deg);
+    transform-origin: center;
+    transform: rotateX(180deg);
   }
 
   > div {
@@ -71,7 +71,7 @@
       }
 
       &:active {
-        background: #50830E;
+        background: #50830e;
       }
     }
   }

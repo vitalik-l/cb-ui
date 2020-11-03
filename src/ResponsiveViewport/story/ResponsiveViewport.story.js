@@ -1,8 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import {
-  withKnobs, object
-} from '@storybook/addon-knobs';
+import { withKnobs, object } from '@storybook/addon-knobs';
 
 import ResponsiveViewport from '..';
 import useViewport from '../useViewport';
@@ -14,13 +12,14 @@ function App() {
   const { viewportWidth, viewportHeight } = useViewport();
 
   return (
-    <div style={{
-      background: 'yellow',
-      width: viewportWidth,
-      height: viewportHeight,
-      margin: '0 auto',
-      transition: 'all 0.5s',
-    }}
+    <div
+      style={{
+        background: 'yellow',
+        width: viewportWidth,
+        height: viewportHeight,
+        margin: '0 auto',
+        transition: 'all 0.5s',
+      }}
     />
   );
 }
@@ -34,7 +33,7 @@ stories.add('default', () => {
       vertical={object('vertical')}
       timeout={0}
     >
-      <App/>
+      <App />
     </ResponsiveViewport>
   );
 });

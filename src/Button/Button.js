@@ -2,16 +2,17 @@ import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-function Button({
-  element, custom, className, onClick, children, ...props
-}) {
-  const onKeyDown = useCallback((event) => {
-    if (event.key === ' ' || event.key === 'Enter' || event.key === 'Spacebar') {
-      // Prevent the default action to stop scrolling when space is pressed
-      event.preventDefault();
-      if (onClick) onClick(event);
-    }
-  }, [onClick]);
+function Button({ element, custom, className, onClick, children, ...props }) {
+  const onKeyDown = useCallback(
+    (event) => {
+      if (event.key === ' ' || event.key === 'Enter' || event.key === 'Spacebar') {
+        // Prevent the default action to stop scrolling when space is pressed
+        event.preventDefault();
+        if (onClick) onClick(event);
+      }
+    },
+    [onClick],
+  );
 
   const injectProps = {
     className: classNames({ 'cb-Button': !custom, className }),

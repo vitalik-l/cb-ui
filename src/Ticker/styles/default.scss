@@ -1,17 +1,17 @@
-@import "fonts";
+@import 'fonts';
 .cb-Ticker {
-  $tickerUpColor: #8BD300;
-  $tickerDownColor: #C60100;
+  $tickerUpColor: #8bd300;
+  $tickerDownColor: #c60100;
 
   padding: 0 0.6em;
   color: #fdab01;
   font-family: LedBoard, sans serif;
-  background-color: #0E1112;
+  background-color: #0e1112;
   user-select: none;
   cursor: default;
   overflow: hidden;
-  border-left: 1px solid #27292A;
-  border-right: 1px solid #27292A;
+  border-left: 1px solid #27292a;
+  border-right: 1px solid #27292a;
   -webkit-font-smoothing: antialiased;
 
   .cb-TickerValue {
@@ -31,8 +31,8 @@
     flex-direction: column;
     flex-wrap: wrap;
     background-color: #000;
-    border-left: 1px solid #181B1C;
-    border-right: 1px solid #181B1C;
+    border-left: 1px solid #181b1c;
+    border-right: 1px solid #181b1c;
     min-width: 6em;
     margin: 0 auto;
 

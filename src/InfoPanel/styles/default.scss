@@ -52,13 +52,19 @@
     font-weight: 400;
     border-radius: 5px;
     padding: 0 7px;
-    background-image: linear-gradient(0deg, transparent 0%, transparent 31%, rgba(255, 255, 255, 0.05) 100%);
-    box-shadow: inset 0 1px 5px 0 rgba(255, 255, 255, 0.19), inset 0px -2px 5px 0px rgba(6, 6, 6, 0.31), 0 1px 3.4px 0.6px rgba(0, 0, 0, 0.46);
+    background-image: linear-gradient(
+      0deg,
+      transparent 0%,
+      transparent 31%,
+      rgba(255, 255, 255, 0.05) 100%
+    );
+    box-shadow: inset 0 1px 5px 0 rgba(255, 255, 255, 0.19),
+      inset 0px -2px 5px 0px rgba(6, 6, 6, 0.31), 0 1px 3.4px 0.6px rgba(0, 0, 0, 0.46);
 
     &:after,
     &:before {
       border: solid transparent;
-      content: " ";
+      content: ' ';
       height: 0;
       width: 0;
       position: absolute;
@@ -92,7 +98,7 @@
     }
 
     &::after {
-      content: " ";
+      content: ' ';
       position: absolute;
       left: 0;
       width: 100%;
@@ -130,7 +136,6 @@
     }
   }
 
-
   &.info-panel-wrapper--under {
     bottom: 0;
     top: initial;
@@ -157,4 +162,3 @@
     }
   }
 }
-

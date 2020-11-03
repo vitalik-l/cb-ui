@@ -38,7 +38,10 @@ class Dropdown extends Component {
         this.position = calculatePosition(nextProps.element, nextProps.display);
       }
       this.setState({ show: nextProps.show }, () => {
-        document[nextProps.show ? 'addEventListener' : 'removeEventListener']('click', this.clickEventListener);
+        document[nextProps.show ? 'addEventListener' : 'removeEventListener'](
+          'click',
+          this.clickEventListener,
+        );
       });
     }
   }
@@ -63,9 +66,7 @@ class Dropdown extends Component {
   };
 
   render() {
-    const {
-      className, options, value, display,
-    } = this.props;
+    const { className, options, value, display } = this.props;
     const { show } = this.state;
 
     if (!show) return null;
@@ -77,11 +78,7 @@ class Dropdown extends Component {
     };
 
     return createPortal(
-      <div
-        className={classNames('cb-dropdown', className)}
-        onClick={this.onClick}
-        style={style}
-      >
+      <div className={classNames('cb-dropdown', className)} onClick={this.onClick} style={style}>
         {options.map(({ id, label }) => (
           <DropdownItem active={id === value} id={id} onClick={this.onChange} key={id}>
             {label}
@@ -94,17 +91,17 @@ class Dropdown extends Component {
 }
 
 Dropdown.propTypes = {
-  element: PropTypes.oneOfType([
-    PropTypes.element,
-    PropTypes.shape({}),
-  ]),
+  element: PropTypes.oneOfType([PropTypes.element, PropTypes.shape({})]),
   show: PropTypes.bool,
   onClose: PropTypes.func,
   onChange: PropTypes.func,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  options: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]), label: PropTypes.string,
-  })),
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+      label: PropTypes.string,
+    }),
+  ),
   className: PropTypes.string,
   display: PropTypes.string,
 };

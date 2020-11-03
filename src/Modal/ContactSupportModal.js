@@ -23,9 +23,7 @@ class ContactSupportModal extends Component {
 
     return (
       <Modal {...this.props} className="cb-ContactSupportModal">
-        <ModalHeader>
-          Your feedback matters
-        </ModalHeader>
+        <ModalHeader>Your feedback matters</ModalHeader>
         <ModalContent>
           {displayForm ? (
             <form
@@ -39,7 +37,9 @@ class ContactSupportModal extends Component {
               <fieldset>
                 <label className="fieldset__label">Issue Type</label>
                 <select className="cb-Input fieldset__value" required name="issueType">
-                  <option value="" disabled selected>Select type</option>
+                  <option value="" disabled selected>
+                    Select type
+                  </option>
                   {[
                     'Data issue',
                     'Chart is slow',
@@ -50,25 +50,37 @@ class ContactSupportModal extends Component {
                     'Account deactivation',
                     'Billing',
                     'Other',
-                  ].map((v) => <option value={v}>{v}</option>)}
+                  ].map((v) => (
+                    <option value={v}>{v}</option>
+                  ))}
                 </select>
               </fieldset>
               <fieldset>
                 <label className="fieldset__label">Description</label>
-                <textarea className="cb-Input fieldset__value" required name="description" rows={4} tabIndex={0} />
+                <textarea
+                  className="cb-Input fieldset__value"
+                  required
+                  name="description"
+                  rows={4}
+                  tabIndex={0}
+                />
               </fieldset>
             </form>
           ) : (
             <p>
-              Contact support at
-              {' '}
-              <a href="mailto:support@candlebets.com">support@candlebets.com</a>
+              Contact support at <a href="mailto:support@candlebets.com">support@candlebets.com</a>
             </p>
           )}
         </ModalContent>
         <ModalActions>
-          <button className="cb-Button" onClick={onClose}>Cancel</button>
-          {displayForm ? <button className="cb-Button primary" onClick={this.submitForm}>Send</button> : null}
+          <button className="cb-Button" onClick={onClose}>
+            Cancel
+          </button>
+          {displayForm ? (
+            <button className="cb-Button primary" onClick={this.submitForm}>
+              Send
+            </button>
+          ) : null}
         </ModalActions>
       </Modal>
     );

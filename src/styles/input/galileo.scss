@@ -1,8 +1,8 @@
-input[type=text],
-input[type=password],
-input[type=number],
-input[type=url],
-input[type=email],
+input[type='text'],
+input[type='password'],
+input[type='number'],
+input[type='url'],
+input[type='email'],
 select {
   &.cb-Input {
     color: white;
@@ -16,13 +16,14 @@ select {
   }
 }
 
-input:focus, select:focus {
+input:focus,
+select:focus {
   &.cb-Input {
     outline: none;
   }
 }
 
-input[type=number] {
+input[type='number'] {
   &.cb-Input {
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {
@@ -34,7 +35,7 @@ input[type=number] {
   }
 }
 
-input[type="radio"] {
+input[type='radio'] {
   &.cb-Input {
     vertical-align: middle;
 
@@ -44,7 +45,7 @@ input[type="radio"] {
   }
 }
 
-input[type="checkbox"] {
+input[type='checkbox'] {
   &.cb-Input {
     width: 13px;
     height: 13px;
@@ -86,11 +87,12 @@ form.cb-Form {
     margin: 0;
     padding: 0;
 
-    &:nth-child(n+2) {
+    &:nth-child(n + 2) {
       margin-top: 20px;
     }
 
-    .fieldset__label, .fieldset__value {
+    .fieldset__label,
+    .fieldset__value {
       width: auto;
       float: none;
       display: block;

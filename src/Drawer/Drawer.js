@@ -3,12 +3,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 function Drawer(props) {
-  const {
-    open,
-    children,
-    position,
-    onRequestHide,
-  } = props;
+  const { open, children, position, onRequestHide } = props;
   const classes = open ? 'cb-Drawer cb-Drawer--open' : 'cb-Drawer';
 
   function onOverlayClick() {

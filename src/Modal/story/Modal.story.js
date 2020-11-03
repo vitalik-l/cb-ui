@@ -1,9 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import {
-  withKnobs, text, boolean, number,
-} from '@storybook/addon-knobs';
+import { withKnobs, text, boolean, number } from '@storybook/addon-knobs';
 import classNames from 'classnames';
 import themeSelect from '../../utils/themeSelect.js';
 
@@ -36,12 +34,8 @@ stories.add('default', () => (
       transitionEnter={boolean('animate on enter', true)}
       transitionLeave={boolean('animate on leave', true)}
     >
-      <ModalHeader>
-        Header
-      </ModalHeader>
-      <ModalContent>
-        Content
-      </ModalContent>
+      <ModalHeader>Header</ModalHeader>
+      <ModalContent>Content</ModalContent>
       <ModalActions>
         <button>OK</button>
       </ModalActions>
@@ -57,12 +51,8 @@ stories.add('galileo', () => (
       transitionEnter={boolean('animate on open', true)}
       transitionLeave={boolean('animate on close', true)}
     >
-      <ModalHeader>
-        Header
-      </ModalHeader>
-      <ModalContent>
-        Content
-      </ModalContent>
+      <ModalHeader>Header</ModalHeader>
+      <ModalContent>Content</ModalContent>
       <ModalActions>
         <button>Action</button>
       </ModalActions>
@@ -82,10 +72,7 @@ stories.add('RegisterAccountModal', () => (
 
 stories.add('AccountModal', () => (
   <div className={classNames('modal-story', 'galileo')}>
-    <AccountModal
-      open={boolean('open', false)}
-      displayCloseButton
-    />
+    <AccountModal open={boolean('open', false)} displayCloseButton />
   </div>
 ));
 
@@ -103,7 +90,7 @@ stories.add('DepositModal', () => (
           // base: 100,
           base: 100000000,
           title: 'Bitcoin',
-          minWithdrawalAmount: 0.00010000,
+          minWithdrawalAmount: 0.0001,
           minimumFractionDigits: 8,
         },
       ]}
@@ -130,9 +117,9 @@ stories.add('WithdrawalModal', () => (
     <WithdrawalModal
       open={boolean('open', false)}
       displayCloseButton
-      currency={{ code: 'BTC', title: 'Bitcoin', minWithdrawalAmount: 0.001000 }}
+      currency={{ code: 'BTC', title: 'Bitcoin', minWithdrawalAmount: 0.001 }}
       currencies={{
-        BTC: { code: 'BTC', title: 'Bitcoin', minWithdrawalAmount: 0.001000 },
+        BTC: { code: 'BTC', title: 'Bitcoin', minWithdrawalAmount: 0.001 },
       }}
       fmtMoney={(balance) => balance}
       withdrawFee={number('Withdraw fee', 0)}
@@ -163,7 +150,10 @@ stories.add('ExchangeModal', () => (
       currencies={{
         BTC: { code: 'BTC', minimumFractionDigits: 8 },
         GLT: {
-          code: 'GLT', title: 'GLT', sign: 'GLT', minimumFractionDigits: 4,
+          code: 'GLT',
+          title: 'GLT',
+          sign: 'GLT',
+          minimumFractionDigits: 4,
         },
       }}
       exchangeSuccess={boolean('exchangeSuccess', false)}
@@ -173,10 +163,7 @@ stories.add('ExchangeModal', () => (
 
 stories.add('AfterRegisterModal', () => (
   <div className={classNames('modal-story', 'galileo')}>
-    <AfterRegisterModal
-      open={boolean('open', false)}
-      displayCloseButton
-    />
+    <AfterRegisterModal open={boolean('open', false)} displayCloseButton />
   </div>
 ));
 

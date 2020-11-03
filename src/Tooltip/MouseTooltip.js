@@ -75,33 +75,35 @@ class MouseTooltip extends Component {
 
     switch (position) {
       case 'top':
-        coordinates.x = align === 'center'
-          ? targetPosition.x + target.offsetWidth / 2
-          : MouseTooltip.mouseX;
+        coordinates.x =
+          align === 'center' ? targetPosition.x + target.offsetWidth / 2 : MouseTooltip.mouseX;
         coordinates.y = targetPosition.y;
         break;
       case 'left':
         coordinates.x = targetPosition.x;
-        coordinates.y = align === 'center'
-          ? targetPosition.y + target.offsetHeight / 2
-          : MouseTooltip.mouseY;
+        coordinates.y =
+          align === 'center' ? targetPosition.y + target.offsetHeight / 2 : MouseTooltip.mouseY;
         break;
-      default: break;
+      default:
+        break;
     }
 
     clearTimeout(this.hideTimeoutId);
-    this.setState({
-      init: true,
-      visible: false,
-      content: target.dataset.tooltip,
-      x: coordinates.x,
-      y: coordinates.y,
-      position,
-    }, () => {
-      this.hideTimeoutId = setTimeout(() => {
-        this.hide();
-      }, 2000);
-    });
+    this.setState(
+      {
+        init: true,
+        visible: false,
+        content: target.dataset.tooltip,
+        x: coordinates.x,
+        y: coordinates.y,
+        position,
+      },
+      () => {
+        this.hideTimeoutId = setTimeout(() => {
+          this.hide();
+        }, 2000);
+      },
+    );
   };
 
   hide = () => {
@@ -113,9 +115,7 @@ class MouseTooltip extends Component {
 
   render() {
     const { className } = this.props;
-    const {
-      visible, content, x, y, init, position,
-    } = this.state;
+    const { visible, content, x, y, init, position } = this.state;
     let coordinates = {};
 
     if (visible) {
@@ -132,22 +132,29 @@ class MouseTooltip extends Component {
             top: `${y - this.tooltipNode.offsetHeight / 2}px`,
           };
           break;
-        default: break;
+        default:
+          break;
       }
     }
 
     return createPortal(
       <div
-        className={classNames('cb-MouseTooltip', { 'cb-MouseTooltip--init': init, 'cb-MouseTooltip--visible': visible, [`cb-MouseTooltip--${position}`]: position }, className)}
+        className={classNames(
+          'cb-MouseTooltip',
+          {
+            'cb-MouseTooltip--init': init,
+            'cb-MouseTooltip--visible': visible,
+            [`cb-MouseTooltip--${position}`]: position,
+          },
+          className,
+        )}
         onClick={this.onClick}
         style={coordinates}
         ref={(el) => {
           this.tooltipNode = el;
         }}
       >
-        <div className="cb-MouseTooltip__content">
-          {content}
-        </div>
+        <div className="cb-MouseTooltip__content">{content}</div>
       </div>,
       document.body,
     );

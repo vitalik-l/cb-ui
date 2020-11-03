@@ -10,9 +10,7 @@ function MenuPanel({ onRequestHide, open, children }) {
   return (
     <div className={classNames('cb-demo-menu', { open })}>
       <div className="cb-demo-menu__overlay" onClick={onOverlayClick} />
-      <div className="cb-demo-menu__content">
-        {children}
-      </div>
+      <div className="cb-demo-menu__content">{children}</div>
     </div>
   );
 }

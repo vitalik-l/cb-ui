@@ -9,15 +9,15 @@ function AfterRegisterModal(props) {
   const { onClose, onLogin } = props;
   return (
     <Modal {...props}>
-      <ModalHeader>
-        Register
-      </ModalHeader>
-      <ModalContent>
-        Your account has been created. Login, please.
-      </ModalContent>
+      <ModalHeader>Register</ModalHeader>
+      <ModalContent>Your account has been created. Login, please.</ModalContent>
       <ModalActions>
-        <button className="cb-Button" onClick={onClose}>Cancel</button>
-        <button className="cb-Button primary" onClick={onLogin}>Login</button>
+        <button className="cb-Button" onClick={onClose}>
+          Cancel
+        </button>
+        <button className="cb-Button primary" onClick={onLogin}>
+          Login
+        </button>
       </ModalActions>
     </Modal>
   );

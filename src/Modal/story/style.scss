@@ -1,18 +1,17 @@
 .default {
-  @import "../styles/default";
+  @import '../styles/default';
 }
 
-@import "../../Tooltip/styles/galileo";
-
+@import '../../Tooltip/styles/galileo';
 
 .galileo {
-  @import "../../styles/themes/galileo";
-  @import "../styles/galileo";
-  @import "../styles/AccountModal";
-  @import "../styles/DepositModal";
-  @import "../styles/WithdrawalModal";
-  @import "../styles/CBCExchangeModal";
-  @import "../styles/ExchangeModal";
-  @import "../styles/RegisterAccountModal";
-  @import "../styles/ContactSupportModal";
+  @import '../../styles/themes/galileo';
+  @import '../styles/galileo';
+  @import '../styles/AccountModal';
+  @import '../styles/DepositModal';
+  @import '../styles/WithdrawalModal';
+  @import '../styles/CBCExchangeModal';
+  @import '../styles/ExchangeModal';
+  @import '../styles/RegisterAccountModal';
+  @import '../styles/ContactSupportModal';
 }

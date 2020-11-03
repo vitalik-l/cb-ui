@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 const Radio = memo((props) => {
-  const {
-    children, active, value, className, ...otherProps
-  } = props;
+  const { children, active, value, className, ...otherProps } = props;
 
   return (
     <div

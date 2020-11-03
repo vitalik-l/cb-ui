@@ -1,8 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import {
-  withKnobs, text, number,
-} from '@storybook/addon-knobs';
+import { withKnobs, text, number } from '@storybook/addon-knobs';
 import classNames from 'classnames';
 import themeSelect from '../../utils/themeSelect';
 
@@ -19,7 +17,10 @@ stories.add('UserPanel', () => (
     <UserPanel
       userName={text('User name', '')}
       balance={number('Balance', 0)}
-      currencies={[{ code: 'BTC', title: 'Bitcoin' }, { code: 'GLT', title: 'Gelt' }]}
+      currencies={[
+        { code: 'BTC', title: 'Bitcoin' },
+        { code: 'GLT', title: 'Gelt' },
+      ]}
       currencyRenderer={() => 1}
     />
   </div>

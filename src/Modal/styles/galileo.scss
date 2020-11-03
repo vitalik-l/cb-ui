@@ -1,4 +1,4 @@
-@import "animation";
+@import 'animation';
 
 .cb-Modal-overlay {
   //display: none;
@@ -45,8 +45,8 @@
     top: 17px;
     right: 15px;
     cursor: pointer;
-    opacity: .5;
-    transition: opacity .35s ease;
+    opacity: 0.5;
+    transition: opacity 0.35s ease;
     color: #c5cbce;
   }
 
@@ -83,7 +83,7 @@
   margin-top: 20px;
   justify-content: flex-end;
 
-  & > *:nth-child(n+2) {
+  & > *:nth-child(n + 2) {
     margin-left: 10px;
   }
 }

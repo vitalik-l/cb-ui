@@ -3,13 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 function RadioGroup(props) {
-  const {
-    children,
-    value,
-    className,
-    onChange,
-    ...otherProps
-  } = props;
+  const { children, value, className, onChange, ...otherProps } = props;
 
   function onChildClick(v) {
     return function onClick(e) {
@@ -26,11 +20,7 @@ function RadioGroup(props) {
   });
 
   return (
-    <div
-      className={classNames('cb-RadioGroup', className)}
-      role="radiogroup"
-      {...otherProps}
-    >
+    <div className={classNames('cb-RadioGroup', className)} role="radiogroup" {...otherProps}>
       {childrenItems}
     </div>
   );

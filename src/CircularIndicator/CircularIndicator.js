@@ -8,9 +8,7 @@ import { animate } from '../utils/animate';
 const SEGMENTS = 439;
 
 function CircularIndicator(props) {
-  const {
-    className, reverse, progress, animation, children,
-  } = props;
+  const { className, reverse, progress, animation, children } = props;
   const [currentSegment, setCurrentSegment] = useState(SEGMENTS);
   const isLoss = progress < 0;
   const indicatorRef = useRef();
@@ -20,9 +18,7 @@ function CircularIndicator(props) {
     let currentProgress = progress;
     if (progress) {
       if (reverse) {
-        currentProgress = progress < 0
-          ? Math.max(-100, progress)
-          : Math.min(100, progress);
+        currentProgress = progress < 0 ? Math.max(-100, progress) : Math.min(100, progress);
       } else {
         currentProgress = Math.min(100, Math.abs(progress));
       }
@@ -59,18 +55,44 @@ function CircularIndicator(props) {
     <div className={classNames('cb-CircularIndicator', className)}>
       <svg height="100%" width="100%" viewBox="0 0 190 190">
         <defs>
-          <pattern id="greenGrad" patternUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%">
+          <pattern
+            id="greenGrad"
+            patternUnits="userSpaceOnUse"
+            x="0"
+            y="0"
+            width="100%"
+            height="100%"
+          >
             <image x="0" y="0" width="100%" height="100%" href={imageUpGradient} />
           </pattern>
-          <pattern id="redGrad" patternUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%">
-            <image x="0" y="0" width="100%" height="100%" href={imageDownGradient} className={classNames({ reverse })} />
+          <pattern
+            id="redGrad"
+            patternUnits="userSpaceOnUse"
+            x="0"
+            y="0"
+            width="100%"
+            height="100%"
+          >
+            <image
+              x="0"
+              y="0"
+              width="100%"
+              height="100%"
+              href={imageDownGradient}
+              className={classNames({ reverse })}
+            />
           </pattern>
         </defs>
-        <circle cx="50%" cy="50%" r="70" stroke={stroke} style={{ strokeDashoffset: currentSegment }} ref={indicatorRef} />
+        <circle
+          cx="50%"
+          cy="50%"
+          r="70"
+          stroke={stroke}
+          style={{ strokeDashoffset: currentSegment }}
+          ref={indicatorRef}
+        />
       </svg>
-      <div>
-        {children}
-      </div>
+      <div>{children}</div>
     </div>
   );
 }

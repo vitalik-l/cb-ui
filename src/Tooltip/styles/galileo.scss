@@ -1,8 +1,12 @@
 $tooltipBgColor: #363c4e;
 
 @keyframes appear {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .cb-MouseTooltip {
@@ -33,7 +37,7 @@ $tooltipBgColor: #363c4e;
 
     &:before,
     &:after {
-      content: "";
+      content: '';
       display: block;
       position: absolute;
       width: 0;

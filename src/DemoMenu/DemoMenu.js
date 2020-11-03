@@ -10,7 +10,9 @@ function DemoMenu(props) {
       <div className="links">
         {games.map((v, i) => (
           /* eslint-disable-next-line react/no-array-index-key */
-          <a className={v.game} title={v.game} aria-label={v.game} href={v.url} key={`b${i}`}><span /></a>
+          <a className={v.game} title={v.game} aria-label={v.game} href={v.url} key={`b${i}`}>
+            <span />
+          </a>
         ))}
       </div>
     </MenuPanel>
@@ -18,9 +20,7 @@ function DemoMenu(props) {
 }
 
 DemoMenu.propTypes = {
-  games: PropTypes.arrayOf(
-    PropTypes.shape({ game: PropTypes.string, url: PropTypes.string }),
-  ),
+  games: PropTypes.arrayOf(PropTypes.shape({ game: PropTypes.string, url: PropTypes.string })),
   open: PropTypes.bool,
   onRequestHide: PropTypes.func,
 };

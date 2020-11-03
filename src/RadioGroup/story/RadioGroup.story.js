@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import {
-  withKnobs, select,
-} from '@storybook/addon-knobs';
+import { withKnobs, select } from '@storybook/addon-knobs';
 
 // styles
 import './style.scss';
@@ -27,7 +25,9 @@ stories.add('default', () => {
       <RadioGroup value={value} onChange={onChange}>
         <Radio value={1}>1</Radio>
         <Radio value={2}>2</Radio>
-        <Radio value={3} onClick={() => setValue(3)}>3</Radio>
+        <Radio value={3} onClick={() => setValue(3)}>
+          3
+        </Radio>
       </RadioGroup>
     </span>
   );
@@ -36,7 +36,9 @@ stories.add('default', () => {
 stories.add('active value', () => (
   <span className={theme()}>
     <RadioGroup value={select('value', [1, 2, 3], 1)}>
-      <Radio value={1} onClick={action('onClick')}>1</Radio>
+      <Radio value={1} onClick={action('onClick')}>
+        1
+      </Radio>
       <Radio value={2}>2</Radio>
       <Radio value={3}>3</Radio>
     </RadioGroup>
@@ -46,7 +48,9 @@ stories.add('active value', () => (
 stories.add('onChange', () => (
   <span className={theme()}>
     <RadioGroup value={select('value', [1, 2, 3], 1)} onChange={action('onChange')}>
-      <Radio value={1} onClick={action('onClick')}>1</Radio>
+      <Radio value={1} onClick={action('onClick')}>
+        1
+      </Radio>
       <Radio value={2}>2</Radio>
       <Radio value={3}>3</Radio>
     </RadioGroup>

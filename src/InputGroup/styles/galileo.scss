@@ -1,11 +1,12 @@
-@import "../../styles/themes/galileo";
+@import '../../styles/themes/galileo';
 
 .cb-InputGroup {
-  &:nth-child(n+2) {
+  &:nth-child(n + 2) {
     margin-top: 20px;
   }
 
-  .cb-InputGroup__label, .cb-InputGroup__value {
+  .cb-InputGroup__label,
+  .cb-InputGroup__value {
     width: auto;
     float: none;
     display: block;

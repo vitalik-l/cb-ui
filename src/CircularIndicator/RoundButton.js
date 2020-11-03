@@ -2,9 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-function RoundButton({
-  children, type, className, ...props
-}) {
+function RoundButton({ children, type, className, ...props }) {
   return (
     <div className={classNames('cb-RoundButton', `cb-RoundButton--${type}`, className)} {...props}>
       {children}

@@ -46,29 +46,81 @@ class UserPanel extends Component {
     const { displayCurrencyMenu } = this.state;
 
     return (
-      <div className={classNames('cb-UserPanel', className, { 'cb-UserPanel--logged-in': userName, 'cb-UserPanel--currency-visible': displayCurrencyMenu })}>
-        {!userName
-          ? (
-            <div>
-              <i className="icon icon--sign-in" />
-&nbsp;
-              <span className="link" onClick={onLogin} role="button" tabIndex="0" onKeyDown={() => {}}>Login</span>
-              {onRegister ? <span>&nbsp;|&nbsp;</span> : null}
-              {onRegister ? <span className="link" onClick={onRegister} role="button" tabIndex="0" onKeyDown={() => {}}>Register</span> : null}
-            </div>
-          )
-          : [
+      <div
+        className={classNames('cb-UserPanel', className, {
+          'cb-UserPanel--logged-in': userName,
+          'cb-UserPanel--currency-visible': displayCurrencyMenu,
+        })}
+      >
+        {!userName ? (
+          <div>
+            <i className="icon icon--sign-in" />
+            &nbsp;
+            <span
+              className="link"
+              onClick={onLogin}
+              role="button"
+              tabIndex="0"
+              onKeyDown={() => {}}
+            >
+              Login
+            </span>
+            {onRegister ? <span>&nbsp;|&nbsp;</span> : null}
+            {onRegister ? (
+              <span
+                className="link"
+                onClick={onRegister}
+                role="button"
+                tabIndex="0"
+                onKeyDown={() => {}}
+              >
+                Register
+              </span>
+            ) : null}
+          </div>
+        ) : (
+          [
             <div key={1} className="cb-UserPanel__links">
               <i className="icon icon--sign-in" />
-&nbsp;
-              <span className="link" onClick={onTokensClick} role="button" tabIndex="0" onKeyDown={() => {}}>{tokensLabel}</span>
-                          &nbsp;|&nbsp;
-              <span className="link" onClick={onDepositClick} role="button" tabIndex="0" onKeyDown={() => {}}>Deposit</span>
-                          &nbsp;|&nbsp;
-              <span className="link" onClick={onWithdrawClick} role="button" tabIndex="0" onKeyDown={() => {}}>Withdraw</span>
+              &nbsp;
+              <span
+                className="link"
+                onClick={onTokensClick}
+                role="button"
+                tabIndex="0"
+                onKeyDown={() => {}}
+              >
+                {tokensLabel}
+              </span>
+              &nbsp;|&nbsp;
+              <span
+                className="link"
+                onClick={onDepositClick}
+                role="button"
+                tabIndex="0"
+                onKeyDown={() => {}}
+              >
+                Deposit
+              </span>
+              &nbsp;|&nbsp;
+              <span
+                className="link"
+                onClick={onWithdrawClick}
+                role="button"
+                tabIndex="0"
+                onKeyDown={() => {}}
+              >
+                Withdraw
+              </span>
             </div>,
             <div key={2}>
-              <div className="link selected-color" onClick={onMyAccountClick} role="button" tabIndex="0" onKeyDown={() => {}}>
+              <div
+                className="link selected-color"
+                onClick={onMyAccountClick}
+                role="button"
+                tabIndex="0"
+                onKeyDown={() => {}}
+              >
                 {userName}
               </div>
               <div
@@ -79,9 +131,7 @@ class UserPanel extends Component {
                 <table>
                   <tbody>
                     <tr>
-                      <td>
-                        BALANCE:
-                      </td>
+                      <td>BALANCE:</td>
                       <td>
                         <span
                           className={classNames('user-balance user-balance--active', {
@@ -108,7 +158,8 @@ class UserPanel extends Component {
                 </table>
               </div>
             </div>,
-          ]}
+          ]
+        )}
       </div>
     );
   }

@@ -13,7 +13,7 @@
       position: absolute;
       border: $borderWidth solid $borderColor;
       border-radius: 10px;
-      background-image: linear-gradient(0.0deg, #161313 0%, #161313 31%, #383536 100%);
+      background-image: linear-gradient(0deg, #161313 0%, #161313 31%, #383536 100%);
       box-shadow: 0 4px 6px 3px #060505;
       box-sizing: border-box;
       z-index: -1;
@@ -29,7 +29,6 @@
       font-size: 1.5em;
     }
   }
-
 
   .cb-Hint-arrow,
   .cb-Hint-arrow-border {
@@ -75,7 +74,7 @@
       z-index: 1;
 
       &:before {
-        background-image: linear-gradient(-45deg,#161313,#161313 31%,#383536);
+        background-image: linear-gradient(-45deg, #161313, #161313 31%, #383536);
         z-index: 1;
       }
     }
@@ -87,20 +86,21 @@
       transform: translate(49%, -50%);
     }
 
-    &.cb-Hint--arrow-align-center  {
+    &.cb-Hint--arrow-align-center {
       .cb-Hint-container {
         transform: translateX(-100%) translateY(-50%);
       }
     }
 
     &.cb-Hint--arrow-align-start {
-      .cb-Hint-arrow, .cb-Hint-arrow-border {
+      .cb-Hint-arrow,
+      .cb-Hint-arrow-border {
         top: 25%;
       }
 
       .cb-Hint-arrow {
         &:before {
-          background-image: linear-gradient(-45deg,#312e2f,#2f2c2d 31%,#2b2829);
+          background-image: linear-gradient(-45deg, #312e2f, #2f2c2d 31%, #2b2829);
         }
       }
     }
@@ -115,7 +115,7 @@
       z-index: 1;
 
       &:before {
-        background-image: linear-gradient(-45deg,#161313,#161313 31%,#383536);
+        background-image: linear-gradient(-45deg, #161313, #161313 31%, #383536);
         z-index: 1;
       }
     }
@@ -202,7 +202,7 @@
     .cb-Hint-content__title {
       font-size: 1.17em;
       font-weight: 700;
-      color: #07E275;
+      color: #07e275;
       text-transform: uppercase;
       white-space: initial;
       margin-top: 0;

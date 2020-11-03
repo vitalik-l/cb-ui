@@ -1,7 +1,7 @@
 .cb-Button {
   height: 33px;
   padding: 0 15px;
-  font-size: 1.0rem;
+  font-size: 1rem;
   text-transform: uppercase;
   font-weight: bold;
   text-align: center;
@@ -13,8 +13,9 @@
   user-select: none;
   cursor: pointer;
 
-  &:hover, &:active {
-    color: #7AAF34;
+  &:hover,
+  &:active {
+    color: #7aaf34;
   }
 
   &:active {

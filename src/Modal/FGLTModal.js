@@ -18,23 +18,24 @@ function FGLTModal({
 }) {
   if (!currencyConfig) return null;
   return (
-    <Modal
-      className="cb-FGLTModal"
-      {...props}
-    >
-      <ModalHeader>
-        {title}
-      </ModalHeader>
+    <Modal className="cb-FGLTModal" {...props}>
+      <ModalHeader>{title}</ModalHeader>
       <ModalContent>
         <div>
-          {currencyConfig.title}
-          {' '}
-          {alertLabel}
+          {currencyConfig.title} {alertLabel}
         </div>
       </ModalContent>
       <ModalActions>
-        <button className="cb-Button primary" onClick={!disableTopUp ? onTopUp : null} disabled={disableTopUp}>{submitButtonLabel}</button>
-        <button className="cb-Button" onClick={onClose}>{closeButtonLabel}</button>
+        <button
+          className="cb-Button primary"
+          onClick={!disableTopUp ? onTopUp : null}
+          disabled={disableTopUp}
+        >
+          {submitButtonLabel}
+        </button>
+        <button className="cb-Button" onClick={onClose}>
+          {closeButtonLabel}
+        </button>
       </ModalActions>
     </Modal>
   );

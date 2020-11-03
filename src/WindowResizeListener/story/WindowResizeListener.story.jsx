@@ -12,21 +12,20 @@ function App() {
   const [windowWidth, windowHeight] = useWindowSize();
 
   return (
-    <div style={{
-      background: 'yellow',
-      width: windowWidth,
-      height: windowHeight,
-      margin: '0 auto',
-      transition: 'all 0.5s',
-    }}
+    <div
+      style={{
+        background: 'yellow',
+        width: windowWidth,
+        height: windowHeight,
+        margin: '0 auto',
+        transition: 'all 0.5s',
+      }}
     />
   );
 }
 
 stories.add('default', () => (
-  <WindowResizeListener
-    timeout={0}
-  >
+  <WindowResizeListener timeout={0}>
     <App />
   </WindowResizeListener>
 ));

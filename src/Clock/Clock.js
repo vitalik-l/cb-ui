@@ -14,7 +14,9 @@ function Clock({ locale, options, initialTime }) {
     };
   }, [time]);
 
-  return <span className="cb-Clock">{time ? new Date(time).toLocaleString(locale, options) : ''}</span>;
+  return (
+    <span className="cb-Clock">{time ? new Date(time).toLocaleString(locale, options) : ''}</span>
+  );
 }
 
 Clock.propTypes = {

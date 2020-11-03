@@ -4,9 +4,7 @@ import ViewportContext from './ViewportContext';
 import useWindowResizeListener from '../hooks/useWindowResizeListener';
 import useViewportByRatio from '../hooks/useViewportByRatio';
 
-function ResponsiveViewport({
-  minRatio, maxRatio, timeout, children, horizontal, vertical,
-}) {
+function ResponsiveViewport({ minRatio, maxRatio, timeout, children, horizontal, vertical }) {
   const [windowWidth, windowHeight] = useWindowResizeListener({ timeout });
   const [viewportWidth, viewportHeight] = useViewportByRatio({
     min: minRatio,

@@ -28,24 +28,23 @@ function Modal(props) {
       transitionEnter={transitionEnter}
       transitionLeave={transitionLeave}
     >
-      {open
-        ? (
-          <div className={classNames('cb-Modal-overlay', overlayClassName)} onClick={onOverlayClick}>
-            <div className="cb-Modal-wrapper">
-              <div className={classNames('cb-Modal', className)} onClick={onOverlayClick ? onModalClick : null}>
-                {children}
-                {displayCloseButton
-                  ? (
-                    <div className="cb-Modal__close" onClick={onClose}>
-                      <CloseIcon />
-                    </div>
-                  )
-                  : null}
-              </div>
+      {open ? (
+        <div className={classNames('cb-Modal-overlay', overlayClassName)} onClick={onOverlayClick}>
+          <div className="cb-Modal-wrapper">
+            <div
+              className={classNames('cb-Modal', className)}
+              onClick={onOverlayClick ? onModalClick : null}
+            >
+              {children}
+              {displayCloseButton ? (
+                <div className="cb-Modal__close" onClick={onClose}>
+                  <CloseIcon />
+                </div>
+              ) : null}
             </div>
           </div>
-        )
-        : null}
+        </div>
+      ) : null}
     </Animate>
   );
 }

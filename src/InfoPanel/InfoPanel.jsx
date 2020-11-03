@@ -6,11 +6,15 @@ class InfoPanel extends PureComponent {
   render() {
     const { display, className, children } = this.props;
     return (
-      <div className={classNames('info-panel-wrapper', { 'info-panel-wrapper--under': display === 'under' }, className)}>
+      <div
+        className={classNames(
+          'info-panel-wrapper',
+          { 'info-panel-wrapper--under': display === 'under' },
+          className,
+        )}
+      >
         <div className="info-panel">
-          <span>
-            {children}
-          </span>
+          <span>{children}</span>
         </div>
       </div>
     );

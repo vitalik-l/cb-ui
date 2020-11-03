@@ -50,12 +50,7 @@ class Tooltip extends Component {
   };
 
   render() {
-    const {
-      className,
-      renderTo,
-      style,
-      children,
-    } = this.props;
+    const { className, renderTo, style, children } = this.props;
     const { show } = this.state;
     const newStyle = {
       ...styles,
@@ -71,12 +66,7 @@ class Tooltip extends Component {
       </div>
     );
 
-    return renderTo ? createPortal(
-      <span>
-        {tooltip}
-      </span>,
-      renderTo,
-    ) : tooltip;
+    return renderTo ? createPortal(<span>{tooltip}</span>, renderTo) : tooltip;
   }
 }
 

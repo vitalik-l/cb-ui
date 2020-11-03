@@ -1,8 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import {
-  withKnobs, text, select,
-} from '@storybook/addon-knobs';
+import { withKnobs, text, select } from '@storybook/addon-knobs';
 
 import '../styles/fonts.scss';
 import '../styles/default.scss';
@@ -14,8 +12,5 @@ stories.addDecorator(withKnobs);
 const SUITS = ['clubs', 'hearts', 'diamonds', 'spades'];
 
 stories.add('default', () => (
-  <GameCard
-    suit={select('suit', SUITS, 'clubs')}
-    value={text('value', 'A')}
-  />
+  <GameCard suit={select('suit', SUITS, 'clubs')} value={text('value', 'A')} />
 ));

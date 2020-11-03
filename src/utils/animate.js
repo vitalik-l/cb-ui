@@ -2,11 +2,7 @@ import BezierEasing from 'bezier-easing';
 
 const easeInOutSin = (time) => (1 + Math.sin(Math.PI * time - Math.PI / 2)) / 2;
 
-export const animate = ({
-  timing = BezierEasing(0.25, 0.1, 0.25, 1.0),
-  draw,
-  duration,
-}) => {
+export const animate = ({ timing = BezierEasing(0.25, 0.1, 0.25, 1.0), draw, duration }) => {
   let cancelled = false;
   const cancel = () => {
     cancelled = true;
@@ -37,13 +33,7 @@ export const animate = ({
   return cancel;
 };
 
-export const animateProperty = (
-  property,
-  element,
-  to,
-  options = {},
-  cb = () => {},
-) => {
+export const animateProperty = (property, element, to, options = {}, cb = () => {}) => {
   const {
     ease = easeInOutSin,
     duration = 300, // standard

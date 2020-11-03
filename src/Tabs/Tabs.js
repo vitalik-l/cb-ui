@@ -6,14 +6,18 @@ class Tabs extends PureComponent {
   componentDidMount() {
     const { value } = this.props;
     const activeTabNode = document.querySelector(`#${value}`);
-    Array.from(document.querySelectorAll('.tab')).forEach((tab) => { tab.style.display = 'none'; });
+    Array.from(document.querySelectorAll('.tab')).forEach((tab) => {
+      tab.style.display = 'none';
+    });
     activeTabNode.style.display = '';
   }
 
   // eslint-disable-next-line camelcase
   UNSAFE_componentWillUpdate(nextProps) {
     const activeTabNode = document.querySelector(`#${nextProps.value}`);
-    Array.from(document.querySelectorAll('.tab')).forEach((tab) => { tab.style.display = 'none'; });
+    Array.from(document.querySelectorAll('.tab')).forEach((tab) => {
+      tab.style.display = 'none';
+    });
     activeTabNode.style.display = '';
   }
 
@@ -32,7 +36,8 @@ class Tabs extends PureComponent {
     const posY = e.touches && e.touches.length ? e.touches[0].clientY : e.clientY;
     const deltaPos = this.currentPos - posY;
     const { onChangeTabHeight, onResize, transformNode: transformNodeFromProps } = this.props;
-    const transformNode = transformNodeFromProps === 'content' ? this.tabsContentNode : this.tabsNode;
+    const transformNode =
+      transformNodeFromProps === 'content' ? this.tabsContentNode : this.tabsNode;
     if (onChangeTabHeight) {
       onChangeTabHeight(posY, deltaPos, transformNode);
       return;
@@ -71,7 +76,12 @@ class Tabs extends PureComponent {
           this.tabsNode = node;
         }}
       >
-        <ul className="tab-bar" onClick={this.changeView} onMouseDown={this.startDrag} onDragStart={() => false}>
+        <ul
+          className="tab-bar"
+          onClick={this.changeView}
+          onMouseDown={this.startDrag}
+          onDragStart={() => false}
+        >
           {React.Children.map(children, (tab) => (
             <li
               className={classNames({ active: tab.props.value === value })}

@@ -1,7 +1,7 @@
 .galileo {
-  @import "themes/galileo";
-  @import "input/galileo";
-  @import "button/galileo";
+  @import 'themes/galileo';
+  @import 'input/galileo';
+  @import 'button/galileo';
 
   color: #b3b3b3;
   font-family: $fontFamily;

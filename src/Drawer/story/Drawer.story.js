@@ -1,9 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import {
-  withKnobs, boolean, select,
-} from '@storybook/addon-knobs';
+import { withKnobs, boolean, select } from '@storybook/addon-knobs';
 
 // styles
 import '../styles/default.scss';
@@ -19,8 +17,6 @@ stories.add('default', () => (
     onRequestHide={action('onRequestHide')}
     position={select('position', ['left', 'right'], 'left')}
   >
-    <div>
-      Drawer content
-    </div>
+    <div>Drawer content</div>
   </Drawer>
 ));

@@ -6,11 +6,7 @@ import useWindowResizeListener from '../hooks/useWindowResizeListener';
 function WindowResizeListener({ timeout, children }) {
   const windowSize = useWindowResizeListener({ timeout });
 
-  return (
-    <Context.Provider value={windowSize}>
-      {children}
-    </Context.Provider>
-  );
+  return <Context.Provider value={windowSize}>{children}</Context.Provider>;
 }
 
 WindowResizeListener.defaultProps = {

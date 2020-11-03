@@ -1,8 +1,8 @@
-@import "../../styles/themes/galileo";
+@import '../../styles/themes/galileo';
 
 .cb-AccountModal {
   .forms {
-    > form:nth-child(n+2) {
+    > form:nth-child(n + 2) {
       margin-top: 40px;
     }
   }

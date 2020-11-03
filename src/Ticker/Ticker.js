@@ -5,7 +5,9 @@ import classNames from 'classnames';
 function Ticker(props) {
   const { children, className, horizontal } = props;
   return (
-    <div className={classNames('cb-Ticker', { className }, { 'cb-Ticker__horizontal': horizontal })}>
+    <div
+      className={classNames('cb-Ticker', { className }, { 'cb-Ticker__horizontal': horizontal })}
+    >
       <div className={classNames('cb-Ticker__scroller', { 'cb-Ticker__horizontal': horizontal })}>
         {children}
       </div>

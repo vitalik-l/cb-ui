@@ -1,8 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import {
-  withKnobs,
-} from '@storybook/addon-knobs';
+import { withKnobs } from '@storybook/addon-knobs';
 import classNames from 'classnames';
 import themeSelect from '../../utils/themeSelect.js';
 
@@ -17,12 +15,7 @@ stories.addDecorator(withKnobs);
 stories.add('default', () => (
   <div className={classNames('input-group-story', themeSelect())}>
     <InputGroup label="Change Password">
-      <input
-        type="password"
-        maxLength="16"
-        name="newPassword"
-        required
-      />
+      <input type="password" maxLength="16" name="newPassword" required />
     </InputGroup>
   </div>
 ));
@@ -30,13 +23,7 @@ stories.add('default', () => (
 stories.add('Two inputs', () => (
   <div className={classNames('input-group-story', themeSelect())}>
     <InputGroup label="Change Password">
-      <input
-        type="password"
-        maxLength="16"
-        name="newPassword"
-        required
-        label="Password"
-      />
+      <input type="password" maxLength="16" name="newPassword" required label="Password" />
       <input
         type="text"
         maxLength="16"

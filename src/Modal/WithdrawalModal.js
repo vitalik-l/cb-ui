@@ -34,9 +34,8 @@ class WithdrawalModal extends Component {
       errors.amount = 'Invalid value';
     }
     if (
-      !address || (
-        address && (address.length < ADDRESS_LENGTH_MIN || address.length > ADDRESS_LENGTH_MAX)
-      )
+      !address ||
+      (address && (address.length < ADDRESS_LENGTH_MIN || address.length > ADDRESS_LENGTH_MAX))
     ) {
       errors.address = `The address must be from ${ADDRESS_LENGTH_MIN} to ${ADDRESS_LENGTH_MAX} characters`;
     } else if (!validate(address)) {
@@ -59,9 +58,7 @@ class WithdrawalModal extends Component {
     if ((!this.form.checkValidity() && !this.form.reportValidity()) || !this.validate()) return;
     // do submit
     const { onWithdraw } = this.props;
-    const {
-      amount, currency, address, priority,
-    } = this.state;
+    const { amount, currency, address, priority } = this.state;
     if (onWithdraw) {
       onWithdraw({
         amount,
@@ -74,9 +71,7 @@ class WithdrawalModal extends Component {
 
   onInputChange = ({ target }) => {
     const { getWithdrawalFee } = this.props;
-    const {
-      amount, currency, address, priority,
-    } = this.state;
+    const { amount, currency, address, priority } = this.state;
     this.setState({ [target.name]: target.value }, () => {
       if (!this.validate()) return;
       if (getWithdrawalFee) {
@@ -95,20 +90,14 @@ class WithdrawalModal extends Component {
   };
 
   render() {
-    const {
-      currency, amount, errors, priority,
-    } = this.state;
-    const {
-      withdrawFee, requestStatus, currencies, fmtMoney, onClose, ...props
-    } = this.props;
+    const { currency, amount, errors, priority } = this.state;
+    const { withdrawFee, requestStatus, currencies, fmtMoney, onClose, ...props } = this.props;
     const disableWithdraw = Boolean(!withdrawFee || !!Object.keys(errors).length);
     const balance = this.balance || 0;
 
     return (
       <Modal className="cb-WithdrawalModal" {...props}>
-        <ModalHeader>
-          Withdraw
-        </ModalHeader>
+        <ModalHeader>Withdraw</ModalHeader>
         <ModalContent>
           <form
             name="withdraw"
@@ -120,21 +109,24 @@ class WithdrawalModal extends Component {
             <table className="property-inputs">
               <tbody>
                 <tr>
-                  <td><label>Currency:</label></td>
                   <td>
-                    <select className="cb-Input" name="currency" onChange={this.onCurrencyChange} value={currency.code}>
-                      <option value="" disabled>Select currency</option>
-                      {
-                        Object.keys(currencies)
-                          .map((cur) => (
-                            <option
-                              value={currencies[cur].code}
-                              key={currencies[cur].code}
-                            >
-                              {currencies[cur].title}
-                            </option>
-                          ))
-                      }
+                    <label>Currency:</label>
+                  </td>
+                  <td>
+                    <select
+                      className="cb-Input"
+                      name="currency"
+                      onChange={this.onCurrencyChange}
+                      value={currency.code}
+                    >
+                      <option value="" disabled>
+                        Select currency
+                      </option>
+                      {Object.keys(currencies).map((cur) => (
+                        <option value={currencies[cur].code} key={currencies[cur].code}>
+                          {currencies[cur].title}
+                        </option>
+                      ))}
                     </select>
                   </td>
                 </tr>
@@ -143,7 +135,9 @@ class WithdrawalModal extends Component {
             <fieldset>
               <label>
                 You current balance is:
-                <span className="current-balance" onClick={this.fillAmount}>{fmtMoney(balance, currency.code)}</span>
+                <span className="current-balance" onClick={this.fillAmount}>
+                  {fmtMoney(balance, currency.code)}
+                </span>
               </label>
             </fieldset>
             <fieldset>
@@ -176,7 +170,9 @@ class WithdrawalModal extends Component {
                 onInput={this.onInputChange}
               />
             </fieldset>
-            <fieldset><label>Requires Fee selection</label></fieldset>
+            <fieldset>
+              <label>Requires Fee selection</label>
+            </fieldset>
             <fieldset>
               <label className="fieldset__label">
                 <b>Priority</b>
@@ -185,17 +181,35 @@ class WithdrawalModal extends Component {
               </label>
               <div className="fieldset__value fieldset__value--group" onChange={this.onInputChange}>
                 <div>
-                  <input type="radio" id="low" name="priority" value="low" defaultChecked={priority === 'low'} />
+                  <input
+                    type="radio"
+                    id="low"
+                    name="priority"
+                    value="low"
+                    defaultChecked={priority === 'low'}
+                  />
                   <label htmlFor="low">Low Priority</label>
                 </div>
 
                 <div>
-                  <input type="radio" id="medium" name="priority" value="medium" defaultChecked={priority === 'medium'} />
+                  <input
+                    type="radio"
+                    id="medium"
+                    name="priority"
+                    value="medium"
+                    defaultChecked={priority === 'medium'}
+                  />
                   <label htmlFor="medium">Medium Priority</label>
                 </div>
 
                 <div>
-                  <input type="radio" id="high" name="priority" value="high" defaultChecked={priority === 'high'} />
+                  <input
+                    type="radio"
+                    id="high"
+                    name="priority"
+                    value="high"
+                    defaultChecked={priority === 'high'}
+                  />
                   <label htmlFor="high">High Priority</label>
                 </div>
               </div>
@@ -204,30 +218,33 @@ class WithdrawalModal extends Component {
               <fieldset>
                 <label>
                   Transaction fee of
-                  <b>{`${withdrawFee}  ${currency.sign}`}</b>
-                  {' '}
-                  will be applied.
+                  <b>{`${withdrawFee}  ${currency.sign}`}</b> will be applied.
                 </label>
               </fieldset>
             ) : null}
-            {requestStatus
-              ? (
-                <fieldset>
-                  <label>
-                    Status:
-                    {requestStatus}
-                  </label>
-                </fieldset>
-              )
-              : null}
+            {requestStatus ? (
+              <fieldset>
+                <label>
+                  Status:
+                  {requestStatus}
+                </label>
+              </fieldset>
+            ) : null}
           </form>
         </ModalContent>
         <ModalActions>
-          <button className="cb-Button" onClick={onClose}>{requestStatus ? 'Close' : 'Cancel'}</button>
-          {
-            !requestStatus
-              ? <button className="cb-Button primary" onClick={this.submitForm} disabled={disableWithdraw}>Withdraw</button> : null
-          }
+          <button className="cb-Button" onClick={onClose}>
+            {requestStatus ? 'Close' : 'Cancel'}
+          </button>
+          {!requestStatus ? (
+            <button
+              className="cb-Button primary"
+              onClick={this.submitForm}
+              disabled={disableWithdraw}
+            >
+              Withdraw
+            </button>
+          ) : null}
         </ModalActions>
       </Modal>
     );

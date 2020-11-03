@@ -49,7 +49,7 @@ class CBCExchangeModal extends Component {
 
   convertCurrency(value) {
     this.setState({
-      btcValue: +((+value * RATE).toFixed(4)),
+      btcValue: +(+value * RATE).toFixed(4),
     });
   }
 
@@ -70,21 +70,15 @@ class CBCExchangeModal extends Component {
   };
 
   render() {
-    const {
-      currencies, balances, ...props
-    } = this.props;
+    const { currencies, balances, ...props } = this.props;
     let { disableSell } = this.props;
-    const {
-      errors, btcValue, cbcValue, pauseClick, sellHovered,
-    } = this.state;
+    const { errors, btcValue, cbcValue, pauseClick, sellHovered } = this.state;
     const submitDisabled = !!Object.keys(errors).length || btcValue === 0 || pauseClick;
     disableSell = disableSell || !balances.get(currencies.CBC.code);
 
     return (
       <Modal className="cb-CBCExchangeModal" {...props}>
-        <ModalHeader>
-          CBC Tokens
-        </ModalHeader>
+        <ModalHeader>CBC Tokens</ModalHeader>
         <ModalContent>
           <form
             autoComplete="off"
@@ -109,38 +103,46 @@ class CBCExchangeModal extends Component {
               />
             </InputGroup>
             <div className="exchange-buttons">
-              <div className={classNames('exchange-button', 'exchange-button--buy', { 'exchange-button--disabled': submitDisabled })} onClick={!submitDisabled ? this.submitBuy : null}>
+              <div
+                className={classNames('exchange-button', 'exchange-button--buy', {
+                  'exchange-button--disabled': submitDisabled,
+                })}
+                onClick={!submitDisabled ? this.submitBuy : null}
+              >
                 <div>
                   <div>BUY</div>
                   <div>1 CBC = 0.0005 BTC</div>
                   <div>Will take:</div>
-                  <div>
-                    {btcValue}
-                    {' '}
-                    BTC
-                  </div>
+                  <div>{btcValue} BTC</div>
                 </div>
               </div>
-              <div className={classNames('exchange-button', 'exchange-button--sell', { 'exchange-button--disabled': submitDisabled || disableSell })} onClick={submitDisabled || disableSell ? null : this.submitSell} onMouseEnter={this.sellMouseEnter} onMouseLeave={this.sellMouseLeave}>
-                {!sellHovered
-                  ? (
-                    <div>
-                      <div>SELL</div>
-                    </div>
-                  )
-                  : (
-                    <span>
-                      Sell at the following exchanges
-                      <br />
-                      after the ICO
-                    </span>
-                  )}
+              <div
+                className={classNames('exchange-button', 'exchange-button--sell', {
+                  'exchange-button--disabled': submitDisabled || disableSell,
+                })}
+                onClick={submitDisabled || disableSell ? null : this.submitSell}
+                onMouseEnter={this.sellMouseEnter}
+                onMouseLeave={this.sellMouseLeave}
+              >
+                {!sellHovered ? (
+                  <div>
+                    <div>SELL</div>
+                  </div>
+                ) : (
+                  <span>
+                    Sell at the following exchanges
+                    <br />
+                    after the ICO
+                  </span>
+                )}
               </div>
             </div>
           </form>
         </ModalContent>
         <ModalActions>
-          <button className="cb-Button" onClick={props.onClose}>Cancel</button>
+          <button className="cb-Button" onClick={props.onClose}>
+            Cancel
+          </button>
         </ModalActions>
       </Modal>
     );

@@ -5,8 +5,8 @@
   display: inline-block;
   position: absolute;
   width: $width;
-  height: $width*1.35;
-  flex: 0 0 $width+1;
+  height: $width * 1.35;
+  flex: 0 0 $width + 1;
   border: none;
   border-radius: 3px;
   box-shadow: 0 0 3px 1px #666;
@@ -128,10 +128,12 @@
   }
 }
 
-.spades, .clubs {
+.spades,
+.clubs {
   color: #000;
 }
 
-.hearts, .diamonds {
+.hearts,
+.diamonds {
   color: #f00;
 }

@@ -55,9 +55,7 @@ class DepositModalContent extends Component {
 
   render() {
     const { currency } = this.state;
-    const {
-      depositAddress, currencies, funCurrencyCode, onFunTopUp, disableFunTopUp,
-    } = this.props;
+    const { depositAddress, currencies, funCurrencyCode, onFunTopUp, disableFunTopUp } = this.props;
     const QRCode = generateQRCode(depositAddress);
     let content;
 
@@ -65,12 +63,17 @@ class DepositModalContent extends Component {
       content = (
         <p>
           <div>
-            {currencies.find((i) => i.code === funCurrencyCode).title}
-            {' '}
-            balance should reach 50 before you can top up your account
+            {currencies.find((i) => i.code === funCurrencyCode).title} balance should reach 50
+            before you can top up your account
           </div>
           <p>
-            <button className="cb-Button primary" onClick={!disableFunTopUp ? onFunTopUp : null} disabled={disableFunTopUp}>TOP UP</button>
+            <button
+              className="cb-Button primary"
+              onClick={!disableFunTopUp ? onFunTopUp : null}
+              disabled={disableFunTopUp}
+            >
+              TOP UP
+            </button>
           </p>
         </p>
       );
@@ -78,7 +81,9 @@ class DepositModalContent extends Component {
       content = (
         <>
           <fieldset>
-            <label className="fieldset__label">This code contains your personal payment address.</label>
+            <label className="fieldset__label">
+              This code contains your personal payment address.
+            </label>
             <div className="payment-address-field">
               <input
                 type="text"
@@ -112,7 +117,8 @@ class DepositModalContent extends Component {
               Please note: You may receive your funds in parts over 3 confirmations.
               <br />
               {/* eslint-disable-next-line max-len */}
-              Recommendation: when selecting a transfer fee, a higher fee guarantees confirmation within 10 minutes. A lower fee may take an hour or more to confirm.
+              Recommendation: when selecting a transfer fee, a higher fee guarantees confirmation
+              within 10 minutes. A lower fee may take an hour or more to confirm.
             </p>
           </fieldset>
         </>
@@ -121,21 +127,27 @@ class DepositModalContent extends Component {
 
     return (
       <>
-        <ModalHeader>
-          Deposit
-        </ModalHeader>
+        <ModalHeader>Deposit</ModalHeader>
         <ModalContent>
           <table className="property-inputs">
             <tbody>
               <tr>
                 <td>Currency:</td>
                 <td>
-                  <select className="cb-Input" name="currency" onChange={this.onCurrencyChange} value={currency}>
-                    <option value="" disabled>Select currency</option>
-                    {
-                      currencies
-                        .map((cur) => <option value={cur.code} key={cur.code}>{cur.title}</option>)
-                    }
+                  <select
+                    className="cb-Input"
+                    name="currency"
+                    onChange={this.onCurrencyChange}
+                    value={currency}
+                  >
+                    <option value="" disabled>
+                      Select currency
+                    </option>
+                    {currencies.map((cur) => (
+                      <option value={cur.code} key={cur.code}>
+                        {cur.title}
+                      </option>
+                    ))}
                   </select>
                 </td>
               </tr>
@@ -150,9 +162,12 @@ class DepositModalContent extends Component {
 
 DepositModalContent.propTypes = {
   getDepositAddress: PropTypes.func,
-  currencies: PropTypes.arrayOf(PropTypes.shape({
-    code: PropTypes.string, title: PropTypes.string,
-  })),
+  currencies: PropTypes.arrayOf(
+    PropTypes.shape({
+      code: PropTypes.string,
+      title: PropTypes.string,
+    }),
+  ),
   funCurrencyCode: PropTypes.string,
   depositAddress: PropTypes.string,
   onFunTopUp: PropTypes.func,
@@ -160,19 +175,18 @@ DepositModalContent.propTypes = {
 };
 
 DepositModalContent.defaultProps = {
-  currencies: [{
-    code: 'BTC',
-    title: 'Bitcoin',
-  }],
+  currencies: [
+    {
+      code: 'BTC',
+      title: 'Bitcoin',
+    },
+  ],
   funCurrencyCode: 'FGLT',
 };
 
 export default function DepositModal(props) {
   return (
-    <Modal
-      className="cb-DepositModal"
-      {...props}
-    >
+    <Modal className="cb-DepositModal" {...props}>
       <DepositModalContent {...props} />
     </Modal>
   );

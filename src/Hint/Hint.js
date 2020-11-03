@@ -4,12 +4,13 @@ import PropTypes from 'prop-types';
 import Tooltip from '../Tooltip';
 import InfoIcon from '../Icons/InfoIcon';
 
-function Hint({
-  show, text, className, arrowSide, arrowAlign, title, ...props
-}) {
+function Hint({ show, text, className, arrowSide, arrowAlign, title, ...props }) {
   return (
     <Tooltip
-      className={classNames('cb-Hint', className, { [`cb-Hint--arrow-side-${arrowSide}`]: arrowSide, [`cb-Hint--arrow-align-${arrowAlign}`]: arrowAlign })}
+      className={classNames('cb-Hint', className, {
+        [`cb-Hint--arrow-side-${arrowSide}`]: arrowSide,
+        [`cb-Hint--arrow-align-${arrowAlign}`]: arrowAlign,
+      })}
       show={show}
       {...props}
     >
