@@ -5,15 +5,15 @@ const useResponsiveFontSize = ({baseFontSize, maxFontSize = 1000, minFontSize = 
 
 	useEffect(() => {
 		function viewportResize() {
-			let baseViewport = {width: baseWidth, height: baseHeight},
-				goodRatio = baseViewport.width/baseViewport.height,
-				currentRatio = viewportWidth/viewportHeight,
-				calculateParam = goodRatio >= currentRatio ? 'height' : 'width',
-				currentViewportParam = Math.floor(calculateParam === 'width' ? viewportHeight*goodRatio : viewportWidth/goodRatio),
-				changeValuePercent = 100 - (100 - 100*(baseViewport[calculateParam] - currentViewportParam)/baseViewport[calculateParam]),
-				fontSize = Math.max(minFontSize, Math.min(maxFontSize, baseFontSize - baseFontSize*(changeValuePercent/100))); // fontSize between min and max
+			const baseViewport = {width: baseWidth, height: baseHeight};
+      const goodRatio = baseViewport.width/baseViewport.height;
+      const currentRatio = viewportWidth/viewportHeight;
+      const calculateParam = goodRatio >= currentRatio ? 'height' : 'width';
+      const currentViewportParam = Math.floor(calculateParam === 'width' ? viewportHeight*goodRatio : viewportWidth/goodRatio);
+      const changeValuePercent = 100 - (100 - 100*(baseViewport[calculateParam] - currentViewportParam)/baseViewport[calculateParam]);
+      const newFontSize = Math.max(minFontSize, Math.min(maxFontSize, baseFontSize - baseFontSize*(changeValuePercent/100))); // fontSize between min and max
 
-			setFontSize(fontSize);
+			setFontSize(newFontSize);
 		}
 
 		if (viewportHeight && viewportWidth) {
@@ -23,7 +23,9 @@ const useResponsiveFontSize = ({baseFontSize, maxFontSize = 1000, minFontSize = 
         clearTimeout(tId);
       }
 		}
-	}, [viewportHeight, viewportWidth, timeout]);
+
+		return undefined;
+	}, [viewportHeight, viewportWidth, timeout, baseFontSize, baseWidth, baseHeight, maxFontSize, minFontSize]);
 
 	return fontSize;
 };

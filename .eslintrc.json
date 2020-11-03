@@ -6,7 +6,8 @@
     },
     "extends": [
         "airbnb",
-        "airbnb/hooks"
+        "airbnb/hooks",
+        "prettier"
     ],
     "overrides": [
         {

@@ -4,7 +4,7 @@ const useThrottle = (fn, time) => {
 	const called = React.useRef(false);
 
 	return React.useCallback((...args) => {
-		if (called.current) return;
+		if (called.current) return undefined;
 
 		const fnResult = fn(...args);
 		called.current = true;
