@@ -1,8 +1,6 @@
 import { useMemo } from 'react';
 
-function useViewportByRatio({
-  windowWidth, windowHeight, min, max, horizontal, vertical,
-}) {
+function useViewportByRatio({ windowWidth, windowHeight, min, max, horizontal, vertical }) {
   return useMemo(() => {
     if (windowHeight && windowWidth) {
       const curRatio = windowWidth / windowHeight;

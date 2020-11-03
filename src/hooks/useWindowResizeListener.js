@@ -13,7 +13,11 @@ function useWindowResizeListener({ timeout }) {
       // don't resize when keyboard opens on android device
       // https://stackoverflow.com/questions/33673376/prevent-document-reflow-browser-resize-when-android-keyboard-opens
       const { activeElement } = currentWindow.document;
-      if (activeElement && (activeElement.getAttribute('type') === 'text' || activeElement.tagName.toLowerCase() === 'textarea')) {
+      if (
+        activeElement &&
+        (activeElement.getAttribute('type') === 'text' ||
+          activeElement.tagName.toLowerCase() === 'textarea')
+      ) {
         return;
       }
 
@@ -24,10 +28,7 @@ function useWindowResizeListener({ timeout }) {
           width: innerWidth,
           height: innerHeight,
         };
-        setSize([
-          innerWidth,
-          innerHeight,
-        ]);
+        setSize([innerWidth, innerHeight]);
       }
     }
 
