@@ -3,7 +3,7 @@ import PropsTypes from 'prop-types';
 import classNames from 'classnames';
 import { clamp, capitalize } from './utils';
 
-const Slider = React.forwardRef((props, ref) => {
+const Slider = (props) => {
   const {
     className,
     min,
@@ -15,13 +15,14 @@ const Slider = React.forwardRef((props, ref) => {
   const sliderRef = React.useRef();
   const thumbRef = React.useRef();
   const [thumbPosition, setThumbPosition] = React.useState(0);
+
   const fillWidth = React.useMemo(() => {
     return thumbRef.current ? thumbPosition + thumbRef.current.offsetWidth / 2 : 0;
   }, [thumbPosition]);
 
-  const getLimit = () => {
+  const getLimit = React.useCallback(() => {
     return sliderRef.current.offsetWidth - thumbRef.current.offsetWidth;
-  };
+  }, []);
 
   React.useEffect(() => {
     const getPositionFromValue = () => {
@@ -63,11 +64,12 @@ const Slider = React.forwardRef((props, ref) => {
    * Attach event listeners to mousemove/mouseup events
    * @return {void}
    */
-  const handleStart = () => {
+  const handleStart = (event) => {
     document.addEventListener('mousemove', handleDrag);
     document.addEventListener('mouseup', handleEnd);
     document.addEventListener('touchmove', handleDrag);
     document.addEventListener('touchend', handleEnd);
+    handleDrag(event);
   };
 
   const handleDrag = (event) => {
@@ -93,17 +95,12 @@ const Slider = React.forwardRef((props, ref) => {
     document.removeEventListener('touchend', handleEnd);
   };
 
-  const handleAndStartDrag = (event) => {
-    handleDrag(event);
-    handleStart(event);
-  };
-
   return (
     <div
       className={classNames("cb-Slider", className)}
       ref={sliderRef}
-      onMouseDown={handleAndStartDrag}
-      onTouchStart={handleAndStartDrag}
+      onMouseDown={handleStart}
+      onTouchStart={handleStart}
       onMouseUp={handleEnd}
       onTouchEnd={handleEnd}
       onBlur={handleEnd}
@@ -131,7 +128,7 @@ const Slider = React.forwardRef((props, ref) => {
       </div>
     </div>
   )
-});
+};
 
 Slider.displayName = 'Slider';
 
@@ -143,6 +140,11 @@ Slider.defaultProps = {
 Slider.propTypes = {
   children: PropsTypes.node,
   className: PropsTypes.string,
+  min: PropsTypes.number,
+  max: PropsTypes.number,
+  value: PropsTypes.number,
+  step: PropsTypes.number,
+  onChange: PropsTypes.func,
 };
 
 export { Slider };
