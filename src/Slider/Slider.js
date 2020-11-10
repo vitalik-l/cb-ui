@@ -4,14 +4,7 @@ import classNames from 'classnames';
 import { clamp, capitalize } from './utils';
 
 const Slider = (props) => {
-  const {
-    className,
-    min,
-    max,
-    value,
-    step = 1,
-    onChange,
-  } = props;
+  const { className, min, max, value, step, onChange } = props;
   const sliderRef = React.useRef();
   const thumbRef = React.useRef();
   const [thumbPosition, setThumbPosition] = React.useState(0);
@@ -27,21 +20,22 @@ const Slider = (props) => {
   React.useEffect(() => {
     const getPositionFromValue = () => {
       const limit = getLimit();
+      const clampValue = clamp(value, min, max);
       const diffMaxMin = max - min;
-      const diffValMin = value - min;
+      const diffValMin = clampValue - min;
       const percentage = diffValMin / diffMaxMin;
       return Math.round(percentage * limit);
     };
 
     setThumbPosition(getPositionFromValue());
-  }, [value]);
+  }, [value, max, min, getLimit]);
 
   const getValueFromPosition = (pos) => {
     const limit = getLimit();
     const percentage = clamp(pos, 0, limit) / (limit || 1);
     const baseVal = step * Math.round((percentage * (max - min)) / step);
-    const value = baseVal + min;
-    return clamp(value, min, max);
+    const result = baseVal + min;
+    return clamp(result, min, max);
   };
 
   /**
@@ -54,22 +48,12 @@ const Slider = (props) => {
     const coordinateStyle = 'x';
     const directionStyle = 'left';
     const clientCoordinateStyle = `client${capitalize(coordinateStyle)}`;
-    const coordinate = !event.touches ? event[clientCoordinateStyle] : event.touches[0][clientCoordinateStyle];
+    const coordinate = !event.touches
+      ? event[clientCoordinateStyle]
+      : event.touches[0][clientCoordinateStyle];
     const direction = node.getBoundingClientRect()[directionStyle];
     const pos = coordinate - direction - thumbRef.current.offsetWidth / 2;
     return getValueFromPosition(pos);
-  };
-
-  /**
-   * Attach event listeners to mousemove/mouseup events
-   * @return {void}
-   */
-  const handleStart = (event) => {
-    document.addEventListener('mousemove', handleDrag);
-    document.addEventListener('mouseup', handleEnd);
-    document.addEventListener('touchmove', handleDrag);
-    document.addEventListener('touchend', handleEnd);
-    handleDrag(event);
   };
 
   const handleDrag = (event) => {
@@ -77,10 +61,10 @@ const Slider = (props) => {
     event.stopPropagation();
     if (!onChange) return;
 
-    const value = position(event);
+    const newValue = position(event);
 
     if (onChange) {
-      onChange(value, event);
+      onChange(newValue, event);
     }
   };
 
@@ -95,9 +79,21 @@ const Slider = (props) => {
     document.removeEventListener('touchend', handleEnd);
   };
 
+  /**
+   * Attach event listeners to mousemove/mouseup events
+   * @return {void}
+   */
+  const handleStart = (event) => {
+    document.addEventListener('mousemove', handleDrag);
+    document.addEventListener('mouseup', handleEnd);
+    document.addEventListener('touchmove', handleDrag);
+    document.addEventListener('touchend', handleEnd);
+    handleDrag(event);
+  };
+
   return (
     <div
-      className={classNames("cb-Slider", className)}
+      className={classNames('cb-Slider', className)}
       ref={sliderRef}
       onMouseDown={handleStart}
       onTouchStart={handleStart}
@@ -105,29 +101,45 @@ const Slider = (props) => {
       onTouchEnd={handleEnd}
       onBlur={handleEnd}
     >
-      <div className="cb-Slider__fill" style={{width: fillWidth}} />
+      <div className="cb-Slider__fill" style={{ width: fillWidth }} />
       <div className="cb-Slider__thumb" ref={thumbRef}>
-        <svg width="27" height="28" viewBox="0 0 27 28" fill="none" xmlns="http://www.w3.org/2000/svg" style={{transform: `translateX(${thumbPosition}px)`}}>
-          <rect x="1" y="1.5" width="25" height="25" rx="6" fill="#C4C4C4" stroke="#222324" strokeWidth="2"/>
-          <rect x="12" y="9.5" width="2" height="10" fill="#222324"/>
-          <rect x="12" y="9.5" width="2" height="10" fill="#222324"/>
-          <rect x="12" y="9.5" width="2" height="10" fill="#222324"/>
-          <rect x="12" y="9.5" width="2" height="10" fill="#222324"/>
-          <rect x="12" y="9.5" width="2" height="10" fill="#222324"/>
-          <rect x="8" y="9.5" width="2" height="10" fill="#222324"/>
-          <rect x="8" y="9.5" width="2" height="10" fill="#222324"/>
-          <rect x="8" y="9.5" width="2" height="10" fill="#222324"/>
-          <rect x="8" y="9.5" width="2" height="10" fill="#222324"/>
-          <rect x="8" y="9.5" width="2" height="10" fill="#222324"/>
-          <rect x="16" y="9.5" width="2" height="10" fill="#222324"/>
-          <rect x="16" y="9.5" width="2" height="10" fill="#222324"/>
-          <rect x="16" y="9.5" width="2" height="10" fill="#222324"/>
-          <rect x="16" y="9.5" width="2" height="10" fill="#222324"/>
-          <rect x="16" y="9.5" width="2" height="10" fill="#222324"/>
+        <svg
+          width="27"
+          height="28"
+          viewBox="0 0 27 28"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          style={{ transform: `translateX(${thumbPosition}px)` }}
+        >
+          <rect
+            x="1"
+            y="1.5"
+            width="25"
+            height="25"
+            rx="6"
+            fill="#C4C4C4"
+            stroke="#222324"
+            strokeWidth="2"
+          />
+          <rect x="12" y="9.5" width="2" height="10" fill="#222324" />
+          <rect x="12" y="9.5" width="2" height="10" fill="#222324" />
+          <rect x="12" y="9.5" width="2" height="10" fill="#222324" />
+          <rect x="12" y="9.5" width="2" height="10" fill="#222324" />
+          <rect x="12" y="9.5" width="2" height="10" fill="#222324" />
+          <rect x="8" y="9.5" width="2" height="10" fill="#222324" />
+          <rect x="8" y="9.5" width="2" height="10" fill="#222324" />
+          <rect x="8" y="9.5" width="2" height="10" fill="#222324" />
+          <rect x="8" y="9.5" width="2" height="10" fill="#222324" />
+          <rect x="8" y="9.5" width="2" height="10" fill="#222324" />
+          <rect x="16" y="9.5" width="2" height="10" fill="#222324" />
+          <rect x="16" y="9.5" width="2" height="10" fill="#222324" />
+          <rect x="16" y="9.5" width="2" height="10" fill="#222324" />
+          <rect x="16" y="9.5" width="2" height="10" fill="#222324" />
+          <rect x="16" y="9.5" width="2" height="10" fill="#222324" />
         </svg>
       </div>
     </div>
-  )
+  );
 };
 
 Slider.displayName = 'Slider';
@@ -135,10 +147,10 @@ Slider.displayName = 'Slider';
 Slider.defaultProps = {
   min: 1,
   max: 100,
+  step: 1,
 };
 
 Slider.propTypes = {
-  children: PropsTypes.node,
   className: PropsTypes.string,
   min: PropsTypes.number,
   max: PropsTypes.number,

@@ -13,9 +13,7 @@ stories.addDecorator(withKnobs);
 
 stories.add('default', () => (
   <div className={classNames('story-Slider', themeSelect())}>
-    <Slider
-      value={number('value', 1)}
-    />
+    <Slider value={number('value', 1)} />
   </div>
 ));
 
@@ -28,10 +26,7 @@ stories.add('state', () => {
 
   return (
     <div className={classNames('story-Slider', themeSelect())}>
-      <Slider
-        value={value}
-        onChange={onChange}
-      />
+      <Slider value={value} onChange={onChange} />
     </div>
-  )
+  );
 });
