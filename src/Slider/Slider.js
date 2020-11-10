@@ -52,6 +52,17 @@ const Slider = React.forwardRef((props, ref) => {
     return getValueFromPosition(pos);
   };
 
+  /**
+   * Attach event listeners to mousemove/mouseup events
+   * @return {void}
+   */
+  const handleStart = () => {
+    document.addEventListener('mousemove', handleDrag);
+    document.addEventListener('mouseup', handleEnd);
+    document.addEventListener('touchmove', handleDrag);
+    document.addEventListener('touchend', handleEnd);
+  };
+
   const handleDrag = (event) => {
     event.preventDefault();
     event.stopPropagation();
@@ -64,11 +75,28 @@ const Slider = React.forwardRef((props, ref) => {
     }
   };
 
+  /**
+   * Detach event listeners to mousemove/mouseup events
+   * @return {void}
+   */
+  const handleEnd = () => {
+    document.removeEventListener('mousemove', handleDrag);
+    document.removeEventListener('mouseup', handleEnd);
+    document.removeEventListener('touchmove', handleDrag);
+    document.removeEventListener('touchend', handleEnd);
+  };
+
+  const handleAndStartDrag = (event) => {
+    handleDrag(event);
+    handleStart(event);
+  };
+
   return (
     <div
       className={classNames("cb-Slider", className)}
       ref={sliderRef}
-      onMouseDown={handleDrag}
+      onMouseDown={handleAndStartDrag}
+      onTouchStart={handleAndStartDrag}
     >
       <div className="cb-Slider__fill" style={{width: fillWidth}} />
     </div>
