@@ -1,11 +1,17 @@
 .cb-Slider {
   width: 300px;
-  height: 9px;
-  background: black;
+  height: 6px;
   cursor: pointer;
+  background: #C4C4C4;
+  border-radius: 10px;
 
   &__fill {
-    background: green;
+    background: #71C82B;
     height: 100%;
+    border-radius: inherit;
+  }
+
+  &__handle {
+    transform: translateY(-50%);
   }
 }
