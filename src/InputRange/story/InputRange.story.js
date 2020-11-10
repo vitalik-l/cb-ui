@@ -11,6 +11,6 @@ import InputRange from '..';
 const stories = storiesOf('InputRange', module);
 stories.addDecorator(withKnobs);
 
-stories.add('Slider', () => (
+stories.add('default', () => (
   <InputRange value={number('value', 40)} onChange={action('onChange')} />
 ));
