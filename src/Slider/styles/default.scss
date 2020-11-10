@@ -1,3 +1,11 @@
 .cb-Slider {
+  width: 300px;
+  height: 9px;
+  background: black;
+  cursor: pointer;
 
+  &__fill {
+    background: green;
+    height: 100%;
+  }
 }

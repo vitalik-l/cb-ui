@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, number } from '@storybook/addon-knobs';
 import classNames from 'classnames';
 import themeSelect from '../../utils/themeSelect';
 
@@ -13,6 +13,25 @@ stories.addDecorator(withKnobs);
 
 stories.add('default', () => (
   <div className={classNames('story-Slider', themeSelect())}>
-    <Slider />
+    <Slider
+      value={number('value', 1)}
+    />
   </div>
 ));
+
+stories.add('state', () => {
+  const [value, setValue] = React.useState(0);
+
+  const onChange = (newValue) => {
+    setValue(newValue);
+  };
+
+  return (
+    <div className={classNames('story-Slider', themeSelect())}>
+      <Slider
+        value={value}
+        onChange={onChange}
+      />
+    </div>
+  )
+});
