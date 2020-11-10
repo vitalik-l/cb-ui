@@ -11,7 +11,10 @@
     border-radius: inherit;
   }
 
-  &__handle {
-    transform: translateY(-50%);
+  &__thumb {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-30%);
   }
 }

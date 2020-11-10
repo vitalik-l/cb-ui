@@ -14,3 +14,9 @@ stories.addDecorator(withKnobs);
 stories.add('default', () => (
   <InputRange value={number('value', 40)} onChange={action('onChange')} />
 ));
+
+stories.add('state', () => {
+  const [value, setValue] = React.useState(0);
+
+  return <InputRange value={value} onChange={(v) => setValue(v)}/>;
+});

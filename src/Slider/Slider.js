@@ -2,7 +2,6 @@ import React from 'react';
 import PropsTypes from 'prop-types';
 import classNames from 'classnames';
 import { clamp, capitalize } from './utils';
-import './styles/default.scss';
 
 const Slider = React.forwardRef((props, ref) => {
   const {
@@ -14,22 +13,30 @@ const Slider = React.forwardRef((props, ref) => {
     onChange,
   } = props;
   const sliderRef = React.useRef();
-  const [fillWidth, setFillWidth] = React.useState(0);
+  const thumbRef = React.useRef();
+  const [thumbPosition, setThumbPosition] = React.useState(0);
+  const fillWidth = React.useMemo(() => {
+    return thumbRef.current ? thumbPosition + thumbRef.current.offsetWidth / 2 : 0;
+  }, [thumbPosition]);
+
+  const getLimit = () => {
+    return sliderRef.current.offsetWidth - thumbRef.current.offsetWidth;
+  };
 
   React.useEffect(() => {
     const getPositionFromValue = () => {
-      const limit = sliderRef.current.offsetWidth;
+      const limit = getLimit();
       const diffMaxMin = max - min;
       const diffValMin = value - min;
       const percentage = diffValMin / diffMaxMin;
       return Math.round(percentage * limit);
     };
 
-    setFillWidth(getPositionFromValue());
+    setThumbPosition(getPositionFromValue());
   }, [value]);
 
   const getValueFromPosition = (pos) => {
-    const limit = sliderRef.current.offsetWidth;
+    const limit = getLimit();
     const percentage = clamp(pos, 0, limit) / (limit || 1);
     const baseVal = step * Math.round((percentage * (max - min)) / step);
     const value = baseVal + min;
@@ -48,7 +55,7 @@ const Slider = React.forwardRef((props, ref) => {
     const clientCoordinateStyle = `client${capitalize(coordinateStyle)}`;
     const coordinate = !event.touches ? event[clientCoordinateStyle] : event.touches[0][clientCoordinateStyle];
     const direction = node.getBoundingClientRect()[directionStyle];
-    const pos = coordinate - direction;
+    const pos = coordinate - direction - thumbRef.current.offsetWidth / 2;
     return getValueFromPosition(pos);
   };
 
@@ -97,10 +104,13 @@ const Slider = React.forwardRef((props, ref) => {
       ref={sliderRef}
       onMouseDown={handleAndStartDrag}
       onTouchStart={handleAndStartDrag}
+      onMouseUp={handleEnd}
+      onTouchEnd={handleEnd}
+      onBlur={handleEnd}
     >
       <div className="cb-Slider__fill" style={{width: fillWidth}} />
-      <div className="cb-Slider__handle">
-        <svg width="27" height="28" viewBox="0 0 27 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div className="cb-Slider__thumb" ref={thumbRef}>
+        <svg width="27" height="28" viewBox="0 0 27 28" fill="none" xmlns="http://www.w3.org/2000/svg" style={{transform: `translateX(${thumbPosition}px)`}}>
           <rect x="1" y="1.5" width="25" height="25" rx="6" fill="#C4C4C4" stroke="#222324" strokeWidth="2"/>
           <rect x="12" y="9.5" width="2" height="10" fill="#222324"/>
           <rect x="12" y="9.5" width="2" height="10" fill="#222324"/>
