@@ -57,7 +57,6 @@ const Slider = (props) => {
   };
 
   const handleDrag = (event) => {
-    event.preventDefault();
     event.stopPropagation();
     if (!onChange) return;
 
@@ -104,8 +103,8 @@ const Slider = (props) => {
       <div className="cb-Slider__fill" style={{ width: fillWidth }} />
       <div className="cb-Slider__thumb" ref={thumbRef}>
         <svg
-          width="27"
-          height="28"
+          width="2.7rem"
+          height="2.8rem"
           viewBox="0 0 27 28"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
