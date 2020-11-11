@@ -4,6 +4,7 @@
   cursor: pointer;
   background: #c4c4c4;
   border-radius: 10px;
+  position: relative;
 
   &__fill {
     background: #71c82b;
@@ -15,6 +16,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    transform: translateY(-30%);
+    display: inline-flex;
+    transform: translateY(-42%);
   }
 }
