@@ -19,7 +19,8 @@ $trackSize: 0.6rem;
     pointer-events: none;
   }
 
-  &-rail, &-track {
+  &-rail,
+  &-track {
     height: $trackSize;
     display: block;
     position: absolute;
@@ -49,7 +50,7 @@ $trackSize: 0.6rem;
     justify-content: center;
 
     &::after {
-      content: "";
+      content: '';
       top: -1.5rem;
       left: -1.5rem;
       right: -1.5rem;

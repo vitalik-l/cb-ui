@@ -36,5 +36,5 @@ export const Thumb = (props) => {
       <rect x="16" y="9.5" width="2" height="10" fill="#222324" />
       <rect x="16" y="9.5" width="2" height="10" fill="#222324" />
     </svg>
-  )
+  );
 };

@@ -233,8 +233,8 @@ const Slider = React.forwardRef((props, ref) => {
   const marks =
     marksProp === true && step !== null
       ? [...Array(Math.floor((max - min) / step) + 1)].map((_, index) => ({
-        value: min + step * index,
-      }))
+          value: min + step * index,
+        }))
       : marksProp || [];
 
   const {
@@ -497,7 +497,7 @@ const Slider = React.forwardRef((props, ref) => {
     setValueState(newValue);
 
     if (onChange) {
-      onChange(event, newValue);
+      onChange(newValue);
     }
 
     const doc = ownerDocument(sliderRef.current);

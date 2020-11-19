@@ -13,10 +13,7 @@ import React from 'react';
  *
  * @param ref a ref callback or ref object if anything falsy this is a no-op
  */
-export default function setRef(
-  ref,
-  value,
-) {
+export default function setRef(ref, value) {
   if (typeof ref === 'function') {
     ref(value);
   } else if (ref) {

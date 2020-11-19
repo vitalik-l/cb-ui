@@ -18,5 +18,5 @@ stories.add('default', () => (
 stories.add('state', () => {
   const [value, setValue] = React.useState(0);
 
-  return <InputRange value={value} onChange={(v) => setValue(v)}/>;
+  return <InputRange value={value} onChange={(v) => setValue(v)} />;
 });
