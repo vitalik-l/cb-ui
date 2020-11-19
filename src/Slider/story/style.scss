@@ -1,3 +1,9 @@
 .story-Slider {
   @import '../styles/default';
 }
+
+.story-Slider-mui {
+  width: 230px;
+
+  @import '../styles/mui';
+}
