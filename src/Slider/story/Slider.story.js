@@ -5,8 +5,7 @@ import { withKnobs, number } from '@storybook/addon-knobs';
 import classNames from 'classnames';
 import themeSelect from '../../utils/themeSelect';
 
-import Slider from '..';
-import MuiSlider from '../Slider-mui';
+import Slider from '../Slider-mui';
 import './style.scss';
 
 const stories = storiesOf('Slider', module);
@@ -28,20 +27,6 @@ stories.add('state', () => {
   return (
     <div className={classNames('story-Slider', themeSelect())}>
       <Slider value={value} onChange={onChange} />
-    </div>
-  );
-});
-
-stories.add('mui', () => {
-  const [value, setValue] = React.useState(0);
-
-  const onChange = (event, value) => {
-    setValue(value);
-  };
-
-  return (
-    <div className={classNames('story-Slider-mui', themeSelect())}>
-      <MuiSlider value={value} onChange={onChange} />
     </div>
   );
 });

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropsTypes from 'prop-types';
 import classNames from 'classnames';
-import { clamp, capitalize } from './utils';
+import { clamp, capitalize } from '../utils';
 
 const Slider = (props) => {
   const { className, min, max, value, step, onChange } = props;

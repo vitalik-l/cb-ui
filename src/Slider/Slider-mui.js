@@ -361,7 +361,7 @@ const Slider = React.forwardRef((props, ref) => {
     setFocusVisible(index);
 
     if (onChange) {
-      onChange(event, newValue);
+      onChange(newValue);
     }
     if (onChangeCommitted) {
       onChangeCommitted(event, newValue);
@@ -448,7 +448,7 @@ const Slider = React.forwardRef((props, ref) => {
     setValueState(newValue);
 
     if (onChange) {
-      onChange(nativeEvent, newValue);
+      onChange(newValue);
     }
   });
 
@@ -548,7 +548,7 @@ const Slider = React.forwardRef((props, ref) => {
     setValueState(newValue);
 
     if (onChange) {
-      onChange(event, newValue);
+      onChange(newValue);
     }
 
     const doc = ownerDocument(sliderRef.current);

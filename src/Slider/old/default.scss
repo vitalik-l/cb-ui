@@ -1,0 +1,22 @@
+.cb-Slider {
+  width: 23rem;
+  height: 0.6rem;
+  cursor: pointer;
+  background: #c4c4c4;
+  border-radius: 10px;
+  position: relative;
+
+  &__fill {
+    background: #71c82b;
+    height: 100%;
+    border-radius: inherit;
+  }
+
+  &__thumb {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-flex;
+    transform: translateY(-42%);
+  }
+}
