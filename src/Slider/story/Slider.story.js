@@ -5,7 +5,7 @@ import { withKnobs, number } from '@storybook/addon-knobs';
 import classNames from 'classnames';
 import themeSelect from '../../utils/themeSelect';
 
-import Slider from '../Slider-mui';
+import Slider from '../Slider';
 import './style.scss';
 
 const stories = storiesOf('Slider', module);

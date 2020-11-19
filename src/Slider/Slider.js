@@ -143,45 +143,45 @@ function doesSupportTouchActionNone() {
 
 const classes = {
   /* Styles applied to the root element. */
-  root: 'Slider',
+  root: 'cb-Slider',
   /* Styles applied to the root element if `color="primary"`. */
-  colorPrimary: 'Slider--color--primary',
+  colorPrimary: 'cb-Slider--color--primary',
   /* Styles applied to the root element if `color="secondary"`. */
-  colorSecondary: 'Slider--color--secondary',
+  colorSecondary: 'cb-Slider--color--secondary',
   /* Styles applied to the root element if `marks` is provided with at least one label. */
-  marked: 'Slider--marked',
+  marked: 'cb-Slider--marked',
   /* Pseudo-class applied to the root element if `orientation="vertical"`. */
-  vertical: 'Slider--vertical',
+  vertical: 'cb-Slider--vertical',
   /* Pseudo-class applied to the root and thumb element if `disabled={true}`. */
-  disabled: 'Slider--disabled',
+  disabled: 'cb-Slider--disabled',
   /* Styles applied to the rail element. */
-  rail: 'Slider-rail',
+  rail: 'cb-Slider-rail',
   /* Styles applied to the track element. */
-  track: 'Slider-track',
+  track: 'cb-Slider-track',
   /* Styles applied to the track element if `track={false}`. */
-  trackFalse: 'Slider--track--false',
+  trackFalse: 'cb-Slider--track--false',
   /* Styles applied to the track element if `track="inverted"`. */
-  trackInverted: 'Slider--track--inverted',
+  trackInverted: 'cb-Slider--track--inverted',
   /* Styles applied to the thumb element. */
-  thumb: 'Slider-thumb',
+  thumb: 'cb-Slider-thumb',
   /* Styles applied to the thumb element if `color="primary"`. */
-  thumbColorPrimary: 'Slider-thumb--color--primary',
+  thumbColorPrimary: 'cb-Slider-thumb--color--primary',
   /* Styles applied to the thumb element if `color="secondary"`. */
-  thumbColorSecondary: 'Slider-thumb--color--secondary',
+  thumbColorSecondary: 'cb-Slider-thumb--color--secondary',
   /* Pseudo-class applied to the thumb element if it's active. */
-  active: 'Slider-thumb--active',
+  active: 'cb-Slider-thumb--active',
   /* Pseudo-class applied to the thumb element if keyboard focused. */
-  focusVisible: 'Slider-thumb--focus',
+  focusVisible: 'cb-Slider-thumb--focus',
   /* Styles applied to the thumb label element. */
-  valueLabel: 'Slider-thumb-label',
+  valueLabel: 'cb-Slider-thumb-label',
   /* Styles applied to the mark element. */
-  mark: 'Slider-mark',
+  mark: 'cb-Slider-mark',
   /* Styles applied to the mark element if active (depending on the value). */
-  markActive: 'Slider-mark--active',
+  markActive: 'cb-Slider-mark--active',
   /* Styles applied to the mark label element. */
-  markLabel: 'Slider-mark-label',
+  markLabel: 'cb-Slider-mark-label',
   /* Styles applied to the mark label element if active (depending on the value). */
-  markLabelActive: 'Slider-mark-label--active',
+  markLabelActive: 'cb-Slider-mark-label--active',
 };
 
 const Slider = React.forwardRef((props, ref) => {
