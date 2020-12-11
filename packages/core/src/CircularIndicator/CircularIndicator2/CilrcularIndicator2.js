@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { animate } from '../utils/animate';
-import ButtonBase from '../ButtonBase';
-import './styles/v2.scss';
+import { animate } from '../../utils/animate';
+import ButtonBase from '../../ButtonBase';
+import './styles.scss';
 
 const SEGMENTS = 461;
 
@@ -17,6 +17,7 @@ export function CircularIndicator2(props) {
     color,
     buttonClassName,
     disabled,
+    theme,
     ...buttonProps
   } = props;
   const [currentSegment, setCurrentSegment] = useState(SEGMENTS);
@@ -156,8 +157,9 @@ export function CircularIndicator2(props) {
             y2="188"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stopColor="#0D0D12" />
-            <stop offset="1" stopColor="#1D1A1C" />
+            {theme.background.map(stop => (
+              <stop {...stop} />
+            ))}
           </linearGradient>
           <linearGradient
             id="green_linear1"
@@ -277,8 +279,9 @@ export function CircularIndicator2(props) {
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(53.0092 64.2982) rotate(28.0977) scale(65.6552)"
             >
-              <stop offset="0.3125" stopColor="#5D5D5D" />
-              <stop offset="1" />
+              {theme.button.black.map(stop => (
+                <stop {...stop} />
+              ))}
             </radialGradient>
             <radialGradient
               id="green_radial"
@@ -326,6 +329,18 @@ CircularIndicator2.defaultProps = {
     duration: 500,
   },
   color: 'black',
+  theme: {
+    background: [
+      {stopColor: '#0D0D12'},
+      {offset: 1, stopColor: '#1D1A1C'},
+    ],
+    button: {
+      black: [
+        {offset: 0.3125, stopColor: '#5D5D5D'},
+        {offset: 1, stopColor: ''},
+      ]
+    }
+  },
 };
 
 CircularIndicator2.propTypes = {
@@ -339,4 +354,5 @@ CircularIndicator2.propTypes = {
   color: PropTypes.oneOf(['red', 'green', 'black']),
   disabled: PropTypes.bool,
   buttonClassName: PropTypes.string,
+  theme: PropTypes.object,
 };

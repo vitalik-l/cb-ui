@@ -5,7 +5,7 @@ import { withKnobs, boolean, number, select } from '@storybook/addon-knobs';
 // styles
 import './style.scss';
 
-import { CircularIndicator, RoundButton, CircularIndicator2 } from '../index';
+import { CircularIndicator, RoundButton, CircularIndicator2, themeGalileo } from '../index';
 
 const stories = storiesOf('CircularIndicator', module);
 stories.addDecorator(withKnobs);
@@ -21,7 +21,8 @@ function defaultView() {
 }
 
 stories.add('default', defaultView);
-stories.add('v2', () => {
+
+const CircularIndicator2Story = (props) => () => {
   return (
     <div className="story-CircularIndicator2">
       <CircularIndicator2
@@ -29,9 +30,14 @@ stories.add('v2', () => {
         reverse={boolean('reverse', false)}
         color={select('color', ['green', 'red', 'black'], 'black')}
         disabled={boolean('disabled', false)}
+        {...props}
       >
         TEST
       </CircularIndicator2>
     </div>
   );
-});
+};
+
+stories.add('v2', CircularIndicator2Story());
+
+stories.add('v2-galileo', CircularIndicator2Story({theme: themeGalileo}));
