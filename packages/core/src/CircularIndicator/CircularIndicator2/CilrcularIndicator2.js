@@ -157,7 +157,7 @@ export function CircularIndicator2(props) {
             y2="188"
             gradientUnits="userSpaceOnUse"
           >
-            {theme.background.map(stop => (
+            {theme.background.map((stop) => (
               <stop {...stop} />
             ))}
           </linearGradient>
@@ -169,7 +169,7 @@ export function CircularIndicator2(props) {
             y2="93"
             gradientUnits="userSpaceOnUse"
           >
-            {theme.progress.greenStart.map(stop => (
+            {theme.progress.greenStart.map((stop) => (
               <stop {...stop} />
             ))}
           </linearGradient>
@@ -181,7 +181,7 @@ export function CircularIndicator2(props) {
             y2="98"
             gradientUnits="userSpaceOnUse"
           >
-            {theme.progress.greenEnd.map(stop => (
+            {theme.progress.greenEnd.map((stop) => (
               <stop {...stop} />
             ))}
           </linearGradient>
@@ -193,21 +193,21 @@ export function CircularIndicator2(props) {
             y2="92"
             gradientUnits="userSpaceOnUse"
           >
-            {theme.progress.redStart.map(stop => (
+            {theme.progress.redStart.map((stop) => (
               <stop {...stop} />
             ))}
-          <linearGradient
-            id="red_end"
-            x1="47.5"
-            y1="150"
-            x2="67"
-            y2="98"
-            gradientUnits="userSpaceOnUse"
-          >
-            {theme.progress.redEnd.map(stop => (
-              <stop {...stop} />
-            ))}
-          </linearGradient>
+            <linearGradient
+              id="red_end"
+              x1="47.5"
+              y1="150"
+              x2="67"
+              y2="98"
+              gradientUnits="userSpaceOnUse"
+            >
+              {theme.progress.redEnd.map((stop) => (
+                <stop {...stop} />
+              ))}
+            </linearGradient>
           </linearGradient>
           <linearGradient
             id="paint2_linear"
@@ -283,7 +283,7 @@ export function CircularIndicator2(props) {
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(53.0092 64.2982) rotate(28.0977) scale(65.6552)"
             >
-              {theme.button.black.map(stop => (
+              {theme.button.black.map((stop) => (
                 <stop {...stop} />
               ))}
             </radialGradient>
@@ -295,7 +295,7 @@ export function CircularIndicator2(props) {
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(53.0092 64.2982) rotate(28.0977) scale(65.6552)"
             >
-              {theme.button.green.map(stop => (
+              {theme.button.green.map((stop) => (
                 <stop {...stop} />
               ))}
             </radialGradient>
@@ -307,7 +307,7 @@ export function CircularIndicator2(props) {
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(53.0092 64.2982) rotate(28.0977) scale(65.6552)"
             >
-              {theme.button.red.map(stop => (
+              {theme.button.red.map((stop) => (
                 <stop {...stop} />
               ))}
             </radialGradient>
@@ -336,42 +336,33 @@ CircularIndicator2.defaultProps = {
   },
   color: 'black',
   theme: {
-    background: [
-      {stopColor: '#0D0D12'},
-      {offset: 1, stopColor: '#1D1A1C'},
-    ],
+    background: [{ stopColor: '#0D0D12' }, { offset: 1, stopColor: '#1D1A1C' }],
     button: {
       black: [
-        {offset: 0.3125, stopColor: '#5D5D5D'},
-        {offset: 1, stopColor: ''},
+        { offset: 0.3125, stopColor: '#5D5D5D' },
+        { offset: 1, stopColor: '' },
       ],
       green: [
         { offset: 0.3125, stopColor: '#6CC911' },
-        { offset: 1, stopColor: '#145906'}
+        { offset: 1, stopColor: '#145906' },
       ],
       red: [
         { offset: 0.3125, stopColor: '#E24E32' },
-        { offset: 1, stopColor: '#A61C18' }
+        { offset: 1, stopColor: '#A61C18' },
       ],
     },
     progress: {
       greenStart: [
-        { offset: 0.383099, stopColor: '#68BD29'},
-        { offset: 1, stopColor: '#DAC315'}
+        { offset: 0.383099, stopColor: '#68BD29' },
+        { offset: 1, stopColor: '#DAC315' },
       ],
-      greenEnd: [
-        { stopColor: '#7DD12E' },
-        { offset: '1', stopColor: '#31881C' }
-      ],
+      greenEnd: [{ stopColor: '#7DD12E' }, { offset: '1', stopColor: '#31881C' }],
       redStart: [
         { offset: 0.383099, stopColor: '#8A1617' },
-        { offset: 1, stopColor: '#F46E0D' }
+        { offset: 1, stopColor: '#F46E0D' },
       ],
-      redEnd: [
-        { stopColor: '#8A1617' },
-        { offset: 1, stopColor: '#C00F0F' }
-      ],
-    }
+      redEnd: [{ stopColor: '#8A1617' }, { offset: 1, stopColor: '#C00F0F' }],
+    },
   },
 };
 

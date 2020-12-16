@@ -40,4 +40,4 @@ const CircularIndicator2Story = (props) => () => {
 
 stories.add('v2', CircularIndicator2Story());
 
-stories.add('v2-galileo', CircularIndicator2Story({theme: themeGalileo}));
+stories.add('v2-galileo', CircularIndicator2Story({ theme: themeGalileo }));
