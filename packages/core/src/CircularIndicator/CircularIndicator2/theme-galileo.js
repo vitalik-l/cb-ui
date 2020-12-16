@@ -7,12 +7,36 @@ export const themeGalileo = {
     black: [
       {offset: 0.3125, stopColor: '#303240'},
       {offset: 1, stopColor: '#141721'},
-    ]
+    ],
+    green: [
+      { offset: 0.3125, stopColor: '#01ED76' },
+      { offset: 1, stopColor: '#0A8D4B'}
+    ],
+    red: [
+      { offset: 0.3125, stopColor: '#C52D71' },
+      { offset: 1, stopColor: '#7A204A' }
+    ],
+  },
+  progress: {
+    greenStart: [
+      { stopColor: '#0A8D4B' },
+      { offset: 0.52946, stopColor: '#01ED76' },
+      { offset: 1, stopColor: '#EFD701' }
+    ],
+    greenEnd: [
+      { stopColor: '#0A8D4B' },
+      { offset: '1', stopColor: '#0A8D4B' }
+    ],
+    redStart: [
+      { stopColor: '#732047' },
+      { offset: 0.52946, stopColor: '#C52D71' },
+      { offset: 1, stopColor: '#D46C32'} ,
+    ],
+    redEnd: [
+      { stopColor: '#732047' },
+      { offset: 1, stopColor: '#732047' }
+    ],
   }
 };
 
 
-{/*<radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(53.0092 64.2982) rotate(28.0977) scale(65.6552)">*/}
-{/*<stop offset="0.3125" stop-color="#303240"/>*/}
-{/*<stop offset="1" stop-color="#141721"/>*/}
-{/*</radialGradient>*/}
