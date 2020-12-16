@@ -1,6 +1,6 @@
 {
   "name": "cb-general",
-  "version": "1.1.20",
+  "version": "1.1.21",
   "description": "",
   "files": [
     "lib"
@@ -8,7 +8,7 @@
   "main": "./index.js",
   "scripts": {
     "build": "npm run build:babel && npm run build:copy-styles && npm run build:copy-files",
-    "build:babel": "cross-env NODE_ENV=release babel ./src --out-dir ./lib",
+    "build:babel": "cross-env NODE_ENV=release babel ./src/CircularIndicator --out-dir ./lib",
     "build:copy-styles": "babel-node ./scripts/copy-styles.js",
     "build:copy-files": "babel-node ./scripts/copy-files.js",
     "clean:build": "rimraf build",

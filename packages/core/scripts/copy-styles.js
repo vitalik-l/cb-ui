@@ -10,9 +10,8 @@ finder.on('file', function (file, stat) {
   if (ext === '.scss') {
     const isStoryStyle = dir.indexOf('\\story') !== -1;
     if (!isStoryStyle) {
-      console.log(file, fileParams);
-      const buildPath = dir.replace('src', 'lib');
-      fse.copy(dir, buildPath)
+      const buildPath = file.replace('src', 'lib');
+      fse.copy(file, buildPath)
           .then(() => console.log(`Copied ${dir} to ${buildPath}`))
           .catch(err => console.error(err));
     }
