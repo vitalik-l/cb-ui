@@ -6,6 +6,7 @@ import classNames from 'classnames';
 import themeSelect from '../../utils/themeSelect';
 
 import Slider from '../Slider';
+import { Slider as GalileoSlider } from '../galileo';
 import './style.scss';
 
 const stories = storiesOf('Slider', module);
@@ -27,6 +28,20 @@ stories.add('state', () => {
   return (
     <div className={classNames('story-Slider', themeSelect())}>
       <Slider value={value} onChange={onChange} />
+    </div>
+  );
+});
+
+stories.add('state-galileo', () => {
+  const [value, setValue] = React.useState(0);
+
+  const onChange = (newValue) => {
+    setValue(newValue);
+  };
+
+  return (
+    <div className={classNames('story-GalileoSlider', themeSelect())}>
+      <GalileoSlider value={value} onChange={onChange} />
     </div>
   );
 });
