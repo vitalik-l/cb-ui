@@ -7,7 +7,7 @@ module.exports = {
     '@babel/preset-react',
     '@babel/preset-env'
   ],
-  ignore: [
+  ignore: process.env.NODE_ENV === "release" ? [
     '**/story/'
-  ]
+  ] : [],
 };

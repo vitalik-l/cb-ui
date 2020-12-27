@@ -1,0 +1,11 @@
+.cb-MobileTab {
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 1.9rem;
+  color: rgba(255, 255, 255, 1);
+
+  &--selected {
+    border-bottom: 0.1rem solid #00fd7e;
+    color: #00fd7e;
+  }
+}

@@ -1,0 +1,10 @@
+.cb-MobileTabs {
+  display: inline-flex;
+  overflow: hidden;
+  max-width: 100%;
+
+  &-scroller {
+    white-space: nowrap;
+    overflow-x: auto;
+  }
+}
