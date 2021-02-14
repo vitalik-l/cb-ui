@@ -1,0 +1,41 @@
+.cb-Slider {
+  width: 100%;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0;
+  position: relative;
+  box-sizing: content-box;
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+
+  &_disabled {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &-rail,
+  &-track {
+    display: block;
+    position: absolute;
+    box-sizing: border-box;
+  }
+
+  &-rail {
+    width: 100%;
+    background-color: #c4c4c4;
+  }
+
+  &-track {
+    background-color: currentColor;
+  }
+
+  &-thumb {
+    display: flex;
+    outline: 0;
+    position: absolute;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    background-color: gray;
+  }
+}

@@ -1,0 +1,53 @@
+$prefix: wkd;
+
+@function cln($name) {
+  @return $prefix + '-' + $name;
+}
+
+$Story: cln('Story');
+$Button: cln('Button');
+$Logo: cln('Logo');
+$MenuButton: cln('MenuButton');
+$UserPanel: cln('UserPanel');
+$Ticker: cln('Ticker');
+$Chip: cln('Chip');
+$GameCard: cln('GameCard');
+$CircularIndicator: cln('CircularIndicator');
+$Countdown: cln('Countdown');
+$GameTable: cln('GameTable');
+$Tab: cln('Tab');
+$Tabs: cln('Tabs');
+$ButtonGroup: cln('ButtonGroup');
+$Select: cln('Select');
+$Slider: cln('Slider');
+$MAIcon: cln('MAIcon');
+$Panel: cln('Panel');
+$ConnectionStatus: cln('ConnectionStatus');
+$Modal: cln('Modal');
+$DataTable: cln('DataTable');
+$Switch: cln('Switch');
+
+:export {
+  Button: $Button;
+  Logo: $Logo;
+  MenuButton: $MenuButton;
+  UserPanel: $UserPanel;
+  Ticker: $Ticker;
+  Chip: $Chip;
+  GameCard: $GameCard;
+  CircularIndicator: $CircularIndicator;
+  Countdown: $Countdown;
+  GameTable: $GameTable;
+  Tab: $Tab;
+  Tabs: $Tabs;
+  ButtonGroup: $ButtonGroup;
+  Select: $Select;
+  Slider: $Slider;
+  Story: $Story;
+  MAIcon: $MAIcon;
+  Panel: $Panel;
+  ConnectionStatus: $ConnectionStatus;
+  Modal: $Modal;
+  DataTable: $DataTable;
+  Switch: $Switch;
+}

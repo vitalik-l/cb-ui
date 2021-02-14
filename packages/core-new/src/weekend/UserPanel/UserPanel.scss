@@ -1,0 +1,50 @@
+@import '../styles/classes.module';
+
+.#{$UserPanel} {
+  font-size: 1em;
+  border-radius: 2.6em;
+  padding: min(4px, 0.4em);
+  background: linear-gradient(#0a0e10, #0e1618);
+  text-transform: uppercase;
+  display: inline-block;
+  font-family: HelveticaNeue;
+  font-stretch: condensed;
+  font-weight: 700;
+
+  &-inner {
+    background: linear-gradient(#060606, #24292c);
+    border: min(0.2em, 2px) solid #daa520;
+    border-bottom-color: gold;
+    border-radius: 2.6em;
+    padding: 0.1em;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+.#{$UserPanel}-item {
+  margin-right: 1.2em;
+  font-size: 1.7em;
+
+  &:first-child {
+    margin-left: 2em;
+  }
+}
+
+.#{$UserPanel}-button {
+  height: 3.5em;
+
+  &.#{$Button} {
+    background: linear-gradient(#262b2f, #1b2024 48%, #12171b 50%, #212629);
+    border: 2px solid #444;
+
+    &:active {
+      background: #131217;
+    }
+  }
+
+  &--crop-left {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+}

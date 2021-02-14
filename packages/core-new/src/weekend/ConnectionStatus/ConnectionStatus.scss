@@ -1,0 +1,14 @@
+@use '../styles/classes.module' as *;
+
+.#{$ConnectionStatus} {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  background-image: url(./img/offline.png);
+  background-size: contain;
+
+  &_online {
+    background-image: url(./img/online.png);
+  }
+}

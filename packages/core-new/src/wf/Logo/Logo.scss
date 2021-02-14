@@ -1,0 +1,9 @@
+@use '../../core/styles/mixins' as mixins;
+@use '../styles/classes.module' as *;
+
+.#{$Logo} {
+  background: url(img/logo.png) no-repeat center center;
+  background-size: contain;
+  font-size: 27.1em;
+  @include mixins.pxSizeToEm(261, 69);
+}

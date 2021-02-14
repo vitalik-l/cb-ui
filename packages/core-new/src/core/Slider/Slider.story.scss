@@ -1,0 +1,6 @@
+@use './Slider.helper' as Slider;
+
+.StorySlider {
+  @include Slider.slider(0.6rem, 1em);
+  color: green;
+}

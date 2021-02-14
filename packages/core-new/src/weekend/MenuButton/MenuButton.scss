@@ -1,0 +1,43 @@
+@import '../styles/classes.module';
+
+.#{$MenuButton} {
+  font-size: 1em;
+  padding: 0.6em 2.4em;
+  height: 4em;
+  width: 8em;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  justify-content: center;
+  background-color: #13181b;
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 53%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  box-shadow: inset 0 0 2.6px 0.5px rgba(246, 243, 175, 0.14), 0 1px 3.4px 0.6px rgba(0, 0, 0, 0.64);
+  cursor: pointer;
+  border-top-left-radius: 2.6em;
+  border-top-right-radius: 2.6em;
+  border-bottom-left-radius: 2.6em;
+  border-bottom-right-radius: 2.6em;
+
+  &:active {
+    background: #131217;
+  }
+
+  &:disabled {
+    opacity: 0.8;
+  }
+
+  div {
+    width: 100%;
+    box-sizing: border-box;
+    height: 0.2em;
+    background: white;
+    position: relative;
+    margin: auto 0 !important;
+    border-radius: 5px;
+  }
+}

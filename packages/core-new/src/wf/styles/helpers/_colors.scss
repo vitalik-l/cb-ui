@@ -1,0 +1,17 @@
+@use "../variables" as *;
+
+.text-green {
+  color: $colorGreen !important;
+}
+
+.text-red {
+  color: $colorRed !important;
+}
+
+.text-yellow {
+  color: #fff5a0;
+}
+
+.text-white {
+  color: white !important;
+}

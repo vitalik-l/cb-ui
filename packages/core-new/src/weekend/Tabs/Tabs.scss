@@ -1,0 +1,11 @@
+@import '../styles/classes.module';
+
+.#{$Tabs} {
+  font-size: 1rem;
+  border-bottom: 0.3em solid #e1cd45;
+  box-shadow: 0 0.3em 0.3em -0.3em #111;
+
+  .cb-Tabs {
+    margin-bottom: -0.3em;
+  }
+}

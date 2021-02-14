@@ -1,0 +1,21 @@
+@mixin slider($height: 1em, $thumbSize: 1em) {
+  height: $height;
+  padding: calc((#{$thumbSize} - #{$height}) / 2) 0;
+
+  &-margin {
+    margin-left: $thumbSize/2;
+    margin-right: $thumbSize/2;
+  }
+
+  &-rail,
+  &-track {
+    height: $height;
+  }
+
+  &-thumb {
+    width: $thumbSize;
+    height: $thumbSize;
+    margin-left: -1 * $thumbSize/2;
+    transform: translateY(calc(-50% + #{$height/2}));
+  }
+}

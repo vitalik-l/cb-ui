@@ -1,0 +1,19 @@
+$prefix: core;
+
+@function cln($name) {
+  @return $prefix + '-' + $name;
+}
+
+$ExampleComponent: cln('ExampleComponent');
+$Root: cln('Root');
+$Viewport: cln('Viewport');
+$Modal: cln('Modal');
+$DataTable: cln('DataTable');
+
+:export {
+  ExampleComponent: $ExampleComponent;
+  Root: $Root;
+  Viewport: $Viewport;
+  Modal: $Modal;
+  DataTable: $DataTable;
+}

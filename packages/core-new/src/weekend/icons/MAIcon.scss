@@ -1,0 +1,10 @@
+@use '../styles/classes.module' as *;
+
+.#{$MAIcon} {
+  &:hover,
+  &_colored {
+    .#{$MAIcon}-second {
+      color: red;
+    }
+  }
+}

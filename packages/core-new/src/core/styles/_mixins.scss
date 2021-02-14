@@ -1,0 +1,4 @@
+@mixin pxSizeToEm($width, $height) {
+  width: 1em;
+  height: #{1/ ($width/$height)}em;
+}

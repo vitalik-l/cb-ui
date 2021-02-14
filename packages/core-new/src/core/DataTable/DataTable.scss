@@ -1,0 +1,19 @@
+@use '~cb-datatable/styles/core';
+@use '../styles/classes.module' as *;
+
+.#{$DataTable} {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &-table-wrap {
+    flex: 1;
+    overflow: auto;
+    min-height: 1px;
+  }
+
+  .cb-Table {
+    width: 100%;
+  }
+}

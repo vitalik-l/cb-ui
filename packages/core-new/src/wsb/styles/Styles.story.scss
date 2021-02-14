@@ -1,0 +1,5 @@
+@use './classes.module' as *;
+
+.#{$Story} {
+  @import '../../weekend/styles';
+}

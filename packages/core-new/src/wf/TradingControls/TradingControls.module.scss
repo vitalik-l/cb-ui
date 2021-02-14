@@ -1,0 +1,60 @@
+@use '../styles/classes.module' as components;
+
+@function cln($name) {
+  @return components.$TradingControls + '-' + $name;
+}
+
+$TradingPanels: cln('TradingPanels');
+$CircularIndicator: cln('CircularIndicator');
+$TypCountdownLabel: cln('TypCountdownLabel');
+$Countdown: cln('Countdown');
+$ConnectionStatus: cln('ConnectionStatus');
+
+.#{components.$TradingControls} {
+  padding: 0.7rem 1.5rem 2rem;
+  box-sizing: border-box;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.#{$TradingPanels} {
+  > div:nth-child(n + 2) {
+    margin-top: 1rem;
+  }
+}
+
+.#{$CircularIndicator} {
+  margin: auto;
+}
+
+.#{$TypCountdownLabel} {
+  font-family: HelveticaNeue;
+  text-transform: uppercase;
+  font-stretch: condensed;
+  font-size: 1.6rem;
+  color: white;
+}
+
+.#{$Countdown} {
+  margin: 1.6rem auto 0;
+  width: 21.4rem;
+}
+
+.#{$ConnectionStatus} {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  white-space: pre;
+}
+
+:export {
+  TradingPanels: $TradingPanels;
+  CircularIndicator: $CircularIndicator;
+  TypCountdownLabel: $TypCountdownLabel;
+  Countdown: $Countdown;
+  ConnectionStatus: $ConnectionStatus;
+}

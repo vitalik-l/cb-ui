@@ -1,0 +1,13 @@
+module.exports = {
+  "stories": [
+    "../src/**/*.story.@(js|jsx|ts|tsx|mdx)"
+  ],
+  "addons": [
+    "@storybook/addon-links",
+    "@storybook/addon-essentials",
+    "@storybook/preset-create-react-app"
+  ],
+  typescript: {
+    check: true,
+  }
+}

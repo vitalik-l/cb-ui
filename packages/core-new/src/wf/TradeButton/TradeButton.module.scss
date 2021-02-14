@@ -1,0 +1,100 @@
+@use '../styles/classes.module' as components;
+
+@function cln($name) {
+  @return components.$TradeButton + '-' + $name;
+}
+
+$TypTrend: cln('TypTrend');
+$TypMoney: cln('TypMoney');
+$TypTrendAbove: cln('TypTrendAbove');
+$ContentBottom: cln('ContentBottom');
+$ContentTop: cln('ContentTop');
+
+.#{components.$TradeButton} {
+  font-size: 1em;
+  position: relative;
+  text-align: left;
+  border-width: min(1px, 0.1em) min(2px, 0.2em) min(2px, 0.2em);
+  border-style: solid;
+  padding: 1.3em 1em 0.7em;
+  border-radius: 0.7em;
+  color: #fff;
+  display: inline-block;
+  font-family: inherit;
+
+  &:hover {
+    box-shadow: 0 0 min(3px, 0.3em) min(2px, 0.2em) #fff;
+  }
+
+  .svg-icon {
+    width: 1em;
+    height: 1em;
+    font-size: 3em;
+  }
+
+  &_color_default {
+    box-shadow: 0 0 min(0.4em, 4px) min(1px, 0.1em) #ddd inset;
+    background-image: linear-gradient(#777689, #323040);
+    border-color: #c3c3d9 #323040 #323040;
+
+    &:active {
+      opacity: 0.8;
+    }
+  }
+
+  &_color_green {
+    background: linear-gradient(#8bae00, #437705);
+    box-shadow: 0 0 min(0.3em, 3px) min(0.1em, 1px) #a3c600 inset;
+    border-color: #dae524 #437705 #437705;
+
+    &:active {
+      background: #437705;
+    }
+  }
+
+  &_color_red {
+    background: linear-gradient(#ff4723, #9a000f);
+    box-shadow: 0 0 min(0.3em, 3px) min(0.1em, 1px) #ff4723 inset;
+    border-color: #ffac7e #9a000f #9a000f;
+
+    &:active {
+      background: #9a000f;
+    }
+  }
+}
+
+.#{$TypTrend} {
+  font-weight: 800;
+  font-size: 2.8em;
+  line-height: 0.8;
+  letter-spacing: -0.1em;
+}
+
+.#{$TypMoney} {
+  font-size: 1.8em;
+  font-weight: 700;
+}
+
+.#{$TypTrendAbove} {
+  font-weight: bold;
+  line-height: 1;
+}
+
+.#{$ContentBottom} {
+  line-height: 1;
+  margin-top: 0.5em;
+}
+
+.#{$ContentTop} {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+:export {
+  TypTrend: $TypTrend;
+  TypMoney: $TypMoney;
+  TypTrendAbove: $TypTrendAbove;
+  ContentBottom: $ContentBottom;
+  ContentTop: $ContentTop;
+}
