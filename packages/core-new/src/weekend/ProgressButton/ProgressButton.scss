@@ -1,0 +1,63 @@
+@use '../styles/classes.module' as *;
+
+.#{$ProgressButton} {
+  position: relative;
+  overflow: hidden;
+  height: auto;
+  padding: min(0.5em, 5px);
+
+  &.#{$Button} {
+    color: white;
+    &:hover,
+    &:active {
+      color: white;
+    }
+  }
+
+  &:after {
+    content: attr(data-label);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    top: 0;
+    left: 0;
+  }
+
+  > span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(0);
+    background: #131722;
+    transition: transform 0.5s;
+    will-change: transform;
+  }
+
+  &.#{$ProgressButton}_color_green,
+  &.#{$ProgressButton}_color_green:hover {
+    background: linear-gradient(
+      90deg,
+      rgb(31, 154, 93) 0%,
+      rgb(208, 176, 25) 62%,
+      rgb(185, 113, 4) 100%
+    );
+  }
+
+  &.#{$ProgressButton}_color_red,
+  &.#{$ProgressButton}_color_red:hover {
+    background: linear-gradient(
+      90deg,
+      rgb(179, 122, 2) 0%,
+      rgb(150, 29, 26) 54%,
+      rgb(125, 6, 49) 100%
+    );
+  }
+}

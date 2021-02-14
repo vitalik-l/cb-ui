@@ -26,6 +26,7 @@ $ConnectionStatus: cln('ConnectionStatus');
 $Modal: cln('Modal');
 $DataTable: cln('DataTable');
 $Switch: cln('Switch');
+$ProgressButton: cln('ProgressButton');
 
 :export {
   Button: $Button;
@@ -50,4 +51,5 @@ $Switch: cln('Switch');
   Modal: $Modal;
   DataTable: $DataTable;
   Switch: $Switch;
+  ProgressButton: $ProgressButton;
 }
