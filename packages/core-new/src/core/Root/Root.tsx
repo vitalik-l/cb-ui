@@ -1,17 +1,12 @@
 import React from 'react';
 
 // local files
+import { AppResolver, AppResolverProps } from './AppResolver';
 import { WindowResizeListener } from '../WindowResizeListener';
 import classes from '../styles/classes.module.scss';
 import './Root.scss';
 
-type Props = {
-  children?: React.ReactNode;
-};
-
-export const Root = (props: Props) => {
-  const { children } = props;
-
+export const Root = (props: AppResolverProps) => {
   React.useLayoutEffect(() => {
     document.documentElement.classList.add(classes.Root);
 
@@ -20,5 +15,9 @@ export const Root = (props: Props) => {
     };
   }, []);
 
-  return <WindowResizeListener>{children}</WindowResizeListener>;
+  return (
+    <WindowResizeListener>
+      <AppResolver {...props} />
+    </WindowResizeListener>
+  );
 };
