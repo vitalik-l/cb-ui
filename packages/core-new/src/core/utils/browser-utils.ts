@@ -1,4 +1,6 @@
-const isMobile = require('ismobilejs')();
+import isMobileFn from 'ismobilejs';
+
+const isMobile = isMobileFn();
 
 export const inIframe = (() => {
   try {

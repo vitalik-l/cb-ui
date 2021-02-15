@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-import { Root } from '@cb-general/core/Root';
+import { Root } from '../../core/Root';
 
 // local files
 import { createStory } from '../createStory';
