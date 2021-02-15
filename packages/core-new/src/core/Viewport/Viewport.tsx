@@ -90,8 +90,6 @@ export const Viewport = (props: ViewportProps) => {
     }
   }, [fontSize]); // eslint-disable-line
 
-  console.log(fontSize, windowWidth, windowHeight);
-
   if (!fontSize) return null;
 
   return (
