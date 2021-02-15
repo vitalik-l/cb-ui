@@ -1,9 +1,9 @@
 import React from 'react';
 import { Story } from '@storybook/react';
+import { Form } from '@cb-general/core/Form';
 
 // local files
 import { createStory } from '../createStory';
-import { Form } from '../../core/Form';
 import { TextField, NumberField, SelectField, SwitchField } from './';
 import { Button } from '../Button';
 
