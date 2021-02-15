@@ -9,7 +9,7 @@ export const inIframe = (() => {
 })();
 
 export const isIOSSafari = (() => {
-  return isMobile.apple.device && !(/(CriOS|FxiOS|OPiOS|mercury)/i.test(window.navigator.userAgent));
+  return isMobile.apple.device && !/(CriOS|FxiOS|OPiOS|mercury)/i.test(window.navigator.userAgent);
 })();
 
 export const resetScrollPosition = (() => {
@@ -22,7 +22,7 @@ export const resetScrollPosition = (() => {
       currentWindow.document.documentElement.scrollTop = 0;
       currentWindow.document.body.scrollTop = 0;
     }, timeout);
-  }
+  };
 })();
 
 if (isMobile.apple.device) document.documentElement.classList.add('ios');

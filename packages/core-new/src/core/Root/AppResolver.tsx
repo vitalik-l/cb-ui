@@ -42,7 +42,7 @@ export const AppResolver = (props: AppResolverProps) => {
 
   const App = {
     [AppMode.Desktop]: DesktopApp,
-    [AppMode.Mobile]:  MobileApp,
+    [AppMode.Mobile]: MobileApp,
   };
 
   const CurrentApp = currentMode ? App[currentMode] : undefined;
@@ -56,4 +56,4 @@ export const AppResolver = (props: AppResolverProps) => {
   }
 
   return null;
-}
+};
