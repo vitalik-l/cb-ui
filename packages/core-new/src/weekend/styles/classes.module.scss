@@ -27,6 +27,7 @@ $Modal: cln('Modal');
 $DataTable: cln('DataTable');
 $Switch: cln('Switch');
 $ProgressButton: cln('ProgressButton');
+$Input: cln('Input');
 
 :export {
   Button: $Button;
@@ -52,4 +53,5 @@ $ProgressButton: cln('ProgressButton');
   DataTable: $DataTable;
   Switch: $Switch;
   ProgressButton: $ProgressButton;
+  Input: $Input;
 }
