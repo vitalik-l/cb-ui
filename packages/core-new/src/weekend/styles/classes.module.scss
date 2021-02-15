@@ -28,6 +28,10 @@ $DataTable: cln('DataTable');
 $Switch: cln('Switch');
 $ProgressButton: cln('ProgressButton');
 $Input: cln('Input');
+$Form: cln('Form');
+$Label: cln('Label');
+$FormField: cln('FormField');
+$FieldsLayout: cln('FieldsLayout');
 
 :export {
   Button: $Button;
@@ -54,4 +58,5 @@ $Input: cln('Input');
   Switch: $Switch;
   ProgressButton: $ProgressButton;
   Input: $Input;
+  Label: $Label;
 }

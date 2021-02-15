@@ -5,39 +5,41 @@ import clsx from 'clsx';
 import inputStyles from './Input.module.scss';
 import './Input.scss';
 
-export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   inputRef?: React.RefObject<HTMLInputElement>;
-  label?: string;
   placeholder?: string;
-  error?: string;
+  invalid?: boolean;
   component?: any;
   className?: string;
+  fullWidth?: boolean;
 }
 
 export const Input = React.forwardRef((props: InputProps, ref: any) => {
   const {
     inputRef,
-    label,
     placeholder,
-    error,
+    invalid,
     className,
     component: InputComponent,
+    fullWidth,
     ...inputProps
   } = props;
 
   return (
-    <div className={clsx(inputStyles.Root, className)} ref={ref}>
-      {label && <label className={inputStyles.Label}>{label}</label>}
+    <div
+      className={clsx(inputStyles.Root, className, {
+        [`${inputStyles.Root}_fullWidth`]: !!fullWidth,
+      })}
+      ref={ref}
+    >
       <InputComponent
         className={clsx(inputStyles.Input, {
-          [`${inputStyles.Input}_invalid`]: error,
+          [`${inputStyles.Input}_invalid`]: invalid,
         })}
         ref={inputRef}
         placeholder={placeholder}
         {...inputProps}
       />
-      {error && <span className="error">{error}</span>}
     </div>
   );
 });

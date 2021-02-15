@@ -7,22 +7,27 @@
 
 $Root: cln('root');
 $Input: cln('item');
-$Label: cln('label');
 
 .#{$Root} {
-  // component styles
+  &_fullWidth {
+    width: 100%;
+
+    .#{$Input} {
+      width: 100%;
+    }
+  }
 }
 
 .#{$Input} {
   appearance: none;
   outline: none;
-  width: 100%;
+  width: auto;
   max-width: 100%;
   box-sizing: border-box;
   position: relative;
   resize: none;
   border: none;
-  font-family: Arial,Helvetica,sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1.2em;
   font-weight: 700;
   color: #4f4f4f;
@@ -44,5 +49,4 @@ $Label: cln('label');
 :export {
   Root: $Root;
   Input: $Input;
-  Label: $Label;
 }

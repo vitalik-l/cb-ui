@@ -8,6 +8,10 @@
   height: fit-content;
   border-radius: min(0.4em, 4px);
 
+  &_fullWidth {
+    width: 100%;
+  }
+
   &_disabled {
     background-color: #999;
     color: #555;

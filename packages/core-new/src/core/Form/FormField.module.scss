@@ -1,0 +1,13 @@
+@use '../styles/classes.module' as components;
+
+@function cln($name) {
+  @return components.$FormField + '-' + $name;
+}
+
+$Label: cln('Label');
+$Control: cln('Control');
+
+:export {
+  Label: $Label;
+  Control: $Control;
+}

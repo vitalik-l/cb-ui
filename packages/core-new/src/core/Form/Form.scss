@@ -1,0 +1,36 @@
+@use './FormField.module' as formField;
+@use '../styles/classes.module' as *;
+
+.#{$FieldsLayout} {
+  &_type_inline {
+    display: inline-grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: min(1rem, 10px);
+
+    .#{formField.$Label} {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    &:nth-child(n + 2) {
+      margin-left: min(1rem, 10px);
+    }
+  }
+
+  &_type_stacked {
+    .#{$FormField}:nth-child(n + 2) {
+      margin-top: min(1rem, 10px);
+    }
+
+    .#{formField.$Label} {
+      margin-bottom: min(2px, 0.2rem);
+    }
+  }
+}
+
+.#{formField.$Control} {
+  &_fullWidth {
+    width: 100%;
+  }
+}

@@ -6,7 +6,7 @@ type Props = {
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export const createContainer = (containerClassName: string, Component: any = 'div') => (
-  props: Props,
+  props: any,
 ) => {
   const { className, ...restProps } = props;
   return <Component className={clsx(containerClassName, className)} {...restProps} />;

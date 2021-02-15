@@ -9,6 +9,9 @@ $Root: cln('Root');
 $Viewport: cln('Viewport');
 $Modal: cln('Modal');
 $DataTable: cln('DataTable');
+$Form: cln('Form');
+$FormField: cln('FormField');
+$FieldsLayout: cln('FieldsLayout');
 
 :export {
   ExampleComponent: $ExampleComponent;
@@ -16,4 +19,7 @@ $DataTable: cln('DataTable');
   Viewport: $Viewport;
   Modal: $Modal;
   DataTable: $DataTable;
+  FormField: $FormField;
+  FieldsLayout: $FieldsLayout;
+  Form: $Form;
 }
