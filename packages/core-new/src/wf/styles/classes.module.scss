@@ -15,6 +15,7 @@ $Logo: cln('Logo');
 $Story: cln('Story');
 $TradingControls: cln('TradingControls');
 $DesktopLayout: cln('DesktopLayout');
+$ChartControls: cln('ChartControls');
 
 :export {
   Root: $Root;
@@ -28,4 +29,5 @@ $DesktopLayout: cln('DesktopLayout');
   Story: $Story;
   TradingControls: $TradingControls;
   DesktopLayout: $DesktopLayout;
+  ChartControls: $ChartControls;
 }

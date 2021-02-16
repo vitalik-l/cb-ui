@@ -6,6 +6,8 @@ import { Root } from '@cb-general/core/Root';
 import { createStory } from '../createStory';
 import { DesktopLayout } from './index';
 import { HeaderTemplate } from '../Header/Header.story';
+import { TickerTemplate } from '../../weekend/Ticker/Ticker.story';
+import {ChartControlsTemplate} from '../ChartControls/ChartControls.story';
 
 const story = createStory({
   title: 'DesktopLayout',
@@ -14,7 +16,12 @@ const story = createStory({
 
 export const Template: Story = (args) => (
   <Root>
-    <DesktopLayout {...args} header={<HeaderTemplate />} />
+    <DesktopLayout
+      {...args}
+      header={<HeaderTemplate />}
+      ticker={<TickerTemplate />}
+      chartControls={<ChartControlsTemplate />}
+    />
   </Root>
 );
 Template.storyName = 'DesktopLayout';
