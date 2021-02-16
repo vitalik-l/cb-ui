@@ -1,9 +1,8 @@
 import React from 'react';
 import clsx from 'clsx';
-import { Viewport } from '@cb-general/core/Viewport';
+import { Viewport, ViewportProps } from '@cb-general/core/Viewport';
 
 // local files
-import { ViewportProps } from '../../core/Viewport';
 import desktopLayoutStyles from './DesktopLayout.module.scss';
 import classes from '../styles/classes.module.scss';
 import './DesktopLayout.scss';
