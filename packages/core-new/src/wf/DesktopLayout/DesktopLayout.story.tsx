@@ -1,8 +1,8 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 import { Root } from '@cb-general/core/Root';
-import {Tab, Tabs} from '@cb-general/weekend/Tabs';
-import {Panel} from '@cb-general/weekend/Panel';
+import { Tab, Tabs } from '@cb-general/weekend/Tabs';
+import { Panel } from '@cb-general/weekend/Panel';
 
 // local files
 import { createStory } from '../createStory';
@@ -10,7 +10,7 @@ import { DesktopLayout } from './index';
 import { HeaderTemplate } from '../Header/Header.story';
 import { TickerTemplate } from '../../weekend/Ticker/Ticker.story';
 import { ChartControlsTemplate } from '../ChartControls/ChartControls.story';
-import {TradingControlsTemplate} from '../TradingControls/TradingControls.story';
+import { TradingControlsTemplate } from '../TradingControls/TradingControls.story';
 
 const story = createStory({
   title: 'DesktopLayout',
