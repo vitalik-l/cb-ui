@@ -1,7 +1,8 @@
+@use '~@cb-general/weekend/styles/classes.module' as wkd;
 @use '../styles/classes.module' as components;
 
 @function cln($name) {
-  @return components.$App + '-' + $name;
+  @return components.$DesktopLayout + '-' + $name;
 }
 
 $Ticker: cln('Ticker');
@@ -16,6 +17,27 @@ $Tabs: cln('Tabs');
   position: relative;
   display: flex;
   flex-direction: column;
+}
+
+.#{$Tabs} {
+  border-top: min(0.1rem, 1px) solid #444;
+  height: 25rem;
+  min-height: 25rem;
+
+  .#{wkd.$Tabs} {
+    margin: 0.5rem auto 0;
+    padding: 0 2rem;
+  }
+}
+
+.#{$Ticker} {
+  font-size: 2.2rem;
+  width: 14.5rem;
+}
+
+.#{$TradingControls} {
+  border-left: min(0.1rem, 1px) solid #444;
+  width: 35.5rem;
 }
 
 :export {

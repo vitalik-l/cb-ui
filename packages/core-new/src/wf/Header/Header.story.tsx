@@ -5,7 +5,7 @@ import { Story } from '@storybook/react';
 import { createStory } from '../createStory';
 import { Header, headerStyles } from './index';
 import { Logo } from '../Logo';
-import { UserPanel } from '@cb-general/weekend/UserPanel';
+import { UserPanelTemplate } from '../../weekend/UserPanel/UserPanel.story';
 
 const story = createStory({
   title: 'Header',
@@ -16,7 +16,7 @@ export const HeaderTemplate: Story = (props: any) => (
   <Header {...props}>
     <Logo />
     <div className={headerStyles.Title}>Hybrid RNG™ Trading Platform - 24/7/365</div>
-    <UserPanel />
+    <UserPanelTemplate />
   </Header>
 );
 HeaderTemplate.storyName = 'Header';
