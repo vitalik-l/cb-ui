@@ -17,6 +17,7 @@ export const TradingPanel = (props: TradingPanelProps) => {
     <div
       className={clsx(classes.TradingPanel, className, {
         [`${classes.TradingPanel}_active`]: active,
+        [`${classes.TradingPanel}_inactive`]: !active,
       })}
       {...restProps}
     >

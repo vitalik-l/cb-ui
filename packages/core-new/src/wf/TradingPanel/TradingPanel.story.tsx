@@ -46,7 +46,7 @@ export const TradingPanelTemplate = ({ symbol, active, ...args }: any) => {
                 <div>Stop Loss</div>
                 <div>Max</div>
               </div>
-              <Slider />
+              <Slider disabled={!active} />
             </div>
           </div>
           <div className={tradingPanelStyles.Separator} />
@@ -56,9 +56,9 @@ export const TradingPanelTemplate = ({ symbol, active, ...args }: any) => {
           </div>
         </div>
         <div className={tradingPanelStyles.Buttons}>
-          <TradeButtonTemplate />
-          <TradeButtonTemplate textRight />
-          <Select className={tradingPanelStyles.Select}>
+          <TradeButtonTemplate disabled={!active} />
+          <TradeButtonTemplate disabled={!active} textRight />
+          <Select className={tradingPanelStyles.Select} disabled={!active}>
             <option>1</option>
             <option>5</option>
             <option>500</option>

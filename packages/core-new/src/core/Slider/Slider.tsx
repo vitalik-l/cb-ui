@@ -10,6 +10,7 @@ import {
   useEventCallback,
 } from './utils';
 import { ValueLabel } from './ValueLabel';
+import { Slider as SliderClassName } from '../styles/classes.module.scss';
 import './Slider.scss';
 
 export type SliderProps = {
@@ -570,11 +571,12 @@ export const Slider = React.forwardRef<any, any>((props, ref) => {
       <Component
         ref={handleRef}
         className={clsx(
-          'cb-Slider',
+          SliderClassName,
           classes.root,
           {
-            [`${classes.root}_color_${color}`]: !!color,
+            [`${SliderClassName}_disabled`]: disabled,
             [classes.disabled]: disabled,
+            [`${classes.root}_color_${color}`]: !!color,
             [classes.marked]: marks.length > 0 && marks.some((mark: any) => mark.label),
             [classes.vertical]: orientation === 'vertical',
             [classes.trackInverted]: track === 'inverted',

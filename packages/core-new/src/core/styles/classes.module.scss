@@ -12,6 +12,7 @@ $DataTable: cln('DataTable');
 $Form: cln('Form');
 $FormField: cln('FormField');
 $FieldsLayout: cln('FieldsLayout');
+$Slider: cln('Slider');
 
 :export {
   ExampleComponent: $ExampleComponent;
@@ -22,4 +23,5 @@ $FieldsLayout: cln('FieldsLayout');
   FormField: $FormField;
   FieldsLayout: $FieldsLayout;
   Form: $Form;
+  Slider: $Slider;
 }

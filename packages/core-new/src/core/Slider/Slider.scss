@@ -1,4 +1,6 @@
-.cb-Slider {
+@use '../styles/classes.module' as *;
+
+.#{$Slider} {
   width: 100%;
   cursor: pointer;
   display: inline-block;

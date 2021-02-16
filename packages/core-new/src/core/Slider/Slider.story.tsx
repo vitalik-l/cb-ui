@@ -9,6 +9,9 @@ import './Slider.story.scss';
 const story = createStory({
   title: 'Slider',
   component: Slider,
+  argTypes: {
+    disabled: { control: 'boolean' },
+  }
 });
 
 export const Default: Story = (args) => (

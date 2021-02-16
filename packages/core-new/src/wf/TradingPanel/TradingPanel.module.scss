@@ -87,10 +87,10 @@ $borderRadius: 0.5em;
   position: relative;
 
   .#{components.$TradeButton} {
-    opacity: 0.5;
     flex: 1;
-    .#{components.$TradingPanel}_active & {
-      opacity: 1;
+
+    .#{components.$TradingPanel}_inactive & {
+      opacity: 0.5;
     }
   }
 
