@@ -1,8 +1,15 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-import { CrosshairIcon, IndicatorIcon, MAIcon, PointerIcon, ZoomInIcon, ZoomOutIcon } from '@cb-general/weekend/icons';
-import {ButtonGroup} from '@cb-general/weekend/ButtonGroup';
-import {Button} from '@cb-general/weekend/Button';
+import {
+  CrosshairIcon,
+  IndicatorIcon,
+  MAIcon,
+  PointerIcon,
+  ZoomInIcon,
+  ZoomOutIcon,
+} from '@cb-general/weekend/icons';
+import { ButtonGroup } from '@cb-general/weekend/ButtonGroup';
+import { Button } from '@cb-general/weekend/Button';
 
 // local files
 import { createStory } from '../createStory';

@@ -7,7 +7,7 @@ import { createStory } from '../createStory';
 import { DesktopLayout } from './index';
 import { HeaderTemplate } from '../Header/Header.story';
 import { TickerTemplate } from '../../weekend/Ticker/Ticker.story';
-import {ChartControlsTemplate} from '../ChartControls/ChartControls.story';
+import { ChartControlsTemplate } from '../ChartControls/ChartControls.story';
 
 const story = createStory({
   title: 'DesktopLayout',
