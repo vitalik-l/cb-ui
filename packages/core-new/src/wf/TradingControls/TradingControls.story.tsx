@@ -1,13 +1,13 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-import { CircularIndicator } from '@cb-general/weekend/CircularIndicator';
+import { Countdown } from '@cb-general/weekend/Countdown';
+import { ConnectionStatus } from '@cb-general/weekend/ConnectionStatus';
 
 // local files
 import { createStory } from '../createStory';
 import { TradingControls, tradingControlsStyles } from './index';
 import { TradingPanelTemplate } from '../TradingPanel/TradingPanel.story';
-import { Countdown } from '@cb-general/weekend/Countdown';
-import { ConnectionStatus } from '@cb-general/weekend/ConnectionStatus';
+import { CircularIndicatorTemplate } from '../../weekend/CircularIndicator/CircularIndicator.story';
 
 const story = createStory({
   title: 'TradingControls',
@@ -23,7 +23,7 @@ export const TradingControlsTemplate: Story = (args) => (
       <TradingPanelTemplate />
     </div>
     <div>
-      <CircularIndicator className={tradingControlsStyles.CircularIndicator} />
+      <CircularIndicatorTemplate className={tradingControlsStyles.CircularIndicator} />
       <div className="mt-3">
         <span className={tradingControlsStyles.TypCountdownLabel}>TIME IN TRADE</span>
         <Countdown value="00:00" className={tradingControlsStyles.Countdown} />

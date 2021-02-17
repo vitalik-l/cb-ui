@@ -587,8 +587,8 @@ export const Slider = React.forwardRef<any, any>((props, ref) => {
         onMouseDown={handleMouseDown}
         {...other}
       >
-        <span className={clsx('cb-Slider-rail', classes.rail)} />
-        <span className={clsx('cb-Slider-track', classes.track)} style={trackStyle} />
+        <span className={clsx(`${SliderClassName}-rail`, classes.rail)} />
+        <span className={clsx(`${SliderClassName}-track`, classes.track)} style={trackStyle} />
         <input value={values.join(',')} name={name} type="hidden" />
         {marks.map((mark: any, index: number) => {
           const percent = valueToPercent(mark.value, min, max);
@@ -653,7 +653,7 @@ export const Slider = React.forwardRef<any, any>((props, ref) => {
               disabled={disabled}
             >
               <ThumbComponent
-                className={clsx('cb-Slider-thumb', classes.thumb, {
+                className={clsx(`${SliderClassName}-thumb`, classes.thumb, {
                   [`${classes.thumb}_color_${color}`]: !!color,
                   [classes.active]: active === index,
                   [classes.disabled]: disabled,
