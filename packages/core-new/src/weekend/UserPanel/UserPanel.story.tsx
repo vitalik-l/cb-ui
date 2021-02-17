@@ -28,6 +28,14 @@ export const UserPanelTemplate: Story = (args) => (
     </UserPanelButton>
   </UserPanel>
 );
-UserPanelTemplate.storyName = 'UserPanel';
+UserPanelTemplate.storyName = 'Default';
+
+export const OnlyButton: Story = (args) => (
+  <UserPanel {...args}>
+    <UserPanelButton>
+      Login
+    </UserPanelButton>
+  </UserPanel>
+);
 
 export default story;

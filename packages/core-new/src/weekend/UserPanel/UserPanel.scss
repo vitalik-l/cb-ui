@@ -32,11 +32,15 @@
 }
 
 .#{$UserPanel}-button {
-  height: 3.5em;
+  height: 3.5rem;
+  font: inherit;
+  font-size: 1.2em;
+  border-radius: inherit;
 
   &.#{$Button} {
     background: linear-gradient(#262b2f, #1b2024 48%, #12171b 50%, #212629);
     border: 2px solid #444;
+    padding: 1em 1.5em;
 
     &:active {
       background: #131217;
