@@ -6,7 +6,6 @@ import { createStory } from '../createStory';
 import { UserPanel } from './UserPanel';
 import { UserPanelButton } from './UserPanelButton';
 import { UserPanelItem } from './UserPanelItem';
-import { MenuButton } from '../MenuButton';
 
 const story = createStory({
   title: 'UserPanel',
@@ -24,7 +23,7 @@ export const UserPanelTemplate: Story = (args) => (
   <UserPanel {...args}>
     <UserPanelItem className="text-yellow">UserName</UserPanelItem>
     <UserPanelItem>Balance: 100$</UserPanelItem>
-    <UserPanelButton cropLeft component={MenuButton}>
+    <UserPanelButton cropLeft>
       Close Game
     </UserPanelButton>
   </UserPanel>

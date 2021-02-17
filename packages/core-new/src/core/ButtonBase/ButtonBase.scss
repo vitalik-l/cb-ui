@@ -1,4 +1,6 @@
-.cb-ButtonBase {
+@use '../styles/classes.module' as *;
+
+.#{$ButtonBase} {
   display: inline-flex;
   align-items: center;
   justify-content: center;

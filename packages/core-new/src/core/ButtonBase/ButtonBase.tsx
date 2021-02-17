@@ -3,6 +3,7 @@ import PropsTypes from 'prop-types';
 import clsx from 'clsx';
 
 // local files
+import classes from '../styles/classes.module.scss';
 import './ButtonBase.scss';
 
 export const ButtonBase = React.forwardRef((props: any, ref) => {
@@ -58,7 +59,7 @@ export const ButtonBase = React.forwardRef((props: any, ref) => {
     <ComponentProp
       type={ComponentProp === 'button' ? 'button' : null}
       tabIndex={disabled ? -1 : tabIndex}
-      className={clsx('cb-ButtonBase', className, { 'cb-ButtonBase_disabled': disabled })}
+      className={clsx(classes.ButtonBase, className, { [`${classes.ButtonBase}_disabled`]: disabled })}
       role={ComponentProp === 'button' ? undefined : 'button'}
       ref={ref}
       href={href}

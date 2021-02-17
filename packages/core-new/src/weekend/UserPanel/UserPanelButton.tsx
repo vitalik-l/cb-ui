@@ -6,7 +6,7 @@ import { Button } from '../Button';
 import classes from '../styles/classes.module.scss';
 
 type Props = {
-  component: React.ElementType;
+  component?: React.ElementType;
   className?: string;
   cropLeft?: boolean;
   children?: React.ReactNode;
@@ -14,7 +14,7 @@ type Props = {
 
 export const UserPanelButton = (props: Props) => {
   const { component, className, cropLeft, ...restProps } = props;
-  const Component = component;
+  const Component = component as React.ElementType;
 
   return (
     <Component

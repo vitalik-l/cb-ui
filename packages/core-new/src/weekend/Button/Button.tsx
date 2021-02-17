@@ -1,8 +1,8 @@
 import React from 'react';
 import clsx from 'clsx';
+import { ButtonBase } from '@cb-general/core/ButtonBase';
 
 // local files
-import { ButtonBase } from '@cb-general/core/ButtonBase';
 import classes from '../styles/classes.module.scss';
 import './Button.scss';
 

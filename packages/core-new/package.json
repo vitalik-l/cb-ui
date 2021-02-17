@@ -29,8 +29,8 @@
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
     "deploy-storybook": "storybook-to-ghpages",
-    "package:build": "babel-node ./scripts/build.js",
-    "package:local": "cross-env PROJECT_PATH=C:\\Users\\user\\WebstormProjects\\WeekendForex2 babel-node ./scripts/local.js",
+    "lib:build": "babel-node ./scripts/build.js",
+    "lib:local": "cross-env PROJECT_PATH=C:\\Users\\user\\WebstormProjects\\WeekendForex2 babel-node ./scripts/local.js",
     "format": "prettier --write",
     "format:all": "prettier --write src"
   },

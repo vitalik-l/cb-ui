@@ -17,8 +17,8 @@ export type ViewportProps = {
   minRatio?: number;
   maxRatio?: number;
   baseFontSize?: number;
-  baseWidth: number;
-  baseHeight: number;
+  baseWidth?: number;
+  baseHeight?: number;
   maxFontSize?: number;
   minFontSize?: number;
   className?: string;
@@ -35,8 +35,8 @@ export const Viewport = (props: ViewportProps) => {
     horizontal,
     timeout,
     baseFontSize,
-    baseHeight,
-    baseWidth,
+    baseHeight = 0,
+    baseWidth = 0,
     maxFontSize,
     minFontSize,
     className,

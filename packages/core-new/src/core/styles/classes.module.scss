@@ -13,6 +13,7 @@ $Form: cln('Form');
 $FormField: cln('FormField');
 $FieldsLayout: cln('FieldsLayout');
 $Slider: cln('Slider');
+$ButtonBase: cln('ButtonBase');
 
 :export {
   ExampleComponent: $ExampleComponent;
@@ -24,4 +25,5 @@ $Slider: cln('Slider');
   FieldsLayout: $FieldsLayout;
   Form: $Form;
   Slider: $Slider;
+  ButtonBase: $ButtonBase;
 }
