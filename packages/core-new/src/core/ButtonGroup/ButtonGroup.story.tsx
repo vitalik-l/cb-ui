@@ -1,10 +1,10 @@
 import React from 'react';
 import { Story } from '@storybook/react';
+import { ButtonBase } from '@cb-general/core/ButtonBase';
+import { ButtonGroup } from '@cb-general/core/ButtonGroup';
 
 // local files
 import { createStory } from '../createStory';
-import { ButtonGroup } from './ButtonGroup';
-import { ButtonBase } from '../ButtonBase';
 
 const story = createStory({
   title: 'ButtonGroup',

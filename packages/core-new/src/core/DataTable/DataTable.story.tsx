@@ -1,9 +1,9 @@
 import React from 'react';
 import { Story } from '@storybook/react';
+import { DataTable, Column } from '@cb-general/core/DataTable';
 
 // local files
 import { createStory } from '../createStory';
-import { DataTable, Column } from './index';
 
 const story = createStory({
   title: 'DataTable',
