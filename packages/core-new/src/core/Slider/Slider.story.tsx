@@ -11,7 +11,7 @@ const story = createStory({
   component: Slider,
   argTypes: {
     disabled: { control: 'boolean' },
-  }
+  },
 });
 
 export const Default: Story = (args) => (

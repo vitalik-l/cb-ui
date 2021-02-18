@@ -10,7 +10,7 @@ const story = createStory({
   component: Slider,
   argTypes: {
     disabled: { control: 'boolean' },
-  }
+  },
 });
 
 export const Default: Story = (args) => <Slider {...args} style={{ marginTop: '3em' }} />;

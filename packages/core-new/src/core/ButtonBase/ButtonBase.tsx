@@ -59,7 +59,9 @@ export const ButtonBase = React.forwardRef((props: any, ref) => {
     <ComponentProp
       type={ComponentProp === 'button' ? 'button' : null}
       tabIndex={disabled ? -1 : tabIndex}
-      className={clsx(classes.ButtonBase, className, { [`${classes.ButtonBase}_disabled`]: disabled })}
+      className={clsx(classes.ButtonBase, className, {
+        [`${classes.ButtonBase}_disabled`]: disabled,
+      })}
       role={ComponentProp === 'button' ? undefined : 'button'}
       ref={ref}
       href={href}

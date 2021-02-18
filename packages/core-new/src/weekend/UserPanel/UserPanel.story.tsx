@@ -23,18 +23,14 @@ export const UserPanelTemplate: Story = (args) => (
   <UserPanel {...args}>
     <UserPanelItem className="text-yellow">UserName</UserPanelItem>
     <UserPanelItem>Balance: 100$</UserPanelItem>
-    <UserPanelButton cropLeft>
-      Close Game
-    </UserPanelButton>
+    <UserPanelButton cropLeft>Close Game</UserPanelButton>
   </UserPanel>
 );
 UserPanelTemplate.storyName = 'Default';
 
 export const OnlyButton: Story = (args) => (
   <UserPanel {...args}>
-    <UserPanelButton>
-      Login
-    </UserPanelButton>
+    <UserPanelButton>Login</UserPanelButton>
   </UserPanel>
 );
 

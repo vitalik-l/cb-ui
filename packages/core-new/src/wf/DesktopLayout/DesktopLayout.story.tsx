@@ -22,7 +22,7 @@ export const Template: Story = (args) => (
   <Root>
     <DesktopLayout
       {...args}
-      header={<HeaderTemplate logo={<Logo />}/>}
+      header={<HeaderTemplate logo={<Logo />} />}
       ticker={<TickerTemplate />}
       chartControls={<ChartControlsTemplate />}
       tabs={

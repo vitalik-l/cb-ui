@@ -11,11 +11,9 @@ const story = createStory({
   component: Header,
 });
 
-export const HeaderTemplate: Story = ({logo, ...props}: any) => (
+export const HeaderTemplate: Story = ({ logo, ...props }: any) => (
   <Header {...props}>
-    <HeaderItem>
-      {logo}
-    </HeaderItem>
+    <HeaderItem>{logo}</HeaderItem>
     <HeaderTitle>Hybrid RNG™ Trading Platform - 24/7/365</HeaderTitle>
     <HeaderItem>
       <UserPanelTemplate />
