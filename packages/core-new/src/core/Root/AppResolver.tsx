@@ -24,10 +24,8 @@ export const AppResolver = (props: AppResolverProps) => {
 
   React.useEffect(() => {
     if (windowWidth && windowHeight) {
-      if (windowWidth < maxMobileWidth || windowHeight < maxMobileHeight) {
-        if (MobileApp) {
-          setCurrentMode(AppMode.Mobile);
-        }
+      if (MobileApp && (windowWidth < maxMobileWidth || windowHeight < maxMobileHeight)) {
+        setCurrentMode(AppMode.Mobile);
       } else {
         if (DesktopApp) {
           setCurrentMode(AppMode.Desktop);
