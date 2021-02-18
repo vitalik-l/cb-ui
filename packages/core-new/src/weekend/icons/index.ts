@@ -9,3 +9,4 @@ export { PenIcon } from './PenIcon';
 export { SplineChartIcon } from './SplineChartIcon';
 export { ZoomInIcon } from './ZoomInIcon';
 export { ZoomOutIcon } from './ZoomOutIcon';
+export { PauseIcon } from './PauseIcon';

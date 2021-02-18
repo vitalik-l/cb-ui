@@ -1,5 +1,11 @@
 import React from 'react';
 import { Story } from '@storybook/react';
+import { ButtonGroup } from '@cb-general/weekend/ButtonGroup';
+import { Button } from '@cb-general/weekend/Button';
+
+// local files
+import { createStory } from '../createStory';
+import { ChartControls, chartControlsStyles } from './index';
 import {
   CrosshairIcon,
   IndicatorIcon,
@@ -7,13 +13,8 @@ import {
   PointerIcon,
   ZoomInIcon,
   ZoomOutIcon,
-} from '@cb-general/weekend/icons';
-import { ButtonGroup } from '@cb-general/weekend/ButtonGroup';
-import { Button } from '@cb-general/weekend/Button';
-
-// local files
-import { createStory } from '../createStory';
-import { ChartControls, chartControlsStyles } from './index';
+  PauseIcon,
+} from '../icons';
 
 const story = createStory({
   title: 'ChartControls',
@@ -33,6 +34,9 @@ export const ChartControlsTemplate: Story = (args) => (
       </Button>
       <Button>
         <CrosshairIcon />
+      </Button>
+      <Button>
+        <PauseIcon />
       </Button>
     </ButtonGroup>
     <div className={chartControlsStyles.Separator} />
