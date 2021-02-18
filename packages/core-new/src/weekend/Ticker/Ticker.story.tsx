@@ -2,8 +2,7 @@ import React from 'react';
 
 // local files
 import { createStory, decorators } from '../createStory';
-import { Ticker } from './Ticker';
-import { TickerItem } from './TickerItem';
+import { Ticker, TickerItem } from './index';
 
 const story = createStory({
   title: 'Ticker',
