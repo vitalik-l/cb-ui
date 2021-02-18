@@ -1,6 +1,5 @@
 import logo from './logo.svg';
 import './App.scss';
-import { Header } from './wf/Header';
 
 function App() {
   return (
@@ -19,7 +18,6 @@ function App() {
           Learn React
         </a>
       </header>
-      <Header />
     </div>
   );
 }

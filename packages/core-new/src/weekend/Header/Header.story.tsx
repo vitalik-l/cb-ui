@@ -4,18 +4,17 @@ import { Story } from '@storybook/react';
 // local files
 import { createStory } from '../createStory';
 import { Header, HeaderItem, HeaderTitle } from './index';
-import { Logo } from '../Logo';
-import { UserPanelTemplate } from '../../weekend/UserPanel/UserPanel.story';
+import { UserPanelTemplate } from '../UserPanel/UserPanel.story';
 
 const story = createStory({
   title: 'Header',
   component: Header,
 });
 
-export const HeaderTemplate: Story = (props: any) => (
+export const HeaderTemplate: Story = ({logo, ...props}: any) => (
   <Header {...props}>
     <HeaderItem>
-      <Logo />
+      {logo}
     </HeaderItem>
     <HeaderTitle>Hybrid RNG™ Trading Platform - 24/7/365</HeaderTitle>
     <HeaderItem>

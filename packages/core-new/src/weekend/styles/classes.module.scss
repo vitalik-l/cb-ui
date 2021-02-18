@@ -32,6 +32,8 @@ $Form: cln('Form');
 $Label: cln('Label');
 $FormField: cln('FormField');
 $FieldsLayout: cln('FieldsLayout');
+$ChartControls: cln('ChartControls');
+$Header: cln('Header');
 
 :export {
   Button: $Button;
@@ -59,4 +61,6 @@ $FieldsLayout: cln('FieldsLayout');
   ProgressButton: $ProgressButton;
   Input: $Input;
   Label: $Label;
+  ChartControls: $ChartControls;
+  Header: $Header;
 }

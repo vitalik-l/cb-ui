@@ -7,10 +7,11 @@ import { Panel } from '@cb-general/weekend/Panel';
 // local files
 import { createStory } from '../createStory';
 import { DesktopLayout } from './index';
-import { HeaderTemplate } from '../Header/Header.story';
+import { HeaderTemplate } from '../../weekend/Header/Header.story';
 import { TickerTemplate } from '../../weekend/Ticker/Ticker.story';
-import { ChartControlsTemplate } from '../ChartControls/ChartControls.story';
+import { ChartControlsTemplate } from '../../weekend/ChartControls/ChartControls.story';
 import { TradingControlsTemplate } from '../TradingControls/TradingControls.story';
+import { Logo } from '../Logo';
 
 const story = createStory({
   title: 'DesktopLayout',
@@ -21,7 +22,7 @@ export const Template: Story = (args) => (
   <Root>
     <DesktopLayout
       {...args}
-      header={<HeaderTemplate />}
+      header={<HeaderTemplate logo={<Logo />}/>}
       ticker={<TickerTemplate />}
       chartControls={<ChartControlsTemplate />}
       tabs={

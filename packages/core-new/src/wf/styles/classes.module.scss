@@ -10,12 +10,10 @@ $TradeButton: cln('TradeButton');
 $Select: cln('Select');
 $Slider: cln('Slider');
 $App: cln('App');
-$Header: cln('Header');
 $Logo: cln('Logo');
 $Story: cln('Story');
 $TradingControls: cln('TradingControls');
 $DesktopLayout: cln('DesktopLayout');
-$ChartControls: cln('ChartControls');
 
 :export {
   Root: $Root;
@@ -24,10 +22,8 @@ $ChartControls: cln('ChartControls');
   Select: $Select;
   Slider: $Slider;
   App: $App;
-  Header: $Header;
   Logo: $Logo;
   Story: $Story;
   TradingControls: $TradingControls;
   DesktopLayout: $DesktopLayout;
-  ChartControls: $ChartControls;
 }
