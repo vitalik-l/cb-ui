@@ -39,7 +39,7 @@ export const DesktopLayout = (props: Props) => {
           <div className="flex-fill d-flex column">
             <div className="flex-fill d-flex">
               {!!ticker && React.cloneElement(ticker, { className: desktopLayoutStyles.Ticker })}
-              <div title="chart-area" className="flex-fill d-flex column">
+              <div className="flex-fill d-flex column">
                 {chartControls}
                 {chart}
               </div>
