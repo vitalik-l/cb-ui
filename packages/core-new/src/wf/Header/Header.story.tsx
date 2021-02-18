@@ -3,7 +3,7 @@ import { Story } from '@storybook/react';
 
 // local files
 import { createStory } from '../createStory';
-import { Header, headerStyles } from './index';
+import { Header, HeaderItem, HeaderTitle } from './index';
 import { Logo } from '../Logo';
 import { UserPanelTemplate } from '../../weekend/UserPanel/UserPanel.story';
 
@@ -14,9 +14,13 @@ const story = createStory({
 
 export const HeaderTemplate: Story = (props: any) => (
   <Header {...props}>
-    <Logo />
-    <div className={headerStyles.Title}>Hybrid RNG™ Trading Platform - 24/7/365</div>
-    <UserPanelTemplate />
+    <HeaderItem>
+      <Logo />
+    </HeaderItem>
+    <HeaderTitle>Hybrid RNG™ Trading Platform - 24/7/365</HeaderTitle>
+    <HeaderItem>
+      <UserPanelTemplate />
+    </HeaderItem>
   </Header>
 );
 HeaderTemplate.storyName = 'Header';

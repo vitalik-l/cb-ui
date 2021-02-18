@@ -25,6 +25,7 @@
 .#{$UserPanel}-item {
   margin-right: 1.2em;
   font-size: 1.7em;
+  white-space: nowrap;
 
   &:first-child {
     margin-left: 2em;

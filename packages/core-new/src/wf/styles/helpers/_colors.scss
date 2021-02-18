@@ -9,7 +9,11 @@
 }
 
 .text-yellow {
-  color: #fff5a0;
+  color: $colorYellow !important;
+}
+
+.text-orange {
+  color: $colorOrange !important;
 }
 
 .text-white {
