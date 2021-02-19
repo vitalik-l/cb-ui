@@ -11,7 +11,7 @@ const story = createStory({
   component: createStory,
 });
 
-const Template = () => {
+export const TabsTemplate: Story = () => {
   const [value, setValue] = React.useState(0);
 
   return (
@@ -22,8 +22,6 @@ const Template = () => {
     </Tabs>
   );
 };
-
-export const Default: Story = Template.bind({});
-Default.storyName = 'Tabs';
+TabsTemplate.storyName = 'Tabs';
 
 export default story;
