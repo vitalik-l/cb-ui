@@ -1,3 +1,4 @@
+@use '../styles/variables' as *;
 @use '../styles/classes.module' as components;
 
 @function cln($name) {
@@ -15,6 +16,9 @@ $SliderLabel: cln('SliderLabel');
 $TypBody: cln('TypBody');
 $TypMoney: cln('TypMoney');
 $ContentTopRight: cln('ContentTopRight');
+$TypHeaderLabel: cln('TypHeaderLabel');
+$TypHeaderValue: cln('TypHeaderValue');
+$active: components.$TradingPanel + '_active';
 
 /* component variables */
 $borderRadius: 0.5em;
@@ -26,33 +30,33 @@ $borderRadius: 0.5em;
   border-radius: $borderRadius;
   cursor: pointer;
   box-sizing: border-box;
+}
 
-  &_active {
-    box-shadow: 0 min(0.1em, 1px) min(0.2em, 2px) min(0.1em, 1px) #111,
-      min(0.7em, 7px) 0 0 0 #6fc103, max(-0.7em, -7px) 0 0 0 #6fc103;
-    cursor: default;
+.#{$active} {
+  box-shadow: 0 min(0.1em, 1px) min(0.2em, 2px) min(0.1em, 1px) #111,
+  min(0.7em, 7px) 0 0 0 #6fc103, max(-0.7em, -7px) 0 0 0 #6fc103;
+  cursor: default;
 
-    &:before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translate(-100%, -50%);
-      border-left: min(7px, 0.7em) solid #212325;
-      border-top: min(0.6em, 6px) solid transparent;
-      border-bottom: min(5px, 0.5em) solid transparent;
-    }
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(-100%, -50%);
+    border-left: min(7px, 0.7em) solid #212325;
+    border-top: min(0.6em, 6px) solid transparent;
+    border-bottom: min(5px, 0.5em) solid transparent;
+  }
 
-    &:after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      right: 0;
-      transform: translate(100%, -50%);
-      border-right: min(0.7em, 7px) solid #212325;
-      border-top: min(0.6em, 6px) solid transparent;
-      border-bottom: min(0.5em, 5px) solid transparent;
-    }
+  &:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(100%, -50%);
+    border-right: min(0.7em, 7px) solid #212325;
+    border-top: min(0.6em, 6px) solid transparent;
+    border-bottom: min(0.5em, 5px) solid transparent;
   }
 }
 
@@ -151,6 +155,31 @@ $borderRadius: 0.5em;
   text-align: center;
 }
 
+.#{$TypHeaderLabel} {
+  text-transform: uppercase;
+  font-size: 1.1em;
+  font-weight: 700;
+  margin-right: .6rem;
+  display: inline;
+
+  .#{$active} & {
+    color: $colorGreen;
+  }
+}
+
+.#{$TypHeaderValue} {
+  font-size: 2.6em;
+  font-weight: 700;
+  line-height: .7;
+  display: inline;
+  color: white;
+  opacity: 0.5;
+
+  .#{$active} & {
+    opacity: 1;
+  }
+}
+
 :export {
   Buttons: $Buttons;
   Separator: $Separator;
@@ -162,4 +191,6 @@ $borderRadius: 0.5em;
   TypBody: $TypBody;
   TypMoney: $TypMoney;
   ContentTopRight: $ContentTopRight;
+  TypHeaderLabel: $TypHeaderLabel;
+  TypHeaderValue: $TypHeaderValue;
 }

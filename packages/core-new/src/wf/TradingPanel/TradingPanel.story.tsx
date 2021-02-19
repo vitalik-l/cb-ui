@@ -3,7 +3,7 @@ import { Slider } from '@cb-general/weekend/Slider';
 import { Select } from '@cb-general/weekend/Select';
 
 // local files
-import { createStory, decorators } from '../createStory';
+import { createStory } from '../createStory';
 import {
   TradingPanel,
   TradingPanelHeader,
@@ -16,19 +16,10 @@ import { TradeButtonTemplate } from '../TradeButton/TradeButton.story';
 const story = createStory({
   title: 'TradingPanel',
   component: TradingPanel,
-  decorators: [
-    (Story: any) => (
-      <div
-        style={{
-          fontSize: '1rem',
-          width: '32.4em',
-        }}
-      >
-        <Story />
-      </div>
-    ),
-    ...decorators,
-  ],
+  style: {
+    fontSize: '1rem',
+    width: '32.4em',
+  },
 });
 
 export const TradingPanelTemplate = ({ symbol, active, ...args }: any) => {
@@ -36,6 +27,14 @@ export const TradingPanelTemplate = ({ symbol, active, ...args }: any) => {
     <TradingPanel active={active} {...args}>
       <TradingPanelHeader>
         <TradingPanelSymbol symbol="RED/BLACK" active={active} />
+        <div className="d-flex align-center">
+          <div className={tradingPanelStyles.TypHeaderLabel}>
+            TAKE PROFIT
+          </div>
+          <div className={tradingPanelStyles.TypHeaderValue}>
+            100%
+          </div>
+        </div>
       </TradingPanelHeader>
       <TradingPanelContent>
         <div className="d-flex justify-between">
