@@ -28,12 +28,8 @@ export const TradingPanelTemplate = ({ symbol, active, ...args }: any) => {
       <TradingPanelHeader>
         <TradingPanelSymbol symbol="RED/BLACK" active={active} />
         <div className="d-flex align-center">
-          <div className={tradingPanelStyles.TypHeaderLabel}>
-            TAKE PROFIT
-          </div>
-          <div className={tradingPanelStyles.TypHeaderValue}>
-            100%
-          </div>
+          <div className={tradingPanelStyles.TypHeaderLabel}>TAKE PROFIT</div>
+          <div className={tradingPanelStyles.TypHeaderValue}>100%</div>
         </div>
       </TradingPanelHeader>
       <TradingPanelContent>

@@ -33,8 +33,8 @@ $borderRadius: 0.5em;
 }
 
 .#{$active} {
-  box-shadow: 0 min(0.1em, 1px) min(0.2em, 2px) min(0.1em, 1px) #111,
-  min(0.7em, 7px) 0 0 0 #6fc103, max(-0.7em, -7px) 0 0 0 #6fc103;
+  box-shadow: 0 min(0.1em, 1px) min(0.2em, 2px) min(0.1em, 1px) #111, min(0.7em, 7px) 0 0 0 #6fc103,
+    max(-0.7em, -7px) 0 0 0 #6fc103;
   cursor: default;
 
   &:before {
@@ -159,7 +159,7 @@ $borderRadius: 0.5em;
   text-transform: uppercase;
   font-size: 1.1em;
   font-weight: 700;
-  margin-right: .6rem;
+  margin-right: 0.6rem;
   display: inline;
 
   .#{$active} & {
@@ -170,7 +170,7 @@ $borderRadius: 0.5em;
 .#{$TypHeaderValue} {
   font-size: 2.6em;
   font-weight: 700;
-  line-height: .7;
+  line-height: 0.7;
   display: inline;
   color: white;
   opacity: 0.5;
