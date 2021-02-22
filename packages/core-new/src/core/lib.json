@@ -6,6 +6,7 @@
     "clsx": "^1.1.1",
     "rc-animate": "^3.1.1",
     "cb-datatable": "3.0.11",
-    "ismobilejs": "^1.1.1"
+    "ismobilejs": "^1.1.1",
+    "final-form": "^4.20.1"
   }
 }
