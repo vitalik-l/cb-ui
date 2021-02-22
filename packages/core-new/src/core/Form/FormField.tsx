@@ -7,7 +7,7 @@ import rootClasses from '../styles/classes.module.scss';
 import formFieldClasses from './FormField.module.scss';
 import { useFieldsLayout } from './useFieldsLayout';
 
-const sanitizeFieldProps = ({validate, ...props}: any) => props;
+const sanitizeFieldProps = ({ validate, ...props }: any) => props;
 
 export const FormField = (props: any) => {
   const layout = useFieldsLayout();
@@ -36,12 +36,15 @@ export const FormField = (props: any) => {
         fullWidth,
       };
 
-  const classes = React.useMemo(() => ({
-    label: clsx(formFieldClasses.Label, {[`${className}-label`]: !!className}),
-    control: clsx(formFieldClasses.Control, {[`${className}-control`]: !!className}),
-    error: clsx(formFieldClasses.Error, {[`${className}-error`]: !!className}),
-    root: clsx(rootClasses.FormField, `${className}`),
-  }), [className]);
+  const classes = React.useMemo(
+    () => ({
+      label: clsx(formFieldClasses.Label, { [`${className}-label`]: !!className }),
+      control: clsx(formFieldClasses.Control, { [`${className}-control`]: !!className }),
+      error: clsx(formFieldClasses.Error, { [`${className}-error`]: !!className }),
+      root: clsx(rootClasses.FormField, `${className}`),
+    }),
+    [className],
+  );
 
   const content = (
     <>
@@ -61,19 +64,21 @@ export const FormField = (props: any) => {
           {...input}
           {...customProps}
         />
-        {showError && invalid &&
-          <div className={classes.error}>
-            {meta.error}
-          </div>
-        }
+        {showError && invalid && <div className={classes.error}>{meta.error}</div>}
       </div>
     </>
   );
 
   if (layout !== 'inline') {
-    return <div className={clsx(classes.root, {
-      [`${rootClasses.FormField}_layout_${layout}`]: layout,
-    })}>{content}</div>;
+    return (
+      <div
+        className={clsx(classes.root, {
+          [`${rootClasses.FormField}_layout_${layout}`]: layout,
+        })}
+      >
+        {content}
+      </div>
+    );
   }
 
   return content;

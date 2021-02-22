@@ -12,13 +12,10 @@ const story = createStory({
     layout: {
       control: {
         type: 'select',
-        options: [
-          'inline',
-          'stacked',
-        ]
-      }
-    }
-  }
+        options: ['inline', 'stacked'],
+      },
+    },
+  },
 });
 
 const onSubmit = (values: any) => {
@@ -32,7 +29,13 @@ export const Default: Story = (args) => (
       <option>Indicator 2</option>
       <option>Indicator 3</option>
     </FormField>
-    <FormField name="period" label="Period*:" type="number" placeholder="placeholder" validate={validator(required, 'required')}/>
+    <FormField
+      name="period"
+      label="Period*:"
+      type="number"
+      placeholder="placeholder"
+      validate={validator(required, 'required')}
+    />
     <FormField name="base" label="Base:" component="select">
       <option>Indicator 1</option>
       <option>Indicator 2</option>

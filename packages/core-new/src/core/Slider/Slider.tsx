@@ -2,14 +2,9 @@ import React from 'react';
 import clsx from 'clsx';
 
 // local files
-import {
-  ownerDocument,
-  useControlled,
-  useIsFocusVisible,
-  useForkRef,
-  useEventCallback,
-} from './utils';
+import { ownerDocument, useIsFocusVisible, useForkRef, useEventCallback } from './utils';
 import { ValueLabel } from './ValueLabel';
+import { useControlled } from '../hooks/useControlled';
 import { Slider as SliderClassName } from '../styles/classes.module.scss';
 import './Slider.scss';
 

@@ -1,0 +1,72 @@
+@use '../styles/classes.module' as *;
+
+.#{$Select} {
+  font-size: 1em;
+  display: inline-flex;
+  position: relative;
+  height: fit-content;
+
+  &_fullWidth {
+    width: 100%;
+  }
+
+  &_disabled {
+    pointer-events: none;
+  }
+
+  &__item {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: transparent;
+    border: none;
+    color: inherit;
+    font: inherit;
+    box-shadow: none;
+    text-indent: 1px;
+    text-overflow: '';
+    height: auto;
+    padding: 0;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 0;
+    width: 100%;
+    padding-right: 2em;
+  }
+
+  &__icon {
+    fill: currentColor;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    font-size: 1.5em;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0.1em;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  &-autoWidth {
+    .#{$Select}__item {
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      opacity: 0;
+    }
+
+    .#{$Select}__icon {
+      right: 0;
+      transform: translateX(100%) translateY(-50%);
+    }
+  }
+
+  &__value {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: inherit;
+  }
+}
