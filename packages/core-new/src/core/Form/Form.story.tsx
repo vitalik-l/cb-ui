@@ -3,7 +3,7 @@ import { Story } from '@storybook/react';
 
 // local files
 import { createStory } from '../createStory';
-import { Form, FormField, InlineFields, useSubmit, Submit } from './';
+import {Form, FormField, InlineFields, useSubmit, Submit, validator, required} from './';
 
 const story = createStory({
   title: 'Form',
@@ -52,7 +52,7 @@ export const InlineColumns = () => {
             <option>Indicator 2</option>
             <option>Indicator 3</option>
           </FormField>
-          <FormField name="period" label="Period:" type="number" placeholder="placeholder" />
+          <FormField name="period" label="Period*:" type="number" placeholder="placeholder" validate={validator(required, 'value is required')} />
         </InlineFields>
         <InlineFields>
           <FormField name="base" label="Base:" component="select">

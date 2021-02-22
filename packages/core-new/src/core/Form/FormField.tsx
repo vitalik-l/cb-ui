@@ -45,6 +45,7 @@ export const FormField = (props: any) => {
           placeholder={placeholder}
           id={id}
           children={children}
+          {...fieldProps}
           {...input}
           {...customProps}
         />
