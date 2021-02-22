@@ -9,17 +9,12 @@ export const validateEmail = (email: string) => {
   return re.test(String(email).toLowerCase());
 };
 
-export const required = (value: any) =>
-  value !== undefined && value !== null && value !== "";
+export const required = (value: any) => value !== undefined && value !== null && value !== '';
 
-export const minLength = (length: number) => (value: any) =>
-  value.length >= length;
+export const minLength = (length: number) => (value: any) => value.length >= length;
 
-export const maxLength = (length: number) => (value: any) =>
-  value.length <= length;
+export const maxLength = (length: number) => (value: any) => value.length <= length;
 
-export const max = (maxNumber: number) => (value: any) =>
-  +value <= maxNumber;
+export const max = (maxNumber: number) => (value: any) => +value <= maxNumber;
 
-export const min = (minNumber: number) => (value: any) =>
-  +value >= minNumber;
+export const min = (minNumber: number) => (value: any) => +value >= minNumber;

@@ -6,11 +6,5 @@ export const Submit = (props: any) => {
   const { hasValidationErrors } = useFormState();
   const Component = component;
 
-  return (
-    <Component
-      disabled={hasValidationErrors || disabled}
-      type="submit"
-      {...restProps}
-    />
-  )
+  return <Component disabled={hasValidationErrors || disabled} type="submit" {...restProps} />;
 };
