@@ -6,6 +6,7 @@ import { createStory } from '../createStory';
 import { UserPanel } from './UserPanel';
 import { UserPanelButton } from './UserPanelButton';
 import { UserPanelItem } from './UserPanelItem';
+import { Select } from '../../core/Select';
 
 const story = createStory({
   title: 'UserPanel',
@@ -22,7 +23,12 @@ const story = createStory({
 export const UserPanelTemplate: Story = (args) => (
   <UserPanel {...args}>
     <UserPanelItem className="text-yellow">UserName</UserPanelItem>
-    <UserPanelItem>Balance: 100$</UserPanelItem>
+    <UserPanelItem>
+      <Select autoWidth defaultValue="USD" format={(value: any) => `Balance: 100${value}`}>
+        <option>USD</option>
+        <option>BTC</option>
+      </Select>
+    </UserPanelItem>
     <UserPanelButton cropLeft>Close Game</UserPanelButton>
   </UserPanel>
 );

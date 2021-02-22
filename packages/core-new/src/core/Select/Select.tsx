@@ -12,6 +12,7 @@ type Props = {
   fullWidth?: boolean;
   autoWidth?: boolean;
   icon?: any;
+  format?: any;
 } & React.SelectHTMLAttributes<HTMLSelectElement>;
 
 export const Select = (props: Props) => {
@@ -25,6 +26,7 @@ export const Select = (props: Props) => {
     icon,
     defaultValue,
     onChange,
+    format,
     ...selectOptions
   } = props;
   const [value, setValue] = useControlled({
@@ -49,7 +51,11 @@ export const Select = (props: Props) => {
         [`${classes.Select}-autoWidth`]: autoWidth,
       })}
     >
-      {autoWidth && <div className={`${classes.Select}__value`}>{value}</div>}
+      {autoWidth && (
+        <div className={`${classes.Select}__value`}>
+          {typeof format === 'function' ? format(value) : value}
+        </div>
+      )}
       <select
         className={`${classes.Select}__item`}
         disabled={disabled}
