@@ -3,7 +3,7 @@ import { Story } from '@storybook/react';
 
 // local files
 import { createStory } from '../createStory';
-import { Form, FormField, InlineFields } from './';
+import {Form, FormField, InlineFields, useSubmit} from './';
 
 const story = createStory({
   title: 'Form',
@@ -39,30 +39,40 @@ Default.args = {
   layout: 'inline',
 };
 
-export const InlineColumns = () => (
-  <Form onSubmit={onSubmit}>
-    <InlineFields>
-      <FormField name="indicator" label="Indicator:" component="select">
-        <option>Indicator 1</option>
-        <option>Indicator 2</option>
-        <option>Indicator 3</option>
-      </FormField>
-      <FormField name="period" label="Period:" type="number" placeholder="placeholder" />
-    </InlineFields>
-    <InlineFields>
-      <FormField name="base" label="Base:" component="select">
-        <option>Indicator 1</option>
-        <option>Indicator 2</option>
-        <option>Indicator 3</option>
-      </FormField>
-      <FormField name="type" label="Type:" component="select">
-        <option>Indicator 1</option>
-        <option>Indicator 2</option>
-        <option>Indicator 3</option>
-      </FormField>
-    </InlineFields>
-    <button type="submit">Submit</button>
-  </Form>
-);
+export const InlineColumns = () => {
+  const formRef = React.useRef();
+  const submit = useSubmit(formRef);
+
+  return (
+    <div>
+      <Form onSubmit={onSubmit} ref={formRef}>
+        <InlineFields>
+          <FormField name="indicator" label="Indicator:" component="select">
+            <option>Indicator 1</option>
+            <option>Indicator 2</option>
+            <option>Indicator 3</option>
+          </FormField>
+          <FormField name="period" label="Period:" type="number" placeholder="placeholder"/>
+        </InlineFields>
+        <InlineFields>
+          <FormField name="base" label="Base:" component="select">
+            <option>Indicator 1</option>
+            <option>Indicator 2</option>
+            <option>Indicator 3</option>
+          </FormField>
+          <FormField name="type" label="Type:" component="select">
+            <option>Indicator 1</option>
+            <option>Indicator 2</option>
+            <option>Indicator 3</option>
+          </FormField>
+        </InlineFields>
+        <div>
+          <button type="submit">Submit</button>
+        </div>
+      </Form>
+      <button onClick={submit}>Submit outside</button>
+    </div>
+  );
+};
 
 export default story;

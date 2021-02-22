@@ -5,7 +5,7 @@
   &_type_inline {
     display: inline-grid;
     grid-template-columns: auto 1fr;
-    grid-gap: min(1rem, 10px);
+    grid-gap: min(1.5em, 15px) min(1em, 10px);
 
     .#{formField.$Label} {
       display: flex;
@@ -14,17 +14,17 @@
     }
 
     &:nth-child(n + 2) {
-      margin-left: min(1rem, 10px);
+      margin-left: min(1em, 10px);
     }
   }
 
   &_type_stacked {
     .#{$FormField}:nth-child(n + 2) {
-      margin-top: min(1rem, 10px);
+      margin-top: min(1em, 10px);
     }
 
     .#{formField.$Label} {
-      margin-bottom: min(2px, 0.2rem);
+      margin-bottom: min(2px, 0.2em);
     }
   }
 }

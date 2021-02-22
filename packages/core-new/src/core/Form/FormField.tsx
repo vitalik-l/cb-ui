@@ -24,6 +24,12 @@ export const FormField = (props: any) => {
   const { input, meta } = useField(name, fieldProps);
   const Component = component;
   const isDefaultComponent = typeof component === 'string';
+  const customProps = isDefaultComponent ? {} : {
+    invalid: typeof error === 'function'
+      ? error({ input, meta })
+      : meta.touched && meta.error,
+    fullWidth,
+  };
 
   const content = (
     <>
@@ -36,18 +42,11 @@ export const FormField = (props: any) => {
         })}
       >
         <Component
-          invalid={
-            isDefaultComponent
-              ? undefined
-              : typeof error === 'function'
-              ? error({ input, meta })
-              : meta.touched && meta.error
-          }
-          fullWidth={!isDefaultComponent && fullWidth}
           placeholder={placeholder}
           id={id}
           children={children}
           {...input}
+          {...customProps}
         />
       </div>
     </>
