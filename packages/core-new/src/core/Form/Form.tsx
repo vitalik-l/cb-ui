@@ -10,8 +10,8 @@ import './Form.scss';
 type Props = {
   className?: string;
   layout?: 'default' | 'inline' | 'stacked';
-  children?: (...args: any) => any | React.ReactNode;
-  formRef: any;
+  children?: any;
+  formRef?: any;
 } & FormProps;
 
 export const Form = (props: Props) => {
