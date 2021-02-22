@@ -4,8 +4,7 @@ import { Form } from '@cb-general/core/Form';
 
 // local files
 import { createStory } from '../createStory';
-import { TextField, NumberField, SelectField, SwitchField } from './';
-import { Button } from '../Button';
+import { TextField, NumberField, SelectField, SwitchField, Submit } from './';
 
 const story = createStory({
   title: 'Form',
@@ -26,7 +25,7 @@ export const Default: Story = (args) => (
     <TextField name="text" label="TextField" placeholder="placeholder" />
     <NumberField name="number" label="NumberField" />
     <SwitchField name="switch" label="SwitchField" />
-    <Button type="submit">Submit</Button>
+    <Submit>Submit</Submit>
   </Form>
 );
 Default.storyName = 'Form';

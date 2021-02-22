@@ -3,7 +3,7 @@ import { Story } from '@storybook/react';
 
 // local files
 import { createStory } from '../createStory';
-import { Form, FormField, InlineFields, useSubmit } from './';
+import { Form, FormField, InlineFields, useSubmit, Submit } from './';
 
 const story = createStory({
   title: 'Form',
@@ -67,7 +67,7 @@ export const InlineColumns = () => {
           </FormField>
         </InlineFields>
         <div>
-          <button type="submit">Submit</button>
+          <Submit>Submit</Submit>
         </div>
       </Form>
       <button onClick={submit}>Submit outside</button>
