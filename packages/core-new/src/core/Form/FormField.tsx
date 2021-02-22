@@ -24,12 +24,12 @@ export const FormField = (props: any) => {
   const { input, meta } = useField(name, fieldProps);
   const Component = component;
   const isDefaultComponent = typeof component === 'string';
-  const customProps = isDefaultComponent ? {} : {
-    invalid: typeof error === 'function'
-      ? error({ input, meta })
-      : meta.touched && meta.error,
-    fullWidth,
-  };
+  const customProps = isDefaultComponent
+    ? {}
+    : {
+        invalid: typeof error === 'function' ? error({ input, meta }) : meta.touched && meta.error,
+        fullWidth,
+      };
 
   const content = (
     <>
