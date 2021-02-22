@@ -1,0 +1,9 @@
+@use '../styles/variables' as *;
+@use '../styles/classes.module' as *;
+
+.#{$FormField} {
+  &-error {
+    color: $colorOrange;
+    font-size: 0.9em;
+  }
+}

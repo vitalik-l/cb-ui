@@ -35,6 +35,7 @@ $FieldsLayout: cln('FieldsLayout');
 $ChartControls: cln('ChartControls');
 $Header: cln('Header');
 $TabsPanel: cln('TabsPanel');
+$FormField: cln('FormField');
 
 :export {
   Button: $Button;
@@ -65,4 +66,5 @@ $TabsPanel: cln('TabsPanel');
   ChartControls: $ChartControls;
   Header: $Header;
   TabsPanel: $TabsPanel;
+  FormField: $FormField;
 }

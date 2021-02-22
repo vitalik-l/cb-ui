@@ -6,8 +6,18 @@
 
 $Label: cln('Label');
 $Control: cln('Control');
+$Error: cln('Error');
+
+.#{$Control} {
+  position: relative;
+
+  .#{$Error} {
+    position: absolute;
+  }
+}
 
 :export {
   Label: $Label;
   Control: $Control;
+  Error: $Error;
 }
