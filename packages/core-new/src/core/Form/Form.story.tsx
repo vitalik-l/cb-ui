@@ -45,7 +45,7 @@ export const InlineColumns = () => {
 
   return (
     <div>
-      <Form onSubmit={onSubmit} formRef={formRef}>
+      <Form onSubmit={onSubmit} ref={formRef}>
         <InlineFields>
           <FormField name="indicator" label="Indicator:" component="select">
             <option>Indicator 1</option>

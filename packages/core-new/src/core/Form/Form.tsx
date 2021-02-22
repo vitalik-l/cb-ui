@@ -11,11 +11,10 @@ type Props = {
   className?: string;
   layout?: 'default' | 'inline' | 'stacked';
   children?: any;
-  formRef?: any;
 } & FormProps;
 
-export const Form = (props: Props) => {
-  const { className, children, layout = 'default', id, formRef, ...formProps } = props;
+export const Form = React.forwardRef((props: Props, ref: any) => {
+  const { className, children, layout = 'default', id, ...formProps } = props;
 
   return (
     <FinalForm {...formProps}>
@@ -24,7 +23,7 @@ export const Form = (props: Props) => {
           className={clsx(classes.Form, className)}
           onSubmit={handleSubmit}
           id={id}
-          ref={formRef}
+          ref={ref}
         >
           {layout ? (
             <FieldsLayout type={layout}>
@@ -39,4 +38,4 @@ export const Form = (props: Props) => {
       )}
     </FinalForm>
   );
-};
+});
