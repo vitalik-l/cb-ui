@@ -5,3 +5,49 @@
 .font-bold {
   font-weight: 700 !important;
 }
+
+$fonSize: 1em !default;
+$fontSizes: (
+        1: $fonSize + 0.4,
+        2: $fonSize + 0.3,
+        3: $fonSize + 0.2,
+        4: $fonSize + 0.1,
+        5: $fonSize,
+  // custom values
+) !default;
+
+$fontSizesLg: (
+        1: $fonSize + 1.4,
+        2: $fonSize + 1.2,
+        3: $fonSize + 1,
+        4: $fonSize + 0.8,
+        5: $fonSize + 0.6,
+  // custom values
+) !default;
+
+$fontSizesSm: (
+        1: $fonSize - 0.1,
+        2: $fonSize - 0.2,
+        3: $fonSize - 0.3,
+        4: $fonSize - 0.4,
+        5: $fonSize - 0.5,
+  // custom values
+) !default;
+
+@each $index, $fonSize in $fontSizes {
+  .body-#{$index} {
+    font-size: $fonSize !important;
+  }
+}
+
+@each $index, $fonSize in $fontSizesLg {
+  .body-lg-#{$index} {
+    font-size: $fonSize !important;
+  }
+}
+
+@each $index, $fonSize in $fontSizesSm {
+  .body-sm-#{$index} {
+    font-size: $fonSize !important;
+  }
+}
