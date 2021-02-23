@@ -36,6 +36,7 @@ $ChartControls: cln('ChartControls');
 $Header: cln('Header');
 $TabsPanel: cln('TabsPanel');
 $FormField: cln('FormField');
+$Toast: cln('Toast');
 
 :export {
   Button: $Button;
@@ -67,4 +68,5 @@ $FormField: cln('FormField');
   Header: $Header;
   TabsPanel: $TabsPanel;
   FormField: $FormField;
+  Toast: $Toast;
 }
