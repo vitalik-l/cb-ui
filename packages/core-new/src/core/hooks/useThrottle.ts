@@ -33,14 +33,12 @@ export const useThrottleWithState = (fn: (...args: any) => any, timeout: number 
       setCalled(true);
 
       setTimeout(() => {
-        if (called) {
-          setCalled(false);
-        }
+        setCalled(false);
       }, timeout);
 
       return fnResult;
     },
-    [fn, timeout],
+    [fn, timeout, called],
   );
 
   return [callback, called];
