@@ -15,6 +15,7 @@ $FieldsLayout: cln('FieldsLayout');
 $Slider: cln('Slider');
 $ButtonBase: cln('ButtonBase');
 $Select: cln('Select');
+$InfoPanel: cln('InfoPanel');
 
 :export {
   ExampleComponent: $ExampleComponent;
@@ -28,4 +29,5 @@ $Select: cln('Select');
   Slider: $Slider;
   ButtonBase: $ButtonBase;
   Select: $Select;
+  InfoPanel: $InfoPanel;
 }
