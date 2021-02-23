@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const useThrottle = (fn: (...args: any) => any, time: number = 0) => {
+export const useThrottle = (fn: (...args: any) => any, timeout: number = 1000) => {
   const called = React.useRef(false);
 
   return React.useCallback(
@@ -14,10 +14,34 @@ export const useThrottle = (fn: (...args: any) => any, time: number = 0) => {
         if (called.current) {
           called.current = false;
         }
-      }, time);
+      }, timeout);
 
       return fnResult;
     },
-    [fn, time],
+    [fn, timeout],
   );
+};
+
+export const useThrottleWithState = (fn: (...args: any) => any, timeout: number = 1000) => {
+  const [called, setCalled] = React.useState(false);
+
+  const callback = React.useCallback(
+    (...args) => {
+      if (called) return undefined;
+
+      const fnResult = fn(...args);
+      setCalled(true);
+
+      setTimeout(() => {
+        if (called) {
+          setCalled(false);
+        }
+      }, timeout);
+
+      return fnResult;
+    },
+    [fn, timeout],
+  );
+
+  return [callback, called];
 };
