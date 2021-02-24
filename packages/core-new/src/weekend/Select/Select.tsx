@@ -11,7 +11,7 @@ type Props = {
   fullWidth?: boolean;
 } & React.SelectHTMLAttributes<HTMLSelectElement>;
 
-export const Select = (props: Props) => {
+export const Select = React.forwardRef((props: Props, ref: any) => {
   const { className, disabled, invalid, fullWidth, ...selectOptions } = props;
 
   return (
@@ -21,6 +21,7 @@ export const Select = (props: Props) => {
         [`${classes.Select}_invalid`]: invalid,
         [`${classes.Select}_fullWidth`]: fullWidth,
       })}
+      ref={ref}
     >
       <select className={`${classes.Select}-item`} disabled={disabled} {...selectOptions} />
       <svg
@@ -33,4 +34,4 @@ export const Select = (props: Props) => {
       </svg>
     </div>
   );
-};
+});
