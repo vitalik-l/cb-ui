@@ -80,9 +80,8 @@ $Item: cln('item');
 }
 
 .#{$Item} {
-  &:nth-child(n + 2) {
-    margin-top: min(8px, 8rem);
-  }
+  text-align: center;
+  margin: min(5px, 5rem) 0;
 
   &:last-child:after {
     content: none;
@@ -96,6 +95,15 @@ $Item: cln('item');
     height: 1px;
     border-bottom: min(0.1rem, 1px) solid rgba(123, 122, 122, 0.2);
     box-shadow: 0 0 min(1rem, 10px) 0 rgba(255, 255, 255, 0.22);
+  }
+
+  &__label {
+    font-size: 0.9em;
+    text-transform: uppercase;
+  }
+
+  &__content {
+    font-size: 1.2em;
   }
 }
 
