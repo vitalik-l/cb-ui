@@ -16,6 +16,7 @@ $Slider: cln('Slider');
 $ButtonBase: cln('ButtonBase');
 $Select: cln('Select');
 $InfoPanel: cln('InfoPanel');
+$Tooltip: cln('Tooltip');
 
 :export {
   ExampleComponent: $ExampleComponent;
@@ -30,4 +31,5 @@ $InfoPanel: cln('InfoPanel');
   ButtonBase: $ButtonBase;
   Select: $Select;
   InfoPanel: $InfoPanel;
+  Tooltip: $Tooltip;
 }

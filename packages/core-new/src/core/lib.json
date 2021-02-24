@@ -7,6 +7,7 @@
     "rc-animate": "^3.1.1",
     "cb-datatable": "3.0.11",
     "ismobilejs": "^1.1.1",
-    "final-form": "^4.20.1"
+    "final-form": "^4.20.1",
+    "@popperjs/core": "^2.8.3"
   }
 }

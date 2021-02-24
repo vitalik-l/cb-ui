@@ -12,9 +12,7 @@ const story = createStory({
 
 export const Template: Story = (args) => (
   <InfoPanel {...args}>
-    <InfoPanelItem label="Order">
-      123
-    </InfoPanelItem>
+    <InfoPanelItem label="Order">123</InfoPanelItem>
   </InfoPanel>
 );
 Template.storyName = 'InfoPanel';

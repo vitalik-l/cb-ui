@@ -1,0 +1,61 @@
+@use '../styles/classes.module' as classes;
+
+@function cln($name) {
+  @return classes.$Tooltip + $name;
+}
+
+$Popper: cln('-popper');
+$popperInteractive: cln('-popper_interactive');
+$touch: cln('_touch');
+$animate: cln('_animate');
+
+@keyframes toTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  20% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes toBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  20% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.#{$animate} {
+  &.#{classes.$Tooltip} {
+    &_placement {
+      &_top {
+        animation: toTop 0.7s 1;
+      }
+
+      &_bottom {
+        animation: toBottom 0.7s 1;
+      }
+    }
+  }
+}
+
+:export {
+  Popper: $Popper;
+  popperInteractive: $popperInteractive;
+  touch: $touch;
+  animate: $animate;
+}

@@ -23,4 +23,4 @@ export const InfoPanel = (props: Props) => {
 
 InfoPanel.defaultProps = {
   arrowPosition: 'bottom',
-}
+};

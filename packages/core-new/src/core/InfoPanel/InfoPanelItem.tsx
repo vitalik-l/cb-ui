@@ -8,7 +8,7 @@ type Props = {
   className?: string;
   label?: React.ReactNode;
   children?: React.ReactNode;
-}
+};
 
 export const InfoPanelItem = (props: Props) => {
   const { className, label, children } = props;
@@ -16,9 +16,7 @@ export const InfoPanelItem = (props: Props) => {
   return (
     <div className={clsx(ItemClassName, className)}>
       <div className={`${ItemClassName}__label`}>{label}</div>
-      <div className={`${ItemClassName}__content`}>
-        {children}
-      </div>
+      <div className={`${ItemClassName}__content`}>{children}</div>
     </div>
-  )
-}
+  );
+};

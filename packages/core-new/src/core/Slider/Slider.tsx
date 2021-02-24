@@ -2,9 +2,12 @@ import React from 'react';
 import clsx from 'clsx';
 
 // local files
-import { ownerDocument, useIsFocusVisible, useForkRef, useEventCallback } from './utils';
+import { ownerDocument } from './utils';
+import { useIsFocusVisible } from '../hooks/useIsFocusVisible';
+import { useForkRef } from '../utils/useForkRef';
 import { ValueLabel } from './ValueLabel';
 import { useControlled } from '../hooks/useControlled';
+import { useEventCallback } from '../hooks/useEventCallback';
 import { Slider as SliderClassName } from '../styles/classes.module.scss';
 import './Slider.scss';
 
