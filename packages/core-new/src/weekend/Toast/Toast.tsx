@@ -12,12 +12,12 @@ type Props = {
   children?: React.ReactNode;
   text?: string;
   color?: 'default' | 'orange';
-  originHorizontal?: 'left' | 'center' | 'right';
-  originVertical?: 'top' | 'bottom' | 'center';
+  placementX?: 'left' | 'center' | 'right';
+  placementY?: 'top' | 'bottom' | 'center';
 };
 
 export const Toast = (props: Props) => {
-  const { className, children, text, color = 'default', originHorizontal, originVertical } = props;
+  const { className, children, text, color = 'default', placementX, placementY } = props;
   const content = children || text;
 
   return (
@@ -27,7 +27,7 @@ export const Toast = (props: Props) => {
           className={clsx(
             ToastClassName,
             className,
-            `${ToastClassName}_vertical_${originVertical} ${ToastClassName}_horizontal_${originHorizontal}`,
+            `${ToastClassName}_vertical_${placementY} ${ToastClassName}_horizontal_${placementX}`,
           )}
           key={text || ''}
         >
@@ -45,6 +45,6 @@ export const Toast = (props: Props) => {
 };
 
 Toast.defaultProps = {
-  originVertical: 'center',
-  originHorizontal: 'center',
+  placementX: 'center',
+  placementY: 'center',
 };
