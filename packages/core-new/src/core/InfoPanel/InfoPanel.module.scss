@@ -79,6 +79,26 @@ $Item: cln('item');
   }
 }
 
+.#{$Item} {
+  &:nth-child(n + 2) {
+    margin-top: min(8px, 8rem);
+  }
+
+  &:last-child:after {
+    content: none;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    border-bottom: min(0.1rem, 1px) solid rgba(123, 122, 122, 0.2);
+    box-shadow: 0 0 min(1rem, 10px) 0 rgba(255, 255, 255, 0.22);
+  }
+}
+
 :export {
   Item: $Item;
 }

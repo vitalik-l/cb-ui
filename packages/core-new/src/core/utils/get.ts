@@ -11,4 +11,3 @@ export const get = (value: any, path: string, defaultValue: any) => {
       return acc;
     }, value);
 };
-
