@@ -5,7 +5,7 @@
   background: linear-gradient(#323137, #121113);
   border-radius: 16px;
   text-transform: uppercase;
-  border: 0.2em solid #000;
+  border: min(0.2em, 2px) solid #000;
   padding: 1em;
   line-height: 0.5em;
   color: #b3b3b3;

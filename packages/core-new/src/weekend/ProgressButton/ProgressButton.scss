@@ -4,7 +4,8 @@
   position: relative;
   overflow: hidden;
   height: auto;
-  padding: min(0.5em, 5px);
+  padding: min(0.3em, 5px);
+  line-height: 1;
 
   &.#{$Button} {
     color: white;
