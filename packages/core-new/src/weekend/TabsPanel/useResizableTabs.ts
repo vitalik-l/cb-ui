@@ -40,6 +40,6 @@ export const useResizableTabs = ({ containerRef, onResize }: any) => {
     onMouseDown: startDrag,
     style: {
       cursor: 'row-resize',
-    }
-  }
+    },
+  };
 };

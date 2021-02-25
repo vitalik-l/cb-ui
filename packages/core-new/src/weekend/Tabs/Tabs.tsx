@@ -7,11 +7,11 @@ import classes from '../styles/classes.module.scss';
 import './Tabs.scss';
 
 export const Tabs = (props: any) => {
-  const { className, ...restProps } = props;
+  const { className, children, value, onChange, ...restProps } = props;
 
   return (
-    <div className={clsx(classes.Tabs, className)}>
-      <CoreTabs {...restProps} />
+    <div className={clsx(classes.Tabs, className)} {...restProps}>
+      <CoreTabs value={value} onChange={onChange} children={children} />
     </div>
   );
 };
