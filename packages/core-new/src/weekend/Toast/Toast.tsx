@@ -46,5 +46,5 @@ export const Toast = (props: Props) => {
 
 Toast.defaultProps = {
   placementX: 'center',
-  placementY: 'center',
+  placementY: 'top',
 };
