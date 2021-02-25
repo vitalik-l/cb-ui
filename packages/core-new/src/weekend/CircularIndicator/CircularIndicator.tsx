@@ -5,6 +5,7 @@ import clsx from 'clsx';
 import { imageUpGradient } from './imageUpGradient';
 import { imageDownGradient } from './imageDownGradient';
 import { animate } from '@cb-general/core/utils/animate';
+import { CircularIndicatorButton } from './CircularIndicatorButton';
 import classes from '../styles/classes.module.scss';
 import './CircularIndicator.scss';
 
@@ -14,6 +15,9 @@ type Props = {
   children?: React.ReactNode;
   progress?: number;
   animDuration?: number;
+  color?: 'red' | 'green' | 'orange';
+  disabled?: boolean;
+  onClick?: any;
 };
 
 const SEGMENTS = 439;
@@ -25,11 +29,14 @@ export const CircularIndicator = (props: Props) => {
     children,
     progress: progressProp = 0,
     animDuration = 500,
+    color,
+    disabled,
+    onClick,
     ...restProps
   } = props;
   const indicatorRef = React.useRef(null);
   const [progress, setProgress] = React.useState(0);
-  const isLoss = (reverse ? progress : progressProp) < 0;
+  const isLoss = color === 'red';
   const stroke = isLoss ? 'url(#redGrad)' : 'url(#greenGrad)';
 
   const targetProgress = React.useMemo(() => {
@@ -94,7 +101,11 @@ export const CircularIndicator = (props: Props) => {
           ref={indicatorRef}
         />
       </svg>
-      <div className={`${classes.CircularIndicator}-content`}>{children}</div>
+      <div className={`${classes.CircularIndicator}-content`}>
+        <CircularIndicatorButton color={color} disabled={disabled} onClick={onClick}>
+          {children}
+        </CircularIndicatorButton>
+      </div>
     </div>
   );
 };

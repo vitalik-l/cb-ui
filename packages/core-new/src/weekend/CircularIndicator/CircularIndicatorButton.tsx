@@ -8,7 +8,7 @@ import classes from '../styles/classes.module.scss';
 type Props = {
   className?: string;
   children?: React.ReactNode;
-  color?: 'red' | 'green' | 'yellow';
+  color?: 'red' | 'green' | 'orange';
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const CircularIndicatorButton = (props: Props) => {
