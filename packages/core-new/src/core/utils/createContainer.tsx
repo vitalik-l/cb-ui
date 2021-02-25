@@ -1,13 +1,8 @@
 import React from 'react';
 import clsx from 'clsx';
 
-type Props = {
-  className?: string;
-} & React.HTMLAttributes<HTMLDivElement>;
-
-export const createContainer = (containerClassName: string, Component: any = 'div') => (
-  props: any,
-) => {
-  const { className, ...restProps } = props;
-  return <Component className={clsx(containerClassName, className)} {...restProps} />;
-};
+export const createContainer = (containerClassName: string, Component: any = 'div') =>
+  React.forwardRef((props: any, ref: any) => {
+    const { className, ...restProps } = props;
+    return <Component className={clsx(containerClassName, className)} {...restProps} ref={ref} />;
+  });
