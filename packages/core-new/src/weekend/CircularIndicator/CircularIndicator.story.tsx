@@ -3,7 +3,7 @@ import { Story } from '@storybook/react';
 
 // local files
 import { createStory } from '../createStory';
-import { CircularIndicator } from './CircularIndicator';
+import { CircularIndicator, CircularIndicatorButton } from './index';
 
 const story = createStory({
   title: 'CircularIndicator',
@@ -14,7 +14,11 @@ const story = createStory({
 });
 
 export const CircularIndicatorTemplate: Story = ({ text, ...args }: any) => (
-  <CircularIndicator {...args}>{text}</CircularIndicator>
+  <CircularIndicator {...args}>
+    <CircularIndicatorButton>
+      {text}
+    </CircularIndicatorButton>
+  </CircularIndicator>
 );
 CircularIndicatorTemplate.storyName = 'CircularIndicator';
 CircularIndicatorTemplate.args = {
