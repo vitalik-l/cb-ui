@@ -6,6 +6,7 @@
   font-weight: 700 !important;
 }
 
+// TODO: refactor it
 $fonSize: 1em !default;
 $fontSizes: (
   1: $fonSize + 0.4,
@@ -34,6 +35,34 @@ $fontSizesSm: (
   // custom values
 ) !default;
 
+$fonSizeRem: 1rem !default;
+$fontSizesRem: (
+        1: $fonSizeRem + 0.4,
+        2: $fonSizeRem + 0.3,
+        3: $fonSizeRem + 0.2,
+        4: $fonSizeRem + 0.1,
+        5: $fonSizeRem,
+  // custom values
+) !default;
+
+$fontSizesLgRem: (
+        1: $fonSizeRem + 1.4,
+        2: $fonSizeRem + 1.2,
+        3: $fonSizeRem + 1,
+        4: $fonSizeRem + 0.8,
+        5: $fonSizeRem + 0.6,
+  // custom values
+) !default;
+
+$fontSizesSmRem: (
+        1: $fonSizeRem - 0.1,
+        2: $fonSizeRem - 0.2,
+        3: $fonSizeRem - 0.3,
+        4: $fonSizeRem - 0.4,
+        5: $fonSizeRem - 0.5,
+  // custom values
+) !default;
+
 @each $index, $fonSize in $fontSizes {
   .body-#{$index} {
     font-size: $fonSize !important;
@@ -48,6 +77,24 @@ $fontSizesSm: (
 
 @each $index, $fonSize in $fontSizesSm {
   .body-sm-#{$index} {
+    font-size: $fonSize !important;
+  }
+}
+
+@each $index, $fonSize in $fontSizesRem {
+  .body-rem-#{$index} {
+    font-size: $fonSize !important;
+  }
+}
+
+@each $index, $fonSize in $fontSizesLgRem {
+  .body-lg-rem-#{$index} {
+    font-size: $fonSize !important;
+  }
+}
+
+@each $index, $fonSize in $fontSizesSmRem {
+  .body-sm-rem-#{$index} {
     font-size: $fonSize !important;
   }
 }

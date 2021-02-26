@@ -10,9 +10,10 @@
 
   &.#{$Button} {
     color: white;
+
     &:hover,
     &:active {
-      color: white;
+      color: #fff5a0;
     }
   }
 
