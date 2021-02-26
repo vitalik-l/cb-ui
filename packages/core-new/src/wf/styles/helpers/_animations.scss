@@ -1,0 +1,10 @@
+@use 'keyframes' as *;
+
+.animate-in-trade {
+  opacity: 0.1;
+  animation: blinkInTrade 1s infinite;
+
+  &-1 {
+    animation: blinkInTrade 1s 1;
+  }
+}

@@ -1,7 +1,18 @@
-@use '../styles/classes.module' as components;
+@use '../styles/classes.module' as classes;
 
 @function cln($name) {
-  @return components.$TradeButton + '-' + $name;
+  @return classes.$TradeButton + '-' + $name;
+}
+
+@keyframes blinkActiveBtn {
+  0% { opacity:1; }
+  80% { opacity:1; }
+  100% { opacity:0.3; }
+}
+@keyframes blinkNotActiveBtn {
+  0% { opacity:0.5; }
+  80% { opacity:0.5; }
+  100% { opacity:0; }
 }
 
 $TypTrend: cln('TypTrend');
@@ -10,7 +21,7 @@ $TypTrendAbove: cln('TypTrendAbove');
 $ContentBottom: cln('ContentBottom');
 $ContentTop: cln('ContentTop');
 
-.#{components.$TradeButton} {
+.#{classes.$TradeButton} {
   font-size: 1em;
   position: relative;
   text-align: left;
@@ -26,10 +37,21 @@ $ContentTop: cln('ContentTop');
     box-shadow: 0 0 min(3px, 0.3em) min(2px, 0.2em) #fff;
   }
 
+  &_inactive {
+    opacity: 0.5;
+  }
+
   .svg-icon {
     width: 1em;
     height: 1em;
     font-size: 3em;
+  }
+
+  &_colored {
+    animation: blinkActiveBtn 1s linear 1;
+    &.#{classes.$TradeButton}_inactive {
+      animation: blinkNotActiveBtn 1s linear 1;
+    }
   }
 
   &_color_default {
