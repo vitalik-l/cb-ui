@@ -1,5 +1,6 @@
 @use '../styles/variables' as *;
 @use '../styles/classes.module' as components;
+@use '~@cb-general/weekend/styles/classes.module' as wkd;
 
 @function cln($name) {
   @return components.$TradingPanel + '-' + $name;
@@ -100,12 +101,16 @@ $borderRadius: 0.5em;
     left: 50%;
     transform: translateX(-50%);
     bottom: 10%;
-    text-align: center;
-    background-color: #000;
-    box-shadow: inset 0 0 2px 1px #444;
-    padding: 0.1rem 0.3rem 0.3rem;
-    border-radius: min(0.5em, 5px);
-    font-size: 1.3em;
+
+    .#{wkd.$Select},
+    &.#{wkd.$Select} {
+      text-align: center;
+      background-color: #000;
+      box-shadow: inset 0 0 2px 1px #444;
+      padding: 0.1rem 0.3rem 0.3rem;
+      border-radius: min(0.5em, 5px);
+      font-size: 1.3em;
+    }
   }
 }
 
