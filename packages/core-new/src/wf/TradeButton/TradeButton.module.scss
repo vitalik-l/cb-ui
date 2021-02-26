@@ -5,14 +5,26 @@
 }
 
 @keyframes blinkActiveBtn {
-  0% { opacity:1; }
-  80% { opacity:1; }
-  100% { opacity:0.3; }
+  0% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
 }
 @keyframes blinkNotActiveBtn {
-  0% { opacity:0.5; }
-  80% { opacity:0.5; }
-  100% { opacity:0; }
+  0% {
+    opacity: 0.5;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 $TypTrend: cln('TypTrend');

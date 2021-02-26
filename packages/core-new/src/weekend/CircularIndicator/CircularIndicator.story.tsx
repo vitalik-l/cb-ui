@@ -15,9 +15,7 @@ const story = createStory({
 
 export const CircularIndicatorTemplate: Story = ({ text, ...args }: any) => (
   <CircularIndicator {...args}>
-    <CircularIndicatorButton>
-      {text}
-    </CircularIndicatorButton>
+    <CircularIndicatorButton>{text}</CircularIndicatorButton>
   </CircularIndicator>
 );
 CircularIndicatorTemplate.storyName = 'CircularIndicator';

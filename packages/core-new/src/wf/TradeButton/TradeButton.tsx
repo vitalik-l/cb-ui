@@ -14,7 +14,13 @@ type Props = {
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const TradeButton = (props: Props) => {
-  const { className, color = 'default', active = true, disabled: disabledProp, ...restProps } = props;
+  const {
+    className,
+    color = 'default',
+    active = true,
+    disabled: disabledProp,
+    ...restProps
+  } = props;
 
   return (
     <ButtonBase
@@ -31,4 +37,4 @@ export const TradeButton = (props: Props) => {
 
 TradeButton.defaultProps = {
   active: true,
-}
+};
