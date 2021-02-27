@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import { useControlled } from '@cb-general/core/hooks/useControlled';
 import { ButtonBase } from '@cb-general/core/ButtonBase';
 
 // local files
@@ -14,10 +15,15 @@ const styles = {
 };
 
 export const Switch = (props: Props) => {
-  const { value, onChange, name, disabled, labelOn, labelOff } = props;
+  const { value, defaultValue, onChange, name, disabled, labelOn, labelOff } = props;
+  const [checked, setChecked] = useControlled({controlled: value, default: !!defaultValue, name: 'Switch'});
 
   const handleChange = (event: any) => {
-    onChange(event.target.checked);
+    const newValue = event.target.checked;
+    setChecked(newValue);
+    if (onChange) {
+      onChange(newValue);
+    }
   };
 
   return (
@@ -26,6 +32,7 @@ export const Switch = (props: Props) => {
         type="checkbox"
         onChange={handleChange}
         checked={value}
+        defaultChecked={defaultValue}
         className={`${classes.Switch}__input`}
         name={name}
         disabled={disabled}
@@ -33,14 +40,14 @@ export const Switch = (props: Props) => {
       />
       <div
         className={clsx(styles.item, {
-          [styles.itemSelected]: !!value,
+          [styles.itemSelected]: !!checked,
         })}
       >
         <span>{labelOn}</span>
       </div>
       <div
         className={clsx(styles.item, {
-          [styles.itemSelected]: !value,
+          [styles.itemSelected]: !checked,
         })}
       >
         <span>{labelOff}</span>

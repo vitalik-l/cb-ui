@@ -10,7 +10,7 @@ const story = createStory({
   component: Switch,
 });
 
-export const Template: Story = (args) => {
+export const Template: Story = () => {
   const [value, setValue] = React.useState(false);
 
   return <Switch value={value} onChange={setValue} />;
