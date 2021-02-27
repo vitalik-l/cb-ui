@@ -30,7 +30,8 @@ export const FormField = (props: any) => {
   const layout = useFieldsLayout();
   const Component = component;
   const isDefaultComponent = typeof component === 'string';
-  const errorMessage = typeof error === 'function' ? error({ input, meta }) : error || (meta.touched && meta.error);
+  const errorMessage =
+    typeof error === 'function' ? error({ input, meta }) : error || (meta.touched && meta.error);
   const invalid = !!errorMessage;
   const customProps = isDefaultComponent
     ? {}
@@ -44,7 +45,9 @@ export const FormField = (props: any) => {
       root: clsx(rootClasses.FormField, classNamePrefix),
       item: clsx(formFieldClasses.Item, { [`${classNamePrefix}-item`]: !!classNamePrefix }),
       label: clsx(formFieldClasses.Label, { [`${classNamePrefix}-label`]: !!classNamePrefix }),
-      control: clsx(formFieldClasses.Control, { [`${classNamePrefix}-control`]: !!classNamePrefix }),
+      control: clsx(formFieldClasses.Control, {
+        [`${classNamePrefix}-control`]: !!classNamePrefix,
+      }),
       error: clsx(formFieldClasses.Error, { [`${classNamePrefix}-error`]: !!classNamePrefix }),
     }),
     [classNamePrefix],
@@ -69,12 +72,12 @@ export const FormField = (props: any) => {
           {...customProps}
         />
       </div>
-      {showError && invalid &&
+      {showError && invalid && (
         <>
           <div />
           <div className={classes.error}>{errorMessage}</div>
         </>
-      }
+      )}
     </>
   );
 

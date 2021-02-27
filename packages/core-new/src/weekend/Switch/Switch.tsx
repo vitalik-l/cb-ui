@@ -16,7 +16,11 @@ const styles = {
 
 export const Switch = (props: Props) => {
   const { value, defaultValue, onChange, name, disabled, labelOn, labelOff } = props;
-  const [checked, setChecked] = useControlled({controlled: value, default: !!defaultValue, name: 'Switch'});
+  const [checked, setChecked] = useControlled({
+    controlled: value,
+    default: !!defaultValue,
+    name: 'Switch',
+  });
 
   const handleChange = (event: any) => {
     const newValue = event.target.checked;

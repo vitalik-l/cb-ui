@@ -24,7 +24,9 @@ export const Form = React.forwardRef((props: Props, ref: any) => {
           <form className={clsx(classes.Form, className)} onSubmit={handleSubmit} id={id} ref={ref}>
             {layout ? (
               <FieldsLayout type={layout}>
-                {typeof children === 'function' ? children({ handleSubmit, ...formState }) : children}
+                {typeof children === 'function'
+                  ? children({ handleSubmit, ...formState })
+                  : children}
               </FieldsLayout>
             ) : typeof children === 'function' ? (
               children({ handleSubmit, ...formState })
