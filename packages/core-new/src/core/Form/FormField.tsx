@@ -3,14 +3,14 @@ import { useField } from 'react-final-form';
 import clsx from 'clsx';
 
 // local files
+import { useFieldsLayout } from './useFieldsLayout';
+import { isFinalForm } from './isFinalForm';
 import rootClasses from '../styles/classes.module.scss';
 import formFieldClasses from './FormField.module.scss';
-import { useFieldsLayout } from './useFieldsLayout';
 
 const sanitizeFieldProps = ({ validate, ...props }: any) => props;
 
 export const FormField = (props: any) => {
-  const layout = useFieldsLayout();
   const {
     Label = 'label',
     label,
@@ -26,7 +26,8 @@ export const FormField = (props: any) => {
     classNamePrefix,
     ...fieldProps
   } = props;
-  const { input, meta } = useField(name, fieldProps);
+  const { input = {}, meta = {} } = isFinalForm() ? useField(name, fieldProps) : {}; // eslint-disable-line
+  const layout = useFieldsLayout();
   const Component = component;
   const isDefaultComponent = typeof component === 'string';
   const errorMessage = typeof error === 'function' ? error({ input, meta }) : error || (meta.touched && meta.error);

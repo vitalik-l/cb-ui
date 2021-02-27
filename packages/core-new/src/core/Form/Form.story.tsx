@@ -92,4 +92,15 @@ export const InlineColumns = () => {
   );
 };
 
+export const OutsideFormField = () => (
+  <InlineFields>
+    <FormField
+      label="field1"
+    />
+    <FormField
+      label="field2"
+    />
+  </InlineFields>
+)
+
 export default story;
