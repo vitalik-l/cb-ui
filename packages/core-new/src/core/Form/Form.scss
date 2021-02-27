@@ -5,12 +5,19 @@
   &_type_inline {
     display: inline-grid;
     grid-template-columns: auto 1fr;
-    grid-gap: min(1.5em, 15px) min(1em, 10px);
+
+    .#{formField.$Item} {
+      padding: min(0.8em, 8px) 0;
+    }
 
     .#{formField.$Label} {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
+      align-self: center;
+      text-align: right;
+      padding-right: min(1em, 10px);
+    }
+
+    .#{formField.$Error} {
+      margin-top: max(-0.8em, -8px);
     }
 
     &:nth-child(n + 2) {

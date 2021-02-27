@@ -4,20 +4,14 @@
   @return components.$FormField + '-' + $name;
 }
 
-$Label: cln('Label');
-$Control: cln('Control');
-$Error: cln('Error');
-
-.#{$Control} {
-  position: relative;
-
-  .#{$Error} {
-    position: absolute;
-  }
-}
+$Label: cln('label');
+$Control: cln('control');
+$Error: cln('error');
+$Item: cln('item');
 
 :export {
   Label: $Label;
   Control: $Control;
   Error: $Error;
+  Item: $Item;
 }

@@ -7,5 +7,5 @@ import classes from '../styles/classes.module.scss';
 import './FormField.scss';
 
 export const FormField = (props: any) => (
-  <CoreFormField Label={Label} className={classes.FormField} {...props} />
+  <CoreFormField Label={Label} classNamePrefix={classes.FormField} {...props} />
 );

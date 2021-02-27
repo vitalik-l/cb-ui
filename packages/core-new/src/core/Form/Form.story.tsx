@@ -24,7 +24,7 @@ const onSubmit = (values: any) => {
 
 export const Default: Story = (args) => (
   <Form onSubmit={onSubmit} {...args}>
-    <FormField name="indicator" label="Indicator:" component="select">
+    <FormField name="indicator" label="Indicator:" component="select" showError error="errored field">
       <option>Indicator 1</option>
       <option>Indicator 2</option>
       <option>Indicator 3</option>

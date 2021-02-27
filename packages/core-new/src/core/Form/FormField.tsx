@@ -21,14 +21,16 @@ export const FormField = (props: any) => {
     id,
     children,
     fullWidth,
-    showError = false,
+    showError = true,
     className,
+    classNamePrefix,
     ...fieldProps
   } = props;
   const { input, meta } = useField(name, fieldProps);
   const Component = component;
   const isDefaultComponent = typeof component === 'string';
-  const invalid = typeof error === 'function' ? error({ input, meta }) : meta.touched && meta.error;
+  const errorMessage = typeof error === 'function' ? error({ input, meta }) : error || (meta.touched && meta.error);
+  const invalid = !!errorMessage;
   const customProps = isDefaultComponent
     ? {}
     : {
@@ -38,21 +40,22 @@ export const FormField = (props: any) => {
 
   const classes = React.useMemo(
     () => ({
-      label: clsx(formFieldClasses.Label, { [`${className}-label`]: !!className }),
-      control: clsx(formFieldClasses.Control, { [`${className}-control`]: !!className }),
-      error: clsx(formFieldClasses.Error, { [`${className}-error`]: !!className }),
-      root: clsx(rootClasses.FormField, `${className}`),
+      root: clsx(rootClasses.FormField, classNamePrefix),
+      item: clsx(formFieldClasses.Item, { [`${classNamePrefix}-item`]: !!classNamePrefix }),
+      label: clsx(formFieldClasses.Label, { [`${classNamePrefix}-label`]: !!classNamePrefix }),
+      control: clsx(formFieldClasses.Control, { [`${classNamePrefix}-control`]: !!classNamePrefix }),
+      error: clsx(formFieldClasses.Error, { [`${classNamePrefix}-error`]: !!classNamePrefix }),
     }),
-    [className],
+    [classNamePrefix],
   );
 
   const content = (
     <>
-      <div className={classes.label}>
+      <div className={clsx(classes.item, classes.label)}>
         <Label htmlFor={id}>{label}</Label>
       </div>
       <div
-        className={clsx(classes.control, {
+        className={clsx(classes.item, classes.control, {
           [`${formFieldClasses.Control}_fullWidth`]: !!fullWidth,
         })}
       >
@@ -64,8 +67,13 @@ export const FormField = (props: any) => {
           {...input}
           {...customProps}
         />
-        {showError && invalid && <div className={classes.error}>{meta.error}</div>}
       </div>
+      {showError && invalid &&
+        <>
+          <div />
+          <div className={classes.error}>{errorMessage}</div>
+        </>
+      }
     </>
   );
 
