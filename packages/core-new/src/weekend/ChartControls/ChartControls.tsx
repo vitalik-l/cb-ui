@@ -1,4 +1,3 @@
-import React from 'react';
 import { createContainer } from '@cb-general/core/utils/createContainer';
 
 // local files

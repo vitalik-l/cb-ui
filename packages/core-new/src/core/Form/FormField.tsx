@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 // local files
 import { useFieldsLayout } from './useFieldsLayout';
-import { isFinalForm } from './isFinalForm';
+import { useIsFinalForm } from './useIsFinalForm';
 import rootClasses from '../styles/classes.module.scss';
 import formFieldClasses from './FormField.module.scss';
 
@@ -26,7 +26,7 @@ export const FormField = (props: any) => {
     classNamePrefix,
     ...fieldProps
   } = props;
-  const { input = {}, meta = {} } = isFinalForm() ? useField(name, fieldProps) : {}; // eslint-disable-line
+  const { input = {}, meta = {} } = useIsFinalForm() ? useField(name, fieldProps) : {}; // eslint-disable-line
   const layout = useFieldsLayout();
   const Component = component;
   const isDefaultComponent = typeof component === 'string';

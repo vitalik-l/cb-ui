@@ -4,6 +4,7 @@ import { Story } from '@storybook/react';
 // local files
 import { createStory } from '../createStory';
 import { Button } from './Button';
+import './WkdButton.module.scss';
 
 const story = createStory({
   title: 'Button',

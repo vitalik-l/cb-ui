@@ -3,17 +3,17 @@ import clsx from 'clsx';
 import { ButtonBase } from '@cb-general/core/ButtonBase';
 
 // local files
-import classes from '../styles/classes.module.scss';
-import './Button.scss';
+import styles from './WkdButton.module.scss';
 
 export const Button = (props: any) => {
   const { className, variant, color, square, ...restProps } = props;
+
   return (
     <ButtonBase
-      className={clsx(classes.Button, className, {
-        [`${classes.Button}_variant_${variant}`]: !!variant,
-        [`${classes.Button}_color_${color}`]: !!color,
-        [`${classes.Button}_square`]: !!square,
+      className={clsx(styles.root, className, {
+        [`${styles.root}_variant_${variant}`]: !!variant,
+        [`${styles.root}_color_${color}`]: !!color,
+        [`${styles.square}`]: !!square,
       })}
       {...restProps}
     />
