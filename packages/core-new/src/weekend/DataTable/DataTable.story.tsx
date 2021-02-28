@@ -3,9 +3,8 @@ import { Story } from '@storybook/react';
 
 // local files
 import { createStory } from '../createStory';
-import { DataTable } from './index';
+import { DataTable, SelectableRow } from './index';
 import { Column } from '../../core/DataTable';
-import { SelectableRow } from './SelectableRow';
 
 const story = createStory({
   title: 'DataTable',
