@@ -14,7 +14,7 @@ export const SelectableRow = (props: any) => {
     <TableRow
       {...restProps}
       record={record}
-      className={clsx({[styles.selected]: !!selected, [styles.selectable]: !selected})}
+      className={clsx({ [styles.selected]: !!selected, [styles.selectable]: !selected })}
     />
-  )
+  );
 };

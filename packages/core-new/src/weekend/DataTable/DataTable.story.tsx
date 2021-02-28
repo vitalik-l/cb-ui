@@ -5,7 +5,7 @@ import { Story } from '@storybook/react';
 import { createStory } from '../createStory';
 import { DataTable } from './index';
 import { Column } from '../../core/DataTable';
-import {SelectableRow} from './SelectableRow';
+import { SelectableRow } from './SelectableRow';
 
 const story = createStory({
   title: 'DataTable',
@@ -41,6 +41,6 @@ export const Selectable: Story = (args) => (
     <Column source="id" label="ID" />
     <Column source="name" label="Name" />
   </DataTable>
-)
+);
 
 export default story;
