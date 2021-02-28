@@ -2,8 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 
 // local files
-import classes from '../styles/classes.module.scss';
-import './ExampleComponent.scss';
+import styles from './ExampleComponent.module.scss';
 
 type Props = {
   className?: string;
@@ -12,5 +11,5 @@ type Props = {
 export const ExampleComponent = (props: Props) => {
   const { className } = props;
 
-  return <div className={clsx(classes.ExampleComponent, className)} />;
+  return <div className={clsx(styles.root, className)} />;
 };

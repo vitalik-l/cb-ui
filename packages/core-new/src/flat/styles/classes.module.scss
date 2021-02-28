@@ -1,0 +1,11 @@
+$prefix: Flat;
+
+@function cln($name) {
+  @return $prefix + $name;
+}
+
+$Button: cln('Button');
+
+:export {
+  Button: $Button;
+}

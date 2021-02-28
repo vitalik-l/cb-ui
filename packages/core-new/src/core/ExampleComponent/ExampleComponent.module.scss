@@ -1,0 +1,17 @@
+@use '../styles/classes.module' as *;
+
+$root: $ExampleComponent;
+
+@function cln($name) {
+  @return $root + $name;
+}
+
+:global {
+  .#{$root} {
+    // component styles
+  }
+}
+
+:export {
+  root: $root;
+}
