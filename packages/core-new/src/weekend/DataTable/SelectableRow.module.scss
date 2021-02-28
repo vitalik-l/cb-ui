@@ -1,0 +1,12 @@
+@use '../styles/variables' as *;
+
+.selected {
+  color: $colorYellow;
+}
+
+.selectable {
+  &:hover {
+    cursor: pointer;
+    color: white;
+  }
+}

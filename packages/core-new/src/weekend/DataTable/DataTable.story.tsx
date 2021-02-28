@@ -5,6 +5,7 @@ import { Story } from '@storybook/react';
 import { createStory } from '../createStory';
 import { DataTable } from './index';
 import { Column } from '../../core/DataTable';
+import {SelectableRow} from './SelectableRow';
 
 const story = createStory({
   title: 'DataTable',
@@ -14,6 +15,7 @@ const story = createStory({
       {
         id: 0,
         name: 'name 0',
+        selected: true,
       },
       {
         id: 1,
@@ -27,12 +29,18 @@ const story = createStory({
   },
 });
 
-export const Template: Story = (args) => (
+export const Default: Story = (args) => (
   <DataTable {...args}>
     <Column source="id" label="ID" />
     <Column source="name" label="Name" />
   </DataTable>
 );
-Template.storyName = 'DataTable';
+
+export const Selectable: Story = (args) => (
+  <DataTable row={<SelectableRow source="selected" />} {...args}>
+    <Column source="id" label="ID" />
+    <Column source="name" label="Name" />
+  </DataTable>
+)
 
 export default story;

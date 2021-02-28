@@ -11,7 +11,7 @@ type Props = DataTableProps & {
   strings?: typeof pagerStrings;
 };
 
-export const DataTable = (props: Props) => {
+export const DataTable = (props: any) => {
   const { className, strings, ...otherProps } = props;
 
   return (

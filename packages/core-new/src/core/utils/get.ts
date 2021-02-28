@@ -1,4 +1,4 @@
-export const get = (value: any, path: string, defaultValue: any) => {
+export const get = (value: any, path: string, defaultValue?: any) => {
   if (value[path]) return value[path];
   return String(path)
     .split('.')

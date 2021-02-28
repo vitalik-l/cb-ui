@@ -18,6 +18,7 @@ export type DataTableProps = {
   children?: React.ReactNode;
   pager?: any;
   stickyHeader?: boolean;
+  row?: any;
 };
 
 export const DataTable = (props: DataTableProps) => {
