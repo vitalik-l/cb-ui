@@ -1,0 +1,86 @@
+@use '../styles/bem' as *;
+@use '../styles/classes.module' as *;
+
+// default vars
+$height: 0 !default;
+$thumbSize: 0 !default;
+
+// classes
+$root: Slider !default;
+@function cln($name) {
+  @return $root + $name;
+}
+$wrap: cln('-wrap');
+$marked: cln('_marked');
+$vertical: cln('_vertical');
+$disabled: cln('_disabled');
+$rail: cln('__rail');
+$track: cln('__track');
+$trackFalse: cln('_track_false');
+$trackInverted: cln('_track_inverted');
+$thumb: cln('-thumb');
+$thumbColor: cln('-thumb_color');
+$thumbActive: cln('-thumb_active');
+$thumbFocus: cln('-thumb_focus');
+$valueLabel: cln('-valueLabel');
+$mark: cln('-mark');
+$markActive: cln('-mark_active');
+$markLabel: cln('-mark__label');
+$markLabelActive: cln('-mark__label_active');
+$color: cln('_color');
+
+@mixin dimensions() {
+  .#{$root} {
+    height: $height;
+    padding: calc((#{$thumbSize} - #{$height}) / 2) 0;
+  }
+
+  .#{$wrap} {
+    margin-left: $thumbSize/2;
+    margin-right: $thumbSize/2;
+  }
+
+  .#{$rail},
+  .#{$track} {
+    height: $height;
+  }
+
+  .#{$thumb} {
+    width: $thumbSize;
+    height: $thumbSize;
+    margin-left: -1 * $thumbSize/2;
+    transform: translateY(calc(-50% + #{$height/2}));
+  }
+}
+
+@if $height != 0 and $thumbSize != 0 {
+  :global {
+    @include dimensions();
+  }
+}
+
+@mixin export() {
+  @each $name,
+    $class
+      in (
+        root: $root,
+        wrap: $wrap,
+        disabled: $disabled,
+        rail: $rail,
+        track: $track,
+        thumb: $thumb,
+        color: $color,
+        marked: $marked,
+        vertical: $vertical,
+        trackInverted: $trackInverted,
+        trackFalse: $trackFalse,
+        mark: $mark,
+        markActive: $markActive,
+        markLabel: $markLabel,
+        markLabelActive: $markLabelActive,
+        valueLabel: $valueLabel
+      )
+  {
+    #{$name}: $class;
+  }
+}

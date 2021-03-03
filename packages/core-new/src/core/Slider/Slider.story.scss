@@ -1,6 +1,11 @@
-@use './Slider.helper' as Slider;
+@use './Slider.module' as * with (
+  $root: StorySlider,
+  $height: 0.6rem,
+  $thumbSize: 1em,
+);
 
-.StorySlider {
-  @include Slider.slider(0.6rem, 1em);
+@include dimensions();
+
+.#{$root} {
   color: green;
 }

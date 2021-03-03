@@ -1,0 +1,11 @@
+@function option($target, $value) {
+  @return $target + '_' + $value;
+}
+
+@function elem($target, $value) {
+  @return $target + '__' + $value;
+}
+
+@function block($target, $value) {
+  @return $target + '-' + $value;
+}

@@ -8,8 +8,9 @@ import { useForkRef } from '../utils/useForkRef';
 import { ValueLabel } from './ValueLabel';
 import { useControlled } from '../hooks/useControlled';
 import { useEventCallback } from '../hooks/useEventCallback';
-import { Slider as SliderClassName } from '../styles/classes.module.scss';
-import './Slider.scss';
+import { useClasses } from '../hooks/useClasses';
+import { classOption } from '../utils/classes';
+import coreStyles from './CoreSlider.module.scss';
 
 export type SliderProps = {
   className?: string;
@@ -151,8 +152,9 @@ export const Slider = React.forwardRef<any, any>((props, ref) => {
     'aria-label': ariaLabel,
     'aria-labelledby': ariaLabelledby,
     'aria-valuetext': ariaValuetext,
-    classNamePrefix,
     className,
+    classes: classesProp,
+    classNamePrefix,
     color = 'primary',
     component: Component = 'span',
     defaultValue,
@@ -528,53 +530,56 @@ export const Slider = React.forwardRef<any, any>((props, ref) => {
     ...axisProps[axis].leap(trackLeap),
   };
 
-  const { current: classes } = React.useRef<any>({
-    margin: `${classNamePrefix}-margin`,
-    /* Styles applied to the root element. */
-    root: classNamePrefix,
-    /* Styles applied to the root element if `marks` is provided with at least one label. */
-    marked: `${classNamePrefix}_marked`,
-    /* Pseudo-class applied to the root element if `orientation="vertical"`. */
-    vertical: `${classNamePrefix}_vertical`,
-    /* Pseudo-class applied to the root and thumb element if `disabled={true}`. */
-    disabled: `${classNamePrefix}_disabled`,
-    /* Styles applied to the rail element. */
-    rail: `${classNamePrefix}-rail`,
-    /* Styles applied to the track element. */
-    track: `${classNamePrefix}-track`,
-    /* Styles applied to the track element if `track={false}`. */
-    trackFalse: `${classNamePrefix}_track_false`,
-    /* Styles applied to the track element if `track="inverted"`. */
-    trackInverted: `${classNamePrefix}_track_inverted`,
-    /* Styles applied to the thumb element. */
-    thumb: `${classNamePrefix}-thumb`,
-    /* Pseudo-class applied to the thumb element if it's active. */
-    active: `${classNamePrefix}-thumb_active`,
-    /* Pseudo-class applied to the thumb element if keyboard focused. */
-    focusVisible: `${classNamePrefix}-thumb_focus`,
-    /* Styles applied to the thumb label element. */
-    valueLabel: `${classNamePrefix}-value-label`,
-    /* Styles applied to the mark element. */
-    mark: `${classNamePrefix}-mark`,
-    /* Styles applied to the mark element if active (depending on the value). */
-    markActive: `${classNamePrefix}-mark_active`,
-    /* Styles applied to the mark label element. */
-    markLabel: `${classNamePrefix}-mark-label`,
-    /* Styles applied to the mark label element if active (depending on the value). */
-    markLabelActive: `${classNamePrefix}-mark-label_active`,
-  });
+  const classes = useClasses(
+    {
+      wrap: '-wrap',
+      /* Styles applied to the root element if `marks` is provided with at least one label. */
+      marked: '_marked',
+      /* Pseudo-class applied to the root element if `orientation="vertical"`. */
+      vertical: '_vertical',
+      /* Pseudo-class applied to the root and thumb element if `disabled={true}`. */
+      disabled: '_disabled',
+      /* Styles applied to the rail element. */
+      rail: '__rail',
+      /* Styles applied to the track element. */
+      track: '__track',
+      /* Styles applied to the track element if `track={false}`. */
+      trackFalse: '_track_false',
+      /* Styles applied to the track element if `track="inverted"`. */
+      trackInverted: '_track_inverted',
+      /* Styles applied to the thumb element. */
+      thumb: '-thumb',
+      thumbColor: '-thumb_color',
+      /* Pseudo-class applied to the thumb element if it's active. */
+      thumbActive: '-thumb_active',
+      /* Pseudo-class applied to the thumb element if keyboard focused. */
+      thumbFocus: '-thumb_focus',
+      /* Styles applied to the thumb label element. */
+      valueLabel: '-valueLabel',
+      /* Styles applied to the mark element. */
+      mark: '-mark',
+      /* Styles applied to the mark element if active (depending on the value). */
+      markActive: '-mark_active',
+      /* Styles applied to the mark label element. */
+      markLabel: '-mark__label',
+      /* Styles applied to the mark label element if active (depending on the value). */
+      markLabelActive: '-mark__label_active',
+      color: '_color',
+    },
+    props,
+  );
 
   return (
-    <div className={classes.margin}>
+    <div className={classes.wrap}>
       <Component
         ref={handleRef}
         className={clsx(
-          SliderClassName,
+          coreStyles.root,
           classes.root,
+          classOption(classes.color, color),
           {
-            [`${SliderClassName}_disabled`]: disabled,
+            [coreStyles.disabled]: disabled,
             [classes.disabled]: disabled,
-            [`${classes.root}_color_${color}`]: !!color,
             [classes.marked]: marks.length > 0 && marks.some((mark: any) => mark.label),
             [classes.vertical]: orientation === 'vertical',
             [classes.trackInverted]: track === 'inverted',
@@ -585,8 +590,8 @@ export const Slider = React.forwardRef<any, any>((props, ref) => {
         onMouseDown={handleMouseDown}
         {...other}
       >
-        <span className={clsx(`${SliderClassName}-rail`, classes.rail)} />
-        <span className={clsx(`${SliderClassName}-track`, classes.track)} style={trackStyle} />
+        <span className={clsx(coreStyles.rail, classes.rail)} />
+        <span className={clsx(coreStyles.track, classes.track)} style={trackStyle} />
         <input value={values.join(',')} name={name} type="hidden" />
         {marks.map((mark: any, index: number) => {
           const percent = valueToPercent(mark.value, min, max);
@@ -651,12 +656,16 @@ export const Slider = React.forwardRef<any, any>((props, ref) => {
               disabled={disabled}
             >
               <ThumbComponent
-                className={clsx(`${SliderClassName}-thumb`, classes.thumb, {
-                  [`${classes.thumb}_color_${color}`]: !!color,
-                  [classes.active]: active === index,
-                  [classes.disabled]: disabled,
-                  [classes.focusVisible]: focusVisible === index,
-                })}
+                className={clsx(
+                  coreStyles.thumb,
+                  classes.thumb,
+                  classOption(classes.thumbColor, color),
+                  {
+                    [classes.thumbActive]: active === index,
+                    [classes.disabled]: disabled,
+                    [classes.thumbFocus]: focusVisible === index,
+                  },
+                )}
                 tabIndex={disabled ? null : 0}
                 role="slider"
                 style={style}
@@ -688,5 +697,4 @@ Slider.displayName = 'Slider';
 
 Slider.defaultProps = {
   ThumbComponent: 'div',
-  classNamePrefix: 'SliderDefault',
 };

@@ -1,0 +1,17 @@
+@use '../styles/classes.module' as *;
+@use '~@cb-general/core/styles/bem' as *;
+
+$root: $Button;
+// variants
+$variant: option($root, 'variant');
+$contained: option($variant, 'contained');
+$outlined: option($variant, 'outlined');
+// colors
+$color: option($root, 'color');
+$green: option($color, 'green');
+
+:export {
+  root: $root;
+  variant: $variant;
+  color: $color;
+}

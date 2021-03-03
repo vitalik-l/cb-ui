@@ -1,10 +1,7 @@
 @use '../styles/classes.module' as *;
+@use '~@cb-general/core/styles/bem' as *;
 
 $root: $ExampleComponent;
-
-@function cln($name) {
-  @return $root + $name;
-}
 
 :global {
   .#{$root} {

@@ -1,5 +1,5 @@
-@import '~@cb-general/core/styles/index';
-@import 'fonts';
+@use '~@cb-general/core/styles/index';
+@use 'fonts';
 
 body {
   font-family: Open Sans, Arial, Helvetica, sans-serif;

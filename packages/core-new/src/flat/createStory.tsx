@@ -1,6 +1,28 @@
 import React from 'react';
 
-const decorators: any = [];
+// local files
+import classes from './styles/classes.module.scss';
+import './styles/Styles.story.scss';
+
+export const StoryContainer = ({ children }: any) => {
+  React.useLayoutEffect(() => {
+    document.documentElement.classList.add(classes.Story);
+
+    return () => {
+      document.documentElement.classList.remove(classes.Story);
+    };
+  }, []);
+
+  return children;
+};
+
+export const decorators = [
+  (Story: any) => (
+    <StoryContainer>
+      <Story />
+    </StoryContainer>
+  ),
+];
 
 const applyDecorators = (storyContainer: boolean, style: any) => {
   const result = [];
@@ -9,7 +31,7 @@ const applyDecorators = (storyContainer: boolean, style: any) => {
   }
   if (style) {
     result.push((Story: any) => (
-      <div style={style}>
+      <div style={{ fontSize: '1rem', ...style }}>
         <Story />
       </div>
     ));
@@ -17,13 +39,8 @@ const applyDecorators = (storyContainer: boolean, style: any) => {
   return result;
 };
 
-export const createStory = ({ title, storyContainer = false, style = {}, ...params }: any) => ({
-  title: `core/${title}`,
-  parameters: {
-    backgrounds: {
-      default: 'light',
-    },
-  },
+export const createStory = ({ title = '', storyContainer = true, style = {}, ...params }) => ({
+  title: `flat/${title}`,
   decorators: applyDecorators(storyContainer, style),
   ...params,
 });

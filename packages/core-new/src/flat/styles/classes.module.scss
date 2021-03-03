@@ -4,8 +4,16 @@ $prefix: Flat;
   @return $prefix + $name;
 }
 
+$Story: cln('Story');
 $Button: cln('Button');
+$CircularIndicator: cln('CircularIndicator');
+$CircularIndicatorButton: cln('CircularIndicatorButton');
+$Slider: cln('Slider');
 
 :export {
+  Story: $Story;
   Button: $Button;
+  CircularIndicator: $CircularIndicator;
+  CircularIndicatorButton: $CircularIndicatorButton;
+  Slider: $Slider;
 }

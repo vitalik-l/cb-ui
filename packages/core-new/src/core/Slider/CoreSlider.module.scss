@@ -1,37 +1,40 @@
 @use '../styles/classes.module' as *;
+@use './Slider.module' as * with ( $root: $Slider );
 
-.#{$Slider} {
-  width: 100%;
-  cursor: pointer;
-  display: inline-block;
-  padding: 0;
-  position: relative;
-  box-sizing: content-box;
-  touch-action: none;
-  -webkit-tap-highlight-color: transparent;
+:global {
+  .#{$root} {
+    width: 100%;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0;
+    position: relative;
+    box-sizing: content-box;
+    touch-action: none;
+    -webkit-tap-highlight-color: transparent;
+  }
 
-  &_disabled {
+  .#{$disabled} {
     cursor: default;
     pointer-events: none;
   }
 
-  &-rail,
-  &-track {
+  .#{$rail},
+  .#{$track} {
     display: block;
     position: absolute;
     box-sizing: border-box;
   }
 
-  &-rail {
+  .#{$rail} {
     width: 100%;
     background-color: #c4c4c4;
   }
 
-  &-track {
+  .#{$track} {
     background-color: currentColor;
   }
 
-  &-thumb {
+  .#{$thumb} {
     display: flex;
     outline: 0;
     position: absolute;
@@ -40,4 +43,8 @@
     justify-content: center;
     background-color: gray;
   }
+}
+
+:export {
+  @include export();
 }

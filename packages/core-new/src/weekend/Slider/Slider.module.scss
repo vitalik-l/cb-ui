@@ -1,32 +1,34 @@
-@use '../../core/Slider/Slider.helper' as CoreSlider;
 @use '../styles/classes.module' as *;
+@use '../../core/Slider/Slider.module' as * with (
+  $root: $Slider,
+  $height: 1em,
+  $thumbSize: 2em
+);
 
-.#{$Slider} {
-  @include CoreSlider.slider(1em, 2em);
-
-  &-rail {
+:global {
+  .#{$rail} {
     background-color: #111;
   }
 
-  &-rail,
-  &-track {
+  .#{$rail},
+  .#{$track} {
     border-radius: 10px;
     border: min(0.2em, 2px) solid #5e5e62;
   }
 
-  &-track {
+  .#{$track} {
     background: url(./img/inputrangeprogress.png) repeat-x;
     background-size: contain;
   }
 
-  &-thumb {
+  .#{$thumb} {
     background: url(./img/inputrangethumb.png);
     background-size: contain;
     box-shadow: 0 min(0.2em, 2px) min(0.3em, 3px) 0 rgb(0 0 0 / 60%);
     border-radius: 50%;
   }
 
-  &-value-label {
+  .#{$valueLabel} {
     color: #fff;
     background-image: linear-gradient(#7e797f, #535156);
     border-radius: 0.2em;
@@ -56,4 +58,8 @@
       font-weight: bold;
     }
   }
+}
+
+:export {
+  @include export();
 }
