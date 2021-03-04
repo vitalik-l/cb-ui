@@ -19,7 +19,7 @@ export const StoryContainer = ({ children }: any) => {
 export const decorators = [
   (Story: any) => (
     <StoryContainer>
-      <Story />
+      {Story()}
     </StoryContainer>
   ),
 ];
@@ -32,7 +32,7 @@ const applyDecorators = (storyContainer: boolean, style: any) => {
   if (style) {
     result.push((Story: any) => (
       <div style={{ fontSize: '1rem', ...style }}>
-        <Story />
+        {Story()}
       </div>
     ));
   }
