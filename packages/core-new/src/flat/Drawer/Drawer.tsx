@@ -4,13 +4,13 @@ import clsx from 'clsx';
 // local files
 import styles from './Drawer.module.scss';
 
-type Props = {
+export type DrawerProps = {
   className?: string;
   open?: boolean;
   children?: React.ReactNode;
 };
 
-export const Drawer = (props: Props) => {
+export const Drawer = (props: DrawerProps) => {
   const { className, open = false, children, ...restProps } = props;
 
   return (
