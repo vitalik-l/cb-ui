@@ -3,7 +3,7 @@ import { Story } from '@storybook/react';
 
 // local files
 import { createStory } from '../createStory';
-import { Menu, MenuHeader, MenuItemButton, MenuHeaderButton } from './';
+import { Menu, MenuHeader, MenuItemButton, MenuHeaderButton, MenuContent } from './';
 import { IconButton } from '../IconButton';
 import { CloseIcon } from '../icons';
 
@@ -13,7 +13,7 @@ const story = createStory({
   style: {
     position: 'relative',
     width: 320,
-    height: 500,
+    height: 300,
   },
 });
 
@@ -28,12 +28,26 @@ export const Template: Story = (args) => (
     >
       <MenuHeaderButton>General / Game Settings</MenuHeaderButton>
     </MenuHeader>
-    <MenuItemButton>
-      MenuItemButton
-    </MenuItemButton>
-    <MenuItemButton icon={false}>
-      MenuItemButton icon false
-    </MenuItemButton>
+    <MenuContent>
+      <MenuItemButton>
+        MenuItemButton
+      </MenuItemButton>
+      <MenuItemButton icon={false}>
+        MenuItemButton icon false
+      </MenuItemButton>
+      <MenuItemButton>
+        MenuItemButton
+      </MenuItemButton>
+      <MenuItemButton>
+        MenuItemButton
+      </MenuItemButton>
+      <MenuItemButton>
+        MenuItemButton
+      </MenuItemButton>
+      <MenuItemButton>
+        MenuItemButton
+      </MenuItemButton>
+    </MenuContent>
   </Menu>
 );
 Template.storyName = 'Menu';
