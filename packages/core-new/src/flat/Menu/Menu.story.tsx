@@ -28,7 +28,12 @@ export const Template: Story = (args) => (
     >
       <MenuHeaderButton>General / Game Settings</MenuHeaderButton>
     </MenuHeader>
-    <MenuItemButton label="MenuItemButton" />
+    <MenuItemButton>
+      MenuItemButton
+    </MenuItemButton>
+    <MenuItemButton icon={false}>
+      MenuItemButton icon false
+    </MenuItemButton>
   </Menu>
 );
 Template.storyName = 'Menu';

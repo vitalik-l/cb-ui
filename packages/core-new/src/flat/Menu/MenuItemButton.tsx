@@ -8,15 +8,16 @@ import { NavIcon } from '../icons';
 import styles from './FlatMenuItemButton.module.scss';
 
 export const MenuItemButton = (props: any) => {
-  const { label, icon, className, classes } = props;
+  const { children, icon, className, classes, ...restProps } = props;
 
   return (
     <MenuItem
       component={ButtonBase}
       className={clsx(styles.MenuItemButton, classes.root, className)}
+      {...restProps}
     >
-      {label}
-      {React.cloneElement(icon, { className: clsx(styles.icon, classes.icon) })}
+      {children}
+      {!!icon && React.cloneElement(icon, { className: clsx(styles.icon, classes.icon) })}
     </MenuItem>
   );
 };
