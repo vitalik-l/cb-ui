@@ -29,24 +29,12 @@ export const Template: Story = (args) => (
       <MenuHeaderButton>General / Game Settings</MenuHeaderButton>
     </MenuHeader>
     <MenuContent>
-      <MenuItemButton>
-        MenuItemButton
-      </MenuItemButton>
-      <MenuItemButton icon={false}>
-        MenuItemButton icon false
-      </MenuItemButton>
-      <MenuItemButton>
-        MenuItemButton
-      </MenuItemButton>
-      <MenuItemButton>
-        MenuItemButton
-      </MenuItemButton>
-      <MenuItemButton>
-        MenuItemButton
-      </MenuItemButton>
-      <MenuItemButton>
-        MenuItemButton
-      </MenuItemButton>
+      <MenuItemButton>MenuItemButton</MenuItemButton>
+      <MenuItemButton icon={false}>MenuItemButton icon false</MenuItemButton>
+      <MenuItemButton>MenuItemButton</MenuItemButton>
+      <MenuItemButton>MenuItemButton</MenuItemButton>
+      <MenuItemButton>MenuItemButton</MenuItemButton>
+      <MenuItemButton>MenuItemButton</MenuItemButton>
     </MenuContent>
   </Menu>
 );
