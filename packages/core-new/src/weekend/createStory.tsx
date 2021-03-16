@@ -16,13 +16,7 @@ export const StoryContainer = ({ children }: any) => {
   return children;
 };
 
-export const decorators = [
-  (Story: any) => (
-    <StoryContainer>
-      {Story()}
-    </StoryContainer>
-  ),
-];
+export const decorators = [(Story: any) => <StoryContainer>{Story()}</StoryContainer>];
 
 const applyDecorators = (storyContainer: boolean, style: any) => {
   const result = [];
@@ -30,11 +24,7 @@ const applyDecorators = (storyContainer: boolean, style: any) => {
     result.push(...decorators);
   }
   if (style) {
-    result.push((Story: any) => (
-      <div style={{ fontSize: '1rem', ...style }}>
-        {Story()}
-      </div>
-    ));
+    result.push((Story: any) => <div style={{ fontSize: '1rem', ...style }}>{Story()}</div>);
   }
   return result;
 };

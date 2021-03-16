@@ -2,99 +2,184 @@
   font-weight: 400 !important;
 }
 
+.font-medium {
+  font-weight: 500 !important;
+}
+
 .font-bold {
   font-weight: 700 !important;
 }
 
-// TODO: refactor it
-$fonSize: 1em !default;
-$fontSizes: (
-  1: $fonSize + 0.4,
-  2: $fonSize + 0.3,
-  3: $fonSize + 0.2,
-  4: $fonSize + 0.1,
-  5: $fonSize,
-  // custom values
-) !default;
+/* rems */
+.size {
+  &_0 {
+    &_5 {
+      font-size: 0.5rem !important;
+    }
+    &_6 {
+      font-size: 0.6rem !important;
+    }
+    &_7 {
+      font-size: 0.7rem !important;
+    }
+    &_8 {
+      font-size: 0.8rem !important;
+    }
+    &_9 {
+      font-size: 0.9rem !important;
+    }
+  }
 
-$fontSizesLg: (
-  1: $fonSize + 1.4,
-  2: $fonSize + 1.2,
-  3: $fonSize + 1,
-  4: $fonSize + 0.8,
-  5: $fonSize + 0.6,
-  // custom values
-) !default;
+  &_1 {
+    font-size: 1rem !important;
+    &_1 {
+      font-size: 1.1rem !important;
+    }
+    &_2 {
+      font-size: 1.2rem !important;
+    }
+    &_3 {
+      font-size: 1.3rem !important;
+    }
+    &_4 {
+      font-size: 1.4rem !important;
+    }
+    &_5 {
+      font-size: 1.5rem !important;
+    }
+    &_6 {
+      font-size: 1.6rem !important;
+    }
+    &_7 {
+      font-size: 1.7rem !important;
+    }
+    &_8 {
+      font-size: 1.8rem !important;
+    }
+    &_9 {
+      font-size: 1.9rem !important;
+    }
+  }
 
-$fontSizesSm: (
-  1: $fonSize - 0.1,
-  2: $fonSize - 0.2,
-  3: $fonSize - 0.3,
-  4: $fonSize - 0.4,
-  5: $fonSize - 0.5,
-  // custom values
-) !default;
+  &_2 {
+    font-size: 2rem !important;
+    &_1 {
+      font-size: 2.1rem !important;
+    }
+    &_2 {
+      font-size: 2.2rem !important;
+    }
+    &_3 {
+      font-size: 2.3rem !important;
+    }
+    &_4 {
+      font-size: 2.4rem !important;
+    }
+    &_5 {
+      font-size: 2.5rem !important;
+    }
+    &_6 {
+      font-size: 2.6rem !important;
+    }
+    &_7 {
+      font-size: 2.7rem !important;
+    }
+    &_8 {
+      font-size: 2.8rem !important;
+    }
+    &_9 {
+      font-size: 2.9rem !important;
+    }
+  }
 
-$fonSizeRem: 1rem !default;
-$fontSizesRem: (
-  1: $fonSizeRem + 0.4,
-  2: $fonSizeRem + 0.3,
-  3: $fonSizeRem + 0.2,
-  4: $fonSizeRem + 0.1,
-  5: $fonSizeRem,
-  // custom values
-) !default;
-
-$fontSizesLgRem: (
-  1: $fonSizeRem + 1.4,
-  2: $fonSizeRem + 1.2,
-  3: $fonSizeRem + 1,
-  4: $fonSizeRem + 0.8,
-  5: $fonSizeRem + 0.6,
-  // custom values
-) !default;
-
-$fontSizesSmRem: (
-  1: $fonSizeRem - 0.1,
-  2: $fonSizeRem - 0.2,
-  3: $fonSizeRem - 0.3,
-  4: $fonSizeRem - 0.4,
-  5: $fonSizeRem - 0.5,
-  // custom values
-) !default;
-
-@each $index, $fonSize in $fontSizes {
-  .body-#{$index} {
-    font-size: $fonSize !important;
+  &_3 {
+    font-size: 3rem !important;
   }
 }
 
-@each $index, $fonSize in $fontSizesLg {
-  .body-lg-#{$index} {
-    font-size: $fonSize !important;
+/* em */
+.size-em {
+  &_0 {
+    &_5 {
+      font-size: 0.5em !important;
+    }
+    &_6 {
+      font-size: 0.6em !important;
+    }
+    &_7 {
+      font-size: 0.7em !important;
+    }
+    &_8 {
+      font-size: 0.8em !important;
+    }
+    &_9 {
+      font-size: 0.9em !important;
+    }
   }
-}
 
-@each $index, $fonSize in $fontSizesSm {
-  .body-sm-#{$index} {
-    font-size: $fonSize !important;
+  &_1 {
+    font-size: 1em !important;
+    &_1 {
+      font-size: 1.1em !important;
+    }
+    &_2 {
+      font-size: 1.2em !important;
+    }
+    &_3 {
+      font-size: 1.3em !important;
+    }
+    &_4 {
+      font-size: 1.4em !important;
+    }
+    &_5 {
+      font-size: 1.5em !important;
+    }
+    &_6 {
+      font-size: 1.6em !important;
+    }
+    &_7 {
+      font-size: 1.7em !important;
+    }
+    &_8 {
+      font-size: 1.8em !important;
+    }
+    &_9 {
+      font-size: 1.9em !important;
+    }
   }
-}
 
-@each $index, $fonSize in $fontSizesRem {
-  .body-rem-#{$index} {
-    font-size: $fonSize !important;
+  &_2 {
+    font-size: 2em !important;
+    &_1 {
+      font-size: 2.1em !important;
+    }
+    &_2 {
+      font-size: 2.2em !important;
+    }
+    &_3 {
+      font-size: 2.3em !important;
+    }
+    &_4 {
+      font-size: 2.4em !important;
+    }
+    &_5 {
+      font-size: 2.5em !important;
+    }
+    &_6 {
+      font-size: 2.6em !important;
+    }
+    &_7 {
+      font-size: 2.7em !important;
+    }
+    &_8 {
+      font-size: 2.8em !important;
+    }
+    &_9 {
+      font-size: 2.9em !important;
+    }
   }
-}
 
-@each $index, $fonSize in $fontSizesLgRem {
-  .body-lg-rem-#{$index} {
-    font-size: $fonSize !important;
-  }
-}
-
-@each $index, $fonSize in $fontSizesSmRem {
-  .body-sm-rem-#{$index} {
-    font-size: $fonSize !important;
+  &_3 {
+    font-size: 3em !important;
   }
 }

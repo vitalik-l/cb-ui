@@ -1,17 +1,47 @@
 @use '../styles/classes.module' as *;
-@use '~@cb-general/core/styles/bem' as *;
+@use '../styles/variables' as *;
 
-$root: $Button;
-// variants
-$variant: option($root, 'variant');
-$contained: option($variant, 'contained');
-$outlined: option($variant, 'outlined');
-// colors
-$color: option($root, 'color');
-$green: option($color, 'green');
+.root {
+  border-radius: min(5px, 0.5rem);
+  padding: 1rem 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: IBM Plex Sans;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.2em;
+  line-height: 1;
+  color: white;
 
-:export {
-  root: $root;
-  variant: $variant;
-  color: $color;
+  &:active {
+    opacity: 0.8;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.contained {
+  background: linear-gradient(182.18deg, #4d4d4d -16.9%, #212121 98.17%);
+}
+
+.outlined {
+  color: #5b5b5b;
+  border: 1px solid #5b5b5b;
+
+  &:active {
+    color: white;
+    border-color: white;
+    opacity: 1;
+  }
+}
+
+.green {
+  &.outlined {
+    &:active {
+      color: $colorGreen;
+      border-color: $colorGreen;
+    }
+  }
 }

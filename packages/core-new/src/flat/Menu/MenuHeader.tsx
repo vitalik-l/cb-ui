@@ -1,3 +1,17 @@
 import React from 'react';
+import clsx from 'clsx';
 
-export const MenuHeader =
+// local files
+import { MenuItem } from './MenuItem';
+import styles from './FlatMenuHeader.module.scss';
+
+export const MenuHeader = (props: any) => {
+  const { closeButton, children, className, ...restProps } = props;
+
+  return (
+    <MenuItem className={clsx(styles.MenuHeader, className)} {...restProps}>
+      <div>{children}</div>
+      {closeButton}
+    </MenuItem>
+  );
+};

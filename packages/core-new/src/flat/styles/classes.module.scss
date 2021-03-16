@@ -12,8 +12,11 @@ $Slider: cln('Slider');
 $Drawer: cln('Drawer');
 $Menu: cln('Menu');
 $MenuHeader: cln('MenuHeader');
+$MenuHeaderButton: cln('MenuHeaderButton');
 $MenuContent: cln('MenuContent');
 $MenuItem: cln('MenuItem');
+$MenuItemButton: cln('MenuItemButton');
+$IconButton: cln('IconButton');
 
 :export {
   Story: $Story;
@@ -21,4 +24,10 @@ $MenuItem: cln('MenuItem');
   CircularIndicator: $CircularIndicator;
   CircularIndicatorButton: $CircularIndicatorButton;
   Slider: $Slider;
+  IconButton: $IconButton;
+  MenuHeader: $MenuHeader;
+  MenuItemButton: $MenuItemButton;
+  Menu: $Menu;
+  MenuItem: $MenuItem;
+  MenuHeaderButton: $MenuHeaderButton;
 }

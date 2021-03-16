@@ -1,0 +1,10 @@
+@use '../styles/classes.module' as *;
+
+:global(.#{$MenuHeaderButton}) {
+  font-weight: 500;
+  font-family: Roboto;
+}
+
+.label {
+  margin-left: 0.5rem;
+}

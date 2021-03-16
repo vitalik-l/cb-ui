@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { animate } from '@cb-general/core/utils/animate';
 
 // local files
-import styles from './CircularIndicator.module.scss';
+import styles from './FlatCircularIndicator.module.scss';
 
 const SEGMENTS = 461;
 
@@ -76,7 +76,7 @@ export const CircularIndicator = (props: Props) => {
   }, [progress, reverse, animDuration]); /* eslint-disable-line react-hooks/exhaustive-deps */
 
   return (
-    <div className={clsx(styles.root, className)} {...restProps}>
+    <div className={clsx(styles.CircularIndicator, className)} {...restProps}>
       <svg
         width="100%"
         height="100%"
@@ -247,7 +247,7 @@ export const CircularIndicator = (props: Props) => {
           </pattern>
         </defs>
       </svg>
-      <div className={styles.button}>{children}</div>
+      <div className={styles.content}>{children}</div>
     </div>
   );
 };

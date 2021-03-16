@@ -1,0 +1,23 @@
+@use '../styles/classes.module' as *;
+
+:global(.#{$CircularIndicator}) {
+  position: relative;
+  width: 14.7em;
+  height: 14.7em;
+  border-radius: 50%;
+  user-select: none;
+  box-shadow: 0 min(0.4rem, 4px) min(4.5rem, 45px) rgba(29, 26, 28, 0.9);
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+  transform: translate(-50%, -50%);
+  width: 73%;
+  height: 73%;
+  box-sizing: border-box;
+  text-align: center;
+  border-radius: 50%;
+}

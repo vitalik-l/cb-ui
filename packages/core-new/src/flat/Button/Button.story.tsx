@@ -12,7 +12,7 @@ const story = createStory({
     variant: {
       control: {
         type: 'select',
-        options: ['contained', 'outlined'],
+        options: ['contained', 'outlined', 'text'],
       },
     },
     disabled: {

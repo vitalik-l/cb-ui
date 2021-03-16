@@ -1,8 +1,10 @@
 const path = require('path');
 
+const [ packageName ] = process.argv.slice(6);
+
 module.exports = {
   "stories": [
-    "../src/**/*.story.@(js|jsx|ts|tsx|mdx)"
+    `../src/${packageName ? packageName + "/" : ""}**/*.story.@(js|jsx|ts|tsx|mdx)`
   ],
   "addons": [
     "@storybook/addon-links",

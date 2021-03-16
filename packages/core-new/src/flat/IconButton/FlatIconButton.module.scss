@@ -1,0 +1,5 @@
+@use '../styles/classes.module' as *;
+
+:global(.#{$IconButton}) {
+  font-size: 1.8rem;
+}

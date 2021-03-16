@@ -4,6 +4,7 @@ $prefix: Core;
   @return $prefix + $name;
 }
 
+$Story: cln('Story');
 $ExampleComponent: cln('ExampleComponent');
 $Root: cln('Root');
 $Viewport: cln('Viewport');
@@ -17,8 +18,10 @@ $ButtonBase: cln('ButtonBase');
 $Select: cln('Select');
 $InfoPanel: cln('InfoPanel');
 $Tooltip: cln('Tooltip');
+$SvgIcon: cln('SvgIcon');
 
 :export {
+  Story: $Story;
   ExampleComponent: $ExampleComponent;
   Root: $Root;
   Viewport: $Viewport;
@@ -32,4 +35,5 @@ $Tooltip: cln('Tooltip');
   Select: $Select;
   InfoPanel: $InfoPanel;
   Tooltip: $Tooltip;
+  SvgIcon: $SvgIcon;
 }

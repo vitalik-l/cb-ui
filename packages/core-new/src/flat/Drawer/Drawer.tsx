@@ -14,9 +14,12 @@ export const Drawer = (props: DrawerProps) => {
   const { className, open = false, children, ...restProps } = props;
 
   return (
-    <div className={clsx(styles.root, className, {
-      [styles.open]: open,
-    })} {...restProps}>
+    <div
+      className={clsx(styles.root, className, {
+        [styles.open]: open,
+      })}
+      {...restProps}
+    >
       {open && children}
     </div>
   );

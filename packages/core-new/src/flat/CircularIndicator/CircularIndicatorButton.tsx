@@ -1,7 +1,7 @@
 import React from 'react';
 import { ButtonBase } from '@cb-general/core/ButtonBase';
 // local files
-import styles from './CircularIndicatorButton.module.scss';
+import styles from './FlatCircularIndicatorButton.module.scss';
 
 type Props = {
   className?: string;
@@ -14,7 +14,7 @@ export const CircularIndicatorButton = (props: Props) => {
   const { className, children, theme, color, ...restProps } = props;
 
   return (
-    <ButtonBase className={styles.root} {...restProps}>
+    <ButtonBase className={styles.CircularIndicatorButton} {...restProps}>
       <svg
         width="100%"
         height="100%"

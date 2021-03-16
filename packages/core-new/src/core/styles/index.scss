@@ -5,3 +5,12 @@
 @import 'helpers/text';
 @import 'helpers/spacing';
 @import 'helpers/colors';
+
+.svg-icon {
+  fill: currentColor;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  flex-shrink: 0;
+  user-select: none;
+}
