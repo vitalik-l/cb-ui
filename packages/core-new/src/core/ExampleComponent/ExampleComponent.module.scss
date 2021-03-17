@@ -1,14 +1,5 @@
 @use '../styles/classes.module' as *;
-@use '~@cb-general/core/styles/bem' as *;
 
-$root: $ExampleComponent;
-
-:global {
-  .#{$root} {
-    // component styles
-  }
-}
-
-:export {
-  root: $root;
+:global(.#{$ExampleComponent}) {
+  // component styles
 }

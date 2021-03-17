@@ -21,7 +21,7 @@ const story = createStory({
     color: {
       control: {
         type: 'select',
-        options: ['green'],
+        options: ['default', 'green', 'red'],
       },
     },
   },
