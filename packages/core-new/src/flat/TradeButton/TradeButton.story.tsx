@@ -13,9 +13,11 @@ const story = createStory({
 
 export const Template: Story = (args) => (
   <TradeButton {...args}>
-    <div>trend up</div>
-    <div>BUY</div>
-    <div><TrendIcon /></div>
+    <div className="flex-fill">
+      <div className="text-uppercase">trend up</div>
+      <div>BUY</div>
+      <div><TrendIcon /></div>
+    </div>
   </TradeButton>
 );
 Template.storyName = 'TradeButton';
