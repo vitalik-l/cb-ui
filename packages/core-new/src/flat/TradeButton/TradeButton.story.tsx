@@ -16,7 +16,9 @@ export const Template: Story = (args) => (
     <div className="flex-fill">
       <div className="text-uppercase">trend up</div>
       <div>BUY</div>
-      <div><TrendIcon /></div>
+      <div>
+        <TrendIcon />
+      </div>
     </div>
   </TradeButton>
 );

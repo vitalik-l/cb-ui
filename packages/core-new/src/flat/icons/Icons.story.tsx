@@ -9,7 +9,7 @@ const story = createStory({
   title: 'Icons',
   style: {
     fontSize: '2.5rem',
-  }
+  },
 });
 
 export const CloseIcon: Story = () => <Icons.CloseIcon />;

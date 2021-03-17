@@ -39,9 +39,7 @@
 
 .green {
   &.contained {
-    background: linear-gradient(
-                    182.18deg
-            ,#99e835 -16.9%,#2b901a 98.17%);
+    background: linear-gradient(182.18deg, #99e835 -16.9%, #2b901a 98.17%);
   }
 
   &.outlined {
@@ -54,8 +52,6 @@
 
 .red {
   &.contained {
-    background: linear-gradient(
-                    177.24deg
-            ,#e85335 2.29%,#a41414 97.7%);
+    background: linear-gradient(177.24deg, #e85335 2.29%, #a41414 97.7%);
   }
 }

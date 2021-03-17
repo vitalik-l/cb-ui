@@ -25,4 +25,4 @@ export const TradeButton = (props: Props) => {
 TradeButton.defaultProps = {
   align: 'right',
   color: 'green',
-}
+};
