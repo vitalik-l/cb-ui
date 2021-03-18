@@ -4,8 +4,10 @@ $prefix: WfMobile;
   @return $prefix + $name;
 }
 
+$Story: cln('Story');
 $MobileLayout: cln('MobileLayout');
 
 :export {
+  Story: $Story;
   MobileLayout: $MobileLayout;
 }
