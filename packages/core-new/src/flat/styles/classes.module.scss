@@ -19,6 +19,7 @@ $MenuItemButton: cln('MenuItemButton');
 $IconButton: cln('IconButton');
 $TradeButton: cln('TradeButton');
 $Overlay: cln('Overlay');
+$PopoverPanel: cln('PopoverPanel');
 
 :export {
   Story: $Story;
@@ -35,4 +36,5 @@ $Overlay: cln('Overlay');
   MenuContent: $MenuContent;
   TradeButton: $TradeButton;
   Overlay: $Overlay;
+  PopoverPanel: $PopoverPanel;
 }
