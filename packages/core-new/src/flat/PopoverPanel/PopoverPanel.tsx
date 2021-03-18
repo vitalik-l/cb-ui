@@ -5,11 +5,16 @@ import clsx from 'clsx';
 import { Overlay } from '../Overlay';
 import styles from './PopoverPanel.module.scss';
 
+type ClassesType = {
+  arrowLeft?: any;
+  arrowRight?: any;
+};
+
 type Props = {
   className?: string;
   onClose?: any;
   right?: boolean;
-  classes?: any;
+  classes?: ClassesType;
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export const PopoverPanel = (props: Props) => {
@@ -19,8 +24,8 @@ export const PopoverPanel = (props: Props) => {
     <Overlay onClick={onClose}>
       <div
         className={clsx(styles.PopoverPanel, className, {
-          [classes.arrowLeft]: !right,
-          [classes.arrowRight]: right,
+          [classes?.arrowLeft]: !right,
+          [classes?.arrowRight]: right,
         })}
         {...restProps}
       />
@@ -30,4 +35,4 @@ export const PopoverPanel = (props: Props) => {
 
 PopoverPanel.defaultProps = {
   classes: styles,
-}
+};

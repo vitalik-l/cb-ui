@@ -10,7 +10,7 @@ const story = createStory({
   component: Header,
   style: {
     background: '#000',
-  }
+  },
 });
 
 export const Template: Story = () => (

@@ -16,15 +16,9 @@ export const Header = (props: Props) => {
 
   return (
     <div className={clsx(styles.Header, className)}>
-      <div className={styles.item}>
-        {leftContent}
-      </div>
-      <div className={clsx(styles.item, styles.itemCenter)}>
-        {centerContent}
-      </div>
-      <div className={clsx(styles.item, styles.itemRight)}>
-        {rightContent}
-      </div>
+      <div className={styles.item}>{leftContent}</div>
+      <div className={clsx(styles.item, styles.itemCenter)}>{centerContent}</div>
+      <div className={clsx(styles.item, styles.itemRight)}>{rightContent}</div>
     </div>
   );
 };

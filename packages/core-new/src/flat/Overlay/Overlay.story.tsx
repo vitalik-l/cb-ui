@@ -16,11 +16,7 @@ export const Template: Story = () => {
   return (
     <div>
       <button onClick={() => setOpen(true)}>Show</button>
-      {open && (
-        <Overlay onClick={() => setOpen(false)}>
-          Overlay opened
-        </Overlay>
-      )}
+      {open && <Overlay onClick={() => setOpen(false)}>Overlay opened</Overlay>}
     </div>
   );
 };

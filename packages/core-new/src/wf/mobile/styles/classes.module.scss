@@ -1,0 +1,11 @@
+$prefix: WfMobile;
+
+@function cln($name) {
+  @return $prefix + $name;
+}
+
+$MobileLayout: cln('MobileLayout');
+
+:export {
+  MobileLayout: $MobileLayout;
+}
