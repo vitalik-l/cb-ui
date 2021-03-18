@@ -1,0 +1,23 @@
+@use '../styles/classes.module' as *;
+
+:global {
+  $bodyBg: #090A0F;
+
+  .#{$Root} {
+    body {
+      font-size: 1rem;
+      background: $bodyBg;
+      color: white;
+      font-family: IBM Plex Sans;
+      overflow: auto;
+      touch-action: manipulation; // to disable double tap zoom on IOS
+    }
+  }
+
+  .#{$AppLayout} {
+    background: $bodyBg;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+}

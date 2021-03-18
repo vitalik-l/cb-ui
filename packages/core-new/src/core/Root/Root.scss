@@ -4,6 +4,10 @@
   font-size: 10px;
   height: 100%;
 
+  &.ios.iframe {
+    position: fixed;
+  }
+
   body {
     font-size: 1.6rem;
     padding: 0 !important;

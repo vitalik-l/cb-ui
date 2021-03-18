@@ -37,7 +37,7 @@ export const Viewport = (props: ViewportProps) => {
     baseFontSize,
     baseHeight = 0,
     baseWidth = 0,
-    maxFontSize,
+    maxFontSize = 10,
     minFontSize,
     className,
     ...divProps
