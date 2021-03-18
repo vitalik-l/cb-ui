@@ -1,6 +1,11 @@
 import React from 'react';
 
-export const createStoryFactory = ({ titlePrefix = '', defaultStyle = {}, className = '' }) => {
+export const createStoryFactory = ({
+  titlePrefix = '',
+  defaultStyle = {},
+  className = '',
+  ...parameters
+}) => {
   const StoryContainer = ({ children }: any) => {
     React.useLayoutEffect(() => {
       document.documentElement.classList.add(className);
@@ -29,6 +34,7 @@ export const createStoryFactory = ({ titlePrefix = '', defaultStyle = {}, classN
   const createStory = ({ title, storyContainer = true, style = {}, ...params }: any) => ({
     title: `${titlePrefix}${title}`,
     decorators: applyDecorators(storyContainer, style),
+    ...parameters,
     ...params,
   });
 

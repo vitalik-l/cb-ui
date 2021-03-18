@@ -1,45 +1,16 @@
-import React from 'react';
-
 // local files
+import { createStoryFactory } from './createStoryFactory';
 import classes from './styles/classes.module.scss';
 import './styles/Styles.story.scss';
 
-export const StoryContainer = ({ children }: any) => {
-  React.useLayoutEffect(() => {
-    document.documentElement.classList.add(classes.Story);
-
-    return () => {
-      document.documentElement.classList.remove(classes.Story);
-    };
-  }, []);
-
-  return children;
-};
-
-export const decorators = [(Story: any) => <StoryContainer>{Story()}</StoryContainer>];
-
-const applyDecorators = (storyContainer: boolean, style: any) => {
-  const result = [];
-  if (storyContainer) {
-    result.push(...decorators);
-  }
-  if (style) {
-    result.push((Story: any) => (
-      <div style={style}>
-        <Story />
-      </div>
-    ));
-  }
-  return result;
-};
-
-export const createStory = ({ title, storyContainer = true, style = {}, ...params }: any) => ({
-  title: `core/${title}`,
+const { createStory } = createStoryFactory({
+  titlePrefix: 'core/',
+  className: classes.Story,
   parameters: {
     backgrounds: {
       default: 'light',
     },
   },
-  decorators: applyDecorators(storyContainer, style),
-  ...params,
 });
+
+export { createStory };
