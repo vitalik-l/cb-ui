@@ -7,10 +7,11 @@ import styles from './AppLayout.module.scss';
 
 type Props = ViewportProps & {
   className?: string;
+  header?: React.ReactNode;
 };
 
 export const AppLayout = (props: Props) => {
-  const { className, ...viewportProps } = props;
+  const { className, header, ...viewportProps } = props;
 
   React.useLayoutEffect(() => {
     document.documentElement.classList.add(styles.Root);
@@ -22,7 +23,9 @@ export const AppLayout = (props: Props) => {
 
   return (
     <Viewport {...viewportProps}>
-      <div className={clsx(styles.AppLayout, className)} />
+      <div className={clsx(styles.AppLayout, className)}>
+        {header}
+      </div>
     </Viewport>
   );
 };

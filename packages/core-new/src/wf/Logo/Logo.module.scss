@@ -1,0 +1,13 @@
+@use '../../core/styles/mixins' as *;
+@use '../styles/classes.module' as *;
+
+:global(.#{$Logo}) {
+  font-size: 27.1em;
+  background: url(img/logo.png) no-repeat center center;
+  background-size: contain;
+  @include pxSizeToEm(261, 69);
+}
+
+.small {
+  font-size: 12.8em;
+}
