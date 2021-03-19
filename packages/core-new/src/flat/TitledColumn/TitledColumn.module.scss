@@ -1,0 +1,19 @@
+@use '../styles/classes.module' as *;
+
+:global(.#{$TitledColumn}) {
+  padding: 0.5rem;
+}
+
+.title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0.8;
+  text-transform: uppercase;
+}
+
+.value {
+  font-family: Roboto;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-top: 0.2rem;
+}
