@@ -1,10 +1,10 @@
 import React from 'react';
 import clsx from 'clsx';
 import { Table, usePagination, useSortBy, HeaderCell } from 'cb-datatable';
+import 'cb-datatable/styles/core.scss';
 
 // local files
-import classes from '../styles/classes.module.scss';
-import './DataTable.scss';
+import styles from './DataTable.module.scss';
 
 export type DataTableProps = {
   className?: string;
@@ -19,6 +19,7 @@ export type DataTableProps = {
   pager?: any;
   stickyHeader?: boolean;
   row?: any;
+  header?: any;
 };
 
 export const DataTable = (props: DataTableProps) => {
@@ -31,8 +32,8 @@ export const DataTable = (props: DataTableProps) => {
   });
 
   return (
-    <div className={clsx(classes.DataTable, className)}>
-      <div className={`${classes.DataTable}-table-wrap`}>
+    <div className={clsx(styles.DataTable, className)}>
+      <div className={styles.table}>
         <Table
           data={dataPerPage}
           headerCell={<HeaderCell sortable={sortable} {...sorting} />}

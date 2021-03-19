@@ -1,0 +1,17 @@
+@use '../styles/classes.module' as *;
+@use '../styles/variables' as *;
+
+:global {
+  .#{$Table} {
+    .cb-TableCell {
+      &:nth-child(n + 2) {
+        border-left: 1px solid $borderColor;
+      }
+    }
+  }
+}
+
+.bordered {
+  border: 1px solid $borderColor;
+  box-sizing: border-box;
+}
