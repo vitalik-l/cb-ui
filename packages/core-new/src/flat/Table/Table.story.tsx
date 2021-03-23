@@ -12,9 +12,7 @@ const story = createStory({
 });
 
 export const Template: Story = (args) => (
-  <Table {...args} data={[
-    {ticket: 1, amount: 2, profit: 3},
-  ]}>
+  <Table {...args} data={[{ ticket: 1, amount: 2, profit: 3 }]}>
     <TitledColumn title="ticket" source="ticket" />
     <TitledColumn title="amount" source="amount" />
     <TitledColumn title="profit" source="profit" />

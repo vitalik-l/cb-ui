@@ -11,5 +11,11 @@ type Props = {
 export const Logo = React.forwardRef((props: Props, ref: any) => {
   const { className, small, ...restProps } = props;
 
-  return <div className={clsx(styles.Logo, className, {[styles.small]: small})} {...restProps} ref={ref} />;
+  return (
+    <div
+      className={clsx(styles.Logo, className, { [styles.small]: small })}
+      {...restProps}
+      ref={ref}
+    />
+  );
 });

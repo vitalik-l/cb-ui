@@ -7,15 +7,17 @@ import { createStory } from '../createStory';
 import { AppLayout } from './index';
 import { Header } from '../../../flat/Header';
 import { IconButton } from '../../../flat/IconButton';
-import { MenuIcon } from '../../../flat/icons';
+import { CircleMenuIcon, MenuIcon } from '../../../flat/icons';
 import { Logo } from '../../Logo';
+import { ChartLayout } from '../ChartLayout';
+import {TradeRow} from '../TradeRow';
 
 const story = createStory({
   title: 'AppLayout',
   component: AppLayout,
 });
 
-export const Template: Story = (args) => (
+export const Template: Story = () => (
   <Root>
     <AppLayout
       header={
@@ -25,10 +27,22 @@ export const Template: Story = (args) => (
               <MenuIcon />
             </IconButton>
           }
-          centerContent={
-            <Logo small />
+          centerContent={<Logo small />}
+        />
+      }
+      chart={
+        <ChartLayout
+          menuButton={
+            <IconButton>
+              <CircleMenuIcon />
+            </IconButton>
           }
         />
+      }
+      controls={
+        <div>
+          <TradeRow />
+        </div>
       }
     />
   </Root>

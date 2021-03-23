@@ -16,12 +16,8 @@ export const TitledColumn = (props: Props) => {
 
   return (
     <div className={clsx(styles.TitledColumn, className)}>
-      <div className={styles.title}>
-        {title}
-      </div>
-      <div className={styles.value}>
-        {value}
-      </div>
+      <div className={styles.title}>{title}</div>
+      <div className={styles.value}>{value || '-'}</div>
     </div>
   );
 };

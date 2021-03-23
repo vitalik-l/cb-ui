@@ -12,5 +12,11 @@ type Props = DataTableProps & {
 export const Table = (props: Props) => {
   const { className, bordered, ...restProps } = props;
 
-  return <DataTable header={false} className={clsx(styles.Table, className, {[styles.bordered]: bordered})} {...restProps} />;
+  return (
+    <DataTable
+      header={false}
+      className={clsx(styles.Table, className, { [styles.bordered]: bordered })}
+      {...restProps}
+    />
+  );
 };

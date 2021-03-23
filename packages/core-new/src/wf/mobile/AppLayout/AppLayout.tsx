@@ -10,10 +10,11 @@ type Props = ViewportProps & {
   header?: React.ReactNode;
   chart?: React.ReactNode;
   controls?: React.ReactNode;
+  children?: React.ReactNode;
 };
 
 export const AppLayout = (props: Props) => {
-  const { className, header, chart, controls, ...viewportProps } = props;
+  const { className, header, chart, controls, children, ...viewportProps } = props;
 
   React.useLayoutEffect(() => {
     document.documentElement.classList.add(styles.Root);
@@ -27,12 +28,9 @@ export const AppLayout = (props: Props) => {
     <Viewport {...viewportProps}>
       <div className={clsx(styles.AppLayout, className)}>
         {header}
-        <div className={styles.chart}>
-          {chart}
-        </div>
-        <div className={styles.controls}>
-          {controls}
-        </div>
+        <div className={styles.chart}>{chart}</div>
+        <div className={styles.controls}>{controls}</div>
+        {children}
       </div>
     </Viewport>
   );

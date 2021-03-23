@@ -1,0 +1,15 @@
+@use '../styles/classes.module' as *;
+
+:global(.#{$TradeRow}) {
+  height: 4rem;
+  border: .1rem solid #2e2e2e;
+  border-radius: .5rem;
+  color: #fff;
+  width: 100%;
+}
+
+.noDataLabel {
+  text-transform: uppercase;
+  font-weight: 500;
+  opacity: .8;
+}

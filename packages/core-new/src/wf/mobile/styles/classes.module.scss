@@ -7,9 +7,13 @@ $prefix: WfMobile;
 $Root: $prefix;
 $Story: cln('Story');
 $AppLayout: cln('AppLayout');
+$ChartLayout: cln('ChartLayout');
+$TradeRow: cln('TradeRow');
 
 :export {
   Root: $Root;
   Story: $Story;
   AppLayout: $AppLayout;
+  ChartLayout: $ChartLayout;
+  TradeRow: $TradeRow;
 }

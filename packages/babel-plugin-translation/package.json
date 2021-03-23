@@ -1,0 +1,16 @@
+{
+  "name": "@cb-general/babel-plugin-translation",
+  "version": "1.0.7",
+  "main": "index.js",
+  "license": "MIT",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "build": "babel ./src --out-dir ./lib"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0"
+  }
+}
