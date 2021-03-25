@@ -59,14 +59,14 @@ exports.default = function({ types: t }) {
       CallExpression(path, state) {
         if (stopParse) return;
         const options = state.opts;
-        const fnName = options.fnName || 't';
+        const fnNames = options.fnNames || ['t', 'toTrans', 'trans'];
         const node = path.node;
         const stringArg = node.arguments[0];
         const defaultString = node.arguments[1];
         if (!langFilePath) {
           langFilePath = options.langFilePath;
         }
-        if (node.callee.name === fnName && stringArg && t.isStringLiteral(stringArg) && stringArg.value) {
+        if (!!~fnNames.indexOf(node.callee.name) && stringArg && t.isStringLiteral(stringArg) && stringArg.value) {
           if (!needWrite) {
             try {
               const raw = fs.readFileSync(langFilePath);

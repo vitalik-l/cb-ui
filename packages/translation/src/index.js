@@ -39,3 +39,6 @@ export const useTranslation = (langStrings = {}) => {
 
   return { t };
 };
+
+export const trans = (...args) => args[0];
+export const toTrans = (...args) => args[0];

@@ -1,0 +1,29 @@
+$prefix: Cg;
+
+@function cln($name) {
+  @return $prefix + $name;
+}
+
+$Root: $prefix;
+$Story: cln('Story');
+$Drawer: cln('Drawer');
+$Menu: cln('Menu');
+$MenuHeader: cln('MenuHeader');
+$MenuHeaderButton: cln('MenuHeaderButton');
+$MenuContent: cln('MenuContent');
+$MenuItem: cln('MenuItem');
+$MenuItemButton: cln('MenuItemButton');
+$IconButton: cln('IconButton');
+
+:export {
+  Root: $Root;
+  Story: $Story;
+  Drawer: $Drawer;
+  Menu: $Menu;
+  MenuHeader: $MenuHeader;
+  MenuHeaderButton: $MenuHeaderButton;
+  MenuContent: $MenuContent;
+  MenuItem: $MenuItem;
+  MenuItemButton: $MenuItemButton;
+  IconButton: $IconButton;
+}

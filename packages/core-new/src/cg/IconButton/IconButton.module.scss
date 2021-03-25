@@ -2,4 +2,10 @@
 
 :global(.#{$IconButton}) {
   font-size: 1.8rem;
+  padding: 1rem;
+  margin: -1rem;
+
+  &:active {
+    opacity: 0.8;
+  }
 }

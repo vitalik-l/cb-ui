@@ -1,0 +1,13 @@
+@use '../styles/classes.module' as *;
+
+:global(.#{$MenuItem}) {
+  font-size: 1em;
+  font-family: Raleway;
+  min-height: 5rem;
+  display: flex;
+  align-items: center;
+  padding: min(15px, 1.5rem) min(19px, 1.9rem) min(15px, 1.5rem) min(1.6rem, 16px);
+  box-sizing: border-box;
+  border-bottom: min(0.1rem, 1px) solid #262626;
+  width: 100%;
+}

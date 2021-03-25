@@ -1,0 +1,8 @@
+@use '../styles/classes.module' as *;
+
+:global(.#{$Menu}) {
+  display: flex;
+  flex-direction: column;
+  background: #141721;
+  color: white;
+}
