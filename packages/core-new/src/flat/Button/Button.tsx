@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { ButtonBase } from '@cb-general/core/ButtonBase';
 
 // local files
-import styles from './FlatButton.module.scss';
+import styles from './Button.module.scss';
 
 export const Button = (props: any) => {
   const { className, variant = 'contained', color, ...buttonProps } = props;
