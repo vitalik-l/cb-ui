@@ -1,8 +1,17 @@
 @use '../styles/classes.module' as *;
+@use '../styles/variables' as *;
 
 :global(.#{$MenuHeaderButton}) {
   font-weight: 500;
   font-family: Raleway;
+
+  &:hover {
+    color: $colorGreen;
+  }
+
+  &:active {
+    opacity: 0.8;
+  }
 }
 
 .label {

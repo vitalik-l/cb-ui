@@ -1,0 +1,7 @@
+@use '../styles/classes.module' as *;
+
+:global(.#{$MenuContent}) {
+  flex: 1;
+  min-height: 1px;
+  overflow: auto;
+}
