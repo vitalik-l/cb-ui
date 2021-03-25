@@ -10,8 +10,8 @@ export const NavIcon = (props: Props) => {
 
   return (
     <SvgIcon
-      width="10"
-      height="18"
+      width="0.55em"
+      height="1em"
       viewBox="0 0 10 18"
       style={
         back

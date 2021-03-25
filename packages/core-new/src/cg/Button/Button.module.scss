@@ -1,0 +1,65 @@
+@use '../styles/classes.module' as *;
+@use '../styles/variables' as *;
+
+:global(.#{$Button}) {
+  border-radius: min(5px, 0.5rem);
+  padding: 1rem 1.5rem;
+  text-align: center;
+  font-family: IBM Plex Sans;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.2em;
+  line-height: 1;
+  color: white;
+
+  &:active {
+    opacity: 0.8;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.contained {
+  background: linear-gradient(180deg, #42434E 0%, #3B3B3B 100%);
+}
+
+.outlined {
+  color: #5b5b5b;
+  border: 1px solid #5b5b5b;
+
+  &:active {
+    color: white;
+    border-color: white;
+    opacity: 1;
+  }
+}
+
+.green {
+  &.contained {
+    background: linear-gradient(180deg, #01F77B 0%, #01BD5E 100%);
+  }
+
+  &.outlined {
+    &:active {
+      color: $colorGreen;
+      border-color: $colorGreen;
+    }
+  }
+}
+
+.red {
+  &.contained {
+    background: linear-gradient(180deg, #EA3586 0%, #942256 100%);
+  }
+}
+
+.withIcon {
+  justify-content: space-between;
+}
+
+.icon {
+  margin-left: 1rem;
+  display: inline-flex;
+}
