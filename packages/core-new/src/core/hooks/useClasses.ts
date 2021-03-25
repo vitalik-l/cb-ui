@@ -2,8 +2,8 @@ import React from 'react';
 import clsx from 'clsx';
 
 type Props = {
-  classes: any;
-  classNamePrefix: string;
+  classes?: any;
+  classNamePrefix?: string;
 };
 
 export const useClasses = <T>(values: T, props: Props): { root: string } & T => {
