@@ -87,3 +87,27 @@
   font-style: normal;
   font-display: fallback;
 }
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('../fonts/IBMPlexSans/ibmplexsans-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('../fonts/IBMPlexSans/ibmplexsans-medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('../fonts/IBMPlexSans/ibmplexsans-bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: fallback;
+}

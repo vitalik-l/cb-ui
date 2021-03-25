@@ -1,1 +1,9 @@
 @use "../variables" as *;
+
+.color-green {
+  color: $colorGreen;
+}
+
+.color-red {
+  color: $colorRed;
+}

@@ -7,3 +7,40 @@
     width: #{1/ ($height/$width)}em;
   }
 }
+
+@function css-function( $function, $values... ) {
+  @return
+          $function
+		+ unquote( '(' )
+		+ $values
+		+ unquote( ')' )
+;
+}
+
+@function css-min( $values... ) {
+  @return css-function( min, $values );
+}
+
+@function css-max( $values... ) {
+  @return css-function( max, $values );
+}
+
+@function css-clamp( $values... ) {
+  @return css-function( clamp, $values );
+}
+
+@function toEm($value) {
+  @if ($value > 0) {
+    @return css-min(#{$value}px, #{$value/10}em);
+  } @else {
+    @return css-max(#{$value}px, #{$value/10}em);
+  }
+}
+
+@function toRem($value) {
+  @if ($value > 0) {
+    @return css-min(#{$value}px, #{$value/10}rem);
+  } @else {
+    @return css-max(#{$value}px, #{$value/10}rem);
+  }
+}
