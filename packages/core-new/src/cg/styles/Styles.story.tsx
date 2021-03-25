@@ -9,9 +9,7 @@ const story = createStory({
   style: false,
 });
 
-export const Default: Story = () => (
-  <div />
-);
+export const Default: Story = () => <div />;
 Default.storyName = 'Styles';
 
 export default story;

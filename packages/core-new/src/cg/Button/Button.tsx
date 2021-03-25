@@ -18,11 +18,7 @@ export const Button = (props: any) => {
       {...buttonProps}
     >
       {children}
-      {icon &&
-        <div className={styles.icon}>
-          {icon}
-        </div>
-      }
+      {icon && <div className={styles.icon}>{icon}</div>}
     </ButtonBase>
   );
 };

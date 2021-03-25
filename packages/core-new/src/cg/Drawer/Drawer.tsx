@@ -11,5 +11,5 @@ export type DrawerProps = {
 export const Drawer = (props: DrawerProps) => {
   const { className, open, ...restProps } = props;
 
-  return <div className={clsx(styles.Drawer, className, {[styles.open]: open})} {...restProps} />;
+  return <div className={clsx(styles.Drawer, className, { [styles.open]: open })} {...restProps} />;
 };

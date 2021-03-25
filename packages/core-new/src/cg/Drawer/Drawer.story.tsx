@@ -11,15 +11,17 @@ const story = createStory({
 });
 
 export const Template: Story = (args) => (
-  <div style={{
-    height: '100%',
-    width: '100%',
-    background: 'black',
-    position: 'absolute',
-    overflow: 'hidden',
-    top: 0,
-    left: 0,
-  }}>
+  <div
+    style={{
+      height: '100%',
+      width: '100%',
+      background: 'black',
+      position: 'absolute',
+      overflow: 'hidden',
+      top: 0,
+      left: 0,
+    }}
+  >
     <Drawer {...args} />
   </div>
 );

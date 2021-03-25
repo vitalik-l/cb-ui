@@ -23,4 +23,4 @@ export const TradeRow = (props: Props) => {
 
 TradeRow.defaultProps = {
   noDataLabel: 'no trades',
-}
+};

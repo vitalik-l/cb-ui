@@ -10,7 +10,7 @@ import { IconButton } from '../../../flat/IconButton';
 import { CircleMenuIcon, MenuIcon } from '../../../flat/icons';
 import { Logo } from '../../Logo';
 import { ChartLayout } from '../ChartLayout';
-import {TradeRow} from '../TradeRow';
+import { TradeRow } from '../TradeRow';
 
 const story = createStory({
   title: 'AppLayout',

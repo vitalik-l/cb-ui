@@ -4,7 +4,7 @@ import { Story } from '@storybook/react';
 // local files
 import { createStory } from '../createStory';
 import { Button } from './index';
-import {NavIcon} from '../icons';
+import { NavIcon } from '../icons';
 
 const story = createStory({
   title: 'Button',
@@ -34,12 +34,9 @@ const story = createStory({
 export const Template: Story = (args) => <Button {...args}>This is Button</Button>;
 Template.storyName = 'Button';
 export const WithIcon: Story = (args) => (
-  <Button
-    {...args}
-    icon={<NavIcon />}
-  >
+  <Button {...args} icon={<NavIcon />}>
     This is Button
   </Button>
-)
+);
 
 export default story;
