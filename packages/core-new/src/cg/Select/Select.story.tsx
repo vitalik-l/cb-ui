@@ -10,7 +10,14 @@ const story = createStory({
   component: Select,
 });
 
-export const Template: Story = (args) => <Select {...args} />;
+export const Template: Story = (args) => (
+  <Select {...args}>
+    <option>option 1</option>
+    <option>option 2</option>
+    <option>option 3</option>
+    <option>option 4</option>
+  </Select>
+);
 Template.storyName = 'Select';
 
 export default story;

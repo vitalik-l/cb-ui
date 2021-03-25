@@ -13,6 +13,7 @@ type Props = {
   autoWidth?: boolean;
   icon?: any;
   format?: any;
+  disabled?: boolean;
   classes?: {
     disabled?: string;
     invalid?: string;
@@ -37,6 +38,8 @@ export const Select = (props: Props) => {
     defaultValue,
     onChange,
     format,
+    classes: classesProp,
+    classNamePrefix,
     ...selectOptions
   } = props;
   const [value, setValue] = useControlled({
