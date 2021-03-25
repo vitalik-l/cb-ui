@@ -13,7 +13,15 @@ type Props = {
   autoWidth?: boolean;
   icon?: any;
   format?: any;
-  classes?: any;
+  classes?: {
+    disabled?: string;
+    invalid?: string;
+    fullWidth?: string;
+    autoWidth?: string;
+    value?: string;
+    selectItem?: string;
+    icon?: string;
+  };
   classNamePrefix?: string;
 } & React.SelectHTMLAttributes<HTMLSelectElement>;
 
