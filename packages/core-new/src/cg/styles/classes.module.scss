@@ -16,6 +16,7 @@ $MenuItemButton: cln('MenuItemButton');
 $IconButton: cln('IconButton');
 $Input: cln('Input');
 $Button: cln('Button');
+$Select: cln('Select');
 
 :export {
   Root: $Root;
@@ -30,4 +31,5 @@ $Button: cln('Button');
   IconButton: $IconButton;
   Input: $Input;
   Button: $Button;
+  Select: $Select;
 }
