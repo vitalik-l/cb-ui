@@ -16,15 +16,29 @@ export const Template: Story = (args) => {
 
   const onChange = (event: any) => {
     setValue(event.target.value);
-  }
+  };
 
   return (
     <form>
-      <Radio {...args} classes={styles} name="radio" value="value1" checked={value === 'value1'} onChange={onChange} />
-      <Radio {...args} classes={styles} name="radio" value="value2" checked={value === 'value2'} onChange={onChange} />
+      <Radio
+        {...args}
+        classes={styles}
+        name="radio"
+        value="value1"
+        checked={value === 'value1'}
+        onChange={onChange}
+      />
+      <Radio
+        {...args}
+        classes={styles}
+        name="radio"
+        value="value2"
+        checked={value === 'value2'}
+        onChange={onChange}
+      />
     </form>
   );
-}
+};
 Template.storyName = 'Radio';
 
 export default story;

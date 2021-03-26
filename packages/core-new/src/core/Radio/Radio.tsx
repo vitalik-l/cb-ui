@@ -19,7 +19,17 @@ type Props = {
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
 export const Radio = (props: Props) => {
-  const { className, checked: checkedProp, defaultChecked, classes, inputRef, disabled, onChange, checkedIcon, ...inputProps } = props;
+  const {
+    className,
+    checked: checkedProp,
+    defaultChecked,
+    classes,
+    inputRef,
+    disabled,
+    onChange,
+    checkedIcon,
+    ...inputProps
+  } = props;
   const [checked, setChecked] = useControlled({
     controlled: checkedProp,
     default: Boolean(defaultChecked),
@@ -28,7 +38,6 @@ export const Radio = (props: Props) => {
 
   const handleInputChange = (event: any) => {
     const newChecked = event.target.checked;
-    console.log(newChecked);
     setChecked(newChecked);
     if (onChange) {
       onChange(event);
@@ -37,7 +46,13 @@ export const Radio = (props: Props) => {
 
   return (
     <ButtonBase
-      className={clsx(styles.Radio, classes?.root, className, checked && classes?.checked, disabled && classes?.disabled)}
+      className={clsx(
+        styles.Radio,
+        classes?.root,
+        className,
+        checked && classes?.checked,
+        disabled && classes?.disabled,
+      )}
       component="span"
       tabIndex={null}
       role={undefined}
