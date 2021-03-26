@@ -15,6 +15,7 @@ type Props = {
   };
   inputRef?: any;
   checkedIcon?: React.ReactNode;
+  icon?: React.ReactNode;
   disabled?: boolean;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
@@ -27,6 +28,7 @@ export const Radio = (props: Props) => {
     inputRef,
     disabled,
     onChange,
+    icon,
     checkedIcon,
     ...inputProps
   } = props;
@@ -68,7 +70,7 @@ export const Radio = (props: Props) => {
         disabled={disabled}
         {...inputProps}
       />
-      {checked && checkedIcon}
+      {checked ? checkedIcon : icon}
     </ButtonBase>
   );
 };

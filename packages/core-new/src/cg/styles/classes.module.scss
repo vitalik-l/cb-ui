@@ -17,6 +17,7 @@ $IconButton: cln('IconButton');
 $Input: cln('Input');
 $Button: cln('Button');
 $Select: cln('Select');
+$Radio: cln('Radio');
 
 :export {
   Root: $Root;
@@ -32,4 +33,5 @@ $Select: cln('Select');
   Input: $Input;
   Button: $Button;
   Select: $Select;
+  Radio: $Radio;
 }

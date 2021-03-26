@@ -1,2 +1,2 @@
-export { Select } from './Select';
-export { Select as default } from './Select';
+export { Radio } from './Radio';
+export { Radio as default } from './Radio';

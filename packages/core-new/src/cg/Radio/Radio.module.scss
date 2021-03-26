@@ -1,0 +1,11 @@
+@use '../styles/classes.module' as *;
+@use '~@cb-general/core/styles/mixins' as *;
+
+.icon {
+  fill: none;
+  font-size: 2.5em;
+}
+
+:export {
+  root: $Radio;
+}
