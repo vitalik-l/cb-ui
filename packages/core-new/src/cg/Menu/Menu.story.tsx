@@ -6,6 +6,7 @@ import { createStory } from '../createStory';
 import { Menu, MenuHeader, MenuItemButton, MenuHeaderButton, MenuContent } from './';
 import { IconButton } from '../IconButton';
 import { CloseIcon } from '../icons';
+import {Select} from '../Select';
 
 const story = createStory({
   title: 'Menu',
@@ -42,5 +43,30 @@ export const Template: Story = (args) => (
   </Menu>
 );
 Template.storyName = 'Menu';
+
+export const Content: Story = () => {
+  return (
+    <Menu open>
+      <MenuHeader
+        closeButton={
+          <IconButton>
+            <CloseIcon />
+          </IconButton>
+        }
+      >
+        <MenuHeaderButton>Deposit / Withdraw</MenuHeaderButton>
+      </MenuHeader>
+      <MenuContent>
+        <form>
+          <label>Choose currency:</label>
+          <Select>
+            <option>Bitcoin</option>
+            <option>Ether</option>
+          </Select>
+        </form>
+      </MenuContent>
+    </Menu>
+  )
+}
 
 export default story;

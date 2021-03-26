@@ -1,6 +1,6 @@
 @use '../styles/classes.module' as *;
 
-.#{$ButtonBase} {
+:global(.#{$ButtonBase}) {
   font-size: 1em;
   display: inline-flex;
   align-items: center;
@@ -21,7 +21,7 @@
   box-sizing: border-box;
 
   &:disabled,
-  &_disabled {
+  .disabled {
     pointer-events: none;
   }
 }
