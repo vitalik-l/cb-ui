@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import { ButtonBase } from '@cb-general/core/ButtonBase';
 
 // local files
+import styles from './Radio.module.scss';
 import { useControlled } from '../hooks/useControlled';
 
 type Props = {
@@ -19,7 +20,7 @@ type Props = {
 
 export const Radio = (props: Props) => {
   const { className, checked: checkedProp, defaultChecked, classes, inputRef, disabled, onChange, checkedIcon, ...inputProps } = props;
-  const [value, setValue] = useControlled({
+  const [checked, setChecked] = useControlled({
     controlled: checkedProp,
     default: Boolean(defaultChecked),
     name: 'Radio',
@@ -27,7 +28,8 @@ export const Radio = (props: Props) => {
 
   const handleInputChange = (event: any) => {
     const newChecked = event.target.checked;
-    setValue(newChecked);
+    console.log(newChecked);
+    setChecked(newChecked);
     if (onChange) {
       onChange(event);
     }
@@ -35,23 +37,23 @@ export const Radio = (props: Props) => {
 
   return (
     <ButtonBase
-      className={clsx(classes?.root, className, value && classes?.checked, disabled && classes?.disabled)}
+      className={clsx(styles.Radio, classes?.root, className, checked && classes?.checked, disabled && classes?.disabled)}
       component="span"
       tabIndex={null}
       role={undefined}
     >
       <input
-        className={classes?.input}
+        className={clsx(styles.input, classes?.input)}
         ref={inputRef}
         tabIndex={0}
-        type="checkbox"
-        checked={value}
+        type="radio"
+        checked={checkedProp}
         onChange={handleInputChange}
         defaultChecked={defaultChecked}
         disabled={disabled}
         {...inputProps}
       />
-      {value && checkedIcon}
+      {checked && checkedIcon}
     </ButtonBase>
   );
 };
