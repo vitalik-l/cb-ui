@@ -19,6 +19,7 @@ $Select: cln('Select');
 $InfoPanel: cln('InfoPanel');
 $Tooltip: cln('Tooltip');
 $SvgIcon: cln('SvgIcon');
+$Radio: cln('Radio');
 
 :export {
   Story: $Story;
@@ -36,4 +37,5 @@ $SvgIcon: cln('SvgIcon');
   InfoPanel: $InfoPanel;
   Tooltip: $Tooltip;
   SvgIcon: $SvgIcon;
+  Radio: $Radio;
 }
