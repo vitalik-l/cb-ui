@@ -1,9 +1,13 @@
-@use '../styles/classes.module' as *;
+$root: CgMenuHeader;
 
-:global(.#{$MenuHeader}) {
+:global(.#{$root}) {
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-family: Raleway;
   font-size: 1.4em;
+}
+
+:export {
+  root: $root;
 }

@@ -4,7 +4,7 @@ import { styled } from '@cb-general/core/utils/styled';
 // local files
 import { Icon } from './Icon';
 import { CheckedIcon } from './CheckedIcon';
-import styles from './Radio.module.scss';
+import styles from './CgRadio.module.scss';
 
 export const Radio = styled(CoreRadio, styles);
 

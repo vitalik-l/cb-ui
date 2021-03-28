@@ -1,6 +1,6 @@
-@use '../styles/classes.module' as *;
+$root: CgDrawer;
 
-:global(.#{$Drawer}) {
+:global(.#{$root}) {
   height: 100%;
   position: absolute;
   top: 0;
@@ -14,4 +14,8 @@
 
 .open {
   transform: translateX(0);
+}
+
+:export {
+  root: $root;
 }

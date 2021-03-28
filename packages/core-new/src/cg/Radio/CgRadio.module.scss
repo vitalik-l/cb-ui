@@ -1,5 +1,6 @@
-@use '../styles/classes.module' as *;
 @use '~@cb-general/core/styles/mixins' as *;
+
+$root: CgRadio;
 
 .icon {
   fill: none;
@@ -7,5 +8,5 @@
 }
 
 :export {
-  root: $Radio;
+  root: $root;
 }

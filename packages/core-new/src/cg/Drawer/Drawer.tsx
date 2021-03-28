@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 
 // local files
-import styles from './Drawer.module.scss';
+import styles from './CgDrawer.module.scss';
 
 export type DrawerProps = {
   open?: boolean;
@@ -11,5 +11,5 @@ export type DrawerProps = {
 export const Drawer = (props: DrawerProps) => {
   const { className, open, ...restProps } = props;
 
-  return <div className={clsx(styles.Drawer, className, { [styles.open]: open })} {...restProps} />;
+  return <div className={clsx(styles.root, className, { [styles.open]: open })} {...restProps} />;
 };

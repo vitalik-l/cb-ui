@@ -1,7 +1,8 @@
-@use '../styles/classes.module' as *;
 @use '../styles/variables' as *;
 
-:global(.#{$Button}) {
+$root: CgButton;
+
+:global(.#{$root}) {
   border-radius: min(5px, 0.5rem);
   padding: 1rem 1.5rem;
   text-align: center;
@@ -62,4 +63,8 @@
 .icon {
   margin-left: 1rem;
   display: inline-flex;
+}
+
+:export {
+  root: $root;
 }

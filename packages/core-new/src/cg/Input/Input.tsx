@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 
 // local files
-import styles from './Input.module.scss';
+import styles from './CgInput.module.scss';
 
 export type InputProps = {
   inputRef?: React.RefObject<HTMLInputElement>;
@@ -26,7 +26,7 @@ export const Input = React.forwardRef((props: InputProps, ref: any) => {
 
   return (
     <div
-      className={clsx(styles.Input, className, {
+      className={clsx(styles.root, className, {
         [styles.fullWidth]: !!fullWidth,
       })}
       ref={ref}

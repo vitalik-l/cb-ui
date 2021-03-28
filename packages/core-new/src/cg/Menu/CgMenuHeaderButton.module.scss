@@ -1,7 +1,8 @@
-@use '../styles/classes.module' as *;
 @use '../styles/variables' as *;
 
-:global(.#{$MenuHeaderButton}) {
+$root: CgMenuHeaderButton;
+
+:global(.#{$root}) {
   font-weight: 500;
   font-family: Raleway;
 
@@ -16,4 +17,8 @@
 
 .label {
   margin-left: 0.5rem;
+}
+
+:export {
+  root: $root;
 }

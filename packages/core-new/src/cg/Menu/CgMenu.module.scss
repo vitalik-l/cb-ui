@@ -1,8 +1,12 @@
-@use '../styles/classes.module' as *;
+$root: CgMenu;
 
-:global(.#{$Menu}) {
+:global(.#{$root}) {
   display: flex;
   flex-direction: column;
   background: #141721;
   color: white;
+}
+
+:export {
+  root: $root;
 }
