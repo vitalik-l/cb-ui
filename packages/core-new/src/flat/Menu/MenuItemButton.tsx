@@ -13,11 +13,7 @@ export const MenuItemButton = (props: any) => {
   const classes = useClasses(styles, classesProp);
 
   return (
-    <MenuItem
-      component={ButtonBase}
-      className={clsx(classes.root, className)}
-      {...restProps}
-    >
+    <MenuItem component={ButtonBase} className={clsx(classes.root, className)} {...restProps}>
       {children}
       {!!icon && React.cloneElement(icon, { className: classes.icon })}
     </MenuItem>

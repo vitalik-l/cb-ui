@@ -1,6 +1,10 @@
-@use './classes.module' as *;
+$root: FlatStory;
 
-.#{$Story} {
+:global(.#{$root}) {
   @import '~@cb-general/core/styles/index';
   @import './index';
+}
+
+:export {
+  root: $root;
 }

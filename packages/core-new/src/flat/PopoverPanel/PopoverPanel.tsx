@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import {useClasses} from '@cb-general/core/hooks/useClasses';
+import { useClasses } from '@cb-general/core/hooks/useClasses';
 
 // local files
 import { Overlay } from '../Overlay';

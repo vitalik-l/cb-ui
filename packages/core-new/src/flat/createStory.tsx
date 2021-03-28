@@ -1,15 +1,14 @@
 import React from 'react';
 
 // local files
-import classes from './styles/classes.module.scss';
-import './styles/Styles.story.scss';
+import styles from './styles/StoryStyles.module.scss';
 
 export const StoryContainer = ({ children }: any) => {
   React.useLayoutEffect(() => {
-    document.documentElement.classList.add(classes.Story);
+    document.documentElement.classList.add(styles.root);
 
     return () => {
-      document.documentElement.classList.remove(classes.Story);
+      document.documentElement.classList.remove(styles.root);
     };
   }, []);
 
