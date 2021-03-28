@@ -3,24 +3,7 @@
 
 $root: CgInput;
 
-@mixin invalid {
-  border: 1px solid $colorRed;
-  background-color: rgba(234, 53, 134, 0.1);
-
-  &:focus {
-    border: 1px solid $colorRed;
-  }
-}
-
-.inputItem {
-  appearance: none;
-  outline: none;
-  width: auto;
-  max-width: 100%;
-  box-sizing: border-box;
-  position: relative;
-  resize: none;
-  border: none;
+.input {
   font-family: 'IBM Plex Sans', Arial, sans-serif;
   font-size: 1.3em;
   font-weight: 400;
@@ -33,24 +16,18 @@ $root: CgInput;
     border: 1px solid rgba(0, 133, 66, 1);
   }
 
-  &:invalid {
-    @include invalid;
+  &:invalid,
+  &.invalid {
+    border: 1px solid $colorRed;
+    background-color: rgba(234, 53, 134, 0.1);
+
+    &:focus {
+      border: 1px solid $colorRed;
+    }
   }
 
   &::placeholder {
     color: #94959a;
-  }
-}
-
-.invalid {
-  @include invalid;
-}
-
-.fullWidth {
-  width: 100%;
-
-  .inputItem {
-    width: 100%;
   }
 }
 

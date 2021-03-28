@@ -1,0 +1,26 @@
+@use '~@cb-general/core/styles/mixins' as *;
+
+$root: CoreInput;
+
+.input {
+  appearance: none;
+  outline: none;
+  width: auto;
+  max-width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  resize: none;
+  border: none;
+}
+
+.fullWidth {
+  width: 100%;
+
+  .input {
+    width: 100%;
+  }
+}
+
+:export {
+  root: $root;
+}

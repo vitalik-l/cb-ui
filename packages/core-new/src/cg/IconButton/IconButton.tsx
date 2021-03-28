@@ -1,4 +1,3 @@
-import React from 'react';
 import { ButtonBase } from '@cb-general/core/ButtonBase';
 import { styled } from '@cb-general/core/utils/styled';
 
