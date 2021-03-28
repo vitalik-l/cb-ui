@@ -1,6 +1,0 @@
-@use './classes.module' as *;
-
-.#{$Story} {
-  @import '~@cb-general/core/styles';
-  @import 'index';
-}

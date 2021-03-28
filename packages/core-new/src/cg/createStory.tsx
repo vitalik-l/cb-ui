@@ -1,11 +1,10 @@
 import { createStoryFactory } from '@cb-general/core/createStoryFactory';
-import classes from './styles/classes.module.scss';
-import './styles/Styles.story.scss';
+import styles from './styles/CgStory.module.scss';
 
 const { createStory } = createStoryFactory({
   titlePrefix: 'cg/',
   defaultStyle: { fontSize: '1rem' },
-  className: classes.Story,
+  className: styles.root,
 });
 
 export { createStory };
