@@ -9,8 +9,7 @@ import { ValueLabel } from './ValueLabel';
 import { useControlled } from '../hooks/useControlled';
 import { useEventCallback } from '../hooks/useEventCallback';
 import { useClasses } from '../hooks/useClasses';
-import { classOption } from '../utils/classes';
-import coreStyles from './CoreSlider.module.scss';
+import styles from './CoreSlider.module.scss';
 
 export type SliderProps = {
   className?: string;
@@ -530,55 +529,16 @@ export const Slider = React.forwardRef<any, any>((props, ref) => {
     ...axisProps[axis].leap(trackLeap),
   };
 
-  const classes = useClasses(
-    {
-      wrap: '-wrap',
-      /* Styles applied to the root element if `marks` is provided with at least one label. */
-      marked: '_marked',
-      /* Pseudo-class applied to the root element if `orientation="vertical"`. */
-      vertical: '_vertical',
-      /* Pseudo-class applied to the root and thumb element if `disabled={true}`. */
-      disabled: '_disabled',
-      /* Styles applied to the rail element. */
-      rail: '__rail',
-      /* Styles applied to the track element. */
-      track: '__track',
-      /* Styles applied to the track element if `track={false}`. */
-      trackFalse: '_track_false',
-      /* Styles applied to the track element if `track="inverted"`. */
-      trackInverted: '_track_inverted',
-      /* Styles applied to the thumb element. */
-      thumb: '-thumb',
-      thumbColor: '-thumb_color',
-      /* Pseudo-class applied to the thumb element if it's active. */
-      thumbActive: '-thumb_active',
-      /* Pseudo-class applied to the thumb element if keyboard focused. */
-      thumbFocus: '-thumb_focus',
-      /* Styles applied to the thumb label element. */
-      valueLabel: '-valueLabel',
-      /* Styles applied to the mark element. */
-      mark: '-mark',
-      /* Styles applied to the mark element if active (depending on the value). */
-      markActive: '-mark_active',
-      /* Styles applied to the mark label element. */
-      markLabel: '-mark__label',
-      /* Styles applied to the mark label element if active (depending on the value). */
-      markLabelActive: '-mark__label_active',
-      color: '_color',
-    },
-    props,
-  );
+  const classes = useClasses(styles, classesProp);
 
   return (
-    <div className={classes.wrap}>
+    <div className={clsx(className, classes.wrap)}>
       <Component
         ref={handleRef}
         className={clsx(
-          coreStyles.root,
           classes.root,
-          classOption(classes.color, color),
           {
-            [coreStyles.disabled]: disabled,
+            [classes[`color_${color}`]]: color,
             [classes.disabled]: disabled,
             [classes.marked]: marks.length > 0 && marks.some((mark: any) => mark.label),
             [classes.vertical]: orientation === 'vertical',
@@ -590,8 +550,8 @@ export const Slider = React.forwardRef<any, any>((props, ref) => {
         onMouseDown={handleMouseDown}
         {...other}
       >
-        <span className={clsx(coreStyles.rail, classes.rail)} />
-        <span className={clsx(coreStyles.track, classes.track)} style={trackStyle} />
+        <span className={classes.rail} />
+        <span className={classes.track} style={trackStyle} />
         <input value={values.join(',')} name={name} type="hidden" />
         {marks.map((mark: any, index: number) => {
           const percent = valueToPercent(mark.value, min, max);
@@ -656,16 +616,12 @@ export const Slider = React.forwardRef<any, any>((props, ref) => {
               disabled={disabled}
             >
               <ThumbComponent
-                className={clsx(
-                  coreStyles.thumb,
-                  classes.thumb,
-                  classOption(classes.thumbColor, color),
-                  {
-                    [classes.thumbActive]: active === index,
-                    [classes.disabled]: disabled,
-                    [classes.thumbFocus]: focusVisible === index,
-                  },
-                )}
+                className={clsx(classes.thumb, {
+                  [classes[`thumbColor_${color}`]]: color,
+                  [classes.thumbActive]: active === index,
+                  [classes.disabled]: disabled,
+                  [classes.thumbFocus]: focusVisible === index,
+                })}
                 tabIndex={disabled ? null : 0}
                 role="slider"
                 style={style}

@@ -4,7 +4,7 @@ import { Story } from '@storybook/react';
 // local files
 import { createStory } from '../createStory';
 import { Slider } from './index';
-import './Slider.story.scss';
+import styles from './StorySlider.module.scss';
 
 const story = createStory({
   title: 'Slider',
@@ -15,7 +15,7 @@ const story = createStory({
 });
 
 export const Default: Story = (args) => (
-  <Slider {...args} classNamePrefix="StorySlider" style={{ width: '15rem', marginLeft: '2em' }} />
+  <Slider {...args} classes={styles} style={{ width: '15rem', marginLeft: '2em' }} />
 );
 Default.storyName = 'Slider';
 

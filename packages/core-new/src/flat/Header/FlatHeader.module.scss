@@ -1,6 +1,6 @@
-@use '../styles/classes.module' as *;
+$root: FlatHeader;
 
-:global(.#{$Header}) {
+:global(.#{$root}) {
   font-size: 1em;
   display: flex;
   align-items: center;
@@ -24,4 +24,8 @@
 
 .itemRight {
   justify-content: flex-end;
+}
+
+:export {
+  root: $root;
 }

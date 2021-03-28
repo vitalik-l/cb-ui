@@ -3,9 +3,8 @@ import { FormField as CoreFormField } from '@cb-general/core/Form';
 
 // local files
 import { Label } from '../Label';
-import classes from '../styles/classes.module.scss';
-import './FormField.scss';
+import styles from './WkdFormField.module.scss';
 
 export const FormField = (props: any) => (
-  <CoreFormField Label={Label} classNamePrefix={classes.FormField} {...props} />
+  <CoreFormField Label={Label} classes={styles} {...props} />
 );

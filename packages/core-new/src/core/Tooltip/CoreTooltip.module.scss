@@ -1,0 +1,46 @@
+$root: CoreTooltip;
+
+@keyframes toTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  20% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes toBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  20% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+:global(.#{$root}) {
+  &.animate {
+    &.placement_top {
+      animation: toTop 0.7s 1;
+    }
+    &.placement_bottom {
+      animation: toBottom 0.7s 1;
+    }
+  }
+}
+
+:export {
+  root: $root;
+}

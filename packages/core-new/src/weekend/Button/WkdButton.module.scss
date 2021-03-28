@@ -1,8 +1,4 @@
-@use '../styles/classes.module' as *;
-@use '~@cb-general/core/styles/bem' as *;
-
-$root: $Button;
-$square: option($root, 'square');
+$root: WkdButton;
 
 :global {
   .#{$root} {
@@ -28,13 +24,12 @@ $square: option($root, 'square');
       color: #7aaf34;
     }
   }
+}
 
-  .#{$square} {
-    border-radius: min(0.4em, 4px);
-  }
+.square {
+  border-radius: min(0.4em, 4px);
 }
 
 :export {
   root: $root;
-  square: $square;
 }

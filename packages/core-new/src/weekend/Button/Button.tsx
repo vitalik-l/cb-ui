@@ -11,9 +11,9 @@ export const Button = (props: any) => {
   return (
     <ButtonBase
       className={clsx(styles.root, className, {
-        [`${styles.root}_variant_${variant}`]: !!variant,
-        [`${styles.root}_color_${color}`]: !!color,
-        [`${styles.square}`]: !!square,
+        [styles[`variant_${variant}`]]: !!variant,
+        [styles[`color_${color}`]]: !!color,
+        [styles.square]: !!square,
       })}
       {...restProps}
     />

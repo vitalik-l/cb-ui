@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 
 // local files
-import styles from './Header.module.scss';
+import styles from './FlatHeader.module.scss';
 
 type Props = {
   className?: string;
@@ -15,7 +15,7 @@ export const Header = (props: Props) => {
   const { className, leftContent, centerContent, rightContent } = props;
 
   return (
-    <div className={clsx(styles.Header, className)}>
+    <div className={clsx(styles.root, className)}>
       <div className={styles.item}>{leftContent}</div>
       <div className={clsx(styles.item, styles.itemCenter)}>{centerContent}</div>
       <div className={clsx(styles.item, styles.itemRight)}>{rightContent}</div>

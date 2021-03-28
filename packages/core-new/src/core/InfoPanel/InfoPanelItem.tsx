@@ -2,21 +2,30 @@ import React from 'react';
 import clsx from 'clsx';
 
 // local files
-import { Item as ItemClassName } from './InfoPanel.module.scss';
+import { useClasses } from '../hooks/useClasses';
+import styles from './CoreInfoPanelItem.module.scss';
+
+type ClassesProp = {
+  root?: string;
+  label?: string;
+  content?: string;
+};
 
 type Props = {
   className?: string;
   label?: React.ReactNode;
   children?: React.ReactNode;
+  classes?: ClassesProp;
 };
 
 export const InfoPanelItem = (props: Props) => {
-  const { className, label, children } = props;
+  const { className, label, children, classes: classesProp } = props;
+  const classes: ClassesProp = useClasses(styles, classesProp);
 
   return (
-    <div className={clsx(ItemClassName, className)}>
-      <div className={`${ItemClassName}__label`}>{label}</div>
-      <div className={`${ItemClassName}__content`}>{children}</div>
+    <div className={clsx(classes.root, className)}>
+      <div className={classes.label}>{label}</div>
+      <div className={classes.content}>{children}</div>
     </div>
   );
 };

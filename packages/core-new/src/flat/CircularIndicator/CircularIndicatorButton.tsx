@@ -14,7 +14,7 @@ export const CircularIndicatorButton = (props: Props) => {
   const { className, children, theme, color, ...restProps } = props;
 
   return (
-    <ButtonBase className={styles.CircularIndicatorButton} {...restProps}>
+    <ButtonBase className={styles.root} {...restProps}>
       <svg
         width="100%"
         height="100%"

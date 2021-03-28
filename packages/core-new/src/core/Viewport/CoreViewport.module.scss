@@ -1,0 +1,15 @@
+$root: CoreViewport;
+
+:global(.#{$root}) {
+  width: 100vw;
+  max-height: 100vh;
+  position: relative;
+}
+
+.animate {
+  transition: height 0.1s, maxWidth 0.1s;
+}
+
+:export {
+  root: $root;
+}

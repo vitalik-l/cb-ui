@@ -1,6 +1,6 @@
-@use '../styles/classes.module' as *;
+$root: FlatIconButton;
 
-:global(.#{$IconButton}) {
+:global(.#{$root}) {
   font-size: 1.8rem;
   padding: 1rem;
   margin: -1rem;
@@ -8,4 +8,8 @@
   &:active {
     opacity: 0.8;
   }
+}
+
+:export {
+  root: $root;
 }

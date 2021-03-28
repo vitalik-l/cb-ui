@@ -1,6 +1,6 @@
 // local files
-import { createContainer } from '@cb-general/core/utils/createContainer';
+import { styled } from '@cb-general/core/utils/styled';
 import classes from '../styles/classes.module.scss';
 import './Header.scss';
 
-export const Header = createContainer(classes.Header);
+export const Header = styled(classes.Header);

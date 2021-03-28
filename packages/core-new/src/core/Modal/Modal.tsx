@@ -4,8 +4,8 @@ import clsx from 'clsx';
 import Animate from 'rc-animate';
 
 // local files
-import styles from '../styles/classes.module.scss';
-import './Modal.scss';
+import { useClasses } from '../hooks/useClasses';
+import styles from './CoreModal.module.scss';
 
 export type ModalProps = {
   className?: string;
@@ -18,17 +18,12 @@ export type ModalProps = {
   transitionName?: string;
   transitionEnter?: boolean;
   transitionLeave?: boolean;
+  classes?: any;
 };
 
 const onModalClick = (event: any) => {
   event.preventDefault();
   event.stopPropagation();
-};
-
-const classes = {
-  modal: styles.Modal,
-  overlay: `${styles.Modal}-overlay`,
-  wrapper: `${styles.Modal}-wrapper`,
 };
 
 export const Modal = (props: ModalProps) => {
@@ -40,17 +35,19 @@ export const Modal = (props: ModalProps) => {
     open,
     portalTarget,
     animate = true,
-    transitionName = classes.modal,
+    transitionName = styles.root,
     transitionEnter,
     transitionLeave,
+    classes: classesProp,
   } = props;
   let animatedModal = null;
+  const classes = useClasses(styles, classesProp);
 
   const modal = open ? (
     <div className={clsx(classes.overlay, overlayClassName)} onClick={onOverlayClick}>
       <div className={classes.wrapper}>
         <div
-          className={clsx(classes.modal, className)}
+          className={clsx(classes.root, className)}
           onClick={onOverlayClick ? onModalClick : undefined}
         >
           {children}

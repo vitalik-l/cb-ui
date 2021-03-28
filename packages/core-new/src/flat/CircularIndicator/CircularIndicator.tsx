@@ -76,7 +76,7 @@ export const CircularIndicator = (props: Props) => {
   }, [progress, reverse, animDuration]); /* eslint-disable-line react-hooks/exhaustive-deps */
 
   return (
-    <div className={clsx(styles.CircularIndicator, className)} {...restProps}>
+    <div className={clsx(styles.root, className)} {...restProps}>
       <svg
         width="100%"
         height="100%"

@@ -1,8 +1,12 @@
-@use '../styles/classes.module'  as *;
+$root: CoreSvgIcon;
 
-:global(.#{$SvgIcon}) {
+:global(.#{$root}) {
   fill: currentColor;
   display: inline-block;
   flex-shrink: 0;
   user-select: none;
+}
+
+:export {
+  root: $root;
 }

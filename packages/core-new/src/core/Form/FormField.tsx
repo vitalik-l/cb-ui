@@ -5,8 +5,8 @@ import clsx from 'clsx';
 // local files
 import { useFieldsLayout } from './useFieldsLayout';
 import { useIsFinalForm } from './useIsFinalForm';
-import rootClasses from '../styles/classes.module.scss';
-import formFieldClasses from './FormField.module.scss';
+import { useClasses } from '../hooks/useClasses';
+import styles from './CoreFormField.module.scss';
 
 const sanitizeFieldProps = ({ validate, ...props }: any) => props;
 
@@ -24,10 +24,14 @@ export const FormField = (props: any) => {
     showError = true,
     className,
     classNamePrefix,
+    classes: classesProp,
+    layout: layoutProp,
     ...fieldProps
   } = props;
   const { input = {}, meta = {} } = useIsFinalForm() ? useField(name, fieldProps) : {}; // eslint-disable-line
-  const layout = useFieldsLayout();
+  const fieldsLayout = useFieldsLayout();
+  const layout = layoutProp || fieldsLayout;
+  const isInline = layout === 'inline';
   const Component = component;
   const isDefaultComponent = typeof component === 'string';
   const errorMessage =
@@ -39,28 +43,17 @@ export const FormField = (props: any) => {
         invalid,
         fullWidth,
       };
-
-  const classes = React.useMemo(
-    () => ({
-      root: clsx(rootClasses.FormField, classNamePrefix),
-      item: clsx(formFieldClasses.Item, { [`${classNamePrefix}-item`]: !!classNamePrefix }),
-      label: clsx(formFieldClasses.Label, { [`${classNamePrefix}-label`]: !!classNamePrefix }),
-      control: clsx(formFieldClasses.Control, {
-        [`${classNamePrefix}-control`]: !!classNamePrefix,
-      }),
-      error: clsx(formFieldClasses.Error, { [`${classNamePrefix}-error`]: !!classNamePrefix }),
-    }),
-    [classNamePrefix],
-  );
+  const classes = useClasses(styles, classesProp);
+  const inlineClass = isInline ? classes?.inline : undefined;
 
   const content = (
     <>
-      <div className={clsx(classes.item, classes.label)}>
+      <div className={clsx(classes?.item, classes?.label, inlineClass)}>
         <Label htmlFor={id}>{label}</Label>
       </div>
       <div
-        className={clsx(classes.item, classes.control, {
-          [`${formFieldClasses.Control}_fullWidth`]: !!fullWidth,
+        className={clsx(classes?.item, classes?.control, inlineClass, {
+          [classes?.fullWidth]: !!fullWidth,
         })}
       >
         <Component
@@ -75,7 +68,7 @@ export const FormField = (props: any) => {
       {showError && invalid && (
         <>
           <div />
-          <div className={classes.error}>{errorMessage}</div>
+          <div className={clsx(classes?.error, inlineClass)}>{errorMessage}</div>
         </>
       )}
     </>
@@ -83,13 +76,7 @@ export const FormField = (props: any) => {
 
   if (layout !== 'inline') {
     return (
-      <div
-        className={clsx(classes.root, {
-          [`${rootClasses.FormField}_layout_${layout}`]: layout,
-        })}
-      >
-        {content}
-      </div>
+      <div className={clsx(classes?.root, layout && classes?.[`layout_${layout}`])}>{content}</div>
     );
   }
 

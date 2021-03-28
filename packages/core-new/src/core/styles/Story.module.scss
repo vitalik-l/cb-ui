@@ -1,0 +1,11 @@
+$root: CoreStory;
+
+:global {
+  .#{$root} {
+    @import 'index';
+  }
+}
+
+:export {
+  root: $root;
+}

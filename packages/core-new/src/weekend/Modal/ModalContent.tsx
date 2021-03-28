@@ -1,4 +1,4 @@
-import { createContainer } from '@cb-general/core/utils/createContainer';
+import { styled } from '@cb-general/core/utils/styled';
 import classes from '../styles/classes.module.scss';
 
-export const ModalContent = createContainer(`${classes.Modal}-content ${classes.Modal}-padding`);
+export const ModalContent = styled(`${classes.Modal}-content ${classes.Modal}-padding`);

@@ -11,4 +11,4 @@ export const Radio = styled(CoreRadio, styles);
 Radio.defaultProps = {
   icon: <Icon className={styles.icon} />,
   checkedIcon: <CheckedIcon className={styles.icon} />,
-}
+};

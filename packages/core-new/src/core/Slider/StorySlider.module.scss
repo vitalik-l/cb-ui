@@ -4,8 +4,10 @@
   $thumbSize: 1em,
 );
 
-@include dimensions();
-
-.#{$root} {
+:global(.#{$root}) {
   color: green;
+}
+
+:export {
+  root: $root;
 }

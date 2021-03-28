@@ -1,6 +1,6 @@
 // local files
-import { createContainer } from '@cb-general/core/utils/createContainer';
+import { styled } from '@cb-general/core/utils/styled';
 import classes from '../styles/classes.module.scss';
 import './Panel.scss';
 
-export const Panel = createContainer(classes.Panel);
+export const Panel = styled(classes.Panel);

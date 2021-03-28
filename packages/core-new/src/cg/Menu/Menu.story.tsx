@@ -6,7 +6,7 @@ import { createStory } from '../createStory';
 import { Menu, MenuHeader, MenuItemButton, MenuHeaderButton, MenuContent } from './';
 import { IconButton } from '../IconButton';
 import { CloseIcon } from '../icons';
-import {Select} from '../Select';
+import { Select } from '../Select';
 
 const story = createStory({
   title: 'Menu',
@@ -66,7 +66,7 @@ export const Content: Story = () => {
         </form>
       </MenuContent>
     </Menu>
-  )
-}
+  );
+};
 
 export default story;

@@ -1,6 +1,6 @@
-@use '../styles/classes.module' as *;
+$root: FlatCircularIndicatorButton;
 
-:global(.#{$CircularIndicatorButton}) {
+:global(.#{$root}) {
   &:active {
     .eclipse {
       fill-opacity: 0.2;
@@ -30,4 +30,8 @@
   font-family: Source Sans Pro;
   font-weight: 700;
   font-size: 1.5em;
+}
+
+:export {
+  root: $root;
 }

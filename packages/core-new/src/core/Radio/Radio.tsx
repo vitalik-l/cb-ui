@@ -3,8 +3,9 @@ import clsx from 'clsx';
 import { ButtonBase } from '@cb-general/core/ButtonBase';
 
 // local files
-import styles from './Radio.module.scss';
 import { useControlled } from '../hooks/useControlled';
+import { useClasses } from '../hooks/useClasses';
+import styles from './CoreRadio.module.scss';
 
 type Props = {
   classes?: {
@@ -24,12 +25,12 @@ export const Radio = (props: Props) => {
     className,
     checked: checkedProp,
     defaultChecked,
-    classes,
     inputRef,
     disabled,
     onChange,
     icon,
     checkedIcon,
+    classes: classesProp,
     ...inputProps
   } = props;
   const [checked, setChecked] = useControlled({
@@ -46,10 +47,11 @@ export const Radio = (props: Props) => {
     }
   };
 
+  const classes = useClasses(styles, classesProp);
+
   return (
     <ButtonBase
       className={clsx(
-        styles.Radio,
         classes?.root,
         className,
         checked && classes?.checked,
@@ -60,7 +62,7 @@ export const Radio = (props: Props) => {
       role={undefined}
     >
       <input
-        className={clsx(styles.input, classes?.input)}
+        className={clsx(classes?.input)}
         ref={inputRef}
         tabIndex={0}
         type="radio"

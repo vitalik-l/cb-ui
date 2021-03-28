@@ -1,5 +1,5 @@
 // local files
-import { createContainer } from '@cb-general/core/utils/createContainer';
+import { styled } from '@cb-general/core/utils/styled';
 import tradingPanelStyles from './TradingPanel.module.scss';
 
-export const TradingPanelContent = createContainer(tradingPanelStyles.Content);
+export const TradingPanelContent = styled(tradingPanelStyles.Content);

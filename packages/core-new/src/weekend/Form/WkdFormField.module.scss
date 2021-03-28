@@ -1,0 +1,7 @@
+@use '../styles/variables' as *;
+@use '../styles/classes.module' as *;
+
+.error {
+  color: $colorOrange;
+  font-size: 0.9em;
+}

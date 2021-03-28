@@ -16,7 +16,7 @@ export const SvgIcon = (props: SvgIconProps) => {
       width="1em"
       height="1em"
       xmlns="http://www.w3.org/2000/svg"
-      className={clsx(styles.SvgIcon, className)}
+      className={clsx(styles.root, className)}
       {...restProps}
     />
   );

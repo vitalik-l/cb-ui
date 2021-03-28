@@ -1,7 +1,7 @@
-@use '../styles/classes.module' as *;
+$root: CoreDataTable;
 
 :global {
-  .#{$DataTable} {
+  .#{$root} {
     position: relative;
     width: 100%;
     height: 100%;
@@ -18,4 +18,8 @@
   flex: 1;
   overflow: auto;
   min-height: 1px;
+}
+
+:export {
+  root: $root;
 }

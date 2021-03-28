@@ -1,7 +1,7 @@
-import { createContainer } from '@cb-general/core/utils/createContainer';
+import { styled } from '@cb-general/core/utils/styled';
 
 // local files
 import classes from '../styles/classes.module.scss';
 import './ChartControls.scss';
 
-export const ChartControls = createContainer(classes.ChartControls);
+export const ChartControls = styled(classes.ChartControls);

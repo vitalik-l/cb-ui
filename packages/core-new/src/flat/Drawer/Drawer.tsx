@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 
 // local files
-import styles from './Drawer.module.scss';
+import styles from './FlatDrawer.module.scss';
 
 export type DrawerProps = {
   className?: string;

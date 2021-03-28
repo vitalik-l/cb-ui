@@ -1,0 +1,37 @@
+$root: CoreFormField;
+
+:global(.#{$root}) {
+  &.layout_stacked {
+    &:nth-child(n + 2) {
+      margin-top: min(1em, 10px);
+    }
+
+    .label {
+      margin-bottom: min(2px, 0.2em);
+    }
+  }
+}
+
+.inline {
+  &.item {
+    padding: min(0.8em, 8px) 0;
+  }
+
+  &.error {
+    margin-top: max(-0.8em, -8px);
+  }
+
+  &.label {
+    align-self: center;
+    text-align: right;
+    padding-right: min(1em, 10px);
+  }
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+:export {
+  root: $root;
+}

@@ -1,6 +1,6 @@
-@use '../styles/classes.module' as *;
+$root: CoreButtonBase;
 
-:global(.#{$ButtonBase}) {
+:global(.#{$root}) {
   font-size: 1em;
   display: inline-flex;
   align-items: center;
@@ -24,4 +24,8 @@
   .disabled {
     pointer-events: none;
   }
+}
+
+:export {
+  root: $root;
 }

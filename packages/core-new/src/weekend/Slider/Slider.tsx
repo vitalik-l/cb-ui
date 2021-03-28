@@ -1,9 +1,13 @@
-import React from 'react';
+import { Slider as CoreSlider, ValueLabel as CoreValueLabel } from '@cb-general/core/Slider';
+import { styled } from '@cb-general/core/utils/styled';
 
 // local files
-import { Slider as CoreSlider } from '@cb-general/core/Slider';
-import classes from './Slider.module.scss';
+import styles from './WkdSlider.module.scss';
+import valueLabelStyles from './WkdValueLabel.module.scss';
 
-export const Slider = (props: any) => {
-  return <CoreSlider classes={classes} valueLabelDisplay="on" {...props} />;
+const ValueLabel = styled(CoreValueLabel, valueLabelStyles);
+export const Slider = styled(CoreSlider, styles);
+Slider.defaultProps = {
+  valueLabelDisplay: 'on',
+  ValueLabelComponent: ValueLabel,
 };

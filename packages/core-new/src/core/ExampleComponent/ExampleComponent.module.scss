@@ -1,5 +1,9 @@
-@use '../styles/classes.module' as *;
+$root: ExampleComponent;
 
-:global(.#{$ExampleComponent}) {
+:global(.#{$root}) {
   // component styles
+}
+
+:export {
+  root: $root;
 }

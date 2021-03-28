@@ -4,7 +4,7 @@ import { Table, usePagination, useSortBy, HeaderCell } from 'cb-datatable';
 import 'cb-datatable/styles/core.scss';
 
 // local files
-import styles from './DataTable.module.scss';
+import styles from './CoreDataTable.module.scss';
 
 export type DataTableProps = {
   className?: string;
@@ -32,7 +32,7 @@ export const DataTable = (props: DataTableProps) => {
   });
 
   return (
-    <div className={clsx(styles.DataTable, className)}>
+    <div className={clsx(styles.root, className)}>
       <div className={styles.table}>
         <Table
           data={dataPerPage}

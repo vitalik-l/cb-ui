@@ -1,8 +1,4 @@
-@use '../styles/classes.module' as *;
-@use '~@cb-general/core/styles/bem' as *;
-
-$root: $Drawer;
-$open: option($root, 'open');
+$root: FlatDrawer;
 
 :global {
   .#{$root} {
@@ -15,13 +11,12 @@ $open: option($root, 'open');
     transition: transform 0.2s;
     z-index: 2;
   }
+}
 
-  .#{$open} {
-    transform: translateY(0);
-  }
+.open {
+  transform: translateY(0);
 }
 
 :export {
   root: $root;
-  open: $open;
 }

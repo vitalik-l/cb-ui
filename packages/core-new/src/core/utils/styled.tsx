@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import { useClasses } from '../hooks/useClasses';
 
 type Styles<T extends React.ElementType> =
   | ((props: React.ComponentProps<T>) => string | Array<any>)
@@ -24,11 +25,13 @@ export function styled(...args: any) {
   }
 
   return React.forwardRef((props: React.ComponentProps<typeof Component>, ref: any) => {
-    const { className, ...restProps } = props;
+    const { className, classes: classesProp, ...restProps } = props;
     const customProps: any = {};
+    const isClasses = typeof styles === 'object';
+    const classes = useClasses(isClasses ? styles : undefined, classesProp);
     let stylesToApply;
-    if (typeof styles === 'object') {
-      customProps.classes = styles;
+    if (isClasses) {
+      customProps.classes = classes;
     } else {
       stylesToApply = typeof styles === 'function' ? styles(props) : styles;
     }

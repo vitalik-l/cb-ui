@@ -3,10 +3,10 @@ import clsx from 'clsx';
 import { ButtonBase } from '@cb-general/core/ButtonBase';
 
 // local files
-import styles from './IconButton.module.scss';
+import styles from './FlatIconButton.module.scss';
 
 export const IconButton = (props: any) => {
   const { className, ...restProps } = props;
 
-  return <ButtonBase className={clsx(styles.IconButton, className)} {...restProps} />;
+  return <ButtonBase className={clsx(styles.root, className)} {...restProps} />;
 };

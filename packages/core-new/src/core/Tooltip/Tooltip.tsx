@@ -7,9 +7,8 @@ import { useControlled } from '../hooks/useControlled';
 import { useForkRef } from '../utils/useForkRef';
 import { useEventCallback } from '../hooks/useEventCallback';
 import { useIsFocusVisible } from '../hooks/useIsFocusVisible';
-import classes from '../styles/classes.module.scss';
-import tooltipStyles from './Tooltip.module.scss';
-import './Tooltip.scss';
+import styles from './CoreTooltip.module.scss';
+import { useClasses } from '../hooks/useClasses';
 
 let hystersisOpen = false;
 let hystersisTimer: any = null;
@@ -21,6 +20,17 @@ const composeEventHandler = (handler: any, eventHandler: any) => {
     }
     handler(event);
   };
+};
+
+type ClassesType = {
+  root?: string;
+  touch?: string;
+  animate?: string;
+  placement_top?: string;
+  placement_bottom?: string;
+  popper?: string;
+  popperInteractive?: string;
+  [key: string]: any;
 };
 
 export const Tooltip = React.forwardRef((props: any, ref: any) => {
@@ -47,6 +57,7 @@ export const Tooltip = React.forwardRef((props: any, ref: any) => {
     title,
     animate = true,
     TransitionProps,
+    classes: classesProp,
     ...other
   } = props;
   const [childNode, setChildNode] = React.useState<any>();
@@ -401,13 +412,13 @@ export const Tooltip = React.forwardRef((props: any, ref: any) => {
     };
   }, [arrowRef, PopperProps]);
 
+  const classes: ClassesType = useClasses(styles, classesProp);
+
   return (
     <React.Fragment>
       {React.cloneElement(children, childrenProps)}
       <Popper
-        className={clsx(tooltipStyles.Popper, {
-          [tooltipStyles.popperInteractive]: !disableInteractive,
-        })}
+        className={clsx(classes.popper, !disableInteractive && classes.popperInteractive)}
         placement={placement}
         anchorEl={
           followCursor
@@ -432,9 +443,9 @@ export const Tooltip = React.forwardRef((props: any, ref: any) => {
         popperOptions={popperOptions}
       >
         <div
-          className={clsx(classes.Tooltip, `${classes.Tooltip}_placement_${placement}`, {
-            [tooltipStyles.touch]: ignoreNonTouchEvents.current,
-            [tooltipStyles.animate]: animate,
+          className={clsx(classes.root, classes[`placement_${placement}`], {
+            [classes.touch as string]: ignoreNonTouchEvents.current,
+            [classes.animate as string]: animate,
           })}
         >
           {title}

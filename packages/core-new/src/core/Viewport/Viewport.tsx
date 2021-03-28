@@ -6,8 +6,7 @@ import { useWindowSize } from '../WindowResizeListener';
 import { useViewportByRatio, MinMax } from '../hooks/useViewportByRatio';
 import { useResponsiveFontSize } from '../hooks/useResponsiveFontSize';
 import { FontSizeContext } from './FontSizeContext';
-import classes from '../styles/classes.module.scss';
-import './Viewport.scss';
+import styles from './CoreViewport.module.scss';
 
 export type ViewportProps = {
   horizontal?: MinMax;
@@ -96,8 +95,8 @@ export const Viewport = (props: ViewportProps) => {
     <FontSizeContext.Provider value={fontSize}>
       <div
         ref={viewportRef}
-        className={clsx(classes.Viewport, className, {
-          [`${classes.Viewport}_animate`]: animate,
+        className={clsx(styles.root, className, {
+          [styles.animate]: animate,
         })}
         {...divProps}
       >

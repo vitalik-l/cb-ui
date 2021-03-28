@@ -4,7 +4,7 @@ import clsx from 'clsx';
 // local files
 import { useControlled } from '../hooks/useControlled';
 import { useClasses } from '../hooks/useClasses';
-import coreStyles from './Select.module.scss';
+import styles from './CoreSelect.module.scss';
 
 type Props = {
   className?: string;
@@ -15,6 +15,7 @@ type Props = {
   format?: any;
   disabled?: boolean;
   classes?: {
+    root?: string;
     disabled?: string;
     invalid?: string;
     fullWidth?: string;
@@ -23,7 +24,6 @@ type Props = {
     selectItem?: string;
     icon?: string;
   };
-  classNamePrefix?: string;
 } & React.SelectHTMLAttributes<HTMLSelectElement>;
 
 export const Select = (props: Props) => {
@@ -39,7 +39,6 @@ export const Select = (props: Props) => {
     onChange,
     format,
     classes: classesProp,
-    classNamePrefix,
     ...selectOptions
   } = props;
   const [value, setValue] = useControlled({
@@ -47,18 +46,7 @@ export const Select = (props: Props) => {
     default: defaultValue,
     name: 'Select',
   });
-  const classes = useClasses(
-    {
-      disabled: '_disabled',
-      invalid: '_invalid',
-      fullWidth: '_fullWidth',
-      autoWidth: '-autoWidth',
-      value: '__value',
-      selectItem: '__item',
-      icon: '__icon',
-    },
-    props,
-  );
+  const classes = useClasses(styles, classesProp);
 
   const handleChange = (event: any) => {
     setValue(event.target.value);
@@ -69,27 +57,25 @@ export const Select = (props: Props) => {
 
   return (
     <div
-      className={clsx(coreStyles.Select, className, classes.root, {
-        [clsx(coreStyles.disabled, classes.disabled)]: disabled,
-        [clsx(coreStyles.invalid, classes.invalid)]: invalid,
-        [clsx(coreStyles.fullWidth, classes.fullWidth)]: fullWidth,
-        [clsx(coreStyles.autoWidth, classes.autoWidth)]: autoWidth,
+      className={clsx(className, classes?.root, {
+        [classes?.disabled]: disabled,
+        [classes?.invalid]: invalid,
+        [classes?.fullWidth]: fullWidth,
+        [classes?.autoWidth]: autoWidth,
       })}
     >
       {autoWidth && (
-        <div className={clsx(coreStyles.value, classes.value)}>
-          {typeof format === 'function' ? format(value) : value}
-        </div>
+        <div className={classes?.value}>{typeof format === 'function' ? format(value) : value}</div>
       )}
       <select
-        className={clsx(coreStyles.selectItem, classes.selectItem)}
+        className={classes?.selectItem}
         disabled={disabled}
         value={value}
         onChange={handleChange}
         {...selectOptions}
       />
       {React.cloneElement(icon, {
-        className: clsx(coreStyles.icon, classes.icon),
+        className: classes?.icon,
         'aria-hidden': 'true',
       })}
     </div>

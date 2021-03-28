@@ -11,5 +11,5 @@ type Props = {
 export const ExampleComponent = (props: Props) => {
   const { className } = props;
 
-  return <div className={clsx(styles.ExampleComponent, className)} />;
+  return <div className={clsx(styles.root, className)} />;
 };
