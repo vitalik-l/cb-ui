@@ -1,11 +1,13 @@
 import React from 'react';
 import clsx from 'clsx';
+import {useClasses} from '@cb-general/core/hooks/useClasses';
 
 // local files
 import { Overlay } from '../Overlay';
-import styles from './PopoverPanel.module.scss';
+import styles from './FlatPopoverPanel.module.scss';
 
 type ClassesType = {
+  root?: string;
   arrowLeft?: any;
   arrowRight?: any;
 };
@@ -18,12 +20,13 @@ type Props = {
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export const PopoverPanel = (props: Props) => {
-  const { className, onClose, classes, right, ...restProps } = props;
+  const { className, onClose, classes: classesProp, right, ...restProps } = props;
+  const classes: ClassesType = useClasses(styles, classesProp);
 
   return (
     <Overlay onClick={onClose}>
       <div
-        className={clsx(styles.PopoverPanel, className, {
+        className={clsx(classes.root, className, {
           [classes?.arrowLeft]: !right,
           [classes?.arrowRight]: right,
         })}

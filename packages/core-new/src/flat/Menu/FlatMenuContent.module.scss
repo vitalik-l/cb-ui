@@ -1,7 +1,11 @@
-@use '../styles/classes.module' as *;
+$root: FlatMenuContent;
 
-:global(.#{$MenuContent}) {
+:global(.#{$root}) {
   flex: 1;
   min-height: 1px;
   overflow: auto;
+}
+
+:export {
+  root: $root;
 }

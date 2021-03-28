@@ -1,6 +1,6 @@
-@use '../styles/classes.module' as *;
+$root: FlatMenuItem;
 
-:global(.#{$MenuItem}) {
+:global(.#{$root}) {
   font-size: 1em;
   font-family: Roboto;
   min-height: 5rem;
@@ -10,4 +10,8 @@
   box-sizing: border-box;
   border-bottom: min(0.1rem, 1px) solid #262626;
   width: 100%;
+}
+
+:export {
+  root: $root;
 }

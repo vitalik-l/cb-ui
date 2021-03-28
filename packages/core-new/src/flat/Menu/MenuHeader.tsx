@@ -9,7 +9,7 @@ export const MenuHeader = (props: any) => {
   const { closeButton, children, className, ...restProps } = props;
 
   return (
-    <MenuItem className={clsx(styles.MenuHeader, className)} {...restProps}>
+    <MenuItem className={clsx(styles.root, className)} {...restProps}>
       <div>{children}</div>
       {closeButton}
     </MenuItem>

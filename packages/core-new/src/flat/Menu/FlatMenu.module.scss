@@ -1,8 +1,12 @@
-@use '../styles/classes.module' as *;
+$root: FlatMenu;
 
-:global(.#{$Menu}) {
+:global(.#{$root}) {
   display: flex;
   flex-direction: column;
   background: #000;
   color: white;
+}
+
+:export {
+  root: $root;
 }

@@ -1,8 +1,9 @@
-@use '../styles/classes.module' as *;
 @use '../styles/variables' as *;
 
+$root: FlatTable;
+
 :global {
-  .#{$Table} {
+  .#{$root} {
     .cb-TableCell {
       &:nth-child(n + 2) {
         border-left: 1px solid $borderColor;
@@ -14,4 +15,8 @@
 .bordered {
   border: 1px solid $borderColor;
   box-sizing: border-box;
+}
+
+:export {
+  root: $root;
 }

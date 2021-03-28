@@ -1,6 +1,6 @@
-@use '../styles/classes.module' as *;
+$root: FlatMenuItemButton;
 
-:global(.#{$MenuItemButton}) {
+:global(.#{$root}) {
   justify-content: space-between;
   font-weight: 600;
   font-size: 1.5em;
@@ -11,4 +11,8 @@
 .icon {
   width: 1.2em;
   height: 1.2em;
+}
+
+:export {
+  root: $root;
 }

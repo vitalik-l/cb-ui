@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 
 // local files
-import styles from './Overlay.module.scss';
+import styles from './FlatOverlay.module.scss';
 
 type Props = {
   className?: string;
@@ -13,7 +13,7 @@ export const Overlay = (props: Props) => {
   const { className, children, style, ...restProps } = props;
 
   return (
-    <div className={clsx(styles.Overlay, className)} style={style}>
+    <div className={clsx(styles.root, className)} style={style}>
       <div className={styles.clickable} {...restProps} />
       {children}
     </div>

@@ -14,5 +14,5 @@ export const MenuItem = (props: Props) => {
   const { component = 'div', className, ...restParams } = props;
   const Component = component;
 
-  return <Component className={clsx(styles.MenuItem, className)} {...restParams} />;
+  return <Component className={clsx(styles.root, className)} {...restParams} />;
 };

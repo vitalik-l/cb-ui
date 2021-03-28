@@ -1,10 +1,14 @@
-@use '../styles/classes.module' as *;
+$root: FlatMenuHeaderButton;
 
-:global(.#{$MenuHeaderButton}) {
+:global(.#{$root}) {
   font-weight: 500;
   font-family: Roboto;
 }
 
 .label {
   margin-left: 0.5rem;
+}
+
+:export {
+  root: $root;
 }

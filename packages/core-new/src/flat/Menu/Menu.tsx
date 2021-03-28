@@ -1,12 +1,7 @@
-import React from 'react';
-import clsx from 'clsx';
+import { styled } from '@cb-general/core/utils/styled';
 
 // local files
-import { Drawer, DrawerProps } from '../Drawer';
+import { Drawer } from '../Drawer';
 import styles from './FlatMenu.module.scss';
 
-export const Menu = (props: DrawerProps) => {
-  const { className, ...restProps } = props;
-
-  return <Drawer className={clsx(styles.Menu, className)} {...restProps} />;
-};
+export const Menu = styled(Drawer, styles);

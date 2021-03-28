@@ -1,4 +1,4 @@
-@use '../styles/classes.module' as *;
+$root: FlatPopoverPanel;
 
 @keyframes popover-appear {
   from {
@@ -13,7 +13,7 @@
   }
 }
 
-:global(.#{$PopoverPanel}) {
+:global(.#{$root}) {
   position: absolute;
   box-sizing: border-box;
   width: 100%;
@@ -46,4 +46,8 @@
   &:before {
     right: 4rem;
   }
+}
+
+:export {
+  root: $root;
 }

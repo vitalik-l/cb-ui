@@ -10,7 +10,7 @@ export const MenuHeaderButton = (props: any) => {
   const { className, children, ...restProps } = props;
 
   return (
-    <ButtonBase className={clsx(styles.MenuHeaderButton, className)} {...restProps}>
+    <ButtonBase className={clsx(styles.root, className)} {...restProps}>
       <NavIcon back className="size_1_8" />
       <div className={styles.label}>{children}</div>
     </ButtonBase>

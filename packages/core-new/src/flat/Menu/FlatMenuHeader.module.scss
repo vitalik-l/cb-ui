@@ -1,10 +1,14 @@
-@use '../styles/classes.module' as *;
+$root: FlatMenuHeader;
 
-:global(.#{$MenuHeader}) {
+:global(.#{$root}) {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: linear-gradient(180deg, #2d2d2d, rgba(45, 45, 45, 0));
   font-family: Roboto;
   font-size: 1.4em;
+}
+
+:export {
+  root: $root;
 }
