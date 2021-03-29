@@ -27,7 +27,11 @@ export const Template: Story = (args) => {
         value="value1"
         checked={value === 'value1'}
         onChange={onChange}
-      />
+        icon={<div className={styles.icon} />}
+        checkedIcon={<div className={styles.checkedIcon} />}
+      >
+        Radio 1
+      </Radio>
       <Radio
         {...args}
         classes={styles}
@@ -35,7 +39,11 @@ export const Template: Story = (args) => {
         value="value2"
         checked={value === 'value2'}
         onChange={onChange}
-      />
+        icon={<div className={styles.icon} />}
+        checkedIcon={<div className={styles.checkedIcon} />}
+      >
+        Radio 2
+      </Radio>
     </form>
   );
 };

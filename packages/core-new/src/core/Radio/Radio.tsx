@@ -13,6 +13,7 @@ type Props = {
     checked?: string;
     disabled?: string;
     input?: string;
+    label?: string;
   };
   inputRef?: any;
   checkedIcon?: React.ReactNode;
@@ -31,6 +32,7 @@ export const Radio = (props: Props) => {
     icon,
     checkedIcon,
     classes: classesProp,
+    children,
     ...inputProps
   } = props;
   const [checked, setChecked] = useControlled({
@@ -52,17 +54,17 @@ export const Radio = (props: Props) => {
   return (
     <ButtonBase
       className={clsx(
-        classes?.root,
+        classes.root,
         className,
-        checked && classes?.checked,
-        disabled && classes?.disabled,
+        checked && classes.checked,
+        disabled && classes.disabled,
       )}
       component="span"
       tabIndex={null}
       role={undefined}
     >
       <input
-        className={clsx(classes?.input)}
+        className={clsx(classes.input)}
         ref={inputRef}
         tabIndex={0}
         type="radio"
@@ -73,6 +75,11 @@ export const Radio = (props: Props) => {
         {...inputProps}
       />
       {checked ? checkedIcon : icon}
+      {!!children &&
+        <div className={classes.label}>
+          {children}
+        </div>
+      }
     </ButtonBase>
   );
 };

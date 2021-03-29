@@ -19,7 +19,6 @@ export const FormField = (props: any) => {
     component = 'input',
     error,
     id,
-    children,
     fullWidth,
     showError = true,
     className,
@@ -59,7 +58,6 @@ export const FormField = (props: any) => {
         <Component
           placeholder={placeholder}
           id={id}
-          children={children}
           {...sanitizeFieldProps(fieldProps)}
           {...input}
           {...customProps}
