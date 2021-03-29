@@ -1,4 +1,4 @@
-@import '../styles/classes.module';
+$root: WkdChip;
 
 @font-face {
   font-family: 'Chip';
@@ -13,40 +13,28 @@
     background-image: url('#{$imgPath}/green.#{$extension}');
   }
 
-  &.v1,
-  &.v1000,
-  &.#{$Chip}_color_white {
+  &.color_white {
     background-image: url('#{$imgPath}/white.#{$extension}');
   }
 
-  &.v5,
-  &.v500,
-  &.v5000,
-  &.#{$Chip}_color_green {
+  &.color_green {
     background-image: url('#{$imgPath}/green.#{$extension}');
   }
 
-  &.v10,
-  &.v10000,
-  &.#{$Chip}_color_red {
+  &.color_red {
     background-image: url('#{$imgPath}/red.#{$extension}');
   }
 
-  &.v25,
-  &.v25000,
-  &.#{$Chip}_color_blue {
+  &.color_blue {
     background-image: url('#{$imgPath}/blue.#{$extension}');
   }
 
-  &.v100,
-  &.v100000,
-  &.v500000,
-  &.#{$Chip}_color_black {
+  &.color_black {
     background-image: url('#{$imgPath}/black.#{$extension}');
   }
 }
 
-.#{$Chip} {
+:global(.#{$root}) {
   outline: 0;
   width: 6em;
   height: 6em;
@@ -65,31 +53,35 @@
   align-items: center;
   font-size: 1rem;
 
-  &_size_large {
-    font-size: 1.35rem;
-
-    @include chips('./img/80');
-  }
-
-  &-content {
-    font-size: 1.7em;
-
-    &_font_s {
-      font-size: 1.3em;
-    }
-
-    &_font_xs {
-      font-size: 1em;
-    }
-  }
-
   @include chips();
+}
 
-  .webp & {
+:global(.webp .#{$root}) {
+  @include chips('./img', 'webp');
+
+  &.size_large {
     @include chips('./img', 'webp');
-
-    &.#{$Chip}_size_large {
-      @include chips('./img', 'webp');
-    }
   }
+}
+
+.size_large {
+  font-size: 1.35rem;
+
+  @include chips('./img/80');
+}
+
+.content {
+  font-size: 1.7em;
+
+  .font_s {
+    font-size: 1.3em;
+  }
+
+  .font_xs {
+    font-size: 1em;
+  }
+}
+
+:export {
+  root: $root;
 }

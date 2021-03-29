@@ -1,12 +1,6 @@
-@use '../styles/classes.module' as components;
+$root: WkdChartControls;
 
-@function cln($name) {
-  @return components.$ChartControls + '-' + $name;
-}
-
-$Separator: cln('Separator');
-
-.#{components.$ChartControls} {
+:global(.#{$root}) {
   font-size: 1rem;
   min-height: 5.5rem;
   height: 5.5rem;
@@ -20,7 +14,7 @@ $Separator: cln('Separator');
   width: 100%;
 }
 
-.#{$Separator} {
+.separator {
   height: 80%;
   width: min(0.1em, 1px);
   border-left: min(0.1em, 1px) solid #161519;
@@ -30,5 +24,5 @@ $Separator: cln('Separator');
 }
 
 :export {
-  Separator: $Separator;
+  root: $root;
 }

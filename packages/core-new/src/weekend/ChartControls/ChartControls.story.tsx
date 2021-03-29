@@ -27,7 +27,7 @@ export const ChartControlsTemplate: Story = (args) => (
       <Button>TICK</Button>
       <Button>M1</Button>
     </ButtonGroup>
-    <div className={chartControlsStyles.Separator} />
+    <div className={chartControlsStyles.separator} />
     <ButtonGroup>
       <Button>
         <PointerIcon />
@@ -39,7 +39,7 @@ export const ChartControlsTemplate: Story = (args) => (
         <PauseIcon />
       </Button>
     </ButtonGroup>
-    <div className={chartControlsStyles.Separator} />
+    <div className={chartControlsStyles.separator} />
     <ButtonGroup>
       <Button>
         <ZoomInIcon />
@@ -48,7 +48,7 @@ export const ChartControlsTemplate: Story = (args) => (
         <ZoomOutIcon />
       </Button>
     </ButtonGroup>
-    <div className={chartControlsStyles.Separator} />
+    <div className={chartControlsStyles.separator} />
     <ButtonGroup>
       <Button>
         <IndicatorIcon />

@@ -2,8 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 
 // local files
-import classes from '../styles/classes.module.scss';
-import './Chip.scss';
+import styles from './WkdChip.module.scss';
 
 type Props = {
   className?: string;
@@ -17,16 +16,16 @@ export const Chip = (props: Props) => {
 
   return (
     <div
-      className={clsx(classes.Chip, className, {
-        [`${classes.Chip}_color_${color}`]: !!color,
-        [`${classes.Chip}_size_large`]: large,
+      className={clsx(styles.root, className, {
+        [styles[`color_${color}`]]: !!color,
+        [styles.size_large]: large,
       })}
     >
       {typeof value !== 'object' && (
         <span
-          className={clsx(`${classes.Chip}-content`, {
-            [`${classes.Chip}-content_font_s`]: value.toString().length > 4,
-            [`${classes.Chip}-content_font_xs`]: value.toString().length > 6,
+          className={clsx(styles.content, {
+            [styles.font_s]: value.toString().length > 4,
+            [styles.font_xs]: value.toString().length > 6,
           })}
         >
           {value}

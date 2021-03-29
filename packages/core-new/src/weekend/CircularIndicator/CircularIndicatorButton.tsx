@@ -3,7 +3,7 @@ import clsx from 'clsx';
 
 // local files
 import { ButtonBase } from '@cb-general/core/ButtonBase';
-import classes from '../styles/classes.module.scss';
+import styles from './WkdCircularIndicatorButton.module.scss';
 
 type Props = {
   className?: string;
@@ -16,9 +16,7 @@ export const CircularIndicatorButton = (props: Props) => {
 
   return (
     <ButtonBase
-      className={clsx(`${classes.CircularIndicator}-button`, className, {
-        [`${classes.CircularIndicator}-button_color_${color}`]: !!color,
-      })}
+      className={clsx(styles.root, className, !!color && styles[`color_${color}`])}
       {...restProps}
     >
       {children}

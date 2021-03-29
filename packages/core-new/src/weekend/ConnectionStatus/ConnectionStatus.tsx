@@ -2,8 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 
 // local files
-import classes from '../styles/classes.module.scss';
-import './ConnectionStatus.scss';
+import styles from './WkdConnectionStatus.module.scss';
 
 type Props = {
   className?: string;
@@ -11,13 +10,12 @@ type Props = {
 };
 
 export const ConnectionStatus = (props: Props) => {
-  const { className, online } = props;
+  const { className, online, ...restProps } = props;
 
   return (
     <div
-      className={clsx(classes.ConnectionStatus, className, {
-        [`${classes.ConnectionStatus}_online`]: online,
-      })}
+      className={clsx(styles.root, className, online && styles.online)}
+      {...restProps}
     />
   );
 };

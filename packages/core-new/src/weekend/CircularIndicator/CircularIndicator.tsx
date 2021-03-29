@@ -5,8 +5,7 @@ import { animate } from '@cb-general/core/utils/animate';
 // local files
 import { imageUpGradient } from './imageUpGradient';
 import { imageDownGradient } from './imageDownGradient';
-import classes from '../styles/classes.module.scss';
-import './CircularIndicator.scss';
+import styles from './WkdCircularIndicator.module.scss';
 
 type Props = {
   className?: string;
@@ -54,7 +53,7 @@ export const CircularIndicator = (props: Props) => {
   }, [animDuration, targetProgress]); // eslint-disable-line
 
   return (
-    <div className={clsx(classes.CircularIndicator, className)} {...restProps}>
+    <div className={clsx(styles.root, className)} {...restProps}>
       <svg height="100%" width="100%" viewBox="0 0 190 190">
         <defs>
           <pattern
@@ -81,7 +80,7 @@ export const CircularIndicator = (props: Props) => {
               width="100%"
               height="100%"
               href={imageDownGradient}
-              className={clsx({ [`${classes.CircularIndicator}-reverse`]: reverse })}
+              className={clsx({ [styles.reverse]: reverse })}
             />
           </pattern>
         </defs>
@@ -94,7 +93,7 @@ export const CircularIndicator = (props: Props) => {
           ref={indicatorRef}
         />
       </svg>
-      <div className={`${classes.CircularIndicator}-content`}>{children}</div>
+      <div className={styles.content}>{children}</div>
     </div>
   );
 };

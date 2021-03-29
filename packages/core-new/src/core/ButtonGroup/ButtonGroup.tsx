@@ -1,6 +1,12 @@
 import React from 'react';
 import clsx from 'clsx';
 
+type ClassesType = {
+  root?: string;
+  grouped?: string;
+  selected?: string;
+}
+
 export type ButtonGroupProps = {
   className?: string;
   color?: string;
@@ -8,12 +14,12 @@ export type ButtonGroupProps = {
   children?: React.ReactNode;
   onChange?: (value: any) => void;
   value?: any;
-  classNamePrefix?: string;
   disabled?: boolean;
+  classes?: ClassesType;
 };
 
 export const ButtonGroup = (props: ButtonGroupProps) => {
-  const { className, classNamePrefix, children, color, variant, onChange, value, disabled } = props;
+  const { className, children, color, variant, onChange, value, disabled, classes } = props;
 
   const childrenItems = React.Children.map(children, (child, childIndex) => {
     if (!React.isValidElement(child)) {
@@ -40,12 +46,10 @@ export const ButtonGroup = (props: ButtonGroupProps) => {
       variant,
       disabled,
       onClick: handleClick,
-      className: clsx(`${classNamePrefix}-grouped`, childClassName, {
-        [`${classNamePrefix}-grouped_selected`]: selected,
-      }),
+      className: clsx(classes?.grouped, childClassName, selected && classes?.selected),
       ...childProps,
     });
   });
 
-  return <div className={clsx(classNamePrefix, className)}>{childrenItems}</div>;
+  return <div className={clsx(classes?.root, className)}>{childrenItems}</div>;
 };

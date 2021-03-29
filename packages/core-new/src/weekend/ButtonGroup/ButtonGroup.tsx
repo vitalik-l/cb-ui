@@ -1,10 +1,5 @@
-import React from 'react';
-import { ButtonGroupProps, ButtonGroup as CoreButtonGroup } from '@cb-general/core/ButtonGroup';
+import { styled } from '@cb-general/core/utils/styled';
+import { ButtonGroup as CoreButtonGroup } from '@cb-general/core/ButtonGroup';
+import styles from './WkdButtonGroup.module.scss';
 
-// local files
-import classes from '../styles/classes.module.scss';
-import './ButtonGroup.scss';
-
-export const ButtonGroup = (props: ButtonGroupProps) => {
-  return <CoreButtonGroup classNamePrefix={classes.ButtonGroup} {...props} />;
-};
+export const ButtonGroup = styled(CoreButtonGroup, styles);
