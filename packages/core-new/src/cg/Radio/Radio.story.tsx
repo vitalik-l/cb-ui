@@ -19,8 +19,12 @@ export const Template: Story = (args) => {
 
   return (
     <form>
-      <Radio name="radio" value="value1" checked={value === 'value1'} onChange={onChange} />
-      <Radio name="radio" value="value2" checked={value === 'value2'} onChange={onChange} />
+      <Radio name="radio" value="value1" checked={value === 'value1'} onChange={onChange}>
+        Radio 1
+      </Radio>
+      <Radio name="radio" value="value2" checked={value === 'value2'} onChange={onChange}>
+        Radio 2
+      </Radio>
     </form>
   );
 };
