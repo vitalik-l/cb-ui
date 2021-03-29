@@ -7,6 +7,8 @@ import { Menu, MenuHeader, MenuItemButton, MenuHeaderButton, MenuContent } from 
 import { IconButton } from '../IconButton';
 import { CloseIcon } from '../icons';
 import { Select } from '../Select';
+import { FormField } from '../../core/Form';
+import { SelectField } from '../Form/SelectField';
 
 const story = createStory({
   title: 'Menu',
@@ -58,11 +60,13 @@ export const Content: Story = () => {
       </MenuHeader>
       <MenuContent>
         <form>
-          <label>Choose currency:</label>
-          <Select>
+          <SelectField
+            label="Choose currency:"
+            fullWidth
+          >
             <option>Bitcoin</option>
             <option>Ether</option>
-          </Select>
+          </SelectField>
         </form>
       </MenuContent>
     </Menu>

@@ -1,8 +1,10 @@
 $root: CgStory;
 
-:global(.#{$root}) {
-  @import '~@cb-general/core/styles';
-  @import 'index';
+:global {
+  .#{$root} {
+    @import '~@cb-general/core/styles';
+    @import 'index';
+  }
 }
 
 :export {

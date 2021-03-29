@@ -1,0 +1,9 @@
+$root: CgLabel;
+
+:global(.#{$root}) {
+
+}
+
+:export {
+  root: $root;
+}

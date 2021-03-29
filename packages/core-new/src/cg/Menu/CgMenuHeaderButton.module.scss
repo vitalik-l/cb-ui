@@ -5,6 +5,7 @@ $root: CgMenuHeaderButton;
 :global(.#{$root}) {
   font-weight: 500;
   font-family: Raleway;
+  color: white;
 
   &:hover {
     color: $colorGreen;
