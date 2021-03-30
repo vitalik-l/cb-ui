@@ -1,5 +1,4 @@
 import React from 'react';
-import clsx from 'clsx';
 import { Form as FinalForm, FormProps } from 'react-final-form';
 
 // local files

@@ -7,10 +7,6 @@ import { Pager, pagerStrings } from './Pager';
 import classes from '../styles/classes.module.scss';
 import './DataTable.scss';
 
-type Props = DataTableProps & {
-  strings?: typeof pagerStrings;
-};
-
 export const DataTable = (props: any) => {
   const { className, strings, ...otherProps } = props;
 

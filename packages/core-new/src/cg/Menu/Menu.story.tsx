@@ -6,9 +6,8 @@ import { createStory } from '../createStory';
 import { Menu, MenuHeader, MenuItemButton, MenuHeaderButton, MenuContent } from './';
 import { IconButton } from '../IconButton';
 import { CloseIcon } from '../icons';
-import { Select } from '../Select';
 import { FormField } from '../../core/Form';
-import { SelectField } from '../Form/SelectField';
+import { SelectField } from '../Form';
 
 const story = createStory({
   title: 'Menu',

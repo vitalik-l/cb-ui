@@ -1,12 +1,16 @@
-@import '../styles/classes.module';
+$root: WkdTabs;
 
-.#{$Tabs} {
+:global(.#{$root}) {
   font-size: 1rem;
   border-bottom: 0.3em solid #e1cd45;
   box-shadow: 0 0.3em 0.3em -0.3em #111;
   box-sizing: border-box;
+}
 
-  .cb-Tabs {
-    margin-bottom: -0.3em;
-  }
+.tabs {
+  margin-bottom: -0.3em;
+}
+
+:export {
+  root: $root;
 }

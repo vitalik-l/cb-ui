@@ -3,15 +3,18 @@ import { Tabs as CoreTabs } from '@cb-general/core/Tabs';
 import clsx from 'clsx';
 
 // local files
-import classes from '../styles/classes.module.scss';
-import './Tabs.scss';
+import styles from './WkdTabs.module.scss';
+
+const tabsStyles = {
+  root: styles.tabs,
+}
 
 export const Tabs = (props: any) => {
   const { className, children, value, onChange, ...restProps } = props;
 
   return (
-    <div className={clsx(classes.Tabs, className)} {...restProps}>
-      <CoreTabs value={value} onChange={onChange} children={children} />
+    <div className={clsx(styles.root, className)} {...restProps}>
+      <CoreTabs value={value} onChange={onChange} children={children} classes={tabsStyles} />
     </div>
   );
 };
