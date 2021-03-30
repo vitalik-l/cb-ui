@@ -40,7 +40,15 @@ export const Input = React.forwardRef((props: InputProps, ref: any) => {
   const classes: ClassesType = useClasses(styles, classesProp);
 
   return (
-    <div className={clsx(classes.root, className, fullWidth && classes.fullWidth, button && classes.withButton)} ref={ref}>
+    <div
+      className={clsx(
+        classes.root,
+        className,
+        fullWidth && classes.fullWidth,
+        button && classes.withButton,
+      )}
+      ref={ref}
+    >
       <InputComponent
         className={clsx(classes.input, invalid && classes.invalid)}
         ref={inputRef}

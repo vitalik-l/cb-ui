@@ -4,7 +4,7 @@
 $root: CgInput;
 
 .input {
-  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-family: 'Source Sans Pro', Arial, sans-serif;
   font-size: 1.6em;
   font-weight: 400;
   color: white;
@@ -12,6 +12,7 @@ $root: CgInput;
   padding: toRem(12) toRem(13) toRem(16);
   border: toRem(1) solid transparent;
   border-radius: toRem(5);
+  min-height: 5rem;
 
   &:not(:read-only):focus {
     border: toRem(1) solid rgba(0, 133, 66, 1);

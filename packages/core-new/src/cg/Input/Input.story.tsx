@@ -13,6 +13,8 @@ const story = createStory({
 export const Template: Story = (args) => <Input {...args} />;
 Template.storyName = 'Input';
 
-export const WithButton: Story = (args) => <Input {...args} button={<InputButton>Copy</InputButton>} defaultValue="123" readOnly />;
+export const WithButton: Story = (args) => (
+  <Input {...args} button={<InputButton>Copy</InputButton>} defaultValue="123" readOnly />
+);
 
 export default story;
