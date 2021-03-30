@@ -4,8 +4,8 @@ import React from 'react';
 import {FormField, SelectField, TextField} from '../../Form';
 import {InputButton} from '../../Input';
 import { Button } from '../../Button';
-import styles from './index.module.scss';
 import {ArrowIcon} from '../../icons';
+import styles from './index.module.scss';
 
 export const DepositForm = () => {
   return (
@@ -38,7 +38,13 @@ export const DepositForm = () => {
         </span>
       </div>
       <div>
-        <Button color="green" className="w-100" large labelCenter icon={<ArrowIcon />}>
+        <Button
+          color="green"
+          className="w-100"
+          large
+          labelCenter
+          icon={<ArrowIcon />}
+        >
           Top up Now
         </Button>
       </div>

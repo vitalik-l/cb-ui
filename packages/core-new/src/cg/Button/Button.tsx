@@ -14,7 +14,7 @@ export const Button = (props: any) => {
         [styles[variant]]: variant,
         [styles[color]]: color,
         [styles.withIcon]: icon,
-        [styles[labelCenter]]: labelCenter,
+        [styles.labelCenter]: labelCenter,
         [styles.large]: large,
       })}
       {...buttonProps}

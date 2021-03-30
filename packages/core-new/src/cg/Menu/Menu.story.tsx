@@ -3,11 +3,9 @@ import { Story } from '@storybook/react';
 
 // local files
 import { createStory } from '../createStory';
-import { Menu, MenuHeader, MenuItemButton, MenuHeaderButton, MenuContent } from './';
+import {Menu, MenuHeader, MenuItemButton, MenuHeaderButton, MenuContent, MenuContentPadding} from './';
 import { IconButton } from '../IconButton';
 import { CloseIcon } from '../icons';
-import { FormField } from '../../core/Form';
-import { SelectField } from '../Form';
 import { DepositForm } from './DepositForm';
 import {Tab, Tabs} from '../Tabs';
 
@@ -59,12 +57,16 @@ export const Deposit: Story = () => {
       >
         <MenuHeaderButton>Deposit / Withdraw</MenuHeaderButton>
       </MenuHeader>
-      <MenuContent>
+      <MenuContentPadding>
         <Tabs>
           <Tab label="Deposit" selected />
           <Tab label="Withdraw" />
         </Tabs>
-        <DepositForm />
+      </MenuContentPadding>
+      <MenuContent>
+        <MenuContentPadding>
+          <DepositForm />
+        </MenuContentPadding>
       </MenuContent>
     </Menu>
   );

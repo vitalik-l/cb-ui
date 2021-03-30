@@ -1,5 +1,18 @@
 @use '~@cb-general/core/styles/mixins' as *;
 
+$root: CgFormField;
+
+:global(.#{$root}) {
+  &:nth-child(n + 2) {
+    margin-top: toRem(15);
+  }
+}
+
 .label {
   margin-bottom: toRem(5);
 }
+
+:export {
+  root: $root;
+}
+

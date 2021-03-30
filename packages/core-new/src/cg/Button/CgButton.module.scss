@@ -79,6 +79,10 @@ $root: CgButton;
   .label {
     text-align: center;
   }
+
+  .icon {
+    justify-content: flex-end;
+  }
 }
 
 :export {

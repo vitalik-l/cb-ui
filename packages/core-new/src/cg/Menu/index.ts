@@ -5,3 +5,4 @@ export { MenuItem } from './MenuItem';
 export { MenuItemButton } from './MenuItemButton';
 export { MenuHeaderButton } from './MenuHeaderButton';
 export { MenuContent } from './MenuContent';
+export { MenuContentPadding } from './MenuContentPadding';
