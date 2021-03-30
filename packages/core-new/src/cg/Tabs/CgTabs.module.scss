@@ -1,0 +1,9 @@
+$root: CgTabs;
+
+:global(.#{$root}) {
+  font-size: 1.5em;
+}
+
+:export {
+  root: $root;
+}
