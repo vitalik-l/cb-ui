@@ -1,4 +1,5 @@
 @use '../styles/variables' as *;
+@use '~@cb-general/core/styles/mixins' as *;
 
 $root: CgButton;
 
@@ -8,7 +9,7 @@ $root: CgButton;
   text-align: center;
   font-family: IBM Plex Sans;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 1.2em;
   line-height: 1;
   color: white;
@@ -63,6 +64,21 @@ $root: CgButton;
 .icon {
   margin-left: 1rem;
   display: inline-flex;
+}
+
+.large {
+  min-height: toRem(50);
+  font-size: 1.9em;
+}
+
+.labelCenter {
+  > :global(div) {
+    flex: 1;
+  }
+
+  .label {
+    text-align: center;
+  }
 }
 
 :export {

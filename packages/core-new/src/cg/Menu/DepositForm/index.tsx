@@ -38,7 +38,7 @@ export const DepositForm = () => {
         </span>
       </div>
       <div>
-        <Button color="green" className="size_1_9 w-100" icon={<ArrowIcon />}>
+        <Button color="green" className="w-100" large labelCenter icon={<ArrowIcon />}>
           Top up Now
         </Button>
       </div>

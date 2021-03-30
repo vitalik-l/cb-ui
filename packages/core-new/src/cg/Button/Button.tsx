@@ -6,7 +6,7 @@ import { ButtonBase } from '@cb-general/core/ButtonBase';
 import styles from './CgButton.module.scss';
 
 export const Button = (props: any) => {
-  const { className, variant = 'contained', color, icon, children, ...buttonProps } = props;
+  const { className, variant = 'contained', color, icon, children, labelCenter, large, ...buttonProps } = props;
 
   return (
     <ButtonBase
@@ -14,10 +14,15 @@ export const Button = (props: any) => {
         [styles[variant]]: variant,
         [styles[color]]: color,
         [styles.withIcon]: icon,
+        [styles[labelCenter]]: labelCenter,
+        [styles.large]: large,
       })}
       {...buttonProps}
     >
-      {children}
+      {labelCenter && <div />}
+      <div className={styles.label}>
+        {children}
+      </div>
       {icon && <div className={styles.icon}>{icon}</div>}
     </ButtonBase>
   );

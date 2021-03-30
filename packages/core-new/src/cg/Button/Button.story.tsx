@@ -25,6 +25,12 @@ const story = createStory({
         options: ['default', 'green', 'red'],
       },
     },
+    labelCenter: {
+      control: 'boolean',
+    },
+    large: {
+      control: 'boolean',
+    },
   },
   args: {
     variant: 'contained',
