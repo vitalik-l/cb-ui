@@ -4,7 +4,7 @@ $root: CgMenuHeaderButton;
 
 :global(.#{$root}) {
   font-weight: 500;
-  font-family: Raleway;
+  font-family: "IBM Plex Sans", Arial, Helvetica, sans-serif;
   color: white;
 
   &:hover {
@@ -17,7 +17,8 @@ $root: CgMenuHeaderButton;
 }
 
 .label {
-  margin-left: 0.5rem;
+  margin-left: 1.4rem;
+  margin-top: -0.2em; // fix IBM Plex Sans incorrect align
 }
 
 :export {
