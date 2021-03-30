@@ -10,6 +10,7 @@ type ClassesType = {
   input?: string;
   fullWidth?: string;
   invalid?: string;
+  withButton?: string;
 };
 
 export type InputProps = {
@@ -20,6 +21,7 @@ export type InputProps = {
   className?: string;
   fullWidth?: boolean;
   classes?: ClassesType;
+  button?: React.ReactNode;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
 export const Input = React.forwardRef((props: InputProps, ref: any) => {
@@ -31,19 +33,21 @@ export const Input = React.forwardRef((props: InputProps, ref: any) => {
     component: InputComponent,
     fullWidth,
     classes: classesProp,
+    button,
     ...inputProps
   } = props;
 
   const classes: ClassesType = useClasses(styles, classesProp);
 
   return (
-    <div className={clsx(classes.root, className, fullWidth && classes.fullWidth)} ref={ref}>
+    <div className={clsx(classes.root, className, fullWidth && classes.fullWidth, button && classes.withButton)} ref={ref}>
       <InputComponent
         className={clsx(classes.input, invalid && classes.invalid)}
         ref={inputRef}
         placeholder={placeholder}
         {...inputProps}
       />
+      {button}
     </div>
   );
 });

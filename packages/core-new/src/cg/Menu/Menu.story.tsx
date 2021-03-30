@@ -8,6 +8,8 @@ import { IconButton } from '../IconButton';
 import { CloseIcon } from '../icons';
 import { FormField } from '../../core/Form';
 import { SelectField } from '../Form';
+import { DepositForm } from './DepositForm';
+import {Tab, Tabs} from '../Tabs';
 
 const story = createStory({
   title: 'Menu',
@@ -45,7 +47,7 @@ export const Template: Story = (args) => (
 );
 Template.storyName = 'Menu';
 
-export const Content: Story = () => {
+export const Deposit: Story = () => {
   return (
     <Menu open>
       <MenuHeader
@@ -58,12 +60,11 @@ export const Content: Story = () => {
         <MenuHeaderButton>Deposit / Withdraw</MenuHeaderButton>
       </MenuHeader>
       <MenuContent>
-        <form>
-          <SelectField label="Choose currency:" fullWidth>
-            <option>Bitcoin</option>
-            <option>Ether</option>
-          </SelectField>
-        </form>
+        <Tabs>
+          <Tab label="Deposit" selected />
+          <Tab label="Withdraw" />
+        </Tabs>
+        <DepositForm />
       </MenuContent>
     </Menu>
   );

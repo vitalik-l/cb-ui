@@ -43,16 +43,16 @@ export const FormField = (props: any) => {
         fullWidth,
       };
   const classes = useClasses(styles, classesProp);
-  const inlineClass = isInline ? classes?.inline : undefined;
+  const inlineClass = isInline ? classes.inline : undefined;
 
   const content = (
     <>
-      <div className={clsx(classes?.item, classes?.label, inlineClass)}>
+      <div className={clsx(classes.item, classes.label, inlineClass)}>
         <Label htmlFor={id}>{label}</Label>
       </div>
       <div
-        className={clsx(classes?.item, classes?.control, inlineClass, {
-          [classes?.fullWidth]: !!fullWidth,
+        className={clsx(classes.item, classes.control, inlineClass, {
+          [classes.fullWidth]: !!fullWidth,
         })}
       >
         <Component
@@ -66,7 +66,7 @@ export const FormField = (props: any) => {
       {showError && invalid && (
         <>
           <div />
-          <div className={clsx(classes?.error, inlineClass)}>{errorMessage}</div>
+          <div className={clsx(classes.error, inlineClass)}>{errorMessage}</div>
         </>
       )}
     </>
@@ -74,7 +74,7 @@ export const FormField = (props: any) => {
 
   if (layout !== 'inline') {
     return (
-      <div className={clsx(classes?.root, layout && classes?.[`layout_${layout}`])}>{content}</div>
+      <div className={clsx(classes.root, layout && classes[`layout_${layout}`])}>{content}</div>
     );
   }
 

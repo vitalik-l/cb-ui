@@ -4,16 +4,17 @@
 $root: CgInput;
 
 .input {
-  font-family: 'IBM Plex Sans', Arial, sans-serif;
-  font-size: 1.3em;
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-size: 1.6em;
   font-weight: 400;
   color: white;
+  background-color: #292c35;
+  padding: toRem(12) toRem(13) toRem(16);
+  border: toRem(1) solid transparent;
   border-radius: toRem(5);
-  background-color: #ffffff17;
-  padding: toRem(14) toRem(13) toRem(18);
 
-  &:focus {
-    border: 1px solid rgba(0, 133, 66, 1);
+  &:not(:read-only):focus {
+    border: toRem(1) solid rgba(0, 133, 66, 1);
   }
 
   &:invalid,
@@ -28,6 +29,8 @@ $root: CgInput;
 
   &::placeholder {
     color: #94959a;
+    font-family: 'IBM Plex Sans', Arial, sans-serif;
+    font-size: 1.3em;
   }
 }
 
