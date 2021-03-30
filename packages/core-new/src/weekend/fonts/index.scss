@@ -3,7 +3,7 @@
   font-style: normal;
   font-weight: 400;
   src: local('Open Sans'), local('OpenSans'),
-  url(../fonts/OpenSans/OpenSansNormal.woff2) format('woff2');
+    url(../fonts/OpenSans/OpenSansNormal.woff2) format('woff2');
   font-display: fallback;
 }
 @font-face {
@@ -11,7 +11,7 @@
   font-style: normal;
   font-weight: 700;
   src: local('Open Sans Bold'), local('OpenSans-Bold'),
-  url(../fonts/OpenSans/OpenSansBold.woff2) format('woff2');
+    url(../fonts/OpenSans/OpenSansBold.woff2) format('woff2');
   font-display: fallback;
 }
 @font-face {
@@ -19,14 +19,14 @@
   font-style: normal;
   font-weight: 800;
   src: local('Open Sans Extrabold'), local('OpenSans-Extrabold'),
-  url(../fonts/OpenSans/OpenSansExtra.woff2) format('woff2');
+    url(../fonts/OpenSans/OpenSansExtra.woff2) format('woff2');
   font-display: fallback;
 }
 
 @font-face {
   font-family: HelveticaNeue;
   src: url(../fonts/HelveticaNeue/HelveticaNeue.woff2) format('woff2'),
-  url(../fonts/HelveticaNeue/HelveticaNeue.woff) format('woff');
+    url(../fonts/HelveticaNeue/HelveticaNeue.woff) format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: fallback;
@@ -35,7 +35,7 @@
 @font-face {
   font-family: HelveticaNeue;
   src: url('../fonts/HelveticaNeue/HelveticaNeue-CondensedBold_gdi.woff2') format('woff2'),
-  url('../fonts/HelveticaNeue/HelveticaNeue-CondensedBold_gdi.woff') format('woff');
+    url('../fonts/HelveticaNeue/HelveticaNeue-CondensedBold_gdi.woff') format('woff');
   font-weight: 700;
   font-style: normal;
   font-stretch: condensed;

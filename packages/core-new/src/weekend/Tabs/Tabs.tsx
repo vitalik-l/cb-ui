@@ -7,7 +7,7 @@ import styles from './WkdTabs.module.scss';
 
 const tabsStyles = {
   root: styles.tabs,
-}
+};
 
 export const Tabs = (props: any) => {
   const { className, children, value, onChange, ...restProps } = props;
