@@ -8,13 +8,13 @@ import { debounce } from '../utils/debounce';
 import { ScrollLeftIcon } from './ScrollLeftIcon';
 import { ScrollRightIcon } from './ScrollRightIcon';
 import styles from './CoreTabs.module.scss';
-import {useClasses} from '../hooks/useClasses';
+import { useClasses } from '../hooks/useClasses';
 
 type ClassesType = {
   root?: string;
   scrollButton?: string;
   scroller?: string;
-}
+};
 
 export type TabsProps = {
   className?: string;

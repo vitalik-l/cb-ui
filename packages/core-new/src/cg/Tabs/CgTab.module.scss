@@ -6,11 +6,11 @@ $root: CgTab;
 :global {
   .#{$root} {
     min-height: 3.7rem;
-    opacity: .7;
+    opacity: 0.7;
     align-items: baseline;
-    border-bottom: .1rem solid transparent;
+    border-bottom: 0.1rem solid transparent;
     font-weight: 600;
-    font-family: "IBM Plex Sans", Arial;
+    font-family: 'IBM Plex Sans', Arial;
 
     &:nth-child(n + 2) {
       margin-left: toRem(30);
@@ -19,7 +19,7 @@ $root: CgTab;
 }
 
 .selected {
-  border-bottom: .1rem solid $colorGreen;
+  border-bottom: 0.1rem solid $colorGreen;
   color: $colorGreen;
   opacity: 1;
 }

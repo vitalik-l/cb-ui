@@ -10,7 +10,7 @@ type ClassesType = {
   input?: string;
   fullWidth?: string;
   invalid?: string;
-}
+};
 
 export type InputProps = {
   inputRef?: React.RefObject<HTMLInputElement>;
@@ -37,10 +37,7 @@ export const Input = React.forwardRef((props: InputProps, ref: any) => {
   const classes: ClassesType = useClasses(styles, classesProp);
 
   return (
-    <div
-      className={clsx(classes.root, className, fullWidth && classes.fullWidth)}
-      ref={ref}
-    >
+    <div className={clsx(classes.root, className, fullWidth && classes.fullWidth)} ref={ref}>
       <InputComponent
         className={clsx(classes.input, invalid && classes.invalid)}
         ref={inputRef}

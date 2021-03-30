@@ -5,7 +5,7 @@ type ClassesType = {
   root?: string;
   grouped?: string;
   selected?: string;
-}
+};
 
 export type ButtonGroupProps = {
   className?: string;

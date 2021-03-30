@@ -59,10 +59,7 @@ export const Content: Story = () => {
       </MenuHeader>
       <MenuContent>
         <form>
-          <SelectField
-            label="Choose currency:"
-            fullWidth
-          >
+          <SelectField label="Choose currency:" fullWidth>
             <option>Bitcoin</option>
             <option>Ether</option>
           </SelectField>

@@ -8,7 +8,7 @@ type ClassesType = {
   root?: string;
   selected?: string;
   [key: string]: any;
-}
+};
 
 export type TabProps = {
   selected?: boolean;
