@@ -10,7 +10,6 @@ export const TrendIcon = (props: Props) => {
 
   return (
     <SvgIcon
-      className="svg-icon"
       viewBox="0 0 21 21"
       fill="none"
       style={up ? { transform: 'rotate(-90deg)' } : undefined}

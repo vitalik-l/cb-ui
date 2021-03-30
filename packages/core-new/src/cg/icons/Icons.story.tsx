@@ -18,5 +18,6 @@ export const TrendIcon: Story = () => <Icons.TrendIcon />;
 export const MenuIcon: Story = () => <Icons.MenuIcon />;
 export const CircleMenuIcon: Story = () => <Icons.CircleMenuIcon />;
 export const SelectIcon: Story = () => <Icons.SelectIcon />;
+export const ArrowIcon: Story = () => <Icons.ArrowIcon />;
 
 export default story;
