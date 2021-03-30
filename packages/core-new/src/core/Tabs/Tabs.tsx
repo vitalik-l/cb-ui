@@ -7,7 +7,14 @@ import { animateProperty } from '../utils/animate';
 import { debounce } from '../utils/debounce';
 import { ScrollLeftIcon } from './ScrollLeftIcon';
 import { ScrollRightIcon } from './ScrollRightIcon';
-import './Tabs.scss';
+import styles from './CoreTabs.module.scss';
+import {useClasses} from '../hooks/useClasses';
+
+type ClassesType = {
+  root?: string;
+  scrollButton?: string;
+  scroller?: string;
+}
 
 export type TabsProps = {
   className?: string;
@@ -16,6 +23,7 @@ export type TabsProps = {
   onChange?: (value: any) => void;
   color?: string;
   variant?: string;
+  classes?: ClassesType;
   scrollButtons?: 'on' | 'off';
   scrollLeftIcon?: React.ReactNode;
   scrollRightIcon?: React.ReactNode;
@@ -32,6 +40,7 @@ export const Tabs = React.forwardRef<any, TabsProps>((props, ref) => {
     scrollButtons,
     scrollLeftIcon,
     scrollRightIcon,
+    classes: classesProp,
     ...restProps
   } = props;
   const [displayScroll, setDisplayScroll] = React.useState({
@@ -41,6 +50,7 @@ export const Tabs = React.forwardRef<any, TabsProps>((props, ref) => {
   const tabsRef = React.useRef<any>(null);
   const valueToIndex = new Map();
   const displayScrollButtons = scrollButtons === 'on';
+  const classes: ClassesType = useClasses(styles, classesProp);
 
   const updateScrollButtonState = React.useCallback(() => {
     if (!displayScrollButtons) return;
@@ -171,23 +181,23 @@ export const Tabs = React.forwardRef<any, TabsProps>((props, ref) => {
   };
 
   return (
-    <div className={clsx('cb-Tabs', className)} {...restProps} ref={ref}>
+    <div className={clsx(classes.root, className)} {...restProps} ref={ref}>
       {displayScrollButtons && (
         <ButtonBase
           onClick={handleStartScrollClick}
-          className="cb-Tabs-scroll-button"
+          className={classes.scrollButton}
           style={{ visibility: displayScroll.start ? 'visible' : 'hidden' }}
         >
           {scrollLeftIcon}
         </ButtonBase>
       )}
-      <div className="cb-Tabs-scroller" ref={tabsRef} onScroll={handleTabsScroll}>
+      <div className={classes.scroller} ref={tabsRef} onScroll={handleTabsScroll}>
         {childrenItems}
       </div>
       {displayScrollButtons && (
         <ButtonBase
           onClick={handleEndScrollClick}
-          className="cb-Tabs-scroll-button"
+          className={classes.scrollButton}
           style={{ visibility: displayScroll.end ? 'visible' : 'hidden' }}
         >
           {scrollRightIcon}

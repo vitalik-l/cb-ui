@@ -3,7 +3,24 @@ import clsx from 'clsx';
 
 // local files
 import { ButtonBase } from '../ButtonBase';
-import { TabProps } from './Tab.type';
+
+type ClassesType = {
+  root?: string;
+  selected?: string;
+  [key: string]: any;
+}
+
+export type TabProps = {
+  selected?: boolean;
+  color?: string;
+  onChange?: (value: any) => void;
+  variant?: string;
+  value?: any;
+  className?: string;
+  label?: React.ReactNode;
+  onClick?: any;
+  classes?: ClassesType;
+};
 
 export const Tab = (props: TabProps) => {
   const {
@@ -15,6 +32,7 @@ export const Tab = (props: TabProps) => {
     onClick,
     variant,
     className,
+    classes,
     ...buttonProps
   } = props;
 
@@ -30,10 +48,10 @@ export const Tab = (props: TabProps) => {
 
   return (
     <ButtonBase
-      className={clsx('cb-Tab', className, {
-        [`cb-Tab_color_${color}`]: color,
-        [`cb-Tab_variant_${variant}`]: variant,
-        'cb-Tab_selected': selected,
+      className={clsx(classes?.root, className, {
+        [classes?.[`color_${color}`] as string]: color,
+        [classes?.[`variant_${variant}`] as string]: variant,
+        [classes?.selected as string]: selected,
       })}
       onClick={handleClick}
       {...buttonProps}

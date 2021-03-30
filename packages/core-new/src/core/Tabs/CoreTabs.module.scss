@@ -1,0 +1,19 @@
+@use '../styles/mixins' as *;
+
+$root: CoreTabs;
+
+:global(.#{$root}) {
+  display: inline-flex;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.scroller {
+  white-space: nowrap;
+  overflow-x: auto;
+  @include noScrollBar;
+}
+
+:export {
+  root: $root;
+}
