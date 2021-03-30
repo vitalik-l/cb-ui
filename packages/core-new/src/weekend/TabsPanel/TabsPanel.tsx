@@ -5,4 +5,4 @@ import { Panel } from '../Panel';
 import classes from '../styles/classes.module.scss';
 import './TabsPanel.scss';
 
-export const TabsPanel = styled(classes.TabsPanel, Panel);
+export const TabsPanel = styled(Panel, classes.TabsPanel);
