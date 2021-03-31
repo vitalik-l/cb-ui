@@ -12,78 +12,78 @@ $spacers: (
 @each $index, $spacer in $spacers {
   // margins
   .m-#{$index} {
-    margin: $spacer;
+    margin: $spacer !important;
   }
   .mx-#{$index} {
-    margin-left: $spacer;
-    margin-right: $spacer;
+    margin-left: $spacer !important;
+    margin-right: $spacer !important;
   }
   .my-#{$index} {
-    margin-top: $spacer;
-    margin-bottom: $spacer;
+    margin-top: $spacer !important;
+    margin-bottom: $spacer !important;
   }
   .mt-#{$index} {
-    margin-top: $spacer;
+    margin-top: $spacer !important;
   }
   .mb-#{$index} {
-    margin-bottom: $spacer;
+    margin-bottom: $spacer !important;
   }
   .mr-#{$index} {
-    margin-right: $spacer;
+    margin-right: $spacer !important;
   }
   .ml-#{$index} {
-    margin-left: $spacer;
+    margin-left: $spacer !important;
   }
   // negative margins
   @if $spacer > 0 {
     .m-n#{$index} {
-      margin: -$spacer;
+      margin: -$spacer !important;
     }
     .mx-n#{$index} {
-      margin-left: -$spacer;
-      margin-right: -$spacer;
+      margin-left: -$spacer !important;
+      margin-right: -$spacer !important;
     }
     .my-n#{$index} {
-      margin-top: -$spacer;
-      margin-bottom: -$spacer;
+      margin-top: -$spacer !important;
+      margin-bottom: -$spacer !important;
     }
     .mt-n#{$index} {
-      margin-top: -$spacer;
+      margin-top: -$spacer !important;
     }
     .mb-n#{$index} {
-      margin-bottom: -$spacer;
+      margin-bottom: -$spacer !important;
     }
     .mr-n#{$index} {
-      margin-right: -$spacer;
+      margin-right: -$spacer !important;
     }
     .ml-n#{$index} {
-      margin-left: -$spacer;
+      margin-left: -$spacer !important;
     }
   }
 
   // paddings
   .p-#{$index} {
-    padding: $spacer;
+    padding: $spacer !important;
   }
   .px-#{$index} {
-    padding-left: $spacer;
-    padding-right: $spacer;
+    padding-left: $spacer !important;
+    padding-right: $spacer !important;
   }
   .py-#{$index} {
-    padding-top: $spacer;
-    padding-bottom: $spacer;
+    padding-top: $spacer !important;
+    padding-bottom: $spacer !important;
   }
   .pt-#{$index} {
-    padding-top: $spacer;
+    padding-top: $spacer !important;
   }
   .pb-#{$index} {
-    padding-bottom: $spacer;
+    padding-bottom: $spacer !important;
   }
   .pr-#{$index} {
-    padding-right: $spacer;
+    padding-right: $spacer !important;
   }
   .pl-#{$index} {
-    padding-left: $spacer;
+    padding-left: $spacer !important;
   }
 }
 
