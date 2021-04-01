@@ -9,6 +9,10 @@ export const validateEmail = (email: string) => {
   return re.test(String(email).toLowerCase());
 };
 
+export const regexp = (regexpValue: RegExp) => (value: any) => {
+  return regexpValue.test(String(value).toLowerCase());
+};
+
 export const required = (value: any) => value !== undefined && value !== null && value !== '';
 
 export const minLength = (length: number) => (value: any) => value.length >= length;
