@@ -1,6 +1,6 @@
 {
   "name": "@cb-general/core",
-  "version": "1.0.0-beta.3",
+  "version": "1.0.0-beta.4",
   "dependencies": {
     "bezier-easing": "^2.1.0",
     "clsx": "^1.1.1",
@@ -8,6 +8,7 @@
     "cb-datatable": "3.0.12",
     "ismobilejs": "^1.1.1",
     "final-form": "^4.20.1",
+    "react-final-form": "^6.5.2",
     "@popperjs/core": "^2.8.3"
   }
 }
