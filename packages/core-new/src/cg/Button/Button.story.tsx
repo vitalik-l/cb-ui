@@ -22,7 +22,7 @@ const story = createStory({
     color: {
       control: {
         type: 'select',
-        options: ['default', 'green', 'red'],
+        options: ['default', 'green', 'red', 'primary'],
       },
     },
     labelCenter: {
@@ -31,6 +31,12 @@ const story = createStory({
     large: {
       control: 'boolean',
     },
+    theme: {
+      control: {
+        type: 'select',
+        options: ['flat', 'classic', 'bubble'],
+      },
+    }
   },
   args: {
     variant: 'contained',

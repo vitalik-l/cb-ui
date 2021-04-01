@@ -14,12 +14,13 @@ export const Button = (props: any) => {
     children,
     labelCenter,
     large,
+    theme = 'flat',
     ...buttonProps
   } = props;
 
   return (
     <ButtonBase
-      className={clsx(styles.root, className, {
+      className={clsx(styles.root, className, styles[`theme_${theme}`], {
         [styles[variant]]: variant,
         [styles[color]]: color,
         [styles.withIcon]: icon,
