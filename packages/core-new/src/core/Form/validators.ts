@@ -10,7 +10,7 @@ export const validateEmail = (email: string) => {
 };
 
 export const regexp = (regexpValue: RegExp) => (value: any) => {
-  return regexpValue.test(String(value).toLowerCase());
+  return regexpValue.test(String(value));
 };
 
 export const required = (value: any) => value !== undefined && value !== null && value !== '';
