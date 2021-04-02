@@ -11,6 +11,7 @@ type ClassesType = {
   fullWidth?: string;
   invalid?: string;
   withButton?: string;
+  button?: string;
 };
 
 export type InputProps = {
@@ -21,7 +22,7 @@ export type InputProps = {
   className?: string;
   fullWidth?: boolean;
   classes?: ClassesType;
-  button?: React.ReactNode;
+  button?: React.ReactElement;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
 export const Input = React.forwardRef((props: InputProps, ref: any) => {
@@ -45,7 +46,7 @@ export const Input = React.forwardRef((props: InputProps, ref: any) => {
         classes.root,
         className,
         fullWidth && classes.fullWidth,
-        button && classes.withButton,
+        !!button && classes.withButton,
       )}
       ref={ref}
     >
@@ -55,7 +56,7 @@ export const Input = React.forwardRef((props: InputProps, ref: any) => {
         placeholder={placeholder}
         {...inputProps}
       />
-      {button}
+      {!!button && React.cloneElement(button, { className: classes.button })}
     </div>
   );
 });

@@ -36,7 +36,7 @@ const story = createStory({
         type: 'select',
         options: ['flat', 'classic', 'bubble'],
       },
-    }
+    },
   },
   args: {
     variant: 'contained',

@@ -92,7 +92,9 @@ $root: CgButton;
   }
 
   &.primary {
-    &, &:hover, &:active {
+    &,
+    &:hover,
+    &:active {
       background: #1592e6;
       color: #fff;
     }
