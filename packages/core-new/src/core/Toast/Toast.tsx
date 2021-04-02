@@ -4,13 +4,13 @@ import Animate from 'rc-animate';
 
 // local files
 import styles from './CoreToast.module.scss';
-import {useClasses} from '../hooks/useClasses';
+import { useClasses } from '../hooks/useClasses';
 
 type ClassesType = {
   root?: string;
   content?: string;
   [key: string]: any;
-}
+};
 
 type Props = {
   className?: string;
@@ -24,7 +24,17 @@ type Props = {
 } & React.ComponentProps<'div'>;
 
 export const Toast = (props: Props) => {
-  const { className, children, text, color = 'default', placementX, placementY, classes: classesProp, transitionName, ...restProps } = props;
+  const {
+    className,
+    children,
+    text,
+    color = 'default',
+    placementX,
+    placementY,
+    classes: classesProp,
+    transitionName,
+    ...restProps
+  } = props;
   const content = children || text;
   const classes: ClassesType = useClasses(styles, classesProp);
 
