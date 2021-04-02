@@ -1,0 +1,97 @@
+$animate: CgToastAnimate;
+$root: CoreToast;
+
+:global {
+  .#{$animate} {
+    &-appear,
+    &-enter {
+      opacity: 0;
+      transition: all 200ms;
+
+      :local(.content) {
+        transform: scale(0);
+        transform-origin: center;
+        transition: all 200ms;
+      }
+    }
+    &-appear.#{$animate}-appear-active,
+    &-enter.#{$animate}-enter-active {
+      opacity: 1;
+
+      :local(.content) {
+        transform: scale(1);
+        transform-origin: top;
+      }
+    }
+    &-leave {
+      opacity: 1;
+      transition: all 200ms;
+
+      :local(.content) {
+        transform: scale(1);
+        transform-origin: center;
+        transition: all 200ms;
+      }
+    }
+    &-leave.#{$animate}-leave-active {
+      opacity: 0;
+
+      :local(.content) {
+        transform: scale(0);
+        transform-origin: top;
+      }
+    }
+  }
+}
+
+.root {
+  $self: &;
+  position: fixed;
+  z-index: 9999;
+  cursor: default;
+
+  &.horizontal {
+    &_center {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &_left {
+      left: 0;
+    }
+
+    &_right {
+      right: 0;
+    }
+  }
+
+  &_vertical {
+    &_top {
+      top: 15rem;
+    }
+
+    &_bottom {
+      bottom: 0;
+    }
+
+    &_center {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &.horizontal_center.vertical_center {
+    transform: translateY(-50%) translateX(-50%);
+  }
+}
+
+.content {
+  font-size: 14px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+:export {
+  root: $root;
+  animate: $animate;
+}
