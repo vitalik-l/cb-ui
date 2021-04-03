@@ -1,7 +1,8 @@
 import React from 'react';
-import { ButtonBase } from '@cb-general/core/ButtonBase';
+import { Story } from '@storybook/react';
 
 // local files
+import { ButtonBase } from './index';
 import { createStory } from '../createStory';
 
 const story = createStory({
@@ -13,7 +14,7 @@ const story = createStory({
   },
 });
 
-export const Template = (args: any) => <ButtonBase {...args}>Button</ButtonBase>;
+export const Template: Story = (args) => <ButtonBase {...args}>Button</ButtonBase>;
 Template.storyName = 'ButtonBase';
 
 export default story;

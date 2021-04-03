@@ -1,5 +1,4 @@
 import React from 'react';
-import clsx from 'clsx';
 
 // local files
 import { AppResolver, AppResolverProps } from './AppResolver';
@@ -25,7 +24,7 @@ export const Root = (props: Props) => {
         document.documentElement.classList.remove(className);
       }
     };
-  }, []);
+  }, [className]);
 
   return (
     <WindowResizeListener>

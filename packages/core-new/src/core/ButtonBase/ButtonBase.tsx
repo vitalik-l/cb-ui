@@ -1,11 +1,15 @@
 import React from 'react';
-import PropsTypes from 'prop-types';
 import clsx from 'clsx';
 
 // local files
 import styles from './CoreButtonBase.module.scss';
 
-export const ButtonBase = React.forwardRef((props: any, ref) => {
+type Props<T extends React.ElementType> = {
+  component?: T;
+  href?: string;
+} & React.ComponentPropsWithRef<T>;
+
+export const ButtonBase = React.forwardRef(<T extends React.ElementType>(props: Props<T>, ref: any) => {
   const {
     children,
     className,
@@ -20,15 +24,16 @@ export const ButtonBase = React.forwardRef((props: any, ref) => {
   } = props;
 
   const ComponentProp = component === 'button' && href ? 'a' : component;
+  const otherProps: any = {};
 
   if (ComponentProp === 'button') {
-    buttonProps.type = type === undefined ? 'button' : type;
-    buttonProps.disabled = disabled;
+    otherProps.type = type === undefined ? 'button' : type;
+    otherProps.disabled = disabled;
   } else {
     if (ComponentProp !== 'a' || !href) {
-      buttonProps.role = 'button';
+      otherProps.role = 'button';
     }
-    buttonProps['aria-disabled'] = disabled;
+    otherProps['aria-disabled'] = disabled;
   }
 
   const handleKeyDown = React.useCallback(
@@ -67,6 +72,7 @@ export const ButtonBase = React.forwardRef((props: any, ref) => {
       onClick={onClick}
       onKeyDown={handleKeyDown}
       {...buttonProps}
+      {...otherProps}
     >
       {children}
     </ComponentProp>
@@ -78,16 +84,4 @@ ButtonBase.displayName = 'ButtonBase';
 ButtonBase.defaultProps = {
   component: 'button',
   tabIndex: 0,
-};
-
-ButtonBase.propTypes = {
-  children: PropsTypes.node,
-  className: PropsTypes.string,
-  component: PropsTypes.oneOfType([PropsTypes.string, PropsTypes.element]),
-  href: PropsTypes.string,
-  disabled: PropsTypes.bool,
-  type: PropsTypes.string,
-  tabIndex: PropsTypes.number,
-  onClick: PropsTypes.func,
-  onKeyDown: PropsTypes.func,
 };
