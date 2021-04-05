@@ -23,6 +23,7 @@ export type InputProps = {
   fullWidth?: boolean;
   classes?: ClassesType;
   button?: React.ReactElement;
+  multiline?: boolean;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
 export const Input = React.forwardRef((props: InputProps, ref: any) => {
@@ -31,13 +32,14 @@ export const Input = React.forwardRef((props: InputProps, ref: any) => {
     placeholder,
     invalid,
     className,
-    component: InputComponent,
+    component,
     fullWidth,
     classes: classesProp,
     button,
+    multiline,
     ...inputProps
   } = props;
-
+  const InputComponent = multiline ? 'textarea' : component;
   const classes: ClassesType = useClasses(styles, classesProp);
 
   return (

@@ -11,6 +11,7 @@ $root: CoreInput;
   position: relative;
   resize: none;
   border: none;
+  @include noScrollBar;
 }
 
 .fullWidth {

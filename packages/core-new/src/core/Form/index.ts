@@ -6,3 +6,4 @@ export { useSubmit } from './useSubmit';
 export { Form } from './Form';
 export { Form as default } from './Form';
 export * from './validators';
+export { useFormState } from 'react-final-form';
