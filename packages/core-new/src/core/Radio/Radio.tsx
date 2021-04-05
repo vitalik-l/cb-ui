@@ -15,6 +15,7 @@ type Props = {
     input?: string;
     label?: string;
   };
+  Label?: React.ElementType;
   inputRef?: any;
   checkedIcon?: React.ReactNode;
   icon?: React.ReactNode;
@@ -33,6 +34,7 @@ export const Radio = (props: Props) => {
     checkedIcon,
     classes: classesProp,
     children,
+    Label = 'label',
     ...inputProps
   } = props;
   const [checked, setChecked] = useControlled({
@@ -75,7 +77,7 @@ export const Radio = (props: Props) => {
         {...inputProps}
       />
       {checked ? checkedIcon : icon}
-      {!!children && <div className={classes.label}>{children}</div>}
+      {!!children && <Label className={classes.label}>{children}</Label>}
     </ButtonBase>
   );
 };

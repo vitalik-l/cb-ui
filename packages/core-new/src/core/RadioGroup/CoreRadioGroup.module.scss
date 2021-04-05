@@ -1,4 +1,5 @@
-.inline {
-  display: flex;
-  justify-content: space-between;
+.child {
+  &:nth-child(n + 2) {
+    margin-left: 2.5rem;
+  }
 }
