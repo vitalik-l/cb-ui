@@ -3,7 +3,8 @@ import clsx from 'clsx';
 
 type ClassesType = {
   root?: string;
-  grouped?: string;
+  child?: string;
+  inline?: string;
 };
 
 export type RadioGroupProps = {
@@ -13,11 +14,12 @@ export type RadioGroupProps = {
   value?: any;
   disabled?: boolean;
   name?: string;
+  inline?: boolean;
   classes?: ClassesType;
 };
 
 export const RadioGroup = (props: RadioGroupProps) => {
-  const { className, children, onChange, value, disabled, classes, name } = props;
+  const { className, children, onChange, value, disabled, classes, name, inline } = props;
 
   const childrenItems = React.Children.map(children, (child, childIndex) => {
     if (!React.isValidElement(child)) {
@@ -42,10 +44,10 @@ export const RadioGroup = (props: RadioGroupProps) => {
       name,
       disabled,
       onChange: handleChange,
-      className: clsx(classes?.grouped, childClassName),
+      className: clsx(classes?.child, childClassName),
       ...childProps,
     });
   });
 
-  return <div className={clsx(classes?.root, className)}>{childrenItems}</div>;
+  return <div className={clsx(classes?.root, className, inline && classes?.inline)}>{childrenItems}</div>;
 };
