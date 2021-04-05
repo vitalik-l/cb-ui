@@ -22,7 +22,7 @@ const story = createStory({
     color: {
       control: {
         type: 'select',
-        options: ['default', 'green', 'red', 'primary'],
+        options: ['default', 'green', 'red', 'primary', 'orange'],
       },
     },
     labelCenter: {
