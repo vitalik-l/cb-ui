@@ -58,6 +58,12 @@ $root: CgButton;
     }
   }
 
+  &.orange {
+    &.contained {
+      background: linear-gradient(180deg, #f76801, #bd1801);
+    }
+  }
+
   &.large {
     min-height: toRem(50);
     font-size: 1.9em;
