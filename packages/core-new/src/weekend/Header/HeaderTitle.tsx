@@ -1,6 +1,5 @@
 import { styled } from '@cb-general/core/utils/styled';
-
 // local files
-import headerStyles from './Header.module.scss';
+import styles from './WkdHeader.module.scss';
 
-export const HeaderTitle = styled(headerStyles.Title);
+export const HeaderTitle = styled(styles.title);

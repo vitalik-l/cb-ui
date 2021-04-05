@@ -1,32 +1,16 @@
 @use '../styles/variables' as *;
-@use '../styles/classes.module' as components;
 
-@function cln($name) {
-  @return components.$Input + '-' + $name;
-}
+$root: WkdInput;
 
-$Root: cln('root');
-$Input: cln('item');
+.fullWidth {
+  width: 100%;
 
-.#{$Root} {
-  &_fullWidth {
+  .input {
     width: 100%;
-
-    .#{$Input} {
-      width: 100%;
-    }
   }
 }
 
-.#{$Input} {
-  appearance: none;
-  outline: none;
-  width: auto;
-  max-width: 100%;
-  box-sizing: border-box;
-  position: relative;
-  resize: none;
-  border: none;
+.input {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.2em;
   font-weight: 700;
@@ -36,7 +20,7 @@ $Input: cln('item');
   box-shadow: inset 0 min(0.1em, 1px) min(0.3em, 3px) min(0.1em, 1px) #666;
   padding: min(5px, 0.5rem) min(9px, 0.9rem) min(2px, 0.2rem);
 
-  &_invalid,
+  &.invalid,
   &:invalid {
     border: 1px solid $colorRed;
   }
@@ -47,6 +31,5 @@ $Input: cln('item');
 }
 
 :export {
-  Root: $Root;
-  Input: $Input;
+  root: $root;
 }

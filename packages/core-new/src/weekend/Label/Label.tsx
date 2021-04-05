@@ -1,7 +1,6 @@
 import { styled } from '@cb-general/core/utils/styled';
 
 // local files
-import classes from '../styles/classes.module.scss';
-import './Label.scss';
+import styles from './WkdLabel.module.scss';
 
-export const Label: any = styled(classes.Label, 'label');
+export const Label: any = styled('label', styles.root);

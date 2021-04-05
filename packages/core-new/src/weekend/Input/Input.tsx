@@ -1,49 +1,6 @@
-import React from 'react';
-import clsx from 'clsx';
-
+import { styled } from '@cb-general/core/utils/styled';
+import { Input as CoreInput } from '@cb-general/core/Input';
 // local files
-import inputStyles from './Input.module.scss';
-import './Input.scss';
+import styles from './WkdInput.module.scss';
 
-export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  inputRef?: React.RefObject<HTMLInputElement>;
-  placeholder?: string;
-  invalid?: boolean;
-  component?: any;
-  className?: string;
-  fullWidth?: boolean;
-}
-
-export const Input = React.forwardRef((props: InputProps, ref: any) => {
-  const {
-    inputRef,
-    placeholder,
-    invalid,
-    className,
-    component: InputComponent,
-    fullWidth,
-    ...inputProps
-  } = props;
-
-  return (
-    <div
-      className={clsx(inputStyles.Root, className, {
-        [`${inputStyles.Root}_fullWidth`]: !!fullWidth,
-      })}
-      ref={ref}
-    >
-      <InputComponent
-        className={clsx(inputStyles.Input, {
-          [`${inputStyles.Input}_invalid`]: invalid,
-        })}
-        ref={inputRef}
-        placeholder={placeholder}
-        {...inputProps}
-      />
-    </div>
-  );
-});
-
-Input.defaultProps = {
-  component: 'input',
-};
+export const Input = styled(CoreInput, styles);

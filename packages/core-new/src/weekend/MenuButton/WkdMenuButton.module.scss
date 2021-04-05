@@ -1,6 +1,6 @@
-@import '../styles/classes.module';
+$root: WkdMenuButton;
 
-.#{$MenuButton} {
+:global(.#{$root}) {
   font-size: 1em;
   padding: 0.6em 2.4em;
   height: 4em;
@@ -31,7 +31,7 @@
     opacity: 0.8;
   }
 
-  div {
+  > :global(div) {
     width: 100%;
     box-sizing: border-box;
     height: 0.2em;
@@ -40,4 +40,8 @@
     margin: auto 0 !important;
     border-radius: 5px;
   }
+}
+
+:export {
+  root: $root;
 }

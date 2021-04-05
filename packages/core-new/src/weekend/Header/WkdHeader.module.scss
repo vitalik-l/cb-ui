@@ -1,13 +1,6 @@
-@use '../styles/classes.module' as components;
+$root: WkdHeader;
 
-@function cln($name) {
-  @return components.$Header + '-' + $name;
-}
-
-$Title: cln('title');
-$Item: cln('item');
-
-.#{components.$Header} {
+:global(.#{$root}) {
   font-size: 1rem;
   display: flex;
   justify-content: space-between;
@@ -21,14 +14,14 @@ $Item: cln('item');
   padding-right: 1.5rem;
 }
 
-.#{$Title} {
+.title {
   font-size: 2rem;
   margin-top: 1.3rem;
   letter-spacing: -0.5px;
   white-space: nowrap;
 }
 
-.#{$Item} {
+.item {
   flex: 1;
 
   &:last-child {
@@ -37,6 +30,5 @@ $Item: cln('item');
 }
 
 :export {
-  Title: $Title;
-  Item: $Item;
+  root: $root;
 }

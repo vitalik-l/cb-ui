@@ -3,8 +3,7 @@ import clsx from 'clsx';
 
 // local files
 import { ButtonBase } from '@cb-general/core/ButtonBase';
-import classes from '../styles/classes.module.scss';
-import './MenuButton.scss';
+import styles from './WkdMenuButton.module.scss';
 
 type Props = {
   className?: string;
@@ -15,7 +14,7 @@ export const MenuButton = (props: Props) => {
   const { className, ...restProps } = props;
 
   return (
-    <ButtonBase className={clsx(classes.MenuButton, className)} {...restProps}>
+    <ButtonBase className={clsx(styles.root, className)} {...restProps}>
       <div />
       <div />
       <div />

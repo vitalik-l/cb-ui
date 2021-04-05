@@ -7,6 +7,12 @@ import Animate from 'rc-animate';
 import { useClasses } from '../hooks/useClasses';
 import styles from './CoreModal.module.scss';
 
+type ClassesType = {
+  root?: string;
+  overlay?: string;
+  wrapper?: string;
+}
+
 export type ModalProps = {
   className?: string;
   children?: React.ReactNode;
@@ -18,7 +24,7 @@ export type ModalProps = {
   transitionName?: string;
   transitionEnter?: boolean;
   transitionLeave?: boolean;
-  classes?: any;
+  classes?: ClassesType;
 };
 
 const onModalClick = (event: any) => {
@@ -41,7 +47,7 @@ export const Modal = (props: ModalProps) => {
     classes: classesProp,
   } = props;
   let animatedModal = null;
-  const classes = useClasses(styles, classesProp);
+  const classes: ClassesType = useClasses(styles, classesProp);
 
   const modal = open ? (
     <div className={clsx(classes.overlay, overlayClassName)} onClick={onOverlayClick}>
