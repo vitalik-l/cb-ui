@@ -13,6 +13,12 @@ $root: CgFormField;
   margin-bottom: toRem(5);
 }
 
+.subLabel {
+  font-weight: 400;
+  color: white;
+  font-size: 1.2em;
+}
+
 .error {
   margin-top: toRem(5);
   color: $colorRed;

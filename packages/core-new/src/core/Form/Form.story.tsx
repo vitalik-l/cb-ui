@@ -27,6 +27,7 @@ export const Default: Story = (args) => (
     <FormField
       name="indicator"
       label="Indicator:"
+      subLabel="this is subLabel prop"
       component="select"
       showError
       error="errored field"

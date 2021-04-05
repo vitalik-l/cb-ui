@@ -14,6 +14,7 @@ export const FormField = (props: any) => {
   const {
     Label = 'label',
     label,
+    subLabel,
     placeholder,
     name,
     component = 'input',
@@ -49,6 +50,11 @@ export const FormField = (props: any) => {
     <>
       <div className={clsx(classes.item, classes.label, inlineClass)}>
         <Label htmlFor={id}>{label}</Label>
+        {!!subLabel &&
+          <div className={classes.subLabel}>
+            {subLabel}
+          </div>
+        }
       </div>
       <div
         className={clsx(classes.item, classes.control, inlineClass, {
