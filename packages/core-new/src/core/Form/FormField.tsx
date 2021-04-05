@@ -29,7 +29,6 @@ export const FormField = (props: any) => {
     ...fieldProps
   } = props;
   const { isCoreForm, fullWidth: formFullWidth } = useCoreForm();
-  console.log(isCoreForm);
   const { input = {}, meta = {} } = isCoreForm ? useField(name, fieldProps) : {}; // eslint-disable-line
   const fullWidth = fullWidthProp !== undefined ? fullWidthProp : formFullWidth;
   const fieldsLayout = useFieldsLayout();

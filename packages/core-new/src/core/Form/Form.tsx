@@ -16,7 +16,7 @@ export const Form = React.forwardRef((props: Props, ref: any) => {
   const { className, children, layout = 'default', id, fullWidth, ...formProps } = props;
   const context = React.useMemo(() => ({
     isCoreForm: true,
-    fullWidth,
+    fullWidth: !!fullWidth,
   }), [fullWidth]);
 
   return (
