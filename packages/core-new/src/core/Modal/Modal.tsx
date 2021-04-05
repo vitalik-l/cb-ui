@@ -11,7 +11,7 @@ type ClassesType = {
   root?: string;
   overlay?: string;
   wrapper?: string;
-}
+};
 
 export type ModalProps = {
   className?: string;

@@ -16,9 +16,7 @@ export const GameCard = (props: Props) => {
   return (
     <div className={clsx(styles.root, className)} {...restProps}>
       <div className={styles.back} />
-      <div
-        className={clsx(styles.face, !!suit && styles[`suit_${suit}`])}
-      >
+      <div className={clsx(styles.face, !!suit && styles[`suit_${suit}`])}>
         <span className={styles.value}>{value}</span>
         <span className={styles.valueCenter} />
         <span className={styles.value}>{value}</span>

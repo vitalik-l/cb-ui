@@ -23,7 +23,16 @@ export type RadioGroupProps = {
 };
 
 export const RadioGroup = (props: RadioGroupProps) => {
-  const { className, children, onChange, value, disabled, classes: classesProp, name, inline } = props;
+  const {
+    className,
+    children,
+    onChange,
+    value,
+    disabled,
+    classes: classesProp,
+    name,
+    inline,
+  } = props;
   const classes = useClasses(styles, classesProp);
 
   const childrenItems = React.Children.map(children, (child, childIndex) => {
@@ -54,5 +63,7 @@ export const RadioGroup = (props: RadioGroupProps) => {
     });
   });
 
-  return <div className={clsx(classes.root, className, inline && classes.inline)}>{childrenItems}</div>;
+  return (
+    <div className={clsx(classes.root, className, inline && classes.inline)}>{childrenItems}</div>
+  );
 };

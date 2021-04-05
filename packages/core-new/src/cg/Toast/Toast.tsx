@@ -1,4 +1,3 @@
-import React from 'react';
 import { styled } from '@cb-general/core/utils/styled';
 import { Toast as CoreToast } from '@cb-general/core/Toast';
 // local files

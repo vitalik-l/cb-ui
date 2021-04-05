@@ -34,21 +34,12 @@ Template.storyName = 'Radio';
 export const Group: Story = () => {
   const [value, setValue] = React.useState('first');
 
-  const onChange = (event: any) => {
-    console.log(event);
-    setValue(event.target.value);
-  };
-
   return (
-    <RadioGroup onChange={onChange} value={value}>
-      <Radio value="first">
-        first
-      </Radio>
-      <Radio value="second">
-        Second
-      </Radio>
+    <RadioGroup onChange={setValue} value={value}>
+      <Radio value="first">first</Radio>
+      <Radio value="second">Second</Radio>
     </RadioGroup>
-  )
-}
+  );
+};
 
 export default story;

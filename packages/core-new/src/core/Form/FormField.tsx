@@ -26,6 +26,7 @@ export const FormField = (props: any) => {
     classNamePrefix,
     classes: classesProp,
     layout: layoutProp,
+    inputClasses,
     ...fieldProps
   } = props;
   const { isCoreForm, fullWidth: formFullWidth } = useCoreForm();
@@ -44,6 +45,7 @@ export const FormField = (props: any) => {
     : {
         invalid,
         fullWidth,
+        classes: inputClasses,
       };
   const classes = useClasses(styles, classesProp);
   const inlineClass = isInline ? classes.inline : undefined;
@@ -52,11 +54,7 @@ export const FormField = (props: any) => {
     <>
       <div className={clsx(classes.item, classes.label, inlineClass)}>
         <Label htmlFor={id}>{label}</Label>
-        {!!subLabel &&
-          <div className={classes.subLabel}>
-            {subLabel}
-          </div>
-        }
+        {!!subLabel && <div className={classes.subLabel}>{subLabel}</div>}
       </div>
       <div
         className={clsx(classes.item, classes.control, inlineClass, {
