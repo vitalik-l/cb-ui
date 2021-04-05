@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 // local files
 import { useFieldsLayout } from './useFieldsLayout';
-import { useIsFinalForm } from './useIsFinalForm';
+import { useCoreForm } from './useCoreForm';
 import { useClasses } from '../hooks/useClasses';
 import styles from './CoreFormField.module.scss';
 
@@ -20,7 +20,7 @@ export const FormField = (props: any) => {
     component = 'input',
     error,
     id,
-    fullWidth,
+    fullWidth: fullWidthProp,
     showError = true,
     className,
     classNamePrefix,
@@ -28,7 +28,10 @@ export const FormField = (props: any) => {
     layout: layoutProp,
     ...fieldProps
   } = props;
-  const { input = {}, meta = {} } = useIsFinalForm() ? useField(name, fieldProps) : {}; // eslint-disable-line
+  const { isCoreForm, fullWidth: formFullWidth } = useCoreForm();
+  console.log(isCoreForm);
+  const { input = {}, meta = {} } = isCoreForm ? useField(name, fieldProps) : {}; // eslint-disable-line
+  const fullWidth = fullWidthProp !== undefined ? fullWidthProp : formFullWidth;
   const fieldsLayout = useFieldsLayout();
   const layout = layoutProp || fieldsLayout;
   const isInline = layout === 'inline';

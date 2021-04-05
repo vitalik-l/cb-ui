@@ -4,6 +4,7 @@ import { Story } from '@storybook/react';
 // local files
 import { createStory } from '../createStory';
 import { Radio } from './index';
+import { RadioGroup } from '../../core/RadioGroup';
 
 const story = createStory({
   title: 'Radio',
@@ -29,5 +30,25 @@ export const Template: Story = (args) => {
   );
 };
 Template.storyName = 'Radio';
+
+export const Group: Story = () => {
+  const [value, setValue] = React.useState('first');
+
+  const onChange = (event: any) => {
+    console.log(event);
+    setValue(event.target.value);
+  };
+
+  return (
+    <RadioGroup onChange={onChange} value={value}>
+      <Radio value="first">
+        first
+      </Radio>
+      <Radio value="second">
+        Second
+      </Radio>
+    </RadioGroup>
+  )
+}
 
 export default story;

@@ -1,2 +1,5 @@
 import { createContext } from 'react';
-export const FormContext = createContext(false);
+export const FormContext = createContext({
+  isCoreForm: false,
+  fullWidth: false,
+});

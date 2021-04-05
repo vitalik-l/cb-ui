@@ -1,6 +1,10 @@
 import React from 'react';
 import clsx from 'clsx';
 
+// local
+import styles from './CoreRadioGroup.module.scss';
+import { useClasses } from '../hooks/useClasses';
+
 type ClassesType = {
   root?: string;
   child?: string;
@@ -19,7 +23,8 @@ export type RadioGroupProps = {
 };
 
 export const RadioGroup = (props: RadioGroupProps) => {
-  const { className, children, onChange, value, disabled, classes, name, inline } = props;
+  const { className, children, onChange, value, disabled, classes: classesProp, name, inline } = props;
+  const classes = useClasses(styles, classesProp);
 
   const childrenItems = React.Children.map(children, (child, childIndex) => {
     if (!React.isValidElement(child)) {
@@ -30,7 +35,7 @@ export const RadioGroup = (props: RadioGroupProps) => {
     const checked = childValue === value;
 
     const handleChange = (event: any) => {
-      if (onChange) {
+      if (!checked && onChange) {
         onChange(childValue);
       }
 
@@ -44,10 +49,10 @@ export const RadioGroup = (props: RadioGroupProps) => {
       name,
       disabled,
       onChange: handleChange,
-      className: clsx(classes?.child, childClassName),
+      className: clsx(classes.child, childClassName),
       ...childProps,
     });
   });
 
-  return <div className={clsx(classes?.root, className, inline && classes?.inline)}>{childrenItems}</div>;
+  return <div className={clsx(classes.root, className, inline && classes.inline)}>{childrenItems}</div>;
 };

@@ -9,13 +9,18 @@ type Props = {
   className?: string;
   layout?: 'default' | 'inline' | 'stacked';
   children?: any;
+  fullWidth?: boolean;
 } & FormProps;
 
 export const Form = React.forwardRef((props: Props, ref: any) => {
-  const { className, children, layout = 'default', id, ...formProps } = props;
+  const { className, children, layout = 'default', id, fullWidth, ...formProps } = props;
+  const context = React.useMemo(() => ({
+    isCoreForm: true,
+    fullWidth,
+  }), [fullWidth]);
 
   return (
-    <FormContext.Provider value={true}>
+    <FormContext.Provider value={context}>
       <FinalForm {...formProps}>
         {({ handleSubmit, ...formState }) => (
           <form className={className} onSubmit={handleSubmit} id={id} ref={ref}>
