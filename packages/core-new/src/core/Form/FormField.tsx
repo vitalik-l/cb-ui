@@ -6,13 +6,15 @@ import clsx from 'clsx';
 import { useFieldsLayout } from './useFieldsLayout';
 import { useCoreForm } from './useCoreForm';
 import { useClasses } from '../hooks/useClasses';
+import { FormFieldContext } from './FormFieldContext';
 import styles from './CoreFormField.module.scss';
 
 const sanitizeFieldProps = ({ validate, ...props }: any) => props;
 
-export const FormField = (props: any) => {
+export const FormField = React.memo((props: any) => {
   const {
     Label = 'label',
+    Error = 'div',
     label,
     subLabel,
     placeholder,
@@ -51,11 +53,13 @@ export const FormField = (props: any) => {
   const inlineClass = isInline ? classes.inline : undefined;
 
   const content = (
-    <>
-      <div className={clsx(classes.item, classes.label, inlineClass)}>
-        <Label htmlFor={id}>{label}</Label>
-        {!!subLabel && <div className={classes.subLabel}>{subLabel}</div>}
-      </div>
+    <FormFieldContext.Provider value={meta}>
+      {!!label && (
+        <div className={clsx(classes.item, classes.label, inlineClass)}>
+          <Label htmlFor={id}>{label}</Label>
+          {!!subLabel && <div className={classes.subLabel}>{subLabel}</div>}
+        </div>
+      )}
       <div
         className={clsx(classes.item, classes.control, inlineClass, {
           [classes.fullWidth]: !!fullWidth,
@@ -72,10 +76,10 @@ export const FormField = (props: any) => {
       {showError && invalid && (
         <>
           <div />
-          <div className={clsx(classes.error, inlineClass)}>{errorMessage}</div>
+          <Error className={clsx(classes.error, inlineClass)}>{errorMessage}</Error>
         </>
       )}
-    </>
+    </FormFieldContext.Provider>
   );
 
   if (layout !== 'inline') {
@@ -85,4 +89,4 @@ export const FormField = (props: any) => {
   }
 
   return content;
-};
+});

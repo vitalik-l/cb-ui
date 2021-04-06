@@ -19,6 +19,7 @@ $root: CoreButtonBase;
   background-color: transparent;
   -webkit-tap-highlight-color: transparent;
   box-sizing: border-box;
+  font-family: inherit;
 
   &:disabled,
   .disabled {

@@ -21,7 +21,7 @@ type Props = {
     fullWidth?: string;
     autoWidth?: string;
     value?: string;
-    selectItem?: string;
+    select?: string;
     icon?: string;
   };
 } & React.SelectHTMLAttributes<HTMLSelectElement>;
@@ -68,7 +68,7 @@ export const Select = (props: Props) => {
         <div className={classes?.value}>{typeof format === 'function' ? format(value) : value}</div>
       )}
       <select
-        className={classes?.selectItem}
+        className={classes?.select}
         disabled={disabled}
         value={value}
         onChange={handleChange}

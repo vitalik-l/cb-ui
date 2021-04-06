@@ -5,6 +5,7 @@ import 'cb-datatable/styles/core.scss';
 
 // local files
 import styles from './CoreDataTable.module.scss';
+import { Pager } from './Pager';
 
 export type DataTableProps = {
   className?: string;
@@ -47,4 +48,5 @@ export const DataTable = (props: DataTableProps) => {
 
 DataTable.defaultProps = {
   sortable: true,
+  pager: <Pager />,
 };

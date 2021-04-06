@@ -8,6 +8,13 @@ import { createStory } from '../createStory';
 const story = createStory({
   title: 'DataTable',
   component: DataTable,
+  argTypes: {
+    pager: {
+      control: {
+        type: null,
+      },
+    },
+  },
   args: {
     data: [
       {
@@ -22,16 +29,29 @@ const story = createStory({
         id: 2,
         name: 'name 2',
       },
+      {
+        id: 3,
+        name: 'name 3',
+      },
+      {
+        id: 4,
+        name: 'name 4',
+      },
+      {
+        id: 5,
+        name: 'name 5',
+      },
     ],
   },
 });
 
-export const Template: Story = (args) => (
-  <DataTable {...args}>
+export const CoreDataTableStory: Story & { Component: React.FunctionComponent } = (args) => (
+  <CoreDataTableStory.Component {...args} {...CoreDataTableStory.Component.defaultProps}>
     <Column source="id" label="ID" />
     <Column source="name" label="Name" />
-  </DataTable>
+  </CoreDataTableStory.Component>
 );
-Template.storyName = 'DataTable';
+CoreDataTableStory.Component = DataTable;
+CoreDataTableStory.storyName = 'DataTable';
 
 export default story;

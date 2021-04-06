@@ -31,6 +31,7 @@ $root: CgButton;
   &.outlined {
     color: #5b5b5b;
     border: 1px solid #5b5b5b;
+    font-weight: 700;
 
     &:active {
       color: white;
@@ -72,7 +73,7 @@ $root: CgButton;
 
 .theme_classic {
   &:global(.#{$root}) {
-    font-size: 0.7em;
+    font-size: 1em;
     font-family: inherit;
     color: #b3b3b3;
     background: #131722;
@@ -123,6 +124,7 @@ $root: CgButton;
 
   .label {
     text-align: center;
+    min-width: fit-content;
   }
 
   .icon {

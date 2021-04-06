@@ -1,0 +1,12 @@
+@use '../styles/mixins' as *;
+
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: toRem(5) 0;
+}
+
+.select {
+  margin: 0 toRem(30);
+}

@@ -1,0 +1,65 @@
+$root: ClassicTable;
+
+:global {
+  .#{$root} {
+    font-family: 'Myriad Pro', Arial, Helvetica, sans-serif;
+
+    .cb-TableHeaderCell {
+      z-index: 3;
+      border: 1px solid #131722;
+      height: 3.4em;
+      padding: 0 0.3em;
+      background: #1c2030;
+      position: relative;
+    }
+
+    .cb-HeaderCell {
+      text-transform: uppercase;
+      font-size: 1.1em;
+      font-weight: 700;
+      color: #667a83;
+    }
+
+    .cb-TableCell {
+      &--sortable {
+        cursor: pointer;
+      }
+
+      &--sort-desc:after {
+        content: '';
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: #37a6ef;
+      }
+
+      &--sort-asc:after {
+        content: '';
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #37a6ef;
+      }
+    }
+
+    .cb-TableBody {
+      .cb-TableRow {
+        height: 3.4em;
+      }
+
+      .cb-TableCell {
+        font-size: 1.3em;
+        border-bottom: 1px solid #363c4e;
+        text-align: center;
+      }
+    }
+  }
+}
+
+:export {
+  root: $root;
+}

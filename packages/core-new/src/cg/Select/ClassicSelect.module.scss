@@ -1,0 +1,21 @@
+@use '~@cb-general/core/styles/mixins' as *;
+
+.select {
+  font-family: 'Myriad Pro', Arial, Helvetica, sans-serif;
+  font-size: 1.2em;
+  font-weight: 400;
+  color: white;
+  border: 1px solid #363c4e;
+  background: #131722;
+  padding: toRem(5) 2em toRem(5) toRem(5);
+  min-height: toRem(33);
+}
+
+.icon {
+  font-size: 2em;
+  right: 0.2em;
+}
+
+.disabled {
+  opacity: 0.8;
+}

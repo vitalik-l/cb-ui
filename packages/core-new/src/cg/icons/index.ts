@@ -5,3 +5,4 @@ export { CircleMenuIcon } from './CircleMenuIcon';
 export { MenuIcon } from './MenuIcon';
 export { SelectIcon } from './SelectIcon';
 export { ArrowIcon } from './ArrowIcon';
+export { CopyIcon } from './CopyIcon';
