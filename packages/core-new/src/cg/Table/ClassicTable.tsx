@@ -6,7 +6,7 @@ import styles from './ClassicTable.module.scss';
 import { ClassicButton } from '../Button';
 import { ClassicSelect } from '../Select';
 
-export const Table = styled(CoreTable, styles.root);
-Table.defaultProps = {
+export const ClassicTable = styled(CoreTable, styles.root);
+ClassicTable.defaultProps = {
   pager: <Pager ButtonComponent={ClassicButton} SelectComponent={ClassicSelect} />,
 };

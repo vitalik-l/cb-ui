@@ -4,7 +4,7 @@ import { Story } from '@storybook/react';
 // local files
 import { createStory } from '../createStory';
 import { DataTable, SelectableRow } from './index';
-import { Column } from '../../core/DataTable';
+import { Column } from '../../core/Table';
 
 const story = createStory({
   title: 'DataTable',

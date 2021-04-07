@@ -1,17 +1,17 @@
 // local files
 import { createStory } from '../createStory';
-import { Table } from './index';
-import CoreTableStory, { CoreDataTableStory } from '../../core/DataTable/DataTable.story';
+import { ClassicTable } from './index';
+import CoreTableStoryConfig, { CoreTableStory } from '../../core/Table/Table.story';
 
 const story = createStory({
   title: 'Table',
-  component: Table,
-  args: CoreTableStory.args,
-  argTypes: CoreTableStory.argTypes,
+  component: ClassicTable,
+  args: CoreTableStoryConfig.args,
+  argTypes: CoreTableStoryConfig.argTypes,
 });
 
-export { CoreDataTableStory };
-CoreDataTableStory.Component = Table;
-CoreDataTableStory.storyName = 'Table';
+export { CoreTableStory };
+CoreTableStory.Component = ClassicTable;
+CoreTableStory.storyName = 'Table';
 
 export default story;

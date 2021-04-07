@@ -1,13 +1,13 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-import { DataTable, Column } from '@cb-general/core/DataTable';
 
 // local files
 import { createStory } from '../createStory';
+import { Table, Column } from './index';
 
 const story = createStory({
-  title: 'DataTable',
-  component: DataTable,
+  title: 'Table',
+  component: Table,
   argTypes: {
     pager: {
       control: {
@@ -45,13 +45,13 @@ const story = createStory({
   },
 });
 
-export const CoreDataTableStory: Story & { Component: React.FunctionComponent } = (args) => (
-  <CoreDataTableStory.Component {...args} {...CoreDataTableStory.Component.defaultProps}>
+export const CoreTableStory: Story & { Component: React.FunctionComponent } = (args) => (
+  <CoreTableStory.Component {...args} {...CoreTableStory.Component.defaultProps}>
     <Column source="id" label="ID" />
     <Column source="name" label="Name" />
-  </CoreDataTableStory.Component>
+  </CoreTableStory.Component>
 );
-CoreDataTableStory.Component = DataTable;
-CoreDataTableStory.storyName = 'DataTable';
+CoreTableStory.Component = Table;
+CoreTableStory.storyName = 'Table';
 
 export default story;

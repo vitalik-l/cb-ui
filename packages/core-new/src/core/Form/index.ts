@@ -1,4 +1,4 @@
-import { useFormState as useFinalFormState } from 'react-final-form';
+import { useFormState as useFinalFormState, useForm as useFinalForm } from 'react-final-form';
 
 export { FieldsLayout } from './FieldsLayout';
 export { FormField } from './FormField';
@@ -9,4 +9,6 @@ export { Form } from './Form';
 export { Form as default } from './Form';
 export * from './validators';
 export { useFormField } from './useFormField';
+
 export const useFormState = useFinalFormState;
+export const useForm = useFinalForm;
