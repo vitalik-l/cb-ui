@@ -45,13 +45,14 @@ const story = createStory({
   },
 });
 
-export const CoreTableStory: Story & { Component: React.FunctionComponent } = (args) => (
-  <CoreTableStory.Component {...args} {...CoreTableStory.Component.defaultProps}>
-    <Column source="id" label="ID" />
-    <Column source="name" label="Name" />
-  </CoreTableStory.Component>
-);
-CoreTableStory.Component = Table;
+export const CoreTableStory: Story = ({ Component = Table, ...args}) => {
+  return (
+    <Component {...args} {...Component.defaultProps}>
+      <Column source="id" label="ID"/>
+      <Column source="name" label="Name"/>
+    </Component>
+  );
+};
 CoreTableStory.storyName = 'Table';
 
 export default story;

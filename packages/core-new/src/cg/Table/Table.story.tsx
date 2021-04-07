@@ -1,3 +1,4 @@
+import { Story } from '@storybook/react';
 // local files
 import { createStory } from '../createStory';
 import { ClassicTable } from './index';
@@ -10,8 +11,9 @@ const story = createStory({
   argTypes: CoreTableStoryConfig.argTypes,
 });
 
-export { CoreTableStory };
-CoreTableStory.Component = ClassicTable;
-CoreTableStory.storyName = 'Table';
+const ClassicTableStoryTemplate: Story = (args) => <CoreTableStory Component={ClassicTable} {...args} />;
+
+export { ClassicTableStoryTemplate };
+ClassicTableStoryTemplate.storyName = 'Table';
 
 export default story;
