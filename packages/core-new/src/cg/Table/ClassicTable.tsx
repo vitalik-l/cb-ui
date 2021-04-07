@@ -1,6 +1,6 @@
 import { styled } from '@cb-general/core/utils/styled';
-import { DataTable as CoreTable } from '@cb-general/core/DataTable';
-import { Pager } from '@cb-general/core/DataTable/Pager';
+import { Table as CoreTable } from '@cb-general/core/Table';
+import { Pager } from '@cb-general/core/Table/Pager';
 // local files
 import styles from './ClassicTable.module.scss';
 import { ClassicButton } from '../Button';

@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { DataTable as CoreDataTable, DataTableProps } from '@cb-general/core/DataTable';
+import { Table as CoreTable } from '@cb-general/core/Table';
 
 // local files
 import { Pager, pagerStrings } from './Pager';
@@ -11,7 +11,7 @@ export const DataTable = (props: any) => {
   const { className, strings, ...otherProps } = props;
 
   return (
-    <CoreDataTable
+    <CoreTable
       className={clsx(classes.DataTable, className)}
       pager={<Pager strings={strings} />}
       {...otherProps}

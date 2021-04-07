@@ -1,8 +1,8 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-import { DataTable } from '@cb-general/core/DataTable';
 
 // local files
+import { Table } from '../../core/Table';
 import { createStory } from '../createStory';
 import { TitledColumn } from './index';
 
@@ -12,11 +12,11 @@ const story = createStory({
 });
 
 export const Template: Story = () => (
-  <DataTable data={[{ ticket: 1, amount: 2, profit: 3 }]}>
+  <Table data={[{ ticket: 1, amount: 2, profit: 3 }]}>
     <TitledColumn source="ticket" title="ticket" />
     <TitledColumn source="amount" title="amount" />
     <TitledColumn source="profit" title="profit" />
-  </DataTable>
+  </Table>
 );
 Template.storyName = 'TitledColumn';
 

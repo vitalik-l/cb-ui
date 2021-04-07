@@ -1,5 +1,5 @@
 import React from 'react';
-import { TableRow } from '@cb-general/core/DataTable';
+import { TableRow } from '@cb-general/core/Table';
 import { get } from '@cb-general/core/utils/get';
 import clsx from 'clsx';
 
