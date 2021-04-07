@@ -1,4 +1,8 @@
-import { Column as CBColumn, TableRow as CBTableRow, HeaderCell as CBHeaderCell } from 'cb-datatable';
+import {
+  Column as CBColumn,
+  TableRow as CBTableRow,
+  HeaderCell as CBHeaderCell,
+} from 'cb-datatable';
 export const Column = CBColumn;
 export const TableRow = CBTableRow;
 export const HeaderCell = CBHeaderCell;

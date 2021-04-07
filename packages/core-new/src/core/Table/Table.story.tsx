@@ -45,11 +45,11 @@ const story = createStory({
   },
 });
 
-export const CoreTableStory: Story = ({ Component = Table, ...args}) => {
+export const CoreTableStory: Story = ({ Component = Table, ...args }) => {
   return (
     <Component {...args} {...Component.defaultProps}>
-      <Column source="id" label="ID"/>
-      <Column source="name" label="Name"/>
+      <Column source="id" label="ID" />
+      <Column source="name" label="Name" />
     </Component>
   );
 };

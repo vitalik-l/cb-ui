@@ -11,7 +11,9 @@ const story = createStory({
   argTypes: CoreTableStoryConfig.argTypes,
 });
 
-const ClassicTableStoryTemplate: Story = (args) => <CoreTableStory Component={ClassicTable} {...args} />;
+const ClassicTableStoryTemplate: Story = (args) => (
+  <CoreTableStory Component={ClassicTable} {...args} />
+);
 
 export { ClassicTableStoryTemplate };
 ClassicTableStoryTemplate.storyName = 'Table';

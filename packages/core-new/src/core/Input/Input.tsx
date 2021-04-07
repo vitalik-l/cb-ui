@@ -39,6 +39,7 @@ export const Input = React.forwardRef((props: InputProps, ref: any) => {
     multiline,
     ...inputProps
   } = props;
+  const { value, defaultValue } = inputProps;
   const InputComponent = multiline ? 'textarea' : component;
   const classes: ClassesType = useClasses(styles, classesProp);
 
@@ -56,6 +57,7 @@ export const Input = React.forwardRef((props: InputProps, ref: any) => {
         className={clsx(classes.input, invalid && classes.invalid)}
         ref={inputRef}
         placeholder={placeholder}
+        title={value || defaultValue}
         {...inputProps}
       />
       {!!button && React.cloneElement(button, { className: classes.button })}
