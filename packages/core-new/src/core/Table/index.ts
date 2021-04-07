@@ -12,3 +12,4 @@ export { Table as default } from './Table';
 export { usePager } from './usePager';
 export { Pager } from './Pager';
 export type { TableProps } from './Table';
+export { ArrayColumn } from './ArrayColumn';

@@ -6,6 +6,7 @@ import 'cb-datatable/styles/core.scss';
 // local files
 import styles from './CoreTable.module.scss';
 import { Pager } from './Pager';
+import { clearProps } from '../utils/clearProps';
 
 export type TableProps = {
   className?: string;
@@ -38,7 +39,7 @@ export const Table = (props: TableProps) => {
         <CbTable
           data={dataPerPage}
           headerCell={<HeaderCell sortable={sortable} {...sorting} />}
-          {...otherProps}
+          {...clearProps(otherProps)}
         />
       </div>
       {Boolean(pager && rowsPerPage && data.length) && React.cloneElement(pager, pagination)}
