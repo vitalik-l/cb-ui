@@ -25,7 +25,6 @@ export const FormField = React.memo((props: any) => {
     fullWidth: fullWidthProp,
     showError = true,
     className,
-    classNamePrefix,
     classes: classesProp,
     layout: layoutProp,
     inputClasses,
@@ -84,7 +83,7 @@ export const FormField = React.memo((props: any) => {
 
   if (layout !== 'inline') {
     return (
-      <div className={clsx(classes.root, layout && classes[`layout_${layout}`])}>{content}</div>
+      <div className={clsx(classes.root, className, layout && classes[`layout_${layout}`])}>{content}</div>
     );
   }
 

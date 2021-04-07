@@ -1,13 +1,15 @@
 $root: ClassicTable;
 
 :global {
+  $height: 2.4em;
+
   .#{$root} {
     font-family: 'Myriad Pro', Arial, Helvetica, sans-serif;
 
     .cb-TableHeaderCell {
       z-index: 3;
       border: 1px solid #131722;
-      height: 3.4em;
+      height: $height;
       padding: 0 0.3em;
       background: #1c2030;
       position: relative;
@@ -15,7 +17,7 @@ $root: ClassicTable;
 
     .cb-HeaderCell {
       text-transform: uppercase;
-      font-size: 1.1em;
+      font-size: 0.8em;
       font-weight: 700;
       color: #667a83;
     }
@@ -48,11 +50,11 @@ $root: ClassicTable;
 
     .cb-TableBody {
       .cb-TableRow {
-        height: 3.4em;
+        height: $height;
       }
 
       .cb-TableCell {
-        font-size: 1.3em;
+        font-size: 0.9em;
         border-bottom: 1px solid #363c4e;
         text-align: center;
       }
