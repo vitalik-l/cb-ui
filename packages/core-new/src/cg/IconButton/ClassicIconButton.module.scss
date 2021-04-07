@@ -1,0 +1,7 @@
+@use '~@cb-general/core/styles/mixins' as *;
+
+.root {
+  font-size: 1em;
+  padding: toRem(9);
+  min-height: auto;
+}

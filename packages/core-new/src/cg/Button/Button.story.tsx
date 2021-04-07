@@ -3,7 +3,7 @@ import { Story } from '@storybook/react';
 
 // local files
 import { createStory } from '../createStory';
-import { Button } from './index';
+import { Button, ClassicButton } from './index';
 import { NavIcon } from '../icons';
 
 const story = createStory({
@@ -31,12 +31,6 @@ const story = createStory({
     large: {
       control: 'boolean',
     },
-    theme: {
-      control: {
-        type: 'select',
-        options: ['flat', 'classic', 'bubble'],
-      },
-    },
   },
   args: {
     variant: 'contained',
@@ -49,6 +43,10 @@ export const WithIcon: Story = (args) => (
   <Button {...args} icon={<NavIcon />}>
     This is Button
   </Button>
+);
+
+export const Classic: Story = (args) => (
+  <ClassicButton {...args}>This is classic button</ClassicButton>
 );
 
 export default story;

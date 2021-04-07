@@ -3,109 +3,70 @@
 
 $root: CgButton;
 
-.theme_flat {
-  &:global(.#{$root}) {
-    border-radius: min(5px, 0.5rem);
-    padding: 1rem 1.5rem;
-    text-align: center;
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 1.2em;
-    line-height: 1;
-    color: white;
+:global(.#{$root}) {
+  border-radius: min(5px, 0.5rem);
+  padding: 1rem 1.5rem;
+  text-align: center;
+  font-family: IBM Plex Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.2em;
+  line-height: 1;
+  color: white;
 
-    &:active {
-      opacity: 0.8;
-    }
-
-    &:disabled {
-      opacity: 0.5;
-    }
+  &:active {
+    opacity: 0.8;
   }
 
-  &.contained {
-    background: linear-gradient(180deg, #42434e 0%, #3b3b3b 100%);
-  }
-
-  &.outlined {
-    color: #5b5b5b;
-    border: 1px solid #5b5b5b;
-    font-weight: 700;
-
-    &:active {
-      color: white;
-      border-color: white;
-      opacity: 1;
-    }
-  }
-
-  &.green {
-    &.contained {
-      background: linear-gradient(180deg, #01f77b 0%, #01bd5e 100%);
-    }
-
-    &.outlined {
-      &:active {
-        color: $colorGreen;
-        border-color: $colorGreen;
-      }
-    }
-  }
-
-  &.red {
-    &.contained {
-      background: linear-gradient(180deg, #ea3586 0%, #942256 100%);
-    }
-  }
-
-  &.orange {
-    &.contained {
-      background: linear-gradient(180deg, #f76801, #bd1801);
-    }
-  }
-
-  &.large {
-    min-height: toRem(50);
-    font-size: 1.9em;
+  &:disabled {
+    opacity: 0.5;
   }
 }
 
-.theme_classic {
-  &:global(.#{$root}) {
-    font-size: 1em;
-    font-family: inherit;
-    color: #b3b3b3;
-    background: #131722;
-    border: 1px solid #363c4e;
-    min-height: toRem(33);
-    padding: 0 toRem(15);
-    text-transform: uppercase;
-    font-weight: 700;
-    text-align: center;
-    line-height: toRem(0.5);
+.contained {
+  background: linear-gradient(180deg, #42434e 0%, #3b3b3b 100%);
+}
 
-    &:hover {
-      background: #1e2331;
-    }
+.outlined {
+  color: #5b5b5b;
+  border: 1px solid #5b5b5b;
+  font-weight: 700;
 
-    &:active {
-      background: #131217;
-    }
+  &:active {
+    color: white;
+    border-color: white;
+    opacity: 1;
+  }
+}
 
-    &:disabled {
-      opacity: 0.5;
-    }
+.green {
+  &.contained {
+    background: linear-gradient(180deg, #01f77b 0%, #01bd5e 100%);
   }
 
-  &.primary {
-    &,
-    &:hover,
+  &.outlined {
     &:active {
-      background: #1592e6;
-      color: #fff;
+      color: $colorGreen;
+      border-color: $colorGreen;
     }
   }
+}
+
+.red {
+  &.contained {
+    background: linear-gradient(180deg, #ea3586 0%, #942256 100%);
+  }
+}
+
+.orange {
+  &.contained {
+    background: linear-gradient(180deg, #f76801, #bd1801);
+  }
+}
+
+.large {
+  min-height: toRem(50);
+  font-size: 1.9em;
 }
 
 .withIcon {

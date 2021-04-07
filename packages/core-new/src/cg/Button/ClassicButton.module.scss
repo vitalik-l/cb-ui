@@ -1,0 +1,67 @@
+@use '../styles/variables' as *;
+@use '~@cb-general/core/styles/mixins' as *;
+
+$root: ClassicButton;
+
+:global(.#{$root}) {
+  font-size: 0.8em;
+  font-family: inherit;
+  color: #b3b3b3;
+  background: #131722;
+  border: 1px solid #363c4e;
+  min-height: toRem(33);
+  padding: 0 toRem(15);
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+  line-height: toRem(0.5);
+
+  &:hover {
+    background: #1e2331;
+  }
+
+  &:active {
+    background: #131217;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.primary {
+  &,
+  &:hover,
+  &:active {
+    background: #1592e6;
+    color: #fff;
+  }
+}
+
+.withIcon {
+  justify-content: space-between;
+}
+
+.icon {
+  margin-left: 1rem;
+  display: inline-flex;
+}
+
+.labelCenter {
+  > :global(div) {
+    flex: 1;
+  }
+
+  .label {
+    text-align: center;
+    min-width: fit-content;
+  }
+
+  .icon {
+    justify-content: flex-end;
+  }
+}
+
+:export {
+  root: $root;
+}

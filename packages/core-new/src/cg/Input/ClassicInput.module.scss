@@ -3,7 +3,17 @@
   font-family: inherit;
   color: #fff;
   border: 1px solid #363c4e;
-  background: #131722;
+  background-color: #131722;
   padding: 0.5rem 0.9rem 0.2rem;
   min-height: 3rem;
+
+  &:invalid,
+  &.invalid {
+    border: 1px solid red;
+    background-color: rgba(234, 53, 134, 0.1);
+
+    &:focus {
+      border: 1px solid red;
+    }
+  }
 }

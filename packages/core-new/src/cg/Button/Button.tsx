@@ -14,24 +14,24 @@ export const Button = (props: any) => {
     children,
     labelCenter,
     large,
-    theme = 'flat',
+    classes = styles,
     ...buttonProps
   } = props;
 
   return (
     <ButtonBase
-      className={clsx(styles.root, className, styles[`theme_${theme}`], {
-        [styles[variant]]: variant,
-        [styles[color]]: color,
-        [styles.withIcon]: icon,
-        [styles.labelCenter]: labelCenter,
-        [styles.large]: large,
+      className={clsx(classes.root, className, {
+        [classes[variant]]: variant,
+        [classes[color]]: color,
+        [classes.withIcon]: icon,
+        [classes.labelCenter]: labelCenter,
+        [classes.large]: large,
       })}
       {...buttonProps}
     >
       {labelCenter && <div />}
-      <div className={styles.label}>{children}</div>
-      {icon && <div className={styles.icon}>{icon}</div>}
+      <div className={classes.label}>{children}</div>
+      {icon && <div className={classes.icon}>{icon}</div>}
     </ButtonBase>
   );
 };
