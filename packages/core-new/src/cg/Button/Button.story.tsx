@@ -3,7 +3,7 @@ import { Story } from '@storybook/react';
 
 // local files
 import { createStory } from '../createStory';
-import { Button, ClassicButton } from './index';
+import { Button, ClassicButton, BubbleButton } from './index';
 import { NavIcon } from '../icons';
 
 const story = createStory({
@@ -48,5 +48,7 @@ export const WithIcon: Story = (args) => (
 export const Classic: Story = (args) => (
   <ClassicButton {...args}>This is classic button</ClassicButton>
 );
+
+export const Bubble: Story = (args) => <BubbleButton {...args}>This is bubble button</BubbleButton>;
 
 export default story;

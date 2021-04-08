@@ -1,0 +1,15 @@
+@use '~@cb-general/core/styles/mixins' as *;
+
+.input {
+  background-color: #000;
+  color: #fff;
+  min-height: 2.5em;
+  font-size: 1.6em;
+  border: toRem(2) solid #2f3241;
+  border-radius: toRem(4);
+  padding: toRem(5) toRem(9);
+
+  &.invalid {
+    border-color: #d80273;
+  }
+}

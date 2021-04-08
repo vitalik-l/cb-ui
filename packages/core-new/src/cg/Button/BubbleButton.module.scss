@@ -1,0 +1,28 @@
+.contained {
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-size: 2.4em;
+  color: #0a0a10;
+  border-radius: 4px;
+  min-height: 1.875em;
+  min-width: 6.25em;
+  font-weight: 700;
+
+  &.green {
+    background-color: #00b65b;
+    border: 2px solid #00fd7e;
+
+    &:hover {
+      background-color: #00fd7e;
+    }
+  }
+}
+
+.text {
+  font-size: 1.6em;
+  font-family: Raleway, Arial, Helvetica, sans-serif;
+  color: #b3b3b3;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

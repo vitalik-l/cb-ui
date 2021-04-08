@@ -3,7 +3,7 @@ import { Story } from '@storybook/react';
 
 // local files
 import { createStory } from '../createStory';
-import { Input, InputButton, ClassicInput } from './index';
+import { Input, InputButton, ClassicInput, BubbleInput } from './index';
 import { ClassicButton } from '../Button';
 import { CloseIcon } from '../icons';
 
@@ -32,5 +32,7 @@ export const ClassicWithButton: Story = (args) => (
     readOnly
   />
 );
+
+export const Bubble: Story = (args) => <BubbleInput {...args} />;
 
 export default story;
