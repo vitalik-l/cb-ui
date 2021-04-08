@@ -1,9 +1,6 @@
 @use '~@cb-general/core/styles/mixins' as *;
-@use '../styles/variables' as *;
 
-$root: CgFormField;
-
-:global(.#{$root}) {
+.root {
   &:nth-child(n + 2) {
     margin-top: toRem(20);
   }
@@ -15,10 +12,6 @@ $root: CgFormField;
 
 .error {
   margin-top: toRem(5);
-  color: #d80273;
+  color: #c0c1c8;
   font-size: 1.1em;
-}
-
-:export {
-  root: $root;
 }

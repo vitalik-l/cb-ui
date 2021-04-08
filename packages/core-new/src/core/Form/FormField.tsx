@@ -53,7 +53,7 @@ export const FormField = React.memo((props: any) => {
 
   const content = (
     <FormFieldContext.Provider value={meta}>
-      {!!label && (
+      {label !== undefined && (
         <div className={clsx(classes.item, classes.label, inlineClass)}>
           <Label htmlFor={id}>{label}</Label>
           {!!subLabel && <div className={classes.subLabel}>{subLabel}</div>}
