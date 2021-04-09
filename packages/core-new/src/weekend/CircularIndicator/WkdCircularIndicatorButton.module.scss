@@ -41,7 +41,15 @@ $root: WkdCircularIndicatorButton;
 }
 
 .color_orange {
-  background: transparent url(./img/orange_button.png) no-repeat center center;
+  background-image: url(./img/orange_button.png);
+
+  &:hover {
+    box-shadow: 0 0 1.2em 0.2em #ed8e2b;
+  }
+
+  &:active {
+    background: #ff942b;
+  }
 }
 
 :export {
