@@ -3,12 +3,12 @@ import { Story } from '@storybook/react';
 
 // local files
 import { createStory } from '../createStory';
-import { DataTable, SelectableRow } from './index';
+import { Table, SelectableRow } from './index';
 import { Column } from '../../core/Table';
 
 const story = createStory({
-  title: 'DataTable',
-  component: DataTable,
+  title: 'Table',
+  component: Table,
   args: {
     data: [
       {
@@ -29,17 +29,17 @@ const story = createStory({
 });
 
 export const Default: Story = (args) => (
-  <DataTable {...args}>
+  <Table {...args} {...Table.defaultProps}>
     <Column source="id" label="ID" />
     <Column source="name" label="Name" />
-  </DataTable>
+  </Table>
 );
 
 export const Selectable: Story = (args) => (
-  <DataTable row={<SelectableRow source="selected" />} {...args}>
+  <Table row={<SelectableRow source="selected" />} {...args} {...Table.defaultProps}>
     <Column source="id" label="ID" />
     <Column source="name" label="Name" />
-  </DataTable>
+  </Table>
 );
 
 export default story;
