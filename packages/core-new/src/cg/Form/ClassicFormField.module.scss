@@ -13,6 +13,11 @@ $root: ClassicFormField;
   margin-bottom: toRem(7);
 }
 
+.subLabel {
+  color: #799097;
+  font-size: 0.9em;
+}
+
 .error {
   margin-top: toRem(5);
   color: red;

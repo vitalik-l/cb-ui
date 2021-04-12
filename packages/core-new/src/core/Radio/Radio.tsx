@@ -35,6 +35,7 @@ export const Radio = (props: Props) => {
     classes: classesProp,
     children,
     Label = 'label',
+    id,
     ...inputProps
   } = props;
   const [checked, setChecked] = useControlled({
@@ -74,10 +75,11 @@ export const Radio = (props: Props) => {
         onChange={handleInputChange}
         defaultChecked={defaultChecked}
         disabled={disabled}
+        id={id}
         {...inputProps}
       />
       {checked ? checkedIcon : icon}
-      {!!children && <Label className={classes.label}>{children}</Label>}
+      {!!children && <Label className={classes.label} htmlFor={id}>{children}</Label>}
     </ButtonBase>
   );
 };

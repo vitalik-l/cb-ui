@@ -3,7 +3,7 @@ import { Story } from '@storybook/react';
 
 // local files
 import { createStory } from '../createStory';
-import { Radio } from './index';
+import { Radio, ClassicRadio } from './index';
 import { RadioGroup } from '../../core/RadioGroup';
 
 const story = createStory({
@@ -35,9 +35,20 @@ export const Group: Story = () => {
   const [value, setValue] = React.useState('first');
 
   return (
-    <RadioGroup onChange={setValue} value={value}>
+    <RadioGroup onChange={setValue} value={value} inline>
       <Radio value="first">first</Radio>
       <Radio value="second">Second</Radio>
+    </RadioGroup>
+  );
+};
+
+export const ClassicGroup: Story = () => {
+  const [value, setValue] = React.useState('first');
+
+  return (
+    <RadioGroup onChange={setValue} value={value}>
+      <ClassicRadio value="first">first</ClassicRadio>
+      <ClassicRadio value="second">Second</ClassicRadio>
     </RadioGroup>
   );
 };

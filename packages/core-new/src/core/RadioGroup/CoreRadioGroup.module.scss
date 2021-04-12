@@ -1,5 +1,16 @@
-.child {
-  &:nth-child(n + 2) {
-    margin-left: 2rem;
+.inline {
+  > .child {
+    &:nth-child(n + 2) {
+      margin-left: 2rem;
+    }
+  }
+}
+
+.stacked {
+  display: inline-flex;
+  flex-direction: column;
+
+  .child {
+    justify-content: flex-start;
   }
 }
