@@ -1,14 +1,10 @@
 import React from 'react';
-import clsx from 'clsx';
+import { SvgIconProps, SvgIcon } from '@cb-general/core/SvgIcon';
 
-export const IndicatorIcon = ({ width = '40', height = '40', className, ...props }: any) => {
+export const IndicatorIcon = (props: SvgIconProps) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width={width}
-      height={height}
+    <SvgIcon
       viewBox="0 0 579.27 570.67"
-      className={clsx('svg-icon', className)}
       {...props}
     >
       <g fill="currentColor">
@@ -23,6 +19,6 @@ export const IndicatorIcon = ({ width = '40', height = '40', className, ...props
           d="M212.15 124.47l69.28 0 -27.59 55.18 -51.5 0 -51.5 291.24c-5.31,29.02 -17.27,51.1 -35.87,66.22 -18.6,15.12 -40.37,22.69 -65.3,22.69 -6.95,0 -15.23,-0.92 -24.83,-2.76 -9.61,-1.84 -17.88,-3.37 -24.83,-4.6l9.2 -52.73 30.66 0c10.22,0 19.62,-2.55 28.21,-7.66 8.58,-5.11 13.9,-12.98 15.94,-23.61l50.89 -288.79 -42.92 0 10.43 -55.18 42.92 0 5.52 -36.17c1.63,-11.45 5.01,-22.58 10.12,-33.42 5.11,-10.83 11.85,-20.23 20.23,-28.21 8.38,-7.97 18.39,-14.41 30.04,-19.31 11.65,-4.9 25.04,-7.36 40.16,-7.36 8.58,0 17.07,0.61 25.45,1.84 8.38,1.23 16.66,2.86 24.83,4.9l-9.2 53.34 -37.4 0c-10.22,0 -18.6,2.66 -25.14,7.97 -6.54,5.32 -10.63,12.88 -12.26,22.69l-5.52 33.72z"
         />
       </g>
-    </svg>
+    </SvgIcon>
   );
 };

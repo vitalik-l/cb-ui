@@ -1,14 +1,11 @@
 import React from 'react';
-import clsx from 'clsx';
+import { SvgIconProps, SvgIcon } from '@cb-general/core/SvgIcon';
 
-export const CrosshairIcon = ({ width = '40', height = '40', className }: any) => {
+export const CrosshairIcon = (props: SvgIconProps) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
+    <SvgIcon
       viewBox="0 0 1839.77 1839.77"
-      width={width}
-      height={height}
-      className={clsx('svg-icon', className)}
+      {...props}
     >
       <g fill="currentColor">
         <rect x="801.84" y="-0" width="236.07" height="700.09" />
@@ -24,6 +21,6 @@ export const CrosshairIcon = ({ width = '40', height = '40', className }: any) =
           height="700.09"
         />
       </g>
-    </svg>
+    </SvgIcon>
   );
 };

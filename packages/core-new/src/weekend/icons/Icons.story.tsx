@@ -7,6 +7,9 @@ import * as Icons from './index';
 
 const story = createStory({
   title: 'Icons',
+  style: {
+    fontSize: '2rem',
+  }
 });
 
 export const TrendDownIcon: Story = () => <Icons.TrendDownIcon />;

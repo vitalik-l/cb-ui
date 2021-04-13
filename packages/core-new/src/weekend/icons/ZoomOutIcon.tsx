@@ -1,15 +1,11 @@
 import React from 'react';
-import clsx from 'clsx';
+import { SvgIconProps, SvgIcon } from '@cb-general/core/SvgIcon';
 
-export const ZoomOutIcon = ({ width = 40, height = 40, className }: any) => {
+export const ZoomOutIcon = (props: SvgIconProps) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      version="1.1"
+    <SvgIcon
       viewBox="0 0 122.68 126.82"
-      width={width}
-      height={height}
-      className={clsx('svg-icon', className)}
+      {...props}
     >
       <g fill="currentColor">
         <line
@@ -40,6 +36,6 @@ export const ZoomOutIcon = ({ width = 40, height = 40, className }: any) => {
           points="48.03,55.1 48.03,46.71 95.53,46.71 95.53,55.1 "
         />
       </g>
-    </svg>
+    </SvgIcon>
   );
 };

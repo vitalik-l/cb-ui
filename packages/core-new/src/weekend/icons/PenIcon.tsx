@@ -1,14 +1,11 @@
 import React from 'react';
-import clsx from 'clsx';
+import { SvgIconProps, SvgIcon } from '@cb-general/core/SvgIcon';
 
-export const PenIcon = ({ width = '40', height = '40', className }: any) => {
+export const PenIcon = (props: SvgIconProps) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width={width}
-      height={height}
+    <SvgIcon
       viewBox="0 0 1173.82 1173.83"
-      className={clsx('svg-icon', className)}
+      {...props}
     >
       <g fill="currentColor">
         <rect
@@ -38,6 +35,6 @@ export const PenIcon = ({ width = '40', height = '40', className }: any) => {
           points="122.94,772.6 45.78,1128.05 401.23,1050.89 "
         />
       </g>
-    </svg>
+    </SvgIcon>
   );
 };

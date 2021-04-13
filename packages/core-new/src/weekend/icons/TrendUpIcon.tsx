@@ -1,17 +1,12 @@
 import React from 'react';
-import clsx from 'clsx';
+import { SvgIconProps, SvgIcon } from '@cb-general/core/SvgIcon';
 
-export const TrendUpIcon = ({ width = '40', height = '40', className, ...restProps }: any) => {
+export const TrendUpIcon = (props: SvgIconProps) => {
   return (
-    <svg
-      version="1.0"
-      xmlns="http://www.w3.org/2000/svg"
-      width={width}
-      height={height}
+    <SvgIcon
       viewBox="0 0 85.000000 90.000000"
       preserveAspectRatio="xMidYMid meet"
-      className={clsx('svg-icon', className)}
-      {...restProps}
+      {...props}
     >
       <g
         transform="translate(0.000000,90.000000) scale(0.100000,-0.100000)"
@@ -23,6 +18,6 @@ export const TrendUpIcon = ({ width = '40', height = '40', className, ...restPro
         <path d="M503 328 c-55 -56 -88 -57 -141 -5 -21 21 -41 37 -45 37 -4 0 -6 -75 -5 -167 l3 -168 113 -3 c86 -2 114 0 117 11 3 7 4 86 3 175 l-3 163 -42 -43z" />
         <path d="M193 278 c-45 -45 -58 -53 -88 -52 -23 1 -45 10 -61 25 l-25 23 3 -124 3 -125 108 -3 c82 -2 109 0 112 11 3 7 4 77 3 155 l-3 143 -52 -53z" />
       </g>
-    </svg>
+    </SvgIcon>
   );
 };

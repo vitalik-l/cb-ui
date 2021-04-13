@@ -1,14 +1,11 @@
 import React from 'react';
-import clsx from 'clsx';
+import { SvgIconProps, SvgIcon } from '@cb-general/core/SvgIcon';
 
-export const SplineChartIcon = ({ width = '40', height = '40', className }: any) => {
+export const SplineChartIcon = (props: SvgIconProps) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width={width}
-      height={height}
+    <SvgIcon
       viewBox="0 0 23675.71 13153.17"
-      className={clsx('svg-icon', className)}
+      {...props}
     >
       <g>
         <path
@@ -19,6 +16,6 @@ export const SplineChartIcon = ({ width = '40', height = '40', className }: any)
           d="M22360.39 6576.59c0,2905.71 -2355.56,5261.27 -5261.27,5261.27 -2905.71,0 -5261.27,-2355.56 -5261.27,-5261.27 0,-2905.71 -2355.56,-5261.27 -5261.27,-5261.27 -2905.71,0 -5261.27,2355.56 -5261.27,5261.27"
         />
       </g>
-    </svg>
+    </SvgIcon>
   );
 };

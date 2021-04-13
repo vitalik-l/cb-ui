@@ -1,14 +1,11 @@
 import React from 'react';
-import clsx from 'clsx';
+import { SvgIconProps, SvgIcon } from '@cb-general/core/SvgIcon';
 
-export const PointerIcon = ({ width = '40', height = '40', className }: any) => {
+export const PointerIcon = (props: SvgIconProps) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width={width}
-      height={height}
+    <SvgIcon
       viewBox="0 0 85 154.73"
-      className={clsx('svg-icon', className)}
+      {...props}
     >
       <g>
         <line
@@ -26,6 +23,6 @@ export const PointerIcon = ({ width = '40', height = '40', className }: any) => 
           points="67,91.04 96.49,142.13 74.66,154.73 45.17,103.64 12.78,122.34 -0,0 101.69,71.01 "
         />
       </g>
-    </svg>
+    </SvgIcon>
   );
 };

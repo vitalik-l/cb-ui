@@ -1,16 +1,12 @@
 import React from 'react';
-import clsx from 'clsx';
+import { SvgIconProps, SvgIcon } from '@cb-general/core/SvgIcon';
 
-export const TrendDownIcon = ({ width = '40', height = '40', className }: any) => {
+export const TrendDownIcon = (props: SvgIconProps) => {
   return (
-    <svg
-      version="1.0"
-      xmlns="http://www.w3.org/2000/svg"
-      width={width}
-      height={height}
+    <SvgIcon
       viewBox="0 0 84.000000 87.000000"
       preserveAspectRatio="xMidYMid meet"
-      className={clsx('svg-icon', className)}
+      {...props}
     >
       <g
         transform="translate(0.000000,87.000000) scale(0.100000,-0.100000)"
@@ -22,6 +18,6 @@ export const TrendDownIcon = ({ width = '40', height = '40', className }: any) =
         <path d="M358 483 l-58 -59 0 -212 0 -212 120 0 120 0 0 105 c0 104 0 105 -24 105 -58 0 -65 65 -12 119 51 52 47 72 -26 147 l-63 65 -57 -58z" />
         <path d="M600 105 l0 -105 120 0 121 0 -3 103 -3 102 -117 3 -118 3 0 -106z" />
       </g>
-    </svg>
+    </SvgIcon>
   );
 };
