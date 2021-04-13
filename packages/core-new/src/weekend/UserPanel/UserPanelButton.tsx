@@ -3,7 +3,7 @@ import clsx from 'clsx';
 
 // local files
 import { Button } from '../Button';
-import classes from '../styles/classes.module.scss';
+import styles from './WkdUserPanelButton.module.scss';
 
 type Props = {
   component?: React.ElementType;
@@ -18,8 +18,8 @@ export const UserPanelButton = (props: Props) => {
 
   return (
     <Component
-      className={clsx(`${classes.UserPanel}-button`, className, {
-        [`${classes.UserPanel}-button--crop-left`]: cropLeft,
+      className={clsx(styles.root, className, {
+        [styles.cropLeft]: cropLeft,
       })}
       {...restProps}
     />

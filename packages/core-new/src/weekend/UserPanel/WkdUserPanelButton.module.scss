@@ -1,0 +1,18 @@
+.root {
+  height: 3.5rem;
+  font: inherit;
+  border-radius: inherit;
+  background: linear-gradient(#262b2f, #1b2024 48%, #12171b 50%, #212629);
+  border: 2px solid #444;
+  padding: 1em 1.5em;
+  font-size: 1.2em;
+
+  &:active {
+    background: #131217;
+  }
+}
+
+.cropLeft {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}

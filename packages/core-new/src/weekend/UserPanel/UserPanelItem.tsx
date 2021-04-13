@@ -1,11 +1,6 @@
-import React from 'react';
-import clsx from 'clsx';
+import { styled } from '@cb-general/core/utils/styled';
 
 // local files
-import classes from '../styles/classes.module.scss';
+import styles from './WkdUserPanelItem.module.scss';
 
-export const UserPanelItem = (props: any) => {
-  const { className, ...restProps } = props;
-
-  return <div className={clsx(`${classes.UserPanel}-item`, className)} {...restProps} />;
-};
+export const UserPanelItem = styled(styles.root);
