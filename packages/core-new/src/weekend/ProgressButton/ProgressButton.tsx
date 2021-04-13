@@ -3,8 +3,7 @@ import clsx from 'clsx';
 
 // local files
 import { Button } from '../Button';
-import classes from '../styles/classes.module.scss';
-import './ProgressButton.scss';
+import styles from './WkdProgressButton.module.scss';
 
 type Props = {
   className?: string;
@@ -19,15 +18,15 @@ export const ProgressButton = (props: Props) => {
 
   return (
     <Button
-      className={clsx(classes.ProgressButton, className, {
-        [`${classes.ProgressButton}_color_${color}`]: !!color,
+      className={clsx(styles.root, className, {
+        [styles[`color_${color}`]]: !!color,
       })}
       data-label={label}
       square
       {...otherProps}
     >
       {label}
-      <span style={{ transform: `translateX(${progress}%)` }} />
+      <span className={styles.progress} style={{ transform: `translateX(${progress}%)` }} />
     </Button>
   );
 };
