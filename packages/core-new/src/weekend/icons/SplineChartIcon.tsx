@@ -3,10 +3,7 @@ import { SvgIconProps, SvgIcon } from '@cb-general/core/SvgIcon';
 
 export const SplineChartIcon = (props: SvgIconProps) => {
   return (
-    <SvgIcon
-      viewBox="0 0 23675.71 13153.17"
-      {...props}
-    >
+    <SvgIcon viewBox="0 0 23675.71 13153.17" {...props}>
       <g>
         <path
           stroke="currentColor"

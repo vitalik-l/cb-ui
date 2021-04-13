@@ -3,10 +3,7 @@ import { SvgIconProps, SvgIcon } from '@cb-general/core/SvgIcon';
 
 export const PenIcon = (props: SvgIconProps) => {
   return (
-    <SvgIcon
-      viewBox="0 0 1173.82 1173.83"
-      {...props}
-    >
+    <SvgIcon viewBox="0 0 1173.82 1173.83" {...props}>
       <g fill="currentColor">
         <rect
           transform="matrix(0.707107 -0.707107 0.707107 0.707107 122.937 772.596)"

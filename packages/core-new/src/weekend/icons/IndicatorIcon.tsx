@@ -3,10 +3,7 @@ import { SvgIconProps, SvgIcon } from '@cb-general/core/SvgIcon';
 
 export const IndicatorIcon = (props: SvgIconProps) => {
   return (
-    <SvgIcon
-      viewBox="0 0 579.27 570.67"
-      {...props}
-    >
+    <SvgIcon viewBox="0 0 579.27 570.67" {...props}>
       <g fill="currentColor">
         <polygon
           stroke="currentColor"

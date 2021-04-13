@@ -3,10 +3,7 @@ import { SvgIconProps, SvgIcon } from '@cb-general/core/SvgIcon';
 
 export const ZoomInIcon = (props: SvgIconProps) => {
   return (
-    <SvgIcon
-      viewBox="0 0 79.68 82.36"
-      {...props}
-    >
+    <SvgIcon viewBox="0 0 79.68 82.36" {...props}>
       <g fill="currentColor">
         <line
           x1="2.95"

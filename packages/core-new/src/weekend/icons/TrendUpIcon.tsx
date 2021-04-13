@@ -3,11 +3,7 @@ import { SvgIconProps, SvgIcon } from '@cb-general/core/SvgIcon';
 
 export const TrendUpIcon = (props: SvgIconProps) => {
   return (
-    <SvgIcon
-      viewBox="0 0 85.000000 90.000000"
-      preserveAspectRatio="xMidYMid meet"
-      {...props}
-    >
+    <SvgIcon viewBox="0 0 85.000000 90.000000" preserveAspectRatio="xMidYMid meet" {...props}>
       <g
         transform="translate(0.000000,90.000000) scale(0.100000,-0.100000)"
         fill="currentcolor"

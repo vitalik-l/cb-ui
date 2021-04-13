@@ -3,10 +3,7 @@ import { SvgIconProps, SvgIcon } from '@cb-general/core/SvgIcon';
 
 export const CrosshairIcon = (props: SvgIconProps) => {
   return (
-    <SvgIcon
-      viewBox="0 0 1839.77 1839.77"
-      {...props}
-    >
+    <SvgIcon viewBox="0 0 1839.77 1839.77" {...props}>
       <g fill="currentColor">
         <rect x="801.84" y="-0" width="236.07" height="700.09" />
         <rect

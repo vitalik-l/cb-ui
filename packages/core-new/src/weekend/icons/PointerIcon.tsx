@@ -3,10 +3,7 @@ import { SvgIconProps, SvgIcon } from '@cb-general/core/SvgIcon';
 
 export const PointerIcon = (props: SvgIconProps) => {
   return (
-    <SvgIcon
-      viewBox="0 0 85 154.73"
-      {...props}
-    >
+    <SvgIcon viewBox="0 0 85 154.73" {...props}>
       <g>
         <line
           fill="none"
