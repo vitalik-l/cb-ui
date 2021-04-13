@@ -7,6 +7,8 @@ import { UserPanel } from './UserPanel';
 import { UserPanelButton } from './UserPanelButton';
 import { UserPanelItem } from './UserPanelItem';
 import { Select } from '../../core/Select';
+import { UserPanelButtons } from './UserPanelButtons';
+import { MenuButton } from '../MenuButton';
 
 const story = createStory({
   title: 'UserPanel',
@@ -37,6 +39,16 @@ UserPanelTemplate.storyName = 'Default';
 export const OnlyButton: Story = (args) => (
   <UserPanel {...args}>
     <UserPanelButton>Login</UserPanelButton>
+  </UserPanel>
+);
+
+export const Buttons: Story = (args) => (
+  <UserPanel {...args}>
+    <UserPanelButtons>
+      <UserPanelButton>First</UserPanelButton>
+      <UserPanelButton>Second</UserPanelButton>
+      <MenuButton />
+    </UserPanelButtons>
   </UserPanel>
 );
 

@@ -1,0 +1,18 @@
+.root {
+  border-radius: inherit;
+  display: flex;
+
+  .child {
+    border-radius: 0;
+
+    &:first-child {
+      border-top-left-radius: inherit;
+      border-bottom-left-radius: inherit;
+    }
+
+    &:last-child {
+      border-top-right-radius: inherit;
+      border-bottom-right-radius: inherit;
+    }
+  }
+}
