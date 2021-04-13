@@ -15,9 +15,9 @@ export const TradingPanelSymbol = (props: Props) => {
   const [labelLeft, labelRight] = symbol?.split('/') || [];
 
   return (
-    <div className={clsx(tradingPanelStyles.Symbol, className)}>
+    <div className={clsx(tradingPanelStyles.symbol, className)}>
       <span className={clsx({ 'text-red': active })}>{labelLeft}</span>
-      <div className={tradingPanelStyles.Separator} />
+      <div className={tradingPanelStyles.separator} />
       <span className={clsx({ 'text-green': active })}>{labelRight}</span>
     </div>
   );

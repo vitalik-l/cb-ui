@@ -2,22 +2,23 @@ import React from 'react';
 import clsx from 'clsx';
 
 // local files
-import classes from '../styles/classes.module.scss';
-import './TradingPanel.scss';
+import styles from './TradingPanel.module.scss';
+import {useClasses} from '@cb-general/core/hooks/useClasses';
 
 export type TradingPanelProps = {
   className?: string;
   active?: boolean;
+  classes?: any;
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export const TradingPanel = (props: TradingPanelProps) => {
-  const { className, active, children, ...restProps } = props;
+  const { className, active, children, classes: classesProp, ...restProps } = props;
+  const classes = useClasses(styles, classesProp);
 
   return (
     <div
-      className={clsx(classes.TradingPanel, className, {
-        [`${classes.TradingPanel}_active`]: active,
-        [`${classes.TradingPanel}_inactive`]: !active,
+      className={clsx(classes.root, className, !active && classes.inactive, {
+        [classes.active]: active,
       })}
       {...restProps}
     >

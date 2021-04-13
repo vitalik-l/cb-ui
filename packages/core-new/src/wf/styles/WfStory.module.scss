@@ -1,0 +1,12 @@
+$root: WfStory;
+
+:global {
+  .#{$root} {
+    @import 'index';
+    @import '~@cb-general/core/styles';
+  }
+}
+
+:export {
+  root: $root;
+}

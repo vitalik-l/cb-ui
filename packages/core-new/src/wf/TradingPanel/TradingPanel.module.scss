@@ -1,30 +1,9 @@
 @use '../styles/variables' as *;
-@use '../styles/classes.module' as components;
-@use '~@cb-general/weekend/styles/classes.module' as wkd;
 
-@function cln($name) {
-  @return components.$TradingPanel + '-' + $name;
-}
-
-/* component classes */
-$Header: cln('Header');
-$Content: cln('Content');
-$Buttons: cln('Buttons');
-$Separator: cln('Separator');
-$Symbol: cln('Symbol');
-$Select: cln('Select');
-$SliderLabel: cln('SliderLabel');
-$TypBody: cln('TypBody');
-$TypMoney: cln('TypMoney');
-$ContentTopRight: cln('ContentTopRight');
-$TypHeaderLabel: cln('TypHeaderLabel');
-$TypHeaderValue: cln('TypHeaderValue');
-$active: components.$TradingPanel + '_active';
-
-/* component variables */
+$root: WfTradingPanel;
 $borderRadius: 0.5em;
 
-.#{components.$TradingPanel} {
+:global(.#{$root}) {
   font-size: 1em;
   position: relative;
   border-top: 0.1em solid #666;
@@ -33,7 +12,7 @@ $borderRadius: 0.5em;
   box-sizing: border-box;
 }
 
-.#{$active} {
+.active {
   box-shadow: 0 min(0.1em, 1px) min(0.2em, 2px) min(0.1em, 1px) #111, min(0.7em, 7px) 0 0 0 #6fc103,
     max(-0.7em, -7px) 0 0 0 #6fc103;
   cursor: default;
@@ -61,7 +40,7 @@ $borderRadius: 0.5em;
   }
 }
 
-.#{$Header} {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -75,14 +54,14 @@ $borderRadius: 0.5em;
   line-height: 1.5;
 }
 
-.#{$Content} {
+.content {
   padding: 0 0.6em 0.5em 0.5em;
   background-image: linear-gradient(#3b3b42, #26262e);
   border-radius: 0 0 $borderRadius $borderRadius;
   position: relative;
 }
 
-.#{$Buttons} {
+.buttons {
   display: flex;
   padding: 0.4em 0.2em 0.3em;
   background-color: #000;
@@ -91,30 +70,26 @@ $borderRadius: 0.5em;
   overflow: hidden;
   position: relative;
 
-  .#{components.$TradeButton} {
+  .tradeButton {
     flex: 1;
   }
 
-  .#{$Select} {
+  .select {
     position: absolute;
     z-index: 99;
     left: 50%;
     transform: translateX(-50%);
     bottom: 10%;
-
-    .#{wkd.$Select},
-    &.#{wkd.$Select} {
-      text-align: center;
-      background-color: #000;
-      box-shadow: inset 0 0 2px 1px #444;
-      padding: 0.1rem 0.3rem 0.3rem;
-      border-radius: min(0.5em, 5px);
-      font-size: 1.3em;
-    }
+    text-align: center;
+    background-color: #000;
+    box-shadow: inset 0 0 2px 1px #444;
+    padding: 0.1rem 0.3rem 0.3rem;
+    border-radius: min(0.5em, 5px);
+    font-size: 1.3em;
   }
 }
 
-.#{$Separator} {
+.separator {
   width: min(0.1em, 1px);
   min-height: 100%;
   border-left: min(0.1em, 1px) solid #161519;
@@ -123,7 +98,7 @@ $borderRadius: 0.5em;
   display: inline-flex;
 }
 
-.#{$Symbol} {
+.symbol {
   display: flex;
   align-items: center;
   font-weight: bold;
@@ -131,7 +106,7 @@ $borderRadius: 0.5em;
   font-size: 1.5em;
 }
 
-.#{$SliderLabel} {
+.sliderLabel {
   margin: 0 0.3em 0.2em;
   font-size: 1.4em;
   font-weight: bold;
@@ -139,36 +114,36 @@ $borderRadius: 0.5em;
   justify-content: space-between;
 }
 
-.#{$TypBody} {
+.typBody {
   font-size: 1.68em;
   font-weight: bold;
 }
 
-.#{$TypMoney} {
+.typMoney {
   font-size: 1.8em;
   font-weight: bold;
   color: white;
 }
 
-.#{$ContentTopRight} {
+.contentTopRight {
   margin-top: 0.7em;
   margin-bottom: 0.1em;
   text-align: center;
 }
 
-.#{$TypHeaderLabel} {
+.typHeaderLabel {
   text-transform: uppercase;
   font-size: 1.1em;
   font-weight: 700;
   margin-right: 0.6rem;
   display: inline;
 
-  .#{$active} & {
+  .active & {
     color: $colorGreen;
   }
 }
 
-.#{$TypHeaderValue} {
+.typHeaderValue {
   font-size: 2.6em;
   font-weight: 700;
   line-height: 0.7;
@@ -176,22 +151,11 @@ $borderRadius: 0.5em;
   color: white;
   opacity: 0.5;
 
-  .#{$active} & {
+  .active & {
     opacity: 1;
   }
 }
 
 :export {
-  Buttons: $Buttons;
-  Separator: $Separator;
-  Symbol: $Symbol;
-  Select: $Select;
-  Content: $Content;
-  Header: $Header;
-  SliderLabel: $SliderLabel;
-  TypBody: $TypBody;
-  TypMoney: $TypMoney;
-  ContentTopRight: $ContentTopRight;
-  TypHeaderLabel: $TypHeaderLabel;
-  TypHeaderValue: $TypHeaderValue;
+  root: $root;
 }

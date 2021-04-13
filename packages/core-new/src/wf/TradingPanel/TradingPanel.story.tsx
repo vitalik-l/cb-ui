@@ -28,15 +28,15 @@ export const TradingPanelTemplate = ({ symbol, active, ...args }: any) => {
       <TradingPanelHeader>
         <TradingPanelSymbol symbol="RED/BLACK" active={active} />
         <div className="d-flex align-center">
-          <div className={tradingPanelStyles.TypHeaderLabel}>TAKE PROFIT</div>
-          <div className={tradingPanelStyles.TypHeaderValue}>100%</div>
+          <div className={tradingPanelStyles.typHeaderLabel}>TAKE PROFIT</div>
+          <div className={tradingPanelStyles.typHeaderValue}>100%</div>
         </div>
       </TradingPanelHeader>
       <TradingPanelContent>
         <div className="d-flex justify-between">
           <div className="flex-fill mt-3">
             <div>
-              <div className={tradingPanelStyles.SliderLabel}>
+              <div className={tradingPanelStyles.sliderLabel}>
                 <div>Min</div>
                 <div>Stop Loss</div>
                 <div>Max</div>
@@ -44,16 +44,16 @@ export const TradingPanelTemplate = ({ symbol, active, ...args }: any) => {
               <Slider disabled={!active} />
             </div>
           </div>
-          <div className={tradingPanelStyles.Separator} />
-          <div className={tradingPanelStyles.ContentTopRight}>
-            <div className={tradingPanelStyles.TypBody}>pip value</div>
-            <div className={tradingPanelStyles.TypMoney}>$0.02</div>
+          <div className={tradingPanelStyles.separator} />
+          <div className={tradingPanelStyles.contentTopRight}>
+            <div className={tradingPanelStyles.typBody}>pip value</div>
+            <div className={tradingPanelStyles.typMoney}>$0.02</div>
           </div>
         </div>
-        <div className={tradingPanelStyles.Buttons}>
-          <TradeButtonTemplate disabled={!active} />
-          <TradeButtonTemplate disabled={!active} textRight />
-          <Select className={tradingPanelStyles.Select} disabled={!active}>
+        <div className={tradingPanelStyles.buttons}>
+          <TradeButtonTemplate disabled={!active} className={tradingPanelStyles.tradeButton} />
+          <TradeButtonTemplate disabled={!active} textRight className={tradingPanelStyles.tradeButton} />
+          <Select className={tradingPanelStyles.select} disabled={!active}>
             <option>1</option>
             <option>5</option>
             <option>500</option>

@@ -8,7 +8,7 @@ export const TradingPanelHeader = (props: any) => {
 
   return (
     <div className="d-flex">
-      <div className={tradingPanelStyles.Header}>{children}</div>
+      <div className={tradingPanelStyles.header}>{children}</div>
     </div>
   );
 };
