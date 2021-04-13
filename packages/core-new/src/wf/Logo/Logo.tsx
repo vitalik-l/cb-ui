@@ -13,7 +13,7 @@ export const Logo = React.forwardRef((props: Props, ref: any) => {
 
   return (
     <div
-      className={clsx(styles.Logo, className, { [styles.small]: small })}
+      className={clsx(styles.root, className, { [styles.small]: small })}
       {...restProps}
       ref={ref}
     />

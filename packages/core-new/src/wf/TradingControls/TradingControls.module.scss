@@ -1,16 +1,6 @@
-@use '../styles/classes.module' as components;
+$root: WfTradingControls;
 
-@function cln($name) {
-  @return components.$TradingControls + '-' + $name;
-}
-
-$TradingPanels: cln('TradingPanels');
-$CircularIndicator: cln('CircularIndicator');
-$TypCountdownLabel: cln('TypCountdownLabel');
-$Countdown: cln('Countdown');
-$ConnectionStatus: cln('ConnectionStatus');
-
-.#{components.$TradingControls} {
+:global(.#{$root}) {
   padding: 0.7rem 1.5rem 2rem;
   box-sizing: border-box;
   text-align: center;
@@ -19,17 +9,17 @@ $ConnectionStatus: cln('ConnectionStatus');
   justify-content: space-between;
 }
 
-.#{$TradingPanels} {
-  > div:nth-child(n + 2) {
+.tradingPanels {
+  > :global(div:nth-child(n + 2)) {
     margin-top: 1rem;
   }
 }
 
-.#{$CircularIndicator} {
+.circularIndicator {
   margin: auto;
 }
 
-.#{$TypCountdownLabel} {
+.typCountdownLabel {
   font-family: HelveticaNeue;
   text-transform: uppercase;
   font-stretch: condensed;
@@ -37,12 +27,12 @@ $ConnectionStatus: cln('ConnectionStatus');
   color: white;
 }
 
-.#{$Countdown} {
+.countdown {
   margin: 1.6rem auto 0;
   width: 21.4rem;
 }
 
-.#{$ConnectionStatus} {
+.connectionStatus {
   display: inline-flex;
   align-items: center;
   margin-top: 1.5rem;
@@ -52,9 +42,5 @@ $ConnectionStatus: cln('ConnectionStatus');
 }
 
 :export {
-  TradingPanels: $TradingPanels;
-  CircularIndicator: $CircularIndicator;
-  TypCountdownLabel: $TypCountdownLabel;
-  Countdown: $Countdown;
-  ConnectionStatus: $ConnectionStatus;
+  root: $root;
 }

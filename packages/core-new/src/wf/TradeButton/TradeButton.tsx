@@ -3,8 +3,7 @@ import clsx from 'clsx';
 
 // local files
 import { ButtonBase } from '@cb-general/core/ButtonBase';
-import classes from '../styles/classes.module.scss';
-import './TradeButton.scss';
+import styles from './WfTradeButton.module.scss';
 
 type Props = {
   className?: string;
@@ -24,10 +23,10 @@ export const TradeButton = (props: Props) => {
 
   return (
     <ButtonBase
-      className={clsx(classes.TradeButton, className, {
-        [`${classes.TradeButton}_colored`]: color !== 'default',
-        [`${classes.TradeButton}_color_${color}`]: !!color,
-        [`${classes.TradeButton}_inactive`]: !active,
+      className={clsx(styles.root, className, {
+        [styles.colored]: color !== 'default',
+        [styles[`color_${color}`]]: !!color,
+        [styles.inactive]: !active,
       })}
       disabled={disabledProp || !active}
       {...restProps}

@@ -1,4 +1,4 @@
-import tradeButtonStyles from './TradeButton.module.scss';
+import tradeButtonStyles from './WfTradeButton.module.scss';
 
 export { tradeButtonStyles };
 export { TradeButton } from './TradeButton';

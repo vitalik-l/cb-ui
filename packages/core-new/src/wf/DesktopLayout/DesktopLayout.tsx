@@ -3,9 +3,7 @@ import clsx from 'clsx';
 import { Viewport, ViewportProps } from '@cb-general/core/Viewport';
 
 // local files
-import desktopLayoutStyles from './DesktopLayout.module.scss';
-import classes from '../styles/classes.module.scss';
-import './DesktopLayout.scss';
+import styles from './DesktopLayout.module.scss';
 
 type Props = ViewportProps & {
   className?: string;
@@ -33,21 +31,21 @@ export const DesktopLayout = (props: Props) => {
 
   return (
     <Viewport {...viewportProps}>
-      <div className={clsx(classes.DesktopLayout, className)}>
+      <div className={clsx(styles.root, className)}>
         {header}
         <div className="d-flex flex-fill">
           <div className="flex-fill d-flex column">
             <div className="flex-fill d-flex">
-              {!!ticker && React.cloneElement(ticker, { className: desktopLayoutStyles.Ticker })}
+              {!!ticker && React.cloneElement(ticker, { className: styles.ticker })}
               <div className="flex-fill d-flex column">
                 {chartControls}
                 {chart}
               </div>
             </div>
-            {!!tabs && React.cloneElement(tabs, { className: desktopLayoutStyles.Tabs })}
+            {!!tabs && React.cloneElement(tabs, { className: styles.tabs })}
           </div>
           {!!tradingControls &&
-            React.cloneElement(tradingControls, { className: desktopLayoutStyles.TradingControls })}
+            React.cloneElement(tradingControls, { className: styles.tradingControls })}
         </div>
         {children}
       </div>

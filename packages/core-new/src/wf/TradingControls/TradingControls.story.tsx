@@ -17,18 +17,18 @@ const story = createStory({
 
 export const TradingControlsTemplate: Story = (args) => (
   <TradingControls {...args}>
-    <div className={tradingControlsStyles.TradingPanels}>
+    <div className={tradingControlsStyles.tradingPanels}>
       <TradingPanelTemplate active />
       <TradingPanelTemplate />
       <TradingPanelTemplate />
     </div>
     <div>
-      <CircularIndicatorTemplate className={tradingControlsStyles.CircularIndicator} />
+      <CircularIndicatorTemplate className={tradingControlsStyles.circularIndicator} />
       <div className="mt-3">
-        <span className={tradingControlsStyles.TypCountdownLabel}>TIME IN TRADE</span>
-        <Countdown value="00:00" className={tradingControlsStyles.Countdown} />
+        <span className={tradingControlsStyles.typCountdownLabel}>TIME IN TRADE</span>
+        <Countdown value="00:00" className={tradingControlsStyles.countdown} />
       </div>
-      <div className={tradingControlsStyles.ConnectionStatus}>
+      <div className={tradingControlsStyles.connectionStatus}>
         <span>CONNECTION STATUS </span>
         <ConnectionStatus />
         <span className="text-red"> OFFLINE</span>

@@ -1,8 +1,4 @@
-@use '../styles/classes.module' as classes;
-
-@function cln($name) {
-  @return classes.$TradeButton + '-' + $name;
-}
+$root: WfTradeButton;
 
 @keyframes blinkActiveBtn {
   0% {
@@ -27,13 +23,7 @@
   }
 }
 
-$TypTrend: cln('TypTrend');
-$TypMoney: cln('TypMoney');
-$TypTrendAbove: cln('TypTrendAbove');
-$ContentBottom: cln('ContentBottom');
-$ContentTop: cln('ContentTop');
-
-.#{classes.$TradeButton} {
+:global(.#{$root}) {
   font-size: 1em;
   position: relative;
   text-align: left;
@@ -49,24 +39,22 @@ $ContentTop: cln('ContentTop');
     box-shadow: 0 0 min(3px, 0.3em) min(2px, 0.2em) #fff;
   }
 
-  &_inactive {
+  &.inactive {
     opacity: 0.5;
   }
 
-  .svg-icon {
-    width: 1em;
-    height: 1em;
+  .icon {
     font-size: 3em;
   }
 
-  &_colored {
+  &.colored {
     animation: blinkActiveBtn 1s linear 1;
-    &.#{classes.$TradeButton}_inactive {
+    &.inactive {
       animation: blinkNotActiveBtn 1s linear 1;
     }
   }
 
-  &_color_default {
+  &.color_default {
     box-shadow: 0 0 min(0.4em, 4px) min(1px, 0.1em) #ddd inset;
     background-image: linear-gradient(#777689, #323040);
     border-color: #c3c3d9 #323040 #323040;
@@ -76,7 +64,7 @@ $ContentTop: cln('ContentTop');
     }
   }
 
-  &_color_green {
+  &.color_green {
     background: linear-gradient(#8bae00, #437705);
     box-shadow: 0 0 min(0.3em, 3px) min(0.1em, 1px) #a3c600 inset;
     border-color: #dae524 #437705 #437705;
@@ -86,7 +74,7 @@ $ContentTop: cln('ContentTop');
     }
   }
 
-  &_color_red {
+  &.color_red {
     background: linear-gradient(#ff4723, #9a000f);
     box-shadow: 0 0 min(0.3em, 3px) min(0.1em, 1px) #ff4723 inset;
     border-color: #ffac7e #9a000f #9a000f;
@@ -97,38 +85,34 @@ $ContentTop: cln('ContentTop');
   }
 }
 
-.#{$TypTrend} {
+.typTrend {
   font-weight: 800;
   font-size: 2.8em;
   line-height: 0.8;
   letter-spacing: -0.1em;
 }
 
-.#{$TypMoney} {
+.typMoney {
   font-size: 1.8em;
   font-weight: 700;
 }
 
-.#{$TypTrendAbove} {
+.typTrendAbove {
   font-weight: bold;
   line-height: 1;
 }
 
-.#{$ContentBottom} {
+.contentBottom {
   line-height: 1;
   margin-top: 0.5em;
 }
 
-.#{$ContentTop} {
+.contentTop {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 :export {
-  TypTrend: $TypTrend;
-  TypMoney: $TypMoney;
-  TypTrendAbove: $TypTrendAbove;
-  ContentBottom: $ContentBottom;
-  ContentTop: $ContentTop;
+  root: $root;
 }
