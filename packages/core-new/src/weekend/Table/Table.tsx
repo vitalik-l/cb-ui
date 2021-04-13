@@ -8,7 +8,7 @@ import pagerStyles from './WkdPager.module.scss';
 import { Button } from '../Button';
 import { Select } from '../Select';
 
-const PagerButton = (props: React.ComponentProps<typeof Button>) => <Button square {...props} />
+const PagerButton = (props: React.ComponentProps<typeof Button>) => <Button square {...props} />;
 
 export const Table = styled(CoreTable, styles.root);
 Table.defaultProps = {

@@ -11,12 +11,10 @@ const story = createStory({
   style: {
     width: 100,
     height: 100,
-  }
+  },
 });
 
-export const CircularIndicatorTemplate: Story = (args) => (
-  <CircularIndicatorButton {...args} />
-);
+export const CircularIndicatorTemplate: Story = (args) => <CircularIndicatorButton {...args} />;
 CircularIndicatorTemplate.storyName = 'CircularIndicatorButton';
 CircularIndicatorTemplate.args = {
   children: 'early exit meter',

@@ -79,7 +79,11 @@ export const Radio = (props: Props) => {
         {...inputProps}
       />
       {checked ? checkedIcon : icon}
-      {!!children && <Label className={classes.label} htmlFor={id}>{children}</Label>}
+      {!!children && (
+        <Label className={classes.label} htmlFor={id}>
+          {children}
+        </Label>
+      )}
     </ButtonBase>
   );
 };

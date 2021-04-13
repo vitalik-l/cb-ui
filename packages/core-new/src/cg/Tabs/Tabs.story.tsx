@@ -5,6 +5,7 @@ import { Story } from '@storybook/react';
 import { createStory } from '../createStory';
 import { Tabs } from './Tabs';
 import { Tab } from './Tab';
+import { ClassicTab, ClassicTabs } from './ClassicTabs';
 
 const story = createStory({
   title: 'Tabs',
@@ -22,5 +23,16 @@ export const TabsTemplate: Story = () => {
   );
 };
 TabsTemplate.storyName = 'Tabs';
+
+export const Classic: Story = () => {
+  const [value, setValue] = React.useState(0);
+
+  return (
+    <ClassicTabs onChange={setValue} value={value}>
+      <ClassicTab label="Deposit" />
+      <ClassicTab label="Withdraw" />
+    </ClassicTabs>
+  );
+};
 
 export default story;
