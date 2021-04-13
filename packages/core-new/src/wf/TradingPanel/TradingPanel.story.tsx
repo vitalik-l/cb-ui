@@ -52,7 +52,11 @@ export const TradingPanelTemplate = ({ symbol, active, ...args }: any) => {
         </div>
         <div className={tradingPanelStyles.buttons}>
           <TradeButtonTemplate disabled={!active} className={tradingPanelStyles.tradeButton} />
-          <TradeButtonTemplate disabled={!active} textRight className={tradingPanelStyles.tradeButton} />
+          <TradeButtonTemplate
+            disabled={!active}
+            textRight
+            className={tradingPanelStyles.tradeButton}
+          />
           <Select className={tradingPanelStyles.select} disabled={!active}>
             <option>1</option>
             <option>5</option>

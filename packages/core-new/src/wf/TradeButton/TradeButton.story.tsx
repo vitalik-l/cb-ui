@@ -22,7 +22,11 @@ export const TradeButtonTemplate: Story = ({ textRight, ...args }) => (
         <div className={tradeButtonStyles.typTrendAbove}>TREND {textRight ? 'DOWN' : 'UP'}</div>
         <div className={tradeButtonStyles.typTrend}>{textRight ? 'SELL' : 'BUY'}</div>
       </div>
-      {textRight ? <TrendDownIcon className={tradeButtonStyles.icon} /> : <TrendUpIcon className={tradeButtonStyles.icon} />}
+      {textRight ? (
+        <TrendDownIcon className={tradeButtonStyles.icon} />
+      ) : (
+        <TrendUpIcon className={tradeButtonStyles.icon} />
+      )}
     </div>
     <div className={clsx(tradeButtonStyles.contentBottom, { 'text-right': textRight })}>
       <div>Potential payout</div>

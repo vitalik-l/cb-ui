@@ -3,7 +3,7 @@ import clsx from 'clsx';
 
 // local files
 import styles from './TradingPanel.module.scss';
-import {useClasses} from '@cb-general/core/hooks/useClasses';
+import { useClasses } from '@cb-general/core/hooks/useClasses';
 
 export type TradingPanelProps = {
   className?: string;

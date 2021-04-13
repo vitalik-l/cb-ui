@@ -1,6 +1,6 @@
 {
   "name": "@cb-general/wf",
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0",
   "dependencies": {
     "clsx": "^1.1.1"
   }
