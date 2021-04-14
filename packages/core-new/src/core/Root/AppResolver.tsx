@@ -3,6 +3,7 @@ import React from 'react';
 // local files
 import { isIOSSafari, resetScrollPosition } from '../utils/browser-utils';
 import { useWindowSize } from '../WindowResizeListener';
+import { AppModeContext } from './AppModeContext';
 
 enum AppMode {
   Desktop = 1,
@@ -46,7 +47,11 @@ export const AppResolver = (props: AppResolverProps) => {
   const CurrentApp = currentMode ? App[currentMode] : undefined;
 
   if (CurrentApp) {
-    return <CurrentApp />;
+    return (
+      <AppModeContext.Provider value={currentMode === AppMode.Mobile}>
+        <CurrentApp />
+      </AppModeContext.Provider>
+    );
   }
 
   if (children) {

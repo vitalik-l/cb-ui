@@ -10,6 +10,12 @@ $root: CoreViewport;
   transition: height 0.1s, maxWidth 0.1s;
 }
 
+.fixed {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+
 :export {
   root: $root;
 }

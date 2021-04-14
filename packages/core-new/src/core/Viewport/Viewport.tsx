@@ -2,12 +2,13 @@ import React from 'react';
 import clsx from 'clsx';
 
 // local files
+import styles from './CoreViewport.module.scss';
 import { useWindowSize } from '../WindowResizeListener';
 import { useViewportByRatio, MinMax } from '../hooks/useViewportByRatio';
 import { useResponsiveFontSize } from '../hooks/useResponsiveFontSize';
 import { FontSizeContext } from './FontSizeContext';
 import { ViewportContext } from './ViewportContext';
-import styles from './CoreViewport.module.scss';
+import { useAppMode } from '../Root/useAppMode';
 
 export type ViewportProps = {
   horizontal?: MinMax;
@@ -23,6 +24,7 @@ export type ViewportProps = {
   minFontSize?: number;
   className?: string;
   animate?: boolean;
+  fixed?: boolean;
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export const Viewport = (props: ViewportProps) => {
@@ -40,8 +42,11 @@ export const Viewport = (props: ViewportProps) => {
     maxFontSize,
     minFontSize,
     className,
+    fixed: fixedProp,
     ...divProps
   } = props;
+  const isMobile = useAppMode();
+  const fixed = fixedProp !== undefined ? fixedProp : isMobile;
   const viewportRef = React.useRef<any>();
   const [windowWidth, windowHeight] = useWindowSize();
   const [viewportWidth, viewportHeight] = useViewportByRatio({
@@ -83,6 +88,7 @@ export const Viewport = (props: ViewportProps) => {
       viewportEl.style.maxWidth = `${viewportWidth}px`;
       viewportEl.style.height = `${viewportHeight}px`;
       setViewportContext({ width: viewportWidth, height: viewportHeight });
+      (window as any).viewportSize = { width: viewportWidth, height: viewportHeight };
 
       if (fontSize) {
         document.documentElement.style.fontSize = `${fontSize}px`;
@@ -119,7 +125,7 @@ export const Viewport = (props: ViewportProps) => {
       <FontSizeContext.Provider value={fontSize}>
         <div
           ref={viewportRef}
-          className={clsx(styles.root, className, {
+          className={clsx(styles.root, className, fixed && styles.fixed, {
             [styles.animate]: animate,
           })}
           {...divProps}
