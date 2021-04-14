@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 
 // local files
-import classes from '../styles/classes.module.scss';
+import styles from './WkdTicker.module.scss';
 
 type Props = {
   className?: string;
@@ -15,8 +15,8 @@ export const TickerItem = (props: Props) => {
 
   return (
     <div
-      className={clsx(`${classes.Ticker}-item`, className, {
-        [`${classes.Ticker}-item_position_${position}`]: !!position,
+      className={clsx(styles.item, className, {
+        [styles[`position_${position}`]]: !!position,
       })}
     >
       {children}
