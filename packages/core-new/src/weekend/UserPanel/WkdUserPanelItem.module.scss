@@ -1,9 +1,11 @@
 .root {
-  margin-right: 1.2em;
+  display: flex;
+  align-items: center;
+  margin-right: 1.2rem;
   font-size: 1.7em;
   white-space: nowrap;
 
   &:first-child {
-    margin-left: 2em;
+    margin-left: 2rem;
   }
 }
