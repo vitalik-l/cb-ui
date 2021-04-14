@@ -24,7 +24,7 @@ export const useResponsiveFontSize = ({
   const [fontSize, setFontSize] = React.useState(0);
 
   React.useEffect(() => {
-    function viewportResize() {
+    const calcFontSize = () => {
       const baseViewport = { width: baseWidth, height: baseHeight };
       const goodRatio = baseViewport.width / baseViewport.height;
       const currentRatio = viewportWidth / viewportHeight;
@@ -43,10 +43,10 @@ export const useResponsiveFontSize = ({
       ); // fontSize between min and max
 
       setFontSize(newFontSize);
-    }
+    };
 
-    if (viewportHeight && viewportWidth) {
-      const tId = setTimeout(viewportResize, timeout);
+    if (baseWidth && baseHeight && viewportHeight && viewportWidth) {
+      const tId = setTimeout(calcFontSize, timeout);
 
       return () => {
         clearTimeout(tId);

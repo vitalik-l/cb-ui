@@ -6,6 +6,7 @@ import { useWindowSize } from '../WindowResizeListener';
 import { useViewportByRatio, MinMax } from '../hooks/useViewportByRatio';
 import { useResponsiveFontSize } from '../hooks/useResponsiveFontSize';
 import { FontSizeContext } from './FontSizeContext';
+import { ViewportContext } from './ViewportContext';
 import styles from './CoreViewport.module.scss';
 
 export type ViewportProps = {
@@ -51,6 +52,7 @@ export const Viewport = (props: ViewportProps) => {
     vertical,
     horizontal,
   });
+  const fontSizeIsResponsive = baseWidth && baseHeight;
   const fontSize = useResponsiveFontSize({
     viewportWidth,
     viewportHeight,
@@ -61,16 +63,31 @@ export const Viewport = (props: ViewportProps) => {
     minFontSize,
     timeout,
   });
+  const prevFontSize = React.useRef(0);
+  const [viewportContext, setViewportContext] = React.useState({ width: 0, height: 0 });
 
   React.useLayoutEffect(() => {
-    if (viewportWidth && viewportHeight && fontSize) {
-      const viewportEl: HTMLDivElement = viewportRef.current;
+    if (animate) {
+      document.documentElement.style.transition = 'font-size 0.1s';
+      return () => {
+        document.documentElement.style.transition = '';
+      };
+    }
+  }, [animate]);
+
+  React.useLayoutEffect(() => {
+    const viewportEl: HTMLDivElement = viewportRef.current;
+
+    if (viewportEl && viewportWidth && viewportHeight) {
+      if (fontSizeIsResponsive && prevFontSize.current === fontSize) return;
       viewportEl.style.maxWidth = `${viewportWidth}px`;
       viewportEl.style.height = `${viewportHeight}px`;
-      if (animate) {
-        document.documentElement.style.transition = 'font-size 0.1s';
+      setViewportContext({ width: viewportWidth, height: viewportHeight });
+
+      if (fontSize) {
+        document.documentElement.style.fontSize = `${fontSize}px`;
       }
-      document.documentElement.style.fontSize = `${fontSize}px`;
+
       window.dispatchEvent(
         new CustomEvent('viewport resize', {
           detail: {
@@ -79,29 +96,37 @@ export const Viewport = (props: ViewportProps) => {
           },
         }),
       );
+    }
+    prevFontSize.current = fontSize;
+  }, [fontSize, fontSizeIsResponsive, viewportWidth, viewportHeight]);
 
-      return () => {
+  React.useEffect(() => {
+    const viewportEl: HTMLDivElement = viewportRef.current;
+
+    return () => {
+      document.documentElement.style.fontSize = '';
+      if (viewportEl) {
         viewportEl.style.maxWidth = '';
         viewportEl.style.height = '';
-        document.documentElement.style.fontSize = '';
-        document.documentElement.style.transition = '';
-      };
-    }
-  }, [fontSize]); // eslint-disable-line
+      }
+    };
+  }, []);
 
-  if (!fontSize) return null;
+  if (fontSizeIsResponsive && !fontSize) return null;
 
   return (
-    <FontSizeContext.Provider value={fontSize}>
-      <div
-        ref={viewportRef}
-        className={clsx(styles.root, className, {
-          [styles.animate]: animate,
-        })}
-        {...divProps}
-      >
-        {children}
-      </div>
-    </FontSizeContext.Provider>
+    <ViewportContext.Provider value={viewportContext}>
+      <FontSizeContext.Provider value={fontSize}>
+        <div
+          ref={viewportRef}
+          className={clsx(styles.root, className, {
+            [styles.animate]: animate,
+          })}
+          {...divProps}
+        >
+          {children}
+        </div>
+      </FontSizeContext.Provider>
+    </ViewportContext.Provider>
   );
 };

@@ -1,4 +1,3 @@
-@use '../../weekend/styles/classes.module' as wkd;
 @use '../styles/classes.module' as *;
 
 .#{$GameTable} {
@@ -22,9 +21,9 @@
     right: 23%;
     z-index: 1;
   }
+}
 
-  .#{wkd.$GameCard} {
-    font-size: 0.02em;
-    position: absolute;
-  }
+.gameCard {
+  font-size: 0.02em;
+  position: absolute;
 }
