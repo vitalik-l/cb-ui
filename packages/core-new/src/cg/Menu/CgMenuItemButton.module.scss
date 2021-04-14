@@ -6,9 +6,11 @@ $root: CgMenuItemButton;
   justify-content: space-between;
   font-weight: 600;
   font-size: 1.5em;
-  padding-left: 3.7rem;
-  padding-right: 1.9rem;
+  padding: min(15px, 1.5rem) min(19px, 1.9rem) min(15px, 1.5rem) min(3.7rem, 37px);
+  border-bottom: min(0.1rem, 1px) solid #262626;
+  font-family: Raleway, Arial, Helvetica, sans-serif;
   color: white;
+  width: 100%;
 
   &:hover {
     color: $colorGreen;

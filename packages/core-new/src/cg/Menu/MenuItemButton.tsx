@@ -4,7 +4,6 @@ import { ButtonBase } from '@cb-general/core/ButtonBase';
 import { useClasses } from '@cb-general/core/hooks/useClasses';
 
 // local files
-import { MenuItem } from './MenuItem';
 import { NavIcon } from '../icons';
 import styles from './CgMenuItemButton.module.scss';
 
@@ -13,10 +12,10 @@ export const MenuItemButton = (props: any) => {
   const classes = useClasses(styles, classesProp);
 
   return (
-    <MenuItem component={ButtonBase} className={clsx(classes.root, className)} {...restProps}>
+    <ButtonBase className={clsx(classes.root, className)} {...restProps}>
       {children}
       {!!icon && React.cloneElement(icon, { className: classes.icon })}
-    </MenuItem>
+    </ButtonBase>
   );
 };
 
