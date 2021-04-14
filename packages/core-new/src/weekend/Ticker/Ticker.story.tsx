@@ -1,20 +1,16 @@
 import React from 'react';
 
 // local files
-import { createStory, decorators } from '../createStory';
+import { createStory } from '../createStory';
 import { Ticker, TickerItem } from './index';
 
 const story = createStory({
   title: 'Ticker',
   component: Ticker,
-  decorators: [
-    ...decorators,
-    (Story: any) => (
-      <div style={{ width: '10rem' }}>
-        <Story />
-      </div>
-    ),
-  ],
+  style: {
+    width: '10rem',
+    fontSize: '1em',
+  }
 });
 
 export const TickerTemplate = (args: any) => (
