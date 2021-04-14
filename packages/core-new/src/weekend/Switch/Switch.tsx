@@ -4,15 +4,9 @@ import { useControlled } from '@cb-general/core/hooks/useControlled';
 import { ButtonBase } from '@cb-general/core/ButtonBase';
 
 // local files
-import classes from '../styles/classes.module.scss';
-import './Switch.scss';
+import styles from './WkdSwitch.module.scss';
 
 type Props = any;
-
-const styles = {
-  item: `${classes.Switch}-item`,
-  itemSelected: `${classes.Switch}-item_selected`,
-};
 
 export const Switch = (props: Props) => {
   const { value, defaultValue, onChange, name, disabled, labelOn, labelOff } = props;
@@ -31,30 +25,30 @@ export const Switch = (props: Props) => {
   };
 
   return (
-    <ButtonBase disabled={disabled} className={classes.Switch} tabIndex={null} role={undefined}>
+    <ButtonBase disabled={disabled} className={styles.root} tabIndex={null} role={undefined}>
       <input
         type="checkbox"
         onChange={handleChange}
         checked={value}
         defaultChecked={defaultValue}
-        className={`${classes.Switch}__input`}
+        className={styles.input}
         name={name}
         disabled={disabled}
         tabIndex={0}
       />
       <div
         className={clsx(styles.item, {
-          [styles.itemSelected]: !!checked,
+          [styles.selected]: !!checked,
         })}
       >
-        <span>{labelOn}</span>
+        <span className={styles.text}>{labelOn}</span>
       </div>
       <div
         className={clsx(styles.item, {
-          [styles.itemSelected]: !checked,
+          [styles.selected]: !checked,
         })}
       >
-        <span>{labelOff}</span>
+        <span className={styles.text}>{labelOff}</span>
       </div>
     </ButtonBase>
   );
