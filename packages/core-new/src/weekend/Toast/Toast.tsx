@@ -1,11 +1,9 @@
 import React from 'react';
 import clsx from 'clsx';
+import Animate from 'rc-animate';
 
 // local files
-import { Toast as ToastClassName } from '../styles/classes.module.scss';
-import toastStyles from './Toast.module.scss';
-import './Toast.scss';
-import Animate from 'rc-animate';
+import styles from './WkdToast.module.scss';
 
 type Props = {
   className?: string;
@@ -21,19 +19,20 @@ export const Toast = (props: Props) => {
   const content = children || text;
 
   return (
-    <Animate transitionName={ToastClassName} transitionAppear>
+    <Animate transitionName={styles.root} transitionAppear>
       {!!content && (
         <div
           className={clsx(
-            ToastClassName,
+            styles.root,
             className,
-            `${ToastClassName}_vertical_${placementY} ${ToastClassName}_horizontal_${placementX}`,
+            styles[`vertical_${placementY}`],
+            styles[`horizontal_${placementX}`],
           )}
           key={text || ''}
         >
           <div
-            className={clsx(toastStyles.Content, {
-              [`${toastStyles.Content}_color_${color}`]: !!color,
+            className={clsx(styles.content, {
+              [styles[`color_${color}`]]: !!color,
             })}
           >
             {content}
