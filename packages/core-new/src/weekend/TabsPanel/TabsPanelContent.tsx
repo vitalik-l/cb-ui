@@ -1,6 +1,6 @@
 import { styled } from '@cb-general/core/utils/styled';
 
 // local files
-import classes from '../styles/classes.module.scss';
+import styles from './WkdTabsPanel.module.scss';
 
-export const TabsPanelContent = styled(`${classes.TabsPanel}__content`);
+export const TabsPanelContent = styled(styles.content);

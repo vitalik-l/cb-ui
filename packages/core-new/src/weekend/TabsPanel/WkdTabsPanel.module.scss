@@ -1,0 +1,21 @@
+$root: WkdTabsPanel;
+
+:global(.#{$root}) {
+  display: flex;
+  flex-direction: column;
+
+  :global(.WkdTabs) {
+    margin-top: 0.5rem;
+  }
+}
+
+.content {
+  flex: 1;
+  min-height: 1px;
+  overflow: auto;
+  position: relative;
+}
+
+:export {
+  root: $root;
+}
