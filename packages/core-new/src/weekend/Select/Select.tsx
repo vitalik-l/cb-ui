@@ -2,8 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 
 // local files
-import classes from '../styles/classes.module.scss';
-import './Select.scss';
+import styles from './WkdSelect.module.scss';
 
 type Props = {
   className?: string;
@@ -16,16 +15,16 @@ export const Select = React.forwardRef((props: Props, ref: any) => {
 
   return (
     <div
-      className={clsx(classes.Select, className, {
-        [`${classes.Select}_disabled`]: disabled,
-        [`${classes.Select}_invalid`]: invalid,
-        [`${classes.Select}_fullWidth`]: fullWidth,
+      className={clsx(styles.root, className, {
+        [styles.disabled]: disabled,
+        [styles.invalid]: invalid,
+        [styles.fullWidth]: fullWidth,
       })}
       ref={ref}
     >
-      <select className={`${classes.Select}-item`} disabled={disabled} {...selectOptions} />
+      <select className={styles.select} disabled={disabled} {...selectOptions} />
       <svg
-        className={`${classes.Select}-icon`}
+        className={styles.icon}
         focusable="false"
         viewBox="0 0 24 24"
         aria-hidden="true"

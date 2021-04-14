@@ -53,7 +53,7 @@ export const Default: Story = (args) => (
       <option>Indicator 2</option>
       <option>Indicator 3</option>
     </FormField>
-    <button type="submit">Submit</button>
+    <Submit>Submit</Submit>
   </Form>
 );
 
