@@ -7,8 +7,8 @@ type Params = {
   baseWidth: number;
   baseHeight: number;
   timeout?: number;
-  viewportWidth: number;
-  viewportHeight: number;
+  viewportWidth?: number;
+  viewportHeight?: number;
 };
 
 export const useResponsiveFontSize = ({
@@ -18,8 +18,8 @@ export const useResponsiveFontSize = ({
   baseWidth,
   baseHeight,
   timeout = 100,
-  viewportWidth,
-  viewportHeight,
+  viewportWidth = 0,
+  viewportHeight = 0,
 }: Params) => {
   const [fontSize, setFontSize] = React.useState(0);
 
