@@ -10,7 +10,7 @@ const story = createStory({
   style: {
     width: '10rem',
     fontSize: '1em',
-  }
+  },
 });
 
 export const TickerTemplate = (args: any) => (

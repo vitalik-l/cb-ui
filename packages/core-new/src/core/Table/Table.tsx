@@ -12,7 +12,7 @@ import { clearProps } from '../utils/clearProps';
 type ClassesType = {
   root?: string;
   table?: string;
-}
+};
 
 export type TableProps = {
   className?: string;
@@ -32,7 +32,16 @@ export type TableProps = {
 };
 
 export const Table = (props: TableProps) => {
-  const { rowsPerPage, data = [], className, sortBy, sortable, pager, classes: classesProp, ...otherProps } = props;
+  const {
+    rowsPerPage,
+    data = [],
+    className,
+    sortBy,
+    sortable,
+    pager,
+    classes: classesProp,
+    ...otherProps
+  } = props;
   const { sortedData, ...sorting } = useSortBy({ data, sortBy });
   const { dataPerPage, ...pagination } = usePagination({
     data: sortedData,

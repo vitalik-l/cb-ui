@@ -1,17 +1,29 @@
 @use '~@cb-general/core/styles/mixins' as *;
 
 $root: CgTable;
-
-.table {
-  border: toRem(1) solid #454758;
-  border-radius: toRem(5);
-}
+$border: toRem(1) solid rgba(69, 71, 88, 1);
 
 :global {
   $height: 2.4em;
 
   .#{$root} {
-    font-family: "IBM Plex Sans", Arial, Helvetica, sans-serif;
+    font-family: 'IBM Plex Sans', Arial, Helvetica, sans-serif;
+
+    thead {
+      tr:first-child {
+        th {
+          border-top: $border;
+
+          &:first-child {
+            border-top-left-radius: toRem(5);
+          }
+
+          &:last-child {
+            border-top-right-radius: toRem(5);
+          }
+        }
+      }
+    }
 
     .cb-TableHeaderCell {
       text-align: left;
@@ -26,13 +38,13 @@ $root: CgTable;
     }
 
     .cb-TableCell {
-      border-bottom: toRem(1) solid rgba(69, 71, 88, 1);
-      border-left: toRem(1) solid rgba(69, 71, 88, 1);
+      border-bottom: $border;
+      border-left: $border;
       position: relative;
       background: #141721;
 
-      &:first-child {
-        border-left: none;
+      &:last-child {
+        border-right: $border;
       }
 
       &--sortable {
@@ -74,7 +86,13 @@ $root: CgTable;
 
       .cb-TableRow:last-child {
         .cb-TableCell {
-          border-bottom: none;
+          &:first-child {
+            border-bottom-left-radius: toRem(5);
+          }
+
+          &:last-child {
+            border-bottom-right-radius: toRem(5);
+          }
         }
       }
     }
