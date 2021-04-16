@@ -5,6 +5,12 @@ $root: mobile;
   @include noScrollBar;
 }
 
+:global {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 .scroller {
   position: absolute;
   height: 9999999999999999px; // Huge body height makes the size and position of the scrollbar fixed.

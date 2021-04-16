@@ -27,10 +27,12 @@ export const AppResolver = (props: AppResolverProps) => {
 
   React.useEffect(() => {
     if (windowWidth && windowHeight) {
-      if (windowWidth < maxMobileWidth || windowHeight < maxMobileHeight) {
+      if (MobileApp && (windowWidth < maxMobileWidth || windowHeight < maxMobileHeight)) {
         setCurrentMode(AppMode.Mobile);
       } else {
-        setCurrentMode(AppMode.Desktop);
+        if (DesktopApp) {
+          setCurrentMode(AppMode.Desktop);
+        }
       }
 
       if (isIOSSafari) {
@@ -44,14 +46,24 @@ export const AppResolver = (props: AppResolverProps) => {
     [AppMode.Mobile]: MobileApp,
   };
 
-  if (currentMode) {
-    const app = App[currentMode] ? React.createElement(App[currentMode]) : children;
+  const CurrentApp = currentMode ? App[currentMode] : undefined;
 
+  if (CurrentApp) {
     return (
       <AppModeContext.Provider value={isMobile}>
-        {isMobile ? <MobileRoot>{app}</MobileRoot> : app}
+        {isMobile ? (
+          <MobileRoot>
+            <CurrentApp />
+          </MobileRoot>
+        ) : (
+          <CurrentApp />
+        )}
       </AppModeContext.Provider>
     );
+  }
+
+  if (children) {
+    return children;
   }
 
   return null;

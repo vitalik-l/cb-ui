@@ -19,8 +19,8 @@ export const MobileRoot = ({ children }: Props) => {
 
   return (
     <React.Fragment>
-      {children}
       {scroller}
+      {children}
     </React.Fragment>
   );
 };
