@@ -1,0 +1,25 @@
+@use '../styles/mixins' as *;
+$root: mobile;
+
+:global(.#{$root}) {
+  @include noScrollBar;
+}
+
+.scroller {
+  position: absolute;
+  height: 9999999999999999px; // Huge body height makes the size and position of the scrollbar fixed.
+  top: 0;
+  left: 0;
+  right: 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+:export {
+  root: $root;
+}

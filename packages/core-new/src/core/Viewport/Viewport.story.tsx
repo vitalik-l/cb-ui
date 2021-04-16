@@ -9,6 +9,11 @@ import { Viewport } from './index';
 const story = createStory({
   title: 'Viewport',
   component: Viewport,
+  style: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
 
 export const Default: Story = (args) => (

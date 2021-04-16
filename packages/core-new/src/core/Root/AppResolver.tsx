@@ -4,6 +4,7 @@ import React from 'react';
 import { isIOSSafari, resetScrollPosition } from '../utils/browser-utils';
 import { useWindowSize } from '../WindowResizeListener';
 import { AppModeContext } from './AppModeContext';
+import { MobileRoot } from '../MobileRoot';
 
 enum AppMode {
   Desktop = 1,
@@ -22,15 +23,14 @@ export const AppResolver = (props: AppResolverProps) => {
   const { DesktopApp, MobileApp, maxMobileWidth = 896, maxMobileHeight = 504, children } = props;
   const [windowWidth, windowHeight] = useWindowSize();
   const [currentMode, setCurrentMode] = React.useState<AppMode>();
+  const isMobile = currentMode === AppMode.Mobile;
 
   React.useEffect(() => {
     if (windowWidth && windowHeight) {
-      if (MobileApp && (windowWidth < maxMobileWidth || windowHeight < maxMobileHeight)) {
+      if (windowWidth < maxMobileWidth || windowHeight < maxMobileHeight) {
         setCurrentMode(AppMode.Mobile);
       } else {
-        if (DesktopApp) {
-          setCurrentMode(AppMode.Desktop);
-        }
+        setCurrentMode(AppMode.Desktop);
       }
 
       if (isIOSSafari) {
@@ -44,18 +44,14 @@ export const AppResolver = (props: AppResolverProps) => {
     [AppMode.Mobile]: MobileApp,
   };
 
-  const CurrentApp = currentMode ? App[currentMode] : undefined;
+  if (currentMode) {
+    const app = App[currentMode] ? React.createElement(App[currentMode]) : children;
 
-  if (CurrentApp) {
     return (
-      <AppModeContext.Provider value={currentMode === AppMode.Mobile}>
-        <CurrentApp />
+      <AppModeContext.Provider value={isMobile}>
+        {isMobile ? <MobileRoot>{app}</MobileRoot> : app}
       </AppModeContext.Provider>
     );
-  }
-
-  if (children) {
-    return children;
   }
 
   return null;
