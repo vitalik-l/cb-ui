@@ -4,6 +4,7 @@ $root: CoreRoot;
   .#{$root} {
     font-size: 10px;
     height: 100%;
+    width: 100%;
 
     &.ios.iframe {
       position: fixed;
@@ -14,6 +15,7 @@ $root: CoreRoot;
       padding: 0 !important;
       margin: 0;
       height: 100%;
+      -webkit-text-size-adjust: 100%;
     }
 
     #root {
