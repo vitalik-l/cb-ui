@@ -3,6 +3,15 @@
 
 $root: CgInput;
 
+.withButton {
+  align-items: center;
+  height: 5rem;
+}
+
+.button {
+  align-self: stretch;
+}
+
 .input {
   font-family: 'Source Sans Pro', Arial, sans-serif;
   font-size: 1.6em;
