@@ -10,7 +10,14 @@ export type CalcViewportParams = {
   windowWidth: number;
 } & MinMax;
 
-export const calcViewport = ({ windowWidth = 0, windowHeight = 0, min = 0, max = 0, horizontal, vertical }: CalcViewportParams) => {
+export const calcViewport = ({
+  windowWidth = 0,
+  windowHeight = 0,
+  min = 0,
+  max = 0,
+  horizontal,
+  vertical,
+}: CalcViewportParams) => {
   if (windowWidth && windowHeight) {
     const curRatio = windowWidth / windowHeight;
     const orientation = curRatio > 1 ? horizontal : vertical;

@@ -4,7 +4,12 @@ import { useMemo } from 'react';
 import { useWindowSize } from '../WindowResizeListener';
 import { calcViewport, CalcViewportParams } from '../utils/calcViewport';
 
-export const useViewportByRatio = ({ min = 0, max = 0, horizontal, vertical }: Omit<CalcViewportParams, 'windowHeight' | 'windowWidth'>) => {
+export const useViewportByRatio = ({
+  min = 0,
+  max = 0,
+  horizontal,
+  vertical,
+}: Omit<CalcViewportParams, 'windowHeight' | 'windowWidth'>) => {
   const [windowWidth, windowHeight] = useWindowSize();
 
   return useMemo(() => {
