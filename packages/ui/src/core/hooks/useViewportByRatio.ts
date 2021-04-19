@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import React from 'react';
 
 // local
 import { useWindowSize } from '../WindowResizeListener';
@@ -9,10 +9,26 @@ export const useViewportByRatio = ({
   max = 0,
   horizontal,
   vertical,
-}: Omit<CalcViewportParams, 'windowHeight' | 'windowWidth'>) => {
+  timeout = 100,
+}: { timeout?: number } & Omit<CalcViewportParams, 'windowHeight' | 'windowWidth'>) => {
   const [windowWidth, windowHeight] = useWindowSize();
+  const [viewport, setViewport] = React.useState([] as number[]);
+  const firstCall = React.useRef(true);
 
-  return useMemo(() => {
-    return calcViewport({ windowWidth, windowHeight, min, max, horizontal, vertical });
-  }, [windowWidth, windowHeight, min, max, horizontal, vertical]);
+  React.useEffect(() => {
+    const callback = () => {
+      setViewport(calcViewport({ windowWidth, windowHeight, min, max, horizontal, vertical }));
+    };
+    if (firstCall.current) {
+      callback();
+      firstCall.current = false;
+      return;
+    }
+    const tId = setTimeout(callback, timeout);
+    return () => {
+      clearTimeout(tId);
+    };
+  }, [windowWidth, windowHeight, min, max, horizontal, vertical, timeout]);
+
+  return viewport;
 };

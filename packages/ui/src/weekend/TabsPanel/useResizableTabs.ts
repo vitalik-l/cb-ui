@@ -1,8 +1,8 @@
 import React from 'react';
-import { useFontSize } from '@cb-general/core/hooks/useFontSize';
+import { useViewport } from '@cb-general/core/Viewport';
 
 export const useResizableTabs = ({ containerRef, onResize }: any) => {
-  const fontSize = useFontSize();
+  const { fontSize } = useViewport();
   const dragPos: any = React.useRef();
 
   const startDrag = (event: any) => {

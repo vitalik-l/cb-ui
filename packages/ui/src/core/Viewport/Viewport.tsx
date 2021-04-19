@@ -7,7 +7,7 @@ import { CalculatedViewport, CalculatedViewportProps } from './CalculatedViewpor
 export type ViewportProps = ViewportRendererProps & Omit<CalculatedViewportProps, 'children'>;
 
 export const Viewport = (props: ViewportProps) => {
-  const { width, height, minRatio, maxRatio, vertical, horizontal, ...restProps } = props;
+  const { width, height, minRatio, maxRatio, vertical, horizontal, timeout, ...restProps } = props;
   const isControlled = width !== undefined && height !== undefined;
 
   if (isControlled) {
@@ -20,6 +20,7 @@ export const Viewport = (props: ViewportProps) => {
       maxRatio={maxRatio}
       vertical={vertical}
       horizontal={horizontal}
+      timeout={timeout}
     >
       {(width, height) => <ViewportRenderer width={width} height={height} {...restProps} />}
     </CalculatedViewport>

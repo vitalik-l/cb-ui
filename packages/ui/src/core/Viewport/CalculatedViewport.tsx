@@ -6,16 +6,18 @@ export type CalculatedViewportProps = {
   vertical?: MinMax;
   minRatio?: number;
   maxRatio?: number;
+  timeout?: number;
   children?: (width: number, height: number) => any;
 };
 
 export const CalculatedViewport = (props: CalculatedViewportProps) => {
-  const { children, minRatio, maxRatio, vertical, horizontal } = props;
+  const { children, minRatio, maxRatio, vertical, horizontal, timeout } = props;
   const [viewportWidth, viewportHeight] = useViewportByRatio({
     min: minRatio,
     max: maxRatio,
     vertical,
     horizontal,
+    timeout,
   });
 
   if (!children) return null;

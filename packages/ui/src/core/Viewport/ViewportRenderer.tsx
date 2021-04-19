@@ -3,16 +3,14 @@ import clsx from 'clsx';
 
 // local files
 import styles from './CoreViewport.module.scss';
-import { useResponsiveFontSize } from '../hooks/useResponsiveFontSize';
-import { FontSizeContext } from './FontSizeContext';
 import { ViewportContext } from './ViewportContext';
 import { useAppMode } from '../Root/useAppMode';
+import { calcFontSize } from '../utils/calcFontSize';
 
 export type ViewportRendererProps = {
   children?: React.ReactNode;
   width?: number;
   height?: number;
-  timeout?: number;
   baseFontSize?: number;
   baseWidth?: number;
   baseHeight?: number;
@@ -26,7 +24,6 @@ export type ViewportRendererProps = {
 export const ViewportRenderer = (props: ViewportRendererProps) => {
   const {
     animate,
-    timeout,
     baseFontSize,
     baseHeight = 0,
     baseWidth = 0,
@@ -42,18 +39,24 @@ export const ViewportRenderer = (props: ViewportRendererProps) => {
   const fixed = fixedProp !== undefined ? fixedProp : isMobile;
   const viewportRef = React.useRef<any>();
   const fontSizeIsResponsive = !!baseWidth && !!baseHeight;
-  const fontSize = useResponsiveFontSize({
-    viewportWidth: width,
-    viewportHeight: height,
-    baseFontSize,
-    baseWidth,
-    baseHeight,
-    maxFontSize,
-    minFontSize,
-    timeout,
+  const [viewportContext, setViewportContext] = React.useState({
+    width: 0,
+    height: 0,
+    fontSize: 0,
   });
-  const prevFontSize = React.useRef(0);
-  const [viewportContext, setViewportContext] = React.useState({ width: 0, height: 0 });
+  const fontSize = React.useMemo(
+    () =>
+      calcFontSize({
+        viewportWidth: width,
+        viewportHeight: height,
+        baseFontSize,
+        baseWidth,
+        baseHeight,
+        maxFontSize,
+        minFontSize,
+      }),
+    [width, height, baseFontSize, baseWidth, baseHeight, maxFontSize, minFontSize],
+  );
 
   React.useLayoutEffect(() => {
     if (animate) {
@@ -68,26 +71,26 @@ export const ViewportRenderer = (props: ViewportRendererProps) => {
     const viewportEl: HTMLDivElement = viewportRef.current;
 
     if (viewportEl && width && height) {
-      if (fontSizeIsResponsive && prevFontSize.current === fontSize) return;
       viewportEl.style.maxWidth = `${width}px`;
       viewportEl.style.height = `${height}px`;
-      setViewportContext({ width, height });
-      (window as any).viewportSize = { width, height };
 
       if (fontSize) {
         document.documentElement.style.fontSize = `${fontSize}px`;
       }
 
+      setViewportContext({ width, height, fontSize });
+
+      (window as any).viewportSize = { width, height };
       window.dispatchEvent(
         new CustomEvent('viewport resize', {
           detail: {
             width,
             height,
+            fontSize,
           },
         }),
       );
     }
-    prevFontSize.current = fontSize;
   }, [fontSize, fontSizeIsResponsive, width, height]);
 
   React.useEffect(() => {
@@ -106,15 +109,13 @@ export const ViewportRenderer = (props: ViewportRendererProps) => {
 
   return (
     <ViewportContext.Provider value={viewportContext}>
-      <FontSizeContext.Provider value={fontSize}>
-        <div
-          ref={viewportRef}
-          className={clsx(styles.root, className, fixed && styles.fixed, {
-            [styles.animate]: animate,
-          })}
-          {...divProps}
-        />
-      </FontSizeContext.Provider>
+      <div
+        ref={viewportRef}
+        className={clsx(styles.root, className, fixed && styles.fixed, {
+          [styles.animate]: animate,
+        })}
+        {...divProps}
+      />
     </ViewportContext.Provider>
   );
 };
