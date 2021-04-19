@@ -1,4 +1,5 @@
-import { useViewportByRatio, MinMax } from '../hooks/useViewportByRatio';
+import { useViewportByRatio } from '../hooks/useViewportByRatio';
+import { MinMax } from '../utils/calcViewport';
 
 export type CalculatedViewportProps = {
   horizontal?: MinMax;
