@@ -1,13 +1,10 @@
 @use '../styles/mixins' as *;
+
 $root: mobile;
 
-:global(.#{$root}) {
-  @include noScrollBar;
-}
-
 :global {
-  ::-webkit-scrollbar {
-    display: none;
+  .#{$root} {
+    @include noScrollBar;
   }
 }
 
