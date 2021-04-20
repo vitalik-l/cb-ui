@@ -31,4 +31,24 @@ export const Template: Story = (args) => (
 );
 Template.storyName = 'Tooltip';
 
+export const Scale: Story = (args) => (
+  <div
+    style={{
+      transform: 'scale(0.8)',
+    }}
+  >
+    <Tooltip
+      {...args}
+      title={
+        <InfoPanel arrowPosition="bottom">
+          <InfoPanelItem>Info panel</InfoPanelItem>
+        </InfoPanel>
+      }
+      open
+    >
+      <span>Hover me</span>
+    </Tooltip>
+  </div>
+);
+
 export default story;

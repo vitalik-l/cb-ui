@@ -41,6 +41,10 @@ $root: CoreTooltip;
   }
 }
 
+.popper {
+  z-index: 9999999;
+}
+
 :export {
   root: $root;
 }

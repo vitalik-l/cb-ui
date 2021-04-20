@@ -55,4 +55,23 @@ export const Template: Story = (args) => {
 };
 Template.storyName = 'Popper';
 
+export const Scale: Story = (args) => {
+  const [anchorEl, setAnchorEl] = React.useState();
+
+  const onClick = (event: any) => {
+    setAnchorEl(anchorEl ? null : event.target);
+  };
+
+  return (
+    <div style={{
+      transform: 'scale(0.8)',
+    }}>
+      <button onClick={onClick}>Toggle Popper</button>
+      <Popper {...args} anchorEl={anchorEl} open={!!anchorEl}>
+        <div>Popper content</div>
+      </Popper>
+    </div>
+  );
+}
+
 export default story;

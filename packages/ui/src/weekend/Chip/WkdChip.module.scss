@@ -73,11 +73,11 @@ $root: WkdChip;
 .content {
   font-size: 1.7em;
 
-  .font_s {
+  &.font_s {
     font-size: 1.3em;
   }
 
-  .font_xs {
+  &.font_xs {
     font-size: 1em;
   }
 }
