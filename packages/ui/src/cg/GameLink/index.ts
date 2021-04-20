@@ -1,0 +1,1 @@
+export { GameLink } from './GameLink';
