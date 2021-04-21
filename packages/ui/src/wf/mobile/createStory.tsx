@@ -1,4 +1,4 @@
-import { createStoryFactory } from '../../core/story/createStoryFactory';
+import { createStoryFactory } from '../../createStoryFactory';
 import classes from './styles/classes.module.scss';
 
 const { createStory } = createStoryFactory({

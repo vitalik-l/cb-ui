@@ -1,0 +1,17 @@
+@use '../../../../node_modules/@cb-general/core/styles/mixins' as *;
+
+.root {
+  &:nth-child(n + 2) {
+    margin-top: toRem(20);
+  }
+}
+
+.label {
+  margin-bottom: toRem(5);
+}
+
+.error {
+  margin-top: toRem(5);
+  color: #c0c1c8;
+  font-size: 1.1em;
+}

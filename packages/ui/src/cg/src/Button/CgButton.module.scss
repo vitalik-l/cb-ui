@@ -1,0 +1,98 @@
+@use '../styles/variables' as *;
+@use '../../../../node_modules/@cb-general/core/styles/mixins' as *;
+
+$root: CgButton;
+
+:global(.#{$root}) {
+  border-radius: min(5px, 0.5rem);
+  padding: 1rem 1.5rem;
+  text-align: center;
+  font-family: IBM Plex Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.2em;
+  line-height: 1;
+  color: white;
+
+  &:active {
+    opacity: 0.8;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.contained {
+  background: linear-gradient(180deg, #42434e 0%, #3b3b3b 100%);
+}
+
+.outlined {
+  color: #5b5b5b;
+  border: 1px solid #5b5b5b;
+  font-weight: 700;
+
+  &:active {
+    color: white;
+    border-color: white;
+    opacity: 1;
+  }
+}
+
+.green {
+  &.contained {
+    background: linear-gradient(180deg, #01f77b 0%, #01bd5e 100%);
+  }
+
+  &.outlined {
+    &:active {
+      color: $colorGreen;
+      border-color: $colorGreen;
+    }
+  }
+}
+
+.red {
+  &.contained {
+    background: linear-gradient(180deg, #ea3586 0%, #942256 100%);
+  }
+}
+
+.orange {
+  &.contained {
+    background: linear-gradient(180deg, #f76801, #bd1801);
+  }
+}
+
+.large {
+  min-height: toRem(50);
+  font-size: 1.9em;
+}
+
+.withIcon {
+  justify-content: space-between;
+}
+
+.icon {
+  margin-left: 1rem;
+  display: inline-flex;
+}
+
+.labelCenter {
+  > :global(div) {
+    flex: 1;
+  }
+
+  .label {
+    text-align: center;
+    min-width: fit-content;
+  }
+
+  .icon {
+    justify-content: flex-end;
+  }
+}
+
+:export {
+  root: $root;
+}

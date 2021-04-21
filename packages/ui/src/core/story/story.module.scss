@@ -1,0 +1,11 @@
+$root: CoreStory;
+
+:global {
+  .#{$root} {
+    @import '../src/styles';
+  }
+}
+
+:export {
+  root: $root;
+}

@@ -2,11 +2,11 @@ import React from 'react';
 import { Story } from '@storybook/react';
 
 // local files
-import { createStory } from '../../story/createStory';
+import { index } from '../../story/createStory';
 import { Radio } from './index';
 import styles from './RadioStory.module.scss';
 
-const story = createStory({
+const story = index({
   title: 'Radio',
   component: Radio,
 });

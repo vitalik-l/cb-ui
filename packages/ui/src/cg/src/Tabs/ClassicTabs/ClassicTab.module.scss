@@ -1,0 +1,26 @@
+@use '../../../../../node_modules/@cb-general/core/styles/mixins' as *;
+
+.root {
+  position: relative;
+  z-index: 1;
+  float: left;
+  cursor: pointer;
+  border: solid #363c4e;
+  border-width: 1px 1px 0;
+  background: #171b29;
+  color: #8797a5;
+  text-transform: capitalize;
+  min-width: 8.4rem;
+  text-align: center;
+  line-height: 1.5rem;
+  padding: 1rem 1.5rem;
+  white-space: nowrap;
+  font-family: 'Myriad Pro', Arial, Helvetica, sans-serif;
+  margin-right: -1px;
+}
+
+.selected {
+  color: #3bb3e4;
+  background: #131722;
+  padding-bottom: 1.1rem;
+}

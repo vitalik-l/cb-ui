@@ -1,0 +1,49 @@
+@use '../../../../node_modules/@cb-general/core/styles/mixins' as *;
+@use '../styles/variables' as *;
+
+$root: CgInput;
+
+.withButton {
+  align-items: center;
+  height: 5rem;
+}
+
+.button {
+  align-self: stretch;
+}
+
+.input {
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  font-size: 1.6em;
+  font-weight: 400;
+  color: white;
+  background-color: #292c35;
+  padding: toRem(12) toRem(13) toRem(16);
+  border: toRem(1) solid transparent;
+  border-radius: toRem(5);
+  min-height: 5rem;
+
+  &:not(:read-only):focus {
+    border: toRem(1) solid rgba(0, 133, 66, 1);
+  }
+
+  &:invalid,
+  &.invalid {
+    border: 1px solid $colorRed;
+    background-color: rgba(234, 53, 134, 0.1);
+
+    &:focus {
+      border: 1px solid $colorRed;
+    }
+  }
+
+  &::placeholder {
+    color: #94959a;
+    font-family: 'IBM Plex Sans', Arial, sans-serif;
+    font-size: 1.3rem;
+  }
+}
+
+:export {
+  root: $root;
+}

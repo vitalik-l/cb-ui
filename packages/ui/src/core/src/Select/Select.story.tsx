@@ -2,10 +2,10 @@ import React from 'react';
 import { Story } from '@storybook/react';
 
 // local files
-import { createStory } from '../../story/createStory';
+import { index } from '../../story/createStory';
 import { Select } from './Select';
 
-const story = createStory({
+const story = index({
   title: 'Select',
   component: Select,
   argTypes: {

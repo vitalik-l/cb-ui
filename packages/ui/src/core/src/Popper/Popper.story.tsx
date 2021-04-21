@@ -2,10 +2,10 @@ import React from 'react';
 import { Story } from '@storybook/react';
 
 // local files
-import { createStory } from '../../story/createStory';
+import { index } from '../../story/createStory';
 import { Popper } from './index';
 
-const story = createStory({
+const story = index({
   title: 'Popper',
   component: Popper,
   style: {

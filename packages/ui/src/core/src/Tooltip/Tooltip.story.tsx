@@ -2,11 +2,11 @@ import React from 'react';
 import { Story } from '@storybook/react';
 
 // local files
-import { createStory } from '../../story/createStory';
+import { index } from '../../story/createStory';
 import { Tooltip } from './index';
 import { InfoPanel, InfoPanelItem } from '../InfoPanel';
 
-const story = createStory({
+const story = index({
   title: 'Tooltip',
   component: Tooltip,
   style: {

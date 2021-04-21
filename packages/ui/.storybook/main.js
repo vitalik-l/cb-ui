@@ -20,7 +20,7 @@ module.exports = {
   webpackFinal(config) {
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@cb-general': path.resolve(__dirname, '../src/'),
+      '@cb-general/core': path.resolve(__dirname, '../src/core/src/'),
     };
     return config;
   },

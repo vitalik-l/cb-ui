@@ -1,0 +1,12 @@
+$root: CgStory;
+
+:global {
+  .#{$root} {
+    @import '~@cb-general/core/styles';
+    @import '../src/styles';
+  }
+}
+
+:export {
+  root: $root;
+}

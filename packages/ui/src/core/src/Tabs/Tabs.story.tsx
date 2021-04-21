@@ -1,13 +1,13 @@
 import React from 'react';
 
 // local files
-import { createStory } from '../../story/createStory';
+import { index } from '../../story/createStory';
 import { Tabs } from './Tabs';
 import { Tab } from './Tab';
 
-const story = createStory({
+const story = index({
   title: 'Tabs',
-  component: createStory,
+  component: index,
 });
 
 export const Template = () => {
