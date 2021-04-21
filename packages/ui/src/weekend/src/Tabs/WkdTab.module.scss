@@ -1,0 +1,39 @@
+$root: WkdTab;
+
+:global(.#{$root}) {
+  font-size: 1em;
+  position: relative;
+  display: inline-block;
+  height: 3.9em;
+  font-family: HelveticaNeue, Impact;
+  font-stretch: condensed;
+  font-weight: bold;
+  line-height: 4em;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: url(img/tab.png) no-repeat;
+  background-size: 100% 3.8em;
+  color: #b3b3b3;
+  padding: 0 1.5em;
+  min-width: 12em;
+
+  &:nth-child(n + 2) {
+    margin-left: -0.3em;
+  }
+}
+
+.label {
+  font-size: 1.2em;
+}
+
+.selected {
+  color: #faf135;
+  pointer-events: none;
+  z-index: 1;
+  background: url(img/tab_active.png) no-repeat 0 0 / 100% 4em;
+}
+
+:export {
+  root: $root;
+}

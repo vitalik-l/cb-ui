@@ -1,0 +1,57 @@
+@use '../../../core/src/Slider/Slider.module' as * with (
+  $root: WkdSlider,
+  $height: 1em,
+  $thumbSize: 2em
+);
+
+.rail {
+  background-color: #111;
+}
+
+.rail,
+.track {
+  border-radius: 10px;
+  border: min(0.2em, 2px) solid #5e5e62;
+}
+
+.track {
+  background: url(img/inputrangeprogress.png) repeat-x;
+  background-size: contain;
+}
+
+.thumb {
+  background: url(img/inputrangethumb.png);
+  background-size: contain;
+  box-shadow: 0 min(0.2em, 2px) min(0.3em, 3px) 0 rgb(0 0 0 / 60%);
+  border-radius: 50%;
+}
+
+.valueLabel {
+  color: #fff;
+  background-image: linear-gradient(#7e797f, #535156);
+  border-radius: 0.2em;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -115%);
+  min-width: 100%;
+  text-align: center;
+  padding: 0.2em 0.1em;
+
+  &:after {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 0.5em solid transparent;
+    border-right: 0.5em solid transparent;
+    border-top: 0.5em solid #545257;
+    left: 50%;
+    bottom: 1px; // keep px
+    transform: translate(-50%, 100%);
+  }
+}
+
+:export {
+  root: $root;
+}

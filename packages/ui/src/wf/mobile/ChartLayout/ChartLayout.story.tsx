@@ -4,8 +4,8 @@ import { Story } from '@storybook/react';
 // local files
 import { createStory } from '../createStory';
 import { ChartLayout } from './index';
-import { IconButton } from '../../../flat/IconButton';
-import { CircleMenuIcon } from '../../../flat/icons';
+import { IconButton } from '../../../flat/src/IconButton';
+import { CircleMenuIcon } from '../../../flat/src/icons';
 
 const story = createStory({
   title: 'ChartLayout',

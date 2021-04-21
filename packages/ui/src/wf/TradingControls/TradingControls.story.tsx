@@ -7,7 +7,7 @@ import { ConnectionStatus } from '@cb-general/weekend/ConnectionStatus';
 import { createStory } from '../createStory';
 import { TradingControls, tradingControlsStyles } from './index';
 import { TradingPanelTemplate } from '../TradingPanel/TradingPanel.story';
-import { CircularIndicatorTemplate } from '../../weekend/CircularIndicator/CircularIndicator.story';
+import { CircularIndicatorTemplate } from '../../weekend/src/CircularIndicator/CircularIndicator.story';
 
 const story = createStory({
   title: 'TradingControls',

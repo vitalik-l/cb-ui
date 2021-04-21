@@ -5,12 +5,12 @@ import { Root } from '@cb-general/core/Root';
 // local files
 import { createStory } from '../createStory';
 import { DesktopLayout } from './index';
-import { HeaderTemplate } from '../../weekend/Header/Header.story';
-import { TickerTemplate } from '../../weekend/Ticker/Ticker.story';
-import { ChartControlsTemplate } from '../../weekend/ChartControls/ChartControls.story';
+import { HeaderTemplate } from '../../weekend/src/Header/Header.story';
+import { TickerTemplate } from '../../weekend/src/Ticker/Ticker.story';
+import { ChartControlsTemplate } from '../../weekend/src/ChartControls/ChartControls.story';
 import { TradingControlsTemplate } from '../TradingControls/TradingControls.story';
 import { Logo } from '../Logo';
-import { TabsPanelTemplate } from '../../weekend/TabsPanel/TansPanel.story';
+import { TabsPanelTemplate } from '../../weekend/src/TabsPanel/TansPanel.story';
 
 const story = createStory({
   title: 'DesktopLayout',

@@ -1,0 +1,24 @@
+@use '../../../../node_modules/@cb-general/core/Slider/Slider.module' as * with (
+  $root: FlatSlider,
+  $height: 0.6em,
+  $thumbSize: 2.8em,
+);
+
+:global {
+  .#{$root} {
+    color: #71c82b;
+  }
+}
+
+.rail,
+.track {
+  border-radius: 10px;
+}
+
+.thumb {
+  background-color: transparent;
+}
+
+:export {
+  root: $root;
+}

@@ -1,0 +1,57 @@
+$root: WkdCircularIndicatorButton;
+
+:global(.#{$root}) {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-image: url(img/green_button.png);
+  background-color: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 1.5em;
+  line-height: 1.1;
+  white-space: pre-line;
+  padding: 10%;
+
+  &:hover {
+    box-shadow: 0 0 1.2em 0.2em lime;
+  }
+
+  &:active {
+    background: #50830e;
+  }
+}
+
+.color_red {
+  background-image: url(img/red_button.png);
+
+  &:hover {
+    box-shadow: 0 0 1.2em 0.2em orange;
+  }
+
+  &:active {
+    background: #690000;
+  }
+}
+
+.color_orange {
+  background-image: url(img/orange_button.png);
+
+  &:hover {
+    box-shadow: 0 0 1.2em 0.2em #ed8e2b;
+  }
+
+  &:active {
+    background: #ff942b;
+  }
+}
+
+:export {
+  root: $root;
+}

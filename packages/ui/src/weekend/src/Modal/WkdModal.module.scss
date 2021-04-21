@@ -1,0 +1,35 @@
+$root: WkdModal;
+
+:global(.#{$root}) {
+  color: #b3b3b3;
+  background: #010101 url(img/modal_bg.png) repeat;
+  font-size: 12px;
+}
+
+.header {
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+
+  *:nth-child(n + 2) {
+    margin-left: min(1rem, 10px);
+  }
+}
+
+.padding {
+  padding-left: min(2em, 20px);
+  padding-right: min(2em, 20px);
+  padding-top: min(2em, 20px);
+
+  &:last-child {
+    padding-bottom: min(2em, 20px);
+  }
+}
+
+:export {
+  root: $root;
+}

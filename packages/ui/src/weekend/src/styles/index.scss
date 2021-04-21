@@ -1,0 +1,40 @@
+@use '../fonts/index';
+@import 'helpers/colors';
+
+body {
+  font-family: Open Sans, Arial, Helvetica, sans-serif;
+  color: #b3b3b3;
+  background-color: #010101;
+}
+
+.svg-icon {
+  fill: currentColor;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  font-size: 1.5em;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+/* scrollbar webkit only */
+::-webkit-scrollbar {
+  width: 2rem;
+}
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+}
+::-webkit-scrollbar-thumb {
+  background: -webkit-linear-gradient(0deg, rgb(50, 49, 55) 0%, rgb(25, 24, 28) 100%);
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.5);
+  width: 1.7rem;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-track {
+  background: rgb(13, 12, 14);
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+// ==================================================

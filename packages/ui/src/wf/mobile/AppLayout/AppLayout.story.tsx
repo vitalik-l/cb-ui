@@ -5,9 +5,9 @@ import { Root } from '@cb-general/core/Root';
 // local files
 import { createStory } from '../createStory';
 import { AppLayout } from './index';
-import { Header } from '../../../flat/Header';
-import { IconButton } from '../../../flat/IconButton';
-import { CircleMenuIcon, MenuIcon } from '../../../flat/icons';
+import { Header } from '../../../flat/src/Header';
+import { IconButton } from '../../../flat/src/IconButton';
+import { CircleMenuIcon, MenuIcon } from '../../../flat/src/icons';
 import { Logo } from '../../Logo';
 import { ChartLayout } from '../ChartLayout';
 import { TradeRow } from '../TradeRow';

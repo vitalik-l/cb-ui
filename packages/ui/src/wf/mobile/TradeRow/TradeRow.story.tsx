@@ -4,8 +4,8 @@ import { Story } from '@storybook/react';
 // local files
 import { createStory } from '../createStory';
 import { TradeRow } from './index';
-import { Table } from '../../../flat/Table';
-import { TitledColumn } from '../../../flat/TitledColumn';
+import { Table } from '../../../flat/src/Table';
+import { TitledColumn } from '../../../flat/src/TitledColumn';
 
 const story = createStory({
   title: 'TradeRow',

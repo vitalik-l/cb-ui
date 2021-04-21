@@ -5,7 +5,7 @@ import { Story } from '@storybook/react';
 import { createStory } from '../createStory';
 import { GameTable } from './GameTable';
 import { GameTableCards } from './GameTableCards';
-import { GameCard } from '../../weekend/GameCard';
+import { GameCard } from '../../weekend/src/GameCard';
 
 const story = createStory({
   title: 'GameTable',
