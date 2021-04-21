@@ -1,10 +1,10 @@
 import React from 'react';
 
 // local files
-import { index } from '../../story/createStory';
+import { createStory } from '../../story';
 import { Ticker, TickerItem } from './index';
 
-const story = index({
+const story = createStory({
   title: 'Ticker',
   component: Ticker,
   style: {

@@ -2,7 +2,7 @@ import React from 'react';
 import { Story } from '@storybook/react';
 
 // local files
-import { index } from '../../story/createStory';
+import { createStory } from '../../story';
 import { UserPanel } from './UserPanel';
 import { UserPanelButton } from './UserPanelButton';
 import { UserPanelItem } from './UserPanelItem';
@@ -10,7 +10,7 @@ import { Select } from '../../../core/src/Select';
 import { UserPanelButtons } from './UserPanelButtons';
 import { MenuButton } from '../MenuButton';
 
-const story = index({
+const story = createStory({
   title: 'UserPanel',
   component: UserPanel,
   argTypes: {

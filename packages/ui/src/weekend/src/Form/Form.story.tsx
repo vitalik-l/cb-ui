@@ -3,11 +3,11 @@ import { Story } from '@storybook/react';
 import { Form } from '@cb-general/core/Form';
 
 // local files
-import { index } from '../../story/createStory';
+import { createStory } from '../../story';
 import { TextField, NumberField, SelectField, SwitchField, Submit } from './index';
 import { required, validator } from '../../../core/src/Form';
 
-const story = index({
+const story = createStory({
   title: 'Form',
   component: Form,
 });

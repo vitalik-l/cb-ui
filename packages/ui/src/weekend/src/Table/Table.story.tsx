@@ -2,11 +2,11 @@ import React from 'react';
 import { Story } from '@storybook/react';
 
 // local files
-import { index } from '../../story/createStory';
+import { createStory } from '../../story';
 import { Table, SelectableRow } from './index';
 import { Column } from '../../../core/src/Table';
 
-const story = index({
+const story = createStory({
   title: 'Table',
   component: Table,
   args: {

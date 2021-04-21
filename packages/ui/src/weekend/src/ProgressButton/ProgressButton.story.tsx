@@ -2,10 +2,10 @@ import React from 'react';
 import { Story } from '@storybook/react';
 
 // local files
-import { index } from '../../story/createStory';
+import { createStory } from '../../story';
 import { ProgressButton } from './index';
 
-const story = index({
+const story = createStory({
   title: 'ProgressButton',
   component: ProgressButton,
 });

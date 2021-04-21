@@ -2,11 +2,11 @@ import React from 'react';
 import { Story } from '@storybook/react';
 
 // local files
-import { index } from '../../story/createStory';
+import { createStory } from '../../story';
 import { Modal, ModalHeader, ModalContent, ModalActions } from './index';
 import { Button } from '../Button';
 
-const story = index({
+const story = createStory({
   title: 'Modal',
   component: Modal,
 });

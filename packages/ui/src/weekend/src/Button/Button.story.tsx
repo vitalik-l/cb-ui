@@ -2,11 +2,11 @@ import React from 'react';
 import { Story } from '@storybook/react';
 
 // local files
-import { index } from '../../story/createStory';
+import { createStory } from '../../story';
 import { Button } from './Button';
 import './WkdButton.module.scss';
 
-const story = index({
+const story = createStory({
   title: 'Button',
   component: Button,
   argTypes: {

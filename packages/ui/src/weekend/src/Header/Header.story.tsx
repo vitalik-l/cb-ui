@@ -2,12 +2,12 @@ import React from 'react';
 import { Story } from '@storybook/react';
 
 // local files
-import { index } from '../../story/createStory';
+import { createStory } from '../../story';
 import { Header, HeaderItem, HeaderTitle } from './index';
 import { UserPanelTemplate } from '../UserPanel/UserPanel.story';
 import { Logo } from '../../../wf/Logo';
 
-const story = index({
+const story = createStory({
   title: 'Header',
   component: Header,
 });

@@ -2,12 +2,12 @@ import React from 'react';
 import { Story } from '@storybook/react';
 
 // local files
-import { index } from '../../story/createStory';
+import { createStory } from '../../story';
 import { TabsPanel } from './index';
 import { TabsTemplate } from '../Tabs/Tabs.story';
 import { TabsPanelContent } from './TabsPanelContent';
 
-const story = index({
+const story = createStory({
   title: 'TabsPanel',
   component: TabsPanel,
   style: {

@@ -4,7 +4,7 @@ import { ButtonGroup } from '@cb-general/weekend/ButtonGroup';
 import { Button } from '@cb-general/weekend/Button';
 
 // local files
-import { index } from '../../story/createStory';
+import { createStory } from '../../story';
 import { ChartControls, chartControlsStyles } from './index';
 import {
   CrosshairIcon,
@@ -16,7 +16,7 @@ import {
   PauseIcon,
 } from '../icons';
 
-const story = index({
+const story = createStory({
   title: 'ChartControls',
   component: ChartControls,
 });

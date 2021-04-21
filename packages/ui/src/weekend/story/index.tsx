@@ -1,10 +1,10 @@
-import { createStoryFactory } from '@cb-general/core/createStoryFactory';
-import styles from '../src/styles/WeekendStory.module.scss';
+import { createStoryFactory } from '../../createStoryFactory';
+import styles from './story.module.scss';
 
-const { createStory: index } = createStoryFactory({
+const { createStory } = createStoryFactory({
   titlePrefix: 'weekend/',
   defaultStyle: { fontSize: '1rem' },
   className: styles.root,
 });
 
-export { index };
+export { createStory };
