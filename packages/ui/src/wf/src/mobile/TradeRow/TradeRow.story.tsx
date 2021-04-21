@@ -2,13 +2,13 @@ import React from 'react';
 import { Story } from '@storybook/react';
 
 // local files
-import { createStory } from '../createStory';
+import { createStory } from '../../../story';
 import { TradeRow } from './index';
-import { Table } from '../../../flat/src/Table';
-import { TitledColumn } from '../../../flat/src/TitledColumn';
+import { Table } from '../../../../flat/src/Table';
+import { TitledColumn } from '../../../../flat/src/TitledColumn';
 
 const story = createStory({
-  title: 'TradeRow',
+  title: 'mobile/TradeRow',
   component: TradeRow,
 });
 

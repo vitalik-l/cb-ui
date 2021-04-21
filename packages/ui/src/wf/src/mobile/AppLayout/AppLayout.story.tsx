@@ -3,17 +3,17 @@ import { Story } from '@storybook/react';
 import { Root } from '@cb-general/core/Root';
 
 // local files
-import { createStory } from '../createStory';
+import { createStory } from '../../../story';
 import { AppLayout } from './index';
-import { Header } from '../../../flat/src/Header';
-import { IconButton } from '../../../flat/src/IconButton';
-import { CircleMenuIcon, MenuIcon } from '../../../flat/src/icons';
+import { Header } from '../../../../flat/src/Header';
+import { IconButton } from '../../../../flat/src/IconButton';
+import { CircleMenuIcon, MenuIcon } from '../../../../flat/src/icons';
 import { Logo } from '../../Logo';
 import { ChartLayout } from '../ChartLayout';
 import { TradeRow } from '../TradeRow';
 
 const story = createStory({
-  title: 'AppLayout',
+  title: 'mobile/AppLayout',
   component: AppLayout,
 });
 

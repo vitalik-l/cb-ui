@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { TrendDownIcon, TrendUpIcon } from '@cb-general/weekend/icons';
 
 // local files
-import { createStory } from '../createStory';
+import { createStory } from '../../story';
 import { TradeButton, tradeButtonStyles } from './index';
 
 const story = createStory({

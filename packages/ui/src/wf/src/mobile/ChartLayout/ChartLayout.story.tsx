@@ -2,13 +2,13 @@ import React from 'react';
 import { Story } from '@storybook/react';
 
 // local files
-import { createStory } from '../createStory';
+import { createStory } from '../../../story';
 import { ChartLayout } from './index';
-import { IconButton } from '../../../flat/src/IconButton';
-import { CircleMenuIcon } from '../../../flat/src/icons';
+import { IconButton } from '../../../../flat/src/IconButton';
+import { CircleMenuIcon } from '../../../../flat/src/icons';
 
 const story = createStory({
-  title: 'ChartLayout',
+  title: 'mobile/ChartLayout',
   component: ChartLayout,
   style: {
     width: 150,

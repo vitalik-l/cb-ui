@@ -4,10 +4,10 @@ import { Countdown } from '@cb-general/weekend/Countdown';
 import { ConnectionStatus } from '@cb-general/weekend/ConnectionStatus';
 
 // local files
-import { createStory } from '../createStory';
+import { createStory } from '../../story';
 import { TradingControls, tradingControlsStyles } from './index';
 import { TradingPanelTemplate } from '../TradingPanel/TradingPanel.story';
-import { CircularIndicatorTemplate } from '../../weekend/src/CircularIndicator/CircularIndicator.story';
+import { CircularIndicatorTemplate } from '../../../weekend/src/CircularIndicator/CircularIndicator.story';
 
 const story = createStory({
   title: 'TradingControls',

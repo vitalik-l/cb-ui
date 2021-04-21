@@ -1,10 +1,10 @@
 import { createStoryFactory } from '../../createStoryFactory';
-import classes from './styles/classes.module.scss';
+import styles from './story.module.scss';
 
 const { createStory } = createStoryFactory({
-  titlePrefix: 'wf/mobile/',
+  titlePrefix: 'wf/',
   defaultStyle: { fontSize: '1rem' },
-  className: classes.Story,
+  className: styles.root,
 });
 
 export { createStory };

@@ -5,7 +5,7 @@ import { Story } from '@storybook/react';
 import { createStory } from '../../story';
 import { Header, HeaderItem, HeaderTitle } from './index';
 import { UserPanelTemplate } from '../UserPanel/UserPanel.story';
-import { Logo } from '../../../wf/Logo';
+import { Logo } from '../../../wf/src/Logo';
 
 const story = createStory({
   title: 'Header',

@@ -1,0 +1,6 @@
+.root {
+  :global {
+    @import '~@cb-general/core/styles';
+    @import '../src/styles';
+  }
+}

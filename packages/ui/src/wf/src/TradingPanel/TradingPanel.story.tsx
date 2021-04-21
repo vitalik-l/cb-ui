@@ -3,7 +3,7 @@ import { Slider } from '@cb-general/weekend/Slider';
 import { Select } from '@cb-general/weekend/Select';
 
 // local files
-import { createStory } from '../createStory';
+import { createStory } from '../../story';
 import {
   TradingPanel,
   TradingPanelHeader,

@@ -2,7 +2,7 @@ import React from 'react';
 import { Story } from '@storybook/react';
 
 // local files
-import { createStory } from '../createStory';
+import { createStory } from '../../story';
 
 const story = createStory({
   title: 'Styles',
