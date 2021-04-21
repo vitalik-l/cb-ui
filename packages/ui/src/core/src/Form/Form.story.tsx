@@ -2,10 +2,10 @@ import React from 'react';
 import { Story } from '@storybook/react';
 
 // local files
-import { index } from '../../story/createStory';
+import { createStory } from '../../story';
 import { Form, FormField, InlineFields, useSubmit, Submit, validator, required } from './index';
 
-const story = index({
+const story = createStory({
   title: 'Form',
   component: Form,
   argTypes: {

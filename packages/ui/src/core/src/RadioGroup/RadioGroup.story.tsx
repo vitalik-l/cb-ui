@@ -4,9 +4,9 @@ import { Story } from '@storybook/react';
 // local files
 import { RadioGroup } from './RadioGroup';
 import { Radio } from '../Radio';
-import { index } from '../../story/createStory';
+import { createStory } from '../../story';
 
-const story = index({
+const story = createStory({
   title: 'RadioGroup',
   component: RadioGroup,
 });

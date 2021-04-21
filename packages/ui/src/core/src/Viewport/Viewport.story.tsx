@@ -2,11 +2,11 @@ import React from 'react';
 import { Story } from '@storybook/react';
 
 // local files
-import { index } from '../../story/createStory';
+import { createStory } from '../../story';
 import { Root } from '../Root';
 import { Viewport } from './index';
 
-const story = index({
+const story = createStory({
   title: 'Viewport',
   component: Viewport,
   style: {

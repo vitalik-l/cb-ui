@@ -1,11 +1,11 @@
 import React from 'react';
 
 // local files
-import { index } from '../../story/createStory';
+import { createStory } from '../../story';
 import { WindowResizeListener } from './WindowResizeListener';
 import { useWindowSize } from './useWindowSize';
 
-const story = index({
+const story = createStory({
   title: 'WindowResizeListener',
   component: WindowResizeListener,
 });

@@ -4,9 +4,9 @@ import { Story } from '@storybook/react';
 // local files
 import { ButtonBase } from '../ButtonBase';
 import { ButtonGroup } from './ButtonGroup';
-import { index } from '../../story/createStory';
+import { createStory } from '../../story';
 
-const story = index({
+const story = createStory({
   title: 'ButtonGroup',
   component: ButtonGroup,
 });

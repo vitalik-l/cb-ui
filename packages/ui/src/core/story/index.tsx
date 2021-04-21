@@ -2,7 +2,7 @@
 import { createStoryFactory } from '../../createStoryFactory';
 import styles from './story.module.scss';
 
-const { createStory: index } = createStoryFactory({
+const { createStory } = createStoryFactory({
   titlePrefix: 'core/',
   className: styles.root,
   parameters: {
@@ -12,4 +12,4 @@ const { createStory: index } = createStoryFactory({
   },
 });
 
-export { index };
+export { createStory };
