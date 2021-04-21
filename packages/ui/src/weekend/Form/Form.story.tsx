@@ -5,7 +5,7 @@ import { Form } from '@cb-general/core/Form';
 // local files
 import { createStory } from '../createStory';
 import { TextField, NumberField, SelectField, SwitchField, Submit } from './';
-import { required, validator } from '../../core/Form';
+import { required, validator } from '../../core/src/Form';
 
 const story = createStory({
   title: 'Form',

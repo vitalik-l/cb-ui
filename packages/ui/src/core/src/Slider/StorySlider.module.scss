@@ -1,0 +1,13 @@
+@use 'Slider.module' as * with (
+  $root: StorySlider,
+  $height: 0.6rem,
+  $thumbSize: 1em,
+);
+
+:global(.#{$root}) {
+  color: green;
+}
+
+:export {
+  root: $root;
+}

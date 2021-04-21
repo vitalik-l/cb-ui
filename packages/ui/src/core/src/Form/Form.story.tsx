@@ -2,9 +2,8 @@ import React from 'react';
 import { Story } from '@storybook/react';
 
 // local files
-import { createStory } from '../createStory';
-import { Form, InlineFields, useSubmit, validator, required } from '../../core/src/Form';
-import { FormField, Submit } from './';
+import { createStory } from '../../story/createStory';
+import { Form, FormField, InlineFields, useSubmit, Submit, validator, required } from './index';
 
 const story = createStory({
   title: 'Form',
@@ -28,7 +27,7 @@ export const Default: Story = (args) => (
     <FormField
       name="indicator"
       label="Indicator:"
-      subLabel="subLabel"
+      subLabel="this is subLabel prop"
       component="select"
       showError
       error="errored field"
@@ -54,7 +53,7 @@ export const Default: Story = (args) => (
       <option>Indicator 2</option>
       <option>Indicator 3</option>
     </FormField>
-    <button type="submit">Submit</button>
+    <Submit>Submit</Submit>
   </Form>
 );
 

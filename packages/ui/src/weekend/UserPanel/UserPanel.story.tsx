@@ -6,7 +6,7 @@ import { createStory } from '../createStory';
 import { UserPanel } from './UserPanel';
 import { UserPanelButton } from './UserPanelButton';
 import { UserPanelItem } from './UserPanelItem';
-import { Select } from '../../core/Select';
+import { Select } from '../../core/src/Select';
 import { UserPanelButtons } from './UserPanelButtons';
 import { MenuButton } from '../MenuButton';
 

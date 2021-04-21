@@ -2,7 +2,7 @@ import React from 'react';
 import { Story } from '@storybook/react';
 
 // local files
-import { Table } from '../../core/Table';
+import { Table } from '../../core/src/Table';
 import { createStory } from '../createStory';
 import { TitledColumn } from './index';
 
