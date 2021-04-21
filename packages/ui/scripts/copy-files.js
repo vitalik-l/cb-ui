@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import path from 'path';
 import fse from 'fs-extra';
+import fs from 'fs';
 
 const files = [
   // 'README.md',
@@ -26,7 +27,10 @@ function resolveBuildPath(file) {
 
 function createPackageFile() {
   return new Promise((resolve) => {
-    fse.readFile(path.resolve(__dirname, '../src', LIB, 'lib.json'), 'utf8', (err, data) => {
+    const dir = path.resolve(__dirname, '../src', LIB);
+    const packageFile = fs.existsSync(path.resolve(dir, 'package.json')) ? path.resolve(dir, 'package.json') : path.resolve(dir, 'lib.json');
+
+    fse.readFile(packageFile, 'utf8', (err, data) => {
       if (err) {
         throw err;
       }

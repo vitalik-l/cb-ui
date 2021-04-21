@@ -1,0 +1,11 @@
+$root: RfxStory;
+
+:global {
+  .#{$root} {
+
+  }
+}
+
+:export {
+  root: $root;
+}

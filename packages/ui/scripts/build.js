@@ -2,14 +2,20 @@
 var shell = require('shelljs');
 var publishUtils = require('./utils');
 var path = require('path');
+const fs = require('fs');
 
 const [ packageName ] = process.argv.slice(2);
 
 console.log('=> Building ' + packageName);
+const srcPath = fs.existsSync(`./src/${packageName}/src`) ? `./src/${packageName}/src` : `./src/${packageName}`;
+console.log(`=> src path is ${srcPath}`);
 publishUtils.exec(
-  `cross-env NODE_ENV=release babel ./src/${packageName} --out-dir ./lib/${packageName} --extensions ".js,.jsx,.ts,.tsx"`,
+  `cross-env NODE_ENV=release babel ${srcPath} --out-dir ./lib/${packageName} --extensions ".js,.jsx,.ts,.tsx"`,
 );
-publishUtils.exec(`npx tsc -p ./src/${packageName}/ts.json`);
+console.log('=> Check for tsconfig');
+const tsconfigFile = fs.existsSync(`./src/${packageName}/tsconfig.json`) ? `./src/${packageName}/tsconfig.json` : `./src/${packageName}/ts.json`;
+console.log(`=> tsconfig file is ${tsconfigFile}`);
+publishUtils.exec(`npx tsc -p ${tsconfigFile}`);
 publishUtils.exec(`cross-env LIB=${packageName} babel-node ./scripts/copy-styles.js`);
 publishUtils.exec(`cross-env LIB=${packageName} babel-node ./scripts/copy-files.js`);
 

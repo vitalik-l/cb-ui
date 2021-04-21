@@ -13,6 +13,9 @@ module.exports = {
   ],
   typescript: {
     check: true,
+    checkOptions: {
+      reportFiles: [`../src/${packageName ? packageName + "/" : ""}**/*.{ts|tsx}`],
+    },
   },
   webpackFinal(config) {
     config.resolve.alias = {
