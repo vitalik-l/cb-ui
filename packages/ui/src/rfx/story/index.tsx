@@ -1,4 +1,4 @@
-import { createStoryFactory } from '@cb-general/core/createStoryFactory';
+import { createStoryFactory } from '../../createStoryFactory';
 import styles from './story.module.scss';
 
 const { createStory } = createStoryFactory({
