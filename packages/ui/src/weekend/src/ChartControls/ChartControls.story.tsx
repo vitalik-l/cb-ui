@@ -14,7 +14,7 @@ import {
   ZoomInIcon,
   ZoomOutIcon,
   PauseIcon,
-} from '../icons';
+} from '../../../icons/src';
 
 const story = createStory({
   title: 'ChartControls',
