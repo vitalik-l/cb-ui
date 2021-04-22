@@ -1,7 +1,7 @@
 @use '../styles/classes.module' as *;
 
 .#{$Logo} {
-  background: url(img/logo.png) no-repeat center center;
+  background: url(./img/logo.png) no-repeat center center;
   background-size: contain;
   height: 100%;
   width: 100%;

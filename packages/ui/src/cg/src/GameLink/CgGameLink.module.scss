@@ -1,4 +1,4 @@
-@use "../../../../node_modules/@cb-general/core/styles/mixins" as *;
+@use "~@cb-general/core/styles/mixins" as *;
 
 .root {
   display: inline-block;
@@ -35,18 +35,18 @@
 }
 
 .wallstbaccarat {
-  background-image: url(img/wallstbaccarat.png);
+  background-image: url(./img/wallstbaccarat.png);
 }
 .roulettefx {
-  background-image: url(img/roulettefx.png);
+  background-image: url(./img/roulettefx.png);
   background-size: auto 80%;
 }
 .wallstroulette {
-  background-image: url(img/wallstroulette.png);
+  background-image: url(./img/wallstroulette.png);
 }
 .weekendforex {
-  background-image: url(img/weekendforex.png);
+  background-image: url(./img/weekendforex.png);
 }
 .weekendbinary {
-  background-image: url(img/weekendbinary.png);
+  background-image: url(./img/weekendbinary.png);
 }

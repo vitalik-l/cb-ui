@@ -7,6 +7,7 @@ import { ButtonBase } from '../ButtonBase';
 type ClassesType = {
   root?: string;
   selected?: string;
+  label?: string;
   [key: string]: any;
 };
 
@@ -56,7 +57,7 @@ export const Tab = (props: TabProps) => {
       onClick={handleClick}
       {...buttonProps}
     >
-      {label}
+      {classes?.label ? <span className={classes.label}>{label}</span> : label}
     </ButtonBase>
   );
 };

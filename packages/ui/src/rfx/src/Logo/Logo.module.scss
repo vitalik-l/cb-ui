@@ -1,0 +1,18 @@
+@use '~@cb-general/core/styles/mixins' as *;
+
+$root: Logo;
+
+:global(.#{$root}) {
+  font-size: 30em;
+  background: url(./img/logo.png) no-repeat center center;
+  background-size: contain;
+  @include pxSizeToEm(300, 95);
+}
+
+.small {
+  font-size: 12.8em;
+}
+
+:export {
+  root: $root;
+}

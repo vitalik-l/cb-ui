@@ -8,11 +8,13 @@ export const createStoryFactory = ({
 }) => {
   const StoryContainer = ({ children }: any) => {
     React.useLayoutEffect(() => {
-      document.documentElement.classList.add(className);
+      if (className) {
+        document.documentElement.classList.add(className);
 
-      return () => {
-        document.documentElement.classList.remove(className);
-      };
+        return () => {
+          document.documentElement.classList.remove(className);
+        };
+      }
     }, []);
 
     return children;

@@ -15,12 +15,12 @@
 }
 
 .track {
-  background: url(img/inputrangeprogress.png) repeat-x;
+  background: url(./img/inputrangeprogress.png) repeat-x;
   background-size: contain;
 }
 
 .thumb {
-  background: url(img/inputrangethumb.png);
+  background: url(./img/inputrangethumb.png);
   background-size: contain;
   box-shadow: 0 min(0.2em, 2px) min(0.3em, 3px) 0 rgb(0 0 0 / 60%);
   border-radius: 50%;

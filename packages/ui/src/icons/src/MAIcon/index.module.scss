@@ -1,0 +1,17 @@
+@mixin colored {
+  .second {
+    color: red;
+  }
+}
+
+.root {
+  &.colored {
+    @include colored;
+  }
+}
+
+.hovered {
+  &:hover {
+    @include colored;
+  }
+}

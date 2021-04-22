@@ -19,9 +19,7 @@ const story = createStory({
 
 export const Template: Story = (args) => (
   <Root>
-    <DesktopLayout
-      {...args}
-    />
+    <DesktopLayout {...args} />
   </Root>
 );
 Template.storyName = 'DesktopLayout';

@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../lib/icons",
+    "rootDir": "./src",
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "noEmit": false
+  },
+  "exclude": ["**/*.story.tsx"],
+  "include": ["../declarations.d.ts", "src"]
+}

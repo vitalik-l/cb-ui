@@ -7,10 +7,16 @@ import styles from './WkdCountdown.module.scss';
 type Props = {
   className?: string;
   value?: string | number;
+  label?: string;
 };
 
 export const Countdown = (props: Props) => {
-  const { className, value } = props;
+  const { className, value, label } = props;
 
-  return <div className={clsx(styles.root, className)}>{value}</div>;
+  return (
+    <div className={className}>
+      {!!label && <div className={styles.label}>{label}</div>}
+      <div className={styles.root}>{value}</div>
+    </div>
+  );
 };

@@ -1,11 +1,6 @@
-$root: RfxStory;
-
-:global {
-  .#{$root} {
-
+.root {
+  :global {
+    @import '~@cb-general/core/styles';
+    @import '~@cb-general/weekend/styles';
   }
-}
-
-:export {
-  root: $root;
 }

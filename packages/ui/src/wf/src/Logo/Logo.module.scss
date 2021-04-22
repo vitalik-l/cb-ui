@@ -1,10 +1,10 @@
-@use '../../../../node_modules/@cb-general/core/styles/mixins' as *;
+@use '~@cb-general/core/styles/mixins' as *;
 
 $root: WfLogo;
 
 :global(.#{$root}) {
   font-size: 27.1em;
-  background: url(img/logo.png) no-repeat center center;
+  background: url(./img/logo.png) no-repeat center center;
   background-size: contain;
   @include pxSizeToEm(261, 69);
 }

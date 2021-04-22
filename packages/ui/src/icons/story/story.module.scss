@@ -1,0 +1,29 @@
+.root {
+  :global {
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-gap: 1rem;
+
+      > .icon-cell {
+        text-align: center;
+        padding: 1rem;
+        border-radius: 5px;
+        background: #3a3a3a;
+        display: block;
+        color: white;
+
+        &:active {
+          opacity: 0.8;
+        }
+
+        .label {
+          font-size: 15px;
+          font-family: Arial, Helvetica, sans-serif;
+          font-weight: bold;
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+}

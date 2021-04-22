@@ -7,6 +7,14 @@ $root: CoreSvgIcon;
   user-select: none;
 }
 
+.size_large {
+  font-size: 1.5em;
+}
+
+.size_xl {
+  font-size: 2em;
+}
+
 :export {
   root: $root;
 }

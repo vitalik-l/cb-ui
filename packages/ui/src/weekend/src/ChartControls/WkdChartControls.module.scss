@@ -5,13 +5,17 @@ $root: WkdChartControls;
   min-height: 5.5rem;
   height: 5.5rem;
   box-shadow: 0 min(0.4em, 4px) min(0.4em, 4px) rgb(0 0 0 / 90%);
-  background: url(img/btnbar_bg.png);
+  background: url(./img/btnbar_bg.png);
   background-size: contain;
   padding: 0.3rem 1rem;
   box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   width: 100%;
+}
+
+.alignRight {
+  justify-content: flex-end;
 }
 
 .separator {

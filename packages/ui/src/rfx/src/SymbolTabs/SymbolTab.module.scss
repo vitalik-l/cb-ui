@@ -1,0 +1,32 @@
+.root {
+  font-size: 1em;
+  position: relative;
+  display: inline-block;
+  height: 4em;
+  font-weight: bold;
+  line-height: 4em;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: url(./img/charttab.png) no-repeat;
+  background-size: 100% 4em;
+  padding: 0 1.5em;
+  min-width: 10em;
+  margin-right: -1.3rem;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.selected {
+  color: #fff;
+  text-shadow: 0 2px 2px rgb(12 12 12 / 43%);
+  pointer-events: none;
+  z-index: 1;
+  background: url(./img/charttab_active.png) no-repeat 0 0 / 100% 4em;
+}
+
+.label {
+  font-size: 1.2em;
+}

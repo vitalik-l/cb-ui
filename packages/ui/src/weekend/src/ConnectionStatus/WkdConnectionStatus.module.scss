@@ -1,16 +1,31 @@
+@use '~@cb-general/core/styles/mixins' as *;
+
 $root: WkdConnectionStatus;
 
 :global(.#{$root}) {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  letter-spacing: 0.06rem;
+}
+
+.labelLeft {
+  margin-right: toRem(5);
+}
+
+.icon {
   display: inline-block;
-  width: 1em;
-  height: 1em;
+  width: 1.2em;
+  height: 1.2em;
   border-radius: 50%;
-  background-image: url(img/offline.png);
+  background-image: url(./img/offline.png);
   background-size: contain;
 }
 
-.online {
-  background-image: url(img/online.png);
+.iconOnline {
+  background-image: url(./img/online.png);
 }
 
 :export {

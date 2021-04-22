@@ -1,0 +1,9 @@
+$root: SymbolTabs;
+
+:global(.#{$root}) {
+  // component styles
+}
+
+:export {
+  root: $root;
+}

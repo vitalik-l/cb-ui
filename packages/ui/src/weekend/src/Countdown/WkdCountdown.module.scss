@@ -14,6 +14,15 @@ $root: WkdCountdown;
   line-height: 1.3;
 }
 
+.label {
+  font-family: HelveticaNeue-CondensedBold, Impact;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.6em;
+  margin-bottom: 1em;
+  color: white;
+}
+
 :export {
   root: $root;
 }

@@ -5,7 +5,7 @@ import { Button } from '@cb-general/weekend/Button';
 
 // local files
 import { createStory } from '../../story';
-import { ChartControls, chartControlsStyles } from './index';
+import { ChartControls, ChartControlsSeparator } from './index';
 import {
   CrosshairIcon,
   IndicatorIcon,
@@ -27,7 +27,7 @@ export const ChartControlsTemplate: Story = (args) => (
       <Button>TICK</Button>
       <Button>M1</Button>
     </ButtonGroup>
-    <div className={chartControlsStyles.separator} />
+    <ChartControlsSeparator />
     <ButtonGroup>
       <Button>
         <PointerIcon />
@@ -39,7 +39,7 @@ export const ChartControlsTemplate: Story = (args) => (
         <PauseIcon />
       </Button>
     </ButtonGroup>
-    <div className={chartControlsStyles.separator} />
+    <ChartControlsSeparator />
     <ButtonGroup>
       <Button>
         <ZoomInIcon />
@@ -48,7 +48,7 @@ export const ChartControlsTemplate: Story = (args) => (
         <ZoomOutIcon />
       </Button>
     </ButtonGroup>
-    <div className={chartControlsStyles.separator} />
+    <ChartControlsSeparator />
     <ButtonGroup>
       <Button>
         <IndicatorIcon />

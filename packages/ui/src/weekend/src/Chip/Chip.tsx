@@ -15,8 +15,17 @@ type Props = {
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export const Chip = React.forwardRef((props: Props, ref: any) => {
-  const { className, color, large, value: valueProp = '', format = true, classes: classesProp, ...restProps } = props;
-  const value: number | string = format && +valueProp >= 1000 ? `${Math.round(+valueProp / 1000)}K` : valueProp;
+  const {
+    className,
+    color,
+    large,
+    value: valueProp = '',
+    format = true,
+    classes: classesProp,
+    ...restProps
+  } = props;
+  const value: number | string =
+    format && +valueProp >= 1000 ? `${Math.round(+valueProp / 1000)}K` : valueProp;
   const classes = useClasses(styles, classesProp);
 
   return (

@@ -2,8 +2,7 @@
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 400;
-  src: local('Open Sans'), local('OpenSans'),
-    url(OpenSans/OpenSansNormal.woff2) format('woff2');
+  src: local('Open Sans'), local('OpenSans'), url(OpenSans/OpenSansNormal.woff2) format('woff2');
   font-display: fallback;
 }
 @font-face {

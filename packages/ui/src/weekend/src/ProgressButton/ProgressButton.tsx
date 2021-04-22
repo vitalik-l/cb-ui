@@ -17,12 +17,7 @@ export const ProgressButton = (props: Props) => {
   const { className, color, label, progress, ...otherProps } = props;
 
   return (
-    <Button
-      className={clsx(styles.root, className)}
-      data-label={label}
-      square
-      {...otherProps}
-    >
+    <Button className={clsx(styles.root, className)} data-label={label} square {...otherProps}>
       {label}
       <span className={clsx(styles.bg, !!color && styles[`color_${color}`])} />
       <span className={styles.progress} style={{ transform: `translateX(${progress}%)` }} />

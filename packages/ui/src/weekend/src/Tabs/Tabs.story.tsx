@@ -8,7 +8,7 @@ import { Tab } from './Tab';
 
 const story = createStory({
   title: 'Tabs',
-  component: index,
+  component: Tabs,
 });
 
 export const TabsTemplate: Story = () => {

@@ -1,6 +1,6 @@
 .root {
   :global {
-    @import '../../../../node_modules/@cb-general/core/styles/index';
+    @import '~@cb-general/core/styles';
     @import 'index';
   }
 }
