@@ -1,5 +1,5 @@
 @use './classes.module' as *;
 
 .#{$Story} {
-  @import '../../weekend/styles';
+  @import '~@cb-general/weekend/styles';
 }
