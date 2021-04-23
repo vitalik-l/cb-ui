@@ -45,6 +45,19 @@ $root: RouletteWheel;
   }
 }
 
+.ball {
+  position: absolute;
+  left: 27.2em;
+  bottom: 27.2em;
+  width: 2.6em;
+  height: 2.6em;
+  z-index: 5;
+  will-change: transform;
+  background-image: url(./img/ball.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 :export {
   root: $root;
 }

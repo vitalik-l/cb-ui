@@ -16,6 +16,7 @@ export const RouletteWheel = (props: Props) => {
     <div className={clsx(styles.root, className)}>
       <div className={styles.bg} />
       <div className={clsx(styles.slots, styles[`slots_${slots}`])} />
+      <div className={styles.ball} />
     </div>
   );
 };
