@@ -13,31 +13,61 @@ type Props = {
   value?: number;
 };
 
-const BALL_TRANSX = '195px';
+const BALL_TRANSX = '19.5em';
 const WHEEL_NUM_ANGLE = 9.72972972972973; // 360 deg / 37 sectors
+const WHEEL_START_SPEED = 5;
 
 export const RouletteWheel = (props: Props) => {
   const { className, slots, classes: classesProp, numbers, value } = props;
   const classes = useClasses(styles, classesProp);
   const ballRef: MutableRefObject<HTMLDivElement | null> = React.useRef(null);
   const slotsRef: MutableRefObject<HTMLDivElement | null>  = React.useRef(null);
+  const angle = React.useRef(0);
+  const animRef = React.useRef(0);
+
+  const dropBall = React.useCallback(() => {
+    if (ballRef.current) {
+      ballRef.current.style.display = 'block';
+      ballRef.current?.classList.add(classes.ballRotate);
+    }
+  }, [classes.ballRotate]);
+
+  const ballAnimationEnd = React.useCallback(() => {
+    ballRef.current?.classList.remove(classes.ballRotate);
+    window.cancelAnimationFrame(animRef.current);
+    if (value != null && numbers && slotsRef.current && ballRef.current) {
+      const rezPos = numbers.indexOf(value);
+      const angle = 234 - rezPos * WHEEL_NUM_ANGLE;
+      slotsRef.current.style.transform = 'rotate(' + angle + 'deg) translateZ(0)';
+      ballRef.current.style.transform = 'rotate(' +  119.5 + 'deg) translateX(' + BALL_TRANSX + ') translateZ(0)';
+    }
+  }, [classes.ballRotate, numbers, value]);
+
+  const spinUp = React.useCallback(() => {
+    if (slotsRef.current) {
+      angle.current = angle.current - WHEEL_START_SPEED;
+      slotsRef.current.style.transform = 'rotate(' + angle.current + 'deg) translateZ(0)';
+      animRef.current = window.requestAnimationFrame(spinUp);
+    }
+  }, []);
 
   React.useEffect(() => {
-    if (numbers && value !== undefined) {
-      if (slotsRef.current && ballRef.current) {
-        const rezPos = numbers.indexOf(value);
-        const angle = 234 - rezPos * WHEEL_NUM_ANGLE;
-        slotsRef.current.style.transform = 'rotate(' + angle + 'deg) translateZ(0)';
-        ballRef.current.style.transform = 'rotate(' +  119.5 + 'deg) translateX(' + BALL_TRANSX + ') translateZ(0)';
+    if (value != null &&  ballRef.current) {
+      window.cancelAnimationFrame(animRef.current);
+      ballRef.current.style.display = 'none';
+      spinUp();
+      const tId = window.setTimeout(dropBall, 500);
+      return () => {
+        window.clearTimeout(tId);
       }
     }
-  }, [value, numbers]);
+  }, [value, dropBall, spinUp]);
 
   return (
     <div className={clsx(classes.root, className)}>
       <div className={classes.bg} />
       <div className={clsx(classes.slots, classes[`slots_${slots}`])} ref={slotsRef} />
-      <div className={clsx(classes.ball, value == null && 'd-none')} ref={ballRef} />
+      <div className={clsx(classes.ball, value == null && 'd-none')} ref={ballRef} onAnimationEnd={ballAnimationEnd} />
     </div>
   );
 };
