@@ -67,8 +67,8 @@ $root: RouletteWheel;
 
 .ball {
   position: absolute;
-  left: 27.2em;
-  bottom: 27.2em;
+  left: calc(50% - 1.3em);
+  bottom: calc(50% - 1.3em);
   width: 2.6em;
   height: 2.6em;
   z-index: 5;

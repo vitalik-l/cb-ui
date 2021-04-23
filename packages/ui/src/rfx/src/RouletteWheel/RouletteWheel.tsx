@@ -19,7 +19,7 @@ const WHEEL_NUM_ANGLE = 9.72972972972973; // 360 deg / 37 sectors
 const WHEEL_START_SPEED = 5;
 
 export const RouletteWheel = (props: Props) => {
-  const { className, slots, classes: classesProp, numbers, value } = props;
+  const { className, slots, classes: classesProp, numbers, value, onWheelStop } = props;
   const classes = useClasses(styles, classesProp);
   const ballRef: MutableRefObject<HTMLDivElement | null> = React.useRef(null);
   const slotsRef: MutableRefObject<HTMLDivElement | null>  = React.useRef(null);
@@ -33,16 +33,51 @@ export const RouletteWheel = (props: Props) => {
     }
   }, [classes.ballRotate]);
 
+  const wheelStops = React.useCallback(() => {
+    window.cancelAnimationFrame(animRef.current);
+    if (onWheelStop) {
+      onWheelStop();
+    }
+  }, [onWheelStop]);
+
   const ballAnimationEnd = React.useCallback(() => {
     ballRef.current?.classList.remove(classes.ballRotate);
     window.cancelAnimationFrame(animRef.current);
+
     if (value != null && numbers && slotsRef.current && ballRef.current) {
       const rezPos = numbers.indexOf(value);
-      const angle = 234 - rezPos * WHEEL_NUM_ANGLE;
+      let angle = 234 - rezPos * WHEEL_NUM_ANGLE;
       slotsRef.current.style.transform = 'rotate(' + angle + 'deg) translateZ(0)';
       ballRef.current.style.transform = 'rotate(' +  119.5 + 'deg) translateX(' + BALL_TRANSX + ') translateZ(0)';
+
+      // calculate random angle
+      // visible zone - 150-390 deg
+      // 241 = (390 - 150 + 1)
+      const randDegree = Math.floor(Math.random() * 360);
+      const finalRandDegree = angle - (randDegree + 360 + 58.5 + 63);
+      let speed = WHEEL_START_SPEED;
+      let ballDegrees = 119.5;
+      let speedConstant = 0;
+
+      const keepSpinning = () => {
+        if (speed <= 0) {
+          wheelStops();
+          return;
+        }
+        // condition means that need to start braking
+        if (angle <= finalRandDegree/3) {
+          if (!speedConstant) speedConstant = (0 - (speed*speed))/(2* (finalRandDegree - finalRandDegree/3));
+          speed -= speedConstant;
+        }
+        angle -= speed;
+        if (slotsRef.current) slotsRef.current.style.transform = 'rotate(' + angle + 'deg) translateZ(0)';
+        ballDegrees -= speed;
+        if(ballRef.current) ballRef.current.style.transform = 'rotate(' + ballDegrees + 'deg) translateX(' + BALL_TRANSX + ') translateZ(0)';
+        animRef.current = window.requestAnimationFrame(keepSpinning);
+      }
+      keepSpinning();
     }
-  }, [classes.ballRotate, numbers, value]);
+  }, [classes.ballRotate, numbers, value, wheelStops]);
 
   const spinUp = React.useCallback(() => {
     if (slotsRef.current) {
@@ -51,33 +86,6 @@ export const RouletteWheel = (props: Props) => {
       animRef.current = window.requestAnimationFrame(spinUp);
     }
   }, []);
-
-  // keepSpinning = () => {
-  //   if (this.speed <= 0) {
-  //     this.wheelStops();
-  //     return;
-  //   }
-  //   this.numOfSpin++;
-  //   // condition means that need to start braking
-  //   if (this.angle <= this.finalRandDegree/3) {
-  //     if (!this.speedConstant) this.speedConstant = (0 - (this.speed*this.speed))/(2* (this.finalRandDegree - this.finalRandDegree/3));
-  //     this.speed -= this.speedConstant;
-  //   }
-  //   this.angle -= this.speed;
-  //   this.wheel.style.transform = 'rotate(' + this.angle + 'deg) translateZ(0)';
-  //   this.ballDegrees -= this.speed;
-  //   this.ball.style.transform = 'rotate(' + this.ballDegrees + 'deg) translateX(' + BALL_TRANSX + ') translateZ(0)';
-  //   this.animId = window.requestAnimationFrame(this.keepSpinning);
-  // };
-  //
-  // wheelStops() {
-  //   this.displayFinalNumber(false);
-  //   window.cancelAnimationFrame(this.animId);
-  //   this.animId = null;
-  //   this.speed = 0;
-  //   this.speedConstant = 0;
-  //   gameActions.gameRoundEnds();
-  // }
 
   React.useEffect(() => {
     if (value != null &&  ballRef.current) {
