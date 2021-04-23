@@ -12,14 +12,15 @@ type Props = {
   classes?: any;
   value?: number;
   onWheelStop?: any;
+  visibleZone: [from: number, to: number];
 };
 
 const BALL_TRANSX = '19.5em';
 const WHEEL_NUM_ANGLE = 9.72972972972973; // 360 deg / 37 sectors
 const WHEEL_START_SPEED = 5;
 
-export const RouletteWheel = (props: Props) => {
-  const { className, slots, classes: classesProp, numbers, value, onWheelStop } = props;
+export const RouletteWheel: React.FunctionComponent<Props> = (props: Props) => {
+  const { className, slots, classes: classesProp, numbers, value, onWheelStop, visibleZone } = props;
   const classes = useClasses(styles, classesProp);
   const ballRef: MutableRefObject<HTMLDivElement | null> = React.useRef(null);
   const slotsRef: MutableRefObject<HTMLDivElement | null>  = React.useRef(null);
@@ -53,7 +54,10 @@ export const RouletteWheel = (props: Props) => {
       // calculate random angle
       // visible zone - 150-390 deg
       // 241 = (390 - 150 + 1)
-      const randDegree = Math.floor(Math.random() * 360);
+      // Math.floor(Math.random() * 241) + 150
+      const [from, to] = visibleZone;
+      const randDegree = Math.floor(Math.random() * (to - from + 1)) + from;
+
       const finalRandDegree = angle - (randDegree + 360 + 58.5 + 63);
       let speed = WHEEL_START_SPEED;
       let ballDegrees = 119.5;
@@ -77,7 +81,7 @@ export const RouletteWheel = (props: Props) => {
       }
       keepSpinning();
     }
-  }, [classes.ballRotate, numbers, value, wheelStops]);
+  }, [classes.ballRotate, numbers, value, wheelStops, visibleZone]);
 
   const spinUp = React.useCallback(() => {
     if (slotsRef.current) {
@@ -111,4 +115,5 @@ export const RouletteWheel = (props: Props) => {
 RouletteWheel.defaultProps = {
   slots: 'redblack',
   numbers: [0, 32, 15, 19, 4, 21, 2, 25, 17, 34, 6, 27, 13, 36, 11, 30, 8, 23, 10, 5, 24, 16, 33, 1, 20, 14, 31, 9, 22, 18, 29, 7, 28, 12, 35, 3, 26],
+  visibleZone: [0, 360], // from 0 to 360 deg
 }
