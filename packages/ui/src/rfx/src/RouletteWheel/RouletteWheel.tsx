@@ -11,6 +11,7 @@ type Props = {
   numbers?: number[];
   classes?: any;
   value?: number;
+  onWheelStop?: any;
 };
 
 const BALL_TRANSX = '19.5em';
@@ -50,6 +51,33 @@ export const RouletteWheel = (props: Props) => {
       animRef.current = window.requestAnimationFrame(spinUp);
     }
   }, []);
+
+  // keepSpinning = () => {
+  //   if (this.speed <= 0) {
+  //     this.wheelStops();
+  //     return;
+  //   }
+  //   this.numOfSpin++;
+  //   // condition means that need to start braking
+  //   if (this.angle <= this.finalRandDegree/3) {
+  //     if (!this.speedConstant) this.speedConstant = (0 - (this.speed*this.speed))/(2* (this.finalRandDegree - this.finalRandDegree/3));
+  //     this.speed -= this.speedConstant;
+  //   }
+  //   this.angle -= this.speed;
+  //   this.wheel.style.transform = 'rotate(' + this.angle + 'deg) translateZ(0)';
+  //   this.ballDegrees -= this.speed;
+  //   this.ball.style.transform = 'rotate(' + this.ballDegrees + 'deg) translateX(' + BALL_TRANSX + ') translateZ(0)';
+  //   this.animId = window.requestAnimationFrame(this.keepSpinning);
+  // };
+  //
+  // wheelStops() {
+  //   this.displayFinalNumber(false);
+  //   window.cancelAnimationFrame(this.animId);
+  //   this.animId = null;
+  //   this.speed = 0;
+  //   this.speedConstant = 0;
+  //   gameActions.gameRoundEnds();
+  // }
 
   React.useEffect(() => {
     if (value != null &&  ballRef.current) {
