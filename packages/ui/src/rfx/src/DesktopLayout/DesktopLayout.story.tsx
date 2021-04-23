@@ -13,7 +13,7 @@ import { SymbolTabsTemplate } from '../SymbolTabs/SymbolTabs.story';
 import { ButtonGroup } from '@cb-general/weekend/ButtonGroup';
 import { Button } from '@cb-general/weekend/Button';
 import { ChartControls, ChartControlsSeparator } from '../../../weekend/src/ChartControls';
-import { CrosshairIcon, PauseIcon, PointerIcon } from '../../../weekend/src/icons';
+import { CrosshairIcon, PauseIcon, PointerIcon } from '../../../icons/src';
 
 const story = createStory({
   title: 'DesktopLayout',
