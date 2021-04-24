@@ -1,0 +1,9 @@
+$root: ChipsControls;
+
+:global(.#{$root}) {
+  // component styles
+}
+
+:export {
+  root: $root;
+}
