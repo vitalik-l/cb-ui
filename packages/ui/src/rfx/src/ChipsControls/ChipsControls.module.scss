@@ -1,7 +1,13 @@
 $root: ChipsControls;
 
 :global(.#{$root}) {
-  // component styles
+  font-size: 1em;
+  display: inline-block;
+  position: relative;
+  width: 36.5em;
+  height: 3em;
+  background: url(./img/chips_controls.png) no-repeat;
+  background-size: contain;
 }
 
 :export {
