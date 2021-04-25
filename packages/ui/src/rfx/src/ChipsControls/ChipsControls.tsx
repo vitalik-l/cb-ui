@@ -1,13 +1,10 @@
 import React from 'react';
-import clsx from 'clsx';
-
+import { styled } from '@cb-general/core/utils/styled';
+import { ButtonGroup } from '@cb-general/core/ButtonGroup';
 // local files
 import styles from './ChipsControls.module.scss';
+// import { ChipButton } from './ChipButton';
 
-type Props = React.ComponentProps<'div'>;
+export const ChipsControls = styled(ButtonGroup, styles);
 
-export const ChipsControls = (props: Props) => {
-  const { className, ...restProps } = props;
-
-  return <div className={clsx(styles.root, className)} {...restProps} />;
-};
+// ChipsControls.Chip = ChipButton;

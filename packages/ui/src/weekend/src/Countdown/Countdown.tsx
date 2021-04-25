@@ -11,10 +11,10 @@ type Props = {
 };
 
 export const Countdown = (props: Props) => {
-  const { className, value, label } = props;
+  const { className, value, label, ...restProps } = props;
 
   return (
-    <div className={className}>
+    <div className={className} {...restProps}>
       {!!label && <div className={styles.label}>{label}</div>}
       <div className={styles.root}>{value}</div>
     </div>

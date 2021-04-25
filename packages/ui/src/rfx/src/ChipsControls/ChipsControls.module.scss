@@ -8,6 +8,41 @@ $root: ChipsControls;
   height: 3em;
   background: url(./img/chips_controls.png) no-repeat;
   background-size: contain;
+
+  .grouped {
+    font-size: 1em;
+    position: absolute;
+    top: -2.5em;
+    cursor: grab;
+    clip: rect(0, 6em, 5em, 0);
+    transition: all .1s;
+
+    &:hover {
+      clip: auto;
+      top: -3em;
+    }
+
+    &:first-child {
+      left: 2.8em;
+    }
+    &:nth-child(2) {
+      left: 9em;
+    }
+    &:nth-child(3) {
+      left: 15.2em;
+    }
+    &:nth-child(4) {
+      left: 21.4em;
+    }
+    &:nth-child(5) {
+      left: 27.6em;
+    }
+
+    &.selected {
+      top: -4em;
+      clip: auto;
+    }
+  }
 }
 
 :export {
