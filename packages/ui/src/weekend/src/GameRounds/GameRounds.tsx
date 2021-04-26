@@ -21,7 +21,7 @@ export const GameRounds = (props: Props) => {
       classes={styles}
       {...restProps}
       data-label={label}
-      cloneOnlyStyles
+      cloneProps={false}
     >
       <ButtonBase value={1} />
       <ButtonBase value={3} />

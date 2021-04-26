@@ -19,7 +19,7 @@ export const GameButton = (props: Props) => {
       className={clsx(
         styles.root,
         className,
-        color && styles[`color_${color}`],
+        !!color && styles[`color_${color}`],
         unclickable && styles.unclickable,
       )}
       {...restProps}

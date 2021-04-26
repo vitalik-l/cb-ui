@@ -17,11 +17,11 @@ export type ButtonGroupProps = React.ComponentProps<'div'> & {
   value?: any;
   disabled?: boolean;
   classes?: ClassesType;
-  cloneOnlyStyles?: boolean;
+  cloneProps?: boolean;
 };
 
 export const ButtonGroup = (props: ButtonGroupProps) => {
-  const { className, children, color, variant, onChange, value, disabled, classes, cloneOnlyStyles = false, ...restProps } = props;
+  const { className, children, color, variant, onChange, value, disabled, classes, cloneProps = true, ...restProps } = props;
 
   const childrenItems = React.Children.map(children, (child, childIndex) => {
     if (!React.isValidElement(child)) {
@@ -30,6 +30,7 @@ export const ButtonGroup = (props: ButtonGroupProps) => {
     const { className: childClassName, onClick: childClick, ...childProps } = child.props;
     const childValue = childProps.value === undefined ? childIndex : childProps.value;
     const selected = childValue === value;
+    let parentProps = {};
 
     const handleClick = (event: any) => {
       if (!selected && onChange) {
@@ -41,19 +42,22 @@ export const ButtonGroup = (props: ButtonGroupProps) => {
       }
     };
 
-    if (cloneOnlyStyles) {
-      childProps.value = undefined;
+    if (cloneProps) {
+      parentProps = {
+        selected,
+        disabled,
+        onChange,
+        color,
+        variant,
+      };
     } else {
-      childProps.selected = selected;
-      childProps.color = color;
-      childProps.onChange = onChange;
-      childProps.variant = variant;
-      childProps.disabled = disabled;
+      childProps.value = undefined;
     }
 
     return React.cloneElement(child, {
       onClick: handleClick,
       className: clsx(classes?.grouped, childClassName, selected && classes?.selected),
+      ...parentProps,
       ...childProps,
     });
   });
