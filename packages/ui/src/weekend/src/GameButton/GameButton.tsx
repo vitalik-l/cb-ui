@@ -15,7 +15,7 @@ export const GameButton = (props: Props) => {
 
   return (
     <ButtonBase className={clsx(styles.root, className, color && styles[`color_${color}`])} {...restProps}>
-      <span className={styles.sublabel}>{sublabel}</span>
+      {!!sublabel && <span className={styles.sublabel}>{sublabel}</span>}
       <span className={styles.label}>{children}</span>
     </ButtonBase>
   );
