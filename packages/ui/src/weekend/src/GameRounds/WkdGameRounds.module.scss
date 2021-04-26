@@ -27,15 +27,12 @@ $root: WkdGameRounds;
 .v_1 {
   background-image: url(./img/exp_1.png);
 }
-
 .v_3 {
   background-image: url(./img/exp_3.png);
 }
-
 .v_6 {
   background-image: url(./img/exp_6.png);
 }
-
 .v_9 {
   background-image: url(./img/exp_9.png);
 }
@@ -71,6 +68,56 @@ $root: WkdGameRounds;
     height: 6.8em;
     width: 5.6em;
     bottom: 0.7em;
+  }
+}
+
+.reversed {
+  &:before {
+    top: 55%;
+  }
+
+  &.v_1 {
+    background-image: url(./img/reverse_exp_1.png);
+  }
+  &.v_3 {
+    background-image: url(./img/reverse_exp_3.png);
+  }
+  &.v_6 {
+    background-image: url(./img/reverse_exp_6.png);
+  }
+  &.v_9 {
+    background-image: url(./img/reverse_exp_9.png);
+  }
+
+  .grouped {
+    &:nth-of-type(1) {
+      //background: yellow;
+      left: 2.3em;
+      width: 5.6em;
+      bottom: 0.7em;
+      height: 6.8em;
+    }
+    &:nth-of-type(2) {
+      //background: green;
+      left: 7.9em;
+      height: 4.7em;
+      width: 5.6em;
+      top: 0.7em;
+    }
+    &:nth-of-type(3) {
+      //background: orange;
+      left: 13.4em;
+      height: 4.7em;
+      width: 5.6em;
+      top: 0.7em;
+    }
+    &:nth-of-type(4) {
+      //background: red;
+      right: 2.5em;
+      height: 6.8em;
+      width: 5.6em;
+      bottom: 0.7em;
+    }
   }
 }
 

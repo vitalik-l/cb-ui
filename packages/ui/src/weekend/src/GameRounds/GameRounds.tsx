@@ -8,19 +8,20 @@ import styles from './WkdGameRounds.module.scss';
 type Props = React.ComponentProps<typeof ButtonGroup> & {
   label?: string;
   value?: 1 | 3 | 6 | 9;
+  reversed?: boolean;
 };
 
 export const GameRounds = (props: Props) => {
-  const { className, value, label, ...restProps } = props;
+  const { className, value, label, reversed, ...restProps } = props;
 
   return (
     <ButtonGroup
-      className={clsx(className, value && styles[`v_${value}`])}
+      className={clsx(className, value && styles[`v_${value}`], reversed && styles.reversed)}
       value={value}
       classes={styles}
-      cloneOnlyStyles
       {...restProps}
       data-label={label}
+      cloneOnlyStyles
     >
       <ButtonBase value={1} />
       <ButtonBase value={3} />
