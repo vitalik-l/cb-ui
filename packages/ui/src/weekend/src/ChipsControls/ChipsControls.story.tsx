@@ -4,7 +4,7 @@ import { Story } from '@storybook/react';
 // local files
 import { createStory } from '../../story';
 import { ChipsControls } from './index';
-import { Chip } from '../../../weekend/src/Chip';
+import { Chip } from '../Chip';
 
 const story = createStory({
   title: 'ChipsControls',
