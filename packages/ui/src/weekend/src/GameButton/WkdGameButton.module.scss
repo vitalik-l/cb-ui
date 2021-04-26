@@ -30,6 +30,13 @@ $root: WkdGameButton;
   }
 }
 
+.color_green {
+  background-color: #066200;
+  background-image: -webkit-linear-gradient(
+                  -90deg
+          ,#1eb600,#0f8a00 50%,hsla(0,0%,100%,.35) 0,#fff 0,rgba(0,0,0,.33) 0,rgba(34,93,16,.58) 65%,hsla(0,0%,100%,.21961));
+}
+
 .color_primary {
   font-stretch: normal;
   font-weight: 800;
@@ -56,12 +63,17 @@ $root: WkdGameButton;
 
 .sublabel {
   color: #faf135;
+  position: absolute;
+  top: 0.1rem;
+  left: 0.5rem;
   font-size: 1.2em;
-  position: relative;
-  margin-right: 0.8rem;
   letter-spacing: -.05rem;
   font-weight: 400;
   white-space: nowrap;
+}
+
+.unclickable {
+  pointer-events: none;
 }
 
 :export {

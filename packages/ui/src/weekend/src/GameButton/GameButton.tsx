@@ -6,15 +6,16 @@ import { ButtonBase } from '@cb-general/core/ButtonBase';
 import styles from './WkdGameButton.module.scss';
 
 type Props = React.ComponentProps<typeof ButtonBase> & {
-  color?: 'primary' | 'default';
+  color?: 'primary' | 'default' | 'green';
   sublabel?: string;
+  unclickable?: boolean;
 };
 
 export const GameButton = (props: Props) => {
-  const { className, color, children, sublabel, ...restProps } = props;
+  const { className, color, children, sublabel, unclickable, ...restProps } = props;
 
   return (
-    <ButtonBase className={clsx(styles.root, className, color && styles[`color_${color}`])} {...restProps}>
+    <ButtonBase className={clsx(styles.root, className, color && styles[`color_${color}`], unclickable && styles.unclickable)} {...restProps}>
       {!!sublabel && <span className={styles.sublabel}>{sublabel}</span>}
       <span className={styles.label}>{children}</span>
     </ButtonBase>
