@@ -4,7 +4,10 @@ import clsx from 'clsx';
 // local files
 import styles from './GameTableLayout.module.scss';
 
-type Props = React.ComponentProps<'div'>;
+type Props = React.ComponentProps<'div'> & {
+  rouletteWheel?: React.ReactElement;
+  chipsControls?: React.ReactElement;
+};
 
 export const GameTableLayout = (props: Props) => {
   const { className, ...restProps } = props;

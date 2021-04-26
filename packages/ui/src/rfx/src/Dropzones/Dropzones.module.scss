@@ -1,0 +1,36 @@
+$root: Dropzones;
+
+:global(.#{$root}) {
+  font-size: 1em;
+  position: relative;
+  border-radius: 50%;
+  width: 32.6em;
+  height: 32.6em;
+  background-image: url(./img/dropzones_bg.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.dropzone {
+  position: absolute;
+  opacity: 0.5;
+  height: 100%;
+  width: 50%;
+  cursor: pointer;
+
+  &.down {
+    //background: white;
+    left: 0;
+    top: 0;
+  }
+
+  &.up {
+    //background: white;
+    top: 0;
+    right: 0;
+  }
+}
+
+:export {
+  root: $root;
+}
