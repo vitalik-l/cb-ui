@@ -1,4 +1,4 @@
-$root: GameButton;
+$root: WkdGameButton;
 
 :global(.#{$root}) {
   font-size: 1em;
@@ -54,7 +54,15 @@ $root: GameButton;
   font-size: 2em;
 }
 
-
+.sublabel {
+  color: #faf135;
+  font-size: 1.2em;
+  position: relative;
+  margin-right: 0.8rem;
+  letter-spacing: -.05rem;
+  font-weight: 400;
+  white-space: nowrap;
+}
 
 :export {
   root: $root;
