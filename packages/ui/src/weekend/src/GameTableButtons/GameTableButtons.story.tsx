@@ -11,7 +11,7 @@ const story = createStory({
   component: GameTableButtons,
   style: {
     width: 545,
-  }
+  },
 });
 
 export const GameTableButtonsTemplate: Story = (args) => (
@@ -19,10 +19,14 @@ export const GameTableButtonsTemplate: Story = (args) => (
     <GameButton color="primary">Play</GameButton>
     <GameButton>Double</GameButton>
     <GameButton>Clear</GameButton>
-    <GameButton sublabel="bet" unclickable>$0.00</GameButton>
-    <GameButton sublabel="pays" unclickable>$0.00</GameButton>
+    <GameButton sublabel="bet" unclickable>
+      $0.00
+    </GameButton>
+    <GameButton sublabel="pays" unclickable>
+      $0.00
+    </GameButton>
   </GameTableButtons>
-)
+);
 GameTableButtonsTemplate.storyName = 'GameTableButtons';
 
 export default story;

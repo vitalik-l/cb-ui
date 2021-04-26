@@ -1,0 +1,83 @@
+$root: WkdGameRounds;
+
+:global(.#{$root}) {
+  font-size: 1em;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 27.1em;
+  height: 8.1em;
+
+  &:before {
+    content: attr(data-label);
+    font-size: 1.4em;
+    font-family: Rockwell;
+    font-weight: bold;
+    font-stretch: condensed;
+    position: absolute;
+    color: #372506;
+    top: 10%;
+    text-transform: uppercase;
+    left: 50%;
+    transform: translateX(-50%);
+    text-shadow: 0 0.1rem 0.1rem #fff;
+  }
+}
+
+.v_1 {
+  background-image: url(./img/exp_1.png);
+}
+
+.v_3 {
+  background-image: url(./img/exp_3.png);
+}
+
+.v_6 {
+  background-image: url(./img/exp_6.png);
+}
+
+.v_9 {
+  background-image: url(./img/exp_9.png);
+}
+
+.grouped {
+  position: absolute;
+  opacity: 0.5;
+
+  &:nth-of-type(1) {
+    background: yellow;
+    left: 2.3em;
+    width: 5.6em;
+    bottom: 0.7em;
+    height: 6.8em;
+  }
+  &:nth-of-type(2) {
+    background: green;
+    left: 7.9em;
+    height: 4.7em;
+    width: 5.6em;
+    bottom: 0.7em;
+  }
+  &:nth-of-type(3) {
+    background: orange;
+    left: 13.4em;
+    height: 4.7em;
+    width: 5.6em;
+    bottom: 0.7em;
+  }
+  &:nth-of-type(4) {
+    background: red;
+    right: 2.5em;
+    height: 6.8em;
+    width: 5.6em;
+    bottom: 0.7em;
+  }
+}
+
+.selected {
+  pointer-events: none;
+}
+
+:export {
+  root: $root;
+}

@@ -15,7 +15,15 @@ export const GameButton = (props: Props) => {
   const { className, color, children, sublabel, unclickable, ...restProps } = props;
 
   return (
-    <ButtonBase className={clsx(styles.root, className, color && styles[`color_${color}`], unclickable && styles.unclickable)} {...restProps}>
+    <ButtonBase
+      className={clsx(
+        styles.root,
+        className,
+        color && styles[`color_${color}`],
+        unclickable && styles.unclickable,
+      )}
+      {...restProps}
+    >
       {!!sublabel && <span className={styles.sublabel}>{sublabel}</span>}
       <span className={styles.label}>{children}</span>
     </ButtonBase>
@@ -24,4 +32,4 @@ export const GameButton = (props: Props) => {
 
 GameButton.defaultProps = {
   color: 'default',
-}
+};

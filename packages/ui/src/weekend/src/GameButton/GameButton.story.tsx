@@ -10,11 +10,7 @@ const story = createStory({
   component: GameButton,
 });
 
-export const Template: Story = (args) => (
-  <GameButton {...args}>
-    Play
-  </GameButton>
-);
+export const Template: Story = (args) => <GameButton {...args}>Play</GameButton>;
 Template.storyName = 'GameButton';
 
 export default story;

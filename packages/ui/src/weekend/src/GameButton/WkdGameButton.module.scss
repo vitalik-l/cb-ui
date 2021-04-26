@@ -13,19 +13,24 @@ $root: WkdGameButton;
 
   &:disabled {
     filter: brightness(60%);
-    transition: filter .5s ease-in-out;
+    transition: filter 0.5s ease-in-out;
   }
 }
 
 .color_default {
   background-color: #141c1f;
   background: linear-gradient(
-                  180deg
-          ,hsla(0,0%,100%,.35),hsla(0,0%,100%,.07) 50%,rgba(0,0,0,.14) 0,rgba(0,0,0,.58));
-  box-shadow: inset 0 0.5rem 0.7rem hsl(0deg 0% 100% / 56%), 0 1.5rem 2.6rem rgb(7 1 0 / 38%), inset -0.2rem 0 0 rgb(0 0 0 / 31%), inset 0.2rem 0 0 rgb(0 0 0 / 34%);
+    180deg,
+    hsla(0, 0%, 100%, 0.35),
+    hsla(0, 0%, 100%, 0.07) 50%,
+    rgba(0, 0, 0, 0.14) 0,
+    rgba(0, 0, 0, 0.58)
+  );
+  box-shadow: inset 0 0.5rem 0.7rem hsl(0deg 0% 100% / 56%), 0 1.5rem 2.6rem rgb(7 1 0 / 38%),
+    inset -0.2rem 0 0 rgb(0 0 0 / 31%), inset 0.2rem 0 0 rgb(0 0 0 / 34%);
 
   &:active {
-    box-shadow: inset 0 0.3rem 0.1rem #232322,0 0.1rem 0.5rem hsla(0,0%,100%,.54);
+    box-shadow: inset 0 0.3rem 0.1rem #232322, 0 0.1rem 0.5rem hsla(0, 0%, 100%, 0.54);
     padding-top: 0.2rem;
   }
 }
@@ -33,8 +38,15 @@ $root: WkdGameButton;
 .color_green {
   background-color: #066200;
   background-image: -webkit-linear-gradient(
-                  -90deg
-          ,#1eb600,#0f8a00 50%,hsla(0,0%,100%,.35) 0,#fff 0,rgba(0,0,0,.33) 0,rgba(34,93,16,.58) 65%,hsla(0,0%,100%,.21961));
+    -90deg,
+    #1eb600,
+    #0f8a00 50%,
+    hsla(0, 0%, 100%, 0.35) 0,
+    #fff 0,
+    rgba(0, 0, 0, 0.33) 0,
+    rgba(34, 93, 16, 0.58) 65%,
+    hsla(0, 0%, 100%, 0.21961)
+  );
 }
 
 .color_primary {
@@ -43,13 +55,21 @@ $root: WkdGameButton;
   letter-spacing: 0.22rem;
   background-color: #ec2e00;
   background-image: -webkit-linear-gradient(
-                  -90deg
-          ,hsla(0,0%,100%,.35),hsla(0,0%,100%,.08) 50%,hsla(0,0%,100%,.16) 0,hsla(0,0%,100%,0) 0,rgba(0,0,0,.14) 0,rgba(0,0,0,.15) 65%,#a40a00);
-  box-shadow: inset 0 0.4rem 0.6rem #fff662,0 1.5rem 2.6rem rgba(7,1,0,.65),inset -0.2rem 0 0.3rem #731304;
+    -90deg,
+    hsla(0, 0%, 100%, 0.35),
+    hsla(0, 0%, 100%, 0.08) 50%,
+    hsla(0, 0%, 100%, 0.16) 0,
+    hsla(0, 0%, 100%, 0) 0,
+    rgba(0, 0, 0, 0.14) 0,
+    rgba(0, 0, 0, 0.15) 65%,
+    #a40a00
+  );
+  box-shadow: inset 0 0.4rem 0.6rem #fff662, 0 1.5rem 2.6rem rgba(7, 1, 0, 0.65),
+    inset -0.2rem 0 0.3rem #731304;
 
   &:active {
     padding-top: 0.2rem;
-    box-shadow: inset 0 0.3rem 0.1rem #232322,0 0.1rem 0.5rem hsla(0,0%,100%,.54);
+    box-shadow: inset 0 0.3rem 0.1rem #232322, 0 0.1rem 0.5rem hsla(0, 0%, 100%, 0.54);
   }
 
   .label {
@@ -67,7 +87,7 @@ $root: WkdGameButton;
   top: 0.1rem;
   left: 0.5rem;
   font-size: 1.2em;
-  letter-spacing: -.05rem;
+  letter-spacing: -0.05rem;
   font-weight: 400;
   white-space: nowrap;
 }
