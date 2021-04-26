@@ -5,6 +5,7 @@ type ClassesType = {
   root?: string;
   grouped?: string;
   selected?: string;
+  disabled?: string;
 };
 
 export type ButtonGroupProps = {
@@ -51,5 +52,9 @@ export const ButtonGroup = (props: ButtonGroupProps) => {
     });
   });
 
-  return <div className={clsx(classes?.root, className)}>{childrenItems}</div>;
+  return (
+    <div className={clsx(classes?.root, className, disabled && classes?.disabled)}>
+      {childrenItems}
+    </div>
+  );
 };

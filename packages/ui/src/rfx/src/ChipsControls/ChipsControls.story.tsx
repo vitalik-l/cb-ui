@@ -11,7 +11,7 @@ const story = createStory({
   component: ChipsControls,
   style: {
     marginTop: '4em',
-  }
+  },
 });
 
 export const ChipsControlsTemplate: Story = (args) => {

@@ -26,9 +26,7 @@ $root: RouletteWheel;
   position: relative;
   border-radius: 50%;
   border: 0.2em solid #3b3b3b;
-  background: linear-gradient(
-                  180deg
-          ,#090909,#2b2b2b);
+  background: linear-gradient(180deg, #090909, #2b2b2b);
   padding: 0.8em;
   box-sizing: border-box;
   overflow: hidden;

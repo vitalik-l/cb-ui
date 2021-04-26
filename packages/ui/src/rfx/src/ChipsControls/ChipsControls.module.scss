@@ -15,7 +15,7 @@ $root: ChipsControls;
     top: -2.5em;
     cursor: grab;
     clip: rect(0, 6em, 5em, 0);
-    transition: all .1s;
+    transition: all 0.1s;
 
     &:hover {
       clip: auto;
@@ -42,6 +42,14 @@ $root: ChipsControls;
       top: -4em;
       clip: auto;
     }
+  }
+}
+
+.disabled {
+  .grouped {
+    pointer-events: none;
+    filter: brightness(60%);
+    transition: 0.5s filter ease-in-out;
   }
 }
 
