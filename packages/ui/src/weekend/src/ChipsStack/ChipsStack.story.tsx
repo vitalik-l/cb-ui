@@ -12,11 +12,22 @@ const story = createStory({
 });
 
 export const Template: Story = (args) => (
-  <ChipsStack {...args}>
-    <Chip value={1} />
-    <Chip value={5} />
-    <Chip value={10} />
-  </ChipsStack>
+  <div>
+    <ChipsStack {...args}>
+      <Chip value={1} />
+      <Chip value={5} />
+      <Chip value={10} />
+    </ChipsStack>
+    <Chip
+      value={100}
+      id="chipsAnimationTarget"
+      style={{
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+      }}
+    />
+  </div>
 );
 Template.storyName = 'ChipsStack';
 
