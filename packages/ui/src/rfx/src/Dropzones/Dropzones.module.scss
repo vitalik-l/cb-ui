@@ -13,21 +13,59 @@ $root: Dropzones;
 
 .dropzone {
   position: absolute;
-  opacity: 0.5;
   height: 100%;
   width: 50%;
   cursor: pointer;
+
+  .label, .roi {
+    position: absolute;
+    font-family: Bernard;
+    font-weight: bold;
+    font-stretch: condensed;
+  }
+
+  .roi {
+    font-size: 1.8em;
+    letter-spacing: 0.3em;
+  }
+
+  .label {
+    font-size: 3em;
+    color: #fff;
+  }
 
   &.down {
     //background: white;
     left: 0;
     top: 0;
+
+    .label {
+      top: 39%;
+      left: 12%;
+    }
+
+    .roi {
+      color: red;
+      top: 69%;
+      left: 50%;
+    }
   }
 
   &.up {
     //background: white;
     top: 0;
     right: 0;
+
+    .label {
+      top: 39%;
+      right: 9%;
+    }
+
+    .roi {
+      color: #0f0;
+      top: 68%;
+      right: 41%;
+    }
   }
 }
 

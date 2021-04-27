@@ -12,8 +12,8 @@ const story = createStory({
 
 export const DropzonesTemplate: Story = (args) => (
   <Dropzones {...args}>
-    <Dropzone type="down" />
-    <Dropzone type="up" />
+    <Dropzone type="down" label="RED" roi="1:1" />
+    <Dropzone type="up" label="BLACK" roi="1:1" />
   </Dropzones>
 );
 DropzonesTemplate.storyName = 'Dropzones';

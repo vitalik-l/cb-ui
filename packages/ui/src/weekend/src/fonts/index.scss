@@ -60,3 +60,13 @@
   font-style: normal;
   font-display: fallback;
 }
+
+@font-face {
+  font-family: 'Bernard';
+  src: url(./Bernard/BernardMT-Condensed.woff2) format('woff2'),
+  url(./Bernard/BernardMT-Condensed.woff) format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: condensed;
+  font-display: fallback;
+}
