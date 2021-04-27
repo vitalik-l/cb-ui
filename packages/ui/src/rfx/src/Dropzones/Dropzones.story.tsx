@@ -15,22 +15,60 @@ const story = createStory({
 export const DropzonesTemplate: Story = (args) => (
   <Dropzones {...args}>
     <Dropzone type="down" label="RED" roi="1:1">
-      <ChipsStack>
+      <ChipsStack label="$999,999,999">
+        <Chip />
+        <Chip />
+        <Chip />
+        <Chip />
+        <Chip />
+        <Chip />
+        <Chip />
+        <Chip />
+        <Chip />
+        <Chip />
+        <Chip />
+        <Chip />
+        <Chip />
+        <Chip />
+        <Chip />
+        <Chip />
         <Chip />
         <Chip />
       </ChipsStack>
-      <ChipsStack>
+      <ChipsStack label="$999,999,999">
         <Chip />
         <Chip />
         <Chip />
       </ChipsStack>
     </Dropzone>
     <Dropzone type="up" label="BLACK" roi="1:1">
-      <ChipsStack>
+      <ChipsStack label="$999,999,999">
+        <Chip />
+        <Chip />
+        <Chip />
+        <Chip />
+        <Chip />
+        <Chip />
+        <Chip />
+        <Chip />
+        <Chip />
+        <Chip />
+        <Chip />
+        <Chip />
+        <Chip />
+        <Chip />
+        <Chip />
+        <Chip />
+        <Chip />
+        <Chip />
+        <Chip />
+        <Chip />
+        <Chip />
+        <Chip />
         <Chip />
         <Chip />
       </ChipsStack>
-      <ChipsStack>
+      <ChipsStack label="$999,999,999">
         <Chip />
         <Chip />
         <Chip />

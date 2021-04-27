@@ -18,7 +18,9 @@ export const Dropzone = (props: Props) => {
     <ButtonBase className={clsx(styles.dropzone, className, !!type && styles[type])} {...restProps}>
       {!!label && <div className={styles.label}>{label}</div>}
       {!!roi && <div className={styles.roi}>{roi}</div>}
-      {children}
+      <div className={styles.chips}>
+        {children}
+      </div>
     </ButtonBase>
   );
 };
