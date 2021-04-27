@@ -3,6 +3,9 @@ $root: GameTableLayout;
 :global(.#{$root}) {
   font-size: 1em;
   display: inline-block;
+  transform: translateY(0);
+  will-change: transform;
+  transition: transform 1s;
 }
 
 .chips {
@@ -17,11 +20,16 @@ $root: GameTableLayout;
 .buttons {
   position: relative;
   z-index: 1;
+  margin-top: -0.2em;
 }
 
 .toggleButton {
   text-align: center;
-  margin-top: -0.5em;
+  margin-top: -0.7em;
+}
+
+.hidden {
+  transform: translateY(-76%);
 }
 
 :export {

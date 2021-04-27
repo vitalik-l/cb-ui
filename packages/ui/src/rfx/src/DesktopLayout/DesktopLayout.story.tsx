@@ -14,6 +14,7 @@ import { ButtonGroup } from '@cb-general/weekend/ButtonGroup';
 import { Button } from '@cb-general/weekend/Button';
 import { ChartControls, ChartControlsSeparator } from '../../../weekend/src/ChartControls';
 import { CrosshairIcon, PauseIcon, PointerIcon } from '../../../icons/src';
+import { GameTableLayoutTemplate } from '../GameTableLayout/GameTableLayout.story';
 
 const story = createStory({
   title: 'DesktopLayout',
@@ -48,6 +49,7 @@ export const Template: Story = () => (
   <Root>
     <DesktopLayout
       header={<HeaderTemplate logo={<Logo />} />}
+      gameTable={<GameTableLayoutTemplate />}
       chartControls={<ChartControlsTemplate alignRight />}
       tabs={<TabsPanelTemplate />}
       tradingControls={<TradingControlsTemplate />}

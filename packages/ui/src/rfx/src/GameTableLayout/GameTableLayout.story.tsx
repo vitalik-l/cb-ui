@@ -15,19 +15,26 @@ const story = createStory({
   component: GameTableLayout,
 });
 
-export const Template: Story = (args) => {
+export const GameTableLayoutTemplate: Story = (args) => {
   const [result, setResult] = React.useState<number | null>(null);
+  const [hidden, setHidden] = React.useState(false);
 
   const onPlay = () => {
     setResult(10);
-  }
+  };
 
   const onWheelStop = () => {
     setResult(null);
+  };
+
+  const toggle = () => {
+    setHidden(!hidden);
   }
 
   return (
     <GameTableLayout
+      hidden={hidden}
+      onToggle={toggle}
       rouletteWheel={
         <RouletteWheelTemplate value={result} onWheelStop={onWheelStop}>
           <Dropzones>
@@ -40,8 +47,8 @@ export const Template: Story = (args) => {
       buttons={<GameTableButtonsTemplate onPlay={onPlay} />}
       gameRounds={<GameRoundsTemplate />}
     />
-  )
+  );
 };
-Template.storyName = 'GameTableLayout';
+GameTableLayoutTemplate.storyName = 'GameTableLayout';
 
 export default story;

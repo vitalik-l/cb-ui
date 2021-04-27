@@ -21,7 +21,18 @@ export type ButtonGroupProps = React.ComponentProps<'div'> & {
 };
 
 export const ButtonGroup = (props: ButtonGroupProps) => {
-  const { className, children, color, variant, onChange, value, disabled, classes, cloneProps = true, ...restProps } = props;
+  const {
+    className,
+    children,
+    color,
+    variant,
+    onChange,
+    value,
+    disabled,
+    classes,
+    cloneProps = true,
+    ...restProps
+  } = props;
 
   const childrenItems = React.Children.map(children, (child, childIndex) => {
     if (!React.isValidElement(child)) {

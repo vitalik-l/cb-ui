@@ -12,7 +12,7 @@ const story = createStory({
   style: {
     marginTop: '5em',
     marginLeft: '5em',
-  }
+  },
 });
 
 export const Template: Story = (args) => {

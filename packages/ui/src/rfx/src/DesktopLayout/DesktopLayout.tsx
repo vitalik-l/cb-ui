@@ -14,6 +14,7 @@ type Props = ViewportProps & {
   tradingControls?: React.ReactElement;
   tabs?: React.ReactElement;
   children?: React.ReactNode;
+  gameTable?: React.ReactElement;
 };
 
 export const DesktopLayout = (props: Props) => {
@@ -26,6 +27,7 @@ export const DesktopLayout = (props: Props) => {
     tradingControls,
     tabs,
     children,
+    gameTable,
     ...viewportProps
   } = props;
 
@@ -34,13 +36,13 @@ export const DesktopLayout = (props: Props) => {
       <div className={clsx(styles.root, className)}>
         {header}
         <div className="d-flex flex-fill">
-          <div className="flex-fill d-flex column">
-            <div className="flex-fill d-flex">
-              {!!ticker && React.cloneElement(ticker, { className: styles.ticker })}
-              <div className="flex-fill d-flex column">
-                {chartControls}
-                {chart}
-              </div>
+          <div className={styles.mainContent}>
+            <span className={styles.gameTable}>
+              {gameTable}
+            </span>
+            <div className="flex-fill d-flex column">
+              {chartControls}
+              {chart}
             </div>
             {!!tabs && React.cloneElement(tabs, { className: styles.tabs })}
           </div>

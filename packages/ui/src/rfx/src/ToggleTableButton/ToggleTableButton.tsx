@@ -12,5 +12,7 @@ type Props = React.ComponentProps<typeof ButtonBase> & {
 export const ToggleTableButton = (props: Props) => {
   const { className, hidden, ...restProps } = props;
 
-  return <ButtonBase className={clsx(styles.root, className, hidden && styles.hidden)} {...restProps} />;
+  return (
+    <ButtonBase className={clsx(styles.root, className, hidden && styles.hidden)} {...restProps} />
+  );
 };

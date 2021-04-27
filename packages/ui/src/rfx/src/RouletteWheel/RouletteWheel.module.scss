@@ -75,6 +75,7 @@ $root: RouletteWheel;
   background-image: url(./img/ball.png);
   background-repeat: no-repeat;
   background-size: contain;
+  transform: translateX(-999999px);
 }
 
 .ballRotate {

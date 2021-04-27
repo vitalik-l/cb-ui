@@ -14,9 +14,11 @@ const story = createStory({
   },
 });
 
-export const GameTableButtonsTemplate: Story = ({ onPlay, ...args}) => (
+export const GameTableButtonsTemplate: Story = ({ onPlay, ...args }) => (
   <GameTableButtons {...args}>
-    <GameButton color="primary" onClick={onPlay}>Play</GameButton>
+    <GameButton color="primary" onClick={onPlay}>
+      Play
+    </GameButton>
     <GameButton>Double</GameButton>
     <GameButton>Clear</GameButton>
     <GameButton sublabel="bet" unclickable>

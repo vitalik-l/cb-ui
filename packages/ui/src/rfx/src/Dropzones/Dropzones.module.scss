@@ -17,7 +17,8 @@ $root: Dropzones;
   width: 50%;
   cursor: pointer;
 
-  .label, .roi {
+  .label,
+  .roi {
     position: absolute;
     font-family: Bernard;
     font-weight: bold;

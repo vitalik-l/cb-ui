@@ -14,7 +14,7 @@ $swapButtonWidth: 7em;
     content: '';
     position: absolute;
     height: 0;
-    width: $swapButtonWidth - 2*$swapButtonHeight - 0.2;
+    width: $swapButtonWidth - 2 * $swapButtonHeight - 0.2;
     right: -1 * $swapButtonHeight + 0.1;
     top: -1 * $swapButtonHeight - 0.1;
     border-top: $swapButtonHeight solid #1a1e21;
