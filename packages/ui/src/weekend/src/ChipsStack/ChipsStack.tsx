@@ -10,6 +10,7 @@ type Props = React.ComponentProps<'div'> & {
   animate?: 'target' | 'fadeOut' | 'none';
   animationDelay?: number;
   onAnimationEnd?: any;
+  label?: string;
 };
 
 export const ChipsStack = React.forwardRef((props: Props, ref: any) => {
@@ -21,6 +22,7 @@ export const ChipsStack = React.forwardRef((props: Props, ref: any) => {
     animate,
     onAnimationEnd,
     animationDelay: animationDelayProp = 800,
+    label,
     ...restProps
   } = props;
   const offsetRef = React.useRef({ top: offsetTop, left: offsetLeft });
@@ -35,6 +37,7 @@ export const ChipsStack = React.forwardRef((props: Props, ref: any) => {
     [],
   );
   let targetElement: HTMLElement | null, targetElementPosition: any;
+  const shouldAnimate = !!animate && animate !== 'none';
 
   if (animate) {
     if (animate === 'target') {
@@ -120,6 +123,7 @@ export const ChipsStack = React.forwardRef((props: Props, ref: any) => {
   return (
     <div className={clsx(styles.root, className)} {...restProps}>
       {childrenItems}
+      {!!label && !shouldAnimate && <div className={styles.label}>{label}</div>}
     </div>
   );
 });

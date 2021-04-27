@@ -9,6 +9,10 @@ import { Chip } from '../Chip';
 const story = createStory({
   title: 'ChipsStack',
   component: ChipsStack,
+  style: {
+    marginTop: '5em',
+    marginLeft: '5em',
+  }
 });
 
 export const Template: Story = (args) => {

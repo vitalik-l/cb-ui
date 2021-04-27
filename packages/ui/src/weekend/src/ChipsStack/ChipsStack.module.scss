@@ -13,6 +13,18 @@ $root: ChipsStack;
   }
 }
 
+.label {
+  color: white;
+  font-family: Rockwell;
+  font-stretch: condensed;
+  font-weight: bold;
+  font-size: 2em;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(100%);
+}
+
 :export {
   root: $root;
 }
