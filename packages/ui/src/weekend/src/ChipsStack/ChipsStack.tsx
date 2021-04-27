@@ -5,17 +5,22 @@ import clsx from 'clsx';
 import styles from './ChipsStack.module.scss';
 
 type Props = React.ComponentProps<'div'> & {
-  offsetTop: number;
-  offsetLeft: number;
+  offsetTop?: number;
+  offsetLeft?: number;
   animate?: 'target' | 'fadeOut' | 'none';
   animationDelay?: number;
+  onAnimationEnd?: any;
 };
 
-export const ChipsStack = (props: Props) => {
-  const { className, children, offsetTop, offsetLeft, animate, onAnimationEnd, animationDelay: animationDelayProp = 800, ...restProps } = props;
+export const ChipsStack = React.forwardRef((props: Props, ref: any) => {
+  const { className, children, offsetTop = 0, offsetLeft = 0, animate, onAnimationEnd, animationDelay: animationDelayProp = 800, ...restProps } = props;
   const offsetRef = React.useRef({ top: offsetTop, left: offsetLeft });
   const childrenRef: any = React.useRef([]);
   const animationDelay = React.useRef(animationDelayProp);
+  const animated = React.useRef(false);
+  React.useImperativeHandle(ref, () => ({
+    animated,
+  }), []);
   let targetElement: HTMLElement | null, targetElementPosition: any;
 
   if (animate) {
@@ -27,10 +32,14 @@ export const ChipsStack = (props: Props) => {
     }
   }
 
-  const onTransitionEnd = React.useCallback((event: any) => {
-    console.log(event);
-  }, []);
+  const onTransitionEnd = React.useCallback((event: TransitionEvent) => {
+    if (onAnimationEnd && event.propertyName === 'opacity') {
+      animated.current = true;
+      onAnimationEnd();
+    }
+  }, [onAnimationEnd]);
 
+  const childLength = React.Children.count(children);
   const childrenItems = React.Children.map(children, (child, childIndex) => {
     if (!React.isValidElement(child)) {
       return null;
@@ -77,6 +86,9 @@ export const ChipsStack = (props: Props) => {
           opacity: 0,
         }
       }
+      if (childIndex === childLength - 1) {
+        childProps.onTransitionEnd = onTransitionEnd;
+      }
     }
 
     return React.cloneElement(child, {
@@ -91,9 +103,9 @@ export const ChipsStack = (props: Props) => {
       {childrenItems}
     </div>
   );
-};
+});
 
 ChipsStack.defaultProps = {
   offsetTop: -5,
   offsetLeft: 4,
-} as Partial<Props>;
+};

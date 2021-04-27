@@ -11,24 +11,32 @@ const story = createStory({
   component: ChipsStack,
 });
 
-export const Template: Story = (args) => (
-  <div>
-    <ChipsStack {...args}>
-      <Chip value={1} />
-      <Chip value={5} />
-      <Chip value={10} />
-    </ChipsStack>
-    <Chip
-      value={100}
-      id="chipsAnimationTarget"
-      style={{
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-      }}
-    />
-  </div>
-);
+export const Template: Story = (args) => {
+  const chipsStackRef: any = React.useRef();
+
+  const onAnimationEnd = () => {
+    console.log('animated', chipsStackRef.current.animated);
+  }
+
+  return (
+    <div>
+      <ChipsStack {...args} ref={chipsStackRef} onAnimationEnd={onAnimationEnd}>
+        <Chip value={1}/>
+        <Chip value={5}/>
+        <Chip value={10}/>
+      </ChipsStack>
+      <Chip
+        value={100}
+        id="chipsAnimationTarget"
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+        }}
+      />
+    </div>
+  );
+};
 Template.storyName = 'ChipsStack';
 
 export default story;
