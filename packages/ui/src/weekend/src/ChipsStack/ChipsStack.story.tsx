@@ -16,14 +16,14 @@ export const Template: Story = (args) => {
 
   const onAnimationEnd = () => {
     console.log('animated', chipsStackRef.current.animated);
-  }
+  };
 
   return (
     <div>
       <ChipsStack {...args} ref={chipsStackRef} onAnimationEnd={onAnimationEnd}>
-        <Chip value={1}/>
-        <Chip value={5}/>
-        <Chip value={10}/>
+        <Chip value={1} />
+        <Chip value={5} />
+        <Chip value={10} />
       </ChipsStack>
       <Chip
         value={100}
