@@ -1,7 +1,22 @@
-$root: ExampleComponent;
+$root: GameTableLayout;
 
 :global(.#{$root}) {
-  // component styles
+  font-size: 1em;
+  display: inline-block;
+}
+
+.chips {
+  text-align: center;
+  margin-top: -3em;
+}
+
+.gameRounds {
+  margin: -0.5em auto 0;
+}
+
+.buttons {
+  position: relative;
+  z-index: 1;
 }
 
 :export {
