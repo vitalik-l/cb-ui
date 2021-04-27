@@ -10,6 +10,7 @@ const story = createStory({
   component: Chip,
   argTypes: {
     value: { control: 'text' },
+    children: { control: 'text' },
   },
 });
 

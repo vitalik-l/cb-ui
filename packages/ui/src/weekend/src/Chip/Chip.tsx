@@ -12,6 +12,7 @@ type Props = {
   value?: string | number;
   format?: boolean;
   classes?: any;
+  children?: string | number;
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export const Chip = React.forwardRef((props: Props, ref: any) => {
@@ -22,10 +23,12 @@ export const Chip = React.forwardRef((props: Props, ref: any) => {
     value: valueProp = '',
     format = true,
     classes: classesProp,
+    children,
     ...restProps
   } = props;
+  const content = children || valueProp;
   const value: number | string =
-    format && +valueProp >= 1000 ? `${Math.round(+valueProp / 1000)}K` : valueProp;
+    format && +content >= 1000 ? `${Math.round(+content / 1000)}K` : content;
   const classes = useClasses(styles, classesProp);
 
   return (
