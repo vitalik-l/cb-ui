@@ -16,10 +16,20 @@ const story = createStory({
 });
 
 export const Template: Story = (args) => {
+  const [result, setResult] = React.useState<number | null>(null);
+
+  const onPlay = () => {
+    setResult(10);
+  }
+
+  const onWheelStop = () => {
+    setResult(null);
+  }
+
   return (
     <GameTableLayout
       rouletteWheel={
-        <RouletteWheelTemplate>
+        <RouletteWheelTemplate value={result} onWheelStop={onWheelStop}>
           <Dropzones>
             <Dropzone type="down" />
             <Dropzone type="up" />
@@ -27,7 +37,7 @@ export const Template: Story = (args) => {
         </RouletteWheelTemplate>
       }
       chips={<ChipsControlsTemplate />}
-      buttons={<GameTableButtonsTemplate />}
+      buttons={<GameTableButtonsTemplate onPlay={onPlay} />}
       gameRounds={<GameRoundsTemplate />}
     />
   )

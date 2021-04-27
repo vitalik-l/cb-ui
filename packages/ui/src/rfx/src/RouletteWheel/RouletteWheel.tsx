@@ -111,7 +111,7 @@ export const RouletteWheel: React.FunctionComponent<Props> = (props: Props) => {
     <div className={clsx(classes.root, className)}>
       <div className={classes.bg} />
       <div className={clsx(classes.slots, classes[`slots_${slots}`])} ref={slotsRef} />
-      <div className={clsx(classes.ball, value == null && 'd-none')} ref={ballRef} onAnimationEnd={ballAnimationEnd} />
+      <div className={clsx(classes.ball)} ref={ballRef} onAnimationEnd={ballAnimationEnd} />
       <div className={classes.child}>
         {children}
       </div>
