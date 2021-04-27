@@ -1,0 +1,46 @@
+$root: ToggleTableButton;
+$swapButtonHeight: 1.2em;
+$swapButtonWidth: 7em;
+
+:global(.#{$root}) {
+  font-size: 1em;
+  height: 0;
+  width: $swapButtonWidth;
+  border-top: $swapButtonHeight solid #545959;
+  border-left: $swapButtonHeight solid transparent;
+  border-right: $swapButtonHeight solid transparent;
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: 0;
+    width: $swapButtonWidth - 2*$swapButtonHeight - 0.2;
+    right: -1 * $swapButtonHeight + 0.1;
+    top: -1 * $swapButtonHeight - 0.1;
+    border-top: $swapButtonHeight solid #1a1e21;
+    border-left: $swapButtonHeight solid transparent;
+    border-right: $swapButtonHeight solid transparent;
+  }
+
+  &::after {
+    content: '';
+    background: url(./img/swap_arrows.png) no-repeat;
+    background-size: cover;
+    top: -1.7em;
+    width: 1.5em;
+    height: 1.6em;
+    position: absolute;
+    transform: rotate(-90deg) translateY(50%);
+    right: 51%;
+  }
+}
+
+.hidden {
+  &:after {
+    background-position: -1.3em;
+  }
+}
+
+:export {
+  root: $root;
+}
