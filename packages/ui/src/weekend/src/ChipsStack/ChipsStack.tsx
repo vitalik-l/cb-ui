@@ -7,14 +7,15 @@ import styles from './ChipsStack.module.scss';
 type Props = React.ComponentProps<'div'> & {
   offsetTop: number;
   offsetLeft: number;
-  animate?: 'target' | 'fadeOut';
+  animate?: 'target' | 'fadeOut' | 'none';
+  animationDelay?: number;
 };
 
 export const ChipsStack = (props: Props) => {
-  const { className, children, offsetTop, offsetLeft, animate, ...restProps } = props;
+  const { className, children, offsetTop, offsetLeft, animate, onAnimationEnd, animationDelay: animationDelayProp = 800, ...restProps } = props;
   const offsetRef = React.useRef({ top: offsetTop, left: offsetLeft });
   const childrenRef: any = React.useRef([]);
-  const animationDelay = React.useRef(0);
+  const animationDelay = React.useRef(animationDelayProp);
   let targetElement: HTMLElement | null, targetElementPosition: any;
 
   if (animate) {
@@ -25,6 +26,10 @@ export const ChipsStack = (props: Props) => {
       }
     }
   }
+
+  const onTransitionEnd = React.useCallback((event: any) => {
+    console.log(event);
+  }, []);
 
   const childrenItems = React.Children.map(children, (child, childIndex) => {
     if (!React.isValidElement(child)) {
@@ -60,6 +65,15 @@ export const ChipsStack = (props: Props) => {
           transitionDuration: '1s, 1.1s',
           transitionDelay: delay + 'ms',
           transform: 'translate('+newPos.x+'px,'+newPos.y+'px)',
+          opacity: 0,
+        }
+      } else if (animate === 'fadeOut') {
+        childProps.style = {
+          ...childProps.style,
+          transition: 'transform, opacity linear',
+          transitionDuration: '1s, 1.1s',
+          transitionDelay: animationDelay.current + 'ms',
+          transform: 'translateY(-10em)',
           opacity: 0,
         }
       }
