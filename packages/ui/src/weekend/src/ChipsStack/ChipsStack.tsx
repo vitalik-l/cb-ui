@@ -27,6 +27,7 @@ export const ChipsStack = React.forwardRef((props: Props, ref: any) => {
   } = props;
   const offsetRef = React.useRef({ top: offsetTop, left: offsetLeft });
   const childrenRef: any = React.useRef([]);
+  const labelRef: any = React.useRef();
   const animationDelay = React.useRef(animationDelayProp);
   const animated = React.useRef(false);
   React.useImperativeHandle(
@@ -115,9 +116,12 @@ export const ChipsStack = React.forwardRef((props: Props, ref: any) => {
           transition: 'transform, opacity linear',
           transitionDuration: '1s, 1.1s',
           transitionDelay: animationDelay.current + 'ms',
-          transform: 'translateY(-10em)',
+          transform: 'translateY(-10rem)',
           opacity: 0,
         };
+      }
+      if (labelRef.current && childIndex === 0) {
+        Object.assign(labelRef.current.style, childProps.style);
       }
       if (childIndex === childLength - 1) {
         childProps.onTransitionEnd = onTransitionEnd;
@@ -134,7 +138,11 @@ export const ChipsStack = React.forwardRef((props: Props, ref: any) => {
   return (
     <div className={clsx(styles.root, className)} {...restProps}>
       {childrenItems}
-      {!!label && !shouldAnimate && <div className={styles.label}>{label}</div>}
+      {!!label &&
+      <div className={styles.labelWrap}>
+        <div className={styles.label} ref={labelRef}>{label}</div>
+      </div>
+      }
     </div>
   );
 });

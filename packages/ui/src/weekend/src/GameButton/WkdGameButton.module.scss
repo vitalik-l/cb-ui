@@ -11,6 +11,7 @@ $root: WkdGameButton;
   border: 0.1rem solid #131b1e;
   text-transform: uppercase;
   flex-wrap: wrap;
+  line-height: 0;
 
   &:disabled {
     filter: brightness(60%);
