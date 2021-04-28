@@ -1,4 +1,4 @@
-@use '../../../core/src/Slider/Slider.module' as * with (
+@use '~@cb-general/core/Slider/Slider.module' as * with (
   $root: WkdSlider,
   $height: 1em,
   $thumbSize: 2em
