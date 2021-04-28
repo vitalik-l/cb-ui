@@ -15,6 +15,11 @@ const story = createStory({
   args: {
     placement: 'top',
   },
+  argTypes: {
+    forceOpen: {
+      control: 'boolean',
+    },
+  },
 });
 
 export const Template: Story = (args) => (

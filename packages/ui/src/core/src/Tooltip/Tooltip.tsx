@@ -58,6 +58,7 @@ export const Tooltip = React.forwardRef((props: any, ref: any) => {
     animate = true,
     TransitionProps,
     classes: classesProp,
+    forceOpen,
     ...other
   } = props;
   const [childNode, setChildNode] = React.useState<any>();
@@ -435,7 +436,7 @@ export const Tooltip = React.forwardRef((props: any, ref: any) => {
             : childNode
         }
         popperRef={popperRef}
-        open={childNode ? open : false}
+        open={childNode ? forceOpen || open : false}
         id={id}
         transition
         {...interactiveWrapperListeners}

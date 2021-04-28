@@ -101,14 +101,6 @@ $root: Dropzones;
   }
 }
 
-.tooltip_down {
-  transform: translate(-2rem, 14rem);
-}
-
-.tooltip_up {
-  transform: translate(2rem, 14rem);
-}
-
 :export {
   root: $root;
 }
