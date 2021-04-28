@@ -10,6 +10,7 @@ $root: WkdGameButton;
   padding: 0 0.6rem;
   border: 0.1rem solid #131b1e;
   text-transform: uppercase;
+  flex-wrap: wrap;
 
   &:disabled {
     filter: brightness(60%);
@@ -74,17 +75,19 @@ $root: WkdGameButton;
 
   .label {
     font-size: 1.9em;
+    margin-top: 0;
   }
 }
 
 .label {
   font-size: 2em;
+  margin-top: 0.1rem;
 }
 
 .sublabel {
   color: #faf135;
   position: absolute;
-  top: 0.1rem;
+  top: 0;
   left: 0.5rem;
   font-size: 1.2em;
   letter-spacing: -0.05rem;
