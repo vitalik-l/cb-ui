@@ -53,10 +53,11 @@ export const Dropzone = React.forwardRef((props: Props, ref: any) => {
             tooltipStyles.root,
             tooltipStyles.placement_top,
             tooltipStyles.animate,
-            styles[`tooltip_${type}`],
           )}
         >
-          {tooltip}
+          <div className={styles[`tooltip_${type}`]}>
+            {tooltip}
+          </div>
         </div>
       </Popper>
     </React.Fragment>
