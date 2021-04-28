@@ -37,7 +37,19 @@ export const ChipsStack = React.forwardRef((props: Props, ref: any) => {
     [],
   );
   let targetElement: HTMLElement | null, targetElementPosition: any;
-  const shouldAnimate = !!animate && animate !== 'none';
+  const mounted = React.useRef(false);
+  const [, setAnimateOnMount] = React.useState(false);
+  const shouldAnimate = !!animate && animate !== 'none' && mounted.current;
+
+  React.useEffect(() => {
+    if (animate && !mounted.current) {
+      setAnimateOnMount(true);
+    }
+  }, [animate]);
+
+  React.useEffect(() => {
+    mounted.current = true;
+  }, []);
 
   if (animate) {
     if (animate === 'target') {
@@ -80,8 +92,7 @@ export const ChipsStack = React.forwardRef((props: Props, ref: any) => {
         };
       }
     }
-
-    if (animate) {
+    if (shouldAnimate) {
       if (animate === 'target' && targetElementPosition) {
         const delay = animationDelay.current + childIndex * 100;
         const currentChip = childrenRef.current[childIndex];

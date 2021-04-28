@@ -26,6 +26,11 @@ export const GameTableLayout = (props: Props) => {
     ...restProps
   } = props;
 
+  const onToggleButtonClick = React.useCallback((event: any) => {
+    event.stopPropagation();
+    onToggle();
+  }, [onToggle]);
+
   return (
     <div className={clsx(styles.root, className, hidden && styles.hidden)} onClick={hidden ? onToggle : undefined} {...restProps}>
       {rouletteWheel}
@@ -33,7 +38,7 @@ export const GameTableLayout = (props: Props) => {
       <div className={styles.buttons}>{buttons}</div>
       {!!gameRounds && React.cloneElement(gameRounds, { className: styles.gameRounds })}
       <div className={styles.toggleButton}>
-        <ToggleTableButton onClick={onToggle} hidden={hidden} />
+        <ToggleTableButton onClick={onToggle ? onToggleButtonClick : undefined} hidden={hidden} />
       </div>
     </div>
   );
