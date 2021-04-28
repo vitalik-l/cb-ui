@@ -6,15 +6,28 @@ import { createStory } from '../../story';
 import { Dropzones, Dropzone } from './index';
 import { ChipsStack } from '../../../weekend/src/ChipsStack';
 import { Chip } from '../../../weekend/src/Chip';
+import { InfoPanel, InfoPanelItem } from '../../../core/src/InfoPanel';
 
 const story = createStory({
   title: 'Dropzones',
   component: Dropzones,
+  style: {
+    marginTop: '5em',
+  },
 });
 
-export const DropzonesTemplate: Story = (args) => (
-  <Dropzones {...args}>
-    <Dropzone type="down" label="RED" roi="1:1">
+export const DropzonesTemplate: Story = () => (
+  <Dropzones>
+    <Dropzone
+      type="down"
+      label="RED"
+      roi="1:1"
+      tooltip={
+        <InfoPanel>
+          <InfoPanelItem>Tooltip</InfoPanelItem>
+        </InfoPanel>
+      }
+    >
       <ChipsStack label="$999,999,999">
         <Chip />
         <Chip />
@@ -41,7 +54,17 @@ export const DropzonesTemplate: Story = (args) => (
         <Chip />
       </ChipsStack>
     </Dropzone>
-    <Dropzone type="up" label="BLACK" roi="1:1">
+    <Dropzone
+      type="up"
+      label="BLACK"
+      roi="1:1"
+      tooltip={
+        <InfoPanel>
+          <InfoPanelItem>Tooltip Open</InfoPanelItem>
+        </InfoPanel>
+      }
+      tooltipOpen
+    >
       <ChipsStack label="$999,999,999">
         <Chip />
         <Chip />

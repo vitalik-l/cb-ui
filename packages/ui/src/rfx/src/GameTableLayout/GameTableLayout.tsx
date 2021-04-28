@@ -26,13 +26,20 @@ export const GameTableLayout = (props: Props) => {
     ...restProps
   } = props;
 
-  const onToggleButtonClick = React.useCallback((event: any) => {
-    event.stopPropagation();
-    onToggle();
-  }, [onToggle]);
+  const onToggleButtonClick = React.useCallback(
+    (event: any) => {
+      event.stopPropagation();
+      onToggle();
+    },
+    [onToggle],
+  );
 
   return (
-    <div className={clsx(styles.root, className, hidden && styles.hidden)} onClick={hidden ? onToggle : undefined} {...restProps}>
+    <div
+      className={clsx(styles.root, className, hidden && styles.hidden)}
+      onClick={hidden ? onToggle : undefined}
+      {...restProps}
+    >
       {rouletteWheel}
       <div className={styles.chips}>{chips}</div>
       <div className={styles.buttons}>{buttons}</div>

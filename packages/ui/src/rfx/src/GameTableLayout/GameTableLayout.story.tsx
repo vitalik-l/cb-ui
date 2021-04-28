@@ -29,7 +29,7 @@ export const GameTableLayoutTemplate: Story = (args) => {
 
   const toggle = () => {
     setHidden(!hidden);
-  }
+  };
 
   return (
     <GameTableLayout

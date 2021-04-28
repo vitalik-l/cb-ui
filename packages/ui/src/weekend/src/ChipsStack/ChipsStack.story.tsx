@@ -46,6 +46,6 @@ Template.storyName = 'ChipsStack';
 export const AnimateMount = Template.bind({});
 AnimateMount.args = {
   animate: 'target',
-}
+};
 
 export default story;

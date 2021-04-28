@@ -37,9 +37,7 @@ export const DesktopLayout = (props: Props) => {
         {header}
         <div className="d-flex flex-fill">
           <div className={styles.mainContent}>
-            <span className={styles.gameTable}>
-              {gameTable}
-            </span>
+            <span className={styles.gameTable}>{gameTable}</span>
             <div className="flex-fill d-flex column">
               {chartControls}
               {chart}

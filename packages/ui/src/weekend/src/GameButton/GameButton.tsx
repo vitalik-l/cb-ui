@@ -9,10 +9,19 @@ type Props = React.ComponentProps<typeof ButtonBase> & {
   color?: 'primary' | 'default' | 'green';
   sublabel?: string;
   unclickable?: boolean;
+  sublabelAlignTop?: boolean;
 };
 
 export const GameButton = (props: Props) => {
-  const { className, color, children, sublabel, unclickable, ...restProps } = props;
+  const {
+    className,
+    color,
+    children,
+    sublabel,
+    unclickable,
+    sublabelAlignTop,
+    ...restProps
+  } = props;
 
   return (
     <ButtonBase
@@ -21,6 +30,7 @@ export const GameButton = (props: Props) => {
         className,
         !!color && styles[`color_${color}`],
         unclickable && styles.unclickable,
+        sublabelAlignTop && styles.sublabelAlignTop,
       )}
       {...restProps}
     >
