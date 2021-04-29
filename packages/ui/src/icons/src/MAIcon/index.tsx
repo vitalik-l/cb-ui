@@ -5,7 +5,11 @@ import { SvgIconProps, SvgIcon } from '@cb-general/core/SvgIcon';
 // local files
 import styles from './index.module.scss';
 
-export const MAIcon = ({ colored, className, ...restProps }: SvgIconProps & { colored?: boolean }) => {
+export const MAIcon = ({
+  colored,
+  className,
+  ...restProps
+}: SvgIconProps & { colored?: boolean }) => {
   return (
     <SvgIcon
       viewBox="0 0 433.67 322.45"

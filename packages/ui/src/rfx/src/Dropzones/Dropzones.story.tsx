@@ -17,11 +17,7 @@ const story = createStory({
 
 export const DropzonesTemplate: Story = () => (
   <Dropzones>
-    <Dropzone
-      type="down"
-      label="RED"
-      roi="1:1"
-    >
+    <Dropzone type="down" label="RED" roi="1:1">
       <ChipsStack label="$999,999,999">
         <Chip />
         <Chip />
@@ -48,11 +44,7 @@ export const DropzonesTemplate: Story = () => (
         <Chip />
       </ChipsStack>
     </Dropzone>
-    <Dropzone
-      type="up"
-      label="BLACK"
-      roi="1:1"
-    >
+    <Dropzone type="up" label="BLACK" roi="1:1">
       <ChipsStack label="$999,999,999">
         <Chip />
         <Chip />

@@ -9,6 +9,7 @@ import { calcFontSize } from '../utils/calcFontSize';
 
 export type ViewportRendererProps = {
   children?: React.ReactNode;
+  breakpoint?: (width: number, height: number) => number | false;
   width?: number;
   height?: number;
   baseFontSize?: number;
@@ -33,6 +34,7 @@ export const ViewportRenderer = (props: ViewportRendererProps) => {
     fixed: fixedProp,
     width,
     height,
+    breakpoint,
     ...divProps
   } = props;
   const isMobile = useAppMode();
@@ -44,19 +46,24 @@ export const ViewportRenderer = (props: ViewportRendererProps) => {
     height: 0,
     fontSize: 0,
   });
-  const fontSize = React.useMemo(
-    () =>
-      calcFontSize({
-        viewportWidth: width,
-        viewportHeight: height,
-        baseFontSize,
-        baseWidth,
-        baseHeight,
-        maxFontSize,
-        minFontSize,
-      }),
-    [width, height, baseFontSize, baseWidth, baseHeight, maxFontSize, minFontSize],
-  );
+  const prevFontSize = React.useRef(0);
+  const fontSize = React.useMemo(() => {
+    if (width && height && breakpoint) {
+      const breakpointResult = breakpoint(width, height);
+      if (breakpointResult === false) return prevFontSize.current;
+      if (breakpointResult >= 0) return breakpointResult;
+    }
+    return calcFontSize({
+      viewportWidth: width,
+      viewportHeight: height,
+      baseFontSize,
+      baseWidth,
+      baseHeight,
+      maxFontSize,
+      minFontSize,
+    });
+  }, [width, height, baseFontSize, baseWidth, baseHeight, maxFontSize, minFontSize, breakpoint]);
+  prevFontSize.current = fontSize;
 
   React.useLayoutEffect(() => {
     if (animate) {

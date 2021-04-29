@@ -10,7 +10,9 @@ const story = createStory({
   component: AutoplayCounter,
 });
 
-export const AutoplayCounterTemplate: Story = (args) => <AutoplayCounter {...args}>next deal in 10s</AutoplayCounter>;
+export const AutoplayCounterTemplate: Story = (args) => (
+  <AutoplayCounter {...args}>next deal in 10s</AutoplayCounter>
+);
 AutoplayCounterTemplate.storyName = 'AutoplayCounter';
 
 export default story;

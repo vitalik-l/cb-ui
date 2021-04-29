@@ -138,11 +138,13 @@ export const ChipsStack = React.forwardRef((props: Props, ref: any) => {
   return (
     <div className={clsx(styles.root, className)} {...restProps}>
       {childrenItems}
-      {!!label &&
-      <div className={styles.labelWrap}>
-        <div className={styles.label} ref={labelRef}>{label}</div>
-      </div>
-      }
+      {!!label && (
+        <div className={styles.labelWrap}>
+          <div className={styles.label} ref={labelRef}>
+            {label}
+          </div>
+        </div>
+      )}
     </div>
   );
 });

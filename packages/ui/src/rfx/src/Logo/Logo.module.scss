@@ -16,12 +16,13 @@ $root: Logo;
 
 .glow {
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 20%;
-    background: transparent radial-gradient(ellipse at center bottom,rgba(0,255,0,.75) 0,transparent 65%);
+    background: transparent
+      radial-gradient(ellipse at center bottom, rgba(0, 255, 0, 0.75) 0, transparent 65%);
   }
 }
 
