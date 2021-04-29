@@ -3,15 +3,16 @@ import clsx from 'clsx';
 import { SvgIconProps, SvgIcon } from '@cb-general/core/SvgIcon';
 
 // local files
-import MAIconStyles from './index.module.scss';
+import styles from './index.module.scss';
 
-export const MAIcon = ({ colored, className }: SvgIconProps & { colored?: boolean }) => {
+export const MAIcon = ({ colored, className, ...restProps }: SvgIconProps & { colored?: boolean }) => {
   return (
     <SvgIcon
       viewBox="0 0 433.67 322.45"
-      className={clsx(MAIconStyles.root, className, {
-        [MAIconStyles.colored]: !!colored,
+      className={clsx(styles.root, className, {
+        [styles.colored]: !!colored,
       })}
+      {...restProps}
     >
       <g>
         <path
@@ -24,7 +25,7 @@ export const MAIcon = ({ colored, className }: SvgIconProps & { colored?: boolea
         />
         <path
           fill="none"
-          className={MAIconStyles.second}
+          className={styles.second}
           stroke="currentColor"
           strokeWidth="35.45"
           strokeLinecap="round"
@@ -36,4 +37,4 @@ export const MAIcon = ({ colored, className }: SvgIconProps & { colored?: boolea
   );
 };
 
-export { MAIconStyles };
+export const MAIconStyles = styles;
