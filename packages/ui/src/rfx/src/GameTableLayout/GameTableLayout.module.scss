@@ -32,6 +32,15 @@ $root: GameTableLayout;
   transform: translateY(-76%);
 }
 
+.autoplayCounter {
+  position: absolute;
+  font-size: 1.4em;
+  left: 50%;
+  top: 63%;
+  transform: translateX(-50%);
+  z-index: 6;
+}
+
 :export {
   root: $root;
 }

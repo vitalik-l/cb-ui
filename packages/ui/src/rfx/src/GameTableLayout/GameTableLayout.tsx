@@ -10,6 +10,7 @@ type Props = React.ComponentProps<'div'> & {
   chips?: React.ReactElement;
   gameRounds?: React.ReactElement;
   buttons?: React.ReactElement;
+  autoplayCounter?: React.ReactElement;
   hidden?: boolean;
   onToggle?: any;
 };
@@ -23,6 +24,7 @@ export const GameTableLayout = (props: Props) => {
     buttons,
     hidden,
     onToggle,
+    autoplayCounter,
     ...restProps
   } = props;
 
@@ -41,9 +43,10 @@ export const GameTableLayout = (props: Props) => {
       {...restProps}
     >
       {rouletteWheel}
-      <div className={styles.chips}>{chips}</div>
-      <div className={styles.buttons}>{buttons}</div>
+      {!!chips && <div className={styles.chips}>{chips}</div>}
+      {!!buttons && <div className={styles.buttons}>{buttons}</div>}
       {!!gameRounds && React.cloneElement(gameRounds, { className: styles.gameRounds })}
+      {!!autoplayCounter && <div className={styles.autoplayCounter}>{autoplayCounter}</div>}
       <div className={styles.toggleButton}>
         <ToggleTableButton onClick={onToggle ? onToggleButtonClick : undefined} hidden={hidden} />
       </div>

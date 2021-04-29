@@ -8,6 +8,7 @@ import { RouletteWheelTemplate } from '../RouletteWheel/RouletteWheel.story';
 import { ChipsControlsTemplate } from '../../../weekend/src/ChipsControls/ChipsControls.story';
 import { GameTableButtonsTemplate } from '../../../weekend/src/GameTableButtons/GameTableButtons.story';
 import { GameRoundsTemplate } from '../../../weekend/src/GameRounds/GameRounds.story';
+import { AutoplayCounterTemplate } from '../../../weekend/src/AutoplayCounter/AutoplayCounter.story';
 import { Dropzones, Dropzone } from '../Dropzones';
 
 const story = createStory({
@@ -46,6 +47,7 @@ export const GameTableLayoutTemplate: Story = (args) => {
       chips={<ChipsControlsTemplate />}
       buttons={<GameTableButtonsTemplate onPlay={onPlay} />}
       gameRounds={<GameRoundsTemplate />}
+      autoplayCounter={<AutoplayCounterTemplate />}
     />
   );
 };
