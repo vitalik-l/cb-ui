@@ -1,5 +1,6 @@
-@use '../fonts/index';
+@import '../fonts';
 @import 'helpers/colors';
+@import 'helpers/animations';
 
 body {
   font-family: Open Sans, Arial, Helvetica, sans-serif;
