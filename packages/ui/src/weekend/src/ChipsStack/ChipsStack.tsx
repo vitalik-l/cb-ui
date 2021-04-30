@@ -10,6 +10,7 @@ type Props = React.ComponentProps<'div'> & {
   animate?: 'target' | 'fadeOut' | 'none';
   animationDelay?: number;
   onAnimationEnd?: any;
+  onAnimationStart?: any;
   label?: string;
 };
 
@@ -21,6 +22,7 @@ export const ChipsStack = React.forwardRef((props: Props, ref: any) => {
     offsetLeft = 0,
     animate,
     onAnimationEnd,
+    onAnimationStart,
     animationDelay: animationDelayProp = 800,
     label,
     ...restProps
@@ -51,6 +53,17 @@ export const ChipsStack = React.forwardRef((props: Props, ref: any) => {
   React.useEffect(() => {
     mounted.current = true;
   }, []);
+
+  React.useLayoutEffect(() => {
+    if (shouldAnimate) {
+      if (childrenRef.current[0]) {
+        childrenRef.current[0].ontransitionstart = (event: any) => {
+          if (event.propertyName !== 'opacity') return;
+          if (onAnimationStart) onAnimationStart();
+        }
+      }
+    }
+  }, [shouldAnimate, onAnimationStart]);
 
   if (animate) {
     if (animate === 'target') {
