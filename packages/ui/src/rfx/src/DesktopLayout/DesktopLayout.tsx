@@ -17,6 +17,21 @@ type Props = ViewportProps & {
   gameTable?: React.ReactElement;
 };
 
+const breakpoint = (width: number, height: number) => {
+  if (height < 830 || width < 1380) {
+    return;
+  } else if (height < 880 || width < 1480) {
+    return 8;
+  } else if (height < 930 || width < 1550) {
+    return 8.5;
+  } else if (height < 985 || width < 1640) {
+    return 9;
+  } else if (height < 1030 || width < 1750) {
+    return 9.5;
+  }
+  return 10;
+}
+
 export const DesktopLayout = (props: Props) => {
   const {
     className,
@@ -32,7 +47,7 @@ export const DesktopLayout = (props: Props) => {
   } = props;
 
   return (
-    <Viewport {...viewportProps}>
+    <Viewport breakpoint={breakpoint} {...viewportProps}>
       <div className={clsx(styles.root, className)}>
         {header}
         <div className="d-flex flex-fill">

@@ -9,7 +9,7 @@ import { calcFontSize } from '../utils/calcFontSize';
 
 export type ViewportRendererProps = {
   children?: React.ReactNode;
-  breakpoint?: (width: number, height: number) => number | false;
+  breakpoint?: (width: number, height: number) => number | false | true | undefined;
   width?: number;
   height?: number;
   baseFontSize?: number;
@@ -51,7 +51,7 @@ export const ViewportRenderer = (props: ViewportRendererProps) => {
     if (width && height && breakpoint) {
       const breakpointResult = breakpoint(width, height);
       if (breakpointResult === false) return prevFontSize.current;
-      if (breakpointResult >= 0) return breakpointResult;
+      if (typeof breakpointResult === 'number' && breakpointResult >= 0) return breakpointResult;
     }
     return calcFontSize({
       viewportWidth: width,
