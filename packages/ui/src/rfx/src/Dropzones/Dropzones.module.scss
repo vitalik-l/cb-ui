@@ -11,6 +11,29 @@ $root: Dropzones;
   background-size: contain;
 }
 
+.center {
+  background: url(./img/zero.png) no-repeat center;
+  position: absolute;
+  width: 13em;
+  height: 13em;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 100%;
+
+  &:before {
+    content: '';
+    background: url(./img/table_logo.png) no-repeat center;
+    background-size: contain;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6em;
+    height: 6em;
+  }
+}
+
 .dropzone {
   position: absolute;
   height: 100%;
