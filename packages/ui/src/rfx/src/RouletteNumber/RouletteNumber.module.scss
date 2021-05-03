@@ -9,7 +9,18 @@ $root: RouletteNumber;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: 50% 50%;
+  transform: scale(0);
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s transform, 0.3s opacity, 0.1s visibility;
+  will-change: transform;
   @include pxSizeToEm(297, 448);
+}
+
+.active {
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1);
 }
 
 .color_green {

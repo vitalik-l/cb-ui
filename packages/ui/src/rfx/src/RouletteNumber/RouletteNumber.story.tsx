@@ -13,6 +13,9 @@ const story = createStory({
       control: 'text',
     },
   },
+  args: {
+    active: true,
+  },
 });
 
 export const Template: Story = (args) => <RouletteNumber {...args} />;
