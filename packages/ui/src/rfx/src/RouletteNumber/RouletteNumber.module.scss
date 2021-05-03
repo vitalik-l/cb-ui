@@ -1,7 +1,69 @@
+@use '~@cb-general/core/styles/mixins' as *;
+
 $root: RouletteNumber;
 
 :global(.#{$root}) {
-  // component styles
+  position: relative;
+  display: inline-block;
+  font-size: 44.8em;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50% 50%;
+  @include pxSizeToEm(297, 448);
+}
+
+.color_green {
+  background-image: url(./img/final_number_green.png);
+}
+
+.color_black {
+  background-image: url(./img/final_number_black.png);
+
+  .label {
+    color: #2aff00;
+  }
+}
+
+.color_red {
+  background-image: url(./img/final_number_red.png);
+}
+
+.label {
+  font-family: BodoniSvtyTwoITCTTBook;
+  color: white;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-51%);
+  font-size: 0.22em;
+  top: 14%;
+  z-index: 1;
+}
+
+.candle {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: 51% 0;
+  background-size: contain;
+  bottom: 17%;
+  width: 100%;
+  left: 0;
+  height: 22%;
+  z-index: 1;
+
+  &_up {
+    background-image: url(./img/green_candle.png);
+  }
+
+  &_down {
+    background-image: url(./img/red_candle.png);
+  }
+
+  &_zero {
+    background-image: url(./img/zero_candle.svg);
+    background-position: 50% 0;
+    height: 16%;
+    bottom: 21%;
+  }
 }
 
 :export {

@@ -8,6 +8,11 @@ import { RouletteNumber } from './index';
 const story = createStory({
   title: 'RouletteNumber',
   component: RouletteNumber,
+  argTypes: {
+    children: {
+      control: 'text',
+    },
+  },
 });
 
 export const Template: Story = (args) => <RouletteNumber {...args} />;
