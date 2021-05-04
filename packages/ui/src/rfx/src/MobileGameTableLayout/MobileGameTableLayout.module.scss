@@ -1,7 +1,51 @@
 $root: MobileGameTableLayout;
 
 :global(.#{$root}) {
-  // component styles
+  font-size: 1em;
+  display: inline-block;
+  position: relative;
+}
+
+.topContent {
+  display: flex;
+}
+
+.chipsWrap {
+  display: inline-block;
+  min-width: 12em;
+  position: relative;
+
+  .chips {
+    position: absolute;
+    top: 19%;
+    left: 0;
+  }
+}
+
+.rouletteWheel {
+  position: relative;
+}
+
+.autoplayCounter {
+  position: absolute;
+  font-size: 1.4em;
+  left: 50%;
+  top: 77%;
+  transform: translateX(-50%);
+  z-index: 7;
+}
+
+.bottomContent {
+  margin-top: -6.5em;
+
+  .gameRounds {
+    margin: auto auto -3em;
+    height: 12em;
+  }
+
+  .buttons {
+    width: 80em;
+  }
 }
 
 :export {

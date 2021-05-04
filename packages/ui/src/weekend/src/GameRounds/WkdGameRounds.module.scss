@@ -72,6 +72,10 @@ $root: WkdGameRounds;
 }
 
 .reversed {
+  width: 46.5em;
+  height: 13.9em;
+  background-position: 50%;
+
   &:before {
     top: 55%;
   }
