@@ -1,0 +1,1 @@
+export { MobileGameTableLayout } from './MobileGameTableLayout';
