@@ -2,7 +2,7 @@
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 400;
-  src: local('Open Sans'), local('OpenSans'), url(OpenSans/OpenSansNormal.woff2) format('woff2');
+  src: local('Open Sans'), local('OpenSans'), url(./OpenSans/OpenSansNormal.woff2) format('woff2');
   font-display: fallback;
 }
 @font-face {
@@ -10,7 +10,7 @@
   font-style: normal;
   font-weight: 700;
   src: local('Open Sans Bold'), local('OpenSans-Bold'),
-    url(OpenSans/OpenSansBold.woff2) format('woff2');
+    url(./OpenSans/OpenSansBold.woff2) format('woff2');
   font-display: fallback;
 }
 @font-face {
@@ -18,14 +18,14 @@
   font-style: normal;
   font-weight: 800;
   src: local('Open Sans Extrabold'), local('OpenSans-Extrabold'),
-    url(OpenSans/OpenSansExtra.woff2) format('woff2');
+    url(./OpenSans/OpenSansExtra.woff2) format('woff2');
   font-display: fallback;
 }
 
 @font-face {
   font-family: HelveticaNeue;
-  src: url(HelveticaNeue/HelveticaNeue.woff2) format('woff2'),
-    url(HelveticaNeue/HelveticaNeue.woff) format('woff');
+  src: url(./HelveticaNeue/HelveticaNeue.woff2) format('woff2'),
+    url(./HelveticaNeue/HelveticaNeue.woff) format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: fallback;
@@ -33,8 +33,8 @@
 
 @font-face {
   font-family: HelveticaNeue;
-  src: url('HelveticaNeue/HelveticaNeue-CondensedBold_gdi.woff2') format('woff2'),
-    url('HelveticaNeue/HelveticaNeue-CondensedBold_gdi.woff') format('woff');
+  src: url('./HelveticaNeue/HelveticaNeue-CondensedBold_gdi.woff2') format('woff2'),
+    url('./HelveticaNeue/HelveticaNeue-CondensedBold_gdi.woff') format('woff');
   font-weight: 700;
   font-style: normal;
   font-stretch: condensed;
