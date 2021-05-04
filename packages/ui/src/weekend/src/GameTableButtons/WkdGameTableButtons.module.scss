@@ -11,17 +11,19 @@ $root: WkdGameTableButtons;
   background-color: #25343a;
   box-shadow: 0 0.1rem 0.4rem 0 rgb(0 0 0 / 76%), inset 0 0 0.1188rem 0.612rem rgb(0 0 0 / 35%);
   overflow: hidden;
+  box-sizing: border-box;
+  height: 100%;
 
   .grouped {
     flex: 1;
 
     &:first-child {
-      border-top-left-radius: 2.6em;
-      border-bottom-left-radius: 2.6em;
+      border-top-left-radius: 2em;
+      border-bottom-left-radius: 2em;
     }
     &:last-child {
-      border-top-right-radius: 2.6em;
-      border-bottom-right-radius: 2.6em;
+      border-top-right-radius: 2em;
+      border-bottom-right-radius: 2em;
     }
   }
 }

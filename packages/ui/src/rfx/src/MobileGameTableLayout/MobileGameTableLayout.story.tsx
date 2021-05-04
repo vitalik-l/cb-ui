@@ -48,15 +48,15 @@ export const Template: Story = (args) => {
       chips={<MobileChipsControlsTemplate />}
       buttons={
         <GameTableButtons>
-          <GameButton color="primary" onClick={onPlay}>
+          <GameButton color="primary" onClick={onPlay} large>
             Play
           </GameButton>
-          <GameButton>Double</GameButton>
-          <GameButton>Clear</GameButton>
-          <GameButton sublabel="bet" unclickable sublabelAlignTop>
+          <GameButton large>Double</GameButton>
+          <GameButton large>Clear</GameButton>
+          <GameButton sublabel="bet" unclickable sublabelAlignTop large>
             $0.00
           </GameButton>
-          <GameButton sublabel="chart" unclickable sublabelAlignTop color="green">
+          <GameButton sublabel="chart" sublabelAlignTop color="green" large>
             $0.00
           </GameButton>
         </GameTableButtons>
