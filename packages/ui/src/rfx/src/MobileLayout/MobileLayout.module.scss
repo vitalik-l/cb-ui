@@ -1,0 +1,9 @@
+$root: MobileLayout;
+
+:global(.#{$root}) {
+  background: black;
+}
+
+:export {
+  root: $root;
+}
