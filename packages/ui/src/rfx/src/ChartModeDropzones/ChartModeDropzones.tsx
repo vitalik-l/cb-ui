@@ -12,7 +12,7 @@ export const ChartModeDropzones = (props: Props) => {
   return (
     <div className={clsx(styles.root, className)} {...restProps}>
       {React.Children.map(children, (child) =>
-        React.cloneElement(child, { className: styles.child }),
+        React.isValidElement(child) ? React.cloneElement(child, { className: styles.child }) : null,
       )}
     </div>
   );
