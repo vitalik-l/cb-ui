@@ -26,7 +26,7 @@ export const Template: Story = () => {
   const onCloseMenu = () => {
     setMenuOpen(false);
   };
-  console.log(view);
+
   return (
     <Root>
       <MobileLayout
