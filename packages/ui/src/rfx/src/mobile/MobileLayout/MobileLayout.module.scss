@@ -18,6 +18,13 @@ $root: MobileLayout;
   overflow: hidden;
 }
 
+.content {
+  flex: 1;
+  min-height: 1px;
+  display: flex;
+  position: relative;
+}
+
 .header {
   min-height: 7rem;
 }
@@ -89,6 +96,21 @@ $root: MobileLayout;
 .tradingControls {
   width: 19.6rem;
   border-left: min(0.1rem, 1px) solid #444;
+}
+
+.chart {
+  height: 65%;
+  width: 100%;
+}
+
+.view {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: #242628;
+  z-index: 2;
 }
 
 :export {

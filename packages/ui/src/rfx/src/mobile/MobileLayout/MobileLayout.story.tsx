@@ -21,11 +21,12 @@ const story = createStory({
 
 export const Template: Story = () => {
   const [menuOpen, setMenuOpen] = React.useState(false);
+  const [view, setView] = React.useState();
 
   const onCloseMenu = () => {
     setMenuOpen(false);
   };
-
+  console.log(view);
   return (
     <Root>
       <MobileLayout
@@ -49,7 +50,9 @@ export const Template: Story = () => {
         chartControls={<ChartControlsTemplate />}
         gameTable={<MobileGameTableLayoutTemplate />}
         tradingControls={<TradingControlsLayoutTemplate />}
-        menu={<MenuTemplate />}
+        menu={<MenuTemplate onViewChange={setView} />}
+        view={!!view && view !== 'trading' ? <div /> : undefined}
+        chart={<div style={{backgroundColor: 'gray', width: '100%', height: '100%'}} />}
       />
     </Root>
   );

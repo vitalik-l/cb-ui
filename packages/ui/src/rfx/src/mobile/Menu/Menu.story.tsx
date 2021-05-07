@@ -15,17 +15,19 @@ const story = createStory({
   },
 });
 
-export const MenuTemplate: Story = (args) => {
+export const MenuTemplate: Story = ({onViewChange, ...args}) => {
   const [value, setValue] = React.useState('');
 
-  const onChange = (value) => {
+  const onChange = (value: any) => {
     if (value) setValue(value);
+    if (onViewChange) onViewChange(value);
   };
 
   return (
     <Menu {...args}>
       <ButtonGroup value={value} onChange={onChange} autoValue={false}>
         <MenuItemButton value="trading">Trading</MenuItemButton>
+        <MenuItemButton value="view">View</MenuItemButton>
         <MenuSeparator />
         <MenuItemButton className="text-yellow">Logout</MenuItemButton>
       </ButtonGroup>

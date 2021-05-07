@@ -11,6 +11,8 @@ type Props = ViewportProps & {
   gameTable?: React.ReactElement;
   tradingControls?: React.ReactElement;
   menu?: React.ReactElement;
+  chart?: React.ReactElement;
+  view?: React.ReactElement;
   menuOpen?: boolean;
   onCloseMenu?: any;
 };
@@ -26,6 +28,8 @@ export const MobileLayout = (props: Props) => {
     menu,
     menuOpen,
     onCloseMenu,
+    chart,
+    view,
     ...restProps
   } = props;
   const [controlsToggled, setControlsToggled] = React.useState(false);
@@ -39,9 +43,9 @@ export const MobileLayout = (props: Props) => {
       <div className={styles.transform}>
         <div className={styles.mainContent}>
           {!!header && React.cloneElement(header, { className: styles.header })}
-          <div className="flex-fill d-flex">
+          <div className={styles.content}>
             <div className={styles.chartContainer}>
-              <div className="chart" />
+              {!!chart && <div className={styles.chart}>{chart}</div>}
               <div
                 className={clsx(
                   styles.gameTableAndControls,
@@ -53,7 +57,8 @@ export const MobileLayout = (props: Props) => {
                 <div className={styles.gameTable}>{gameTable}</div>
               </div>
             </div>
-            <div className={styles.tradingControls}>{tradingControls}</div>
+            {!!tradingControls && <div className={styles.tradingControls}>{tradingControls}</div>}
+            {!!view && <div className={styles.view}>{view}</div>}
           </div>
         </div>
         {!!menu && <div className={styles.menu}>{menu}</div>}
