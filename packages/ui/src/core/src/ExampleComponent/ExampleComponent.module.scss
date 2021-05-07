@@ -1,9 +1,0 @@
-$root: ExampleComponent;
-
-:global(.#{$root}) {
-  // component styles
-}
-
-:export {
-  root: $root;
-}

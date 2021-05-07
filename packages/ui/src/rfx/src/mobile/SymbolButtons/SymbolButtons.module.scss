@@ -1,0 +1,16 @@
+$root: SymbolButtons;
+
+:global(.#{$root}) {
+  display: flex;
+  flex-direction: column;
+}
+
+.grouped {
+  &:nth-child(n + 2) {
+    margin-top: 1rem;
+  }
+}
+
+:export {
+  root: $root;
+}

@@ -18,6 +18,7 @@ export type ButtonGroupProps = React.ComponentProps<'div'> & {
   disabled?: boolean;
   classes?: ClassesType;
   cloneProps?: boolean;
+  autoValue?: boolean;
 };
 
 export const ButtonGroup = (props: ButtonGroupProps) => {
@@ -31,6 +32,7 @@ export const ButtonGroup = (props: ButtonGroupProps) => {
     disabled,
     classes,
     cloneProps = true,
+    autoValue = true,
     ...restProps
   } = props;
 
@@ -39,7 +41,7 @@ export const ButtonGroup = (props: ButtonGroupProps) => {
       return null;
     }
     const { className: childClassName, onClick: childClick, ...childProps } = child.props;
-    const childValue = childProps.value === undefined ? childIndex : childProps.value;
+    const childValue = autoValue && childProps.value === undefined ? childIndex : childProps.value;
     const selected = childValue === value;
     let parentProps = {};
 

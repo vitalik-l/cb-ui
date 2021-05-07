@@ -12,8 +12,8 @@ $root: WkdGameButton;
   text-transform: uppercase;
   flex-wrap: wrap;
   line-height: 0;
-  box-shadow: inset 0 0.5rem 0.7rem hsl(0deg 0% 100% / 56%), 0 1.5rem 2.6rem rgb(7 1 0 / 38%),
-  inset -0.2rem 0 0 rgb(0 0 0 / 31%), inset 0.2rem 0 0 rgb(0 0 0 / 34%);
+  box-shadow: inset 0 0.4rem 0.7rem hsl(0deg 0% 100% / 56%), 0 1.5rem 2.6rem rgb(7 1 0 / 38%),
+    inset -0.2rem 0 0 rgb(0 0 0 / 31%), inset 0.2rem 0 0 rgb(0 0 0 / 34%);
 
   &:active {
     box-shadow: inset 0 0.3rem 0.1rem #232322, 0 0.1rem 0.5rem hsla(0, 0%, 100%, 0.54);
@@ -82,6 +82,7 @@ $root: WkdGameButton;
   &.large {
     .label {
       font-size: 2.8em;
+      margin-top: 0;
     }
   }
 }
@@ -93,6 +94,7 @@ $root: WkdGameButton;
 .large {
   .label {
     font-size: 3.2em;
+    margin-top: 0.2rem;
   }
 }
 
@@ -109,14 +111,16 @@ $root: WkdGameButton;
   line-height: initial;
 
   .label {
-    margin-top: 0.1rem;
+    //margin-top: 0.2rem;
   }
 
   .sublabel {
     position: absolute;
-    top: 0;
+    top: 2%;
     left: 0.5rem;
     margin-right: 0;
+    letter-spacing: 0;
+    font-size: 1.5em;
   }
 }
 

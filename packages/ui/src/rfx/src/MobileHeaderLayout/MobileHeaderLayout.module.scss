@@ -1,9 +1,0 @@
-$root: MobileHeaderLayout;
-
-:global(.#{$root}) {
-  min-height: 7rem;
-}
-
-:export {
-  root: $root;
-}

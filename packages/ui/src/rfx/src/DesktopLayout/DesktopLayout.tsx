@@ -30,7 +30,7 @@ const breakpoint = (width: number, height: number) => {
     return 9.5;
   }
   return 10;
-}
+};
 
 export const DesktopLayout = (props: Props) => {
   const {

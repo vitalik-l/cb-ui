@@ -1,0 +1,14 @@
+$root: ChartModeDropzones;
+
+:global(.#{$root}) {
+  display: inline-flex;
+  width: 100%;
+}
+
+.child {
+  flex: 1;
+}
+
+:export {
+  root: $root;
+}

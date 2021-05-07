@@ -1,0 +1,86 @@
+$root: ChartModeDropzone;
+
+:global(.#{$root}) {
+  background-repeat: repeat;
+  color: white;
+  padding-top: 1.7rem;
+  padding-bottom: 1.7rem;
+  box-sizing: border-box;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.icon {
+  font-size: 5em;
+}
+
+.label {
+  font-size: 3.6em;
+  font-family: Bernard;
+}
+
+.text {
+  text-align: left;
+}
+
+.sublabel {
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  font-size: 1.6em;
+  text-align: left;
+}
+
+.down {
+  background-image: url(./img/dropzone_red_bg.png);
+
+  .icon {
+    color: #410909;
+  }
+}
+
+.up {
+  background-image: url(./img/dropzone_green_bg.png);
+
+  .icon {
+    color: #094109;
+  }
+}
+
+.chips {
+  position: absolute;
+}
+
+.child_first {
+  border-top-left-radius: 20px;
+  padding-left: 3rem;
+
+  .text {
+    margin-left: 1rem;
+  }
+
+  .chips {
+    left: 9em;
+    top: 2em;
+  }
+}
+
+.child_last {
+  border-top-right-radius: 20px;
+  flex-direction: row-reverse;
+  padding-right: 3rem;
+
+  .text {
+    margin-right: 1rem;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .chips {
+    top: 2em;
+    right: 9em;
+  }
+}
+
+:export {
+  root: $root;
+}

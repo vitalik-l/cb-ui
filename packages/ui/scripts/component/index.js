@@ -6,7 +6,9 @@ const find = require('findit');
 const inquirer = require('inquirer');
 
 // const [ lib,  componentName, stylePrefix ] = process.argv.slice(2);
-const [ lib ] = process.argv.slice(2);
+const [ libArg ] = process.argv.slice(2);
+
+const [lib, ...componentPath] = libArg.split('/');
 
 inquirer
   .prompt([{
@@ -22,11 +24,11 @@ inquirer
     const { componentName, stylePrefix } = answers;
     if (!componentName) return;
 
-    const srcDir = path.resolve('src', lib, 'src', componentName);
+    const srcDir = path.resolve('src', lib, 'src', ...componentPath, componentName);
 
     // create a new dir
     if (!fs.existsSync(srcDir)) {
-      fs.mkdirSync(srcDir);
+      fse.mkdirpSync(srcDir);
       console.log(`created ${srcDir}`);
     }
     const finder = find(path.resolve(__dirname, 'template'))
@@ -35,7 +37,11 @@ inquirer
       const newFileName = fileParams.base.replace('ComponentName', componentName).replace('Prefix', stylePrefix || '');
       const srcFile = path.resolve(srcDir, newFileName);
       const fileData = fs.readFileSync(file, 'utf-8');
-      const newFileData = fileData.replace(/ComponentName/g, componentName).replace(/Prefix/g, stylePrefix || '');
+      const newFileData = fileData
+        .replace(/ComponentName/g, componentName)
+        .replace(/Prefix/g, stylePrefix || '')
+        .replace(/ComponentPath/g, componentPath.length ? componentPath.join('/') + '/' : '')
+        .replace(/StoryPath/g, `../../${Array.from([...componentPath, ''], () => '').join('../')}story`);
       fs.writeFileSync(srcFile, newFileData);
       console.log(`added ${srcFile}`);
     });
@@ -45,5 +51,6 @@ inquirer
       // Prompt couldn't be rendered in the current environment
     } else {
       // Something else went wrong
+      console.error(error);
     }
   });

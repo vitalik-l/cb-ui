@@ -1,0 +1,116 @@
+$root: MobileGameTableLayout;
+
+:global(.#{$root}) {
+  font-size: 0.94em;
+  display: inline-block;
+  position: relative;
+}
+
+.topContent {
+  display: flex;
+  transition: transform 1s;
+  will-change: transform;
+  margin-left: -1em;
+}
+
+.chipsWrap {
+  display: inline-block;
+  min-width: 12em;
+  position: relative;
+
+  .chips {
+    position: absolute;
+    top: 19%;
+    left: 0;
+  }
+}
+
+.rouletteWheel {
+  position: relative;
+}
+
+.autoplayCounter {
+  position: absolute;
+  font-size: 1.4em;
+  left: 50%;
+  top: 77%;
+  transform: translateX(-50%) translateZ(0);
+  z-index: 7;
+}
+
+.bottomContent {
+  margin-top: -6.5em;
+  position: relative;
+  pointer-events: none;
+
+  .gameRounds {
+    margin: auto auto -3em;
+    height: 12em;
+  }
+
+  .buttons {
+    width: 80em;
+    height: 7em;
+    pointer-events: all;
+    transform: translateZ(0);
+  }
+}
+
+.chartModeDropzones {
+  position: absolute;
+  top: 1em;
+  left: 0;
+  width: 100%;
+  padding: 0 4%;
+  box-sizing: border-box;
+  transform-origin: 50% 100%;
+  will-change: transform;
+}
+
+:global {
+  .chartModeDropzonesAnim {
+    &-appear,
+    &-enter {
+      transform: scaleY(0);
+      transition: all 0.7s;
+      will-change: transform;
+    }
+    &-appear.chartModeDropzonesAnim-appear-active,
+    &-enter.chartModeDropzonesAnim-enter-active {
+      transform: scaleY(1);
+    }
+    &-leave {
+      transform: scaleY(1);
+      transition: all 0.7s;
+      will-change: transform;
+    }
+    &-leave.chartModeDropzonesAnim-leave-active {
+      transform: scaleY(0);
+    }
+  }
+}
+
+.gameTableWrap {
+  overflow: hidden;
+}
+
+.gameTable {
+  margin-top: -13.8em;
+}
+
+.logoWrap {
+  position: absolute;
+  font-size: 0.63em;
+  left: 49em;
+  top: -11em;
+}
+
+.chartMode {
+  .topContent {
+    transform: translateY(-100%);
+  }
+}
+
+:export {
+  root: $root;
+}

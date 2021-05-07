@@ -8,8 +8,6 @@ import { copyToClipboard } from '../../core/src/utils/clipboard';
 import { Tooltip } from '../../core/src/Tooltip';
 import * as Icons from './index';
 
-console.log(Icons);
-
 const story = createStory({
   title: 'Icons',
   style: {
@@ -25,8 +23,12 @@ const Icon = ({ children }: any) => {
     copyToClipboard(componentName).then(() => setCopied(true));
   };
 
+  const onClose = () => {
+    setCopied(false);
+  };
+
   return (
-    <Tooltip title={copied && <div>Copied</div>} onClose={() => setCopied(false)}>
+    <Tooltip title={copied && <div>Copied</div>} onClose={onClose} disableFocusListener>
       <ButtonBase className="icon-cell" onClick={onClick}>
         {children}
         <div className="label">{componentName}</div>
@@ -38,8 +40,8 @@ const Icon = ({ children }: any) => {
 export const Template: Story = () => {
   return (
     <div className="container">
-      {Object.keys(Icons).map((icon) => (
-        <Icon>{React.createElement(Icons[icon])}</Icon>
+      {Object.keys(Icons).map((icon, index) => (
+        <Icon key={index}>{React.createElement(Icons[icon])}</Icon>
       ))}
     </div>
   );

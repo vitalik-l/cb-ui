@@ -1,8 +1,9 @@
 import React from 'react';
 import clsx from 'clsx';
+import { ButtonBase } from '@cb-general/core/ButtonBase';
+import { MenuIcon } from '@cb-general/icons/MenuIcon';
 
 // local files
-import { ButtonBase } from '@cb-general/core/ButtonBase';
 import styles from './WkdMenuButton.module.scss';
 
 type Props = {
@@ -15,9 +16,7 @@ export const MenuButton = (props: Props) => {
 
   return (
     <ButtonBase className={clsx(styles.root, className)} {...restProps}>
-      <div />
-      <div />
-      <div />
+      <MenuIcon className={styles.icon} />
     </ButtonBase>
   );
 };

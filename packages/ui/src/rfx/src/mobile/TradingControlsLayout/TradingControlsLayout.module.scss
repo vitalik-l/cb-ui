@@ -1,0 +1,38 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding-bottom: 1rem;
+  box-sizing: border-box;
+
+  .ticker {
+    font-size: 2rem;
+    width: 66%;
+    flex: 1;
+    min-height: 1px;
+  }
+
+  .circularIndicator {
+    margin: auto;
+    font-size: 0.9em;
+  }
+
+  .countdownWrap {
+    width: 16rem;
+    margin: auto;
+  }
+
+  .countdown {
+    font-size: 4em;
+  }
+
+  .connectionStatus {
+    margin-top: 1.5rem;
+  }
+}
+
+.bottom {
+  margin-top: -10rem;
+  text-align: center;
+}

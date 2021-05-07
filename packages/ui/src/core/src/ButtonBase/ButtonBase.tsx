@@ -2,11 +2,21 @@ import React from 'react';
 import clsx from 'clsx';
 
 // local files
+import { useClasses } from '../hooks/useClasses';
 import styles from './CoreButtonBase.module.scss';
+
+type ClassesType = {
+  root?: string;
+  disabled?: string;
+  label?: string;
+  selected?: string;
+};
 
 type Props<T extends React.ElementType> = {
   component?: T;
   href?: string;
+  selected?: boolean;
+  classes?: ClassesType;
 } & React.ComponentPropsWithRef<T>;
 
 export const ButtonBase = React.forwardRef(
@@ -21,9 +31,11 @@ export const ButtonBase = React.forwardRef(
       tabIndex,
       onClick,
       onKeyDown,
+      classes: classesProp,
+      selected,
       ...buttonProps
     } = props;
-
+    const classes: ClassesType = useClasses(styles, classesProp);
     const ComponentProp = component === 'button' && href ? 'a' : component;
     const otherProps: any = {};
 
@@ -64,9 +76,12 @@ export const ButtonBase = React.forwardRef(
       <ComponentProp
         type={ComponentProp === 'button' ? 'button' : null}
         tabIndex={disabled ? -1 : tabIndex}
-        className={clsx(styles.root, className, {
-          [styles.disabled]: disabled,
-        })}
+        className={clsx(
+          classes.root,
+          className,
+          disabled && classes.disabled,
+          selected && classes.selected,
+        )}
         role={ComponentProp === 'button' ? undefined : 'button'}
         ref={ref}
         href={href}
@@ -75,7 +90,7 @@ export const ButtonBase = React.forwardRef(
         {...buttonProps}
         {...otherProps}
       >
-        {children}
+        {!!classes.label ? <span className={classes.label}>{children}</span> : children}
       </ComponentProp>
     );
   },

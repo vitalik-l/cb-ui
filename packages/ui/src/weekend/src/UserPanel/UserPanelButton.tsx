@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import { Button } from '../Button';
 import styles from './WkdUserPanelButton.module.scss';
 
-type Props = {
+type Props = React.ComponentProps<'button'> & {
   component?: React.ElementType;
   className?: string;
   cropLeft?: boolean;

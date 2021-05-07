@@ -1,0 +1,9 @@
+$root: UserPanelItem;
+
+:global(.#{$root}) {
+  font-stretch: normal;
+}
+
+:export {
+  root: $root;
+}

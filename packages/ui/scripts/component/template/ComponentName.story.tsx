@@ -2,11 +2,11 @@ import React from 'react';
 import { Story } from '@storybook/react';
 
 // local files
-import { createStory } from '../../story';
+import { createStory } from 'StoryPath';
 import { ComponentName } from './index';
 
 const story = createStory({
-  title: 'ComponentName',
+  title: 'ComponentPathComponentName',
   component: ComponentName,
 });
 

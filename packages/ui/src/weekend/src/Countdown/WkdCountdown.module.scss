@@ -1,11 +1,10 @@
 $root: WkdCountdown;
 
-:global(.#{$root}) {
+.countdown {
   font-size: 5em;
   background-color: #1d2429;
   background-image: linear-gradient(0deg, transparent 0, rgba(0, 0, 0, 0.35));
   border-radius: 100px;
-  //box-shadow: inset 0 0.3rem 0.8rem rgba(0, 0, 0, 0.29);
   box-shadow: inset 0 min(0.6em, 6px) min(0.6em, 6px) min(0.6em, 6px) #111;
   font-weight: bold;
   border: 0.2rem inset #333;
@@ -15,7 +14,9 @@ $root: WkdCountdown;
 }
 
 .label {
-  font-family: HelveticaNeue-CondensedBold, Impact;
+  font-family: HelveticaNeue;
+  font-stretch: condensed;
+  font-weight: bold;
   text-transform: uppercase;
   text-align: center;
   font-size: 1.6em;

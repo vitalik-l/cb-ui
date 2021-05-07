@@ -60,7 +60,7 @@ export const ChipsStack = React.forwardRef((props: Props, ref: any) => {
         childrenRef.current[0].ontransitionstart = (event: any) => {
           if (event.propertyName !== 'opacity') return;
           if (onAnimationStart) onAnimationStart();
-        }
+        };
       }
     }
   }, [shouldAnimate, onAnimationStart]);
