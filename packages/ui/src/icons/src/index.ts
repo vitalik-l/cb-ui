@@ -19,3 +19,4 @@ export { TrendUpIcon } from './TrendUpIcon';
 export { ZoomInIcon } from './ZoomInIcon';
 export { ZoomOutIcon } from './ZoomOutIcon';
 export { WheelIcon } from './WheelIcon';
+export { ChartIcon } from './ChartIcon';

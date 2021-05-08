@@ -1,0 +1,10 @@
+@use '~@cb-general/core/styles/mixins' as *;
+
+.root {
+  display: inline-block;
+  background-image: url(./img/chart_icon.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  @include pxSizeToEm(63, 46);
+}

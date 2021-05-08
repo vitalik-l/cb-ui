@@ -17,7 +17,7 @@ const story = createStory({
 
 const Icon = ({ children }: any) => {
   const [copied, setCopied] = React.useState(false);
-  const componentName = `<${children.type.name} />`;
+  const componentName = `<${children.type.displayName} />`;
 
   const onClick = () => {
     copyToClipboard(componentName).then(() => setCopied(true));
