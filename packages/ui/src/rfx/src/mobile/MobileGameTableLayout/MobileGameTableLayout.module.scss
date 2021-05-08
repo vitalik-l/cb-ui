@@ -65,6 +65,7 @@ $root: MobileGameTableLayout;
   box-sizing: border-box;
   transform-origin: 50% 100%;
   will-change: transform;
+  pointer-events: all;
 }
 
 :global {
