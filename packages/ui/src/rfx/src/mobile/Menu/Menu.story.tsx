@@ -15,7 +15,7 @@ const story = createStory({
   },
 });
 
-export const MenuTemplate: Story = ({onViewChange, ...args}) => {
+export const MenuTemplate: Story = ({ onViewChange, ...args }) => {
   const [value, setValue] = React.useState('');
 
   const onChange = (value: any) => {

@@ -52,7 +52,7 @@ export const Template: Story = () => {
         tradingControls={<TradingControlsLayoutTemplate />}
         menu={<MenuTemplate onViewChange={setView} />}
         view={!!view && view !== 'trading' ? <div /> : undefined}
-        chart={<div style={{backgroundColor: 'gray', width: '100%', height: '100%'}} />}
+        chart={<div style={{ backgroundColor: 'gray', width: '100%', height: '100%' }} />}
       />
     </Root>
   );

@@ -1,0 +1,34 @@
+$root: OrientationAlert;
+
+:global {
+  .#{$root} {
+    display: none;
+    position: fixed;
+    font-size: 14px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 99999999;
+    background: black;
+    color: white;
+  }
+
+  @media (orientation: portrait) {
+    .#{$root} {
+      display: flex;
+    }
+  }
+}
+
+.icon {
+  font-size: 2em;
+  margin-bottom: 1rem;
+}
+
+:export {
+  root: $root;
+}

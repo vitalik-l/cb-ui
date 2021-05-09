@@ -53,7 +53,10 @@ export const Modal = (props: ModalProps) => {
   const classes: ClassesType = useClasses(styles, classesProp);
 
   const modal = open ? (
-    <div className={clsx(classes.overlay, overlayClassName, fixed && classes.fixed)} onClick={onOverlayClick}>
+    <div
+      className={clsx(classes.overlay, overlayClassName, fixed && classes.fixed)}
+      onClick={onOverlayClick}
+    >
       <div className={classes.wrapper}>
         <div
           className={clsx(classes.root, className)}
