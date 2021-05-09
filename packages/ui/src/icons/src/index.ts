@@ -20,3 +20,4 @@ export { ZoomInIcon } from './ZoomInIcon';
 export { ZoomOutIcon } from './ZoomOutIcon';
 export { WheelIcon } from './WheelIcon';
 export { ChartIcon } from './ChartIcon';
+export { RotatePortraitIcon } from './RotatePortraitIcon';

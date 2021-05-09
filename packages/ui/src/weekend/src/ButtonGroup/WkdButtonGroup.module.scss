@@ -40,9 +40,12 @@ $root: WkdButtonGroup;
     &:active,
     &.selected {
       color: #a7f541;
-      background-color: #323137;
       box-shadow: inset 0 0 0.8em 0.3em #1e1e1e,
         0 min(0.3em, 3px) min(0.3em, 3px) 0 rgb(0 0 0 / 70%);
+    }
+
+    &.selected {
+      background-color: #323137;
     }
   }
 }
