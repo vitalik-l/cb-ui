@@ -32,6 +32,7 @@ $root: MobileLayout;
 .chartContainer {
   flex: 1;
   min-height: 1px;
+  min-width: 1px;
   position: relative;
 }
 
@@ -99,7 +100,7 @@ $root: MobileLayout;
 }
 
 .chart {
-  height: 65%;
+  height: 70%;
   width: 100%;
 }
 
