@@ -40,7 +40,7 @@ $root: CoreModal;
 
 .overlay {
   box-sizing: content-box;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
@@ -48,6 +48,10 @@ $root: CoreModal;
   background-color: rgba(0, 0, 0, 0.8);
   overflow: auto;
   z-index: 1500;
+}
+
+.fixed {
+  position: fixed;
 }
 
 .wrapper {

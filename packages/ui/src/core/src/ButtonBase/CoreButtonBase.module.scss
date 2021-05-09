@@ -19,6 +19,7 @@ $root: CoreButtonBase;
   text-decoration: none;
   background-color: transparent;
   -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
   box-sizing: border-box;
 
   &:disabled,

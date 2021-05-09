@@ -11,6 +11,7 @@ type ClassesType = {
   root?: string;
   overlay?: string;
   wrapper?: string;
+  fixed?: string;
 };
 
 export type ModalProps = {
@@ -25,6 +26,7 @@ export type ModalProps = {
   transitionEnter?: boolean;
   transitionLeave?: boolean;
   classes?: ClassesType;
+  fixed?: boolean;
 };
 
 const onModalClick = (event: any) => {
@@ -45,12 +47,13 @@ export const Modal = (props: ModalProps) => {
     transitionEnter,
     transitionLeave,
     classes: classesProp,
+    fixed = true,
   } = props;
   let animatedModal = null;
   const classes: ClassesType = useClasses(styles, classesProp);
 
   const modal = open ? (
-    <div className={clsx(classes.overlay, overlayClassName)} onClick={onOverlayClick}>
+    <div className={clsx(classes.overlay, overlayClassName, fixed && classes.fixed)} onClick={onOverlayClick}>
       <div className={classes.wrapper}>
         <div
           className={clsx(classes.root, className)}
