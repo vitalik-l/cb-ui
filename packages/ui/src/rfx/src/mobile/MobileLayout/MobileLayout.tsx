@@ -72,7 +72,7 @@ export const MobileLayout = (props: Props) => {
 MobileLayout.defaultProps = {
   baseFontSize: 6.5,
   baseWidth: 798,
-  baseHeight: 449,
+  baseHeight: 400,
   minRatio: 4 / 3,
   maxRatio: 21 / 9,
 };

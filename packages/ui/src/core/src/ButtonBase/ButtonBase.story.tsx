@@ -4,6 +4,7 @@ import { Story } from '@storybook/react';
 // local files
 import { ButtonBase } from './index';
 import { createStory } from '../../story';
+import {ButtonBaseProvider} from './ButtonBaseProvider';
 
 const story = createStory({
   title: 'ButtonBase',
@@ -11,10 +12,17 @@ const story = createStory({
   argTypes: {
     className: { control: 'text' },
     disabled: { control: 'boolean' },
+    clickSound: { control: 'boolean' },
   },
 });
 
 export const Template: Story = (args) => <ButtonBase {...args}>Button</ButtonBase>;
 Template.storyName = 'ButtonBase';
+
+export const WithClickSound: Story = (args) => (
+  <ButtonBaseProvider clickSound={() => console.log('play sound')}>
+    <ButtonBase {...args}>Button</ButtonBase>
+  </ButtonBaseProvider>
+)
 
 export default story;

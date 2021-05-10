@@ -3,6 +3,7 @@ import clsx from 'clsx';
 
 // local files
 import { useClasses } from '../hooks/useClasses';
+import { useButtonBase } from './ButtonBaseProvider';
 import styles from './CoreButtonBase.module.scss';
 
 type ClassesType = {
@@ -17,6 +18,7 @@ type Props<T extends React.ElementType> = {
   href?: string;
   selected?: boolean;
   classes?: ClassesType;
+  clickSound?: () => any | false;
 } & React.ComponentPropsWithRef<T>;
 
 export const ButtonBase = React.forwardRef(
@@ -33,11 +35,14 @@ export const ButtonBase = React.forwardRef(
       onKeyDown,
       classes: classesProp,
       selected,
+      clickSound: clickSoundProp,
       ...buttonProps
     } = props;
     const classes: ClassesType = useClasses(styles, classesProp);
     const ComponentProp = component === 'button' && href ? 'a' : component;
     const otherProps: any = {};
+    const context = useButtonBase();
+    const clickSound = clickSoundProp === false ? clickSoundProp : context.clickSound;
 
     if (ComponentProp === 'button') {
       otherProps.type = type === undefined ? 'button' : type;
@@ -72,6 +77,16 @@ export const ButtonBase = React.forwardRef(
       [onClick, onKeyDown, ComponentProp, disabled],
     );
 
+    const handleClick = React.useCallback(
+      (event) => {
+        if (clickSound) {
+          clickSound();
+        }
+        if (onClick) onClick(event);
+      },
+      [clickSound, onClick],
+    );
+
     return (
       <ComponentProp
         type={ComponentProp === 'button' ? 'button' : null}
@@ -85,7 +100,7 @@ export const ButtonBase = React.forwardRef(
         role={ComponentProp === 'button' ? undefined : 'button'}
         ref={ref}
         href={href}
-        onClick={onClick}
+        onClick={handleClick}
         onKeyDown={handleKeyDown}
         {...buttonProps}
         {...otherProps}

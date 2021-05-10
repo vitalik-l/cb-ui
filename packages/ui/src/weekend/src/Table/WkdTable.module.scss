@@ -1,3 +1,4 @@
+@use '~@cb-general/core/styles/mixins' as *;
 $root: WkdTable;
 
 :global {
@@ -83,6 +84,8 @@ $root: WkdTable;
         vertical-align: middle;
         text-align: center;
         font-size: 1.3em;
+        white-space: nowrap;
+        padding: 0 toEm(10);
       }
     }
   }
