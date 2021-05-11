@@ -1,6 +1,7 @@
 .root {
   :global {
     @import '~@cb-general/core/styles';
+    @import '~@cb-general/weekend/styles';
     @import '../src/styles';
   }
 }
