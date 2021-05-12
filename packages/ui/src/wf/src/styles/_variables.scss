@@ -1,4 +1,11 @@
+$theme: 'wf' !default;
+
 $colorGreen: #a7f541 !default;
 $colorRed: #ff2727 !default;
 $colorOrange: #fdab01 !default;
 $colorYellow: #fff5a0 !default;
+
+@if $theme == 'galileo' {
+  $colorGreen: #07e275;
+  $colorRed: #cf0c66;
+}

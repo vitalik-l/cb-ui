@@ -18,20 +18,20 @@ const story = createStory({
 
 export const TradeButtonTemplate: Story = ({ textRight, ...args }) => (
   <TradeButton {...args}>
-    <div className={tradeButtonStyles.contentTop}>
+    <div className="d-flex justify-between align-center">
       <div>
-        <div className={tradeButtonStyles.typTrendAbove}>TREND {textRight ? 'DOWN' : 'UP'}</div>
+        <div className="font-bold">TREND {textRight ? 'DOWN' : 'UP'}</div>
         <div className={tradeButtonStyles.typTrend}>{textRight ? 'SELL' : 'BUY'}</div>
       </div>
       {textRight ? (
-        <TrendDownIcon className={tradeButtonStyles.icon} />
+        <TrendDownIcon className="size-em_3" />
       ) : (
-        <TrendUpIcon className={tradeButtonStyles.icon} />
+        <TrendUpIcon className="size-em_3" />
       )}
     </div>
-    <div className={clsx(tradeButtonStyles.contentBottom, { 'text-right': textRight })}>
+    <div className={clsx('mt-1', { 'text-right': textRight })}>
       <div>Potential payout</div>
-      <div className={tradeButtonStyles.typMoney}>$2.00</div>
+      <div className="font-bold size-em_1_8">$2.00</div>
     </div>
   </TradeButton>
 );
