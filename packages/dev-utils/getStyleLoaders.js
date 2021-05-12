@@ -4,10 +4,12 @@ const styleVariablesImporter = require('./styleVariablesImporter');
 
 const sassModuleRegex = /\.module\.(scss|sass)$/;
 
-const postCssLoader = [{
-  loader: 'postcss-loader',
-  plugins: () => [require('autoprefixer'), require('postcss-preset-env')],
-}];
+const postCssLoader = [
+  {
+    loader: 'postcss-loader',
+    plugins: () => [require('autoprefixer'), require('postcss-preset-env')],
+  },
+];
 
 const defaultOptions = {
   variables: {},
