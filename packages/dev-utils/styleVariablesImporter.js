@@ -1,10 +1,12 @@
 const path = require('path');
+const fs = require('fs');
 
 const commonVarsFile = path.resolve(__dirname, './src/styles/_variables.scss');
+console.log(commonVarsFile);
 
 const cache = {};
 const cacheExists = {
-  common: path.existsSync(commonVarsFile),
+  common: fs.existsSync(commonVarsFile),
 };
 
 function getVarsFile(lib, options) {
@@ -16,13 +18,14 @@ function getVarsFile(lib, options) {
   }
 
   const libVarsFile = path.resolve(__dirname, `./src/styles/variables/${lib}.scss`);
-  cacheExists[lib] = cacheExists[lib] !== undefined ? cacheExists[lib] : path.existsSync(libVarsFile);
+  cacheExists[lib] =
+    cacheExists[lib] !== undefined ? cacheExists[lib] : fs.existsSync(libVarsFile);
   if (cacheExists[lib]) {
     cache[lib] = libVarsFile;
     return cache[lib];
   }
 
-  if (options.common && path.existsSync(options.common)) {
+  if (options.common && fs.existsSync(options.common)) {
     cache[lib] = options.common;
     return cache[lib];
   }
@@ -33,11 +36,12 @@ function getVarsFile(lib, options) {
   }
 }
 
-export function styleVariablesImporter(options) {
+module.exports = function styleVariablesImporter(options) {
   if (!options) return;
   return (url, prev) => {
     const parsedUrl = url.parse('/');
-    const isVariables = parsedUrl[0] === '~@cb-general' && parsedUrl[parsedUrl.length - 1] === '_variables';
+    const isVariables =
+      parsedUrl[0] === '~@cb-general' && parsedUrl[parsedUrl.length - 1] === '_variables';
     const lib = parsedUrl[1];
 
     if (isVariables) {
@@ -47,5 +51,5 @@ export function styleVariablesImporter(options) {
       }
     }
     return null;
-  }
-}
+  };
+};

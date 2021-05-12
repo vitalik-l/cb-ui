@@ -1,9 +1,12 @@
 {
-  "name": "dev-utils",
+  "name": "@cb-general/dev-utils",
   "version": "1.0.0-alpha.1",
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
-    "react-dev-utils": "^11.0.4"
+    "react-dev-utils": "^11.0.4",
+    "autoprefixer": "9.6.0",
+    "postcss-preset-env": "6.6.0",
+    "postcss-loader": "3.0.0"
   }
 }
