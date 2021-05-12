@@ -1,7 +1,27 @@
 $root: GeTradeButton;
 
 :global(.#{$root}) {
-  // component styles
+  padding: 0.7em;
+
+  &.color_green {
+    box-shadow: 0 0 min(0.3em, 3px) min(0.1em, 1px) #07e275 inset;
+    border-color: #07e275 #00ae58 #00ae58;
+    background-image: linear-gradient(360deg, #00ae58, #07e275);
+
+    &:active {
+      background: #00ae58;
+    }
+  }
+
+  &.color_red {
+    box-shadow: 0 0 min(0.3em, 3px) min(0.1em, 1px) #cf0c66 inset;
+    border-color: #cf0c66 #990046 #990046;
+    background-image: linear-gradient(360deg, #990046, #cf0c66);
+
+    &:active {
+      background: #990046;
+    }
+  }
 }
 
 :export {

@@ -16,8 +16,8 @@ const story = createStory({
   },
 });
 
-export const TradeButtonTemplate: Story = ({ textRight, ...args }) => (
-  <TradeButton {...args}>
+export const TradeButtonTemplate: Story = ({ Component = TradeButton, textRight, ...args }) => (
+  <Component {...args}>
     <div className="d-flex justify-between align-center">
       <div>
         <div className="font-bold">TREND {textRight ? 'DOWN' : 'UP'}</div>
@@ -33,7 +33,7 @@ export const TradeButtonTemplate: Story = ({ textRight, ...args }) => (
       <div>Potential payout</div>
       <div className="font-bold size-em_1_8">$2.00</div>
     </div>
-  </TradeButton>
+  </Component>
 );
 TradeButtonTemplate.storyName = 'Trend Up';
 (TradeButtonTemplate as any).displayName = 'TradeButton';

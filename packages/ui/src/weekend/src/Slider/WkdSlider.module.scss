@@ -3,6 +3,17 @@
   $height: 1em,
   $thumbSize: 2em
 );
+@use '~@cb-general/weekend/styles/variables' as *;
+
+$sliderColor: false !default;
+$sliderLabelColor: #fff !default;
+$sliderBg: url(./img/inputrangeprogress.png) repeat-x;
+
+:global(.WkdSlider) {
+  @if $sliderColor {
+    color: $sliderColor;
+  }
+}
 
 .rail {
   background-color: #111;
@@ -15,8 +26,10 @@
 }
 
 .track {
-  background: url(./img/inputrangeprogress.png) repeat-x;
-  background-size: contain;
+  @if $sliderBg {
+    background: $sliderBg;
+    background-size: contain;
+  }
 }
 
 .thumb {
@@ -27,7 +40,7 @@
 }
 
 .valueLabel {
-  color: #fff;
+  color: $sliderLabelColor;
   background-image: linear-gradient(#7e797f, #535156);
   border-radius: 0.2em;
   position: absolute;

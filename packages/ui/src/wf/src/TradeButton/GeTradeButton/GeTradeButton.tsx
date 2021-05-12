@@ -1,13 +1,5 @@
-import React from 'react';
-import clsx from 'clsx';
-
+import { styled } from '@cb-general/core/utils/styled';
 // local files
+import { TradeButton } from '../TradeButton';
 import styles from './GeTradeButton.module.scss';
-
-type Props = React.ComponentProps<'div'>;
-
-export const GeTradeButton = (props: Props) => {
-  const { className, ...restProps } = props;
-
-  return <div className={clsx(styles.root, className)} {...restProps} />;
-};
+export const GeTradeButton = styled(TradeButton, styles);

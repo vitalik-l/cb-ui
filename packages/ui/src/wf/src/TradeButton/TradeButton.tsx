@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import { useClasses } from '@cb-general/core/hooks/useClasses';
 import { ButtonBase } from '@cb-general/core/ButtonBase';
 
 // local files
@@ -10,6 +11,7 @@ type Props = {
   children?: React.ReactNode;
   color?: 'default' | 'green' | 'red';
   active?: boolean;
+  classes?: any;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const TradeButton = (props: Props) => {
@@ -18,15 +20,18 @@ export const TradeButton = (props: Props) => {
     color = 'default',
     active = true,
     disabled: disabledProp,
+    classes: classesProp,
     ...restProps
   } = props;
 
+  const classes = useClasses(styles, classesProp);
+
   return (
     <ButtonBase
-      className={clsx(styles.root, className, {
-        [styles.colored]: color !== 'default',
-        [styles[`color_${color}`]]: !!color,
-        [styles.inactive]: !active,
+      className={clsx(classes.root, className, {
+        [classes.colored]: color !== 'default',
+        [classes[`color_${color}`]]: !!color,
+        [classes.inactive]: !active,
       })}
       disabled={disabledProp || !active}
       {...restProps}
