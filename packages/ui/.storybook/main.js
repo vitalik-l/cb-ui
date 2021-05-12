@@ -22,6 +22,7 @@ module.exports = {
       ...config.resolve.alias,
       '@cb-general/core': path.resolve(__dirname, '../src/core/src/'),
       '@cb-general/weekend': path.resolve(__dirname, '../src/weekend/src/'),
+      '@cb-general/wf': path.resolve(__dirname, '../src/wf/src/'),
     };
     return config;
   },

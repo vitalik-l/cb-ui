@@ -5,7 +5,7 @@ import { Story } from '@storybook/react';
 import { createStory } from '../../../story';
 import { ChartLayout } from './index';
 import { IconButton } from '../../../../flat/src/IconButton';
-import { CircleMenuIcon } from '../../../../flat/src/icons';
+import { CircleMenuIcon } from '../../../../icons/src';
 
 const story = createStory({
   title: 'mobile/ChartLayout',

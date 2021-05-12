@@ -7,7 +7,7 @@ import { createStory } from '../../../story';
 import { AppLayout } from './index';
 import { Header } from '../../../../flat/src/Header';
 import { IconButton } from '../../../../flat/src/IconButton';
-import { CircleMenuIcon, MenuIcon } from '../../../../flat/src/icons';
+import { CircleMenuIcon, MenuIcon } from '../../../../icons/src';
 import { Logo } from '../../Logo';
 import { ChartLayout } from '../ChartLayout';
 import { TradeRow } from '../TradeRow';

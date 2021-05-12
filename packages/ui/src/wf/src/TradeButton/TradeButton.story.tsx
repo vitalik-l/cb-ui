@@ -1,11 +1,12 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 import clsx from 'clsx';
-import { TrendDownIcon, TrendUpIcon } from '@cb-general/weekend/icons';
+import { TrendDownIcon, TrendUpIcon } from '@cb-general/icons';
 
 // local files
 import { createStory } from '../../story';
-import { TradeButton, tradeButtonStyles } from './index';
+import { TradeButton } from './index';
+import tradeButtonStyles from './WfTradeButton.module.scss';
 
 const story = createStory({
   title: 'TradeButton',
