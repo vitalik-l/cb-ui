@@ -1,11 +1,19 @@
 import React from 'react';
 import clsx from 'clsx';
 import { animate } from '@cb-general/core/utils/animate';
+import { useClasses } from '@cb-general/core/hooks/useClasses';
 
 // local files
 import { imageUpGradient } from './imageUpGradient';
 import { imageDownGradient } from './imageDownGradient';
 import styles from './WkdCircularIndicator.module.scss';
+
+type ClassesType = {
+  root?: string;
+  content?: string;
+  reverse?: string;
+  [key: string]: any;
+};
 
 type Props = {
   className?: string;
@@ -13,6 +21,9 @@ type Props = {
   children?: React.ReactNode;
   progress?: number;
   animDuration?: number;
+  classes?: ClassesType;
+  gradientUp?: string;
+  gradientDown?: string;
 };
 
 const SEGMENTS = 439;
@@ -24,12 +35,16 @@ export const CircularIndicator = (props: Props) => {
     children,
     progress: progressProp = 0,
     animDuration = 500,
+    classes: classesProp,
+    gradientUp = imageUpGradient,
+    gradientDown = imageDownGradient,
     ...restProps
   } = props;
   const indicatorRef = React.useRef(null);
   const [progress, setProgress] = React.useState(0);
   const isLoss = (reverse ? progress : progressProp) < 0;
   const stroke = isLoss ? 'url(#redGrad)' : 'url(#greenGrad)';
+  const classes: ClassesType = useClasses(styles, classesProp);
 
   const targetProgress = React.useMemo(() => {
     if (reverse) {
@@ -53,7 +68,7 @@ export const CircularIndicator = (props: Props) => {
   }, [animDuration, targetProgress]); // eslint-disable-line
 
   return (
-    <div className={clsx(styles.root, className)} {...restProps}>
+    <div className={clsx(classes.root, className)} {...restProps}>
       <svg height="100%" width="100%" viewBox="0 0 190 190">
         <defs>
           <pattern
@@ -64,7 +79,7 @@ export const CircularIndicator = (props: Props) => {
             width="100%"
             height="100%"
           >
-            <image x="0" y="0" width="100%" height="100%" href={imageUpGradient} />
+            <image x="0" y="0" width="100%" height="100%" href={gradientUp} />
           </pattern>
           <pattern
             id="redGrad"
@@ -79,8 +94,8 @@ export const CircularIndicator = (props: Props) => {
               y="0"
               width="100%"
               height="100%"
-              href={imageDownGradient}
-              className={clsx({ [styles.reverse]: reverse })}
+              href={gradientDown}
+              className={clsx(reverse && classes.reverse )}
             />
           </pattern>
         </defs>
@@ -93,7 +108,7 @@ export const CircularIndicator = (props: Props) => {
           ref={indicatorRef}
         />
       </svg>
-      <div className={styles.content}>{children}</div>
+      <div className={classes.content}>{children}</div>
     </div>
   );
 };
