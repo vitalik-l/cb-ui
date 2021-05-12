@@ -1,0 +1,9 @@
+{
+  "name": "dev-utils",
+  "version": "1.0.0-alpha.1",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "react-dev-utils": "^11.0.4"
+  }
+}
