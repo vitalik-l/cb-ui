@@ -1,2 +1,2 @@
 export { TradeButton } from './TradeButton';
-export { TradeButton as default } from './TradeButton';
+export { GeTradeButton } from './GeTradeButton';

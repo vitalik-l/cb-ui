@@ -1,3 +1,5 @@
+@use '~@cb-general/weekend/styles/variables' as *;
+
 $root: WkdButton;
 
 :global {
@@ -22,7 +24,7 @@ $root: WkdButton;
     }
 
     &:hover {
-      color: #7aaf34;
+      color: $colorGreen;
     }
   }
 }
