@@ -7,7 +7,7 @@
 
 $sliderColor: false !default;
 $sliderLabelColor: #fff !default;
-$sliderBg: url(./img/inputrangeprogress.png) repeat-x;
+$sliderBg: url(./img/inputrangeprogress.png) repeat-x !default;
 
 :global(.WkdSlider) {
   @if $sliderColor {
