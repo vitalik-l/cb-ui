@@ -13,7 +13,12 @@ const story = createStory({
   },
 });
 
-export const CircularIndicatorTemplate: Story = ({ Component = CircularIndicator, ButtonComponent = CircularIndicatorButton, text, ...args }: any) => (
+export const CircularIndicatorTemplate: Story = ({
+  Component = CircularIndicator,
+  ButtonComponent = CircularIndicatorButton,
+  text,
+  ...args
+}: any) => (
   <Component {...args}>
     <ButtonComponent>{text}</ButtonComponent>
   </Component>

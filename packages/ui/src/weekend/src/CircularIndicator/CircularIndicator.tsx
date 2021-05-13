@@ -95,7 +95,7 @@ export const CircularIndicator = (props: Props) => {
               width="100%"
               height="100%"
               href={gradientDown}
-              className={clsx(reverse && classes.reverse )}
+              className={clsx(reverse && classes.reverse)}
             />
           </pattern>
         </defs>

@@ -4,7 +4,9 @@ import { Story } from '@storybook/react';
 // local files
 import { createStory } from '../../story';
 import { GeCircularIndicator, GeCircularIndicatorButton } from './index';
-import CircularIndicatorStoryConfig, { CircularIndicatorTemplate } from '../../../weekend/src/CircularIndicator/CircularIndicator.story';
+import CircularIndicatorStoryConfig, {
+  CircularIndicatorTemplate,
+} from '../../../weekend/src/CircularIndicator/CircularIndicator.story';
 
 const story = createStory({
   title: 'GeCircularIndicator',
@@ -12,7 +14,13 @@ const story = createStory({
   argTypes: CircularIndicatorStoryConfig.argTypes,
 });
 
-export const Template: Story = (args) => <CircularIndicatorTemplate Component={GeCircularIndicator} ButtonComponent={GeCircularIndicatorButton} {...args} />;
+export const Template: Story = (args) => (
+  <CircularIndicatorTemplate
+    Component={GeCircularIndicator}
+    ButtonComponent={GeCircularIndicatorButton}
+    {...args}
+  />
+);
 Template.storyName = 'GeCircularIndicator';
 
 export default story;

@@ -11,10 +11,12 @@ const story = createStory({
   component: GeTradeButton,
   argTypes: {
     Component: { control: null },
-  }
+  },
 });
 
-export const GeTradeButtonTemplate: Story = (args) => <TradeButtonTemplate Component={GeTradeButton} {...args} />;
+export const GeTradeButtonTemplate: Story = (args) => (
+  <TradeButtonTemplate Component={GeTradeButton} {...args} />
+);
 GeTradeButtonTemplate.storyName = 'GeTradeButton';
 
 export default story;

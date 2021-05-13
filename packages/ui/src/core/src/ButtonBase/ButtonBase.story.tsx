@@ -4,7 +4,7 @@ import { Story } from '@storybook/react';
 // local files
 import { ButtonBase } from './index';
 import { createStory } from '../../story';
-import {ButtonBaseProvider} from './ButtonBaseProvider';
+import { ButtonBaseProvider } from './ButtonBaseProvider';
 
 const story = createStory({
   title: 'ButtonBase',
@@ -23,6 +23,6 @@ export const WithClickSound: Story = (args) => (
   <ButtonBaseProvider clickSound={() => console.log('play sound')}>
     <ButtonBase {...args}>Button</ButtonBase>
   </ButtonBaseProvider>
-)
+);
 
 export default story;
