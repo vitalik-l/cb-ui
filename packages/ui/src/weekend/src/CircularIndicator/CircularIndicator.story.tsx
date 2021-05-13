@@ -13,10 +13,10 @@ const story = createStory({
   },
 });
 
-export const CircularIndicatorTemplate: Story = ({ text, ...args }: any) => (
-  <CircularIndicator {...args}>
-    <CircularIndicatorButton>{text}</CircularIndicatorButton>
-  </CircularIndicator>
+export const CircularIndicatorTemplate: Story = ({ Component = CircularIndicator, ButtonComponent = CircularIndicatorButton, text, ...args }: any) => (
+  <Component {...args}>
+    <ButtonComponent>{text}</ButtonComponent>
+  </Component>
 );
 CircularIndicatorTemplate.storyName = 'CircularIndicator';
 CircularIndicatorTemplate.args = {

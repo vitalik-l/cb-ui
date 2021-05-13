@@ -1,0 +1,29 @@
+$root: GeCircularIndicatorButton;
+
+:global(.#{$root}) {
+  background-image: url(./img/green_button.png);
+
+  &:hover {
+    box-shadow: 0 0 1.2em 0.2em lime;
+  }
+
+  &:active {
+    background: #00ae58;
+  }
+}
+
+.color_red {
+  background-image: url(./img/red_button.png);
+
+  &:hover {
+    box-shadow: 0 0 1.2em 0.2em orange;
+  }
+
+  &:active {
+    background: #990046;
+  }
+}
+
+:export {
+  root: $root;
+}
