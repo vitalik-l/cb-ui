@@ -1,0 +1,17 @@
+@use '~@cb-general/weekend/styles/variables' as *;
+
+$theme: false !default;
+$sliderHeight: 1em !default;
+$sliderColor: false !default;
+$sliderLabelColor: #fff !default;
+$sliderBg: #111 !default;
+$sliderTrackBg: url(./img/inputrangeprogress.png) repeat-x !default;
+$sliderBorder: min(0.2em, 2px) solid #5e5e62 !default;
+
+@if $theme == 'galileo' {
+  $sliderHeight: 0.7em;
+  $sliderColor: #cf0c66;
+  $sliderBg: linear-gradient(90deg, #cf0c66 0, #d7281c 25%, #be7e15 50%, #07e275 75%, #07e275);
+  $sliderTrackBg: false;
+  $sliderBorder: false;
+}

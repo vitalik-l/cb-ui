@@ -1,33 +1,31 @@
+@use './variables' as *;
 @use '~@cb-general/core/Slider/Slider.module' as * with (
   $root: WkdSlider,
-  $height: 1em,
+  $height: $sliderHeight,
   $thumbSize: 2em
 );
-@use '~@cb-general/weekend/styles/variables' as *;
 
-$sliderColor: false !default;
-$sliderLabelColor: #fff !default;
-$sliderBg: url(./img/inputrangeprogress.png) repeat-x !default;
-
-:global(.WkdSlider) {
+:global(.#{$root}) {
   @if $sliderColor {
     color: $sliderColor;
   }
 }
 
 .rail {
-  background-color: #111;
+  background: $sliderBg;
 }
 
 .rail,
 .track {
   border-radius: 10px;
-  border: min(0.2em, 2px) solid #5e5e62;
+  @if $sliderBorder {
+    border: $sliderBorder;
+  }
 }
 
 .track {
-  @if $sliderBg {
-    background: $sliderBg;
+  @if $sliderTrackBg {
+    background: $sliderTrackBg;
     background-size: contain;
   }
 }
@@ -44,7 +42,7 @@ $sliderBg: url(./img/inputrangeprogress.png) repeat-x !default;
   background-image: linear-gradient(#7e797f, #535156);
   border-radius: 0.2em;
   position: absolute;
-  top: 0;
+  top: -0.2em;
   left: 50%;
   transform: translate(-50%, -115%);
   min-width: 100%;
