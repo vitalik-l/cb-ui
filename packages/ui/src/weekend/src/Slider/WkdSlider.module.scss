@@ -1,4 +1,12 @@
-@use './variables' as *;
+@use '~@cb-general/weekend/styles/variables' as *;
+
+$sliderHeight: 1em !default;
+$sliderColor: false !default;
+$sliderLabelColor: #fff !default;
+$sliderBg: #111 !default;
+$sliderTrackBg: url(./img/inputrangeprogress.png) repeat-x !default;
+$sliderBorder: min(0.2em, 2px) solid #5e5e62 !default;
+
 @use '~@cb-general/core/Slider/Slider.module' as * with (
   $root: WkdSlider,
   $height: $sliderHeight,
