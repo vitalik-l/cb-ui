@@ -14,8 +14,8 @@ $tradingPanelActiveColor: #6fc103 !default;
 }
 
 .active {
-  box-shadow: 0 min(0.1em, 1px) min(0.2em, 2px) min(0.1em, 1px) #111, min(0.7em, 7px) 0 0 0 $tradingPanelActiveColor,
-    max(-0.7em, -7px) 0 0 0 $tradingPanelActiveColor;
+  box-shadow: 0 min(0.1em, 1px) min(0.2em, 2px) min(0.1em, 1px) #111,
+    min(0.7em, 7px) 0 0 0 $tradingPanelActiveColor, max(-0.7em, -7px) 0 0 0 $tradingPanelActiveColor;
   cursor: default;
 
   &:before {

@@ -17,9 +17,16 @@ import { TradingControlsLayoutTemplate } from '../TradingControlsLayout/TradingC
 const story = createStory({
   title: 'mobile/MobileLayout',
   component: MobileLayout,
+  style: {
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });
 
-export const Template: Story = () => {
+const MobileApp = () => {
   const [menuOpen, setMenuOpen] = React.useState(false);
   const [view, setView] = React.useState();
 
@@ -28,34 +35,36 @@ export const Template: Story = () => {
   };
 
   return (
-    <Root>
-      <MobileLayout
-        onCloseMenu={onCloseMenu}
-        menuOpen={menuOpen}
-        header={
-          <Header>
-            <HeaderItem>
-              <UserPanel>
-                <UserPanelItem>Balance</UserPanelItem>
-                <UserPanelItem>10$</UserPanelItem>
-                <UserPanelButton
-                  component={MenuButton}
-                  cropLeft
-                  onClick={() => setMenuOpen(!menuOpen)}
-                />
-              </UserPanel>
-            </HeaderItem>
-          </Header>
-        }
-        chartControls={<ChartControlsTemplate />}
-        gameTable={<MobileGameTableLayoutTemplate />}
-        tradingControls={<TradingControlsLayoutTemplate />}
-        menu={<MenuTemplate onViewChange={setView} />}
-        view={!!view && view !== 'trading' ? <div /> : undefined}
-        chart={<div style={{ backgroundColor: 'gray', width: '100%', height: '100%' }} />}
-      />
-    </Root>
+    <MobileLayout
+      onCloseMenu={onCloseMenu}
+      menuOpen={menuOpen}
+      header={
+        <Header>
+          <HeaderItem>
+            <UserPanel>
+              <UserPanelItem>Balance</UserPanelItem>
+              <UserPanelItem>10$</UserPanelItem>
+              <UserPanelButton
+                component={MenuButton}
+                cropLeft
+                onClick={() => setMenuOpen(!menuOpen)}
+              />
+            </UserPanel>
+          </HeaderItem>
+        </Header>
+      }
+      chartControls={<ChartControlsTemplate />}
+      gameTable={<MobileGameTableLayoutTemplate />}
+      tradingControls={<TradingControlsLayoutTemplate />}
+      menu={<MenuTemplate onViewChange={setView} />}
+      view={!!view && view !== 'trading' ? <div /> : undefined}
+      chart={<div style={{ backgroundColor: 'gray', width: '100%', height: '100%' }} />}
+    />
   );
+};
+
+export const Template: Story = () => {
+  return <Root MobileApp={MobileApp} />;
 };
 Template.storyName = 'MobileLayout';
 
