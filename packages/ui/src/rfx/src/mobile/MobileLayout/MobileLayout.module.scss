@@ -16,6 +16,7 @@ $root: MobileLayout;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  transform: translateZ(0);
 }
 
 .content {
@@ -63,6 +64,7 @@ $root: MobileLayout;
   height: 100%;
   width: 40%;
   transform: translateX(100%);
+  will-change: transform;
 }
 
 .menuOverlay {
