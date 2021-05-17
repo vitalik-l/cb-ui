@@ -1,9 +1,9 @@
 import React from 'react';
 import clsx from 'clsx';
 import { ButtonBase } from '@cb-general/core/ButtonBase';
+import { NavIcon } from '@cb-general/icons/NavIcon';
 
 // local files
-import { NavIcon } from '../icons';
 import styles from './FlatMenuHeaderButton.module.scss';
 
 export const MenuHeaderButton = (props: any) => {

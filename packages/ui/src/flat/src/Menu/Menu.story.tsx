@@ -5,7 +5,7 @@ import { Story } from '@storybook/react';
 import { createStory } from '../../story';
 import { Menu, MenuHeader, MenuItemButton, MenuHeaderButton, MenuContent } from './index';
 import { IconButton } from '../IconButton';
-import { CloseIcon } from '../icons';
+import { CloseIcon } from '../../../icons/src';
 
 const story = createStory({
   title: 'Menu',

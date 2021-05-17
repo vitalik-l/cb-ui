@@ -4,7 +4,7 @@ import { Story } from '@storybook/react';
 // local files
 import { createStory } from '../../story';
 import { IconButton } from './index';
-import { CloseIcon } from '../icons';
+import { CloseIcon } from '../../../icons/src';
 
 const story = createStory({
   title: 'IconButton',

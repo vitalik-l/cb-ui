@@ -2,10 +2,10 @@ import React from 'react';
 import clsx from 'clsx';
 import { ButtonBase } from '@cb-general/core/ButtonBase';
 import { useClasses } from '@cb-general/core/hooks/useClasses';
+import { NavIcon } from '@cb-general/icons/NavIcon';
 
 // local files
 import { MenuItem } from './MenuItem';
-import { NavIcon } from '../icons';
 import styles from './FlatMenuItemButton.module.scss';
 
 export const MenuItemButton = (props: any) => {
