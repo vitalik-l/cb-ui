@@ -2,7 +2,6 @@
 
 $sliderHeight: 1em !default;
 $sliderColor: false !default;
-$sliderLabelColor: #fff !default;
 $sliderBg: #111 !default;
 $sliderTrackBg: url(./img/inputrangeprogress.png) repeat-x !default;
 $sliderBorder: min(0.2em, 2px) solid #5e5e62 !default;
@@ -43,32 +42,6 @@ $sliderBorder: min(0.2em, 2px) solid #5e5e62 !default;
   background-size: contain;
   box-shadow: 0 min(0.2em, 2px) min(0.3em, 3px) 0 rgb(0 0 0 / 60%);
   border-radius: 50%;
-}
-
-.valueLabel {
-  color: $sliderLabelColor;
-  background-image: linear-gradient(#7e797f, #535156);
-  border-radius: 0.2em;
-  position: absolute;
-  top: -0.2em;
-  left: 50%;
-  transform: translate(-50%, -115%);
-  min-width: 100%;
-  text-align: center;
-  padding: 0.2em 0.1em;
-
-  &:after {
-    content: ' ';
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-left: 0.5em solid transparent;
-    border-right: 0.5em solid transparent;
-    border-top: 0.5em solid #545257;
-    left: 50%;
-    bottom: 1px; // keep px
-    transform: translate(-50%, 100%);
-  }
 }
 
 :export {

@@ -14,11 +14,12 @@ export const ValueLabel = (props: any) => {
   return React.cloneElement(
     children,
     {
-      className: clsx(children.props.className, {
-        [classes.open]: open || valueLabelDisplay === 'on',
-      }),
+      className: clsx(
+        children.props.className,
+        (open || valueLabelDisplay === 'on') && classes.open,
+      ),
     },
-    <span className={clsx(className, classes.offset)}>
+    <span className={clsx(className, classes.root, classes.offset)}>
       <span className={classes.textWrap}>
         <span className={classes.text}>{value || 0}</span>
       </span>

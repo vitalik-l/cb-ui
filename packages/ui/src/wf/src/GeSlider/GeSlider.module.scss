@@ -1,0 +1,21 @@
+@import '~@cb-general/wf/styles/variables-galileo';
+
+$root: GeSlider;
+
+:global(.#{$root}) {
+  .track {
+    background: linear-gradient(rgb(131, 247, 172) 0%, rgb(7, 218, 110) 80%, transparent);
+    height: 0.5em;
+    top: 0.8em;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+  }
+
+  .valueLabel {
+    color: $colorGreen;
+  }
+}
+
+:export {
+  root: $root;
+}

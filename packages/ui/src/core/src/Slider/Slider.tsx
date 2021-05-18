@@ -537,13 +537,14 @@ export const Slider = React.forwardRef<any, any>((props, ref) => {
         ref={handleRef}
         className={clsx(
           classes.root,
+          !!color && [classes[`color_${color}`]],
+          track === false && classes.trackFalse,
+          track === 'inverted' && classes.trackInverted,
+          classes.vertical && orientation === 'vertical',
           {
-            [classes[`color_${color}`]]: color,
             [classes.disabled]: disabled,
-            [classes.marked]: marks.length > 0 && marks.some((mark: any) => mark.label),
-            [classes.vertical]: orientation === 'vertical',
-            [classes.trackInverted]: track === 'inverted',
-            [classes.trackFalse]: track === false,
+            [classes.marked]:
+              classes.marked && marks.length > 0 && marks.some((mark: any) => mark.label),
           },
           className,
         )}
@@ -616,12 +617,13 @@ export const Slider = React.forwardRef<any, any>((props, ref) => {
               disabled={disabled}
             >
               <ThumbComponent
-                className={clsx(classes.thumb, {
-                  [classes[`thumbColor_${color}`]]: color,
-                  [classes.thumbActive]: active === index,
-                  [classes.disabled]: disabled,
-                  [classes.thumbFocus]: focusVisible === index,
-                })}
+                className={clsx(
+                  classes.thumb,
+                  !!color && classes[`thumbColor_${color}`],
+                  focusVisible === index && classes.thumbFocus,
+                  active === index && classes.thumbActive,
+                  disabled && classes.disabled,
+                )}
                 tabIndex={disabled ? null : 0}
                 role="slider"
                 style={style}
