@@ -24,12 +24,22 @@ type Props = {
 } & React.SelectHTMLAttributes<HTMLSelectElement>;
 
 export const Select = React.forwardRef((props: Props, ref: any) => {
-  const { className, disabled, invalid, fullWidth, input, classes: classesProp, ...selectOptions } = props;
+  const {
+    className,
+    disabled,
+    invalid,
+    fullWidth,
+    input,
+    classes: classesProp,
+    ...selectOptions
+  } = props;
   const classes: ClassesType = useClasses(styles, classesProp);
 
   return (
     <div
-      className={clsx(classes.root, className,
+      className={clsx(
+        classes.root,
+        className,
         disabled && classes.disabled,
         invalid && classes.invalid,
         fullWidth && classes.fullWidth,

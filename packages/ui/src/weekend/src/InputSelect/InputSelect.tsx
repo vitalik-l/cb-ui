@@ -1,5 +1,4 @@
 import React from 'react';
-import clsx from 'clsx';
 import { Input } from '@cb-general/core/Input';
 import { useControlled } from '@cb-general/core/hooks/useControlled';
 
@@ -15,10 +14,17 @@ type Props<T extends React.ElementType> = React.ComponentProps<typeof Select> & 
 const inputClasses = {
   root: styles.inputRoot,
   input: styles.inputItem,
-}
+};
 
 export const InputSelect = <T extends React.ElementType>(props: Props<T>) => {
-  const { InputComponent = Input, value: valueProp, defaultValue, onChange, inputProps, ...restProps } = props;
+  const {
+    InputComponent = Input,
+    value: valueProp,
+    defaultValue,
+    onChange,
+    inputProps,
+    ...restProps
+  } = props;
   const [value, setValue] = useControlled({
     controlled: valueProp,
     default: defaultValue,
@@ -31,7 +37,7 @@ export const InputSelect = <T extends React.ElementType>(props: Props<T>) => {
     if (onChange) {
       onChange(value);
     }
-  }
+  };
 
   return (
     <Select
