@@ -1,0 +1,29 @@
+$root: InputSelect;
+
+:global(.#{$root}) {
+}
+
+.inputRoot {
+  position: absolute;
+  width: calc(100% - 1.8em);
+  height: 100%;
+  border-radius: inherit;
+  padding: 4px 0 2px 2px;
+  box-sizing: border-box;
+}
+
+.inputItem {
+  display: block;
+  font-size: 1em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: currentColor;
+  height: 100%;
+  background-color: #d3d3d3;
+  border-radius: inherit;
+  padding-left: 0.4em;
+}
+
+:export {
+  root: $root;
+}
