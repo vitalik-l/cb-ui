@@ -7,6 +7,13 @@ $root: WkdSelect;
   color: #4f4f4f;
   height: fit-content;
   border-radius: min(0.4em, 4px);
+
+  .disabled,
+  .select:disabled {
+    background-color: #999;
+    color: #555;
+    opacity: 1;
+  }
 }
 
 .fullWidth {
@@ -14,8 +21,6 @@ $root: WkdSelect;
 }
 
 .disabled {
-  background-color: #999;
-  color: #555;
   pointer-events: none;
 }
 

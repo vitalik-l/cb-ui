@@ -1,6 +1,9 @@
 $root: InputSelect;
 
-:global(.#{$root}) {
+.disabled {
+  .inputItem {
+    background-color: #999;
+  }
 }
 
 .inputRoot {
@@ -21,7 +24,7 @@ $root: InputSelect;
   height: 100%;
   background-color: #d3d3d3;
   border-radius: inherit;
-  padding-left: 0.4em;
+  padding-left: 0.2em;
 }
 
 :export {

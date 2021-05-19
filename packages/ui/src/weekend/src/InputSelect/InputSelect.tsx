@@ -9,6 +9,7 @@ import styles from './InputSelect.module.scss';
 type Props<T extends React.ElementType> = React.ComponentProps<typeof Select> & {
   InputComponent?: T;
   inputProps?: React.ComponentProps<T>;
+  disabled?: boolean;
 };
 
 const inputClasses = {
@@ -34,8 +35,9 @@ export const InputSelect = <T extends React.ElementType>(props: Props<T>) => {
   const handleChange = (event: any) => {
     const value = event.target.value;
     setValue(value);
+
     if (onChange) {
-      onChange(value);
+      onChange(event);
     }
   };
 

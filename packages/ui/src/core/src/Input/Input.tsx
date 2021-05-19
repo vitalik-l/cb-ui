@@ -24,6 +24,7 @@ export type InputProps = {
   classes?: ClassesType;
   button?: React.ReactElement;
   multiline?: boolean;
+  numeric?: boolean;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
 export const Input = React.forwardRef((props: InputProps, ref: any) => {
@@ -37,11 +38,28 @@ export const Input = React.forwardRef((props: InputProps, ref: any) => {
     classes: classesProp,
     button,
     multiline,
+    numeric = false,
+    onKeyDown,
     ...inputProps
   } = props;
   const { value, defaultValue } = inputProps;
   const InputComponent = multiline ? 'textarea' : component;
   const classes: ClassesType = useClasses(styles, classesProp);
+
+  // allow only numeric values
+  const numericKeyDownHandler = React.useCallback((event: any) => {
+    const key = event.key;
+    const value = event.target.value;
+    if (
+      key.length === 1 &&
+      ((key === '.' && (value.indexOf('.') !== -1 || !value.length)) || !/^[0-9.]/.test(key))
+    ) {
+      event.preventDefault();
+    }
+    if (onKeyDown) {
+      onKeyDown(event);
+    }
+  }, [onKeyDown]);
 
   return (
     <div
@@ -58,6 +76,7 @@ export const Input = React.forwardRef((props: InputProps, ref: any) => {
         ref={inputRef}
         placeholder={placeholder}
         title={value || defaultValue}
+        onKeyDown={numeric ? numericKeyDownHandler : onKeyDown}
         {...inputProps}
       />
       {!!button && React.cloneElement(button, { className: classes.button })}

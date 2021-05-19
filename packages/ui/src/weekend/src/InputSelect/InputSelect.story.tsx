@@ -8,6 +8,9 @@ import { InputSelect } from './index';
 const story = createStory({
   title: 'InputSelect',
   component: InputSelect,
+  argTypes: {
+    disabled: { control: 'boolean' },
+  },
 });
 
 export const Template: Story = (args) => (
