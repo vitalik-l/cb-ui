@@ -1,9 +1,10 @@
 // local files
+import packageJson from '../package.json';
 import { createStoryFactory } from '../../createStoryFactory';
 import styles from './story.module.scss';
 
 const { createStory } = createStoryFactory({
-  titlePrefix: 'icons/',
+  titlePrefix: `icons ${packageJson.version}/`,
   className: styles.root,
   parameters: {
     backgrounds: {
