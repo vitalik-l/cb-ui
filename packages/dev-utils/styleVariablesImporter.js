@@ -51,9 +51,12 @@ module.exports = function styleVariablesImporter(options = {}) {
         if (replace) {
           return { file: varsFile };
         }
+        if (url === `~@cb-general/${lib}/importer/variables`) {
+          return { file: varsFile };
+        }
         const contents = cacheContent[varsFile] || [
           `@import "${url}";`,
-          `${fs.readFileSync(varsFile, 'utf-8')}`,
+          `@import "~@cb-general/${lib}/importer/variables"`,
         ].join('');
 
         if (!cacheContent[varsFile]) cacheContent[varsFile] = contents;
