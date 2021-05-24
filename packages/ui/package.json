@@ -4,8 +4,8 @@
   "private": true,
   "dependencies": {
     "@cb-general/core": "./lib/core",
-    "@cb-general/weekend": "./lib/weekend",
     "@cb-general/icons": "./lib/icons",
+    "@cb-general/weekend": "./lib/weekend",
     "@popperjs/core": "^2.8.3",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -66,6 +66,7 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.12.7",
+    "@cb-general/dev-utils": "^1.0.3",
     "@storybook/addon-actions": "^6.1.14",
     "@storybook/addon-essentials": "^6.1.14",
     "@storybook/addon-links": "^6.1.14",

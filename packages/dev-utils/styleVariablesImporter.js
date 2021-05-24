@@ -3,6 +3,7 @@ const fs = require('fs');
 
 const cache = {};
 const cacheExists = {};
+const cacheContent = {};
 
 function getVarsFile(lib, options) {
   if (cache[lib]) return cache[lib];
@@ -30,7 +31,7 @@ function getVarsFile(lib, options) {
 
 module.exports = function styleVariablesImporter(options = {}) {
   if (!options) return;
-  const { stylesPath, common } = options;
+  const { stylesPath, common, replace = false } = options;
 
   if (common === undefined) {
     const commonVarsFile = path.resolve(stylesPath, '_variables.scss');
@@ -46,8 +47,20 @@ module.exports = function styleVariablesImporter(options = {}) {
     const lib = parsedUrl[1];
     if (isVariables) {
       const varsFile = getVarsFile(lib, options);
-      if (varsFile && prev !== varsFile) {
-        return { file: varsFile };
+      if (varsFile && prev !== varsFile && prev !== url) {
+        if (replace) {
+          return { file: varsFile };
+        }
+        const contents = cacheContent[varsFile] || [
+          `@import "${url}";`,
+          `${fs.readFileSync(varsFile, 'utf-8')}`,
+        ].join('');
+
+        if (!cacheContent[varsFile]) cacheContent[varsFile] = contents;
+
+        return {
+          contents,
+        }
       }
     }
     return null;
