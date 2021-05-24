@@ -1,4 +1,8 @@
+@use '~@cb-general/weekend/styles/variables' as *;
+
 $root: WkdUserPanel;
+
+$userPanelBorderColor: #daa520 #daa520 gold #daa520 !default;
 
 :global(.#{$root}) {
   font-size: 1em;
@@ -15,8 +19,8 @@ $root: WkdUserPanel;
 
 .content {
   background: linear-gradient(#060606, #24292c);
-  border: min(0.2em, 2px) solid #daa520;
-  border-bottom-color: gold;
+  border: min(0.2em, 2px) solid;
+  border-color: $userPanelBorderColor;
   border-radius: 2.6em;
   padding: 0.1em;
   display: inline-flex;
