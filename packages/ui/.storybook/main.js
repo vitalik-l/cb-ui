@@ -1,6 +1,6 @@
 const path = require('path');
 
-const [ packageName ] = process.argv.slice(6);
+const [ packageName ] = process.argv.slice(5);
 
 module.exports = {
   "stories": [
