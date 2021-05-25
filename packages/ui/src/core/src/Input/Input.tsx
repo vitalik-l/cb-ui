@@ -47,19 +47,22 @@ export const Input = React.forwardRef((props: InputProps, ref: any) => {
   const classes: ClassesType = useClasses(styles, classesProp);
 
   // allow only numeric values
-  const numericKeyDownHandler = React.useCallback((event: any) => {
-    const key = event.key;
-    const value = event.target.value;
-    if (
-      key.length === 1 &&
-      ((key === '.' && (value.indexOf('.') !== -1 || !value.length)) || !/^[0-9.]/.test(key))
-    ) {
-      event.preventDefault();
-    }
-    if (onKeyDown) {
-      onKeyDown(event);
-    }
-  }, [onKeyDown]);
+  const numericKeyDownHandler = React.useCallback(
+    (event: any) => {
+      const key = event.key;
+      const value = event.target.value;
+      if (
+        key.length === 1 &&
+        ((key === '.' && (value.indexOf('.') !== -1 || !value.length)) || !/^[0-9.]/.test(key))
+      ) {
+        event.preventDefault();
+      }
+      if (onKeyDown) {
+        onKeyDown(event);
+      }
+    },
+    [onKeyDown],
+  );
 
   return (
     <div

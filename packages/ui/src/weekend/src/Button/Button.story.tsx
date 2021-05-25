@@ -12,6 +12,7 @@ const story = createStory({
   argTypes: {
     disabled: { control: 'boolean' },
     square: { control: 'boolean' },
+    selected: { control: 'boolean' },
   },
 });
 
