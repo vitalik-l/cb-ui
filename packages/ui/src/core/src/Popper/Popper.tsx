@@ -1,6 +1,6 @@
 import { createPortal } from 'react-dom';
 import React from 'react';
-import { createPopper } from '@popperjs/core';
+import { createPopper } from '@popperjs/core/lib/popper-lite';
 
 // local files
 import { useForkRef } from '../utils/useForkRef';
