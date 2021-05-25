@@ -46,6 +46,11 @@ module.exports = function styleVariablesImporter(options = {}) {
       ['_variables', 'variables'].includes(parsedUrl[parsedUrl.length - 1]);
     const lib = parsedUrl[1];
     if (isVariables) {
+      if (prev === url) {
+        const file = url.replace('~@cb-general', path.resolve(__dirname, '..'));
+        return { file };
+      }
+
       const varsFile = getVarsFile(lib, options);
       if (varsFile && prev !== varsFile && prev !== url) {
         if (replace) {
@@ -54,12 +59,12 @@ module.exports = function styleVariablesImporter(options = {}) {
         if (url === `~@cb-general/${lib}/importer/variables`) {
           return { file: varsFile };
         }
-        const contents = cacheContent[varsFile] || [
+        const contents = cacheContent[lib] || [
           `@import "${url}";`,
           `@import "~@cb-general/${lib}/importer/variables"`,
         ].join('');
 
-        if (!cacheContent[varsFile]) cacheContent[varsFile] = contents;
+        if (!cacheContent[lib]) cacheContent[lib] = contents;
 
         return {
           contents,
