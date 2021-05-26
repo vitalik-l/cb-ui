@@ -1,8 +1,6 @@
 import { createPortal } from 'react-dom';
 import React from 'react';
-import { createPopper } from '@popperjs/core/lib/popper-lite';
-import preventOverflow from '@popperjs/core/lib/modifiers/preventOverflow.js';
-import flip from '@popperjs/core/lib/modifiers/flip.js';
+import { createPopper } from '@popperjs/core';
 
 // local files
 import { useForkRef } from '../utils/useForkRef';
@@ -231,7 +229,3 @@ export const Popper = React.forwardRef((props: any, ref: any) => {
 
   return content;
 });
-
-Popper.defaultProps = {
-  modifiers: [preventOverflow, flip],
-};
