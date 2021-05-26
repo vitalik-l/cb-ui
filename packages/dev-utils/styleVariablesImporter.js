@@ -31,7 +31,7 @@ function getVarsFile(lib, options) {
 
 module.exports = function styleVariablesImporter(options = {}) {
   if (!options) return;
-  const { stylesPath, common, replace = false } = options;
+  const { stylesPath, common, replace = false, libPath } = options;
 
   if (common === undefined) {
     const commonVarsFile = path.resolve(stylesPath, '_variables.scss');
@@ -47,7 +47,12 @@ module.exports = function styleVariablesImporter(options = {}) {
     const lib = parsedUrl[1];
     if (isVariables) {
       if (prev === url) {
-        const file = url.replace('~@cb-general', path.resolve(__dirname, '..'));
+        const libBasePath = typeof libPath === 'string'
+          ? libPath
+          : typeof libPath === 'function'
+            ? libPath(lib, url)
+            : path.resolve(__dirname, '..', lib);
+        const file = path.resolve(url.replace(`~@cb-general/${lib}`, libBasePath));
         return { file };
       }
 

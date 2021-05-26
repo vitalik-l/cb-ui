@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @mixin noScrollBar {
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* Internet Explorer 10+ */
@@ -10,10 +12,10 @@
 @mixin pxSizeToEm($width, $height) {
   @if ($width > $height) {
     width: 1em;
-    height: #{1/ ($width/$height)}em;
+    height: #{math.div(1, math.div($width, $height))}em;
   } @else {
     height: 1em;
-    width: #{1/ ($height/$width)}em;
+    width: #{math.div(1, math.div($height, $width))}em;
   }
 }
 
@@ -35,16 +37,16 @@
 
 @function toEm($value) {
   @if ($value > 0) {
-    @return css-min(#{$value}px, #{$value/10}em);
+    @return css-min(#{$value}px, #{math.div($value, 10)}em);
   } @else {
-    @return css-max(#{$value}px, #{$value/10}em);
+    @return css-max(#{$value}px, #{math.div($value, 10)}em);
   }
 }
 
 @function toRem($value) {
   @if ($value > 0) {
-    @return css-min(#{$value}px, #{$value/10}rem);
+    @return css-min(#{$value}px, #{math.div($value, 10)}rem);
   } @else {
-    @return css-max(#{$value}px, #{$value/10}rem);
+    @return css-max(#{$value}px, #{math.div($value, 10)}rem);
   }
 }

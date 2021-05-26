@@ -1,6 +1,6 @@
 {
   "name": "@cb-general/dev-utils",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "main": "index.js",
   "license": "MIT"
 }

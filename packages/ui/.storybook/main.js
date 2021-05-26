@@ -10,7 +10,12 @@ const importStyleVariables = (config) => {
         if (ruleUse.loader) {
           if (ruleUse.loader.indexOf('sass-loader') !== -1) {
             ruleUse.options.sassOptions = {
-              importer: styleVariablesImporter({ stylesPath: path.resolve(__dirname) }),
+              importer: styleVariablesImporter({
+                stylesPath: path.resolve(__dirname),
+                libPath: (lib) => {
+                  return path.resolve(__dirname, '../src', lib, 'src');
+                },
+              }),
             };
           }
         }
@@ -45,9 +50,14 @@ module.exports = {
   webpackFinal(config) {
     config.resolve.alias = {
       ...config.resolve.alias,
+      '@cb-general/cg': path.resolve(__dirname, '../src/cg/src/'),
       '@cb-general/core': path.resolve(__dirname, '../src/core/src/'),
+      '@cb-general/flat': path.resolve(__dirname, '../src/flat/src/'),
+      '@cb-general/icons': path.resolve(__dirname, '../src/icons/src/'),
+      '@cb-general/rfx': path.resolve(__dirname, '../src/rfx/src/'),
       '@cb-general/weekend': path.resolve(__dirname, '../src/weekend/src/'),
       '@cb-general/wf': path.resolve(__dirname, '../src/wf/src/'),
+      '@cb-general/wsr': path.resolve(__dirname, '../src/wsr/src/'),
     };
     importStyleVariables(config);
     return config;

@@ -1,3 +1,5 @@
+@use "sass:math";
+
 // default vars
 $root: Slider !default;
 $height: 0 !default;
@@ -9,8 +11,8 @@ $thumbSize: 0 !default;
 }
 
 .wrap {
-  margin-left: $thumbSize/2;
-  margin-right: $thumbSize/2;
+  margin-left: math.div($thumbSize, 2);
+  margin-right: math.div($thumbSize, 2);
 }
 
 .rail,
@@ -21,6 +23,6 @@ $thumbSize: 0 !default;
 .thumb {
   width: $thumbSize;
   height: $thumbSize;
-  margin-left: -1 * $thumbSize/2;
-  transform: translateY(calc(-50% + #{$height/2}));
+  margin-left: math.div(-1 * $thumbSize, 2);
+  transform: translateY(calc(-50% + #{math.div($height, 2)}));
 }
