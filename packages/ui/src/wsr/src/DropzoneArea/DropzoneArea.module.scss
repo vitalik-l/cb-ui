@@ -1,0 +1,9 @@
+$root: DropzoneArea;
+
+:global(.#{$root}) {
+  // component styles
+}
+
+:export {
+  root: $root;
+}

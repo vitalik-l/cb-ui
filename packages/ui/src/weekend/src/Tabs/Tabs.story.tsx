@@ -3,8 +3,7 @@ import { Story } from '@storybook/react';
 
 // local files
 import { createStory } from '../../story';
-import { Tabs } from './Tabs';
-import { Tab } from './Tab';
+import { Tabs, Tab } from './index';
 
 const story = createStory({
   title: 'Tabs',
@@ -16,9 +15,9 @@ export const TabsTemplate: Story = () => {
 
   return (
     <Tabs onChange={setValue} value={value}>
-      <Tab value={0} label="my open trades" />
-      <Tab value={1} label="my closed trades" />
-      <Tab value={2} label="settings" />
+      <Tab label="my open trades" />
+      <Tab label="my closed trades" />
+      <Tab label="settings" />
     </Tabs>
   );
 };

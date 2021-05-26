@@ -12,11 +12,13 @@ $root: WkdTab;
   text-align: center;
   text-transform: uppercase;
   text-decoration: none;
-  background: url(./img/tab.png) no-repeat;
+  background-image: url(./img/tab.png);
+  background-repeat: no-repeat;
   background-size: 100% 3.8em;
   color: #b3b3b3;
   padding: 0 1.5em;
   min-width: 12em;
+  border-bottom: 0.3em solid #e1cd45;
 
   &:nth-child(n + 2) {
     margin-left: -0.3em;
@@ -32,6 +34,7 @@ $root: WkdTab;
   pointer-events: none;
   z-index: 1;
   background: url(./img/tab_active.png) no-repeat 0 0 / 100% 4em;
+  border-bottom: none;
 }
 
 :export {

@@ -1,0 +1,9 @@
+$root: GeTabs;
+
+:global(.#{$root}) {
+  border-color: #05a556;
+}
+
+:export {
+  root: $root;
+}
