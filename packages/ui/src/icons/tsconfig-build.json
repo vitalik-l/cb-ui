@@ -1,8 +1,8 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../lib/icons",
     "rootDir": "./src",
+    "composite": true,
     "declaration": true,
     "emitDeclarationOnly": true,
     "noEmit": false

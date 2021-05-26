@@ -1,7 +1,7 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
 import clsx from 'clsx';
-import { RotatePortraitIcon } from '@cb-general/icons';
+import { RotatePortraitIcon } from '@cb-general/icons/RotatePortraitIcon';
 
 // local files
 import styles from './OrientationAlert.module.scss';
