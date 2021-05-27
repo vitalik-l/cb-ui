@@ -19,7 +19,7 @@ type Props<T extends React.ElementType> = {
   selected?: boolean;
   classes?: ClassesType;
   clickSound?: () => any | false;
-};
+} & React.ComponentPropsWithRef<T>;
 
 export const ButtonBase = React.forwardRef(
   <T extends React.ElementType>(props: Props<T>, ref: any) => {
