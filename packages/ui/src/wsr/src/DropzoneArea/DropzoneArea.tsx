@@ -2,6 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 
 // local files
+import { Dropzone } from '../Dropzone';
 import styles from './DropzoneArea.module.scss';
 
 type Props = React.ComponentProps<'div'> & {
@@ -124,18 +125,18 @@ const dropzoneItems: { left: Array<DropzoneItemType>; right: Array<DropzoneItemT
   right: [],
 };
 
-const Dropzone = () => {
-  return <div />;
-};
-
 export const DropzoneArea = (props: Props) => {
   const { className, DropzoneComponent = Dropzone, side = 'left', ...restProps } = props;
 
   return (
-    <div className={clsx(styles.root, className)} {...restProps}>
+    <div className={clsx(styles.root, className, styles[`side_${side}`])} {...restProps}>
       {dropzoneItems[side].map((item) => (
         <DropzoneComponent {...item} />
       ))}
     </div>
   );
+};
+
+DropzoneArea.defaultProps = {
+  side: 'left',
 };

@@ -1,0 +1,65 @@
+$root: Dropzone;
+
+@keyframes winnerStartAnimation {
+  0% {
+    background-color: rgba(255, 255, 0, 1);
+  }
+  50% {
+    background-color: rgba(255, 255, 0, 0.78);
+  }
+  100% {
+    background-color: rgba(255, 255, 0, 0);
+  }
+}
+
+@keyframes winnerAnimation {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+:global(.#{$root}) {
+  position: relative;
+  width: 1em;
+  height: 1em;
+}
+
+.selected {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.winner {
+  position: absolute;
+  left: calc(50% - 2.4em);
+  top: calc(50% - 2.4em);
+  border-radius: 50%;
+  box-shadow: 0 0 15px 9px #f1f18b, inset 0 0 15px 9px rgb(255 255 0 / 65%);
+  animation: winnerStartAnimation 1s 1,winnerAnimation .5s 6;
+  width: 4.8em;
+  height: 4.8em;
+}
+
+.label {
+  color: #fff;
+  transform-origin: center center;
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  white-space: nowrap;
+  transform: translate(-50%,-50%);
+  font-weight: 600;
+  font-size: 2.2em;
+}
+
+:export {
+  root: $root;
+}

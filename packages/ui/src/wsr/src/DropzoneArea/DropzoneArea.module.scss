@@ -1,7 +1,16 @@
 $root: DropzoneArea;
 
 :global(.#{$root}) {
-  // component styles
+  font-size: 1em;
+  position: relative;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.side_left {
+  background-image: url(./img/left_dropzones.png);
+  width: 54.8em;
+  height: 39em;
 }
 
 :export {
