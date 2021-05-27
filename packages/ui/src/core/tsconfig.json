@@ -2,9 +2,7 @@
   "extends": "../../tsconfig.json",
   "include": ["../declarations.d.ts", "."],
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@cb-general/icons/*": ["../icons/src/*"],
-    }
+    "composite": true,
+    "baseUrl": "."
   }
 }

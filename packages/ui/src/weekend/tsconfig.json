@@ -1,4 +1,14 @@
 {
   "extends": "../../tsconfig.json",
-  "include": ["../declarations.d.ts", "."]
+  "include": ["../declarations.d.ts", "."],
+  "compilerOptions": {
+    "composite": true,
+    "baseUrl": ".",
+    "paths": {
+      "@cb-general/core/*": ["../core/src/*"],
+    }
+  },
+  "references": [
+    { "path": "../core" }
+  ]
 }

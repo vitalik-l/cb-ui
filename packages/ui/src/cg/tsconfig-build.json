@@ -1,10 +1,12 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "outDir": "../../lib/cg",
+    "tsBuildInfoFile": "../../lib/.tsbuildinfo/cg",
     "rootDir": "./src",
     "declaration": true,
     "emitDeclarationOnly": true,
-    "noEmit": false
+    "noEmit": false,
   },
   "exclude": ["**/*.story.tsx"],
   "include": ["../declarations.d.ts", "src"]

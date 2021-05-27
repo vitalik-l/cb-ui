@@ -15,7 +15,8 @@ publishUtils.exec(
 console.log('=> Check for tsconfig');
 const tsconfigFile = fs.existsSync(`./src/${packageName}/tsconfig-build.json`) ? `./src/${packageName}/tsconfig-build.json` : `./src/${packageName}/tsconfig.json`;
 console.log(`=> tsconfig file is ${tsconfigFile}`);
-publishUtils.exec(`npx tsc -p ${tsconfigFile} --outDir ./lib/${packageName}`);
+// publishUtils.exec(`npx tsc -p ${tsconfigFile}`);
+publishUtils.exec(`npx tsc -b ${tsconfigFile}`);
 publishUtils.exec(`cross-env LIB=${packageName} babel-node ./scripts/copy-styles.js`);
 publishUtils.exec(`cross-env LIB=${packageName} babel-node ./scripts/copy-files.js`);
 
