@@ -1,13 +1,13 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../lib/rfx",
-    "tsBuildInfoFile": "../../lib/.tsbuildinfo/rfx",
+    "outDir": "../../lib/icons",
+    "tsBuildInfoFile": "../../lib/.tsbuildinfo/icons",
     "rootDir": "./src"
   },
   "exclude": ["**/*.story.tsx"],
   "include": ["../declarations.d.ts", "src"],
   "references": [
-    { "path": "../core/tsconfig-build.json" }
+    { "path": "../core/tsconfig.build.json" }
   ]
 }

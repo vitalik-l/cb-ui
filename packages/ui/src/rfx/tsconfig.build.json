@@ -1,13 +1,13 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../lib/wf",
-    "tsBuildInfoFile": "../../lib/.tsbuildinfo/wf",
+    "outDir": "../../lib/rfx",
+    "tsBuildInfoFile": "../../lib/.tsbuildinfo/rfx",
     "rootDir": "./src"
   },
   "exclude": ["**/*.story.tsx"],
   "include": ["../declarations.d.ts", "src"],
   "references": [
-    { "path": "../core/tsconfig-build.json" }
+    { "path": "../core/tsconfig.build.json" }
   ]
 }

@@ -1,13 +1,13 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../lib/wsr",
-    "tsBuildInfoFile": "../../lib/.tsbuildinfo/wsr",
+    "outDir": "../../lib/weekend",
+    "tsBuildInfoFile": "../../lib/.tsbuildinfo/weekend",
     "rootDir": "./src"
   },
   "exclude": ["**/*.story.tsx"],
   "include": ["../declarations.d.ts", "src"],
   "references": [
-    { "path": "../core/tsconfig-build.json" }
+    { "path": "../core/tsconfig.build.json" }
   ]
 }

@@ -13,7 +13,7 @@ publishUtils.exec(
   `cross-env NODE_ENV=release babel ${srcPath} --out-dir ./lib/${packageName} --extensions ".js,.jsx,.ts,.tsx"`,
 );
 console.log('=> Check for tsconfig');
-const tsconfigFile = fs.existsSync(`./src/${packageName}/tsconfig-build.json`) ? `./src/${packageName}/tsconfig-build.json` : `./src/${packageName}/tsconfig.json`;
+const tsconfigFile = fs.existsSync(`./src/${packageName}/tsconfig.build.json`) ? `./src/${packageName}/tsconfig.build.json` : `./src/${packageName}/tsconfig.json`;
 console.log(`=> tsconfig file is ${tsconfigFile}`);
 // publishUtils.exec(`npx tsc -p ${tsconfigFile}`);
 publishUtils.exec(`npx tsc -b ${tsconfigFile}`);
