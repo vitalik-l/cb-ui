@@ -43,7 +43,7 @@ $root: Dropzone;
   top: calc(50% - 2.4em);
   border-radius: 50%;
   box-shadow: 0 0 15px 9px #f1f18b, inset 0 0 15px 9px rgb(255 255 0 / 65%);
-  animation: winnerStartAnimation 1s 1,winnerAnimation .5s 6;
+  animation: winnerStartAnimation 1s 1, winnerAnimation 0.5s 6;
   width: 4.8em;
   height: 4.8em;
 }
@@ -55,7 +55,7 @@ $root: Dropzone;
   top: 48%;
   left: 50%;
   white-space: nowrap;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   font-weight: 600;
   font-size: 2.2em;
 }
