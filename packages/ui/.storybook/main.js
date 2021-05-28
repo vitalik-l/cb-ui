@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const styleVariablesImporter = require('@cb-general/dev-utils/styleVariablesImporter');
 
 const [ packageName ] = process.argv.slice(5);
@@ -23,13 +24,30 @@ const importStyleVariables = (config) => {
       });
     }
     return rule;
-  }
+  };
   config.module.rules = config.module.rules.map(rule => {
     if (rule.oneOf) {
       rule.oneOf = rule.oneOf.map(mapRule);
     }
     return rule;
   });
+};
+
+const getAliasObject = (inputDir) => {
+  const result = {};
+  const dirPath = path.join(__dirname, inputDir);
+  fs.readdirSync(dirPath, {withFileTypes: true}).forEach((item) => {
+    if (!item.isDirectory()) {
+      return;
+    }
+    const lib = item.name;
+    const modulePath = path.resolve(__dirname, `${inputDir}/${lib}/src/`);
+    if (fs.existsSync(modulePath)) {
+      result[`@cb-general/${lib}`] = modulePath;
+    }
+  });
+
+  return result;
 };
 
 module.exports = {
@@ -50,16 +68,9 @@ module.exports = {
   webpackFinal(config) {
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@cb-general/cg': path.resolve(__dirname, '../src/cg/src/'),
-      '@cb-general/core': path.resolve(__dirname, '../src/core/src/'),
-      '@cb-general/flat': path.resolve(__dirname, '../src/flat/src/'),
-      '@cb-general/icons': path.resolve(__dirname, '../src/icons/src/'),
-      '@cb-general/rfx': path.resolve(__dirname, '../src/rfx/src/'),
-      '@cb-general/weekend': path.resolve(__dirname, '../src/weekend/src/'),
-      '@cb-general/wf': path.resolve(__dirname, '../src/wf/src/'),
-      '@cb-general/wsr': path.resolve(__dirname, '../src/wsr/src/'),
+      ...getAliasObject('../src'),
     };
     importStyleVariables(config);
     return config;
   },
-}
+};
