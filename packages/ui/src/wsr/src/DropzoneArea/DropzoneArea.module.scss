@@ -22,6 +22,24 @@ $root: DropzoneArea;
     width: 78%;
     left: 13%;
   }
+
+  .dozen {
+    left: 0;
+    width: 91%;
+
+    .dropzone {
+      position: relative;
+      flex: 1.3;
+
+      &:first-child {
+        flex: 1;
+      }
+    }
+  }
+
+  .hotNumbers {
+    left: 13%;
+  }
 }
 
 .straight {
@@ -150,6 +168,24 @@ $root: DropzoneArea;
   .dropzone {
     position: relative;
     flex: 1;
+  }
+}
+
+.lines {
+  position: absolute;
+  width: 9%;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  height: 62%;
+
+  .lineItem {
+    position: relative;
+    height: 100%;
+
+    div {
+      transform: rotate(-90deg) translate(25%, -80%);
+    }
   }
 }
 

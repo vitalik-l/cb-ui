@@ -37,6 +37,9 @@ const Dropzone = React.memo((props: React.ComponentProps<typeof DropzoneBase>) =
     case BET_TYPES.ODDEVEN:
       label = startNumber === 2 ? 'EVEN' : 'ODD';
       break;
+    case BET_TYPES.COLUMN:
+      label = '2to1';
+      break;
   }
 
   return (
