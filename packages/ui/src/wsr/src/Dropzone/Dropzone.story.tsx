@@ -3,16 +3,16 @@ import { Story } from '@storybook/react';
 
 // local files
 import { createStory } from '../../story';
-import { Dropzone } from './index';
+import { DropzoneBase } from './index';
 
 const story = createStory({
   title: 'Dropzone',
-  component: Dropzone,
+  component: DropzoneBase,
   argTypes: {
     winner: { control: 'boolean' },
+    winnerNumber: { control: 'boolean' },
     selected: { control: 'boolean' },
     label: { control: 'text' },
-    style: { table: { disable: true } },
   },
   args: {
     style: {
@@ -22,7 +22,7 @@ const story = createStory({
   },
 });
 
-export const Template: Story = (args) => <Dropzone {...args} />;
+export const Template: Story = (args) => <DropzoneBase {...args} />;
 Template.storyName = 'Dropzone';
 
 export default story;

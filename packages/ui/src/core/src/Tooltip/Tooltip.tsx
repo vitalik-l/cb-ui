@@ -29,7 +29,7 @@ type ClassesType = {
   placement_top?: string;
   placement_bottom?: string;
   popper?: string;
-  popperInteractive?: string;
+  popperDisableInteractive?: string;
   [key: string]: any;
 };
 
@@ -59,6 +59,7 @@ export const Tooltip = React.forwardRef((props: any, ref: any) => {
     TransitionProps,
     classes: classesProp,
     forceOpen,
+    className,
     ...other
   } = props;
   const [childNode, setChildNode] = React.useState<any>();
@@ -331,7 +332,6 @@ export const Tooltip = React.forwardRef((props: any, ref: any) => {
     ...nameOrDescProps,
     ...other,
     ...children.props,
-    className: clsx(other.className, children.props.className),
     onTouchStart: detectTouchStart,
     ref: handleRef,
     ...(followCursor ? { onMouseMove: handleMouseMove } : {}),
@@ -419,7 +419,11 @@ export const Tooltip = React.forwardRef((props: any, ref: any) => {
     <React.Fragment>
       {React.cloneElement(children, childrenProps)}
       <Popper
-        className={clsx(classes.popper, !disableInteractive && classes.popperInteractive)}
+        className={clsx(
+          className,
+          classes.popper,
+          disableInteractive && classes.popperDisableInteractive,
+        )}
         placement={placement}
         anchorEl={
           followCursor
@@ -444,7 +448,7 @@ export const Tooltip = React.forwardRef((props: any, ref: any) => {
         popperOptions={popperOptions}
       >
         <div
-          className={clsx(classes.root, classes[`placement_${placement}`], {
+          className={clsx(classes.root, {
             [classes.touch as string]: ignoreNonTouchEvents.current,
             [classes.animate as string]: animate,
           })}

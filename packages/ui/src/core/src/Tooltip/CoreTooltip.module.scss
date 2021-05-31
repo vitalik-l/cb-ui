@@ -30,19 +30,24 @@ $root: CoreTooltip;
   }
 }
 
-:global(.#{$root}) {
-  &.animate {
-    &.placement_top {
+.popper {
+  z-index: 9999999;
+
+  &[data-popper-placement="top"] {
+    .animate {
       animation: toTop 0.7s 1;
     }
-    &.placement_bottom {
+  }
+
+  &[data-popper-placement="bottom"] {
+    .animate {
       animation: toBottom 0.7s 1;
     }
   }
 }
 
-.popper {
-  z-index: 9999999;
+.popperDisableInteractive {
+  pointer-events: none;
 }
 
 :export {

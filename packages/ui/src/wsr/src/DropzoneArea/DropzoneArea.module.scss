@@ -13,6 +13,146 @@ $root: DropzoneArea;
   height: 39em;
 }
 
+.side_right {
+  background-image: url(./img/right_dropzones.png);
+  width: 53.9em;
+  height: 39em;
+
+  .straight {
+    width: 78%;
+    left: 13%;
+  }
+}
+
+.straight {
+  position: absolute;
+  left: 10%;
+  top: 0;
+  width: 77.5%;
+  height: 62.5%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.straightItem {
+  position: relative;
+}
+
+.dropzone {
+  position: absolute;
+
+  &[data-startnumber='0'] {
+    top: 0;
+    left: -7%;
+    width: 7%;
+    height: 100%;
+
+    &:before {
+      content: "";
+      position: absolute;
+      left: -2.4em;
+      width: 0;
+      height: 0;
+      border-top: 12.1em solid transparent;
+      border-bottom: 12.1em solid transparent;
+      border-right: 2.4em solid currentColor;
+    }
+  }
+
+  &[data-betType='SPLIT'][data-typebside='3'] {
+    height: 100%;
+    width: 14%;
+    top: 0;
+    right: -5%;
+    z-index: 1;
+
+    &[data-startnumber='7'],
+    &[data-startnumber='8'],
+    &[data-startnumber='9'],
+    &[data-startnumber='10'],
+    &[data-startnumber='11'],
+    &[data-startnumber='12'] {
+      right: -7%;
+    }
+
+    &[data-startnumber='1'],
+    &[data-startnumber='2'],
+    &[data-startnumber='3'],
+    &[data-startnumber='4'],
+    &[data-startnumber='5'],
+    &[data-startnumber='6'] {
+      right: -9%;
+    }
+  }
+
+  &[data-betType='STREET'] {
+    width: 100%;
+    height: 14%;
+    left: 0;
+    top: -4%;
+    z-index: 1;
+  }
+
+  &[data-betType='SPLIT'][data-typebside='1'] {
+    width: 100%;
+    height: 14%;
+    left: 0;
+    top: -8%;
+    z-index: 1;
+
+    &[data-startnumber='2'],
+    &[data-startnumber='5'],
+    &[data-startnumber='8'],
+    &[data-startnumber='11'],
+    &[data-startnumber='14'],
+    &[data-startnumber='17'] {
+      top: -6%;
+    }
+  }
+
+  &[data-betType='CORNER'] {
+    width: 40%;
+    height: 40%;
+    right: 0;
+    top: 0;
+    transform: translate(50%, -50%);
+    z-index: 2;
+  }
+}
+
+.dozen {
+  display: flex;
+  position: absolute;
+  height: 19%;
+  bottom: 19%;
+  left: 10%;
+  width: 90%;
+
+  .dropzone {
+    position: relative;
+    flex: 1;
+
+    &:first-child {
+      flex: 1.34;
+    }
+  }
+}
+
+.hotNumbers {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  height: 20%;
+  width: 77.5%;
+  left: 10%;
+
+  .dropzone {
+    position: relative;
+    flex: 1;
+  }
+}
+
 :export {
   root: $root;
 }

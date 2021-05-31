@@ -1,56 +1,45 @@
 import React from 'react';
-import clsx from 'clsx';
-import { ButtonBase } from '@cb-general/core/ButtonBase';
-import { useClasses } from '@cb-general/core/hooks/useClasses';
 
 // local files
-import styles from './Dropzone.module.scss';
+import { DropzoneBase } from './DropzoneBase';
+import { useDropzone } from './useDropzone';
+import { BET_TYPES } from '../constants';
 
-type ClassesType = {
-  root?: string;
-  selected?: string;
-  label?: string;
-  winner?: string;
+type Props = React.ComponentProps<DropzoneBase> & {
+  Component?: React.ElementType;
 };
 
-type Props = React.ComponentProps<typeof ButtonBase> & {
-  winner?: boolean;
-  label?: string;
-  classes?: ClassesType;
-  betOn?: number | string;
-  startNumber?: number | string;
-  typeBSide?: number | string;
+export const Dropzone = (props: Props) => {
+  const { Component = DropzoneBase, ...restProps } = props;
+  const { betType, startNumber, typeBSide } = restProps;
+  const { selectedNumbers, selectNumbers } = useDropzone();
+  const selected =
+    betType === BET_TYPES.STRAIGHT &&
+    startNumber !== undefined &&
+    !!~selectedNumbers.indexOf(startNumber);
+
+  const onMouseEnter = React.useCallback(() => {
+    selectNumbers({ betType, startNumber, typeBSide });
+  }, [betType, startNumber, typeBSide, selectNumbers]);
+
+  const onMouseLeave = React.useCallback(() => {
+    selectNumbers();
+  }, [selectNumbers]);
+
+  const withHover = React.useMemo(
+    () =>
+      betType &&
+      !~[BET_TYPES.STRAIGHT, BET_TYPES.SPLIT, BET_TYPES.CORNER, BET_TYPES.STREET].indexOf(betType),
+    [betType],
+  );
+
+  return (
+    <Component
+      selected={selected}
+      withHover={withHover}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      {...restProps}
+    />
+  );
 };
-
-export const Dropzone = React.memo(
-  React.forwardRef((props: Props, ref: any) => {
-    const {
-      className,
-      selected,
-      winner,
-      label,
-      children,
-      classes: classesProp,
-      betOn,
-      startNumber,
-      typeBSide,
-      ...restProps
-    } = props;
-    const classes: ClassesType = useClasses(styles, classesProp);
-
-    return (
-      <ButtonBase
-        className={clsx(classes.root, className, selected && classes.selected)}
-        {...restProps}
-        ref={ref}
-        data-beton={betOn}
-        data-startnumber={startNumber}
-        data-typebside={typeBSide}
-      >
-        {!!label && <div className={classes.label}>{label}</div>}
-        {winner && <div className={classes.winner} />}
-        {children}
-      </ButtonBase>
-    );
-  }),
-);
