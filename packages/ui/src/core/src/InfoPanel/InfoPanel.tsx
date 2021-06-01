@@ -14,21 +14,20 @@ type ClassesType = {
   [key: string]: any;
 };
 
-type Props = {
-  className?: string;
-  children?: React.ReactNode;
+type Props = React.ComponentProps<'div'> & {
   arrowPosition?: 'top' | 'bottom' | 'left' | 'right';
   classes?: ClassesType;
 };
 
-export const InfoPanel = (props: Props) => {
-  const { className, children, arrowPosition, classes: classesProp } = props;
+export const InfoPanel: React.FC<Props> = (props) => {
+  const { className, arrowPosition, classes: classesProp, ...restProps } = props;
   const classes: ClassesType = useClasses(styles, classesProp);
 
   return (
-    <div className={clsx(classes.root, classes[`arrow_${arrowPosition}`], className)}>
-      {children}
-    </div>
+    <div
+      className={clsx(classes.root, classes[`arrow_${arrowPosition}`], className)}
+      {...restProps}
+    />
   );
 };
 

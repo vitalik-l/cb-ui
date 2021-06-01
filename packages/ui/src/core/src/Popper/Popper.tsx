@@ -1,10 +1,28 @@
 import { createPortal } from 'react-dom';
 import React from 'react';
-import { createPopper } from '@popperjs/core';
+import { createPopper, VirtualElement, Options } from '@popperjs/core';
 
 // local files
 import { useForkRef } from '../utils/useForkRef';
 import { setRef } from '../utils/setRef';
+import styles from './CorePopper.module.scss';
+
+type Props = Omit<React.HTMLAttributes<HTMLDivElement>, 'children'> & {
+  anchorEl?: null | VirtualElement | (() => VirtualElement) | HTMLElement;
+  keepMounted?: boolean;
+  open?: boolean;
+  transition?: boolean;
+  placement?: Options['placement'];
+  popperOptions?: any;
+  popperRef?: any;
+  portalTarget?: any;
+  modifiers?: Options['modifiers'];
+  direction?: string;
+  overlay?: boolean;
+  onClose?: (event?: any) => void;
+  followWidth?: boolean;
+  followFontSize?: boolean;
+};
 
 const flipPlacement = (placement: any, direction: any = 'ltr') => {
   if (direction === 'ltr') {
@@ -31,7 +49,7 @@ const getAnchorEl = (anchorEl: any) => {
 
 const defaultPopperOptions = {};
 
-export const Popper = React.forwardRef((props: any, ref: any) => {
+export const Popper: React.FC<Props> = React.forwardRef((props, ref: any) => {
   const {
     anchorEl,
     children,
@@ -45,12 +63,15 @@ export const Popper = React.forwardRef((props: any, ref: any) => {
     popperRef: popperRefProp,
     style,
     transition = false,
+    overlay,
+    onClose,
+    followWidth,
+    followFontSize,
     ...other
   } = props;
   const disablePortal = !portalTarget;
   const tooltipRef: any = React.useRef(null);
   const ownRef = useForkRef(tooltipRef, ref);
-
   const popperRef: any = React.useRef(null);
   const handlePopperRef = useForkRef(popperRef, popperRefProp);
   const handlePopperRefRef: any = React.useRef(handlePopperRef);
@@ -73,6 +94,12 @@ export const Popper = React.forwardRef((props: any, ref: any) => {
       popperRef.current.forceUpdate();
     }
   });
+
+  React.useEffect(() => {
+    if (overlay) {
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+  }, [open, overlay]);
 
   const handleOpen = React.useCallback(() => {
     if (!tooltipRef.current || !anchorEl || !open) {
@@ -112,7 +139,7 @@ export const Popper = React.forwardRef((props: any, ref: any) => {
       }
     }
 
-    let popperModifiers = [
+    let popperModifiers: Options['modifiers'] = [
       {
         name: 'preventOverflow',
         options: {
@@ -135,6 +162,32 @@ export const Popper = React.forwardRef((props: any, ref: any) => {
       },
     ];
 
+    if (followWidth) {
+      popperModifiers.push({
+        name: 'followWidth',
+        enabled: true,
+        fn: ({ state }) => {
+          state.styles.popper.width = `${state.rects.reference.width}px`;
+        },
+        phase: 'beforeWrite',
+        requires: ['computeStyles'],
+      });
+    }
+
+    if (followFontSize) {
+      popperModifiers.push({
+        name: 'followFontSize',
+        enabled: true,
+        fn: ({ state }) => {
+          state.styles.popper.fontSize = window
+            .getComputedStyle(state.elements.reference as Element)
+            .getPropertyValue('font-size');
+        },
+        phase: 'beforeWrite',
+        requires: ['computeStyles'],
+      });
+    }
+
     if (modifiers != null) {
       popperModifiers = popperModifiers.concat(modifiers);
     }
@@ -143,13 +196,22 @@ export const Popper = React.forwardRef((props: any, ref: any) => {
     }
 
     const popper = createPopper(getAnchorEl(anchorEl), tooltipRef.current, {
-      placement: rtlPlacement,
+      placement: followWidth ? 'bottom-start' : rtlPlacement,
       ...popperOptions,
       modifiers: popperModifiers,
     });
 
     handlePopperRefRef.current(popper);
-  }, [anchorEl, disablePortal, modifiers, open, rtlPlacement, popperOptions]);
+  }, [
+    anchorEl,
+    disablePortal,
+    modifiers,
+    open,
+    rtlPlacement,
+    popperOptions,
+    followWidth,
+    followFontSize,
+  ]);
 
   const handleRef = React.useCallback(
     (node) => {
@@ -204,7 +266,7 @@ export const Popper = React.forwardRef((props: any, ref: any) => {
     };
   }
 
-  const content = (
+  let content = (
     <div
       ref={handleRef}
       role="tooltip"
@@ -215,13 +277,22 @@ export const Popper = React.forwardRef((props: any, ref: any) => {
         // Fix Popper.js display issue
         top: 0,
         left: 0,
-        display: !open && keepMounted && !transition ? 'none' : null,
+        display: !open && keepMounted && !transition ? 'none' : undefined,
         ...style,
       }}
     >
       {typeof children === 'function' ? children(childProps) : children}
     </div>
   );
+
+  if (overlay) {
+    content = (
+      <div className={styles.overlay} role="presentation">
+        <div className={styles.clickable} onClick={onClose} aria-hidden="true" />
+        {content}
+      </div>
+    );
+  }
 
   if (portalTarget) {
     return createPortal(content, portalTarget);

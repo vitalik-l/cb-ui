@@ -12,13 +12,13 @@ export const ClickAwayListener: React.FC<Props> = (props: Props) => {
   const eventName = React.useMemo(() => mouseEvent.substring(2).toLowerCase(), [mouseEvent]);
 
   const childrenPropsHandler = React.useCallback(
-    (e) => {
-      e.stopPropagation();
-      e.nativeEvent.stopImmediatePropagation();
+    (event) => {
+      event.stopPropagation();
+      event.nativeEvent.stopImmediatePropagation();
       const childrenProps: any = children.props;
       const handler = childrenProps[mouseEvent];
       if (handler) {
-        handler(e);
+        handler(event);
       }
     },
     [children.props, mouseEvent],

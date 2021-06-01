@@ -10,6 +10,9 @@ const story = createStory({
   component: InputSelect,
   argTypes: {
     disabled: { control: 'boolean' },
+    input: {
+      table: { disable: true },
+    },
   },
 });
 

@@ -3,6 +3,10 @@
   "include": ["../declarations.d.ts", "."],
   "compilerOptions": {
     "composite": true,
-    "baseUrl": "."
-  }
+    "baseUrl": ".",
+    "paths": {
+      "@cb-general/core/*": ["../core/src/*"]
+    }
+  },
+  "references": [{ "path": "../core" }]
 }

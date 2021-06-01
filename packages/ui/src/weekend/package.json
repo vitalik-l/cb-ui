@@ -1,6 +1,6 @@
 {
   "name": "@cb-general/weekend",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "dependencies": {
     "clsx": "^1.1.1"
   }

@@ -3,7 +3,10 @@
   "compilerOptions": {
     "outDir": "../../lib/icons",
     "tsBuildInfoFile": "../../lib/.tsbuildinfo/icons",
-    "rootDir": "./src"
+    "rootDir": "./src",
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "noEmit": false
   },
   "exclude": ["**/*.story.tsx"],
   "include": ["../declarations.d.ts", "src"],

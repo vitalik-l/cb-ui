@@ -3,3 +3,6 @@ import { styled } from '@cb-general/core/utils/styled';
 // local files
 import styles from './CgSelect.module.scss';
 export const Select = styled(CoreSelect, styles);
+Select.defaultProps = {
+  native: true,
+};

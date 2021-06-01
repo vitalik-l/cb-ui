@@ -33,16 +33,12 @@ $root: CoreTooltip;
 .popper {
   z-index: 9999999;
 
-  &[data-popper-placement="top"] {
-    .animate {
-      animation: toTop 0.7s 1;
-    }
+  .animate.placement_top {
+    animation: toTop 0.7s 1;
   }
 
-  &[data-popper-placement="bottom"] {
-    .animate {
-      animation: toBottom 0.7s 1;
-    }
+  .animate.placement_bottom {
+    animation: toBottom 0.7s 1;
   }
 }
 

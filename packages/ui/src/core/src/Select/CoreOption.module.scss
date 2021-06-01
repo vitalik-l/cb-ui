@@ -1,0 +1,16 @@
+.root {
+  color: inherit;
+  background-color: inherit;
+  font: inherit;
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  white-space: nowrap;
+  min-height: 1.2em;
+  padding: 0 2px 1px;
+
+  &:hover {
+    background-color: #1ea7fd;
+    color: white;
+  }
+}

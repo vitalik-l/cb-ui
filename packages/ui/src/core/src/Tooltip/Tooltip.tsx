@@ -447,14 +447,16 @@ export const Tooltip = React.forwardRef((props: any, ref: any) => {
         {...PopperProps}
         popperOptions={popperOptions}
       >
-        <div
-          className={clsx(classes.root, {
-            [classes.touch as string]: ignoreNonTouchEvents.current,
-            [classes.animate as string]: animate,
-          })}
-        >
-          {title}
-        </div>
+        {({ placement }: any) => (
+          <div
+            className={clsx(classes.root, classes[`placement_${placement}`], {
+              [classes.touch as string]: ignoreNonTouchEvents.current,
+              [classes.animate as string]: animate,
+            })}
+          >
+            {title}
+          </div>
+        )}
       </Popper>
     </React.Fragment>
   );

@@ -1,2 +1,3 @@
 export { Select } from './Select';
-export { Select as default } from './Select';
+export { Option } from './Option';
+export { Options } from './Options';
