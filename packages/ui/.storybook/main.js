@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const styleVariablesImporter = require('@cb-general/dev-utils/styleVariablesImporter');
 
-const [ packageName ] = process.argv.slice(5);
+const packageName = process.argv[process.argv.length - 1];
 
 const importStyleVariables = (config) => {
   const mapRule = rule => {
@@ -62,7 +62,8 @@ module.exports = {
   typescript: {
     check: true,
     checkOptions: {
-      reportFiles: [`../src/${packageName ? packageName + "/" : ""}**/*.{ts|tsx}`],
+      tsconfig: packageName ? `./src/${packageName}/tsconfig.json` : undefined,
+      reportFiles: [`./src/${packageName ? packageName + "/" : ""}**/*.{ts|tsx}`],
     },
   },
   webpackFinal(config) {
