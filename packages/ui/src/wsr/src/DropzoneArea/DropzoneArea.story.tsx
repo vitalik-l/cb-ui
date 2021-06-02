@@ -10,6 +10,8 @@ import { BetObject } from '../Dropzone/types';
 import { BET_TYPES } from '../constants';
 import { Tooltip } from '@cb-general/core/Tooltip';
 import { InfoPanel, InfoPanelItem } from '@cb-general/core/InfoPanel';
+import { ChipsStack } from '@cb-general/weekend/ChipsStack';
+import { Chip } from '@cb-general/weekend/Chip';
 
 const story = createStory({
   title: 'DropzoneArea',
@@ -25,7 +27,12 @@ const getBetNumbersFn = ({ betType, startNumber, typeBSide }: BetObject) => {
 
 const Dropzone = React.memo((props: React.ComponentProps<typeof DropzoneBase>) => {
   const { betType, startNumber } = props;
+  const [chips, setChips] = React.useState([]);
   let label;
+
+  const onMouseDown = React.useCallback(() => {
+    setChips([5]);
+  }, []);
 
   switch (betType) {
     case BET_TYPES.DOZEN:
@@ -52,7 +59,13 @@ const Dropzone = React.memo((props: React.ComponentProps<typeof DropzoneBase>) =
       placement="bottom"
       disableInteractive
     >
-      <DropzoneBase {...props} label={label} />
+      <DropzoneBase {...props} label={label} onMouseDown={onMouseDown}>
+        {!!chips.length && (
+          <ChipsStack>
+            {chips.map(chip => <Chip value={chip} />)}
+          </ChipsStack>
+        )}
+      </DropzoneBase>
     </Tooltip>
   );
 });
