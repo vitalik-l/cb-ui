@@ -2,7 +2,17 @@ const path = require('path');
 const fs = require('fs');
 const styleVariablesImporter = require('@cb-general/dev-utils/styleVariablesImporter');
 
-const packageName = process.argv[process.argv.length - 1];
+const libs = [];
+const srcPath = path.join(__dirname, '../src');
+fs.readdirSync(srcPath, { withFileTypes: true }).forEach((item) => {
+  if (!item.isDirectory()) {
+    return;
+  }
+  libs.push(item.name);
+});
+
+const packageNameArg = process.argv[process.argv.length - 1];
+const packageName = !!~libs.indexOf(packageNameArg) ? packageNameArg : '';
 
 const importStyleVariables = (config) => {
   const mapRule = rule => {
@@ -33,21 +43,11 @@ const importStyleVariables = (config) => {
   });
 };
 
-const getAliasObject = (inputDir) => {
-  const result = {};
-  const dirPath = path.join(__dirname, inputDir);
-  fs.readdirSync(dirPath, {withFileTypes: true}).forEach((item) => {
-    if (!item.isDirectory()) {
-      return;
-    }
-    const lib = item.name;
-    const modulePath = path.resolve(__dirname, `${inputDir}/${lib}/src/`);
-    if (fs.existsSync(modulePath)) {
-      result[`@cb-general/${lib}`] = modulePath;
-    }
-  });
-
-  return result;
+const getAliasObject = () => {
+  return libs.reduce((prev, lib) => {
+    prev[`@cb-general/${lib}`] = path.resolve(__dirname, `../src/${lib}/src/`)
+    return prev;
+  }, {});
 };
 
 module.exports = {
@@ -69,7 +69,7 @@ module.exports = {
   webpackFinal(config) {
     config.resolve.alias = {
       ...config.resolve.alias,
-      ...getAliasObject('../src'),
+      ...getAliasObject(),
     };
     importStyleVariables(config);
     return config;
