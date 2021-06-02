@@ -5,7 +5,7 @@ import { DropzoneBase } from './DropzoneBase';
 import { useDropzone } from './useDropzone';
 import { BET_TYPES } from '../constants';
 
-type Props = React.ComponentProps<DropzoneBase> & {
+type Props = React.ComponentProps<typeof DropzoneBase> & {
   Component?: React.ElementType;
 };
 

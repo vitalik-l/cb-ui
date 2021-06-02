@@ -64,4 +64,13 @@ export const Template: Story = (args) => (
 );
 Template.storyName = 'DropzoneArea';
 
+export const LeftAndRight: Story = () => (
+  <DropzoneProvider getBetNumbersFn={getBetNumbersFn}>
+    <div className="d-flex">
+      <DropzoneArea DropzoneComponent={Dropzone} />
+      <DropzoneArea rightSide DropzoneComponent={Dropzone} />
+    </div>
+  </DropzoneProvider>
+)
+
 export default story;
