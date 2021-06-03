@@ -11,8 +11,13 @@ fs.readdirSync(srcPath, { withFileTypes: true }).forEach((item) => {
   libs.push(item.name);
 });
 
-const packageNameArg = process.argv[process.argv.length - 1];
-const packageName = !!~libs.indexOf(packageNameArg) ? packageNameArg : '';
+const stories = [];
+const packagesNameArg = process.argv[process.argv.length - 1];
+const packages = packagesNameArg && packagesNameArg.split(' ') || [''];
+packages.forEach((p) => {
+  const template = `../src/${p ? p + "/" : ""}**/*.story.@(js|jsx|ts|tsx|mdx)`;
+  (!!~libs.indexOf(p) || !p) && stories.push(template);
+});
 
 const importStyleVariables = (config) => {
   const mapRule = rule => {
@@ -51,21 +56,19 @@ const getAliasObject = () => {
 };
 
 module.exports = {
-  "stories": [
-    `../src/${packageName ? packageName + "/" : ""}**/*.story.@(js|jsx|ts|tsx|mdx)`
-  ],
+  stories,
   "addons": [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/preset-create-react-app"
   ],
-  typescript: {
-    check: true,
-    checkOptions: {
-      tsconfig: packageName ? `./src/${packageName}/tsconfig.json` : undefined,
-      reportFiles: [`./src/${packageName ? packageName + "/" : ""}**/*.{ts|tsx}`],
-    },
-  },
+  // typescript: {
+  //   check: true,
+  //   checkOptions: {
+  //     tsconfig: packageName ? `./src/${packageName}/tsconfig.json` : undefined,
+  //     reportFiles: [`./src/${packageName ? packageName + "/" : ""}**/*.{ts|tsx}`],
+  //   },
+  // },
   webpackFinal(config) {
     config.resolve.alias = {
       ...config.resolve.alias,
