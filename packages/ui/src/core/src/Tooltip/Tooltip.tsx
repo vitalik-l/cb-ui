@@ -7,8 +7,8 @@ import { useControlled } from '../hooks/useControlled';
 import { useForkRef } from '../utils/useForkRef';
 import { useEventCallback } from '../hooks/useEventCallback';
 import { useIsFocusVisible } from '../hooks/useIsFocusVisible';
-import styles from './CoreTooltip.module.scss';
 import { useClasses } from '../hooks/useClasses';
+import styles from './CoreTooltip.module.scss';
 
 let hystersisOpen = false;
 let hystersisTimer: any = null;

@@ -4,13 +4,13 @@ import { Story } from '@storybook/react';
 // local files
 import { createStory } from '../../../story';
 import { MobileGameTableLayout } from './index';
-import { RouletteWheelTemplate } from '../../RouletteWheel/RouletteWheel.story';
+import { RouletteWheelTemplate } from '@cb-general/weekend/RouletteWheel/RouletteWheel.story';
 import { Dropzone, Dropzones } from '../../Dropzones';
 import { ChipsControlsTemplate } from '../ChipsControls/ChipsControls.story';
-import { GameRoundsTemplate } from '../../../../weekend/src/GameRounds/GameRounds.story';
-import { AutoplayCounterTemplate } from '../../../../weekend/src/AutoplayCounter/AutoplayCounter.story';
-import { GameButton } from '../../../../weekend/src/GameButton';
-import { GameTableButtons } from '../../../../weekend/src/GameTableButtons';
+import { GameRoundsTemplate } from '@cb-general/weekend/GameRounds/GameRounds.story';
+import { AutoplayCounterTemplate } from '@cb-general/weekend/AutoplayCounter/AutoplayCounter.story';
+import { GameButton } from '@cb-general/weekend/GameButton';
+import { GameTableButtons } from '@cb-general/weekend/GameTableButtons';
 import { ChartModeDropzonesTemplate } from '../../ChartModeDropzones/ChartModeDropzones.story';
 import { Logo } from '../../Logo';
 

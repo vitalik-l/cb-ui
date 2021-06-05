@@ -4,11 +4,11 @@ import { Story } from '@storybook/react';
 // local files
 import { createStory } from '../../story';
 import { GameTableLayout } from './index';
-import { RouletteWheelTemplate } from '../RouletteWheel/RouletteWheel.story';
-import { ChipsControlsTemplate } from '../../../weekend/src/ChipsControls/ChipsControls.story';
-import { GameTableButtonsTemplate } from '../../../weekend/src/GameTableButtons/GameTableButtons.story';
-import { GameRoundsTemplate } from '../../../weekend/src/GameRounds/GameRounds.story';
-import { AutoplayCounterTemplate } from '../../../weekend/src/AutoplayCounter/AutoplayCounter.story';
+import { RouletteWheelTemplate } from '@cb-general/weekend/RouletteWheel/RouletteWheel.story';
+import { ChipsControlsTemplate } from '@cb-general/weekend/ChipsControls/ChipsControls.story';
+import { GameTableButtonsTemplate } from '@cb-general/weekend/GameTableButtons/GameTableButtons.story';
+import { GameRoundsTemplate } from '@cb-general/weekend/GameRounds/GameRounds.story';
+import { AutoplayCounterTemplate } from '@cb-general/weekend/AutoplayCounter/AutoplayCounter.story';
 import { Dropzones, Dropzone } from '../Dropzones';
 
 const story = createStory({

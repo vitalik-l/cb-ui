@@ -2,11 +2,11 @@ import React from 'react';
 import { Story } from '@storybook/react';
 
 // local files
-import { Root } from '../../../core/src/Root';
+import { Root } from '@cb-general/core/Root';
 import { createStory } from '../../story';
 import { DesktopLayout } from './index';
-import { HeaderTemplate } from '../../../weekend/src/Header/Header.story';
-import { TabsPanelTemplate } from '../../../weekend/src/TabsPanel/TansPanel.story';
+import { HeaderTemplate } from '@cb-general/weekend/Header/Header.story';
+import { TabsPanelTemplate } from '@cb-general/weekend/TabsPanel/TansPanel.story';
 import { TradingControlsTemplate } from '../TradingControlsLayout/TradingControlsLayout.story';
 import { Logo } from '../Logo';
 import { SymbolTabsTemplate } from '../SymbolTabs/SymbolTabs.story';

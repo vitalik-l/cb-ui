@@ -51,7 +51,7 @@ $root: CoreSelect;
 .autoWidth {
   align-items: center;
 
-  .select {
+  .select, .inputRoot  {
     position: absolute;
     top: 0;
     left: 0;
@@ -104,6 +104,8 @@ $root: CoreSelect;
 
 .options {
   z-index: 1200;
+  background-color: white;
+  color: black;
 }
 
 :export {

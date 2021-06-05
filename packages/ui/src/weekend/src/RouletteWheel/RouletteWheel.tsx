@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { useClasses } from '@cb-general/core/hooks/useClasses';
 
 // local files
-import styles from './RouletteWheel.module.scss';
+import styles from './WkdRouletteWheel.module.scss';
 
 type Props = {
   className?: string;
@@ -21,7 +21,7 @@ const BALL_TRANSX = '19.5em';
 const WHEEL_NUM_ANGLE = 9.72972972972973; // 360 deg / 37 sectors
 const WHEEL_START_SPEED = 5;
 
-export const RouletteWheel: React.FunctionComponent<Props> = (props: Props) => {
+export const RouletteWheel = (props: Props) => {
   const {
     className,
     slots,
@@ -29,7 +29,7 @@ export const RouletteWheel: React.FunctionComponent<Props> = (props: Props) => {
     numbers,
     value,
     onWheelStop,
-    visibleZone,
+    visibleZone = [],
     onResult,
     children,
   } = props;

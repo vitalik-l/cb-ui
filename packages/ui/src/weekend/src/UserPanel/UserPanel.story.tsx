@@ -6,7 +6,7 @@ import { createStory } from '../../story';
 import { UserPanel } from './UserPanel';
 import { UserPanelButton } from './UserPanelButton';
 import { UserPanelItem } from './UserPanelItem';
-import { Select } from '../../../core/src/Select';
+import { Select } from '@cb-general/core/Select';
 import { UserPanelButtons } from './UserPanelButtons';
 import { MenuButton } from '../MenuButton';
 
