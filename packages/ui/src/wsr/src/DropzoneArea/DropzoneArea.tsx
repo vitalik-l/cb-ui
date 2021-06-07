@@ -47,9 +47,21 @@ export const DropzoneArea = (props: Props) => {
       <React.Fragment>
         <div className={styles.straight}>{straightItems}</div>
         <div className={styles.columns}>
-          {renderDropzone({ betType: BET_TYPES.COLUMN, startNumber: 3, classes: { label: styles.columnLabel } })}
-          {renderDropzone({ betType: BET_TYPES.COLUMN, startNumber: 2, classes: { label: styles.columnLabel } })}
-          {renderDropzone({ betType: BET_TYPES.COLUMN, startNumber: 1, classes: { label: styles.columnLabel } })}
+          {renderDropzone({
+            betType: BET_TYPES.COLUMN,
+            startNumber: 3,
+            classes: { label: styles.columnLabel },
+          })}
+          {renderDropzone({
+            betType: BET_TYPES.COLUMN,
+            startNumber: 2,
+            classes: { label: styles.columnLabel },
+          })}
+          {renderDropzone({
+            betType: BET_TYPES.COLUMN,
+            startNumber: 1,
+            classes: { label: styles.columnLabel },
+          })}
         </div>
         <div className={styles.dozen}>
           {renderDropzone({ betType: BET_TYPES.DOZEN, startNumber: 13 })}

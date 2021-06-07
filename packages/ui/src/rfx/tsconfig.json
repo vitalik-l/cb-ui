@@ -9,5 +9,5 @@
       "@cb-general/weekend/*": ["../weekend/src/*"]
     }
   },
-  "references": [{ "path": "../core" },{ "path": "../weekend" }]
+  "references": [{ "path": "../core" }, { "path": "../weekend" }]
 }

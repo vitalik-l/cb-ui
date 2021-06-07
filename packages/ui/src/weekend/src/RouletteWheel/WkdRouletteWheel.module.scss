@@ -61,6 +61,11 @@ $root: WkdRouletteWheel;
   &_redblack {
     background-image: url(./img/slots_redblack.png);
   }
+
+  &_nozero {
+    background-image: url(./img/slots_nozero.png);
+    background-size: auto;
+  }
 }
 
 .ball {

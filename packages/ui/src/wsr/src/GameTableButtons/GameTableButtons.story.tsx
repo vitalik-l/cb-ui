@@ -4,7 +4,7 @@ import { Story } from '@storybook/react';
 // local files
 import { createStory } from '../../story';
 import { GameTableButtons, GameTableButtonsCircular } from './index';
-import {GameButton} from '../GameButton';
+import { GameButton } from '../GameButton';
 import { CircularIndicatorTemplate } from '@cb-general/weekend/CircularIndicator/CircularIndicator.story';
 
 const story = createStory({
@@ -13,7 +13,7 @@ const story = createStory({
   style: {
     width: '55rem',
     marginTop: 50,
-  }
+  },
 });
 
 export const GameTableButtonsTemplate: Story = ({ onPlay, ...args }) => (
@@ -23,9 +23,7 @@ export const GameTableButtonsTemplate: Story = ({ onPlay, ...args }) => (
     </GameButton>
     <GameButton>X2</GameButton>
     <GameTableButtonsCircular Component={CircularIndicatorTemplate} />
-    <GameButton unclickable>
-      Clear
-    </GameButton>
+    <GameButton unclickable>Clear</GameButton>
     <GameButton sublabel="bet" unclickable color="green">
       $0.00
     </GameButton>

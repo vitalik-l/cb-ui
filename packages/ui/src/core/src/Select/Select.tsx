@@ -107,7 +107,7 @@ export const Select: React.FC<Props> = React.forwardRef((props, ref: any) => {
 
   const onSelectOption = React.useCallback(
     (value: number | string) => {
-      handleChange({ target: { value }});
+      handleChange({ target: { value } });
       toggleOptions();
     },
     [toggleOptions, handleChange],

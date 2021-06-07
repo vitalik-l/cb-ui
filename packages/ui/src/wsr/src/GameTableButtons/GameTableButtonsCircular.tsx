@@ -8,10 +8,14 @@ type Props<T extends React.ElementType> = {
   Component?: T;
 } & React.ComponentProps<T>;
 
-export const GameTableButtonsCircular = <T extends React.ElementType>({ Component, className, ...restProps}: Props<T>) => {
+export const GameTableButtonsCircular = <T extends React.ElementType>({
+  Component,
+  className,
+  ...restProps
+}: Props<T>) => {
   return (
     <div className={clsx(className, styles.circularWrap)}>
       <Component className={styles.circular} {...restProps} />
     </div>
-  )
+  );
 };

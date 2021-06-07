@@ -62,7 +62,9 @@ const Dropzone = React.memo((props: React.ComponentProps<typeof DropzoneBase>) =
       <DropzoneBase {...props} label={label} onMouseDown={onMouseDown}>
         {!!chips.length && (
           <ChipsStack>
-            {chips.map(chip => <Chip value={chip} />)}
+            {chips.map((chip) => (
+              <Chip value={chip} />
+            ))}
           </ChipsStack>
         )}
       </DropzoneBase>
@@ -84,6 +86,6 @@ export const LeftAndRight: Story = () => (
       <DropzoneArea rightSide DropzoneComponent={Dropzone} />
     </div>
   </DropzoneProvider>
-)
+);
 
 export default story;

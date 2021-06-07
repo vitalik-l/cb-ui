@@ -7,5 +7,8 @@
   },
   "exclude": ["**/*.story.tsx"],
   "include": ["../declarations.d.ts", "src"],
-  "references": [{ "path": "../core/tsconfig.build.json" }, { "path": "../weekend/tsconfig.build.json" }]
+  "references": [
+    { "path": "../core/tsconfig.build.json" },
+    { "path": "../weekend/tsconfig.build.json" }
+  ]
 }

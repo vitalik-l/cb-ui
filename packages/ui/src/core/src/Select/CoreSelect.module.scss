@@ -51,7 +51,8 @@ $root: CoreSelect;
 .autoWidth {
   align-items: center;
 
-  .select, .inputRoot  {
+  .select,
+  .inputRoot {
     position: absolute;
     top: 0;
     left: 0;

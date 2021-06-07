@@ -3,6 +3,7 @@ import { Story } from '@storybook/react';
 
 // local files
 import { createStory } from '../../story';
+import { Root } from '@cb-general/core/Root';
 import { DesktopLayout } from './index';
 
 const story = createStory({
@@ -10,7 +11,11 @@ const story = createStory({
   component: DesktopLayout,
 });
 
-export const Template: Story = (args) => <DesktopLayout {...args} />;
+export const Template: Story = (args) => (
+  <Root>
+    <DesktopLayout {...args} />
+  </Root>
+);
 Template.storyName = 'DesktopLayout';
 
 export default story;

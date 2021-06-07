@@ -4,7 +4,8 @@ $root: GameTableButtons;
   overflow: initial;
   border: 0.2rem solid #dc9e2a;
   padding: 0.4em;
-  box-shadow: 0.5px 0.866px 2px 0 rgb(0 0 0 / 98%), 0 3px 3px 0 rgb(0 0 0 / 98%), 0 4px 4px 0 rgb(0 0 0 / 98%);
+  box-shadow: 0.5px 0.866px 2px 0 rgb(0 0 0 / 98%), 0 3px 3px 0 rgb(0 0 0 / 98%),
+    0 4px 4px 0 rgb(0 0 0 / 98%);
   background-color: black;
 }
 
@@ -21,11 +22,11 @@ $root: GameTableButtons;
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   z-index: 1;
   width: 16.2rem;
   height: 16.2rem;
-  margin-top: .3rem;
+  margin-top: 0.3rem;
 }
 
 :export {

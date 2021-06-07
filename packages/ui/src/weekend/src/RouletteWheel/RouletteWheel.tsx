@@ -7,8 +7,7 @@ import styles from './WkdRouletteWheel.module.scss';
 
 type Props = {
   className?: string;
-  slots?: 'redblack';
-  numbers?: number[];
+  slots?: 'redblack' | 'nozero';
   classes?: any;
   value?: number;
   onWheelStop?: any;
@@ -17,8 +16,47 @@ type Props = {
   children?: React.ReactNode;
 };
 
+const NUMBERS = [
+  0,
+  32,
+  15,
+  19,
+  4,
+  21,
+  2,
+  25,
+  17,
+  34,
+  6,
+  27,
+  13,
+  36,
+  11,
+  30,
+  8,
+  23,
+  10,
+  5,
+  24,
+  16,
+  33,
+  1,
+  20,
+  14,
+  31,
+  9,
+  22,
+  18,
+  29,
+  7,
+  28,
+  12,
+  35,
+  3,
+  26,
+];
+const NUMBERS_NOZERO = NUMBERS.slice(1);
 const BALL_TRANSX = '19.5em';
-const WHEEL_NUM_ANGLE = 9.72972972972973; // 360 deg / 37 sectors
 const WHEEL_START_SPEED = 5;
 
 export const RouletteWheel = (props: Props) => {
@@ -26,10 +64,9 @@ export const RouletteWheel = (props: Props) => {
     className,
     slots,
     classes: classesProp,
-    numbers,
     value,
     onWheelStop,
-    visibleZone = [],
+    visibleZone,
     onResult,
     children,
   } = props;
@@ -38,6 +75,8 @@ export const RouletteWheel = (props: Props) => {
   const slotsRef: MutableRefObject<HTMLDivElement | null> = React.useRef(null);
   const angle = React.useRef(0);
   const animRef = React.useRef(0);
+  const numbers = slots === 'nozero' ? NUMBERS_NOZERO : NUMBERS;
+  const slotAngle = React.useMemo(() => 360 / numbers.length, [numbers]);
 
   const dropBall = React.useCallback(() => {
     if (ballRef.current) {
@@ -59,7 +98,8 @@ export const RouletteWheel = (props: Props) => {
 
     if (value != null && numbers && slotsRef.current && ballRef.current) {
       const rezPos = numbers.indexOf(value);
-      let angle = 234 - rezPos * WHEEL_NUM_ANGLE;
+      let angle = 234 - (37 - numbers.length) * slotAngle - rezPos * slotAngle;
+      console.log(numbers, rezPos, angle);
       slotsRef.current.style.transform = 'rotate(' + angle + 'deg) translateZ(0)';
       ballRef.current.style.transform =
         'rotate(' + 119.5 + 'deg) translateX(' + BALL_TRANSX + ') translateZ(0)';
@@ -100,7 +140,7 @@ export const RouletteWheel = (props: Props) => {
       };
       keepSpinning();
     }
-  }, [classes.ballRotate, numbers, value, wheelStops, visibleZone, onResult]);
+  }, [classes.ballRotate, numbers, value, wheelStops, visibleZone, onResult, slotAngle]);
 
   const spinUp = React.useCallback(() => {
     if (slotsRef.current) {
@@ -134,44 +174,5 @@ export const RouletteWheel = (props: Props) => {
 
 RouletteWheel.defaultProps = {
   slots: 'redblack',
-  numbers: [
-    0,
-    32,
-    15,
-    19,
-    4,
-    21,
-    2,
-    25,
-    17,
-    34,
-    6,
-    27,
-    13,
-    36,
-    11,
-    30,
-    8,
-    23,
-    10,
-    5,
-    24,
-    16,
-    33,
-    1,
-    20,
-    14,
-    31,
-    9,
-    22,
-    18,
-    29,
-    7,
-    28,
-    12,
-    35,
-    3,
-    26,
-  ],
   visibleZone: [0, 360], // from 0 to 360 deg
 };
