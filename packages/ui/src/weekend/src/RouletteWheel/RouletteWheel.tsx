@@ -99,7 +99,6 @@ export const RouletteWheel = (props: Props) => {
     if (value != null && numbers && slotsRef.current && ballRef.current) {
       const rezPos = numbers.indexOf(value);
       let angle = 234 - (37 - numbers.length) * slotAngle - rezPos * slotAngle;
-      console.log(numbers, rezPos, angle);
       slotsRef.current.style.transform = 'rotate(' + angle + 'deg) translateZ(0)';
       ballRef.current.style.transform =
         'rotate(' + 119.5 + 'deg) translateX(' + BALL_TRANSX + ') translateZ(0)';
