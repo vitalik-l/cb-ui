@@ -2,27 +2,21 @@ import React from 'react';
 import clsx from 'clsx';
 import { useClasses } from '../hooks/useClasses';
 
-type Styles<T extends React.ElementType> =
-  | ((props: React.ComponentProps<T>) => string | Array<any>)
+type Styles<T> =
+  | ((props: T) => string | Array<any>)
   | string
   | { [key: string]: any };
 
-export function styled<T extends React.ElementType>(
+export function styled<T>(
   styles: Styles<T>,
-): React.FunctionComponent<React.ComponentProps<'div'>>;
-export function styled<T extends React.ElementType>(
+): React.FunctionComponent<React.ComponentProps<'div'> & T>;
+export function styled<Props, T extends React.ElementType>(
   Component: T,
-  styles: Styles<T>,
-): React.FunctionComponent<React.ComponentProps<T>>;
+  styles: Styles<React.ComponentProps<T> & Props>,
+): React.FunctionComponent<React.ComponentProps<T> & Props>;
 export function styled(...args: any) {
-  let styles: any,
-    Component: React.ElementType = 'div';
-
-  if (args.length > 1) {
-    [Component, styles] = args;
-  } else {
-    styles = args[0];
-  }
+  const [Component, styles] = args.length === 1 ? ['div', args[0]] : args;
+  const isCustomElement = typeof Component !== 'string';
 
   return React.forwardRef((props: React.ComponentProps<typeof Component>, ref: any) => {
     const { className, classes: classesProp, ...restProps } = props;
@@ -30,7 +24,7 @@ export function styled(...args: any) {
     const isClasses = typeof styles === 'object';
     const classes = useClasses(isClasses ? styles : undefined, classesProp);
     let stylesToApply;
-    if (isClasses) {
+    if (isClasses && isCustomElement) {
       customProps.classes = classes;
     } else {
       stylesToApply = typeof styles === 'function' ? styles(props) : styles;

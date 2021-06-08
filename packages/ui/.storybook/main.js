@@ -62,13 +62,13 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/preset-create-react-app"
   ],
-  // typescript: {
-  //   check: true,
-  //   checkOptions: {
-  //     tsconfig: packageName ? `./src/${packageName}/tsconfig.json` : undefined,
-  //     reportFiles: [`./src/${packageName ? packageName + "/" : ""}**/*.{ts|tsx}`],
-  //   },
-  // },
+  typescript: {
+    check: true,
+    checkOptions: {
+      // tsconfig: packageName ? `./src/${packageName}/tsconfig.json` : undefined,
+      reportFiles: packages.map(packageName => `./src/${packageName ? packageName + '/' : ''}**/*.{ts|tsx}`),
+    },
+  },
   webpackFinal(config) {
     config.resolve.alias = {
       ...config.resolve.alias,
