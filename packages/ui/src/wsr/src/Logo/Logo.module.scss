@@ -4,14 +4,14 @@ $root: Logo;
 
 :global(.#{$root}) {
   position: relative;
-  font-size: 29.8em;
+  font-size: 29.5em;
   background: url(./img/logo.png) no-repeat center center;
   background-size: contain;
   @include pxSizeToEm(298, 63);
 }
 
 .small {
-  font-size: 15em;
+  font-size: 19.5em;
 }
 
 :export {

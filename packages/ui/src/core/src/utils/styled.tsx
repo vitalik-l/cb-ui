@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { useClasses } from '../hooks/useClasses';
 
 type Styles<T> =
-  | ((props: T) => string | Array<any>)
+  | ((props: T) => Array<any>)
   | string
   | { [key: string]: any };
 
@@ -27,7 +27,7 @@ export function styled(...args: any) {
     if (isClasses && isCustomElement) {
       customProps.classes = classes;
     } else {
-      stylesToApply = typeof styles === 'function' ? styles(props) : styles;
+      stylesToApply = typeof styles === 'function' ? clsx(...styles(props)) : styles;
     }
 
     return (
