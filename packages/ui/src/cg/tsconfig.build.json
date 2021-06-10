@@ -9,5 +9,8 @@
     "noEmit": false
   },
   "exclude": ["**/*.story.tsx"],
-  "include": ["../declarations.d.ts", "src"]
+  "include": ["../declarations.d.ts", "src"],
+  "references": [
+    { "path": "../core/tsconfig.build.json" }
+  ]
 }
