@@ -1,7 +1,7 @@
 import React from 'react';
 import { styled } from '@cb-general/core/utils/styled';
 import { SvgIcon } from '@cb-general/core/SvgIcon';
-import { Radio as CoreRadio } from '@cb-general/core/Radio';
+import { SwitchBase } from '@cb-general/core/SwitchBase';
 import { ClassicLabel } from '../Label';
 import styles from './ClassicRadio.module.scss';
 
@@ -24,10 +24,10 @@ const CheckedIcon = () => {
   );
 };
 
-export const ClassicRadio = styled(CoreRadio, styles);
+export const ClassicRadio = styled(SwitchBase, styles);
 
 ClassicRadio.defaultProps = {
-  Label: ClassicLabel,
+  LabelComponent: ClassicLabel,
   icon: <Icon />,
   checkedIcon: <CheckedIcon />,
 };

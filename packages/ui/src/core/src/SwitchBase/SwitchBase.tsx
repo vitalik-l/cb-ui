@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import { useControlled } from '../hooks/useControlled';
 import { useClasses } from '../hooks/useClasses';
 import { ButtonBase } from '../ButtonBase';
-import styles from './CoreRadio.module.scss';
+import styles from './SwitchBase.module.scss';
 
 type Props = {
   classes?: {
@@ -15,14 +15,14 @@ type Props = {
     input?: string;
     label?: string;
   };
-  Label?: React.ElementType;
+  LabelComponent?: React.ElementType;
   inputRef?: any;
   checkedIcon?: React.ReactNode;
   icon?: React.ReactNode;
   disabled?: boolean;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
-export const Radio = (props: Props) => {
+export const SwitchBase = (props: Props) => {
   const {
     className,
     checked: checkedProp,
@@ -34,14 +34,14 @@ export const Radio = (props: Props) => {
     checkedIcon,
     classes: classesProp,
     children,
-    Label = 'label',
+    LabelComponent = 'label',
     id,
     ...inputProps
   } = props;
   const [checked, setChecked] = useControlled({
     controlled: checkedProp,
     default: Boolean(defaultChecked),
-    name: 'Radio',
+    name: 'SwitchBase',
   });
 
   const handleInputChange = (event: any) => {
@@ -80,9 +80,9 @@ export const Radio = (props: Props) => {
       />
       {checked ? checkedIcon : icon}
       {!!children && (
-        <Label className={classes.label} htmlFor={id}>
+        <LabelComponent className={classes.label} htmlFor={id}>
           {children}
-        </Label>
+        </LabelComponent>
       )}
     </ButtonBase>
   );

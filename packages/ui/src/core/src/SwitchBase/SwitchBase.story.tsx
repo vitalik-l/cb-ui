@@ -3,12 +3,12 @@ import { Story } from '@storybook/react';
 
 // local files
 import { createStory } from '../../story';
-import { Radio } from './index';
+import { SwitchBase } from './index';
 import styles from './RadioStory.module.scss';
 
 const story = createStory({
   title: 'Radio',
-  component: Radio,
+  component: SwitchBase,
 });
 
 export const Template: Story = (args) => {
@@ -20,7 +20,7 @@ export const Template: Story = (args) => {
 
   return (
     <form>
-      <Radio
+      <SwitchBase
         {...args}
         classes={styles}
         name="radio"
@@ -31,8 +31,8 @@ export const Template: Story = (args) => {
         checkedIcon={<div className={styles.checkedIcon} />}
       >
         Radio 1
-      </Radio>
-      <Radio
+      </SwitchBase>
+      <SwitchBase
         {...args}
         classes={styles}
         name="radio"
@@ -43,7 +43,7 @@ export const Template: Story = (args) => {
         checkedIcon={<div className={styles.checkedIcon} />}
       >
         Radio 2
-      </Radio>
+      </SwitchBase>
     </form>
   );
 };

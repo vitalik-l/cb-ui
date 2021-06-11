@@ -4,7 +4,7 @@ import { Story } from '@storybook/react';
 // local files
 import { createStory } from '../../story';
 import { Radio, ClassicRadio } from './index';
-import { RadioGroup } from '../../../core/src/RadioGroup';
+import { RadioGroup } from '@cb-general/core/RadioGroup';
 
 const story = createStory({
   title: 'Radio',
