@@ -8,6 +8,11 @@ import { Logo } from './index';
 const story = createStory({
   title: 'Logo',
   component: Logo,
+  argTypes: {
+    small: {
+      control: 'boolean',
+    }
+  }
 });
 
 export const Template: Story = (args) => <Logo {...args} />;
