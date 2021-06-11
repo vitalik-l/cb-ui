@@ -9,6 +9,7 @@ import styles from './Checkbox.module.scss';
 export const Checkbox = styled(SwitchBase, styles);
 
 Checkbox.defaultProps = {
+  type: 'checkbox',
   icon: <span className={styles.icon} />,
   checkedIcon: <span className={styles.checkedIcon} />,
   LabelComponent: Label,

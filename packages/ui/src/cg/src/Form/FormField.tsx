@@ -6,6 +6,6 @@ import { Label } from '../Label';
 import { Input } from '../Input';
 import styles from './CgFormField.module.scss';
 
-export const FormField = (props: any) => (
+export const FormField = (props: React.ComponentProps<typeof CoreFormField>) => (
   <CoreFormField component={Input} {...props} Label={Label} classes={styles} />
 );

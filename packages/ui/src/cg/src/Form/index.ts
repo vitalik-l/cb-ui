@@ -4,3 +4,4 @@ export { TextField } from './TextField';
 export { Submit } from './Submit';
 export { ClassicFormField } from './ClassicFormField';
 export { BubbleFormField } from './BubbleFormField';
+export { CheckboxField } from './CheckboxField';
