@@ -3,7 +3,7 @@ import { Story } from '@storybook/react';
 
 // local files
 import { RadioGroup } from './RadioGroup';
-import { Radio } from '../Radio';
+import { SwitchBase } from '../SwitchBase';
 import { createStory } from '../../story';
 
 const story = createStory({
@@ -16,9 +16,9 @@ const Template = () => {
 
   return (
     <RadioGroup value={value} onChange={setValue}>
-      <Radio>One</Radio>
-      <Radio>Two</Radio>
-      <Radio>Three</Radio>
+      <SwitchBase>One</SwitchBase>
+      <SwitchBase>Two</SwitchBase>
+      <SwitchBase>Three</SwitchBase>
     </RadioGroup>
   );
 };

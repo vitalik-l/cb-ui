@@ -4,10 +4,10 @@ import { Story } from '@storybook/react';
 // local files
 import { createStory } from '../../story';
 import { SwitchBase } from './index';
-import styles from './RadioStory.module.scss';
+import styles from './SwitchBaseStory.module.scss';
 
 const story = createStory({
-  title: 'Radio',
+  title: 'SwitchBase',
   component: SwitchBase,
 });
 
