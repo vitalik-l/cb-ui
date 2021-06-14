@@ -10,15 +10,20 @@ import { ClassicTab, ClassicTabs } from './ClassicTabs';
 const story = createStory({
   title: 'Tabs',
   component: Tabs,
+  style: {
+    width: 250,
+  }
 });
 
-export const TabsTemplate: Story = () => {
+export const TabsTemplate: Story = (args) => {
   const [value, setValue] = React.useState(0);
 
   return (
-    <Tabs onChange={setValue} value={value}>
+    <Tabs onChange={setValue} value={value} {...args} scrollButtons="on">
       <Tab value={0} label="Deposit" />
       <Tab value={1} label="Withdraw" />
+      <Tab value={1} label="Other Tab" />
+      <Tab value={1} label="Other Tab 2" />
     </Tabs>
   );
 };
