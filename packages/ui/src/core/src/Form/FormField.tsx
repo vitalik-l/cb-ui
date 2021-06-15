@@ -1,5 +1,5 @@
 import React from 'react';
-import { useField } from 'react-final-form';
+import { useField, FieldProps } from 'react-final-form';
 import clsx from 'clsx';
 
 // local files
@@ -9,9 +9,42 @@ import { useClasses } from '../hooks/useClasses';
 import { FormFieldContext } from './FormFieldContext';
 import styles from './CoreFormField.module.scss';
 
+type LayoutClassName = `layout_${'inline' | 'stacked'}`;
+type ClassesType = {
+    [key in LayoutClassName]?: string;
+  } & {
+  inline?: string;
+  item?: string;
+  label?: string;
+  subLabel?: string;
+  control?: string;
+  fullWidth?: string;
+  error?: string;
+  root?: string;
+};
+
+type Props<T extends React.ElementType = React.ElementType> = FieldProps<any, any> & {
+  Label?: React.ElementType;
+  Error?: React.ElementType;
+  label?: React.ReactNode;
+  subLabel?: React.ReactNode;
+  placeholder?: string;
+  name: string;
+  component?: T;
+  inputProps?: React.ComponentProps<T>;
+  error?: React.ReactNode;
+  id?: string;
+  fullWidth?: boolean;
+  showError?: boolean;
+  className?: string;
+  classes?: ClassesType;
+  inputClasses?: any;
+  layout?: string;
+};
+
 const sanitizeFieldProps = ({ validate, ...props }: any) => props;
 
-export const FormField = React.memo((props: any) => {
+export const FormField = React.memo((props: Props) => {
   const {
     Label = 'label',
     Error = 'div',
@@ -28,6 +61,7 @@ export const FormField = React.memo((props: any) => {
     classes: classesProp,
     layout: layoutProp,
     inputClasses,
+    inputProps,
     ...fieldProps
   } = props;
   const { isCoreForm, fullWidth: formFullWidth } = useCoreForm();
@@ -48,7 +82,7 @@ export const FormField = React.memo((props: any) => {
         fullWidth,
         classes: inputClasses,
       };
-  const classes = useClasses(styles, classesProp);
+  const classes: ClassesType = useClasses(styles, classesProp);
   const inlineClass = isInline ? classes.inline : undefined;
 
   const content = (
@@ -60,13 +94,12 @@ export const FormField = React.memo((props: any) => {
         </div>
       )}
       <div
-        className={clsx(classes.item, classes.control, inlineClass, {
-          [classes.fullWidth]: !!fullWidth,
-        })}
+        className={clsx(classes.item, classes.control, inlineClass, fullWidth && classes.fullWidth)}
       >
         <Component
           placeholder={placeholder}
           id={id}
+          {...inputProps}
           {...sanitizeFieldProps(fieldProps)}
           {...input}
           {...customProps}
@@ -83,7 +116,7 @@ export const FormField = React.memo((props: any) => {
 
   if (layout !== 'inline') {
     return (
-      <div className={clsx(classes.root, className, layout && classes[`layout_${layout}`])}>
+      <div className={clsx(classes.root, className, layout && classes[`layout_${layout}` as LayoutClassName])}>
         {content}
       </div>
     );

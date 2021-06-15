@@ -6,6 +6,10 @@ $root: CgInput;
 .withButton {
   align-items: center;
   height: 5rem;
+
+  .input {
+    height: 5rem;
+  }
 }
 
 .button {

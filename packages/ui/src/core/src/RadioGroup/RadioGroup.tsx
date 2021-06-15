@@ -9,6 +9,7 @@ type ClassesType = {
   root?: string;
   child?: string;
   inline?: string;
+  stacked?: string;
 };
 
 export type RadioGroupProps = {
@@ -18,7 +19,7 @@ export type RadioGroupProps = {
   value?: any;
   disabled?: boolean;
   name?: string;
-  inline?: boolean;
+  layout?: false | 'inline' | 'stacked';
   classes?: ClassesType;
 };
 
@@ -31,9 +32,9 @@ export const RadioGroup = (props: RadioGroupProps) => {
     disabled,
     classes: classesProp,
     name,
-    inline,
+    layout,
   } = props;
-  const classes = useClasses(styles, classesProp);
+  const classes: ClassesType = useClasses(styles, classesProp);
 
   const childrenItems = React.Children.map(children, (child, childIndex) => {
     if (!React.isValidElement(child)) {
@@ -64,8 +65,11 @@ export const RadioGroup = (props: RadioGroupProps) => {
   });
 
   return (
-    <div className={clsx(classes.root, className, inline ? classes.inline : classes.stacked)}>
+    <div className={clsx(classes.root, className, layout === 'inline' && classes.inline, layout === 'stacked' && classes.stacked)}>
       {childrenItems}
     </div>
   );
 };
+RadioGroup.defaultProps = {
+  layout: 'stacked',
+}

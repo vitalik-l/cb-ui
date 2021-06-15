@@ -31,7 +31,7 @@ export const useClassesByPrefix = <T>(
   return classes;
 };
 
-const getClasses = (defaultStyles: any, classesProp: any = {}) => {
+const getClasses = (defaultStyles: any, classesProp: any = {}): any => {
   if (!defaultStyles) return {};
   const keys = Array.from(new Set([...Object.keys(classesProp), ...Object.keys(defaultStyles)]));
   return keys.reduce((result: { [key: string]: any }, current) => {
@@ -40,6 +40,6 @@ const getClasses = (defaultStyles: any, classesProp: any = {}) => {
   }, {});
 };
 
-export const useClasses = (defaultStyles?: {}, classesProp?: {}) => {
+export const useClasses = <T = {}>(defaultStyles?: {}, classesProp?: T): T => {
   return React.useMemo(() => getClasses(defaultStyles, classesProp), []); //eslint-disable-line
 };
