@@ -65,11 +65,18 @@ export const RadioGroup = (props: RadioGroupProps) => {
   });
 
   return (
-    <div className={clsx(classes.root, className, layout === 'inline' && classes.inline, layout === 'stacked' && classes.stacked)}>
+    <div
+      className={clsx(
+        classes.root,
+        className,
+        layout === 'inline' && classes.inline,
+        layout === 'stacked' && classes.stacked,
+      )}
+    >
       {childrenItems}
     </div>
   );
 };
 RadioGroup.defaultProps = {
   layout: 'stacked',
-}
+};

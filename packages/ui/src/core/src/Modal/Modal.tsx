@@ -20,7 +20,8 @@ export type ModalProps = {
   onOverlayClick?: any;
   overlayClassName?: string;
   open?: boolean;
-  portalTarget?: Element;
+  container?: Element;
+  disablePortal?: boolean;
   animate?: boolean;
   transitionName?: string;
   transitionEnter?: boolean;
@@ -41,7 +42,8 @@ export const Modal = (props: ModalProps) => {
     onOverlayClick,
     overlayClassName,
     open,
-    portalTarget,
+    disablePortal,
+    container = document.body,
     animate = true,
     transitionName = styles.root,
     transitionEnter,
@@ -83,8 +85,8 @@ export const Modal = (props: ModalProps) => {
 
   const content = animatedModal || modal;
 
-  if (portalTarget) {
-    return createPortal(content, portalTarget);
+  if (!disablePortal) {
+    return createPortal(content, container);
   }
 
   return content;

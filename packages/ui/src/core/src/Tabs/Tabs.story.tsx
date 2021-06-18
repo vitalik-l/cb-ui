@@ -10,8 +10,8 @@ const story = createStory({
   title: 'Tabs',
   component: Tabs,
   style: {
-    width: 100
-  }
+    width: 100,
+  },
 });
 
 export const Template: Story = (args) => {

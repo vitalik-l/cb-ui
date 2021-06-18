@@ -2,10 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import { useClasses } from '../hooks/useClasses';
 
-type Styles<T> =
-  | ((props: T) => Array<any>)
-  | string
-  | { [key: string]: any };
+type Styles<T> = ((props: T) => Array<any>) | string | { [key: string]: any };
 
 export function styled<T>(
   styles: Styles<T>,

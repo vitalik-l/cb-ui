@@ -9,12 +9,9 @@ import {
   MenuItemButton,
   MenuHeaderButton,
   MenuContent,
-  MenuContentPadding,
 } from './index';
 import { IconButton } from '../IconButton';
 import { CloseIcon } from '../icons';
-import { DepositForm } from './DepositForm';
-import { Tab, Tabs } from '../Tabs';
 
 const story = createStory({
   title: 'Menu',
@@ -51,32 +48,5 @@ export const Template: Story = (args) => (
   </Menu>
 );
 Template.storyName = 'Menu';
-
-export const Deposit: Story = () => {
-  return (
-    <Menu open>
-      <MenuHeader
-        closeButton={
-          <IconButton>
-            <CloseIcon />
-          </IconButton>
-        }
-      >
-        <MenuHeaderButton>Deposit / Withdraw</MenuHeaderButton>
-      </MenuHeader>
-      <MenuContentPadding>
-        <Tabs>
-          <Tab label="Deposit" selected />
-          <Tab label="Withdraw" />
-        </Tabs>
-      </MenuContentPadding>
-      <MenuContent>
-        <MenuContentPadding>
-          <DepositForm />
-        </MenuContentPadding>
-      </MenuContent>
-    </Menu>
-  );
-};
 
 export default story;

@@ -11,9 +11,104 @@ import { useEventCallback } from '../hooks/useEventCallback';
 import { useClasses } from '../hooks/useClasses';
 import styles from './CoreSlider.module.scss';
 
-export type SliderProps = {
-  className?: string;
+type Colors = 'primary';
+
+type Classes<T extends Colors> = {
+  [key in `color_${T}`]: string;
+} &
+  {
+    [key in `thumbColor_${T}`]: string;
+  } & {
+    root?: string;
+    wrap?: string;
+    trackFalse?: string;
+    trackInverted?: string;
+    vertical?: string;
+    disabled?: string;
+    rail?: string;
+    track?: string;
+    marked?: string;
+    mark?: string;
+    markActive?: string;
+    markLabel?: string;
+    markLabelActive?: string;
+    valueLabel?: string;
+    thumb?: string;
+    thumbFocus?: string;
+    thumbActive?: string;
+  };
+
+type Mark = {
+  value: number;
+  label?: React.ReactNode;
 };
+
+export type SliderProps<T = Colors, C extends React.ElementType = 'span'> = {
+  component?: C;
+  color?: T;
+  classes?: Classes<T>;
+  disabled?: boolean;
+  getAriaLabel?: (index: number) => string;
+  getAriaValueText?: (value: number, index: number) => string;
+  marks?: false | Mark[];
+  min?: number;
+  max?: number;
+  name?: string;
+  step?: number;
+  ThumbComponent?: React.ElementType;
+  ValueLabelComponent?: React.ElementType;
+  onChange?: (event: React.SyntheticEvent, value: number | number[]) => void;
+  /**
+   * Callback function that is fired when the `mouseup` is triggered.
+   *
+   * @param {object} event The event source of the callback. **Warning**: This is a generic event not a change event.
+   * @param {number | number[]} value The new value.
+   */
+  onChangeCommitted?: (event: React.SyntheticEvent, value: number | number[]) => void;
+  /**
+   * The component orientation.
+   * @default 'horizontal'
+   */
+  orientation?: 'horizontal' | 'vertical';
+  /**
+   * A transformation function, to change the scale of the slider.
+   * @default (x) => x
+   */
+  scale?: (value: number) => number;
+  /**
+   * The track presentation:
+   *
+   * - `normal` the track will render a bar representing the slider value.
+   * - `inverted` the track will render a bar representing the remaining slider value.
+   * - `false` the track will render without a bar.
+   * @default 'normal'
+   */
+  track?: 'normal' | false | 'inverted';
+  /**
+   * The value of the slider.
+   * For ranged sliders, provide an array with two values.
+   */
+  value?: number | number[];
+  /**
+   * Controls when the value label is displayed:
+   *
+   * - `auto` the value label will display when the thumb is hovered or focused.
+   * - `on` will display persistently.
+   * - `off` will never display.
+   * @default 'off'
+   */
+  valueLabelDisplay?: 'on' | 'auto' | 'off';
+  /**
+   * The format function the value label's value.
+   *
+   * When a function is provided, it should have the following signature:
+   *
+   * - {number} value The value label's value to format
+   * - {number} index The value label's index to format
+   * @default (x) => x
+   */
+  valueLabelFormat?: string | ((value: number, index: number) => React.ReactNode);
+} & React.ComponentProps<C>;
 
 function asc(a: number, b: number) {
   return a - b;
@@ -135,6 +230,7 @@ const Identity = (x: any) => x;
 // Over 80% of the iOS phones are compatible
 // in August 2020.
 let cachedSupportsTouchActionNone: any;
+
 function doesSupportTouchActionNone() {
   if (cachedSupportsTouchActionNone === undefined) {
     const element = document.createElement('div');
@@ -146,14 +242,13 @@ function doesSupportTouchActionNone() {
   return cachedSupportsTouchActionNone;
 }
 
-export const Slider = React.forwardRef<any, any>((props, ref) => {
+export const Slider = React.forwardRef<any, SliderProps>((props, ref) => {
   const {
     'aria-label': ariaLabel,
     'aria-labelledby': ariaLabelledby,
     'aria-valuetext': ariaValuetext,
     className,
     classes: classesProp,
-    classNamePrefix,
     color = 'primary',
     component: Component = 'span',
     defaultValue,
@@ -530,6 +625,8 @@ export const Slider = React.forwardRef<any, any>((props, ref) => {
   };
 
   const classes = useClasses(styles, classesProp);
+  const colorClassName = classes[`color_${color}` as `color_${typeof color}`];
+  const thumbColorClassName = classes[`thumbColor_${color}` as `thumbColor_${typeof color}`];
 
   return (
     <div className={clsx(className, classes.wrap)}>
@@ -537,15 +634,12 @@ export const Slider = React.forwardRef<any, any>((props, ref) => {
         ref={handleRef}
         className={clsx(
           classes.root,
-          !!color && [classes[`color_${color}`]],
+          !!color && colorClassName,
           track === false && classes.trackFalse,
           track === 'inverted' && classes.trackInverted,
           classes.vertical && orientation === 'vertical',
-          {
-            [classes.disabled]: disabled,
-            [classes.marked]:
-              classes.marked && marks.length > 0 && marks.some((mark: any) => mark.label),
-          },
+          disabled && classes.disabled,
+          marks.length > 0 && marks.some((mark: any) => mark.label) && classes.marked,
           className,
         )}
         onMouseDown={handleMouseDown}
@@ -578,18 +672,14 @@ export const Slider = React.forwardRef<any, any>((props, ref) => {
               <span
                 style={style}
                 data-index={index}
-                className={clsx(classes.mark, {
-                  [classes.markActive]: markActive,
-                })}
+                className={clsx(classes.mark, markActive && classes?.markActive)}
               />
               {mark.label != null ? (
                 <span
                   aria-hidden
                   data-index={index}
                   style={style}
-                  className={clsx(classes.markLabel, {
-                    [classes.markLabelActive]: markActive,
-                  })}
+                  className={clsx(classes.markLabel, markActive && classes?.markLabelActive)}
                 >
                   {mark.label}
                 </span>
@@ -619,7 +709,7 @@ export const Slider = React.forwardRef<any, any>((props, ref) => {
               <ThumbComponent
                 className={clsx(
                   classes.thumb,
-                  !!color && classes[`thumbColor_${color}`],
+                  !!color && thumbColorClassName,
                   focusVisible === index && classes.thumbFocus,
                   active === index && classes.thumbActive,
                   disabled && classes.disabled,

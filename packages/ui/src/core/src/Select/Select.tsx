@@ -86,12 +86,15 @@ export const Select: React.FC<Props> = React.forwardRef((props, ref: any) => {
     [classes],
   );
 
-  const handleChange = React.useCallback((event: any) => {
-    setValue(event.target.value);
-    if (onChange) {
-      onChange(event);
-    }
-  }, [onChange]);
+  const handleChange = React.useCallback(
+    (event: any) => {
+      setValue(event.target.value);
+      if (onChange) {
+        onChange(event);
+      }
+    },
+    [onChange],
+  );
 
   const toggleOptions = React.useCallback(
     (event?: any) => {

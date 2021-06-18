@@ -11,8 +11,8 @@ import styles from './CoreFormField.module.scss';
 
 type LayoutClassName = `layout_${'inline' | 'stacked'}`;
 type ClassesType = {
-    [key in LayoutClassName]?: string;
-  } & {
+  [key in LayoutClassName]?: string;
+} & {
   inline?: string;
   item?: string;
   label?: string;
@@ -116,7 +116,13 @@ export const FormField = React.memo((props: Props) => {
 
   if (layout !== 'inline') {
     return (
-      <div className={clsx(classes.root, className, layout && classes[`layout_${layout}` as LayoutClassName])}>
+      <div
+        className={clsx(
+          classes.root,
+          className,
+          layout && classes[`layout_${layout}` as LayoutClassName],
+        )}
+      >
         {content}
       </div>
     );
