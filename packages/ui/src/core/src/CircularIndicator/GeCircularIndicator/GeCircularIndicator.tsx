@@ -1,5 +1,5 @@
-import { styled } from '@cb-general/core/utils/styled';
-import { CircularIndicator } from '@cb-general/weekend/CircularIndicator';
+import { styled } from '../../utils/styled';
+import { CircularIndicator } from '../CircularIndicator';
 import styles from './GeCircularIndicator.module.scss';
 
 export const GeCircularIndicator = styled(CircularIndicator, styles);

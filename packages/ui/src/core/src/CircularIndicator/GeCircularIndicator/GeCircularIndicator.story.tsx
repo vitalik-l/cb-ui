@@ -2,14 +2,14 @@ import React from 'react';
 import { Story } from '@storybook/react';
 
 // local files
-import { createStory } from '../../story';
+import { createStory } from '../../../story';
 import { GeCircularIndicator, GeCircularIndicatorButton } from './index';
 import CircularIndicatorStoryConfig, {
   CircularIndicatorTemplate,
-} from '../../../weekend/src/CircularIndicator/CircularIndicator.story';
+} from '../CircularIndicator.story';
 
 const story = createStory({
-  title: 'GeCircularIndicator',
+  title: 'CircularIndicator/GeCircularIndicator',
   component: GeCircularIndicator,
   argTypes: CircularIndicatorStoryConfig.argTypes,
 });

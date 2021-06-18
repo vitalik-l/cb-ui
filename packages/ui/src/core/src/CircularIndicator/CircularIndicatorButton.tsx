@@ -1,10 +1,10 @@
 import React from 'react';
 import clsx from 'clsx';
-import { ButtonBase } from '@cb-general/core/ButtonBase';
-import { useClasses } from '@cb-general/core/hooks/useClasses';
 
 // local files
-import styles from './WkdCircularIndicatorButton.module.scss';
+import { ButtonBase } from '../ButtonBase';
+import { useClasses } from '../hooks/useClasses';
+import styles from './CircularIndicatorButton.module.scss';
 
 type Props = {
   className?: string;

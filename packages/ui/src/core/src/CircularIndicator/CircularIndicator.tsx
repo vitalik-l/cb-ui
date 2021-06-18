@@ -1,12 +1,12 @@
 import React from 'react';
 import clsx from 'clsx';
-import { animate } from '@cb-general/core/utils/animate';
-import { useClasses } from '@cb-general/core/hooks/useClasses';
 
 // local files
+import { animate } from '../utils/animate';
+import { useClasses } from '../hooks/useClasses';
 import { imageUpGradient } from './imageUpGradient';
 import { imageDownGradient } from './imageDownGradient';
-import styles from './WkdCircularIndicator.module.scss';
+import styles from './CircularIndicator.module.scss';
 
 type ClassesType = {
   root?: string;

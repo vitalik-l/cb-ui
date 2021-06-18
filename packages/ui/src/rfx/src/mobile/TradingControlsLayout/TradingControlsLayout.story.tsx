@@ -5,7 +5,7 @@ import { Story } from '@storybook/react';
 import { createStory } from '../../../story';
 import { TradingControlsLayout } from './index';
 import { TickerTemplate } from '../../../../weekend/src/Ticker/Ticker.story';
-import { CircularIndicatorTemplate } from '../../../../weekend/src/CircularIndicator/CircularIndicator.story';
+import { CircularIndicatorTemplate } from '../../../../core/src/CircularIndicator/CircularIndicator.story';
 import { Countdown } from '../../../../weekend/src/Countdown';
 
 const story = createStory({

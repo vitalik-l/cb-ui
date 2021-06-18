@@ -2,11 +2,11 @@ import React from 'react';
 import { Story } from '@storybook/react';
 
 // local files
-import { createStory } from '../../story';
+import { createStory } from '../../../story';
 import { GeCircularIndicatorButton } from './index';
 
 const story = createStory({
-  title: 'GeCircularIndicator/GeCircularIndicatorButton',
+  title: 'CircularIndicator/GeCircularIndicator/GeCircularIndicatorButton',
   component: GeCircularIndicatorButton,
   style: {
     width: 100,
