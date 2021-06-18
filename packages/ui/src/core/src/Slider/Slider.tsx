@@ -8,16 +8,22 @@ import { useForkRef } from '../utils/useForkRef';
 import { ValueLabel } from './ValueLabel';
 import { useControlled } from '../hooks/useControlled';
 import { useEventCallback } from '../hooks/useEventCallback';
-import { useClasses } from '../hooks/useClasses';
+import { useClasses} from '../hooks/useClasses';
 import styles from './CoreSlider.module.scss';
+
+declare module "react" {
+  function forwardRef<T, P = {}>(
+    render: (props: P, ref: React.Ref<T>) => React.ReactElement | null
+  ): (props: P & React.RefAttributes<T>) => React.ReactElement | null;
+}
 
 type Colors = 'primary';
 
-type Classes<T extends Colors> = {
-  [key in `color_${T}`]: string;
+type Classes<T extends Colors = Colors> = {
+  [key in `color_${T}`]?: string;
 } &
   {
-    [key in `thumbColor_${T}`]: string;
+    [key in `thumbColor_${T}`]?: string;
   } & {
     root?: string;
     wrap?: string;
@@ -43,7 +49,7 @@ type Mark = {
   label?: React.ReactNode;
 };
 
-export type SliderProps<T = Colors, C extends React.ElementType = 'span'> = {
+export type SliderProps<T extends Colors = Colors, C extends React.ElementType = 'span'> = {
   component?: C;
   color?: T;
   classes?: Classes<T>;
@@ -242,7 +248,7 @@ function doesSupportTouchActionNone() {
   return cachedSupportsTouchActionNone;
 }
 
-export const Slider = React.forwardRef<any, SliderProps>((props, ref) => {
+const SliderInner = (props: SliderProps, ref: any) => {
   const {
     'aria-label': ariaLabel,
     'aria-labelledby': ariaLabelledby,
@@ -739,10 +745,10 @@ export const Slider = React.forwardRef<any, SliderProps>((props, ref) => {
       </Component>
     </div>
   );
-});
+};
 
-Slider.displayName = 'Slider';
+export const Slider = React.forwardRef(SliderInner);
 
-Slider.defaultProps = {
+(Slider as React.FC).defaultProps = {
   ThumbComponent: 'div',
 };
