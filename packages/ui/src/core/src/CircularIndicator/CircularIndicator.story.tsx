@@ -8,6 +8,9 @@ import { CircularIndicator, CircularIndicatorButton } from './index';
 const story = createStory({
   title: 'CircularIndicator',
   component: CircularIndicator,
+  style: {
+    fontSize: '1rem',
+  },
   argTypes: {
     text: { control: 'text' },
   },

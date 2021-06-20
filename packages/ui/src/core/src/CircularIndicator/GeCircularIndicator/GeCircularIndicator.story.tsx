@@ -12,6 +12,9 @@ const story = createStory({
   title: 'CircularIndicator/GeCircularIndicator',
   component: GeCircularIndicator,
   argTypes: CircularIndicatorStoryConfig.argTypes,
+  style: {
+    fontSize: '1rem',
+  },
 });
 
 export const Template: Story = (args) => (
