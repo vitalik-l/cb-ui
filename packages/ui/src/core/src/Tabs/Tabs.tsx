@@ -29,7 +29,7 @@ export type TabsProps = {
   scrollRightIcon?: React.ReactNode;
 };
 
-export const Tabs = React.forwardRef<any, TabsProps>((props, ref) => {
+export const Tabs: React.FC<TabsProps> = React.forwardRef<any, TabsProps>((props, ref) => {
   const {
     children,
     value,

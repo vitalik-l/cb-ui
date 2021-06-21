@@ -13,16 +13,16 @@ fs.readdirSync(srcPath, { withFileTypes: true }).forEach((item) => {
 
 const stories = [];
 const packagesNameArg = process.argv[process.argv.length - 1];
-const packages = packagesNameArg && packagesNameArg.split(' ') || [''];
+const packages = (packagesNameArg && packagesNameArg.split(' ')) || [''];
 packages.forEach((p) => {
-  const template = `../src/${p ? p + "/" : ""}**/*.story.@(js|jsx|ts|tsx|mdx)`;
+  const template = `../src/${p ? p + '/' : ''}**/*.story.@(js|jsx|ts|tsx|mdx)`;
   (!!~libs.indexOf(p) || !p) && stories.push(template);
 });
 
 const importStyleVariables = (config) => {
-  const mapRule = rule => {
+  const mapRule = (rule) => {
     if (rule.use) {
-      rule.use = rule.use.map(ruleUse => {
+      rule.use = rule.use.map((ruleUse) => {
         if (ruleUse.loader) {
           if (ruleUse.loader.indexOf('sass-loader') !== -1) {
             ruleUse.options.sassOptions = {
@@ -40,7 +40,7 @@ const importStyleVariables = (config) => {
     }
     return rule;
   };
-  config.module.rules = config.module.rules.map(rule => {
+  config.module.rules = config.module.rules.map((rule) => {
     if (rule.oneOf) {
       rule.oneOf = rule.oneOf.map(mapRule);
     }
@@ -50,23 +50,26 @@ const importStyleVariables = (config) => {
 
 const getAliasObject = () => {
   return libs.reduce((prev, lib) => {
-    prev[`@cb-general/${lib}`] = path.resolve(__dirname, `../src/${lib}/src/`)
+    prev[`@cb-general/${lib}`] = path.resolve(__dirname, `../src/${lib}/src/`);
     return prev;
   }, {});
 };
 
 module.exports = {
   stories,
-  "addons": [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/preset-create-react-app"
+  addons: [
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/preset-create-react-app',
   ],
   typescript: {
     check: true,
     checkOptions: {
-      // tsconfig: packageName ? `./src/${packageName}/tsconfig.json` : undefined,
-      reportFiles: packages.map(packageName => `./src/${packageName ? packageName + '/' : ''}**/*.{ts|tsx}`),
+      tsconfig:
+        packages.length === 1
+          ? path.resolve(__dirname, '../src', packages[0], 'tsconfig.json')
+          : path.resolve(__dirname, '../tsconfig.storybook.json'),
+      // reportFiles: packages.map(packageName => `./src/${packageName ? packageName + '/' : ''}**/*.{ts|tsx}`),
     },
   },
   webpackFinal(config) {

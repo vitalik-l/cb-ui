@@ -8,7 +8,7 @@ type ClassesType = {
   disabled?: string;
 };
 
-export type ButtonGroupProps = React.ComponentProps<'div'> & {
+export type ButtonGroupProps = {
   className?: string;
   color?: string;
   variant?: string;
@@ -19,7 +19,7 @@ export type ButtonGroupProps = React.ComponentProps<'div'> & {
   classes?: ClassesType;
   cloneProps?: boolean;
   autoValue?: boolean;
-};
+} & Omit<React.ComponentProps<'div'>, 'onChange'>;
 
 export const ButtonGroup = (props: ButtonGroupProps) => {
   const {

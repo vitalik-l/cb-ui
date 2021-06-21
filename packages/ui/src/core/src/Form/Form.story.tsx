@@ -101,8 +101,8 @@ export const InlineColumns = () => {
 
 export const OutsideFormField = () => (
   <InlineFields>
-    <FormField label="field1" />
-    <FormField label="field2" />
+    <FormField label="field1" name="field1" />
+    <FormField label="field2" name="field2" />
   </InlineFields>
 );
 

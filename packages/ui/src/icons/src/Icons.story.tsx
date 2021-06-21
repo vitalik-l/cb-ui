@@ -41,7 +41,7 @@ export const Template: Story = () => {
   return (
     <div className="container">
       {Object.keys(Icons).map((icon, index) => (
-        <Icon key={index}>{React.createElement(Icons[icon])}</Icon>
+        <Icon key={index}>{React.createElement((Icons as any)[icon])}</Icon>
       ))}
     </div>
   );

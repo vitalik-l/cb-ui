@@ -35,7 +35,7 @@ Default.storyName = 'Viewport';
 
 export const Breakpoint: Story = Default.bind({});
 Breakpoint.args = {
-  breakpoint: (width) => {
+  breakpoint: (width: number) => {
     if (width < 300) {
       console.log('breakpoint');
       return 5;

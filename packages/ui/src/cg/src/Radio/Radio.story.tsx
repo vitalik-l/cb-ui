@@ -35,7 +35,7 @@ export const Group: Story = () => {
   const [value, setValue] = React.useState('first');
 
   return (
-    <RadioGroup onChange={setValue} value={value} inline>
+    <RadioGroup onChange={setValue} value={value} layout="inline">
       <Radio value="first">first</Radio>
       <Radio value="second">Second</Radio>
     </RadioGroup>

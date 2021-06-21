@@ -27,7 +27,7 @@ export type InputProps = {
   numeric?: boolean;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
-export const Input = React.forwardRef((props: InputProps, ref: any) => {
+export const Input: React.FC<InputProps> = React.forwardRef((props: InputProps, ref: any) => {
   const {
     inputRef,
     placeholder,

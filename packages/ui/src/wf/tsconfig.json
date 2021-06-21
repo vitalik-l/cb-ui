@@ -6,8 +6,9 @@
     "baseUrl": ".",
     "paths": {
       "@cb-general/core/*": ["../core/src/*"],
-      "@cb-general/weekend/*": ["../weekend/src/*"]
+      "@cb-general/weekend/*": ["../weekend/src/*"],
+      "@cb-general/icons/*": ["../icons/src/*"]
     }
   },
-  "references": [{ "path": "../core" }, { "path": "../weekend" }]
+  "references": [{ "path": "../core" }, { "path": "../weekend" }, { "path": "../icons" }]
 }

@@ -13,24 +13,25 @@ type ClassesType = {
   selected?: string;
 };
 
-type Props<T extends React.ElementType> = {
+type Props<T extends React.ElementType = 'button'> = {
   component?: T;
   href?: string;
   selected?: boolean;
   classes?: ClassesType;
-  clickSound?: () => any | false;
-} & React.ComponentPropsWithRef<T>;
+  clickSound?: (() => void) | false;
+  tabIndex?: null | number;
+} & Omit<React.ComponentPropsWithRef<T>, 'tabIndex'>;
 
 export const ButtonBase = React.forwardRef(
   <T extends React.ElementType>(props: Props<T>, ref: any) => {
     const {
       children,
       className,
-      component,
+      component = 'button',
       href,
       disabled,
       type,
-      tabIndex,
+      tabIndex = 0,
       onClick,
       onKeyDown,
       classes: classesProp,
@@ -39,7 +40,7 @@ export const ButtonBase = React.forwardRef(
       ...buttonProps
     } = props;
     const classes: ClassesType = useClasses(styles, classesProp);
-    const ComponentProp = component === 'button' && href ? 'a' : component;
+    const ComponentProp: React.ElementType = component === 'button' && href ? 'a' : component;
     const otherProps: any = {};
     const context = useButtonBase();
     const clickSound = clickSoundProp === false ? clickSoundProp : context.clickSound;
@@ -111,9 +112,7 @@ export const ButtonBase = React.forwardRef(
   },
 );
 
-ButtonBase.displayName = 'ButtonBase';
-
-ButtonBase.defaultProps = {
+(ButtonBase as any).defaultProps = {
   component: 'button',
   tabIndex: 0,
 };

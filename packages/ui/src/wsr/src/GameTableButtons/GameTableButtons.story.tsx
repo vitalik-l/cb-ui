@@ -5,7 +5,7 @@ import { Story } from '@storybook/react';
 import { createStory } from '../../story';
 import { GameTableButtons, GameTableButtonsCircular } from './index';
 import { GameButton } from '../GameButton';
-import { CircularIndicatorTemplate } from '@cb-general/weekend/../../../core/src/CircularIndicator/CircularIndicator.story';
+import { CircularIndicatorTemplate } from '@cb-general/core/CircularIndicator/CircularIndicator.story';
 
 const story = createStory({
   title: 'GameTableButtons',

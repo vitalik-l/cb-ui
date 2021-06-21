@@ -1,4 +1,5 @@
 import React from 'react';
+// @ts-ignore
 import { SvgIconProps, SvgIcon } from '@cb-general/core/SvgIcon';
 
 export const MenuIcon = (props: SvgIconProps) => {

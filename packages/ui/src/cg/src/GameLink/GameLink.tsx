@@ -8,6 +8,7 @@ import styles from './CgGameLink.module.scss';
 type Props = {
   game: 'wallstbaccarat' | 'roulettefx' | 'wallstroulette' | 'weekendforex' | 'weekendbinary';
   active?: boolean;
+  className?: string;
 } & React.HTMLAttributes<HTMLButtonElement>;
 
 export const GameLink = (props: Props) => {

@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "@cb-general/core/*": ["./src/core/src/*"],
+      "@cb-general/weekend/*": ["./src/weekend/src/*"],
+      "@cb-general/icons/*": ["./src/icons/src/*"]
+    }
+  },
+}

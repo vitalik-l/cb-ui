@@ -27,7 +27,7 @@ const getBetNumbersFn = ({ betType, startNumber, typeBSide }: BetObject) => {
 
 const Dropzone = React.memo((props: React.ComponentProps<typeof DropzoneBase>) => {
   const { betType, startNumber } = props;
-  const [chips, setChips] = React.useState([]);
+  const [chips, setChips] = React.useState<Array<number>>([]);
   let label;
 
   const onMouseDown = React.useCallback(() => {
