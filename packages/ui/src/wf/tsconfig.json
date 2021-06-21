@@ -3,12 +3,16 @@
   "include": ["../declarations.d.ts", "."],
   "compilerOptions": {
     "composite": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "noEmit": false,
     "baseUrl": ".",
     "paths": {
       "@cb-general/core/*": ["../core/src/*"],
       "@cb-general/weekend/*": ["../weekend/src/*"],
-      "@cb-general/icons/*": ["../icons/src/*"]
+      "@cb-general/icons/*": ["../icons/src/*"],
+      "@cb-general/flat/*": ["../flat/src/*"]
     }
   },
-  "references": [{ "path": "../core" }, { "path": "../weekend" }, { "path": "../icons" }]
+  "references": [{ "path": "../core" }, { "path": "../weekend" }, { "path": "../icons" }, { "path": "../flat" }]
 }

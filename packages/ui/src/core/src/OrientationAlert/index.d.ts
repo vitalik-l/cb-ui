@@ -1,0 +1,1 @@
+export { OrientationAlert } from './OrientationAlert';

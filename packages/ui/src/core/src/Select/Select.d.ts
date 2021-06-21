@@ -1,0 +1,38 @@
+import React from 'react';
+declare type ClassesType = {
+    root?: string;
+    disabled?: string;
+    invalid?: string;
+    fullWidth?: string;
+    autoWidth?: string;
+    value?: string;
+    select?: string;
+    icon?: string;
+    editable?: string;
+    button?: string;
+    inputRoot?: string;
+    input?: string;
+    options?: string;
+    option?: string;
+    selected?: string;
+};
+declare type Props = {
+    className?: string;
+    invalid?: boolean;
+    fullWidth?: boolean;
+    autoWidth?: boolean;
+    icon?: any;
+    format?: any;
+    disabled?: boolean;
+    native?: boolean;
+    InputComponent?: React.ElementType;
+    inputProps?: any;
+    inputRef?: any;
+    editable?: boolean;
+    classes?: ClassesType;
+    onToggle?: (state: boolean) => void;
+    portalTarget?: any;
+    disablePortal?: boolean;
+} & React.SelectHTMLAttributes<HTMLSelectElement>;
+export declare const Select: React.FC<Props>;
+export {};

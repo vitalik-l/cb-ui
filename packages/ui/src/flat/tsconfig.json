@@ -3,10 +3,14 @@
   "include": ["../declarations.d.ts", "."],
   "compilerOptions": {
     "composite": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "noEmit": false,
     "baseUrl": ".",
     "paths": {
-      "@cb-general/core/*": ["../core/src/*"]
+      "@cb-general/core/*": ["../core/src/*"],
+      "@cb-general/icons/*": ["../icons/src/*"],
     }
   },
-  "references": [{ "path": "../core" }]
+  "references": [{ "path": "../core" }, { "path": "../icons" }]
 }

@@ -1,0 +1,20 @@
+import React from 'react';
+import { VirtualElement, Options } from '@popperjs/core';
+declare type Props = Omit<React.HTMLAttributes<HTMLDivElement>, 'children'> & {
+    anchorEl?: null | VirtualElement | (() => VirtualElement) | HTMLElement;
+    keepMounted?: boolean;
+    open?: boolean;
+    transition?: boolean;
+    placement?: Options['placement'];
+    popperOptions?: any;
+    popperRef?: any;
+    portalTarget?: any;
+    modifiers?: Options['modifiers'];
+    direction?: string;
+    overlay?: boolean;
+    onClose?: (event?: any) => void;
+    followWidth?: boolean;
+    followFontSize?: boolean;
+};
+export declare const Popper: React.FC<Props>;
+export {};

@@ -5,8 +5,8 @@ import { Root } from '@cb-general/core/Root';
 // local files
 import { createStory } from '../../../story';
 import { AppLayout } from './index';
-import { Header } from '../../../../flat/src/Header';
-import { IconButton } from '../../../../flat/src/IconButton';
+import { Header } from '@cb-general/flat/Header';
+import { IconButton } from '@cb-general/flat/IconButton';
 import { CircleMenuIcon, MenuIcon } from '../../../../icons/src';
 import { Logo } from '../../Logo';
 import { ChartLayout } from '../ChartLayout';

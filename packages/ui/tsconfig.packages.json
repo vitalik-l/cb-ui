@@ -12,6 +12,7 @@
     { "path": "./src/core/tsconfig.json" },
     { "path": "./src/weekend/tsconfig.json" },
     { "path": "./src/icons/tsconfig.json" },
-    { "path": "./src/wsr/tsconfig.json" }
+    { "path": "./src/wsr/tsconfig.json" },
+    { "path": "./src/wf/tsconfig.json" }
   ]
 }
