@@ -1,7 +1,5 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-import { ButtonGroup } from '@cb-general/weekend/ButtonGroup';
-import { Button } from '@cb-general/weekend/Button';
 
 // local files
 import { createStory } from '../../story';
@@ -15,6 +13,8 @@ import {
   ZoomOutIcon,
   PauseIcon,
 } from '../../../icons/src';
+import { ButtonGroup } from '../ButtonGroup';
+import { Button } from '../Button';
 
 const story = createStory({
   title: 'ChartControls',

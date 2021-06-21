@@ -63,12 +63,12 @@ module.exports = {
     '@storybook/preset-create-react-app',
   ],
   typescript: {
-    check: true,
+    check: false, // disable typescript
     checkOptions: {
       tsconfig:
         packages.length === 1
           ? path.resolve(__dirname, '../src', packages[0], 'tsconfig.json')
-          : path.resolve(__dirname, '../tsconfig.storybook.json'),
+          : path.resolve(__dirname, '../tsconfig.packages.json'),
       // reportFiles: packages.map(packageName => `./src/${packageName ? packageName + '/' : ''}**/*.{ts|tsx}`),
     },
   },

@@ -27,6 +27,6 @@ export const Dropzone = React.forwardRef((props: Props, ref: any) => {
   );
 });
 
-Dropzone.defaultProps = {
+(Dropzone as any).defaultProps = {
   type: 'down',
 };

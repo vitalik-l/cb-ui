@@ -1,7 +1,8 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 import clsx from 'clsx';
-import { TrendDownIcon, TrendUpIcon } from '@cb-general/icons';
+import { TrendDownIcon } from '@cb-general/icons/TrendDownIcon';
+import { TrendUpIcon } from '@cb-general/icons/TrendUpIcon';
 
 // local files
 import { createStory } from '../../story';

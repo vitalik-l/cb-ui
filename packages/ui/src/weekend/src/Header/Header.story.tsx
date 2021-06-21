@@ -5,7 +5,6 @@ import { Story } from '@storybook/react';
 import { createStory } from '../../story';
 import { Header, HeaderItem, HeaderTitle } from './index';
 import { UserPanelTemplate } from '../UserPanel/UserPanel.story';
-import { Logo } from '../../../wf/src/Logo';
 
 const story = createStory({
   title: 'Header',
@@ -23,7 +22,7 @@ export const HeaderTemplate: Story = ({ logo, ...props }: any) => (
 );
 HeaderTemplate.storyName = 'Header';
 HeaderTemplate.args = {
-  logo: <Logo />,
+  logo: <div>Logo is here</div>,
 };
 
 export default story;

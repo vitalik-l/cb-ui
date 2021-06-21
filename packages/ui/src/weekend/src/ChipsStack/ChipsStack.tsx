@@ -162,7 +162,7 @@ export const ChipsStack = React.forwardRef((props: Props, ref: any) => {
   );
 });
 
-ChipsStack.defaultProps = {
+(ChipsStack as any).defaultProps = {
   offsetTop: -5,
   offsetLeft: 4,
 };

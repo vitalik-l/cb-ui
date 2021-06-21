@@ -1,10 +1,17 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "allowJs": false,
     "paths": {
       "@cb-general/core/*": ["./src/core/src/*"],
       "@cb-general/weekend/*": ["./src/weekend/src/*"],
       "@cb-general/icons/*": ["./src/icons/src/*"]
     }
   },
+  "references": [
+    { "path": "./src/core/tsconfig.json" },
+    { "path": "./src/weekend/tsconfig.json" },
+    { "path": "./src/icons/tsconfig.json" },
+    { "path": "./src/wsr/tsconfig.json" }
+  ]
 }

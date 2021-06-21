@@ -3,6 +3,9 @@
   "include": ["../declarations.d.ts", "."],
   "compilerOptions": {
     "composite": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "noEmit": false
   }
 }

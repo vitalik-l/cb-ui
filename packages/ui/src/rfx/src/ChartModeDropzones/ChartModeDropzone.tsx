@@ -34,6 +34,6 @@ export const ChartModeDropzone = React.forwardRef((props: Props, ref: any) => {
   );
 });
 
-ChartModeDropzone.defaultProps = {
+(ChartModeDropzone as any).defaultProps = {
   type: 'down',
 };
