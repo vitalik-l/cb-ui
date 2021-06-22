@@ -6,16 +6,15 @@ import { Viewport, ViewportProps } from '@cb-general/core/Viewport';
 import styles from './DesktopLayout.module.scss';
 
 type Props = ViewportProps & {
-  header?: React.ReactElement;
   children?: React.ReactNode;
 };
 
 export const DesktopLayout = (props: Props) => {
-  const { className, header, children, ...viewportProps } = props;
+  const { className, children, ...viewportProps } = props;
 
   return (
     <Viewport {...viewportProps}>
-      <div className={clsx(styles.root, className)}>{header}</div>
+      <div className={clsx(styles.root, className)}>{children}</div>
     </Viewport>
   );
 };

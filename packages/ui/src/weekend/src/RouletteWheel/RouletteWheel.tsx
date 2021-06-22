@@ -14,6 +14,7 @@ type Props = {
   visibleZone: [from: number, to: number];
   onResult?: any;
   children?: React.ReactNode;
+  disableBorder?: boolean;
 };
 
 const NUMBERS = [
@@ -69,6 +70,7 @@ export const RouletteWheel = (props: Props) => {
     visibleZone,
     onResult,
     children,
+    disableBorder,
   } = props;
   const classes = useClasses(styles, classesProp);
   const ballRef: MutableRefObject<HTMLDivElement | null> = React.useRef(null);
@@ -163,6 +165,7 @@ export const RouletteWheel = (props: Props) => {
 
   return (
     <div className={clsx(classes.root, className)}>
+      {!disableBorder && <div className={classes.border} />}
       <div className={classes.bg} />
       <div className={clsx(classes.slots, classes[`slots_${slots}`])} ref={slotsRef} />
       <div className={clsx(classes.ball)} ref={ballRef} onAnimationEnd={ballAnimationEnd} />

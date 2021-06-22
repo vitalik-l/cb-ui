@@ -877,7 +877,7 @@
         "affectsGlobalScope": false
       },
       "./package.json": {
-        "version": "feb314ba702c2a15d6258c4e5816efc1272f4df04d14ceb02615f6a40452d584",
+        "version": "caa8fb9a266945f62edf98575593dd31d7ea94113e48dbb27c433406a50609cd",
         "signature": "ae52926b621d632f3de0606089f85058f76b13f3854496a1ee626b74dfef96b6",
         "affectsGlobalScope": true
       },
@@ -1192,7 +1192,7 @@
         "affectsGlobalScope": false
       },
       "./src/tradingcontrols/tradingcontrols.story.tsx": {
-        "version": "7ad01a36820fbdb262fe7329be37285ec140656296d12c77f4efe8cbfe5d8dfe",
+        "version": "1bd5d424dec69a5c86871a4ee628ade2cc424d8760fadc90061547a8e5bd3181",
         "signature": "88118d4e462c890689a726252d8d8dbd2240297648076aee2d5acfd173a8cec6",
         "affectsGlobalScope": false
       },
