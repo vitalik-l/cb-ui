@@ -1,5 +1,5 @@
-/// <reference types="react" />
-export declare const CustomSelect: import("react").FunctionComponent<{
+import React from 'react';
+export declare const CustomSelect: React.FunctionComponent<{
     className?: string | undefined;
     invalid?: boolean | undefined;
     fullWidth?: boolean | undefined;
@@ -8,7 +8,7 @@ export declare const CustomSelect: import("react").FunctionComponent<{
     format?: any;
     disabled?: boolean | undefined;
     native?: boolean | undefined;
-    InputComponent?: import("react").ElementType<any> | undefined;
+    InputComponent?: React.ElementType<any> | undefined;
     inputProps?: any;
     inputRef?: any;
     editable?: boolean | undefined;
@@ -32,6 +32,6 @@ export declare const CustomSelect: import("react").FunctionComponent<{
     onToggle?: ((state: boolean) => void) | undefined;
     portalTarget?: any;
     disablePortal?: boolean | undefined;
-} & import("react").SelectHTMLAttributes<HTMLSelectElement> & {
-    children?: import("react").ReactNode;
+} & React.SelectHTMLAttributes<HTMLSelectElement> & {
+    children?: React.ReactNode;
 }>;

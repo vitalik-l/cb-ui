@@ -11,6 +11,7 @@ export declare const ButtonBaseContext: React.Context<Partial<{
     } | undefined;
     clickSound?: false | (() => void) | undefined;
     tabIndex?: number | null | undefined;
+    disabled?: boolean | undefined;
 } & Omit<any, "tabIndex"> & React.RefAttributes<unknown>>>;
 export declare const useButtonBase: () => Partial<{
     component?: React.ElementType<any> | undefined;
@@ -24,5 +25,6 @@ export declare const useButtonBase: () => Partial<{
     } | undefined;
     clickSound?: false | (() => void) | undefined;
     tabIndex?: number | null | undefined;
+    disabled?: boolean | undefined;
 } & Omit<any, "tabIndex"> & React.RefAttributes<unknown>>;
 export declare const ButtonBaseProvider: ({ children, ...restProps }: any) => JSX.Element;

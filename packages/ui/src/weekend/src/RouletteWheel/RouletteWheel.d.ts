@@ -8,6 +8,7 @@ declare type Props = {
     visibleZone: [from: number, to: number];
     onResult?: any;
     children?: React.ReactNode;
+    disableBorder?: boolean;
 };
 export declare const RouletteWheel: {
     (props: Props): JSX.Element;

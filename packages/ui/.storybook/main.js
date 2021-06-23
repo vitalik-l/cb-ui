@@ -55,6 +55,11 @@ const getAliasObject = () => {
   }, {});
 };
 
+const tsconfig =
+  packages.length === 1
+    ? path.resolve(__dirname, '../src', packages[0], 'tsconfig.json')
+    : path.resolve(__dirname, '../tsconfig.packages.json');
+
 module.exports = {
   stories,
   addons: [
@@ -65,11 +70,38 @@ module.exports = {
   typescript: {
     check: false, // disable typescript
     checkOptions: {
-      tsconfig:
-        packages.length === 1
-          ? path.resolve(__dirname, '../src', packages[0], 'tsconfig.json')
-          : path.resolve(__dirname, '../tsconfig.packages.json'),
+      tsconfig,
       // reportFiles: packages.map(packageName => `./src/${packageName ? packageName + '/' : ''}**/*.{ts|tsx}`),
+    },
+    reactDocgen: 'react-docgen-typescript',
+    reactDocgenTypescriptOptions: {
+      shouldExtractLiteralValuesFromEnum: true,
+      shouldRemoveUndefinedFromOptional: true,
+      savePropValueAsString: true,
+      propFilter: (prop) => {
+        if (prop.declarations !== undefined && prop.declarations.length > 0) {
+          const hasPropAdditionalDescription = prop.declarations.find((declaration) => {
+            return !declaration.fileName.includes('node_modules');
+          });
+
+          return Boolean(hasPropAdditionalDescription);
+        }
+        return true;
+      },
+      compilerOptions: {
+        jsx: 4,
+        module: 99,
+        target: 1,
+        esModuleInterop: true,
+        allowSyntheticDefaultImports: true,
+        moduleResolution: 2,
+        paths: {
+          '@cb-general/core/*': ['./core/src/*'],
+          '@cb-general/icons/*': ['./icons/src/*'],
+          '@cb-general/weekend/*': ['./weekend/src/*'],
+        },
+        pathsBasePath: path.resolve(__dirname, `../src`),
+      },
     },
   },
   webpackFinal(config) {

@@ -11,6 +11,7 @@ export declare const GameButton: import("react").FunctionComponent<{
     } | undefined;
     clickSound?: false | (() => void) | undefined;
     tabIndex?: number | null | undefined;
+    disabled?: boolean | undefined;
 } & Omit<any, "tabIndex"> & import("react").RefAttributes<unknown> & {
     color?: ("default" | "green" | "primary") | undefined;
     sublabel?: string | undefined;

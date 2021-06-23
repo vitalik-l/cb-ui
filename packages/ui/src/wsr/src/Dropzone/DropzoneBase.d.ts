@@ -20,6 +20,7 @@ export declare const DropzoneBase: React.MemoExoticComponent<React.ForwardRefExo
     } | undefined;
     clickSound?: false | (() => void) | undefined;
     tabIndex?: number | null | undefined;
+    disabled?: boolean | undefined;
 } & Omit<any, "tabIndex"> & React.RefAttributes<unknown> & {
     winner?: boolean | undefined;
     winnerNumber?: boolean | undefined;

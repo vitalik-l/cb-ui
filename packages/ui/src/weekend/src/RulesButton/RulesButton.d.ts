@@ -11,4 +11,5 @@ export declare const RulesButton: import("react").FunctionComponent<{
     } | undefined;
     clickSound?: false | (() => void) | undefined;
     tabIndex?: number | null | undefined;
+    disabled?: boolean | undefined;
 } & Omit<any, "tabIndex"> & import("react").RefAttributes<unknown>>;

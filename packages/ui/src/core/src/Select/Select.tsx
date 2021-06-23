@@ -28,7 +28,7 @@ type ClassesType = {
   selected?: string;
 };
 
-type Props = {
+export type SelectProps = {
   className?: string;
   invalid?: boolean;
   fullWidth?: boolean;
@@ -47,7 +47,7 @@ type Props = {
   disablePortal?: boolean;
 } & React.SelectHTMLAttributes<HTMLSelectElement>;
 
-export const Select: React.FC<Props> = React.forwardRef((props, ref: any) => {
+export const Select: React.FC<SelectProps> = React.forwardRef((props, ref: any) => {
   const {
     className,
     disabled,

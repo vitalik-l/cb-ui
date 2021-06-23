@@ -867,7 +867,7 @@
         "affectsGlobalScope": false
       },
       "./package.json": {
-        "version": "3eda3ab54a3fc44477cb2522d77beaea56fbcc7439352fc07bb3333532d78639",
+        "version": "46b6b1fc700a93cfc2e475208c12e7ece94ce8f16b186908883088064c839453",
         "signature": "c41c08792596788e129312586f9ac3bab49c77bc3b0cd96c07568719f8f6cbe0",
         "affectsGlobalScope": true
       },
@@ -932,8 +932,8 @@
         "affectsGlobalScope": false
       },
       "./src/desktoplayout/desktoplayout.tsx": {
-        "version": "8db0fd6161803de3933bf06e009ae25eed499149d015b792374437082bed22ff",
-        "signature": "1559b5c320f5d86a2937fe82116709841d4acce8041ac65756c6ed101488687a",
+        "version": "0f32e8a8a0bd02c362472060e1cfb27ac6fcff4417e40b4dc9f1e20728c533db",
+        "signature": "cfff3ae504088f3262fc4fea5be204a42168ea6460846a88061da4f46c6ab4f5",
         "affectsGlobalScope": false
       },
       "./src/desktoplayout/index.ts": {
@@ -947,13 +947,13 @@
         "affectsGlobalScope": false
       },
       "../core/src/buttonbase/buttonbase.d.ts": {
-        "version": "07f1dd15d39ae717714b42ecf05976f9f6173fd4d6eaf7c4221b701e490443f0",
-        "signature": "07f1dd15d39ae717714b42ecf05976f9f6173fd4d6eaf7c4221b701e490443f0",
+        "version": "af819e92673a832f415fe961da4a3de630e26d24ac7f8192237ccfe9b826b660",
+        "signature": "af819e92673a832f415fe961da4a3de630e26d24ac7f8192237ccfe9b826b660",
         "affectsGlobalScope": false
       },
       "../core/src/buttonbase/index.d.ts": {
-        "version": "b7332a7a526a66defe7fdba5a8aabd4fbdd471a277ea7a45144647a5552d47a7",
-        "signature": "b7332a7a526a66defe7fdba5a8aabd4fbdd471a277ea7a45144647a5552d47a7",
+        "version": "99bec17b5b364c845ac9b3f792ff20d90ac170e09984a33a1579c053cd052fc6",
+        "signature": "99bec17b5b364c845ac9b3f792ff20d90ac170e09984a33a1579c053cd052fc6",
         "affectsGlobalScope": false
       },
       "../core/src/hooks/useclasses.d.ts": {
@@ -968,7 +968,7 @@
       },
       "./src/dropzone/dropzonebase.tsx": {
         "version": "af010f61f5949fbb363997285433c2fc56dc488b13e94d1044c5cc69a6dc9ea1",
-        "signature": "5189668e1619ddb7930c595b711bd660489c8c98584e8599cb223a87084681a9",
+        "signature": "bce55bf82873dc980532dddcdd905774304e636ee641c5d991f3329bbe272495",
         "affectsGlobalScope": false
       },
       "./src/dropzone/dropzonecontext.ts": {
@@ -1083,7 +1083,7 @@
       },
       "./src/gamebutton/gamebutton.tsx": {
         "version": "0610608e1871c90aa33a72cc9105ea7206819c92312db677bdbbc53915d9de52",
-        "signature": "c1c0f545b602f0c2938dfc12175706db38d0690af3a0ffbd0e90cedd9dd869c9",
+        "signature": "a393f4755ab9261493aa9a1cb4b5e2e5e473a539aac11ed28a636a3b16530b98",
         "affectsGlobalScope": false
       },
       "./src/gamebutton/index.ts": {
@@ -1092,8 +1092,8 @@
         "affectsGlobalScope": false
       },
       "./src/gamebutton/gamebutton.story.tsx": {
-        "version": "f6ac6f830e021117b2ebdf04c25845f7a9690070375dfdfcc6ea76c7fb8e0baa",
-        "signature": "325b26d655dd4e2d035fb1a354cf41539d1cb7ed73513b5ac298bb631a18232b",
+        "version": "92a8a61db004927b382c344572a924b7031337f9ca3f585c524b95cf5622af5c",
+        "signature": "90471a35cbe5239ffd96cb547f4adde5b398c2b72449ebd0aed2fdd96f5f8b26",
         "affectsGlobalScope": false
       },
       "../weekend/src/gametablebuttons/gametablebuttons.d.ts": {
@@ -1571,7 +1571,6 @@
       ],
       "allowJs": true,
       "skipLibCheck": true,
-      "esModuleInterop": true,
       "allowSyntheticDefaultImports": true,
       "strict": true,
       "forceConsistentCasingInFileNames": true,

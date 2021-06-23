@@ -16,7 +16,7 @@ declare type ClassesType = {
     option?: string;
     selected?: string;
 };
-declare type Props = {
+export declare type SelectProps = {
     className?: string;
     invalid?: boolean;
     fullWidth?: boolean;
@@ -34,5 +34,5 @@ declare type Props = {
     portalTarget?: any;
     disablePortal?: boolean;
 } & React.SelectHTMLAttributes<HTMLSelectElement>;
-export declare const Select: React.FC<Props>;
+export declare const Select: React.FC<SelectProps>;
 export {};

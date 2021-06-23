@@ -1067,13 +1067,13 @@
         "affectsGlobalScope": false
       },
       "../core/src/buttonbase/buttonbase.d.ts": {
-        "version": "07f1dd15d39ae717714b42ecf05976f9f6173fd4d6eaf7c4221b701e490443f0",
-        "signature": "07f1dd15d39ae717714b42ecf05976f9f6173fd4d6eaf7c4221b701e490443f0",
+        "version": "af819e92673a832f415fe961da4a3de630e26d24ac7f8192237ccfe9b826b660",
+        "signature": "af819e92673a832f415fe961da4a3de630e26d24ac7f8192237ccfe9b826b660",
         "affectsGlobalScope": false
       },
       "../core/src/buttonbase/index.d.ts": {
-        "version": "b7332a7a526a66defe7fdba5a8aabd4fbdd471a277ea7a45144647a5552d47a7",
-        "signature": "b7332a7a526a66defe7fdba5a8aabd4fbdd471a277ea7a45144647a5552d47a7",
+        "version": "99bec17b5b364c845ac9b3f792ff20d90ac170e09984a33a1579c053cd052fc6",
+        "signature": "99bec17b5b364c845ac9b3f792ff20d90ac170e09984a33a1579c053cd052fc6",
         "affectsGlobalScope": false
       },
       "./src/tradebutton/tradebutton.tsx": {
@@ -1826,7 +1826,6 @@
       ],
       "allowJs": true,
       "skipLibCheck": true,
-      "esModuleInterop": true,
       "allowSyntheticDefaultImports": true,
       "strict": true,
       "forceConsistentCasingInFileNames": true,

@@ -862,7 +862,7 @@
         "affectsGlobalScope": false
       },
       "./package.json": {
-        "version": "b1dc6e5663b3809f88e12ef93bccf461f98fa9b39d31f3594be08ff974062a5e",
+        "version": "62a8d275e25abe6788b8830781d80eeb56dd8f92b7fa4dbb980e13ab0c50ac39",
         "signature": "ae52926b621d632f3de0606089f85058f76b13f3854496a1ee626b74dfef96b6",
         "affectsGlobalScope": true
       },
@@ -902,13 +902,13 @@
         "affectsGlobalScope": false
       },
       "../core/src/buttonbase/buttonbase.d.ts": {
-        "version": "07f1dd15d39ae717714b42ecf05976f9f6173fd4d6eaf7c4221b701e490443f0",
-        "signature": "07f1dd15d39ae717714b42ecf05976f9f6173fd4d6eaf7c4221b701e490443f0",
+        "version": "af819e92673a832f415fe961da4a3de630e26d24ac7f8192237ccfe9b826b660",
+        "signature": "af819e92673a832f415fe961da4a3de630e26d24ac7f8192237ccfe9b826b660",
         "affectsGlobalScope": false
       },
       "../core/src/buttonbase/index.d.ts": {
-        "version": "b7332a7a526a66defe7fdba5a8aabd4fbdd471a277ea7a45144647a5552d47a7",
-        "signature": "b7332a7a526a66defe7fdba5a8aabd4fbdd471a277ea7a45144647a5552d47a7",
+        "version": "99bec17b5b364c845ac9b3f792ff20d90ac170e09984a33a1579c053cd052fc6",
+        "signature": "99bec17b5b364c845ac9b3f792ff20d90ac170e09984a33a1579c053cd052fc6",
         "affectsGlobalScope": false
       },
       "./src/button/button.tsx": {
@@ -1182,8 +1182,8 @@
         "affectsGlobalScope": false
       },
       "../core/src/select/select.d.ts": {
-        "version": "d129ab321d40e420435e37634b125e95c7de059cf3c109ffeb8ec3888d520289",
-        "signature": "d129ab321d40e420435e37634b125e95c7de059cf3c109ffeb8ec3888d520289",
+        "version": "61d80889d4a2aeb40f789fad737fad7a8e8bb74ac8e1bd11d3a4ca4437b40848",
+        "signature": "61d80889d4a2aeb40f789fad737fad7a8e8bb74ac8e1bd11d3a4ca4437b40848",
         "affectsGlobalScope": false
       },
       "../core/src/select/option.d.ts": {
@@ -1297,13 +1297,13 @@
         "affectsGlobalScope": false
       },
       "../core/src/select/index.d.ts": {
-        "version": "b399d3bbc7930669e1cbae1c46119287103624671c6f403175e5fa8c15db9ded",
-        "signature": "b399d3bbc7930669e1cbae1c46119287103624671c6f403175e5fa8c15db9ded",
+        "version": "4e76339c8e6d28b55c69e773426d066885e742fcafde728d0d2a476ef32bb93e",
+        "signature": "4e76339c8e6d28b55c69e773426d066885e742fcafde728d0d2a476ef32bb93e",
         "affectsGlobalScope": false
       },
       "./src/customselect/customselect.tsx": {
-        "version": "642a73c9f13d472c0e67e737b8189d95f07e0cb5584ca8fc151ed74048230d0f",
-        "signature": "328adc53fc33816ff981ca7d8de6e814b892dd8275056ee3b76ac1be843a27bf",
+        "version": "b76053fb1fd9ffdf589cab5c837b6f9a7810c4ecb652e838092a4965ed90692a",
+        "signature": "413fb34dd8c4051801fa0925efed0802ccb206fbf068f60aee6f33feab4e1ebf",
         "affectsGlobalScope": false
       },
       "./src/customselect/index.ts": {
@@ -1337,7 +1337,7 @@
         "affectsGlobalScope": false
       },
       "./src/customselect/customselect.story.tsx": {
-        "version": "23f12b7dce2f3c4d91082f199eae9fda9f63855c46104d6f0b07e5b42ec734f0",
+        "version": "3364528204810f36a72578795422e42647d5b102632ff35734466d3d5b2324bf",
         "signature": "325b26d655dd4e2d035fb1a354cf41539d1cb7ed73513b5ac298bb631a18232b",
         "affectsGlobalScope": false
       },
@@ -1492,7 +1492,7 @@
         "affectsGlobalScope": false
       },
       "./src/gamebutton/gamebutton.tsx": {
-        "version": "1f522f6602a3ec91fe9aeee341af6c60468958f2d255b4f546f47fd6fefcba2e",
+        "version": "31fb2a481b6af925e3e265a0b06e60c8ffa066077cf58559549b35046e19f49d",
         "signature": "6baef3a14a9280208748827d69166c7c76e2a7653300cf35fa0e956aef0f2dcd",
         "affectsGlobalScope": false
       },
@@ -1502,7 +1502,7 @@
         "affectsGlobalScope": false
       },
       "./src/gamebutton/gamebutton.story.tsx": {
-        "version": "f6ac6f830e021117b2ebdf04c25845f7a9690070375dfdfcc6ea76c7fb8e0baa",
+        "version": "b3d70ae878a754fa6f5650a604037605fc87eeff4cae63875d8ad722f998fcb8",
         "signature": "325b26d655dd4e2d035fb1a354cf41539d1cb7ed73513b5ac298bb631a18232b",
         "affectsGlobalScope": false
       },
@@ -1712,8 +1712,8 @@
         "affectsGlobalScope": false
       },
       "./src/roulettewheel/roulettewheel.tsx": {
-        "version": "aa993768b6ec59c4c0547d049f51e47933de8ba2e17f39e54e68c6b3213e3646",
-        "signature": "42064d0c131ea148af6d27faf308b30a1c8c93dc5404a14eb177f7174448a332",
+        "version": "2b335af408623f64d8d240fc3e47b053c365d7eb049eb32f53dc7f417cb0c2dc",
+        "signature": "4d3ea16b47b9d069b956178887cd6f3dca034f8a66f8e987f9713c2bc3aa7563",
         "affectsGlobalScope": false
       },
       "./src/roulettewheel/index.ts": {
@@ -1728,7 +1728,7 @@
       },
       "./src/rulesbutton/rulesbutton.tsx": {
         "version": "1192b9eb432b01cd35bc2d7847c2e12d4dfeff98de13b00a63b4153915a03263",
-        "signature": "0f674641075a6e6d4ce781ecae949d5156579508a97c4775643c94e7af90bad1",
+        "signature": "bdc0b5d07961b50020ff165e10d31a2fec65268373dc84067d2861da7fb970e6",
         "affectsGlobalScope": false
       },
       "./src/rulesbutton/index.ts": {
@@ -1768,7 +1768,7 @@
       },
       "./src/slider/slider.tsx": {
         "version": "56cdfd6a4f82ade5b042fadffed0c945b3778eb68d9e124f0d0113a6caf5cb6b",
-        "signature": "0ef7874cd12b5799d9d1619ae8729cd8126d6f8d26e116bfef24219fe8317476",
+        "signature": "6c99943f75aa65f5491bbe641d8f0d95b49a9cd1ad361918499888a80b451042",
         "affectsGlobalScope": false
       },
       "./src/slider/index.ts": {
@@ -2371,7 +2371,6 @@
       ],
       "allowJs": true,
       "skipLibCheck": true,
-      "esModuleInterop": true,
       "allowSyntheticDefaultImports": true,
       "strict": true,
       "forceConsistentCasingInFileNames": true,
@@ -2383,6 +2382,8 @@
       "noEmit": false,
       "jsx": 4,
       "composite": true,
+      "declaration": true,
+      "emitDeclarationOnly": true,
       "baseUrl": "./",
       "paths": {
         "@cb-general/core/*": [
@@ -2392,8 +2393,6 @@
           "../icons/src/*"
         ]
       },
-      "declaration": true,
-      "emitDeclarationOnly": true,
       "pathsBasePath": "C:/Users/user/WebstormProjects/cb-general/packages/ui/src/weekend",
       "watch": true,
       "configFilePath": "./tsconfig.json"
@@ -3603,6 +3602,7 @@
         "./story/index.tsx"
       ],
       "./src/customselect/customselect.tsx": [
+        "../../node_modules/@types/react/index.d.ts",
         "../../node_modules/@types/react/jsx-runtime.d.ts",
         "../core/src/select/index.d.ts",
         "../core/src/utils/styled.d.ts",
@@ -3669,6 +3669,7 @@
         "../../node_modules/@storybook/react/dist/ts3.9/client/index.d.ts",
         "../../node_modules/@types/react/index.d.ts",
         "../../node_modules/@types/react/jsx-runtime.d.ts",
+        "../core/src/buttonbase/index.d.ts",
         "./src/gamebutton/index.ts",
         "./story/index.tsx"
       ],

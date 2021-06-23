@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { ButtonBase } from '@cb-general/core/ButtonBase';
+import { ButtonBase, ButtonBaseProps } from '@cb-general/core/ButtonBase';
 import { useClasses } from '@cb-general/core/hooks/useClasses';
 
 // local files
@@ -19,7 +19,7 @@ type Classes = {
   label?: string;
 };
 
-type Props = React.ComponentProps<typeof ButtonBase> & {
+type Props = ButtonBaseProps & {
   color?: Color;
   sublabel?: string;
   unclickable?: boolean;
@@ -40,7 +40,7 @@ export const GameButton = (props: Props) => {
     classes: classesProp,
     ...restProps
   } = props;
-  const classes: Classes = useClasses(styles, classesProp) as any;
+  const classes: Classes = useClasses(styles, classesProp);
 
   return (
     <ButtonBase

@@ -9,11 +9,6 @@ import { ButtonBaseProvider } from './ButtonBaseProvider';
 const story = createStory({
   title: 'ButtonBase',
   component: ButtonBase,
-  argTypes: {
-    className: { control: 'text' },
-    disabled: { control: 'boolean' },
-    clickSound: { control: 'boolean' },
-  },
 });
 
 export const Template: Story = (args) => <ButtonBase {...args}>Button</ButtonBase>;

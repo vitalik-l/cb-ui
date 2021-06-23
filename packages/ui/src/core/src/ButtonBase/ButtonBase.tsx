@@ -13,17 +13,18 @@ type ClassesType = {
   selected?: string;
 };
 
-type Props<T extends React.ElementType = 'button'> = {
+export type ButtonBaseProps<T extends React.ElementType = 'button'> = {
   component?: T;
   href?: string;
   selected?: boolean;
   classes?: ClassesType;
   clickSound?: (() => void) | false;
   tabIndex?: null | number;
+  disabled?: boolean;
 } & Omit<React.ComponentPropsWithRef<T>, 'tabIndex'>;
 
 export const ButtonBase = React.forwardRef(
-  <T extends React.ElementType>(props: Props<T>, ref: any) => {
+  <T extends React.ElementType>(props: ButtonBaseProps<T>, ref: any) => {
     const {
       children,
       className,
