@@ -28,6 +28,8 @@ type Props = ButtonBaseProps & {
   classes?: Classes;
 };
 
+const omitClasses = ({ label, ...restClasses }: Classes) => restClasses;
+
 export const GameButton = (props: Props) => {
   const {
     className,
@@ -41,6 +43,7 @@ export const GameButton = (props: Props) => {
     ...restProps
   } = props;
   const classes: Classes = useClasses(styles, classesProp);
+  const buttonBaseClasses = React.useMemo(() => omitClasses(classes), [classes]);
 
   return (
     <ButtonBase
@@ -52,6 +55,7 @@ export const GameButton = (props: Props) => {
         unclickable && classes.unclickable,
         sublabelAlignTop && classes.sublabelAlignTop,
       )}
+      classes={buttonBaseClasses}
       {...restProps}
     >
       {!!sublabel && <span className={classes.sublabel}>{sublabel}</span>}
