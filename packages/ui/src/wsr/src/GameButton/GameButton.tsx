@@ -1,10 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import {
-  GameButton as WkdGameButton,
-  GameButtonProps,
-  GameButtonClasses,
-} from '@cb-general/weekend/GameButton';
+import { GameButton as WkdGameButton, GameButtonProps } from '@cb-general/weekend/GameButton';
 import { useClasses } from '@cb-general/core/hooks/useClasses';
 import styles from './GameButton.module.scss';
 
