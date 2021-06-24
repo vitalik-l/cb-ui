@@ -8,8 +8,8 @@ import styles from './WkdGameButton.module.scss';
 
 type Color = 'primary' | 'default' | 'green';
 type ColorClassName = `color_${Color}`;
-type Classes = {
-  [key in ColorClassName]: string;
+export type GameButtonClasses = {
+  [key in ColorClassName]?: string;
 } & {
   root?: string;
   large?: string;
@@ -19,18 +19,18 @@ type Classes = {
   label?: string;
 };
 
-type Props = ButtonBaseProps & {
+export type GameButtonProps = ButtonBaseProps & {
   color?: Color;
   sublabel?: string;
   unclickable?: boolean;
   sublabelAlignTop?: boolean;
   large?: boolean;
-  classes?: Classes;
+  classes?: GameButtonClasses;
 };
 
-const omitClasses = ({ label, ...restClasses }: Classes) => restClasses;
+const omitClasses = ({ label, ...restClasses }: GameButtonClasses) => restClasses;
 
-export const GameButton = (props: Props) => {
+export const GameButton = (props: GameButtonProps) => {
   const {
     className,
     color,
@@ -42,13 +42,12 @@ export const GameButton = (props: Props) => {
     classes: classesProp,
     ...restProps
   } = props;
-  const classes: Classes = useClasses(styles, classesProp);
+  const classes: GameButtonClasses = useClasses(styles, classesProp);
   const buttonBaseClasses = React.useMemo(() => omitClasses(classes), [classes]);
 
   return (
     <ButtonBase
       className={clsx(
-        classes.root,
         className,
         !!color && classes[`color_${color}` as ColorClassName],
         large && classes.large,
