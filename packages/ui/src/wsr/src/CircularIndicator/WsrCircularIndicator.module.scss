@@ -1,0 +1,10 @@
+$root: WsrCircularIndicator;
+
+:global(.#{$root}) {
+  background-image: url(./img/big_button_bg.png);
+  background-size: 90%;
+}
+
+:export {
+  root: $root;
+}
