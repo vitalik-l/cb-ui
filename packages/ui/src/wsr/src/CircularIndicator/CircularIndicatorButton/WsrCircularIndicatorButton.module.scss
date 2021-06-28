@@ -1,11 +1,14 @@
 $root: WsrCircularIndicatorButton;
 
 :global(.#{$root}) {
-  background-image: url(./img/green_button.png);
   font-size: 2em;
   font-weight: 600;
   text-transform: uppercase;
   text-shadow: 0.5px 0.9px 2px rgb(14 13 13 / 61%);
+}
+
+.color_green {
+  background-image: url(./img/green_button.png);
 }
 
 :export {

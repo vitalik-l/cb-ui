@@ -19,6 +19,7 @@ export type ButtonGroupProps = {
   classes?: ClassesType;
   cloneProps?: boolean;
   autoValue?: boolean;
+  disableToggle?: boolean;
 } & Omit<React.ComponentProps<'div'>, 'onChange'>;
 
 export const ButtonGroup = (props: ButtonGroupProps) => {
@@ -33,6 +34,7 @@ export const ButtonGroup = (props: ButtonGroupProps) => {
     classes,
     cloneProps = true,
     autoValue = true,
+    disableToggle,
     ...restProps
   } = props;
 
@@ -40,14 +42,21 @@ export const ButtonGroup = (props: ButtonGroupProps) => {
     if (!React.isValidElement(child)) {
       return null;
     }
-    const { className: childClassName, onClick: childClick, ...childProps } = child.props;
+    const {
+      className: childClassName,
+      onClick: childClick,
+      selected: childSelected,
+      ...childProps
+    } = child.props;
     const childValue = autoValue && childProps.value === undefined ? childIndex : childProps.value;
-    const selected = childValue === value;
+    const selected = childSelected ?? childValue === value;
     let parentProps = {};
 
     const handleClick = (event: any) => {
-      if (!selected && onChange) {
-        onChange(childValue);
+      if (onChange) {
+        if (!disableToggle || (disableToggle && !selected)) {
+          onChange(childValue);
+        }
       }
 
       if (childClick) {

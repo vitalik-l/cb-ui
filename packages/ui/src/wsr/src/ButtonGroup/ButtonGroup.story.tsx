@@ -12,10 +12,18 @@ const story = createStory({
 });
 
 export const Template: Story = (args) => {
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState<null | number>(0);
+
+  const onChange = (newValue: number) => {
+    if (value === newValue) {
+      setValue(null);
+    } else {
+      setValue(newValue);
+    }
+  };
 
   return (
-    <ButtonGroup {...args} value={value} onChange={setValue}>
+    <ButtonGroup {...args} value={value} onChange={onChange}>
       <Button>First</Button>
       <Button>Second</Button>
     </ButtonGroup>
