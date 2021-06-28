@@ -12,7 +12,6 @@ type Props = {
 export const DropzoneProvider = (props: Props) => {
   const { children, getBetNumbersFn } = props;
   const [selectedNumbers, setSelectedNumbers] = React.useState<Array<number>>([]);
-  const chipsStackRefs = React.useRef([]);
 
   const selectNumbers = React.useCallback(
     (params?: BetObject) => {
@@ -28,9 +27,6 @@ export const DropzoneProvider = (props: Props) => {
   );
 
   return (
-    <DropzoneContext.Provider
-      value={{ selectedNumbers, selectNumbers, chipsStackRefs }}
-      children={children}
-    />
+    <DropzoneContext.Provider value={{ selectedNumbers, selectNumbers }} children={children} />
   );
 };
