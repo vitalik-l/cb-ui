@@ -12,7 +12,7 @@ type Props = React.ComponentProps<typeof DropzoneBase> & {
 export const Dropzone = (props: Props) => {
   const { Component = DropzoneBase, ...restProps } = props;
   const { betType, startNumber, typeBSide } = restProps;
-  const { selectedNumbers, selectNumbers, chipsStackRefs } = useDropzone();
+  const { selectedNumbers, selectNumbers } = useDropzone();
   const selected =
     betType === BET_TYPES.STRAIGHT &&
     startNumber !== undefined &&
@@ -39,7 +39,6 @@ export const Dropzone = (props: Props) => {
       withHover={withHover}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      chipsStackRefs={chipsStackRefs}
       {...restProps}
     />
   );

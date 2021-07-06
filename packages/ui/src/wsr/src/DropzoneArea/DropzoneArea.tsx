@@ -9,6 +9,7 @@ import styles from './DropzoneArea.module.scss';
 type Props = React.ComponentProps<'div'> & {
   DropzoneComponent?: React.ElementType;
   rightSide?: boolean;
+  disableZero?: boolean;
 };
 
 const STRAIGHT_NUMBERS = {
@@ -17,7 +18,7 @@ const STRAIGHT_NUMBERS = {
 };
 
 export const DropzoneArea = (props: Props) => {
-  const { className, DropzoneComponent, rightSide, ...restProps } = props;
+  const { className, DropzoneComponent, rightSide, disableZero, ...restProps } = props;
   let content;
 
   const renderDropzone = (props: React.ComponentProps<typeof Dropzone>) => {
@@ -78,7 +79,7 @@ export const DropzoneArea = (props: Props) => {
     content = (
       <React.Fragment>
         <div className={styles.straight}>
-          {renderDropzone({ betType: BET_TYPES.STRAIGHT, startNumber: 0 })}
+          {!disableZero && renderDropzone({ betType: BET_TYPES.STRAIGHT, startNumber: 0 })}
           {straightItems}
         </div>
         <div className={styles.dozen}>
