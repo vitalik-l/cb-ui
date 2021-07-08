@@ -2,7 +2,16 @@ $root: WsrCircularIndicator;
 
 :global(.#{$root}) {
   background-image: url(./img/big_button_bg.png);
-  background-size: 90%;
+  box-shadow: 0 4px 15px rgb(3 28 1 / 94%);
+
+  :global(svg) {
+    padding: 3%;
+  }
+}
+
+.content {
+  width: 68%;
+  height: 68%;
 }
 
 :export {

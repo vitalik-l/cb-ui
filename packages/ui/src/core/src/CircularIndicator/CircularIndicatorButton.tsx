@@ -14,7 +14,7 @@ type Props = {
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const CircularIndicatorButton = (props: Props) => {
-  const { className, children, color, classes: classesProp, ...restProps } = props;
+  const { className, children, color = 'green', classes: classesProp, ...restProps } = props;
   const classes = useClasses(styles, classesProp);
 
   return (

@@ -3,7 +3,7 @@ import { Story } from '@storybook/react';
 
 // local files
 import { createStory } from '../../../story';
-import { CircularIndicatorButton } from './index';
+import { CircularIndicatorButton, MobileCircularIndicatorButton } from './index';
 
 const story = createStory({
   title: 'CircularIndicator/CircularIndicatorButton',

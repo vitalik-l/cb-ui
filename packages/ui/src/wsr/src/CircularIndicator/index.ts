@@ -1,2 +1,2 @@
 export { CircularIndicator } from './CircularIndicator';
-export { CircularIndicatorButton } from './CircularIndicatorButton';
+export * from './CircularIndicatorButton';
