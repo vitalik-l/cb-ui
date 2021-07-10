@@ -24,11 +24,11 @@ $root: RouletteNumber;
 }
 
 .color_green {
-  background-image: url(./img/final_number_green.png);
+  background-image: url(img/final_number_green.png);
 }
 
 .color_black {
-  background-image: url(./img/final_number_black.png);
+  background-image: url(img/final_number_black.png);
 
   .label {
     color: #2aff00;
@@ -36,7 +36,7 @@ $root: RouletteNumber;
 }
 
 .color_red {
-  background-image: url(./img/final_number_red.png);
+  background-image: url(img/final_number_red.png);
 }
 
 .label {
@@ -62,15 +62,15 @@ $root: RouletteNumber;
   z-index: 1;
 
   &_up {
-    background-image: url(./img/green_candle.png);
+    background-image: url(img/green_candle.png);
   }
 
   &_down {
-    background-image: url(./img/red_candle.png);
+    background-image: url(img/red_candle.png);
   }
 
   &_zero {
-    background-image: url(./img/zero_candle.svg);
+    background-image: url(img/zero_candle.svg);
     background-position: 50% 0;
     height: 16%;
     bottom: 21%;

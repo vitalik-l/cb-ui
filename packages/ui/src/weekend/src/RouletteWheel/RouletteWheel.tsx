@@ -10,12 +10,13 @@ type Props = {
   slots?: 'redblack' | 'nozero';
   classes?: any;
   value?: number;
-  onWheelStop?: any;
+  onStop?: any;
+  onSpin?: any;
+  size?: number;
   visibleZone?: [from: number, to: number];
   onResult?: any;
   children?: React.ReactNode;
   disableBorder?: boolean;
-  ballTranslateX?: string;
 };
 
 const NUMBERS = [
@@ -68,12 +69,13 @@ export const RouletteWheel = (props: Props) => {
     slots,
     classes: classesProp,
     value,
-    onWheelStop,
+    onSpin,
+    onStop,
     visibleZone = VISIBLE_ZONE,
     onResult,
     children,
     disableBorder,
-    ballTranslateX = BALL_TRANSX,
+    size,
   } = props;
   const classes = useClasses(styles, classesProp);
   const ballRef: MutableRefObject<HTMLDivElement | null> = React.useRef(null);
@@ -92,10 +94,10 @@ export const RouletteWheel = (props: Props) => {
 
   const wheelStops = React.useCallback(() => {
     window.cancelAnimationFrame(animRef.current);
-    if (onWheelStop) {
-      onWheelStop();
+    if (onStop) {
+      onStop();
     }
-  }, [onWheelStop]);
+  }, [onStop]);
 
   const ballAnimationEnd = React.useCallback(() => {
     ballRef.current?.classList.remove(classes.ballRotate);
@@ -106,7 +108,7 @@ export const RouletteWheel = (props: Props) => {
       let angle = 234 - (37 - numbers.length) * slotAngle - rezPos * slotAngle;
       slotsRef.current.style.transform = 'rotate(' + angle + 'deg) translateZ(0)';
       ballRef.current.style.transform =
-        'rotate(' + 119.5 + 'deg) translateX(' + ballTranslateX + ') translateZ(0)';
+        'rotate(' + 119.5 + 'deg) translateX(' + BALL_TRANSX + ') translateZ(0)';
 
       // calculate random angle
       // visible zone - 150-390 deg
@@ -139,7 +141,7 @@ export const RouletteWheel = (props: Props) => {
         ballDegrees -= speed;
         if (ballRef.current)
           ballRef.current.style.transform =
-            'rotate(' + ballDegrees + 'deg) translateX(' + ballTranslateX + ') translateZ(0)';
+            'rotate(' + ballDegrees + 'deg) translateX(' + BALL_TRANSX + ') translateZ(0)';
         animRef.current = window.requestAnimationFrame(keepSpinning);
       };
       keepSpinning();
@@ -160,6 +162,9 @@ export const RouletteWheel = (props: Props) => {
       ballRef.current.style.display = 'none';
       spinUp();
       const tId = window.setTimeout(dropBall, 500);
+      if (onSpin) {
+        onSpin();
+      }
       return () => {
         window.clearTimeout(tId);
       };
@@ -167,11 +172,16 @@ export const RouletteWheel = (props: Props) => {
   }, [value, dropBall, spinUp]);
 
   return (
-    <div className={clsx(classes.root, className)}>
+    <div
+      className={clsx(classes.root, className)}
+      style={size ? { fontSize: `${size / +styles.baseSize}rem` } : undefined}
+    >
       {!disableBorder && <div className={classes.border} />}
-      <div className={classes.bg} />
-      <div className={clsx(classes.slots, classes[`slots_${slots}`])} ref={slotsRef} />
-      <div className={clsx(classes.ball)} ref={ballRef} onAnimationEnd={ballAnimationEnd} />
+      <div className={classes.wheel}>
+        <div className={classes.bg} />
+        <div className={clsx(classes.slots, classes[`slots_${slots}`])} ref={slotsRef} />
+        <div className={clsx(classes.ball)} ref={ballRef} onAnimationEnd={ballAnimationEnd} />
+      </div>
       <div className={classes.child}>{children}</div>
     </div>
   );

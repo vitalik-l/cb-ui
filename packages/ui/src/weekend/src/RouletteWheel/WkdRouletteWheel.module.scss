@@ -1,4 +1,5 @@
 $root: WkdRouletteWheel;
+$baseSize: 56.6;
 
 @keyframes ball-rotate {
   0% {
@@ -26,8 +27,6 @@ $root: WkdRouletteWheel;
   position: relative;
   border-radius: 50%;
   box-sizing: border-box;
-  width: 56.6em;
-  height: 56.6em;
   background: linear-gradient(180deg, #090909, #2b2b2b);
 }
 
@@ -110,8 +109,17 @@ $root: WkdRouletteWheel;
   transform: translate(-50%, -50%);
   z-index: 6;
   border-radius: 50%;
+  width: 55%;
+  height: 55%;
+}
+
+.wheel {
+  width: #{$baseSize}em;
+  height: #{$baseSize}em;
+  font-size: 1em;
 }
 
 :export {
   root: $root;
+  baseSize: $baseSize;
 }
