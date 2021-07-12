@@ -10,6 +10,7 @@ type Props = React.ComponentProps<'div'> & {
   DropzoneComponent?: React.ElementType;
   rightSide?: boolean;
   disableZero?: boolean;
+  disableFourNumber?: boolean;
 };
 
 const STRAIGHT_NUMBERS = {
@@ -18,7 +19,14 @@ const STRAIGHT_NUMBERS = {
 };
 
 export const DropzoneArea = (props: Props) => {
-  const { className, DropzoneComponent, rightSide, disableZero, ...restProps } = props;
+  const {
+    className,
+    DropzoneComponent,
+    rightSide,
+    disableZero,
+    disableFourNumber,
+    ...restProps
+  } = props;
   let content;
 
   const renderDropzone = (props: React.ComponentProps<typeof Dropzone>) => {
@@ -80,6 +88,7 @@ export const DropzoneArea = (props: Props) => {
       <React.Fragment>
         <div className={styles.straight}>
           {!disableZero && renderDropzone({ betType: BET_TYPES.STRAIGHT, startNumber: 0 })}
+          {!disableFourNumber && renderDropzone({ betType: BET_TYPES.FOURNUMBER, startNumber: 0 })}
           {straightItems}
         </div>
         <div className={styles.dozen}>

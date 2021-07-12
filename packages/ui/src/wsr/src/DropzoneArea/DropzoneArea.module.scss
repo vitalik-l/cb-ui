@@ -60,7 +60,7 @@ $root: DropzoneArea;
 .dropzone {
   position: absolute;
 
-  &[data-startnumber='0'] {
+  &[data-betType='STRAIGHT'][data-startnumber='0'] {
     top: 0;
     left: -7%;
     width: 7%;
@@ -76,6 +76,15 @@ $root: DropzoneArea;
       border-bottom: 12.1em solid transparent;
       border-right: 2.4em solid currentColor;
     }
+  }
+
+  &[data-betType='FOURNUMBER'][data-startnumber='0'] {
+    width: 7%;
+    height: 11%;
+    left: 0.5%;
+    top: 2%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
   }
 
   &[data-betType='SPLIT'][data-typebside='3'] {

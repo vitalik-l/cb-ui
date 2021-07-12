@@ -29,7 +29,13 @@ export const Dropzone = (props: Props) => {
   const withHover = React.useMemo(
     () =>
       betType &&
-      !~[BET_TYPES.STRAIGHT, BET_TYPES.SPLIT, BET_TYPES.CORNER, BET_TYPES.STREET].indexOf(betType),
+      !~[
+        BET_TYPES.STRAIGHT,
+        BET_TYPES.SPLIT,
+        BET_TYPES.CORNER,
+        BET_TYPES.STREET,
+        BET_TYPES.FOURNUMBER,
+      ].indexOf(betType),
     [betType],
   );
 

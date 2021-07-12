@@ -112,7 +112,7 @@ export const getBetNumbers = ({
       }
       break;
 
-    case BET_TYPES.BASKET:
+    case BET_TYPES.FOURNUMBER:
       // always the same, no startNumber needed
       numbers = [0, 1, 2, 3];
       break;

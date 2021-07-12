@@ -3,7 +3,7 @@ export const BET_TYPES = {
   /*B*/ SPLIT: 'SPLIT',
   /*C*/ STREET: 'STREET',
   /*D*/ CORNER: 'CORNER',
-  /*E*/ BASKET: 'BASKET',
+  /*E*/ FOURNUMBER: 'FOURNUMBER',
   /*F*/ LINE: 'LINE',
   /*G*/ COLUMN: 'COLUMN',
   /*H*/ DOZEN: 'DOZEN',
