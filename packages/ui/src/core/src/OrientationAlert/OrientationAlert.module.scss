@@ -16,11 +16,17 @@ $root: OrientationAlert;
     background: black;
     color: white;
   }
+}
 
-  @media (orientation: portrait) {
-    .#{$root} {
-      display: flex;
-    }
+@media (orientation: portrait) {
+  .portrait {
+    display: flex;
+  }
+}
+
+@media (orientation: landscape) {
+  .landscape {
+    display: flex;
   }
 }
 
