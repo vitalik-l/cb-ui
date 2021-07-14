@@ -42,6 +42,11 @@ $root: CircularIndicator;
   border-radius: 50%;
 }
 
+.fadeOut {
+  filter: brightness(60%);
+  transition: filter 0.5s ease-in-out;
+}
+
 :export {
   root: $root;
 }
