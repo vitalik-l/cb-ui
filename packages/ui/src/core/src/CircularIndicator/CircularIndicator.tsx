@@ -12,7 +12,7 @@ type ClassesType = {
   root?: string;
   content?: string;
   reverse?: string;
-  fadeOut?: string;
+  fadeIn?: string;
 };
 
 type Props = {
@@ -24,7 +24,7 @@ type Props = {
   classes?: ClassesType;
   gradientUp?: string;
   gradientDown?: string;
-  fadeOut?: boolean;
+  fadeIn?: boolean;
 };
 
 const SEGMENTS = 439;
@@ -39,7 +39,7 @@ export const CircularIndicator = (props: Props) => {
     classes: classesProp,
     gradientUp = imageUpGradient,
     gradientDown = imageDownGradient,
-    fadeOut,
+    fadeIn,
     ...restProps
   } = props;
   const indicatorRef = React.useRef(null);
@@ -70,7 +70,7 @@ export const CircularIndicator = (props: Props) => {
   }, [animDuration, targetProgress]); // eslint-disable-line
 
   return (
-    <div className={clsx(classes.root, className, fadeOut && classes.fadeOut)} {...restProps}>
+    <div className={clsx(classes.root, className, fadeIn && classes.fadeIn)} {...restProps}>
       <svg height="100%" width="100%" viewBox="0 0 190 190">
         <defs>
           <pattern
