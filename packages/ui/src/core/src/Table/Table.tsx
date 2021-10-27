@@ -1,13 +1,11 @@
-import React from 'react';
-import clsx from 'clsx';
 import { Table as CbTable, usePagination, useSortBy, HeaderCell } from 'cb-datatable';
-import 'cb-datatable/styles/core.scss';
-
-// local files
-import styles from './CoreTable.module.scss';
+import clsx from 'clsx';
+import React from 'react';
 import { useClasses } from '../hooks/useClasses';
-import { Pager } from './Pager';
 import { clearProps } from '../utils/clearProps';
+import { Pager } from './Pager';
+import 'cb-datatable/styles/core.css';
+import styles from './CoreTable.module.scss';
 
 type ClassesType = {
   root?: string;

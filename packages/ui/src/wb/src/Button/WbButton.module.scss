@@ -1,0 +1,9 @@
+$root: WbButton;
+
+:global(.#{$root}) {
+  // component styles
+}
+
+:export {
+  root: $root;
+}

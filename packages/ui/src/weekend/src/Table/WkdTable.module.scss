@@ -9,7 +9,7 @@ $root: WkdTable;
       color: #bab9b9;
       background-image: linear-gradient(#272f33, #191e20);
 
-      &--sticky-header {
+      &_sticky {
         .cb-TableHeader {
           .cb-TableRow {
             .cb-TableCell {
@@ -29,50 +29,48 @@ $root: WkdTable;
       height: 3.4em;
     }
 
-    .cb-TableHeader {
-      .cb-HeaderCell {
-        font-family: HelveticaNeue, Impact, Arial;
-        font-stretch: condensed;
-        font-weight: bold;
-        font-size: 1.1em;
-        color: #667a83;
-        text-transform: uppercase;
+    .cb-HeaderCellContent {
+      font-family: HelveticaNeue, Impact, Arial;
+      font-stretch: condensed;
+      font-weight: bold;
+      font-size: 1.1em;
+      color: #667a83;
+      text-transform: uppercase;
+    }
+
+    .cb-HeaderCell {
+      border: min(0.1em, 1px) solid #131217;
+      background-image: linear-gradient(#1e2629, #13181a);
+      height: 3.4em;
+      padding: 0 min(0.2em, 2px);
+      vertical-align: middle;
+      box-sizing: border-box;
+
+      &_sortable {
+        cursor: pointer;
       }
 
-      .cb-TableCell {
-        border: min(0.1em, 1px) solid #131217;
-        background-image: linear-gradient(#1e2629, #13181a);
-        height: 3.4em;
-        padding: 0 min(0.2em, 2px);
-        vertical-align: middle;
-        box-sizing: border-box;
+      &_sort_desc,
+      &_sort_asc {
+        .cb-HeaderCellContent {
+          display: flex;
+          justify-content: center;
 
-        &--sortable {
-          cursor: pointer;
-        }
-
-        &--sort-desc,
-        &--sort-asc {
-          .cb-HeaderCell {
-            display: flex;
-            justify-content: center;
-
-            &:after {
-              margin-left: 1em;
-            }
+          &:after {
+            margin-left: 1em;
           }
         }
+      }
 
-        &--sort-asc {
-          .cb-HeaderCell:after {
-            content: '\25B2';
-          }
+      &_sort_asc {
+        > .cb-HeaderCellContent:after {
+          content: '\25B2';
         }
+      }
 
-        &--sort-desc {
-          .cb-HeaderCell:after {
-            content: '\25BC';
-          }
+      &_sort_desc {
+        > .cb-HeaderCellContent:after {
+          content: '\25BC';
         }
       }
     }

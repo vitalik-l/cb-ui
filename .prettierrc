@@ -4,5 +4,6 @@
   "useTabs": false,
   "semi": true,
   "singleQuote": true,
-  "trailingComma": "all"
+  "trailingComma": "all",
+  "importOrder": ["^[^/]*$", "^[^.].*(?<!scss|css)$", "^[./].*(?<!scss|css)$", "^[^.].*(\\.scss|\\.css)$", "^[./].*(\\.scss|\\.css)$"]
 }

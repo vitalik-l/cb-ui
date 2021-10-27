@@ -6,7 +6,7 @@ $root: ClassicTable;
   .#{$root} {
     font-family: 'Myriad Pro', Arial, Helvetica, sans-serif;
 
-    .cb-TableHeaderCell {
+    .cb-HeaderCell {
       z-index: 3;
       border: 1px solid #131722;
       height: $height;
@@ -15,7 +15,7 @@ $root: ClassicTable;
       position: relative;
     }
 
-    .cb-HeaderCell {
+    .cb-HeaderCellContent {
       text-transform: uppercase;
       font-size: 0.8em;
       font-weight: 700;
@@ -23,11 +23,11 @@ $root: ClassicTable;
     }
 
     .cb-TableCell {
-      &--sortable {
+      &_sortable {
         cursor: pointer;
       }
 
-      &--sort-desc:after {
+      &_sort_desc:after {
         content: '';
         width: 100%;
         height: 2px;
@@ -37,7 +37,7 @@ $root: ClassicTable;
         background: #37a6ef;
       }
 
-      &--sort-asc:after {
+      &_sort_asc:after {
         content: '';
         width: 100%;
         height: 2px;

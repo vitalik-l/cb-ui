@@ -1,0 +1,25 @@
+@use 'Slider.module' as * with (
+  $root: GeSlider,
+  $height: 0.5rem,
+  $thumbSize: 1em,
+);
+
+:global(.#{$root}) {
+  color: #cf0c66;
+  border-radius: 10px;
+}
+
+.rail {
+  background: linear-gradient(
+    to right,
+    #cf0c66 0%,
+    #d7281c 25%,
+    #be7e15 50%,
+    #07e275 75%,
+    #07e275 100%
+  );
+}
+
+:export {
+  root: $root;
+}

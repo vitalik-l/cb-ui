@@ -2,6 +2,7 @@ module.exports = {
   plugins: [
     '@babel/plugin-proposal-export-default-from',
     '@babel/plugin-proposal-class-properties',
+    ['@babel/plugin-proposal-private-property-in-object', { loose: true }],
   ],
   presets: [
     '@babel/preset-react',

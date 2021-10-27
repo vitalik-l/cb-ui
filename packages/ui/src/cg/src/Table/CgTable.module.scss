@@ -29,6 +29,12 @@ $border: toRem(1) solid rgba(69, 71, 88, 1);
       text-align: left;
     }
 
+    .cb-Table_sticky {
+      .cb-HeaderCell {
+        position: sticky;
+      }
+    }
+
     .cb-HeaderCell {
       text-transform: uppercase;
       font-family: Roboto, Arial, Helvetica, sans-serif;
@@ -47,11 +53,11 @@ $border: toRem(1) solid rgba(69, 71, 88, 1);
         border-right: $border;
       }
 
-      &--sortable {
+      &_sortable {
         cursor: pointer;
       }
 
-      &--sort-desc:after {
+      &_sort_desc:after {
         content: '';
         width: 100%;
         height: 2px;
@@ -61,7 +67,7 @@ $border: toRem(1) solid rgba(69, 71, 88, 1);
         background: #37a6ef;
       }
 
-      &--sort-asc:after {
+      &_sort_asc:after {
         content: '';
         width: 100%;
         height: 2px;

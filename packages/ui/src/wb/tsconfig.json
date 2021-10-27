@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.json",
+  "include": ["../declarations.d.ts", "."],
+  "compilerOptions": {
+    "composite": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "noEmit": false,
+    "baseUrl": ".",
+    "paths": {
+      "@cb-general/core/*": ["../core/src/*"],
+      "@cb-general/weekend/*": ["../weekend/src/*"]
+    }
+  },
+  "references": [{ "path": "../core" }, { "path": "../weekend" }]
+}
