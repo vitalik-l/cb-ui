@@ -1,8 +1,8 @@
 module.exports = {
   plugins: [
     '@babel/plugin-proposal-export-default-from',
-    '@babel/plugin-proposal-class-properties',
-    ['@babel/plugin-proposal-private-property-in-object', { loose: true }],
+    ['@babel/plugin-proposal-class-properties', { loose: true }],
+    ['@babel/plugin-proposal-private-methods', { loose: true }],
   ],
   presets: [
     '@babel/preset-react',
