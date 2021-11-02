@@ -1,10 +1,9 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-
-// local files
 import { createStory } from '../../story';
 import { Root } from '../Root';
 import { Viewport } from './index';
+import styles from './ViewportStory.module.scss';
 
 const story = createStory({
   title: 'Viewport',
@@ -17,7 +16,7 @@ const story = createStory({
 });
 
 export const Default: Story = (args) => (
-  <Root>
+  <Root className={styles.root}>
     <Viewport
       minRatio={21 / 9}
       maxRatio={4 / 3}

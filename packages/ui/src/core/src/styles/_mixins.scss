@@ -1,4 +1,4 @@
-@use "sass:math";
+@use 'sass:math';
 
 @mixin noScrollBar {
   scrollbar-width: none; /* Firefox */
@@ -49,4 +49,17 @@
   } @else {
     @return css-max(#{$value}px, #{math.div($value, 10)}rem);
   }
+}
+
+@mixin mobile {
+  @media (max-width: 896px), (max-height: 504px) {
+    @content;
+  }
+}
+
+@mixin responsiveFontSize($maxWidth, $maxHeight, $default: 10px) {
+  font-size: min(
+    #{$default},
+    min(calc(1vw * #{math.div(1000, $maxWidth)}), calc(1vh * #{math.div(1000, $maxHeight)}))
+  );
 }

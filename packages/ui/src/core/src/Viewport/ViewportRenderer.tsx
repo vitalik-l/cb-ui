@@ -1,11 +1,9 @@
-import React from 'react';
 import clsx from 'clsx';
-
-// local files
-import styles from './CoreViewport.module.scss';
-import { ViewportContext } from './ViewportContext';
+import React from 'react';
 import { useAppMode } from '../Root/useAppMode';
 import { calcFontSize } from '../utils/calcFontSize';
+import { ViewportContext } from './ViewportContext';
+import styles from './CoreViewport.module.scss';
 
 export type ViewportRendererProps = {
   children?: React.ReactNode;
