@@ -2,8 +2,8 @@ import React from 'react';
 import { Story } from '@storybook/react';
 import { createStory } from '../../story';
 import { Root } from '../Root';
-import { Viewport } from './index';
-import styles from './ViewportStory.module.scss';
+import { Viewport, ViewportCss } from './index';
+import viewportCssStyles from './ViewportCssStory.module.scss';
 
 const story = createStory({
   title: 'Viewport',
@@ -44,12 +44,10 @@ Breakpoint.args = {
 
 export const CssOnly: Story = () => {
   return (
-    <Root className={styles.root}>
-      <div className={styles.container}>
-        FONT size
-      </div>
+    <Root>
+      <ViewportCss classes={viewportCssStyles}>FONT size</ViewportCss>
     </Root>
-  )
-}
+  );
+};
 
 export default story;

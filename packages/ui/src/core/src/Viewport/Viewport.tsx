@@ -1,8 +1,6 @@
 import React from 'react';
-
-// local files
-import { ViewportRenderer, ViewportRendererProps } from './ViewportRenderer';
 import { CalculatedViewport, CalculatedViewportProps } from './CalculatedViewport';
+import { ViewportRenderer, ViewportRendererProps } from './ViewportRenderer';
 
 export type ViewportProps = ViewportRendererProps & Omit<CalculatedViewportProps, 'children'>;
 
