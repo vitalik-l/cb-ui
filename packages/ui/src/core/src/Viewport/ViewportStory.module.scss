@@ -1,5 +1,17 @@
+@use 'sass:math';
 @use '../styles/mixins' as *;
 
 .root {
-  //@include responsiveFontSize(800, 600);
+  @include responsiveFontSize(800, 600);
+}
+
+.container {
+  background-color: black;
+  color: white;
+  @include viewport(math.div(21, 9), math.div(4, 3));
+
+  // static
+  width: 100vw;
+  max-height: 100vh;
+  position: relative;
 }

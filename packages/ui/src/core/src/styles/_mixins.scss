@@ -51,6 +51,11 @@
   }
 }
 
+@mixin viewport($minRatio, $maxRatio) {
+  max-width: css-min($maxRatio unquote('*') 100vh, 100vw);
+  height: css-min(100vw unquote('/') $minRatio, 100vh);
+}
+
 @mixin mobile {
   @media (max-width: 896px), (max-height: 504px) {
     @content;

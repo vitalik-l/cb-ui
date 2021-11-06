@@ -16,7 +16,7 @@ const story = createStory({
 });
 
 export const Default: Story = (args) => (
-  <Root className={styles.root}>
+  <Root>
     <Viewport
       minRatio={21 / 9}
       maxRatio={4 / 3}
@@ -34,12 +34,22 @@ Default.storyName = 'Viewport';
 
 export const Breakpoint: Story = Default.bind({});
 Breakpoint.args = {
-  breakpoint: (width: number) => {
-    if (width < 300) {
-      console.log('breakpoint');
+  breakpoint: (width: number, height: number) => {
+    if (height < 300) {
+      alert('breakpoint "height < 300" fired');
       return 5;
     }
   },
 };
+
+export const CssOnly: Story = () => {
+  return (
+    <Root className={styles.root}>
+      <div className={styles.container}>
+        FONT size
+      </div>
+    </Root>
+  )
+}
 
 export default story;
