@@ -62,9 +62,9 @@
   }
 }
 
-@mixin responsiveFontSize($maxWidth, $maxHeight, $default: 10px) {
+@mixin responsiveFontSize($baseWidth, $baseHeight, $baseFontSize: 10) {
   font-size: min(
-    #{$default},
-    min(calc(1vw * #{math.div(1000, $maxWidth)}), calc(1vh * #{math.div(1000, $maxHeight)}))
+    calc(#{$baseFontSize} * 1vw * 100 / #{$baseWidth}),
+    calc(#{$baseFontSize} * 1vh * 100 / #{$baseHeight})
   );
 }

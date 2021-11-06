@@ -2,7 +2,7 @@
 @use '../styles/mixins' as *;
 
 .root {
-  @include responsiveFontSize(800, 600);
+  @include responsiveFontSize(800, 600, 16);
 }
 
 .container {
