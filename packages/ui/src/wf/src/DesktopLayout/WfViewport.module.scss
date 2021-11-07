@@ -1,0 +1,10 @@
+@use 'sass:math';
+@use '~@cb-general/core/styles/_mixins' as *;
+
+.html {
+  @include responsiveFontSize(1920, 1080);
+}
+
+.root {
+  @include viewport(math.div(4, 3), math.div(21, 9));
+}

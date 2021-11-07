@@ -1,10 +1,11 @@
 import React from 'react';
-import { Story } from '@storybook/react';
 import { Root } from '@cb-general/core/Root';
-
-// local files
+import { Story } from '@storybook/react';
+import { Viewport } from '../../../core/src/Viewport';
 import { createStory } from '../../story';
+import { WfViewport } from './WfViewport';
 import { DesktopLayout } from './index';
+
 // import { HeaderTemplate } from '../../../weekend/src/Header/Header.story';
 // import { TickerTemplate } from '../../../weekend/src/Ticker/Ticker.story';
 // import { ChartControlsTemplate } from '../../../weekend/src/ChartControls/ChartControls.story';
@@ -23,5 +24,10 @@ export const Template: Story = (args) => (
   </Root>
 );
 Template.storyName = 'DesktopLayout';
+
+export const ViewportJs = Template.bind({});
+ViewportJs.args = {
+  ViewportComponent: Viewport,
+};
 
 export default story;

@@ -1,8 +1,7 @@
-import React from 'react';
 import clsx from 'clsx';
-import { Viewport, ViewportProps } from '@cb-general/core/Viewport';
-
-// local files
+import React from 'react';
+import { ViewportProps } from '@cb-general/core/Viewport';
+import { WfViewport } from './WfViewport';
 import styles from './DesktopLayout.module.scss';
 
 type Props = ViewportProps & {
@@ -14,6 +13,7 @@ type Props = ViewportProps & {
   tradingControls?: React.ReactElement;
   tabs?: React.ReactElement;
   children?: React.ReactNode;
+  ViewportComponent?: React.ElementType;
 };
 
 export const DesktopLayout = (props: Props) => {
@@ -26,11 +26,12 @@ export const DesktopLayout = (props: Props) => {
     tradingControls,
     tabs,
     children,
+    ViewportComponent = WfViewport,
     ...viewportProps
   } = props;
 
   return (
-    <Viewport {...viewportProps}>
+    <ViewportComponent {...viewportProps}>
       <div className={clsx(styles.root, className)}>
         {header}
         <div className="d-flex flex-fill">
@@ -49,7 +50,7 @@ export const DesktopLayout = (props: Props) => {
         </div>
         {children}
       </div>
-    </Viewport>
+    </ViewportComponent>
   );
 };
 
