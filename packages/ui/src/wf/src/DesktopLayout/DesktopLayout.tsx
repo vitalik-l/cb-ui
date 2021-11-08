@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
-import { ViewportProps } from '@cb-general/core/Viewport';
-import { WfViewport } from './WfViewport';
+import { Viewport, ViewportProps } from '@cb-general/core/Viewport';
 import styles from './DesktopLayout.module.scss';
 
 type Props = ViewportProps & {
@@ -26,7 +25,7 @@ export const DesktopLayout = (props: Props) => {
     tradingControls,
     tabs,
     children,
-    ViewportComponent = WfViewport,
+    ViewportComponent = Viewport,
     ...viewportProps
   } = props;
 

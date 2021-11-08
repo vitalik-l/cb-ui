@@ -25,9 +25,4 @@ export const Template: Story = (args) => (
 );
 Template.storyName = 'DesktopLayout';
 
-export const ViewportJs = Template.bind({});
-ViewportJs.args = {
-  ViewportComponent: Viewport,
-};
-
 export default story;
