@@ -19,6 +19,10 @@ packages.forEach((p) => {
   (!!~libs.indexOf(p) || !p) && stories.push(template);
 });
 
+if (!stories?.length) {
+  stories.push(`../src/**/*.story.@(js|jsx|ts|tsx|mdx)`);
+}
+
 const importStyleVariables = (config) => {
   const mapRule = (rule) => {
     if (rule.use) {
