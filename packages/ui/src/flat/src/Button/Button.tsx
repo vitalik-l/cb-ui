@@ -1,19 +1,19 @@
-import React from 'react';
 import clsx from 'clsx';
+import React from 'react';
 import { ButtonBase } from '@cb-general/core/ButtonBase';
-
-// local files
 import styles from './FlatButton.module.scss';
 
-export const Button = (props: any) => {
+export type ButtonProps = React.ComponentProps<typeof ButtonBase> & {
+  variant?: 'contained' | 'outlined' | 'text';
+  color?: 'green' | 'red';
+};
+
+export const Button = (props: ButtonProps) => {
   const { className, variant = 'contained', color, ...buttonProps } = props;
 
   return (
     <ButtonBase
-      className={clsx(styles.root, className, {
-        [styles[variant]]: variant,
-        [styles[color]]: color,
-      })}
+      className={clsx(styles.root, className, styles?.[variant ?? ''], styles?.[color ?? ''])}
       {...buttonProps}
     />
   );
