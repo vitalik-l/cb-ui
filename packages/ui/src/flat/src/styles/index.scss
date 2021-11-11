@@ -1,12 +1,2 @@
 @use 'fonts';
 @import 'helpers/font-family';
-
-body {
-  color: white;
-  font-family: 'IBM Plex Sans';
-}
-
-*::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-}
