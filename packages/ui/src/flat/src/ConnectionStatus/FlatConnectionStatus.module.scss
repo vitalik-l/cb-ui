@@ -1,0 +1,20 @@
+$root: FlatConnectionStatus;
+
+:global(.#{$root}) {
+  --ofline-color: #ea381c;
+  --online-color: #71c82b;
+  // component styles
+  display: inline-block;
+  width: 0.8em;
+  height: 0.8em;
+  background-color: var(--ofline-color);
+  border-radius: 50%;
+}
+
+.online {
+  background-color: var(--online-color);
+}
+
+:export {
+  root: $root;
+}
