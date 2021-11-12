@@ -1,7 +1,6 @@
 import React from 'react';
+import { ClickAwayListener } from '@cb-general/core/ClickAwayListener';
 import { Story } from '@storybook/react';
-
-// local files
 import { createStory } from '../../story';
 import { PopoverPanel } from './index';
 
@@ -20,9 +19,11 @@ export const Template: Story = ({ classes, ...args }) => {
     <div>
       <button onClick={() => setOpen(true)}>Open</button>
       {open && (
-        <PopoverPanel {...args} onClose={() => setOpen(false)} style={{ marginTop: '4rem' }}>
-          Popover content
-        </PopoverPanel>
+        <ClickAwayListener onClickAway={() => setOpen(false)}>
+          <PopoverPanel {...args} style={{ marginTop: '4rem' }}>
+            Popover content
+          </PopoverPanel>
+        </ClickAwayListener>
       )}
     </div>
   );
