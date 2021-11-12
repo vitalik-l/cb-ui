@@ -1,11 +1,9 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-
-// local files
-import { createStory } from '../story';
 import { ButtonBase } from '../../core/src/ButtonBase';
-import { copyToClipboard } from '../../core/src/utils/clipboard';
 import { Tooltip } from '../../core/src/Tooltip';
+import { copyToClipboard } from '../../core/src/utils/clipboard';
+import { createStory } from '../story';
 import * as Icons from './index';
 
 const story = createStory({
