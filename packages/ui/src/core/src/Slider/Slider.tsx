@@ -1,19 +1,17 @@
-import React from 'react';
 import clsx from 'clsx';
-
-// local files
-import { ownerDocument } from './utils';
+import React from 'react';
+import { useClasses } from '../hooks/useClasses';
+import { useControlled } from '../hooks/useControlled';
+import { useEventCallback } from '../hooks/useEventCallback';
 import { useIsFocusVisible } from '../hooks/useIsFocusVisible';
 import { useForkRef } from '../utils/useForkRef';
 import { ValueLabel } from './ValueLabel';
-import { useControlled } from '../hooks/useControlled';
-import { useEventCallback } from '../hooks/useEventCallback';
-import { useClasses} from '../hooks/useClasses';
+import { ownerDocument } from './utils';
 import styles from './CoreSlider.module.scss';
 
-declare module "react" {
+declare module 'react' {
   function forwardRef<T, P = {}>(
-    render: (props: P, ref: React.Ref<T>) => React.ReactElement | null
+    render: (props: P, ref: React.Ref<T>) => React.ReactElement | null,
   ): (props: P & React.RefAttributes<T>) => React.ReactElement | null;
 }
 
@@ -21,28 +19,27 @@ type Colors = 'primary';
 
 type Classes<T extends Colors = Colors> = {
   [key in `color_${T}`]?: string;
-} &
-  {
-    [key in `thumbColor_${T}`]?: string;
-  } & {
-    root?: string;
-    wrap?: string;
-    trackFalse?: string;
-    trackInverted?: string;
-    vertical?: string;
-    disabled?: string;
-    rail?: string;
-    track?: string;
-    marked?: string;
-    mark?: string;
-    markActive?: string;
-    markLabel?: string;
-    markLabelActive?: string;
-    valueLabel?: string;
-    thumb?: string;
-    thumbFocus?: string;
-    thumbActive?: string;
-  };
+} & {
+  [key in `thumbColor_${T}`]?: string;
+} & {
+  root?: string;
+  wrap?: string;
+  trackFalse?: string;
+  trackInverted?: string;
+  vertical?: string;
+  disabled?: string;
+  rail?: string;
+  track?: string;
+  marked?: string;
+  mark?: string;
+  markActive?: string;
+  markLabel?: string;
+  markLabelActive?: string;
+  valueLabel?: string;
+  thumb?: string;
+  thumbFocus?: string;
+  thumbActive?: string;
+};
 
 type Mark = {
   value: number;
@@ -646,7 +643,6 @@ const SliderInner = (props: SliderProps, ref: any) => {
           classes.vertical && orientation === 'vertical',
           disabled && classes.disabled,
           marks.length > 0 && marks.some((mark: any) => mark.label) && classes.marked,
-          className,
         )}
         onMouseDown={handleMouseDown}
         {...other}
