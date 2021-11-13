@@ -1,0 +1,21 @@
+.width {
+  width: var(--box-width);
+}
+.height {
+  width: var(--box-height);
+}
+.maxWidth {
+  max-width: var(--box-maxWidth);
+}
+.fontSize {
+  font-size: var(--box-fontSize);
+}
+.fontFamily {
+  font-family: var(--box-fontFamily);
+}
+.color {
+  color: var(--box-color);
+}
+.p {
+  padding: var(--box-p);
+}

@@ -1,7 +1,5 @@
-import React from 'react';
 import clsx from 'clsx';
-
-// local files
+import React from 'react';
 import styles from './PrefixComponentName.module.scss';
 
 type Props = React.ComponentProps<'div'>;

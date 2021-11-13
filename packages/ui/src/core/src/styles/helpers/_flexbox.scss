@@ -49,10 +49,31 @@
 
 .flex-fill {
   flex: 1 !important;
-  min-height: 1px;
-  min-width: 1px;
+  min-height: 0;
+  min-width: 0;
 }
 
 .align-self-end {
   align-self: flex-end !important;
+}
+
+$gaps: (
+  0: 0,
+  1: 1rem,
+  1\.5: 1.5rem,
+  2: 2rem,
+  2\.5: 2.5rem,
+  3: 3rem,
+) !default;
+
+@each $index, $gap in $gaps {
+  .gap-#{$index} {
+    gap: $gap !important;
+  }
+  .row-gap-#{$index} {
+    row-gap: $gap !important;
+  }
+  .column-gap-#{$index} {
+    column-gap: $gap !important;
+  }
 }

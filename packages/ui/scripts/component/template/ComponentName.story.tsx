@@ -1,8 +1,6 @@
+import { createStory } from 'StoryPath';
 import React from 'react';
 import { Story } from '@storybook/react';
-
-// local files
-import { createStory } from 'StoryPath';
 import { ComponentName } from './index';
 
 const story = createStory({
