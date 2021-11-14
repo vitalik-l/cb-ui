@@ -27,6 +27,10 @@ export type BosStylesProps = {
   fontFamily?: string;
   fontSize?: string | number;
   opacity?: string | number;
+  top?: string | number;
+  bottom?: string | number;
+  left?: string | number;
+  right?: string | number;
 };
 
 export type BoxStyle = { [key in `--box-${keyof BosStylesProps}`]?: string | number };
@@ -57,6 +61,10 @@ export const removeBoxProps = ({
   px,
   py,
   opacity,
+  top,
+  bottom,
+  left,
+  right,
   ...rest
 }: BosStylesProps) => rest;
 
@@ -86,6 +94,10 @@ export const useBoxStyles = ({
   px,
   py,
   opacity,
+  top,
+  left,
+  bottom,
+  right,
 }: BosStylesProps) => {
   return React.useMemo(() => {
     const boxStyle: BoxStyle = {};
@@ -191,6 +203,23 @@ export const useBoxStyles = ({
       boxStyle['--box-opacity'] = opacity;
       classNames.push(styles.opacity);
     }
+    if (top !== undefined) {
+      boxStyle['--box-top'] = typeof top === 'number' ? `${top}px` : top;
+      classNames.push(styles.top);
+    }
+    if (bottom !== undefined) {
+      boxStyle['--box-bottom'] = typeof bottom === 'number' ? `${bottom}px` : bottom;
+      classNames.push(styles.bottom);
+    }
+    if (left !== undefined) {
+      boxStyle['--box-left'] = typeof left === 'number' ? `${left}px` : left;
+      classNames.push(styles.left);
+    }
+    if (right !== undefined) {
+      boxStyle['--box-right'] = typeof right === 'number' ? `${right}px` : right;
+      classNames.push(styles.right);
+    }
+
 
     return { boxStyle, boxClassName: classNames.filter(Boolean).join(' ') };
   }, [
@@ -219,5 +248,9 @@ export const useBoxStyles = ({
     px,
     py,
     opacity,
+    top,
+    bottom,
+    left,
+    right,
   ]);
 };
