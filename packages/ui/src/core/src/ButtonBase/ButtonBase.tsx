@@ -4,6 +4,14 @@ import { useClasses } from '../hooks/useClasses';
 import { useButtonBase } from './ButtonBaseProvider';
 import styles from './CoreButtonBase.module.scss';
 
+declare module 'react' {
+  // For TS playground, type imports need to be used to make the sample compile.
+  // In local dev, you can use ForwardedRef, ReactElement, RefAttributes directly.
+  function forwardRef<T, P = {}>(
+    render: (props: P, ref: import('react').ForwardedRef<T>) => import('react').ReactElement | null,
+  ): (props: P & import('react').RefAttributes<T>) => import('react').ReactElement | null;
+}
+
 type ClassesType = {
   root?: string;
   disabled?: string;

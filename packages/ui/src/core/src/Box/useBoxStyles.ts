@@ -26,7 +26,7 @@ export type BosStylesProps = {
   color?: string;
   fontFamily?: string;
   fontSize?: string | number;
-  opacity?: number;
+  opacity?: string | number;
 };
 
 export type BoxStyle = { [key in `--box-${keyof BosStylesProps}`]?: string | number };
@@ -192,7 +192,7 @@ export const useBoxStyles = ({
       classNames.push(styles.opacity);
     }
 
-    return { boxStyle, boxClassName: classNames.join(' ') };
+    return { boxStyle, boxClassName: classNames.filter(Boolean).join(' ') };
   }, [
     width,
     size,

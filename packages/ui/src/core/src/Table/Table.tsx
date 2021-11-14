@@ -4,6 +4,7 @@ import React from 'react';
 import { useClasses } from '../hooks/useClasses';
 import { clearProps } from '../utils/clearProps';
 import { Pager } from './Pager';
+import { TableCell } from './TableCell';
 import 'cb-datatable/styles/core.css';
 import styles from './CoreTable.module.scss';
 
@@ -53,6 +54,7 @@ export const Table = (props: TableProps) => {
       <div className={classes.table}>
         <CbTable
           data={dataPerPage}
+          cell={<TableCell />}
           headerCell={<HeaderCell sortable={sortable} {...sorting} />}
           {...clearProps(otherProps)}
         />

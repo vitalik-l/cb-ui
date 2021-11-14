@@ -1,7 +1,5 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-
-// local files
 import { createStory } from '../../story';
 import { Table, Column } from './index';
 

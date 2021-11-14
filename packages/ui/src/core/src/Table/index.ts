@@ -1,12 +1,9 @@
-import {
-  Column as CBColumn,
-  TableRow as CBTableRow,
-  HeaderCell as CBHeaderCell,
-} from 'cb-datatable';
-export const Column = CBColumn;
+import { TableRow as CBTableRow, HeaderCell as CBHeaderCell } from 'cb-datatable';
+
 export const TableRow = CBTableRow;
 export const HeaderCell = CBHeaderCell;
-
+export { Column } from './Column';
+export type { ColumnProps } from './Column';
 export { Table } from './Table';
 export { Table as default } from './Table';
 export { usePager } from './usePager';
