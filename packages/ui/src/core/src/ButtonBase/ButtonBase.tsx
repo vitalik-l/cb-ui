@@ -1,7 +1,5 @@
-import React from 'react';
 import clsx from 'clsx';
-
-// local files
+import React from 'react';
 import { useClasses } from '../hooks/useClasses';
 import { useButtonBase } from './ButtonBaseProvider';
 import styles from './CoreButtonBase.module.scss';
