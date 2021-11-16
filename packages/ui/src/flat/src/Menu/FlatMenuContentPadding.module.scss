@@ -1,0 +1,9 @@
+$root: FlatMenuContentPadding;
+
+:global(.#{$root}) {
+  padding: 1rem 1.5rem;
+}
+
+:export {
+  root: $root;
+}

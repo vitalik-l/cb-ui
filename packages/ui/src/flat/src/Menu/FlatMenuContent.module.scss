@@ -1,9 +1,12 @@
+@use '~@cb-general/core/styles/mixins' as *;
+
 $root: FlatMenuContent;
 
 :global(.#{$root}) {
   flex: 1;
   min-height: 1px;
   overflow: auto;
+  @include noScrollBar;
 }
 
 :export {

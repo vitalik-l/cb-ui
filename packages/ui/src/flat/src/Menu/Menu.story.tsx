@@ -9,9 +9,12 @@ const story = createStory({
   title: 'Menu',
   component: Menu,
   style: {
-    position: 'relative',
-    width: 320,
-    height: 300,
+    position: 'absolute',
+    overflow: 'hidden',
+    width: '100%',
+    height: '100%',
+    top: 0,
+    left: 0,
   },
 });
 

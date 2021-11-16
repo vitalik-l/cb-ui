@@ -1,6 +1,7 @@
 $root: FlatMenu;
 
 :global(.#{$root}) {
+  font-size: 1rem;
   display: flex;
   flex-direction: column;
   background: #000;
