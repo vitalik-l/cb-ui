@@ -33,7 +33,7 @@ export type BosStylesProps = {
   right?: string | number;
 };
 
-export type BoxStyle = { [key in `--box-${keyof BosStylesProps}`]?: string | number };
+export type BoxStyle = { [key in `--Box-${keyof BosStylesProps}`]?: string | number };
 
 export const removeBoxProps = ({
   width,
@@ -104,122 +104,121 @@ export const useBoxStyles = ({
     const classNames = [];
 
     if (width !== undefined) {
-      boxStyle['--box-width'] = typeof width === 'number' ? `${width}px` : width;
+      boxStyle['--Box-width'] = typeof width === 'number' ? `${width}px` : width;
       classNames.push(styles.width);
     }
     if (height !== undefined) {
-      boxStyle['--box-height'] = typeof height === 'number' ? `${height}px` : height;
+      boxStyle['--Box-height'] = typeof height === 'number' ? `${height}px` : height;
       classNames.push(styles.height);
     }
     if (size !== undefined) {
-      boxStyle['--box-size'] = typeof size === 'number' ? `${size}px` : size;
+      boxStyle['--Box-size'] = typeof size === 'number' ? `${size}px` : size;
       classNames.push(styles.size);
     }
     if (maxHeight !== undefined) {
-      boxStyle['--box-maxHeight'] = typeof maxHeight === 'number' ? `${maxHeight}px` : maxHeight;
+      boxStyle['--Box-maxHeight'] = typeof maxHeight === 'number' ? `${maxHeight}px` : maxHeight;
       classNames.push(styles.maxHeight);
     }
     if (maxWidth !== undefined) {
-      boxStyle['--box-maxWidth'] = typeof maxWidth === 'number' ? `${maxWidth}px` : maxWidth;
+      boxStyle['--Box-maxWidth'] = typeof maxWidth === 'number' ? `${maxWidth}px` : maxWidth;
       classNames.push(styles.maxWidth);
     }
     if (minWidth !== undefined) {
-      boxStyle['--box-minWidth'] = typeof minWidth === 'number' ? `${minWidth}px` : minWidth;
+      boxStyle['--Box-minWidth'] = typeof minWidth === 'number' ? `${minWidth}px` : minWidth;
       classNames.push(styles.minWidth);
     }
     if (minHeight !== undefined) {
-      boxStyle['--box-minHeight'] = typeof minHeight === 'number' ? `${minHeight}px` : minHeight;
+      boxStyle['--Box-minHeight'] = typeof minHeight === 'number' ? `${minHeight}px` : minHeight;
       classNames.push(styles.minHeight);
     }
     if (color !== undefined) {
-      boxStyle['--box-color'] = color;
+      boxStyle['--Box-color'] = color;
       classNames.push(styles.color);
     }
     if (fontSize !== undefined) {
-      boxStyle['--box-fontSize'] = typeof fontSize === 'number' ? `${fontSize}px` : fontSize;
+      boxStyle['--Box-fontSize'] = typeof fontSize === 'number' ? `${fontSize}px` : fontSize;
       classNames.push(styles.fontSize);
     }
     if (fontFamily !== undefined) {
-      boxStyle['--box-fontFamily'] = fontFamily;
+      boxStyle['--Box-fontFamily'] = fontFamily;
       classNames.push(styles.fontFamily);
     }
     if (p !== undefined) {
-      boxStyle['--box-p'] = typeof p === 'number' ? `${p}px` : p;
+      boxStyle['--Box-p'] = typeof p === 'number' ? `${p}px` : p;
       classNames.push(styles.p);
     }
     if (px !== undefined) {
-      boxStyle['--box-px'] = typeof px === 'number' ? `${px}px` : px;
+      boxStyle['--Box-px'] = typeof px === 'number' ? `${px}px` : px;
       classNames.push(styles.px);
     }
     if (py !== undefined) {
-      boxStyle['--box-py'] = typeof py === 'number' ? `${py}px` : py;
+      boxStyle['--Box-py'] = typeof py === 'number' ? `${py}px` : py;
       classNames.push(styles.py);
     }
     if (pb !== undefined) {
-      boxStyle['--box-pb'] = typeof pb === 'number' ? `${pb}px` : pb;
+      boxStyle['--Box-pb'] = typeof pb === 'number' ? `${pb}px` : pb;
       classNames.push(styles.pb);
     }
     if (pt !== undefined) {
-      boxStyle['--box-pt'] = typeof pt === 'number' ? `${pt}px` : pt;
+      boxStyle['--Box-pt'] = typeof pt === 'number' ? `${pt}px` : pt;
       classNames.push(styles.pt);
     }
     if (pl !== undefined) {
-      boxStyle['--box-pl'] = typeof pl === 'number' ? `${pl}px` : pl;
+      boxStyle['--Box-pl'] = typeof pl === 'number' ? `${pl}px` : pl;
       classNames.push(styles.pl);
     }
     if (pr !== undefined) {
-      boxStyle['--box-pr'] = typeof pr === 'number' ? `${pr}px` : pr;
+      boxStyle['--Box-pr'] = typeof pr === 'number' ? `${pr}px` : pr;
       classNames.push(styles.pr);
     }
     if (m !== undefined) {
-      boxStyle['--box-m'] = typeof m === 'number' ? `${m}px` : m;
+      boxStyle['--Box-m'] = typeof m === 'number' ? `${m}px` : m;
       classNames.push(styles.m);
     }
     if (mx !== undefined) {
-      boxStyle['--box-mx'] = typeof mx === 'number' ? `${mx}px` : mx;
+      boxStyle['--Box-mx'] = typeof mx === 'number' ? `${mx}px` : mx;
       classNames.push(styles.mx);
     }
     if (my !== undefined) {
-      boxStyle['--box-my'] = typeof my === 'number' ? `${my}px` : my;
+      boxStyle['--Box-my'] = typeof my === 'number' ? `${my}px` : my;
       classNames.push(styles.my);
     }
     if (mt !== undefined) {
-      boxStyle['--box-mt'] = typeof mt === 'number' ? `${mt}px` : mt;
+      boxStyle['--Box-mt'] = typeof mt === 'number' ? `${mt}px` : mt;
       classNames.push(styles.mt);
     }
     if (mb !== undefined) {
-      boxStyle['--box-mb'] = typeof mb === 'number' ? `${mb}px` : mb;
+      boxStyle['--Box-mb'] = typeof mb === 'number' ? `${mb}px` : mb;
       classNames.push(styles.mb);
     }
     if (ml !== undefined) {
-      boxStyle['--box-ml'] = typeof ml === 'number' ? `${ml}px` : ml;
+      boxStyle['--Box-ml'] = typeof ml === 'number' ? `${ml}px` : ml;
       classNames.push(styles.ml);
     }
     if (mr !== undefined) {
-      boxStyle['--box-mr'] = typeof mr === 'number' ? `${mr}px` : mr;
+      boxStyle['--Box-mr'] = typeof mr === 'number' ? `${mr}px` : mr;
       classNames.push(styles.mr);
     }
     if (opacity !== undefined) {
-      boxStyle['--box-opacity'] = opacity;
+      boxStyle['--Box-opacity'] = opacity;
       classNames.push(styles.opacity);
     }
     if (top !== undefined) {
-      boxStyle['--box-top'] = typeof top === 'number' ? `${top}px` : top;
+      boxStyle['--Box-top'] = typeof top === 'number' ? `${top}px` : top;
       classNames.push(styles.top);
     }
     if (bottom !== undefined) {
-      boxStyle['--box-bottom'] = typeof bottom === 'number' ? `${bottom}px` : bottom;
+      boxStyle['--Box-bottom'] = typeof bottom === 'number' ? `${bottom}px` : bottom;
       classNames.push(styles.bottom);
     }
     if (left !== undefined) {
-      boxStyle['--box-left'] = typeof left === 'number' ? `${left}px` : left;
+      boxStyle['--Box-left'] = typeof left === 'number' ? `${left}px` : left;
       classNames.push(styles.left);
     }
     if (right !== undefined) {
-      boxStyle['--box-right'] = typeof right === 'number' ? `${right}px` : right;
+      boxStyle['--Box-right'] = typeof right === 'number' ? `${right}px` : right;
       classNames.push(styles.right);
     }
-
 
     return { boxStyle, boxClassName: classNames.filter(Boolean).join(' ') };
   }, [
