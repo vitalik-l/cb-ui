@@ -10,8 +10,8 @@ export const NavIcon = (props: Props) => {
 
   return (
     <SvgIcon
-      width="10"
-      height="18"
+      width="0.55em"
+      height="1em"
       viewBox="0 0 10 18"
       style={
         back
@@ -27,7 +27,6 @@ export const NavIcon = (props: Props) => {
         fillRule="evenodd"
         clipRule="evenodd"
         d="M-6.54185e-06 15.9375L1.53124 17.4687L10 8.99999L1.53124 0.531223L-6.28253e-06 2.06247L6.93751 8.99999L-6.54185e-06 15.9375Z"
-        fill="white"
       />
     </SvgIcon>
   );
