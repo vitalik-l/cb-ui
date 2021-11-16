@@ -31,6 +31,14 @@ export type BosStylesProps = {
   bottom?: string | number;
   left?: string | number;
   right?: string | number;
+  lineHeight?: string | number;
+  border?: string;
+  borderTop?: string;
+  borderBottom?: string;
+  borderLeft?: string;
+  borderRight?: string;
+  borderX?: string;
+  borderY?: string;
 };
 
 export type BoxStyle = { [key in `--Box-${keyof BosStylesProps}`]?: string | number };
@@ -65,6 +73,14 @@ export const removeBoxProps = ({
   bottom,
   left,
   right,
+  lineHeight,
+  border,
+  borderBottom,
+  borderLeft,
+  borderRight,
+  borderTop,
+  borderX,
+  borderY,
   ...rest
 }: BosStylesProps) => rest;
 
@@ -98,6 +114,14 @@ export const useBoxStyles = ({
   left,
   bottom,
   right,
+  lineHeight,
+  border,
+  borderBottom,
+  borderLeft,
+  borderRight,
+  borderTop,
+  borderX,
+  borderY,
 }: BosStylesProps) => {
   return React.useMemo(() => {
     const boxStyle: BoxStyle = {};
@@ -219,6 +243,39 @@ export const useBoxStyles = ({
       boxStyle['--Box-right'] = typeof right === 'number' ? `${right}px` : right;
       classNames.push(styles.right);
     }
+    if (lineHeight !== undefined) {
+      boxStyle['--Box-lineHeight'] =
+        typeof lineHeight === 'number' ? `${lineHeight}px` : lineHeight;
+      classNames.push(styles.lineHeight);
+    }
+    if (border !== undefined) {
+      boxStyle['--Box-border'] = border;
+      classNames.push(styles.border);
+    }
+    if (borderTop !== undefined) {
+      boxStyle['--Box-borderTop'] = borderTop;
+      classNames.push(styles.borderTop);
+    }
+    if (borderBottom !== undefined) {
+      boxStyle['--Box-borderBottom'] = borderBottom;
+      classNames.push(styles.borderBottom);
+    }
+    if (borderLeft !== undefined) {
+      boxStyle['--Box-borderLeft'] = borderLeft;
+      classNames.push(styles.borderLeft);
+    }
+    if (borderRight !== undefined) {
+      boxStyle['--Box-borderRight'] = borderRight;
+      classNames.push(styles.borderRight);
+    }
+    if (borderX !== undefined) {
+      boxStyle['--Box-borderX'] = borderX;
+      classNames.push(styles.borderX);
+    }
+    if (borderY !== undefined) {
+      boxStyle['--Box-borderY'] = borderY;
+      classNames.push(styles.borderY);
+    }
 
     return { boxStyle, boxClassName: classNames.filter(Boolean).join(' ') };
   }, [
@@ -251,5 +308,13 @@ export const useBoxStyles = ({
     bottom,
     left,
     right,
+    lineHeight,
+    border,
+    borderBottom,
+    borderLeft,
+    borderRight,
+    borderTop,
+    borderX,
+    borderY,
   ]);
 };

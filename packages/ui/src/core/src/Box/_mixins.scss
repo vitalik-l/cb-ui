@@ -1,0 +1,69 @@
+// Capitalize string
+// --------------------------------------------------------------------------------
+// @param [string] $string
+// --------------------------------------------------------------------------------
+// @return [string]
+
+@function capitalize($string) {
+  @return to-upper-case(str-slice($string, 1, 1)) + str-slice($string, 2);
+}
+
+// Return whether `$value` is contained in `$list`
+// --------------------------------------------------------------------------------
+// @param [list] $list
+// @param [$value] $value
+// --------------------------------------------------------------------------------
+// @return [boolean]
+
+@function contain($list, $value) {
+  @return not not index($list, $value);
+}
+
+// Camelize string
+// --------------------------------------------------------------------------------
+// @param [string] $string
+// --------------------------------------------------------------------------------
+// @return [string]
+
+@function camelize($string) {
+  $progress: $string;
+  $result: '';
+  $exclude: ' ', '-', '–', '—', '_', ',', ';', ':', '.';
+
+  @while str-length($progress) > 0 {
+    $char: str-slice($progress, 1, 1);
+
+    @if contain($exclude, $char) {
+      $progress: capitalize(str-slice($progress, 2, 2)) + str-slice($progress, 3);
+    } @else {
+      $result: $result + $char;
+      $progress: str-slice($progress, 2);
+    }
+  }
+
+  @return $result;
+}
+
+@mixin property($prefix, $name, $className: camelize($name)) {
+  .#{$className} {
+    #{$name}: var(--#{$prefix}-#{$className});
+  }
+}
+
+@mixin borders($prefix) {
+  @include property($prefix, 'border');
+  @include property($prefix, 'border-top');
+  @include property($prefix, 'border-left');
+  @include property($prefix, 'border-right');
+  @include property($prefix, 'border-bottom');
+
+  .borderX {
+    border-right: var(--#{$prefix}-borderX);
+    border-left: var(--#{$prefix}-borderX);
+  }
+
+  .borderY {
+    border-top: var(--#{$prefix}-borderY);
+    border-bottom: var(--#{$prefix}-borderY);
+  }
+}

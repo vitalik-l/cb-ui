@@ -1,3 +1,5 @@
+@use 'mixins' as *;
+
 .width {
   width: var(--Box-width);
 }
@@ -90,3 +92,7 @@
 .right {
   right: var(--Box-right);
 }
+.lineHeight {
+  line-height: var(--Box-lineHeight);
+}
+@include borders('Box');
