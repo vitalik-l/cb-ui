@@ -1,8 +1,10 @@
+@use '../styles/variables' as *;
 @use '~@cb-general/core/styles/mixins' as *;
 
+$color: var(--FlatCheckbox-color, $colorGreen);
 
 .checked .label {
-  color: #00fd7e;
+  color: $color;
 }
 
 .label {
@@ -22,14 +24,14 @@
   composes: icon;
 
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     width: 70%;
     height: 70%;
     top: 50%;
     left: 50%;
     border-radius: 3px;
-    transform: translate(-50%,-50%);
-    background-color: #00fd7e;
+    transform: translate(-50%, -50%);
+    background-color: $color;
   }
 }

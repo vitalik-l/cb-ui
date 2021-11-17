@@ -1,10 +1,8 @@
 import React from 'react';
-import { Story } from '@storybook/react';
-
-// local files
-import { createStory } from '../../story';
-import { Radio, ClassicRadio } from './index';
 import { RadioGroup } from '@cb-general/core/RadioGroup';
+import { Story } from '@storybook/react';
+import { createStory } from '../../story';
+import { Radio } from './index';
 
 const story = createStory({
   title: 'Radio',
@@ -38,17 +36,6 @@ export const Group: Story = () => {
     <RadioGroup onChange={setValue} value={value} layout="inline">
       <Radio value="first">first</Radio>
       <Radio value="second">Second</Radio>
-    </RadioGroup>
-  );
-};
-
-export const ClassicGroup: Story = () => {
-  const [value, setValue] = React.useState('first');
-
-  return (
-    <RadioGroup onChange={setValue} value={value}>
-      <ClassicRadio value="first">first</ClassicRadio>
-      <ClassicRadio value="second">Second</ClassicRadio>
     </RadioGroup>
   );
 };

@@ -1,7 +1,7 @@
 @use '~@cb-general/core/styles/mixins' as *;
 @use '../styles/variables' as *;
 
-$root: CgInput;
+$root: FlatInput;
 
 .withButton {
   align-items: center;

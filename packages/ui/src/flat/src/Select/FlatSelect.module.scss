@@ -1,6 +1,6 @@
 @use '~@cb-general/core/styles/mixins' as *;
 
-$root: CgSelect;
+$root: FlatSelect;
 
 .select {
   font-family: 'IBM Plex Sans', Arial, sans-serif;
