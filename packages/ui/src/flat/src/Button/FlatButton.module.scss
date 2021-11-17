@@ -29,11 +29,11 @@ $root: FlatButton;
 
 .outlined {
   color: #5b5b5b;
-  border: 1px solid #5b5b5b;
+  border: 1px solid currentColor;
 
-  &:active {
+  &:active,
+  &.selected {
     color: white;
-    border-color: white;
     opacity: 1;
   }
 }
@@ -44,7 +44,8 @@ $root: FlatButton;
   }
 
   &.outlined {
-    &:active {
+    &:active,
+    &.selected {
       color: $colorGreen;
       border-color: $colorGreen;
     }

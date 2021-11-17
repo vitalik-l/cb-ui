@@ -34,7 +34,7 @@ export const ButtonBase = React.forwardRef(
     const {
       children,
       className,
-      component = 'button',
+      component: componentProp = 'button',
       href,
       disabled,
       type,
@@ -47,16 +47,16 @@ export const ButtonBase = React.forwardRef(
       ...buttonProps
     } = props;
     const classes: ClassesType = useClasses(styles, classesProp);
-    const ComponentProp: React.ElementType = component === 'button' && href ? 'a' : component;
+    const Component: React.ElementType = componentProp === 'button' && href ? 'a' : componentProp;
     const otherProps: any = {};
     const context = useButtonBase();
     const clickSound = clickSoundProp === false ? clickSoundProp : context.clickSound;
 
-    if (ComponentProp === 'button') {
+    if (Component === 'button') {
       otherProps.type = type === undefined ? 'button' : type;
       otherProps.disabled = disabled;
     } else {
-      if (ComponentProp !== 'a' || !href) {
+      if (Component !== 'a' || !href) {
         otherProps.role = 'button';
       }
       otherProps['aria-disabled'] = disabled;
@@ -71,8 +71,8 @@ export const ButtonBase = React.forwardRef(
         // Keyboard accessibility for non interactive elements
         if (
           event.target === event.currentTarget &&
-          ComponentProp !== 'button' &&
-          ComponentProp !== 'a' &&
+          Component !== 'button' &&
+          Component !== 'a' &&
           (event.key === 'Enter' || event.key === ' ') &&
           !disabled
         ) {
@@ -82,7 +82,7 @@ export const ButtonBase = React.forwardRef(
           }
         }
       },
-      [onClick, onKeyDown, ComponentProp, disabled],
+      [onClick, onKeyDown, Component, disabled],
     );
 
     const handleClick = React.useCallback(
@@ -96,8 +96,8 @@ export const ButtonBase = React.forwardRef(
     );
 
     return (
-      <ComponentProp
-        type={ComponentProp === 'button' ? 'button' : null}
+      <Component
+        type={Component === 'button' ? 'button' : null}
         tabIndex={disabled ? -1 : tabIndex}
         className={clsx(
           classes.root,
@@ -105,7 +105,7 @@ export const ButtonBase = React.forwardRef(
           disabled && classes.disabled,
           selected && classes.selected,
         )}
-        role={ComponentProp === 'button' ? undefined : 'button'}
+        role={Component === 'button' ? undefined : 'button'}
         ref={ref}
         href={href}
         onClick={handleClick}
@@ -114,7 +114,7 @@ export const ButtonBase = React.forwardRef(
         {...otherProps}
       >
         {!!classes.label ? <span className={classes.label}>{children}</span> : children}
-      </ComponentProp>
+      </Component>
     );
   },
 );

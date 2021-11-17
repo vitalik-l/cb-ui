@@ -13,7 +13,8 @@ export const Button = (props: ButtonProps) => {
 
   return (
     <ButtonBase
-      className={clsx(styles.root, className, styles?.[variant ?? ''], styles?.[color ?? ''])}
+      className={clsx(className, styles?.[variant ?? ''], styles?.[color ?? ''])}
+      classes={styles}
       {...buttonProps}
     />
   );
