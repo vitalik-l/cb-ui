@@ -13,12 +13,38 @@ type PopoverPanelProps = {
   className?: string;
   right?: boolean;
   classes?: ClassesType;
+  top?: string | number;
+  left?: string | number;
+  zIndex?: number;
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export const PopoverPanel: React.FC<PopoverPanelProps> = React.forwardRef(
   (props: PopoverPanelProps, ref: any) => {
-    const { className, classes: classesProp, right, ...restProps } = props;
+    const {
+      className,
+      classes: classesProp,
+      right,
+      top,
+      left,
+      zIndex,
+      style: styleProp,
+      ...restProps
+    } = props;
     const classes: ClassesType = useClasses(styles, classesProp);
+
+    const style = React.useMemo(() => {
+      const vars: any = {};
+      if (top !== undefined) {
+        vars['--FlatPopoverPanel-top'] = typeof top === 'number' ? `${top}px` : top;
+      }
+      if (left !== undefined) {
+        vars['--FlatPopoverPanel-left'] = typeof left === 'number' ? `${left}px` : left;
+      }
+      if (zIndex !== undefined) {
+        vars['--FlatPopoverPanel-zIndex'] = left;
+      }
+      return vars;
+    }, [top, left, zIndex]);
 
     return (
       <div
@@ -26,6 +52,7 @@ export const PopoverPanel: React.FC<PopoverPanelProps> = React.forwardRef(
           [classes?.arrowLeft]: !right,
           [classes?.arrowRight]: right,
         })}
+        style={{ ...styleProp, ...style }}
         ref={ref}
         {...restProps}
       />

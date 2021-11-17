@@ -19,9 +19,9 @@ $root: FlatPopoverPanel;
   width: 100%;
   background: #222324;
   border-radius: 5px;
-  left: 0;
-  top: 0;
-  z-index: 2;
+  left: var(--#{$root}-left, 0);
+  top: var(--#{$root}-top, 0);
+  z-index: var(--#{$root}-zIndex, 2);
   padding: 1.4rem 1.8rem 1.6rem;
   animation: popover-appear 200ms;
 
