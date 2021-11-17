@@ -1,0 +1,16 @@
+@use '~@cb-general/core/styles/mixins' as *;
+
+$root: CgRadio;
+
+.icon {
+  fill: none;
+  font-size: 2.5em;
+}
+
+.label {
+  margin-left: toRem(9);
+}
+
+:export {
+  root: $root;
+}

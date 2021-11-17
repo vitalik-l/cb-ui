@@ -1,0 +1,15 @@
+$root: CgTabs;
+
+:global(.#{$root}) {
+  font-size: 1.5em;
+}
+
+.scrollButton {
+  min-width: 2rem;
+  font-size: 2rem;
+  height: 2.5rem;
+}
+
+:export {
+  root: $root;
+}
