@@ -4,17 +4,43 @@ $root: FlatTable;
 
 :global {
   .#{$root} {
+    color: white;
+
     .cb-TableCell {
       &:nth-child(n + 2) {
-        border-left: 1px solid $borderColor;
+        border-left: 1px solid #454858;
       }
     }
   }
 }
 
 .bordered {
-  border: 1px solid $borderColor;
-  box-sizing: border-box;
+  :global {
+    .cb-Table {
+      border-spacing: 0 0.2rem;
+      border-bottom: none;
+    }
+    .cb-TableRow:nth-child(n + 2) {
+      .cb-TableCell {
+        border-top: 1px solid #454858;
+      }
+    }
+    .cb-TableCell {
+      border-top: 0.1rem solid #454858;
+      border-bottom: 0.1rem solid #454858;
+
+      &:first-child {
+        border-top-left-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
+        border-left: 0.1rem solid #454858;
+      }
+      &:last-child {
+        border-top-right-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+        border-right: 0.1rem solid #454858;
+      }
+    }
+  }
 }
 
 :export {

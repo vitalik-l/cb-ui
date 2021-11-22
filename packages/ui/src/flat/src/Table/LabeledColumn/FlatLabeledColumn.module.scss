@@ -4,11 +4,12 @@ $root: FlatTitledColumn;
   padding: 0.5rem;
 }
 
-.title {
+.label {
   font-size: 0.9rem;
   font-weight: 500;
   opacity: 0.8;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .value {
@@ -16,6 +17,7 @@ $root: FlatTitledColumn;
   font-size: 1.1rem;
   font-weight: 700;
   margin-top: 0.2rem;
+  white-space: nowrap;
 }
 
 :export {
