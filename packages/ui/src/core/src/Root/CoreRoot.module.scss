@@ -1,6 +1,10 @@
 $root: CoreRoot;
 
 :global {
+  * {
+    box-sizing: border-box;
+  }
+
   .#{$root} {
     font-size: 10px;
     height: 100%;
