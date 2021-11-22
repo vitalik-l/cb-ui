@@ -39,6 +39,7 @@ export type BosStylesProps = {
   borderRight?: string;
   borderX?: string;
   borderY?: string;
+  backgroundColor?: string;
 };
 
 export type BoxStyle = { [key in `--Box-${keyof BosStylesProps}`]?: string | number };
@@ -81,6 +82,7 @@ export const removeBoxProps = ({
   borderTop,
   borderX,
   borderY,
+  backgroundColor,
   ...rest
 }: BosStylesProps) => rest;
 
@@ -122,6 +124,7 @@ export const useBoxStyles = ({
   borderTop,
   borderX,
   borderY,
+  backgroundColor,
 }: BosStylesProps) => {
   return React.useMemo(() => {
     const boxStyle: BoxStyle = {};
@@ -276,6 +279,10 @@ export const useBoxStyles = ({
       boxStyle['--Box-borderY'] = borderY;
       classNames.push(styles.borderY);
     }
+    if (backgroundColor !== undefined) {
+      boxStyle['--Box-backgroundColor'] = backgroundColor;
+      classNames.push(styles.backgroundColor);
+    }
 
     return { boxStyle, boxClassName: classNames.filter(Boolean).join(' ') };
   }, [
@@ -316,5 +323,6 @@ export const useBoxStyles = ({
     borderTop,
     borderX,
     borderY,
+    backgroundColor,
   ]);
 };

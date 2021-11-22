@@ -2,6 +2,7 @@
 
 $root: FlatTable;
 $borderColor: var(--FlatTable-borderColor, #2e2e2e);
+$bgColor: var(--FlatTable-bgColor, #000);
 
 :global {
   .#{$root} {
@@ -10,6 +11,10 @@ $borderColor: var(--FlatTable-borderColor, #2e2e2e);
     .cb-TableCell {
       &:nth-child(n + 2) {
         border-left: 1px solid $borderColor;
+      }
+
+      &_sticky {
+        background-color: $bgColor;
       }
     }
   }
