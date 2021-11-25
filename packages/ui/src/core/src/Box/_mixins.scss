@@ -56,6 +56,7 @@
   @include property($prefix, 'border-left');
   @include property($prefix, 'border-right');
   @include property($prefix, 'border-bottom');
+  @include property($prefix, 'border-radius');
 
   .borderX {
     border-right: var(--#{$prefix}-borderX);

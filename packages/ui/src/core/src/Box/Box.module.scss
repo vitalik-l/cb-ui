@@ -97,3 +97,4 @@
 }
 @include borders('Box');
 @include property('Box', 'background-color');
+@include property('Box', 'transition');

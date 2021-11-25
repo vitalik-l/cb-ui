@@ -2,6 +2,7 @@ $root: FlatTitledColumn;
 
 :global(.#{$root}) {
   padding: 0.5rem;
+  text-align: left;
 }
 
 .label {
