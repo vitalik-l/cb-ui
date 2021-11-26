@@ -1,23 +1,31 @@
 $root: CoreButtonBase;
 
 :global(.#{$root}) {
+  --Box-fontSize: 1em;
+  --Box-color: inherit;
+  --Box-m: 0;
+  --Box-p: 0;
+  --Box-borderRadius: 0;
+  --Box-border: 0;
+  --Box-backgroundColor: transparent;
+
   font: inherit;
-  font-size: 1em;
+  font-size: var(--Box-fontSize, 1em);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: inherit;
-  border: 0;
+  color: var(--Box-color, inherit);
+  border: var(--Box-border, 0);
   cursor: pointer;
-  margin: 0;
+  margin: var(--Box-m, 0);
   outline: 0;
-  padding: 0;
+  padding: var(--Box-p, 0);
   position: relative;
   user-select: none;
-  border-radius: 0;
+  border-radius: var(--Box-borderRadius, 0);
   vertical-align: middle;
   text-decoration: none;
-  background-color: transparent;
+  background-color: var(--Box-backgroundColor, transparent);
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
   box-sizing: border-box;
