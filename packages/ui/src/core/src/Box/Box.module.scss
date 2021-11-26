@@ -1,11 +1,5 @@
 @use 'mixins' as *;
 
-.width {
-  width: var(--Box-width);
-}
-.height {
-  width: var(--Box-height);
-}
 .maxWidth {
   max-width: var(--Box-maxWidth);
 }
@@ -96,5 +90,7 @@
   line-height: var(--Box-lineHeight);
 }
 @include borders('Box');
+@include property('Box', 'width');
+@include property('Box', 'height');
 @include property('Box', 'background-color');
 @include property('Box', 'transition');

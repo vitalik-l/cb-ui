@@ -1,7 +1,6 @@
-import React from 'react';
 import clsx from 'clsx';
-
-// local files
+import React from 'react';
+import { Box } from '../Box';
 import styles from './SvgIcon.module.scss';
 
 export type SvgIconProps = {
@@ -13,7 +12,8 @@ export const SvgIcon = (props: SvgIconProps) => {
   const { className, size, ...restProps } = props;
 
   return (
-    <svg
+    <Box
+      as="svg"
       width="1em"
       height="1em"
       xmlns="http://www.w3.org/2000/svg"
