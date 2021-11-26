@@ -1,3 +1,5 @@
+@use '../mixins' as *;
+
 .pointer-events-none {
   pointer-events: none !important;
 }
@@ -52,4 +54,8 @@
 
 .line-height-1 {
   line-height: 1 !important;
+}
+
+.no-scrollbar {
+  @include noScrollBar;
 }
