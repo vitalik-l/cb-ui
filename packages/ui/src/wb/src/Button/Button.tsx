@@ -1,13 +1,5 @@
-import React from 'react';
-import clsx from 'clsx';
-
-// local files
+import { ButtonBase } from '@cb-general/core/ButtonBase';
+import { styled } from '@cb-general/core/utils/styled';
 import styles from './WbButton.module.scss';
 
-type Props = React.ComponentProps<'div'>;
-
-export const Button = (props: Props) => {
-  const { className, ...restProps } = props;
-
-  return <div className={clsx(styles.root, className)} {...restProps} />;
-};
+export const Button = styled(ButtonBase, styles);

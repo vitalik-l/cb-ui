@@ -68,3 +68,7 @@
     border-bottom: var(--#{$prefix}-borderY);
   }
 }
+
+@mixin boxStyle($property, $value) {
+  --Box-#{$property}: $value;
+}

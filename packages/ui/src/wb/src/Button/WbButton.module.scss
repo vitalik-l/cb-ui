@@ -1,7 +1,27 @@
 $root: WbButton;
 
 :global(.#{$root}) {
-  // component styles
+  --Box-color: #b3b3b3;
+  --Box-border: 2px solid #000;
+  --Box-borderRadius: 4px;
+  --Box-p: 1rem;
+  --Box-background: linear-gradient(#323137, #121113);
+
+  text-transform: uppercase;
+  font-weight: 700;
+  line-height: 0.4rem;
+  background: var(--Box-background);
+}
+
+.disabled {
+  --Box-opacity: 0.5;
+
+  opacity: var(--Box-opacity);
+}
+
+.selected {
+  --Box-background: #232227;
+  --Box-color: #7aaf34;
 }
 
 :export {
