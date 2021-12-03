@@ -11,6 +11,10 @@ $root: WbButton;
   font-weight: 700;
   line-height: 0.4rem;
   background: var(--Box-background);
+
+  &:active {
+    --Box-background: #232227;
+  }
 }
 
 .disabled {

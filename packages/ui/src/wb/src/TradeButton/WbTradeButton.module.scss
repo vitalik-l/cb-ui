@@ -1,0 +1,38 @@
+$root: WbTradeButton;
+
+:global(.#{$root}) {
+  --Box-background: linear-gradient(#ccf83f, #77a511, #50730c);
+  --Box-borderRadius: 7px;
+  --Box-border: 1px solid #111;
+  --Box-fontFamily: HelveticaNeue-CondensedBold, Impact;
+  --Box-color: white;
+  --Box-p: 1.4rem 1.2rem;
+  --Box-fontSize: 2.1rem;
+
+  background: var(--Box-background);
+  box-shadow: 0 3px 10px 0 rgb(0 0 0 / 60%), inset 0 4px 4px 0 rgb(203 255 62 / 60%);
+  font-weight: 700;
+  text-shadow: 0 0 1px #222;
+
+  &:active {
+    --Box-background: #50730c;
+    box-shadow: none;
+  }
+
+  &:disabled {
+    opacity: 0.8;
+  }
+}
+
+.down {
+  --Box-background: linear-gradient(#c33f00, #d66d03, #b25b00, #690000);
+  box-shadow: 0 3px 10px 0 rgb(0 0 0 / 60%), inset 0 4px 4px 0 rgb(162 27 0 / 87%);
+
+  &:active {
+    --Box-background: #690000;
+  }
+}
+
+:export {
+  root: $root;
+}
