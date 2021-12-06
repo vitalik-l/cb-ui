@@ -18,6 +18,11 @@ export type ViewportRendererProps = {
   className?: string;
   animate?: boolean;
   fixed?: boolean;
+  onResize?: (params: {
+    width: number;
+    fontSize: number;
+    height: number;
+  }) => Partial<CSSStyleDeclaration>;
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export const ViewportRenderer = (props: ViewportRendererProps) => {
@@ -33,6 +38,7 @@ export const ViewportRenderer = (props: ViewportRendererProps) => {
     width,
     height,
     breakpoint,
+    onResize,
     ...divProps
   } = props;
   const isMobile = useAppMode();
@@ -76,8 +82,15 @@ export const ViewportRenderer = (props: ViewportRendererProps) => {
     const viewportEl: HTMLDivElement = viewportRef.current;
 
     if (viewportEl && width && height) {
-      viewportEl.style.maxWidth = `${width}px`;
-      viewportEl.style.height = `${height}px`;
+      if (onResize) {
+        const styles = onResize({ width, height, fontSize });
+        Object.keys(styles).forEach((styleKey: any) => {
+          viewportEl.style.setProperty(styleKey, styles[styleKey] ?? null);
+        });
+      } else {
+        viewportEl.style.maxWidth = `${width}px`;
+        viewportEl.style.height = `${height}px`;
+      }
 
       if (fontSize) {
         document.documentElement.style.fontSize = `${fontSize}px`;
@@ -96,7 +109,7 @@ export const ViewportRenderer = (props: ViewportRendererProps) => {
         }),
       );
     }
-  }, [fontSize, fontSizeIsResponsive, width, height]);
+  }, [fontSize, fontSizeIsResponsive, width, height, onResize]);
 
   React.useEffect(() => {
     const viewportEl: HTMLDivElement = viewportRef.current;
