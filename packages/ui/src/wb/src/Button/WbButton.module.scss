@@ -1,3 +1,5 @@
+@use '../styles/variables' as *;
+
 $root: WbButton;
 
 :global(.#{$root}) {
@@ -14,6 +16,11 @@ $root: WbButton;
 
   &:active {
     --Box-background: #232227;
+    --Box-color: #{$colorGreen};
+  }
+
+  &:hover {
+    --Box-color: #{$colorGreen};
   }
 }
 
@@ -25,7 +32,7 @@ $root: WbButton;
 
 .selected {
   --Box-background: #232227;
-  --Box-color: #7aaf34;
+  --Box-color: #{$colorGreen};
 }
 
 :export {

@@ -1,0 +1,25 @@
+@use '~@cb-general/core/Slider/Slider.module' as * with
+  ($root: WbExpirySlider, $height: 2.5rem, $thumbSize: 5.1rem);
+
+:global(.#{$root}) {
+  // component styles
+}
+
+.rail {
+  background: linear-gradient(#19191c, #2b2a2f);
+  border-radius: 3px;
+}
+
+.track {
+  background-color: unset;
+}
+
+.thumb {
+  background: url(./img/thumb.png) no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+:export {
+  root: $root;
+}

@@ -1,0 +1,17 @@
+@use "~@cb-general/weekend/styles/variables" as *;
+
+.text-green {
+  color: $colorGreen !important;
+}
+
+.text-red {
+  color: $colorRed !important;
+}
+
+.text-yellow {
+  color: $colorYellow !important;
+}
+
+.text-orange {
+  color: $colorOrange !important;
+}
