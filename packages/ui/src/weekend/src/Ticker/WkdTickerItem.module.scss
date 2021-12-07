@@ -1,0 +1,41 @@
+@use '~@cb-general/weekend/styles/variables' as *;
+
+$root: WkdTickerItem;
+
+@font-face {
+  font-family: 'LedBoard';
+  src: url('./fonts/led_board-7-webfont.woff2') format('woff2'),
+    url('./fonts/led_board-7-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+}
+
+:global(.#{$root}) {
+  --Box-color: #{$colorOrange};
+  --Box-p: 0 0.6em;
+
+  font-family: LedBoard, sans serif;
+  padding: var(--Box-p);
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+  box-sizing: border-box;
+  color: var(--Box-color);
+
+  &.position {
+    &_left {
+      --Box-color: #{$colorRed};
+      text-align: left;
+    }
+
+    &_right {
+      --Box-color: #{$colorGreen};
+      text-align: right;
+    }
+  }
+}
+
+:export {
+  root: $root;
+}

@@ -23,3 +23,4 @@ const BoxInternal = React.forwardRef(
 );
 
 export const Box = React.memo(BoxInternal) as typeof BoxInternal;
+(Box as any).displayName = 'Box';
