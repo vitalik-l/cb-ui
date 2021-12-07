@@ -81,33 +81,34 @@ export const ViewportRenderer = (props: ViewportRendererProps) => {
   React.useLayoutEffect(() => {
     const viewportEl: HTMLDivElement = viewportRef.current;
 
-    if (viewportEl && width && height) {
-      if (onResize) {
-        const styles = onResize({ width, height, fontSize });
+    if (viewportEl && width) {
+      if (height) {
+        const onResizeStyles = onResize ? onResize({ width, height, fontSize }) : undefined;
+        const styles = onResizeStyles ?? { maxWidth: `${width}px`, height: `${height}px` };
+
         Object.keys(styles).forEach((styleKey: any) => {
-          viewportEl.style.setProperty(styleKey, styles[styleKey] ?? null);
+          if (styleKey && viewportEl.style.hasOwnProperty(styleKey)) {
+            viewportEl.style[styleKey] = styles[styleKey] as string;
+          }
         });
-      } else {
-        viewportEl.style.maxWidth = `${width}px`;
-        viewportEl.style.height = `${height}px`;
+
+        if (fontSize) {
+          document.documentElement.style.fontSize = `${fontSize}px`;
+        }
+
+        setViewportContext({ width, height, fontSize });
+
+        (window as any).viewportSize = { width, height };
+        window.dispatchEvent(
+          new CustomEvent('viewport resize', {
+            detail: {
+              width,
+              height,
+              fontSize,
+            },
+          }),
+        );
       }
-
-      if (fontSize) {
-        document.documentElement.style.fontSize = `${fontSize}px`;
-      }
-
-      setViewportContext({ width, height, fontSize });
-
-      (window as any).viewportSize = { width, height };
-      window.dispatchEvent(
-        new CustomEvent('viewport resize', {
-          detail: {
-            width,
-            height,
-            fontSize,
-          },
-        }),
-      );
     }
   }, [fontSize, fontSizeIsResponsive, width, height, onResize]);
 

@@ -1,5 +1,5 @@
-import React from 'react';
 import clsx from 'clsx';
+import React from 'react';
 import { useClasses } from '../hooks/useClasses';
 
 type Styles<T> = ((props: T) => Array<any>) | string | { [key: string]: any };
@@ -15,25 +15,27 @@ export function styled(...args: any) {
   const [Component, styles] = args.length === 1 ? ['div', args[0]] : args;
   const isCustomElement = typeof Component !== 'string';
 
-  return React.forwardRef((props: React.ComponentProps<typeof Component>, ref: any) => {
-    const { className, classes: classesProp, ...restProps } = props;
-    const customProps: any = {};
-    const isClasses = typeof styles === 'object';
-    const classes = useClasses(isClasses ? styles : undefined, classesProp);
-    let stylesToApply;
-    if (isClasses && isCustomElement) {
-      customProps.classes = classes;
-    } else {
-      stylesToApply = typeof styles === 'function' ? clsx(...styles(props)) : styles;
-    }
+  return React.memo(
+    React.forwardRef((props: React.ComponentProps<typeof Component>, ref: any) => {
+      const { className, classes: classesProp, ...restProps } = props;
+      const customProps: any = {};
+      const isClasses = typeof styles === 'object';
+      const classes = useClasses(isClasses ? styles : undefined, classesProp);
+      let stylesToApply;
+      if (isClasses && isCustomElement) {
+        customProps.classes = classes;
+      } else {
+        stylesToApply = typeof styles === 'function' ? clsx(...styles(props)) : styles;
+      }
 
-    return (
-      <Component
-        className={clsx(stylesToApply, className)}
-        {...customProps}
-        {...restProps}
-        ref={ref}
-      />
-    );
-  }) as any;
+      return (
+        <Component
+          className={clsx(stylesToApply, className)}
+          {...customProps}
+          {...restProps}
+          ref={ref}
+        />
+      );
+    }),
+  ) as any;
 }

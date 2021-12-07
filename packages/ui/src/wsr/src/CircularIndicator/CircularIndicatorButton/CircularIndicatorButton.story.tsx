@@ -1,9 +1,7 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-
-// local files
 import { createStory } from '../../../story';
-import { CircularIndicatorButton, MobileCircularIndicatorButton } from './index';
+import { CircularIndicatorButton } from './index';
 
 const story = createStory({
   title: 'CircularIndicator/CircularIndicatorButton',
