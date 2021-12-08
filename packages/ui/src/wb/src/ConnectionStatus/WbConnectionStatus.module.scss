@@ -1,0 +1,27 @@
+$root: WbConnectionStatus;
+
+:global(.#{$root}) {
+  --Box-width: 1.5em;
+  --Box-height: 1.5em;
+  --Box-fontSize: 1rem;
+
+  font-size: var(--Box-fontSize);
+  width: var(--Box-width);
+  height: var(--Box-height);
+  display: inline-block;
+  border-radius: 50%;
+  transition: box-shadow 0.3s;
+  box-shadow: 0 0 5px 3px #dd2a00;
+  background: #dd2a00 radial-gradient(at center bottom, #dd2a00, #ff920f);
+}
+
+.active {
+  box-shadow: 0 0 3px 1px #affa64;
+  background: #5cc525
+    url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAMAAADzapwJAAACoFBMVEUmKh8lLBsmKx8lLRkmLRwoMB4oMRoqMh0rMyAuNyAxOSYzOiowPxkzOygxQBoxQRo2OjE2OzE1RB41RR46QjA4RiE7QzI3Shs8RS44Sxw9RDU4TBk+RjI+RzJBSTdBSjU+Vhk/Vho/VxlDUi1BVSNGVjFCXRlEWx9EXB9KWTVKWTZKWjVLWjZKXSxJYSRKYiRNYDJJZxtOYTROZipMah5MbBpOaSZNbBxObRxQayhTZzZTai9Tay9TciFYbzVYcDVZcTZacjZWfBpXfRpdeDZdezFaghtefi1gfjRehh9fhSNeiBpjgjJlhTVhjhlijhtkkB1ojSxokiRmlhltlS9tlypsmSVvlTVsmx9wljVumydxmTRtohduoxduoxl0oC9xphtxqRZyqBp2ojB3oTVzqB9yqxV0qR93pyt6pzR5sB57ryd8rTF8sCd6sx58tCB7tSB8tSB9tCNcxSV+syp/tyJ/uCNfyCeBti2BtyuCty5iyCtezCSDuC5ezSRkySxhzyaFvCuFviqDwCZmzixpzS+EwyduzjVvzzZq1yxy0Tdr2Cxo2yho3Chz1jaD0Slz2TOG0itt4Ct51z1910GXyz2Yyz5/2EKC3iqC3yp45TSF3UZ36jCC4kCG4UWS3jqS3zqL4E2N4U6E6T6B7jCA8C998jCP5E6Q5E599DCj206S5FKl3E+E9DWt2Veu2lqZ51ia51ib6FqL9j+b6lmc6lmY7lGV8k2h616e71mX+Emk8VGk8lGn72So72Wq8GWo8mOo8mSr8Gex82y38me38miu+WKv+mS39XC292+49nG59nO69nO79nS3+m23+m7B+XnO8YLO8oPE+3zH+n7I+oDJ+4HM+oLM+4PR/YjY+4/V/ozX/o7a/pLd/Zb///9dVkWPAAABjUlEQVQoU02Ry2sTURxGv3vvbzKPPCZJG7EVsrCgfYHgcyelSP5qF7oqEsFNMVYUKQahnYR0MpN7Z+5jrotW6rf6ztke9gu32/MczP4jdnuettKQoE2uL+71k2S43YsEnCoWS/UdAAHYH+6OugkFMEYN+n/2vwEEHAzHD9PByV4Hxc+Pqzi8PJiBgOTRzvDlO+Ed2s+O339mVgOEw/Go/2LijPNggk38tC4PvxI6D9LRqdbONeBCtE4vq9EShLTbfWVr5a0HIxZFr/N1CkISBbtS1tp7MNayzY6I2qCjY6KkkFJ5ACy2LCUKj0gI4nVVFNYBELUNlCAhqNGGl05WqvFgPBZOMqMbfq5tPWfeGFWWyhjP5sbqcw4p3Vy0uK+qqvK8JX4bKUHYlIvO7LGqY8t5mPRn+WKzAeFskmRBM+ZSsyAZ/LjO8qszELBqh+TV1ha5prxYZ8tsBRAwfcttNVDE4Ov1anm9mN5leDPa7nXaAUwh82z56T7aSbcXClh9s/nwf0vgeUyw8ssd/QXudsU39dGh/gAAAABJRU5ErkJggg==)
+    no-repeat -3px -4px;
+}
+
+:export {
+  root: $root;
+}
