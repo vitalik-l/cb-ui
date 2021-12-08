@@ -1,0 +1,26 @@
+$root: WbPanel;
+
+:global(.#{$root}) {
+  background: linear-gradient(#323137 10%, #1b1a1e 85%);
+  border: 0.3rem solid #000;
+  border-radius: 5px;
+  box-shadow: 0 3px 3px 1px rgb(0 0 0 / 50%);
+  display: flex;
+  align-items: center;
+}
+
+.separator {
+  --Box-height: 2.5rem;
+  --Box-m: 0 1rem;
+
+  border-right: 1px solid #111113;
+  border-left: 1px solid #323138;
+  width: 1px;
+  min-height: 100%;
+  height: var(--Box-height);
+  margin: var(--Box-m);
+}
+
+:export {
+  root: $root;
+}

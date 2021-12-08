@@ -1,1 +1,6 @@
+@use 'theme' as *;
 @import './helpers/colors';
+
+:root {
+  @include theme;
+}

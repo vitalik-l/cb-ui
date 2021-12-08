@@ -1,4 +1,2 @@
-$colorGreen: #7aaf34 !default;
-$colorRed: #c60100 !default;
-$colorOrange: #fdab01 !default;
-$colorYellow: #fff5a0 !default;
+$colorGreen: var(--color-green, #17ff09) !default;
+$colorRed: var(--color-red, #ff2727) !default;
