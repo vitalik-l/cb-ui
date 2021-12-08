@@ -1,1 +1,1 @@
-export { ExpirySlider } from './ExpirySlider';
+export * from './ExpirySlider';

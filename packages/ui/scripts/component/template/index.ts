@@ -1,1 +1,1 @@
-export { ComponentName } from './ComponentName';
+export * from './ComponentName';

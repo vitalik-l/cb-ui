@@ -42,6 +42,7 @@ export type BosStylesProps = {
   borderRadius?: string;
   backgroundColor?: string;
   transition?: string;
+  transform?: string;
 };
 
 export type BoxStyle = { [key in `--Box-${keyof BosStylesProps}`]?: string | number };
@@ -87,6 +88,7 @@ export const removeBoxProps = ({
   borderRadius,
   backgroundColor,
   transition,
+  transform,
   ...rest
 }: BosStylesProps) => rest;
 
@@ -131,6 +133,7 @@ export const useBoxStyles = ({
   borderRadius,
   backgroundColor,
   transition,
+  transform,
 }: BosStylesProps) => {
   return React.useMemo(() => {
     const boxStyle: BoxStyle = {};
@@ -297,6 +300,10 @@ export const useBoxStyles = ({
       boxStyle['--Box-transition'] = transition;
       classNames.push(styles.transition);
     }
+    if (transform !== undefined) {
+      boxStyle['--Box-transform'] = transform;
+      classNames.push(styles.transform);
+    }
 
     return { boxStyle, boxClassName: classNames.filter(Boolean).join(' ') };
   }, [
@@ -340,5 +347,6 @@ export const useBoxStyles = ({
     borderRadius,
     backgroundColor,
     transition,
+    transform,
   ]);
 };

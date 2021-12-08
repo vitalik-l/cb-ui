@@ -1,25 +1,64 @@
-@use '~@cb-general/core/Slider/Slider.module' as * with
-  ($root: WbExpirySlider, $height: 2.5rem, $thumbSize: 5.1rem);
+@use '../styles/variables' as *;
+@use 'sass:math';
 
-:global(.#{$root}) {
-  // component styles
-}
+$itemWidth: 2.5em;
 
-.rail {
+.root {
+  --Box-p: 0.7rem 0;
+  --Box-fontSize: 1rem;
+
+  position: relative;
   background: linear-gradient(#19191c, #2b2a2f);
   border-radius: 3px;
+  font-size: var(--Box-fontSize);
 }
 
-.track {
-  background-color: unset;
+.selected {
+  color: $colorGreen;
+}
+
+.item {
+  width: $itemWidth;
+  height: 2.5em;
+  letter-spacing: -1px;
+  cursor: pointer;
+  text-shadow: 0 1px 2px #000;
+  transition: color 0.2s;
+  line-height: 0.7;
+  white-space: pre-wrap;
 }
 
 .thumb {
-  background: url(./img/thumb.png) no-repeat;
-  background-position: center;
-  background-size: contain;
+  transition: transform 0.3s;
+  will-change: transform;
+  pointer-events: none;
+
+  &:after {
+    content: '';
+    transform: translateY(-83%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $itemWidth;
+    height: math.div($itemWidth, math.div(31, 51));
+    background: url(./img/thumb.png) no-repeat;
+    background-size: 100% 100%;
+  }
+}
+
+.selected {
+  &:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(145, 232, 66, 0) 15%, rgba(85, 135, 40, 0.91));
+    left: 0;
+    bottom: 0;
+    box-shadow: inset 0 1px 3px #111;
+  }
 }
 
 :export {
-  root: $root;
+  itemWidth: $itemWidth;
 }

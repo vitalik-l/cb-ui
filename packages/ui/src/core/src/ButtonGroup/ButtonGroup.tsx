@@ -1,5 +1,5 @@
-import React from 'react';
 import clsx from 'clsx';
+import React from 'react';
 
 type ClassesType = {
   root?: string;
@@ -20,7 +20,12 @@ export type ButtonGroupProps = {
   cloneProps?: boolean;
   autoValue?: boolean;
   disableToggle?: boolean;
+  ThumbComponent?: React.ElementType;
 } & Omit<React.ComponentProps<'div'>, 'onChange'>;
+
+export type ButtonGroupThumbProps = {
+  selectedIndex?: number;
+};
 
 export const ButtonGroup = (props: ButtonGroupProps) => {
   const {
@@ -35,8 +40,11 @@ export const ButtonGroup = (props: ButtonGroupProps) => {
     cloneProps = true,
     autoValue = true,
     disableToggle,
+    ThumbComponent,
     ...restProps
   } = props;
+
+  let selectedIndex = -1;
 
   const childrenItems = React.Children.map(children, (child, childIndex) => {
     if (!React.isValidElement(child)) {
@@ -51,6 +59,10 @@ export const ButtonGroup = (props: ButtonGroupProps) => {
     const childValue = autoValue && childProps.value === undefined ? childIndex : childProps.value;
     const selected = childSelected ?? childValue === value;
     let parentProps = {};
+
+    if (selected) {
+      selectedIndex = childIndex;
+    }
 
     const handleClick = (event: any) => {
       if (onChange) {
@@ -87,6 +99,7 @@ export const ButtonGroup = (props: ButtonGroupProps) => {
   return (
     <div className={clsx(classes?.root, className, disabled && classes?.disabled)} {...restProps}>
       {childrenItems}
+      {!!ThumbComponent && <ThumbComponent selectedIndex={selectedIndex} />}
     </div>
   );
 };
