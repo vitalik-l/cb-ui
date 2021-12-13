@@ -1,4 +1,10 @@
-import { Table as CbTable, usePagination, useSortBy, HeaderCell } from 'cb-datatable';
+import {
+  Table as CbTable,
+  TableProps as CbTableProps,
+  usePagination,
+  useSortBy,
+  HeaderCell,
+} from 'cb-datatable';
 import clsx from 'clsx';
 import React from 'react';
 import { useClasses } from '../hooks/useClasses';
@@ -13,7 +19,7 @@ type ClassesType = {
   table?: string;
 };
 
-export type TableProps = {
+export type TableProps = CbTableProps & {
   className?: string;
   rowsPerPage?: number;
   data?: any;
