@@ -11,7 +11,11 @@ const Thumb = ({ selectedIndex }: ButtonGroupThumbProps) => {
       ? `translateX(calc(${selectedIndex} * ${styles.itemWidth}))`
       : undefined;
 
-  return <Box className={styles.thumb} transform={transform} />;
+  return (
+    <Box className={styles.thumb} transform={transform}>
+      <div className={styles.thumbShadow} />
+    </Box>
+  );
 };
 
 export const ExpirySliderItem = styled(ButtonBase, styles.item);

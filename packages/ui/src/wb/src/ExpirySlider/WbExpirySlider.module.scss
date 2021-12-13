@@ -1,7 +1,9 @@
 @use '../styles/variables' as *;
 @use 'sass:math';
 
-$itemWidth: 2.5em;
+$itemWidth: 2.9em;
+$itemHeight: 2.5em;
+$sliderWidth: 3.5em;
 
 .root {
   --Box-p: 0.7rem 0;
@@ -19,7 +21,7 @@ $itemWidth: 2.5em;
 
 .item {
   width: $itemWidth;
-  height: 2.5em;
+  height: $itemHeight;
   letter-spacing: -1px;
   cursor: pointer;
   text-shadow: 0 1px 2px #000;
@@ -29,33 +31,31 @@ $itemWidth: 2.5em;
 }
 
 .thumb {
+  top: 0;
+  position: absolute;
   transition: transform 0.3s;
   will-change: transform;
-  pointer-events: none;
 
-  &:after {
-    content: '';
-    transform: translateY(-83%);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: $itemWidth;
-    height: math.div($itemWidth, math.div(31, 51));
-    background: url(./img/thumb.png) no-repeat;
-    background-size: 100% 100%;
-  }
-}
-
-.selected {
-  &:before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
+  .thumbShadow {
+    pointer-events: none;
+    width: $sliderWidth;
+    height: $itemHeight;
     background: linear-gradient(rgba(145, 232, 66, 0) 15%, rgba(85, 135, 40, 0.91));
-    left: 0;
-    bottom: 0;
     box-shadow: inset 0 1px 3px #111;
+    transform: translateX(-0.3em);
+
+    &:after {
+      content: '';
+      transform: translateY(-29%);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: $sliderWidth;
+      height: math.div($sliderWidth, math.div(35, 51));
+      background: url(./img/thumb.png) no-repeat;
+      background-size: 100% 100%;
+      background-position: center;
+    }
   }
 }
 
