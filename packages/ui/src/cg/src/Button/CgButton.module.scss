@@ -32,7 +32,8 @@ $root: CgButton;
   border: 1px solid #5b5b5b;
   font-weight: 700;
 
-  &:active {
+  &:active,
+  &.selected {
     color: white;
     border-color: white;
     opacity: 1;
@@ -45,7 +46,8 @@ $root: CgButton;
   }
 
   &.outlined {
-    &:active {
+    &:active,
+    &.selected {
       color: $colorGreen;
       border-color: $colorGreen;
     }
