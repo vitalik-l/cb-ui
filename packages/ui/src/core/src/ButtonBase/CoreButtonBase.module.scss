@@ -1,6 +1,7 @@
 $root: CoreButtonBase;
 
 :global(.#{$root}) {
+  --Box-fontFamily: inherit;
   --Box-fontSize: 1em;
   --Box-color: inherit;
   --Box-m: 0;
@@ -10,6 +11,7 @@ $root: CoreButtonBase;
   --Box-backgroundColor: transparent;
 
   font: inherit;
+  font-family: var(--Box-fontFamily);
   font-size: var(--Box-fontSize, 1em);
   display: inline-flex;
   align-items: center;
