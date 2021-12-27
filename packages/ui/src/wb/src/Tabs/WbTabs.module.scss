@@ -1,0 +1,23 @@
+$root: WbTabs;
+
+:global(.#{$root}) {
+  display: flex;
+  border-radius: 2px;
+  padding: 0.2rem;
+  box-shadow: 0 0.5rem 0.5rem #111;
+  background: linear-gradient(#323137 10%, #1b1a1e 85%);
+  border: 0.2rem solid #000;
+}
+
+.grouped {
+  flex: 1;
+  min-width: 0;
+
+  &:nth-child(n + 2) {
+    margin-left: 0.2rem;
+  }
+}
+
+:export {
+  root: $root;
+}

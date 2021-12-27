@@ -1,0 +1,21 @@
+@use '../styles/variables' as *;
+
+.root {
+  border: 0.2rem solid transparent;
+  color: #9e9ea0;
+  font-weight: 700;
+  background-color: #131217;
+  text-transform: uppercase;
+  padding: 0.4rem 0.3rem 0.5rem;
+
+  &:not(.selected):hover {
+    color: $colorDarkGreen;
+  }
+}
+
+.selected {
+  color: $colorGreen;
+  background: linear-gradient(#514e58, #3c3a42 10%, #121113);
+  box-shadow: none;
+  border-color: #111;
+}
