@@ -1,7 +1,9 @@
 .root {
-  height: 3.4em;
-  min-height: 3.4em;
   border-top: min(0.1em, 1px) solid #323138;
   border-bottom: min(0.1em, 1px) solid #111113;
-  padding: 0;
+  min-height: 3.4em;
+}
+
+.select {
+  font-size: 1.2em;
 }

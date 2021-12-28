@@ -13,8 +13,6 @@ export const SelectableRow = (props: SelectableRowProps) => {
   const { selected: selectedProp, source, record, onClick: onClickProp, ...restProps } = props;
   const selected = typeof source === 'string' ? get(record, source, null) : selectedProp;
 
-  console.log(onClickProp);
-
   return (
     <TableRow
       {...restProps}
