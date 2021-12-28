@@ -62,9 +62,25 @@
   }
 }
 
-@mixin responsiveFontSize($baseWidth, $baseHeight, $baseFontSize: 10) {
-  font-size: min(
-    calc(#{$baseFontSize} * 1vw * 100 / #{$baseWidth}),
-    calc(#{$baseFontSize} * 1vh * 100 / #{$baseHeight})
-  );
+@mixin responsiveFontSize($baseFontSize: 10, $baseWidth, $baseHeight: 0, $maxFontSize: 0) {
+  @if $baseHeight != 0 {
+    @if $maxFontSize != 0 {
+      font-size: min(
+        #{$maxFontSize},
+        calc(#{$baseFontSize} * 1vw * 100 / #{$baseWidth}),
+        calc(#{$baseFontSize} * 1vh * 100 / #{$baseHeight})
+      );
+    } @else {
+      font-size: min(
+        calc(#{$baseFontSize} * 1vw * 100 / #{$baseWidth}),
+        calc(#{$baseFontSize} * 1vh * 100 / #{$baseHeight})
+      );
+    }
+  } @else {
+    @if $maxFontSize != 0 {
+      font-size: min(#{$maxFontSize}, calc(#{$baseFontSize} * 1vw * 100 / #{$baseWidth}));
+    } @else {
+      font-size: calc(#{$baseFontSize} * 1vw * 100 / #{$baseWidth});
+    }
+  }
 }

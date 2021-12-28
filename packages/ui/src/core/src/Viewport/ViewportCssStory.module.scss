@@ -2,11 +2,12 @@
 @use '../styles/mixins' as *;
 
 .html {
-  @include responsiveFontSize(800, 600, 16);
+  @include responsiveFontSize(16, 800, 0, 16px);
 }
 
 .root {
   background-color: black;
   color: white;
-  @include viewport(math.div(21, 9), math.div(4, 3));
+  //@include viewport(math.div(21, 9), math.div(4, 3));
+  max-width: 800px;
 }
