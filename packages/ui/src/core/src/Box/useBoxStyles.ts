@@ -43,6 +43,7 @@ export type BosStylesProps = {
   backgroundColor?: string;
   transition?: string;
   transform?: string;
+  letterSpacing?: string;
 };
 
 export type BoxStyle = { [key in `--Box-${keyof BosStylesProps}`]?: string | number };
@@ -89,6 +90,7 @@ export const removeBoxProps = ({
   backgroundColor,
   transition,
   transform,
+  letterSpacing,
   ...rest
 }: BosStylesProps) => rest;
 
@@ -134,6 +136,7 @@ export const useBoxStyles = ({
   backgroundColor,
   transition,
   transform,
+  letterSpacing,
 }: BosStylesProps) => {
   return React.useMemo(() => {
     const boxStyle: BoxStyle = {};
@@ -304,6 +307,10 @@ export const useBoxStyles = ({
       boxStyle['--Box-transform'] = transform;
       classNames.push(styles.transform);
     }
+    if (letterSpacing !== undefined) {
+      boxStyle['--Box-letterSpacing'] = letterSpacing;
+      classNames.push(styles.letterSpacing);
+    }
 
     return { boxStyle, boxClassName: classNames.filter(Boolean).join(' ') };
   }, [
@@ -348,5 +355,6 @@ export const useBoxStyles = ({
     backgroundColor,
     transition,
     transform,
+    letterSpacing,
   ]);
 };
