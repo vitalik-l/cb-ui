@@ -8,12 +8,14 @@ $root: WbTradeButton;
   --Box-color: white;
   --Box-p: 0.9rem 1.2rem;
   --Box-fontSize: 2.1rem;
+  --Box-height: 4.4rem;
 
   background: var(--Box-background);
   box-shadow: 0 3px 10px 0 rgb(0 0 0 / 60%), inset 0 4px 4px 0 rgb(203 255 62 / 60%);
   font-weight: 700;
   text-shadow: 0 0 1px #222;
   font-stretch: condensed;
+  height: var(--Box-height);
 
   &:active {
     --Box-background: #50730c;

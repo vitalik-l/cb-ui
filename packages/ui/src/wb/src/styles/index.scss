@@ -1,6 +1,7 @@
 @use 'theme' as *;
 @import './helpers/colors';
 @import './helpers/typography';
+@import './helpers/animations';
 
 :root {
   @include theme;
