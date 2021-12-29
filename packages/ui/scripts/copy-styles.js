@@ -1,6 +1,6 @@
-import path from 'path';
-import fse from 'fs-extra';
 import fs from 'fs';
+import fse from 'fs-extra';
+import path from 'path';
 
 const LIB = process.env.LIB;
 
@@ -25,7 +25,7 @@ finder.on('directory', function (dir, stat, stop) {
 finder.on('file', function (file) {
   const fileParams = path.parse(file);
   const { dir, ext } = fileParams;
-  if (ext === '.scss') {
+  if (ext === '.scss' || ext === '.woff2') {
     const isStoryStyle = dir.indexOf('\\story') !== -1;
     if (!isStoryStyle) {
       const buildPath = file.replace('src', 'lib').replace('\\src', '');
