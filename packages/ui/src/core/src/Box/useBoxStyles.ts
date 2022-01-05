@@ -44,6 +44,7 @@ export type BosStylesProps = {
   transition?: string;
   transform?: string;
   letterSpacing?: string;
+  gridTemplateColumns?: string;
 };
 
 export type BoxStyle = { [key in `--Box-${keyof BosStylesProps}`]?: string | number };
@@ -91,6 +92,7 @@ export const removeBoxProps = ({
   transition,
   transform,
   letterSpacing,
+  gridTemplateColumns,
   ...rest
 }: BosStylesProps) => rest;
 
@@ -137,6 +139,7 @@ export const useBoxStyles = ({
   transition,
   transform,
   letterSpacing,
+  gridTemplateColumns,
 }: BosStylesProps) => {
   return React.useMemo(() => {
     const boxStyle: BoxStyle = {};
@@ -311,6 +314,10 @@ export const useBoxStyles = ({
       boxStyle['--Box-letterSpacing'] = letterSpacing;
       classNames.push(styles.letterSpacing);
     }
+    if (gridTemplateColumns !== undefined) {
+      boxStyle['--Box-gridTemplateColumns'] = gridTemplateColumns;
+      classNames.push(styles.gridTemplateColumns);
+    }
 
     return { boxStyle, boxClassName: classNames.filter(Boolean).join(' ') };
   }, [
@@ -356,5 +363,6 @@ export const useBoxStyles = ({
     transition,
     transform,
     letterSpacing,
+    gridTemplateColumns,
   ]);
 };

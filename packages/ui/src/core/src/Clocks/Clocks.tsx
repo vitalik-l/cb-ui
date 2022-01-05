@@ -1,6 +1,9 @@
 import React from 'react';
 
-type Props = React.HTMLAttributes<HTMLDivElement>;
+type Props = React.HTMLAttributes<HTMLDivElement> & {
+  value?: number;
+  format?: Intl.DateTimeFormatOptions;
+};
 
 const LOCAL_TIME_FORMAT: Intl.DateTimeFormatOptions = {
   hour: '2-digit',
@@ -9,7 +12,8 @@ const LOCAL_TIME_FORMAT: Intl.DateTimeFormatOptions = {
 };
 
 export const Clocks = (props: Props) => {
-  const [time, setTime] = React.useState(new Date().getTime());
+  const { value, format } = props;
+  const [time, setTime] = React.useState(() => value ?? new Date().getTime());
 
   React.useEffect(() => {
     const tID = setTimeout(() => {
@@ -19,5 +23,9 @@ export const Clocks = (props: Props) => {
     return () => clearTimeout(tID);
   }, [time]);
 
-  return <div {...props}>{new Date(time).toLocaleString('en-US', LOCAL_TIME_FORMAT)}</div>;
+  return (
+    <div {...props}>
+      {new Date(time).toLocaleString('en-US', { ...LOCAL_TIME_FORMAT, ...format })}
+    </div>
+  );
 };
