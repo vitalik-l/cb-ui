@@ -53,4 +53,19 @@ export const CoreTableStory: Story = ({ Component = Table, ...args }) => {
 };
 CoreTableStory.storyName = 'Table';
 
+export const Sortable: Story = ({ Component = Table, ...args }) => {
+  const [sortBy, setSortBy] = React.useState([{ id: 'id', desc: true }]);
+
+  const onSort = (value: any) => {
+    setSortBy(value);
+  };
+
+  return (
+    <Component {...args} {...Component.defaultProps} sortBy={sortBy} onSort={onSort}>
+      <Column source="id" label="ID" />
+      <Column source="name" label="Name" />
+    </Component>
+  );
+};
+
 export default story;

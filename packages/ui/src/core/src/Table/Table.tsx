@@ -4,6 +4,7 @@ import {
   usePagination,
   useSortBy,
   HeaderCell,
+  SortBy,
 } from 'cb-datatable';
 import clsx from 'clsx';
 import React from 'react';
@@ -24,16 +25,15 @@ export type TableProps = CbTableProps & {
   rowsPerPage?: number;
   data?: any;
   sortable?: boolean;
-  sortBy?: Array<{
-    id: string;
-    desc?: boolean;
-  }>;
+  sortBy?: Array<SortBy>;
   children?: React.ReactNode;
   pager?: any;
   stickyHeader?: boolean;
   row?: any;
   header?: any;
   classes?: ClassesType;
+  defaultSortBy?: Array<SortBy>;
+  onSort?: (value: Array<SortBy>) => void;
 };
 
 export const Table = (props: TableProps) => {
@@ -45,9 +45,11 @@ export const Table = (props: TableProps) => {
     sortable,
     pager,
     classes: classesProp,
+    defaultSortBy,
+    onSort,
     ...otherProps
   } = props;
-  const { sortedData, ...sorting } = useSortBy({ data, sortBy });
+  const { sortedData, ...sorting } = useSortBy({ data, sortBy, defaultSortBy, onSort });
   const { dataPerPage, ...pagination } = usePagination({
     data: sortedData,
     rowsPerPage,
