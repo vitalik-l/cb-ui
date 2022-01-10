@@ -41,17 +41,6 @@ $border: toRem(1) solid rgba(69, 71, 88, 1);
       font-weight: 500;
       font-size: 1.1em;
       padding: toRem(11) toRem(9);
-    }
-
-    .cb-TableCell {
-      border-bottom: $border;
-      border-left: $border;
-      position: relative;
-      background: #141721;
-
-      &:last-child {
-        border-right: $border;
-      }
 
       &_sortable {
         cursor: pointer;
@@ -75,6 +64,17 @@ $border: toRem(1) solid rgba(69, 71, 88, 1);
         top: 0;
         left: 0;
         background: #37a6ef;
+      }
+    }
+
+    .cb-TableCell {
+      border-bottom: $border;
+      border-left: $border;
+      position: relative;
+      background: #141721;
+
+      &:last-child {
+        border-right: $border;
       }
     }
 

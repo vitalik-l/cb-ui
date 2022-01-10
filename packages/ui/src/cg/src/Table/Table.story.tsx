@@ -1,8 +1,7 @@
 import { Story } from '@storybook/react';
-// local files
+import CoreTableStoryConfig, { CoreTableStory } from '../../../core/src/Table/Table.story';
 import { createStory } from '../../story';
 import { ClassicTable, Table } from './index';
-import CoreTableStoryConfig, { CoreTableStory } from '../../../core/src/Table/Table.story';
 
 const story = createStory({
   title: 'Table',

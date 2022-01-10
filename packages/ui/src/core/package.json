@@ -1,11 +1,11 @@
 {
   "name": "@cb-general/core",
-  "version": "1.2.32",
+  "version": "1.2.33",
   "dependencies": {
     "bezier-easing": "^2.1.0",
     "clsx": "^1.1.1",
     "rc-animate": "^3.1.1",
-    "cb-datatable": "4.0.13",
+    "cb-datatable": "4.0.14",
     "ismobilejs": "^1.1.1",
     "final-form": "^4.20.1",
     "react-final-form": "^6.5.2",
