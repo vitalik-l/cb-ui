@@ -1,0 +1,30 @@
+@use '~@cb-general/core/styles/mixins' as *;
+
+.label {
+  margin-left: toRem(9);
+}
+
+.icon {
+  position: relative;
+  background-color: #000;
+  border: 1px solid #535561;
+  width: 1em;
+  height: 1em;
+  border-radius: 0.1rem;
+}
+
+.checkedIcon {
+  composes: icon;
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    top: 50%;
+    left: 50%;
+    border-radius: 0.1rem;
+    transform: translate(-50%, -50%);
+    background-color: #1592e6;
+  }
+}
