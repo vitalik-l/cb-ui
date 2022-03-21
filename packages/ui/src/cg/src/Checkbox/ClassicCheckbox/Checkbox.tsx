@@ -2,11 +2,11 @@ import React from 'react';
 import { SwitchBase } from '@cb-general/core/SwitchBase';
 import { styled } from '@cb-general/core/utils/styled';
 import { ClassicLabel } from '../../Label';
-import styles from './Checkbox.module.scss';
+import styles from './ClassicCheckbox.module.scss';
 
-export const Checkbox = styled(SwitchBase, styles);
+export const ClassicCheckbox = styled(SwitchBase, styles);
 
-Checkbox.defaultProps = {
+ClassicCheckbox.defaultProps = {
   type: 'checkbox',
   icon: <span className={styles.icon} />,
   checkedIcon: <span className={styles.checkedIcon} />,
