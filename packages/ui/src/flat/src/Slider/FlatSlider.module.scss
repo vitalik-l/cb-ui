@@ -1,12 +1,9 @@
-@use '~@cb-general/core/Slider/Slider.module' as * with (
-  $root: FlatSlider,
-  $height: 0.6em,
-  $thumbSize: 2.8em,
-);
+@use '~@cb-general/core/Slider/Slider.module' as * with
+  ($root: FlatSlider, $height: 0.6em, $thumbSize: 2.8em);
 
 :global {
   .#{$root} {
-    color: #71c82b;
+    color: var(--color-green, #71c82b);
   }
 }
 
