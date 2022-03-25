@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
-import { useClasses } from '../hooks/useClasses';
+import { useStyles } from '../hooks';
 
 type Styles<T> = ((props: T) => Array<any>) | string | { [key: string]: any };
 
@@ -17,13 +17,14 @@ export function styled(...args: any) {
 
   return React.memo(
     React.forwardRef((props: React.ComponentProps<typeof Component>, ref: any) => {
-      const { className, classes: classesProp, ...restProps } = props;
+      const { className, classes: classesProp, styles: stylesProp, ...restProps } = props;
       const customProps: any = {};
-      const isClasses = typeof styles === 'object';
-      const classes = useClasses(isClasses ? styles : undefined, classesProp);
+      const isStyles = typeof styles === 'object';
+      const classes = useStyles(isStyles ? styles : undefined, stylesProp ?? classesProp);
       let stylesToApply;
-      if (isClasses && isCustomElement) {
+      if (isStyles && isCustomElement) {
         customProps.classes = classes;
+        customProps.styles = classes;
       } else {
         stylesToApply = typeof styles === 'function' ? clsx(...styles(props)) : styles;
       }

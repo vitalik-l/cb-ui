@@ -1,5 +1,5 @@
-import React from 'react';
 import clsx from 'clsx';
+import React from 'react';
 
 type Props = {
   classes?: any;
@@ -42,4 +42,8 @@ const getClasses = (defaultStyles: any, classesProp: any = {}): any => {
 
 export const useClasses = <T = {}>(defaultStyles?: {}, classesProp?: T): T => {
   return React.useMemo(() => getClasses(defaultStyles, classesProp), []); //eslint-disable-line
+};
+
+export const useStyles = <T = {}>(defaultStyles?: {}, styles?: T): T => {
+  return React.useMemo(() => getClasses(defaultStyles, styles), []); //eslint-disable-line
 };
