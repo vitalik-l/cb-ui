@@ -24,7 +24,7 @@ $root: FlatButton;
 }
 
 .contained {
-  background: linear-gradient(182.18deg, #656565 -16.9%, #3b3b3b 98.17%);
+  background: linear-gradient(180deg, #42434e 0%, #3b3b3b 100%);
 }
 
 .outlined {
@@ -35,26 +35,27 @@ $root: FlatButton;
   &.selected {
     color: white;
     opacity: 1;
+    border-color: white;
   }
 }
 
 .green {
   &.contained {
-    background: linear-gradient(182.18deg, #99e835 -16.9%, #2b901a 98.17%);
+    background: linear-gradient(180deg, #01f77b 0%, #01bd5e 100%);
   }
 
   &.outlined {
     &:active,
     &.selected {
-      color: $colorGreen;
-      border-color: $colorGreen;
+      color: #00fd85;
+      border-color: #00fd85;
     }
   }
 }
 
 .red {
   &.contained {
-    background: linear-gradient(177.24deg, #e85335 2.29%, #a41414 97.7%);
+    background: linear-gradient(180deg, #ea3586 0%, #942256 100%);
   }
 }
 

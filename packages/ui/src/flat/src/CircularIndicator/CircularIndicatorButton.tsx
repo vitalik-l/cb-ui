@@ -1,5 +1,5 @@
+import clsx from 'clsx';
 import React from 'react';
-import clsx from 'clsx'
 import { ButtonBase } from '@cb-general/core/ButtonBase';
 import styles from './FlatCircularIndicatorButton.module.scss';
 
@@ -99,16 +99,16 @@ CircularIndicatorButton.defaultProps = {
   color: 'black',
   theme: {
     black: [
-      { offset: 0.3125, stopColor: '#5D5D5D' },
-      { offset: 1, stopColor: '' },
+      { offset: 0.3125, stopColor: '#303240' },
+      { offset: 1, stopColor: '#141721' },
     ],
     green: [
-      { offset: 0.3125, stopColor: '#6CC911' },
-      { offset: 1, stopColor: '#145906' },
+      { offset: 0.3125, stopColor: '#01ED76' },
+      { offset: 1, stopColor: '#0A8D4B' },
     ],
     red: [
-      { offset: 0.3125, stopColor: '#E24E32' },
-      { offset: 1, stopColor: '#A61C18' },
+      { offset: 0.3125, stopColor: '#C52D71' },
+      { offset: 1, stopColor: '#7A204A' },
     ],
   },
 };

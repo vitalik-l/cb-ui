@@ -1,8 +1,10 @@
+@use '../styles/variables' as *;
+
 $root: FlatConnectionStatus;
 
 :global(.#{$root}) {
-  --ofline-color: #ea381c;
-  --online-color: #71c82b;
+  --ofline-color: #{$colorRed};
+  --online-color: #{$colorGreen};
   // component styles
   display: inline-block;
   width: 0.8em;

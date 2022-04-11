@@ -1,8 +1,6 @@
-import React from 'react';
 import clsx from 'clsx';
+import React from 'react';
 import { animate } from '@cb-general/core/utils/animate';
-
-// local files
 import styles from './FlatCircularIndicator.module.scss';
 
 const SEGMENTS = 461;
@@ -254,18 +252,23 @@ export const CircularIndicator = (props: Props) => {
 
 CircularIndicator.defaultProps = {
   theme: {
-    background: [{ stopColor: '#0D0D12' }, { offset: 1, stopColor: '#1D1A1C' }],
+    background: [
+      { offset: '0.0228557', stopColor: '#171820' },
+      { offset: '0.524943', stopColor: '#171820' },
+    ],
     progress: {
       greenStart: [
-        { offset: 0.383099, stopColor: '#68BD29' },
-        { offset: 1, stopColor: '#DAC315' },
+        { stopColor: '#0A8D4B' },
+        { offset: 0.52946, stopColor: '#01ED76' },
+        { offset: 1, stopColor: '#EFD701' },
       ],
-      greenEnd: [{ stopColor: '#7DD12E' }, { offset: '1', stopColor: '#31881C' }],
+      greenEnd: [{ stopColor: '#0A8D4B' }, { offset: '1', stopColor: '#0A8D4B' }],
       redStart: [
-        { offset: 0.383099, stopColor: '#8A1617' },
-        { offset: 1, stopColor: '#F46E0D' },
+        { stopColor: '#732047' },
+        { offset: 0.52946, stopColor: '#C52D71' },
+        { offset: 1, stopColor: '#D46C32' },
       ],
-      redEnd: [{ stopColor: '#8A1617' }, { offset: 1, stopColor: '#C00F0F' }],
+      redEnd: [{ stopColor: '#732047' }, { offset: 1, stopColor: '#732047' }],
     },
   },
 };
