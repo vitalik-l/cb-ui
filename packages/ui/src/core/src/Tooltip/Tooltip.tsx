@@ -1,13 +1,11 @@
-import React from 'react';
 import clsx from 'clsx';
-
-// local files
+import React from 'react';
 import { Popper } from '../Popper';
+import { useClasses } from '../hooks/useClasses';
 import { useControlled } from '../hooks/useControlled';
-import { useForkRef } from '../utils/useForkRef';
 import { useEventCallback } from '../hooks/useEventCallback';
 import { useIsFocusVisible } from '../hooks/useIsFocusVisible';
-import { useClasses } from '../hooks/useClasses';
+import { useForkRef } from '../utils/useForkRef';
 import styles from './CoreTooltip.module.scss';
 
 let hystersisOpen = false;
@@ -89,6 +87,7 @@ export const Tooltip = React.forwardRef((props: any, ref: any) => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     React.useEffect(() => {
       if (
+        !disableHoverListener &&
         childNode &&
         childNode.disabled &&
         !isControlled &&
@@ -105,7 +104,7 @@ export const Tooltip = React.forwardRef((props: any, ref: any) => {
           ].join('\n'),
         );
       }
-    }, [title, childNode, isControlled]);
+    }, [title, childNode, isControlled, disableHoverListener]);
   }
 
   const prevUserSelect = React.useRef();
