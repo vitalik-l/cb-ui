@@ -1,8 +1,7 @@
-import React from 'react';
 import clsx from 'clsx';
+import React from 'react';
 import { ButtonBase, ButtonBaseProps } from '@cb-general/core/ButtonBase';
 import { useClasses } from '@cb-general/core/hooks/useClasses';
-
 // local files
 import styles from './WkdGameButton.module.scss';
 
@@ -30,7 +29,7 @@ export type GameButtonProps = ButtonBaseProps & {
 
 const omitClasses = ({ label, ...restClasses }: GameButtonClasses) => restClasses;
 
-export const GameButton = (props: GameButtonProps) => {
+export const GameButton = React.forwardRef((props: GameButtonProps, ref: any) => {
   const {
     className,
     color,
@@ -55,14 +54,15 @@ export const GameButton = (props: GameButtonProps) => {
         sublabelAlignTop && classes.sublabelAlignTop,
       )}
       classes={buttonBaseClasses}
+      ref={ref}
       {...restProps}
     >
       {!!sublabel && <span className={classes.sublabel}>{sublabel}</span>}
       <span className={classes.label}>{children}</span>
     </ButtonBase>
   );
-};
+});
 
-GameButton.defaultProps = {
+(GameButton as any).defaultProps = {
   color: 'default',
 };
