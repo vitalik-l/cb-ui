@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import React from 'react';
-import { useClasses } from '../hooks/useClasses';
+import { useStyles } from '../hooks';
 import { useButtonBase } from './ButtonBaseProvider';
-import styles from './CoreButtonBase.module.scss';
+import defaultStyles from './CoreButtonBase.module.scss';
 
 declare module 'react' {
   // For TS playground, type imports need to be used to make the sample compile.
@@ -24,6 +24,7 @@ export type ButtonBaseProps<T extends React.ElementType = 'button'> = {
   href?: string;
   selected?: boolean;
   classes?: ClassesType;
+  styles?: ClassesType;
   clickSound?: (() => void) | false;
   tabIndex?: null | number;
   disabled?: boolean;
@@ -42,11 +43,12 @@ export const ButtonBase = React.forwardRef(
       onClick,
       onKeyDown,
       classes: classesProp,
+      styles,
       selected,
       clickSound: clickSoundProp,
       ...buttonProps
     } = props;
-    const classes: ClassesType = useClasses(styles, classesProp);
+    const classes: ClassesType = useStyles(defaultStyles, styles ?? classesProp);
     const Component: React.ElementType = componentProp === 'button' && href ? 'a' : componentProp;
     const otherProps: any = {};
     const context = useButtonBase();

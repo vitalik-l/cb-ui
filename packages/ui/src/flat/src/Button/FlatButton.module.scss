@@ -21,10 +21,18 @@ $root: FlatButton;
   &:disabled {
     opacity: 0.5;
   }
+
+  &.circle {
+    border-radius: 50%;
+  }
 }
 
 .contained {
   background: linear-gradient(180deg, #42434e 0%, #3b3b3b 100%);
+
+  &.gray {
+    background: #535561;
+  }
 }
 
 .outlined {
