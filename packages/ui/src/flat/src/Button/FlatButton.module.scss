@@ -3,8 +3,8 @@
 $root: FlatButton;
 
 :global(.#{$root}) {
+  --Box-p: 1rem 1.5rem;
   border-radius: min(5px, 0.5rem);
-  padding: 1rem 1.5rem;
   text-align: center;
   text-transform: uppercase;
   font-family: IBM Plex Sans;
