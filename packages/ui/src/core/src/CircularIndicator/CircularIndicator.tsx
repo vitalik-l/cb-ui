@@ -1,11 +1,9 @@
-import React from 'react';
 import clsx from 'clsx';
-
-// local files
-import { animate } from '../utils/animate';
+import React from 'react';
 import { useClasses } from '../hooks/useClasses';
-import { imageUpGradient } from './imageUpGradient';
+import { animate } from '../utils/animate';
 import { imageDownGradient } from './imageDownGradient';
+import { imageUpGradient } from './imageUpGradient';
 import styles from './CircularIndicator.module.scss';
 
 type ClassesType = {
@@ -29,7 +27,7 @@ type Props = {
 
 const SEGMENTS = 439;
 
-export const CircularIndicator = (props: Props) => {
+export const CircularIndicator = React.forwardRef((props: Props, ref: any) => {
   const {
     className,
     reverse,
@@ -70,7 +68,11 @@ export const CircularIndicator = (props: Props) => {
   }, [animDuration, targetProgress]); // eslint-disable-line
 
   return (
-    <div className={clsx(classes.root, className, fadeIn && classes.fadeIn)} {...restProps}>
+    <div
+      className={clsx(classes.root, className, fadeIn && classes.fadeIn)}
+      ref={ref}
+      {...restProps}
+    >
       <svg height="100%" width="100%" viewBox="0 0 190 190">
         <defs>
           <pattern
@@ -113,4 +115,4 @@ export const CircularIndicator = (props: Props) => {
       <div className={classes.content}>{children}</div>
     </div>
   );
-};
+});
