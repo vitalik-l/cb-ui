@@ -1,7 +1,7 @@
 @use '../styles/variables' as *;
 
 $root: FlatTable;
-$borderColor: var(--FlatTable-borderColor, #2e2e2e);
+$borderColor: var(--FlatTable-borderColor, #454858);
 $bgColor: var(--FlatTable-bgColor, #000);
 
 :global {
