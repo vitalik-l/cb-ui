@@ -1,6 +1,5 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-
 // local files
 import { createStory } from '../../story';
 import { CircularIndicator, CircularIndicatorButton } from './index';
@@ -23,7 +22,7 @@ export const CircularIndicatorTemplate: Story = ({
   ...args
 }: any) => (
   <Component {...args}>
-    <ButtonComponent>{text}</ButtonComponent>
+    <ButtonComponent version={2}>{text}</ButtonComponent>
   </Component>
 );
 CircularIndicatorTemplate.storyName = 'CircularIndicator';

@@ -52,6 +52,30 @@ $root: CircularIndicatorButton;
   }
 }
 
+.version_2 {
+  background-image: url(./img/green_button_v2.png);
+
+  &:hover {
+    box-shadow: 0 0 1.2em 0.2em lime;
+  }
+
+  &:active {
+    background: #50830e;
+  }
+
+  &.color_red {
+    background-image: url(./img/red_button_v2.png);
+
+    &:hover {
+      box-shadow: 0 0 1.2em 0.2em orange;
+    }
+
+    &:active {
+      background: #690000;
+    }
+  }
+}
+
 :export {
   root: $root;
 }
