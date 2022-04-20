@@ -1,10 +1,9 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-
 // local files
 import { createStory } from '../../story';
-import { GameLink } from './index';
 import { Menu, MenuContent } from '../Menu';
+import { GameLink } from './index';
 
 const story = createStory({
   title: 'GameLink',
@@ -14,7 +13,8 @@ const story = createStory({
 export const Template: Story = () => (
   <Menu open>
     <MenuContent>
-      <GameLink game="wallstbaccarat" active />
+      <GameLink game="galileo" active />
+      <GameLink game="wallstbaccarat" />
       <GameLink game="roulettefx" />
       <GameLink game="wallstroulette" />
       <GameLink game="weekendbinary" />

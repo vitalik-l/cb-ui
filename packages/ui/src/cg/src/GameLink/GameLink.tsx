@@ -5,7 +5,13 @@ import { useStyles } from '@cb-general/core/hooks';
 import baseStyles from './CgGameLink.module.scss';
 
 type Props = {
-  game: 'wallstbaccarat' | 'roulettefx' | 'wallstroulette' | 'weekendforex' | 'weekendbinary';
+  game:
+    | 'wallstbaccarat'
+    | 'roulettefx'
+    | 'wallstroulette'
+    | 'weekendforex'
+    | 'weekendbinary'
+    | 'galileo';
   active?: boolean;
   className?: string;
   styles?: any;
