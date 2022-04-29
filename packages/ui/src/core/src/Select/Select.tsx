@@ -1,13 +1,12 @@
-import React from 'react';
 import clsx from 'clsx';
-
+import React from 'react';
+import { ButtonBase } from '../ButtonBase';
+import { Input } from '../Input';
+import { useClasses } from '../hooks/useClasses';
 // local files
 import { useControlled } from '../hooks/useControlled';
-import { useClasses } from '../hooks/useClasses';
-import { Input } from '../Input';
-import { ButtonBase } from '../ButtonBase';
-import { Options } from './Options';
 import { Option } from './Option';
+import { Options } from './Options';
 import styles from './CoreSelect.module.scss';
 
 type ClassesType = {
@@ -147,6 +146,7 @@ export const Select: React.FC<SelectProps> = React.forwardRef((props, ref: any) 
             classes={inputClasses}
             {...inputProps}
             {...restProps}
+            type={undefined}
           />
           <ButtonBase className={classes.button} onMouseDown={toggleOptions} />
           <Options

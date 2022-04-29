@@ -9,11 +9,11 @@
 
   &:invalid,
   &.invalid {
-    border: 1px solid red;
-    background-color: rgba(58, 11, 11, 0.68);
+    border: 1px solid rgb(48 127 226);
+    background-color: rgba(48, 127, 226, 0.3);
 
     &:focus {
-      border: 1px solid red;
+      border: 1px solid rgb(48 127 226);
     }
   }
 }

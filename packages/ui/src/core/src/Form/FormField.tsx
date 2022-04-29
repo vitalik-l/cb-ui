@@ -1,12 +1,10 @@
+import clsx from 'clsx';
 import React from 'react';
 import { useField, FieldProps } from 'react-final-form';
-import clsx from 'clsx';
-
-// local files
-import { useFieldsLayout } from './useFieldsLayout';
-import { useCoreForm } from './useCoreForm';
 import { useClasses } from '../hooks/useClasses';
 import { FormFieldContext } from './FormFieldContext';
+import { useCoreForm } from './useCoreForm';
+import { useFieldsLayout } from './useFieldsLayout';
 import styles from './CoreFormField.module.scss';
 
 type LayoutClassName = `layout_${'inline' | 'stacked'}`;
@@ -73,7 +71,7 @@ export const FormField = React.memo((props: Props) => {
   const Component = component;
   const isDefaultComponent = typeof component === 'string';
   const errorMessage =
-    typeof error === 'function' ? error({ input, meta }) : error || (meta.touched && meta.error);
+    typeof error === 'function' ? error({ input, meta }) : error || (meta.modified && meta.error);
   const invalid = !!errorMessage;
   const customProps = isDefaultComponent
     ? {}
