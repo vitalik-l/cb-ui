@@ -80,6 +80,7 @@ export const ViewportRenderer = (props: ViewportRendererProps) => {
 
   React.useLayoutEffect(() => {
     const viewportEl: HTMLDivElement = viewportRef.current;
+    console.log(viewportEl, width);
 
     if (viewportEl && width) {
       if (height) {
@@ -87,7 +88,7 @@ export const ViewportRenderer = (props: ViewportRendererProps) => {
         const styles = onResizeStyles ?? { maxWidth: `${width}px`, height: `${height}px` };
 
         Object.keys(styles).forEach((styleKey: any) => {
-          if (styleKey && viewportEl.style.hasOwnProperty(styleKey)) {
+          if (styleKey && viewportEl.style[styleKey] !== undefined) {
             viewportEl.style[styleKey] = styles[styleKey] as string;
           }
         });
