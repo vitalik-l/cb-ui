@@ -80,7 +80,6 @@ export const ViewportRenderer = (props: ViewportRendererProps) => {
 
   React.useLayoutEffect(() => {
     const viewportEl: HTMLDivElement = viewportRef.current;
-    console.log(viewportEl, width);
 
     if (viewportEl && width) {
       if (height) {
