@@ -54,7 +54,7 @@ $root: MobileLayout;
 }
 
 .gameTable {
-  margin-left: 7rem;
+  margin-left: 8rem;
 }
 
 .menu {
@@ -104,6 +104,7 @@ $root: MobileLayout;
 .chart {
   height: 43rem;
   width: 100%;
+  display: flex;
 }
 
 .view {

@@ -11,6 +11,10 @@ $root: MobileGameTableLayout;
   transition: transform 1s;
   will-change: transform;
   margin-left: -1em;
+
+  * {
+    box-sizing: initial;
+  }
 }
 
 .chipsWrap {
@@ -20,8 +24,8 @@ $root: MobileGameTableLayout;
 
   .chips {
     position: absolute;
-    top: 19%;
-    left: 0;
+    top: 18%;
+    left: -1em;
   }
 }
 
@@ -39,7 +43,7 @@ $root: MobileGameTableLayout;
 }
 
 .bottomContent {
-  margin-top: -6.5em;
+  margin-top: -5em;
   position: relative;
   pointer-events: none;
 
@@ -96,7 +100,7 @@ $root: MobileGameTableLayout;
 }
 
 .gameTable {
-  margin-top: -13.8em;
+  margin-top: -12.8em;
 }
 
 .logoWrap {

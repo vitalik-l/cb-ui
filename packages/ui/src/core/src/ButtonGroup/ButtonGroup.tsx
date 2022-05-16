@@ -1,5 +1,7 @@
 import clsx from 'clsx';
 import React from 'react';
+import { useStyles } from '../hooks';
+import defaultStyles from '../ButtonBase/CoreButtonBase.module.scss';
 
 type ClassesType = {
   root?: string;
@@ -17,6 +19,7 @@ export type ButtonGroupProps = {
   value?: any;
   disabled?: boolean;
   classes?: ClassesType;
+  styles?: ClassesType;
   cloneProps?: boolean;
   autoValue?: boolean;
   disableToggle?: boolean;
@@ -36,14 +39,15 @@ export const ButtonGroup = (props: ButtonGroupProps) => {
     onChange,
     value,
     disabled,
-    classes,
+    classes: classesProp,
+    styles,
     cloneProps = true,
     autoValue = true,
     disableToggle,
     ThumbComponent,
     ...restProps
   } = props;
-
+  const classes = styles ?? classesProp;
   let selectedIndex = -1;
 
   const childrenItems = React.Children.map(children, (child, childIndex) => {
