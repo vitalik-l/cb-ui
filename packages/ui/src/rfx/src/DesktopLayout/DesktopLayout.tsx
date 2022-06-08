@@ -1,9 +1,16 @@
-import React from 'react';
 import clsx from 'clsx';
+import React from 'react';
 import { Viewport, ViewportProps } from '@cb-general/core/Viewport';
+import { useStyles } from '@cb-general/core/hooks';
+import baseStyles from './DesktopLayout.module.scss';
 
-// local files
-import styles from './DesktopLayout.module.scss';
+type Styles = {
+  root?: string;
+  mainContent?: string;
+  gameTable?: string;
+  tabs?: string;
+  tradingControls?: string;
+};
 
 type Props = ViewportProps & {
   className?: string;
@@ -15,6 +22,7 @@ type Props = ViewportProps & {
   tabs?: React.ReactElement;
   children?: React.ReactNode;
   gameTable?: React.ReactElement;
+  styles?: Styles;
 };
 
 const breakpoint = (width: number, height: number) => {
@@ -43,8 +51,10 @@ export const DesktopLayout = (props: Props) => {
     tabs,
     children,
     gameTable,
+    styles: stylesProp,
     ...viewportProps
   } = props;
+  const styles = useStyles(baseStyles, stylesProp);
 
   return (
     <Viewport breakpoint={breakpoint} {...viewportProps}>
@@ -52,7 +62,7 @@ export const DesktopLayout = (props: Props) => {
         {header}
         <div className="d-flex flex-fill">
           <div className={styles.mainContent}>
-            <span className={styles.gameTable}>{gameTable}</span>
+            {!!gameTable && <span className={styles.gameTable}>{gameTable}</span>}
             <div className="flex-fill d-flex column">
               {chartControls}
               {chart}
