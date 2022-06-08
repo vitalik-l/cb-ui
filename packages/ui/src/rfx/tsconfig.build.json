@@ -3,7 +3,10 @@
   "compilerOptions": {
     "outDir": "../../lib/rfx",
     "tsBuildInfoFile": "../../lib/.tsbuildinfo/rfx",
-    "rootDir": "./src"
+    "rootDir": "./src",
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "noEmit": false
   },
   "exclude": ["**/*.story.tsx"],
   "include": ["../declarations.d.ts", "src"],

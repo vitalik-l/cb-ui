@@ -10,6 +10,7 @@ type Styles = {
   gameTable?: string;
   tabs?: string;
   tradingControls?: string;
+  chartSection?: string;
 };
 
 type Props = ViewportProps & {
@@ -63,7 +64,7 @@ export const DesktopLayout = (props: Props) => {
         <div className="d-flex flex-fill">
           <div className={styles.mainContent}>
             {!!gameTable && <span className={styles.gameTable}>{gameTable}</span>}
-            <div className="flex-fill d-flex column">
+            <div className={clsx(styles.chartSection, 'flex-fill d-flex column')}>
               {chartControls}
               {chart}
             </div>

@@ -1,14 +1,12 @@
-import React from 'react';
 import clsx from 'clsx';
-
-// local files
+import React from 'react';
 import { ButtonBase } from '../ButtonBase';
+import { useClasses } from '../hooks/useClasses';
 import { animateProperty } from '../utils/animate';
 import { debounce } from '../utils/debounce';
 import { ScrollLeftIcon } from './ScrollLeftIcon';
 import { ScrollRightIcon } from './ScrollRightIcon';
 import styles from './CoreTabs.module.scss';
-import { useClasses } from '../hooks/useClasses';
 
 type ClassesType = {
   root?: string;
