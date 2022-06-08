@@ -25,7 +25,7 @@ finder.on('directory', function (dir, stat, stop) {
 finder.on('file', function (file) {
   const fileParams = path.parse(file);
   const { dir, ext } = fileParams;
-  if (ext === '.scss' || ext === '.woff2') {
+  if (ext === '.scss' || ext === '.woff2' || ext === '.woff') {
     const isStoryStyle = dir.indexOf('\\story') !== -1;
     if (!isStoryStyle) {
       const buildPath = file.replace('src', 'lib').replace('\\src', '');
