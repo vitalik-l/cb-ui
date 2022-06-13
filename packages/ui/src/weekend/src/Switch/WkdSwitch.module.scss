@@ -40,6 +40,7 @@ $root: WkdSwitch;
   color: grey;
   border-right: min(0.1em, 1px) solid #000;
   font-weight: bold;
+  padding: 0 1rem;
 
   &:last-child {
     border-radius: 0 min(0.3em, 3px) min(0.3em, 3px) 0;
