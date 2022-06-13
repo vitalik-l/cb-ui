@@ -1,9 +1,7 @@
-import React from 'react';
 import clsx from 'clsx';
-import { useControlled } from '@cb-general/core/hooks/useControlled';
+import React from 'react';
 import { ButtonBase } from '@cb-general/core/ButtonBase';
-
-// local files
+import { useControlled } from '@cb-general/core/hooks/useControlled';
 import styles from './WkdSwitch.module.scss';
 
 type Props = any;
@@ -20,7 +18,7 @@ export const Switch = (props: Props) => {
     const newValue = event.target.checked;
     setChecked(newValue);
     if (onChange) {
-      onChange(newValue);
+      onChange(newValue, event);
     }
   };
 
