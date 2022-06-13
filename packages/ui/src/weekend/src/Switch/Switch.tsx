@@ -7,7 +7,7 @@ import styles from './WkdSwitch.module.scss';
 type Props = any;
 
 export const Switch = (props: Props) => {
-  const { value, defaultValue, onChange, name, disabled, labelOn, labelOff } = props;
+  const { value, defaultValue, onChange, name, disabled, labelOn, labelOff, ...inputProps } = props;
   const [checked, setChecked] = useControlled({
     controlled: value,
     default: !!defaultValue,
@@ -33,6 +33,7 @@ export const Switch = (props: Props) => {
         name={name}
         disabled={disabled}
         tabIndex={0}
+        {...inputProps}
       />
       <div
         className={clsx(styles.item, {
