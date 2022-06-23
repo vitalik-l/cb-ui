@@ -1,7 +1,7 @@
-import React from 'react';
 import clsx from 'clsx';
-import { GameButton as WkdGameButton, GameButtonProps } from '@cb-general/weekend/GameButton';
+import React from 'react';
 import { useClasses } from '@cb-general/core/hooks/useClasses';
+import { GameButton as WkdGameButton, GameButtonProps } from '@cb-general/weekend/GameButton';
 import styles from './GameButton.module.scss';
 
 type Props = GameButtonProps & {
@@ -11,19 +11,17 @@ type Props = GameButtonProps & {
   };
 };
 
-export const GameButton = ({
-  className,
-  glowSelected,
-  classes: classesProp,
-  ...restProps
-}: Props) => {
-  const classes = useClasses(styles, classesProp);
+export const GameButton = React.forwardRef(
+  ({ className, glowSelected, classes: classesProp, ...restProps }: Props, ref: any) => {
+    const classes = useClasses(styles, classesProp);
 
-  return (
-    <WkdGameButton
-      {...restProps}
-      className={clsx(className, glowSelected && classes.glowSelected)}
-      classes={classes}
-    />
-  );
-};
+    return (
+      <WkdGameButton
+        ref={ref}
+        {...restProps}
+        className={clsx(className, glowSelected && classes.glowSelected)}
+        classes={classes}
+      />
+    );
+  },
+);
