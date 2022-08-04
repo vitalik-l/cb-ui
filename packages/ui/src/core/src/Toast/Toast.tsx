@@ -1,10 +1,8 @@
-import React from 'react';
 import clsx from 'clsx';
 import Animate from 'rc-animate';
-
-// local files
-import styles from './CoreToast.module.scss';
+import React from 'react';
 import { useClasses } from '../hooks/useClasses';
+import defaultStyles from './CoreToast.module.scss';
 
 type ClassesType = {
   root?: string;
@@ -20,6 +18,7 @@ type Props = {
   placementX?: 'left' | 'center' | 'right';
   placementY?: 'top' | 'bottom' | 'center';
   classes?: ClassesType;
+  styles?: ClassesType;
   transitionName?: string;
 } & React.ComponentProps<'div'>;
 
@@ -32,14 +31,15 @@ export const Toast = (props: Props) => {
     placementX,
     placementY,
     classes: classesProp,
+    styles,
     transitionName,
     ...restProps
   } = props;
   const content = children || text;
-  const classes: ClassesType = useClasses(styles, classesProp);
+  const classes: ClassesType = useClasses(defaultStyles, styles ?? classesProp);
 
   return (
-    <Animate transitionName={styles.animate || transitionName} transitionAppear>
+    <Animate transitionName={classes.animate || transitionName} transitionAppear>
       {!!content && (
         <div
           className={clsx(
