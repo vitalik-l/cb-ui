@@ -1,6 +1,5 @@
 import React from 'react';
-import { Story } from '@storybook/react';
-
+import { Story, Parameters } from '@storybook/react';
 // local files
 import { createStory } from '../../story';
 import { RouletteWheel } from './index';
@@ -8,6 +7,9 @@ import { RouletteWheel } from './index';
 const story = createStory({
   title: 'RouletteWheel',
   component: RouletteWheel,
+  args: {
+    value: null,
+  },
 });
 
 export const RouletteWheelTemplate: Story = (args) => (
