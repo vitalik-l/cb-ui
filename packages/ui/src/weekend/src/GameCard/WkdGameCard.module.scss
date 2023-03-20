@@ -15,7 +15,7 @@ $fontSize: 1em;
     }
 
     .valueCenter:after {
-      content: url('./img/#{$suit}.svg');
+      background: url('./img/#{$suit}.svg');
     }
   }
 }
@@ -112,6 +112,7 @@ $fontSize: 1em;
   text-align: center;
 
   &:after {
+    content: '';
     display: block;
     width: 1.5em;
     height: 1.5em;
