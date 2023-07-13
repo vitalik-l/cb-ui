@@ -52,7 +52,7 @@ export const Input: React.FC<InputProps> = React.forwardRef((props: InputProps, 
       const key = event.key;
       const value = event.target.value;
       if (
-        key.length === 1 &&
+        key?.length === 1 &&
         ((key === '.' && (value.indexOf('.') !== -1 || !value.length)) || !/^[0-9.]/.test(key))
       ) {
         event.preventDefault();
