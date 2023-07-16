@@ -8,10 +8,10 @@ import {
 } from 'cb-datatable';
 import clsx from 'clsx';
 import React from 'react';
-import { useClasses } from '../hooks/useClasses';
-import { clearProps } from '../utils/clearProps';
-import { Pager } from './Pager';
-import { TableCell } from './TableCell';
+import {useClasses} from '../hooks/useClasses';
+import {clearProps} from '../utils/clearProps';
+import {Pager} from './Pager';
+import {TableCell} from './TableCell';
 import 'cb-datatable/styles/core.css';
 import styles from './CoreTable.module.scss';
 
@@ -35,6 +35,7 @@ export type TableProps = CbTableProps & {
   defaultSortBy?: Array<SortBy>;
   onSort?: (value: Array<SortBy>) => void;
   manualSorting?: boolean;
+  multiSort?: boolean;
 };
 
 export const Table = (props: TableProps) => {
@@ -49,10 +50,11 @@ export const Table = (props: TableProps) => {
     defaultSortBy,
     onSort,
     manualSorting,
+    multiSort,
     ...otherProps
   } = props;
-  const { sortedData, ...sorting } = useSortBy({ data: manualSorting ? undefined : data, sortBy, defaultSortBy, onSort });
-  const { dataPerPage, ...pagination } = usePagination({
+  const {sortedData, ...sorting} = useSortBy({data: manualSorting ? undefined : data, sortBy, defaultSortBy, onSort});
+  const {dataPerPage, ...pagination} = usePagination({
     data: sortedData ?? data,
     rowsPerPage,
     dataSize: data?.length,
@@ -64,8 +66,8 @@ export const Table = (props: TableProps) => {
       <div className={classes.table}>
         <CbTable
           data={dataPerPage}
-          cell={<TableCell />}
-          headerCell={<HeaderCell sortable={sortable} {...sorting} />}
+          cell={<TableCell/>}
+          headerCell={<HeaderCell sortable={sortable} multiSort={multiSort} {...sorting} />}
           {...clearProps(otherProps)}
         />
       </div>
@@ -76,5 +78,5 @@ export const Table = (props: TableProps) => {
 
 Table.defaultProps = {
   sortable: true,
-  pager: <Pager />,
+  pager: <Pager/>,
 };
