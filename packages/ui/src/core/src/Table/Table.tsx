@@ -34,6 +34,7 @@ export type TableProps = CbTableProps & {
   classes?: ClassesType;
   defaultSortBy?: Array<SortBy>;
   onSort?: (value: Array<SortBy>) => void;
+  manualSorting?: boolean;
 };
 
 export const Table = (props: TableProps) => {
@@ -47,11 +48,12 @@ export const Table = (props: TableProps) => {
     classes: classesProp,
     defaultSortBy,
     onSort,
+    manualSorting,
     ...otherProps
   } = props;
-  const { sortedData, ...sorting } = useSortBy({ data, sortBy, defaultSortBy, onSort });
+  const { sortedData, ...sorting } = useSortBy({ data: manualSorting ? undefined : data, sortBy, defaultSortBy, onSort });
   const { dataPerPage, ...pagination } = usePagination({
-    data: sortedData,
+    data: sortedData ?? data,
     rowsPerPage,
     dataSize: data?.length,
   });
