@@ -1,9 +1,7 @@
-import React from 'react';
 import clsx from 'clsx';
-
-// local files
-import { useClasses } from '../hooks/useClasses';
-import styles from './CoreInput.module.scss';
+import React from 'react';
+import { useStyles } from '../hooks';
+import defaultStyles from './CoreInput.module.scss';
 
 type ClassesType = {
   root?: string;
@@ -22,6 +20,7 @@ export type InputProps = {
   className?: string;
   fullWidth?: boolean;
   classes?: ClassesType;
+  styles?: ClassesType;
   button?: React.ReactElement;
   multiline?: boolean;
   numeric?: boolean;
@@ -40,11 +39,12 @@ export const Input: React.FC<InputProps> = React.forwardRef((props: InputProps, 
     multiline,
     numeric = false,
     onKeyDown,
+    styles,
     ...inputProps
   } = props;
   const { value, defaultValue } = inputProps;
   const InputComponent = multiline ? 'textarea' : component;
-  const classes: ClassesType = useClasses(styles, classesProp);
+  const classes: ClassesType = useStyles(defaultStyles, styles ?? classesProp);
 
   // allow only numeric values
   const numericKeyDownHandler = React.useCallback(
