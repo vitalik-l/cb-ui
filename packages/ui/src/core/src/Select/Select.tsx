@@ -141,6 +141,7 @@ export const Select: React.FC<SelectProps> = React.forwardRef((props, ref: any) 
           value={value}
           onChange={handleChange}
           children={children}
+          name={name}
           {...restProps}
         />
       ) : (
@@ -150,6 +151,7 @@ export const Select: React.FC<SelectProps> = React.forwardRef((props, ref: any) 
             onChange={handleChange}
             inputRef={inputRef}
             classes={inputClasses}
+            name={name}
             {...inputProps}
             {...restProps}
             type={undefined}
