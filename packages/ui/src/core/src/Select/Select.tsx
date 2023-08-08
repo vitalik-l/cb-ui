@@ -3,11 +3,10 @@ import React from 'react';
 import { ButtonBase } from '../ButtonBase';
 import { Input } from '../Input';
 import { useClasses } from '../hooks/useClasses';
-// local files
 import { useControlled } from '../hooks/useControlled';
 import { Option } from './Option';
 import { Options } from './Options';
-import styles from './CoreSelect.module.scss';
+import baseStyles from './CoreSelect.module.scss';
 
 type ClassesType = {
   root?: string;
@@ -41,6 +40,7 @@ export type SelectProps = {
   inputRef?: any;
   editable?: boolean;
   classes?: ClassesType;
+  styles?: ClassesType;
   onToggle?: (state: boolean) => void;
   portalTarget?: any;
   disablePortal?: boolean;
@@ -68,6 +68,7 @@ export const Select: React.FC<SelectProps> = React.forwardRef((props, ref: any) 
     onToggle,
     portalTarget,
     disablePortal,
+    styles,
     ...restProps
   } = props;
   const [value, setValue] = useControlled({
@@ -76,7 +77,7 @@ export const Select: React.FC<SelectProps> = React.forwardRef((props, ref: any) 
     name: 'Select',
   });
   const [anchorEl, setAnchorEl] = React.useState();
-  const classes: ClassesType = useClasses(styles, classesProp);
+  const classes: ClassesType = useClasses(baseStyles, styles ?? classesProp);
   const inputClasses = React.useMemo(
     () => ({
       root: classes.inputRoot,
