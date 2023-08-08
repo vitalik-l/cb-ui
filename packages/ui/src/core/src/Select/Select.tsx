@@ -24,6 +24,7 @@ type ClassesType = {
   options?: string;
   option?: string;
   selected?: string;
+  open?: string;
 };
 
 export type SelectProps = {
@@ -69,6 +70,7 @@ export const Select: React.FC<SelectProps> = React.forwardRef((props, ref: any) 
     portalTarget,
     disablePortal,
     styles,
+    name,
     ...restProps
   } = props;
   const [value, setValue] = useControlled({
@@ -110,11 +112,13 @@ export const Select: React.FC<SelectProps> = React.forwardRef((props, ref: any) 
 
   const onSelectOption = React.useCallback(
     (value: number | string) => {
-      handleChange({ target: { value } });
+      handleChange({ target: { value, name } });
       toggleOptions();
     },
     [toggleOptions, handleChange],
   );
+
+  const open = !!anchorEl;
 
   return (
     <div
@@ -126,6 +130,7 @@ export const Select: React.FC<SelectProps> = React.forwardRef((props, ref: any) 
         invalid && classes.invalid,
         fullWidth && classes.fullWidth,
         autoWidth && classes.autoWidth,
+        open && classes.open,
       )}
       ref={ref}
     >
@@ -152,7 +157,7 @@ export const Select: React.FC<SelectProps> = React.forwardRef((props, ref: any) 
           <ButtonBase className={classes.button} onMouseDown={toggleOptions} />
           <Options
             anchorEl={anchorEl}
-            open={!!anchorEl}
+            open={open}
             onClose={toggleOptions}
             className={classes.options}
             portalTarget={disablePortal ? false : portalTarget}
