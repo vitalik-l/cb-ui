@@ -1,25 +1,27 @@
-import React from 'react';
 import clsx from 'clsx';
-
-// local files
-import { useControlled } from '../hooks/useControlled';
-import { useClasses } from '../hooks/useClasses';
+import React from 'react';
 import { ButtonBase } from '../ButtonBase';
-import styles from './SwitchBase.module.scss';
+import { useClasses } from '../hooks/useClasses';
+import { useControlled } from '../hooks/useControlled';
+import defaultStyles from './SwitchBase.module.scss';
+
+type Classes = {
+  root?: string;
+  checked?: string;
+  disabled?: string;
+  input?: string;
+  label?: string;
+};
 
 type Props = {
-  classes?: {
-    root?: string;
-    checked?: string;
-    disabled?: string;
-    input?: string;
-    label?: string;
-  };
+  classes?: Classes;
+  styles?: Classes;
   LabelComponent?: React.ElementType;
   inputRef?: any;
   checkedIcon?: React.ReactNode;
   icon?: React.ReactNode;
   disabled?: boolean;
+  label?: React.ReactNode;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
 export const SwitchBase = (props: Props) => {
@@ -33,9 +35,11 @@ export const SwitchBase = (props: Props) => {
     icon,
     checkedIcon,
     classes: classesProp,
+    styles,
     children,
     LabelComponent = 'label',
     id,
+    label,
     ...inputProps
   } = props;
   const [checked, setChecked] = useControlled({
@@ -43,6 +47,7 @@ export const SwitchBase = (props: Props) => {
     default: Boolean(defaultChecked),
     name: 'SwitchBase',
   });
+  const displayLabel = label ?? children;
 
   const handleInputChange = (event: any) => {
     const newChecked = event.target.checked;
@@ -52,7 +57,7 @@ export const SwitchBase = (props: Props) => {
     }
   };
 
-  const classes = useClasses(styles, classesProp);
+  const classes = useClasses(defaultStyles, styles ?? classesProp);
 
   return (
     <ButtonBase
@@ -79,9 +84,9 @@ export const SwitchBase = (props: Props) => {
         {...inputProps}
       />
       {checked ? checkedIcon : icon}
-      {!!children && (
+      {!!displayLabel && (
         <LabelComponent className={classes.label} htmlFor={id}>
-          {children}
+          {displayLabel}
         </LabelComponent>
       )}
     </ButtonBase>
