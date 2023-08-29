@@ -10,6 +10,7 @@ type ClassesType = {
   invalid?: string;
   withButton?: string;
   button?: string;
+  disabled?: string;
 };
 
 export type InputProps = {
@@ -40,6 +41,7 @@ export const Input: React.FC<InputProps> = React.forwardRef((props: InputProps, 
     numeric = false,
     onKeyDown,
     styles,
+    disabled,
     ...inputProps
   } = props;
   const { value, defaultValue } = inputProps;
@@ -71,6 +73,7 @@ export const Input: React.FC<InputProps> = React.forwardRef((props: InputProps, 
         className,
         fullWidth && classes.fullWidth,
         !!button && classes.withButton,
+        disabled && classes.disabled,
       )}
       ref={ref}
     >
@@ -80,6 +83,7 @@ export const Input: React.FC<InputProps> = React.forwardRef((props: InputProps, 
         placeholder={placeholder}
         title={value || defaultValue}
         onKeyDown={numeric ? numericKeyDownHandler : onKeyDown}
+        disabled={disabled}
         {...inputProps}
       />
       {!!button && React.cloneElement(button, { className: classes.button })}
