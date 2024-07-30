@@ -1,7 +1,11 @@
 module.exports = {
   plugins: [
-    ['./index.js', {
-      'langFilePath': './src/locale/eng.json'
-    }]
+    '@babel/plugin-syntax-jsx',
+    ['./better.js', {
+      'localesPath': './src/locales'
+    }],
+    // ['./index.js', {
+    //   'langFilePath': './src/locales/eng.json'
+    // }]
   ],
 };
